@@ -771,26 +771,24 @@
 ## 6.5 Bayes' Rule
 
 + Asymmetry
-  + won mega millions $\to$ wealthy $\gets ?$
+  + bough Google at IPO $\to$ wealthy $\gets ?$
   + alive today $\to$ born after 1800 $\gets ?$
 
 + Forward - backward
-  + at times: $\Pr(F \,|\, E)$ - easy $\quad \Pr(E |,|\, F)$ - hard
+  + at times: $\Pr(F \,|\, E)$ - easy $\quad \Pr(E \,|\, F)$ - hard
   + example:
     + 2 coins
-      + $H_i$: coin $i$ is h
-      + $\existsH$: at least one h
-      + $\Pr(\existsH \,|\, H_1) = 1$
+      + $H_i$: coin $i$ is h; $\exists H$: at least one h
+      + $\Pr(\exists H \,|\, H_1) = 1$
       + $\Pr(H_1 \,|\, \exists H) ?$
     + 2 dice
-      + $D_i$: face of die $i$
-      + $S = D_1 + D_2$: sum of 2 faces
+      + $D_i$: face of die $i$; $S = D_1 + D_2$: sum of 2 faces
       + $\Pr(S=5 \,|\, D_1 = 2) = \Pr(D_2 = 3) = 1/6$
       + $\Pr(D_1 = 2 \,|\, S = 5) ?$
   + Bayes' rule: method for converting $\Pr(F \,|\, E)$ to $\Pr(E \,|\, F)$
 
 + Bayes' rule
-  + given $\Pr(F \,|\, E)$ (an a bit more, e.g., $\Pr(E), \Pr(F)$) determining $\Pr(E \,|\, F)$
+  + given $\Pr(F \,|\, E)$ (and a bit more, e.g., $\Pr(E), \Pr(F)$) determining $\Pr(E \,|\, F)$
 
     \[ \Pr(E \,|\, F) = \frac{\Pr(E) \cdot \Pr(F \,|\, E)}{\Pr(F)} \]
 
@@ -809,32 +807,38 @@
       \Pr(E \,|\, F) = \frac{\beta}{\beta + \gamma} = \frac{\beta}{\alpha + \beta} \cdot& \frac{\alpha + \beta}{\beta + \gamma} = \frac{\Pr(F \,|\, E) \cdot \Pr(E)}{\Pr(F)}
     \end{align*}\]
 
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="url" ismap target="_blank">
+        <img src="img/t06-05.png" style="margin: 0.1em;" alt="Geometric view of conditonal probability and sets" title="Geometric view of conditonal probability and sets" width=150>
+      </a>
+    </div>
+
+
 + Example: two fair coins
-  + #H_i$: coin $i$ h
-  + $\exists H$: at least one h
+  + $H_i$: coin $i$ h; $\exists H$: at least one h
   + set interpretation: $H_1 = \{hh, ht\}, \quad \exists H = \{hh, ht, th\}$
 
-    \[ \pr(H_1 \,|\, \exists H) = \frac{|H_1 \cap \exists H|}{|\exists H|} \]
+    \[ \Pr(H_1 \,|\, \exists H) = \frac{|H_1 \cap \exists H|}{|\exists H|} \]
 
   + probability
 
-    \[ \pr(H_1 \,|\, \exists H) = \Pr(\exists H \,|\, H_1) \cdot \frac{\Pr(H_1)}{\Pr(\exists H)} = 1 \cdot \frac{1/2}{3/4} = 2/3 \]
+    \[ \Pr(H_1 \,|\, \exists H) = \Pr(\exists H \,|\, H_1) \cdot \frac{\Pr(H_1)}{\Pr(\exists H)} = 1 \cdot \frac{1/2}{3/4} = 2/3 \]
 
     where
 
     \[ \Pr(\exists H \,|\, H_1) = 1 \qquad \Pr(H_1) = 1/2 \qquad \Pr(\exists H) = 3/4 \]
 
-+ Example: two fir dice
++ Example: two fair dice
   + $D_i$: outcome of die $i$
   + $S = D_1 + D_2$: sum of 2 dice
   + $\Pr(D_1 = 2 \,|\, S = 5)?$
   + probability
 
-    \[ \Pr(D_1 = 2 \,|\, S = 5) = \frac{\Pr(S=5 \,|\, D_1=2) \cdot \Pr(D_1 = 2)}{\Pr(S=5)} = \frac{\tfrac{1}{6} \cdot \tfrac{1}{6}} = \frac{1}{4} \]
+    \[ \Pr(D_1 = 2 \,|\, S = 5) = \frac{\Pr(S=5 \,|\, D_1=2) \cdot \Pr(D_1 = 2)}{\Pr(S=5)} = \frac{\tfrac{1}{6} \cdot \tfrac{1}{6}}{1/9} = \frac{1}{4} \]
 
     where
 
-    \[ \Pr(S=5 \,|\, D_1 = 2) = \Pr(D_2=3 \,|\, D_1=2) = \pr(D_2=3) = \frac{1}{6} \quad \Pr(D_1 = 2) = \tfrac{1}{6} \quad \Pr(S=5) = \tfrac{1}{9} \]
+    \[ \Pr(S=5 \,|\, D_1 = 2) = \Pr(D_2=3 \,|\, D_1=2) = \Pr(D_2=3) = \frac{1}{6} \\ \Pr(D_1 = 2) = \tfrac{1}{6} \quad \Pr(S=5) = \tfrac{1}{9} \]
 
   + set interpretation
     + $S = 5 = \{(1, 4), (2, 3), (3, 2), (4, 1)\}$
