@@ -770,9 +770,103 @@
 
 ## 6.5 Bayes' Rule
 
++ Asymmetry
+  + won mega millions $\to$ wealthy $\gets ?$
+  + alive today $\to$ born after 1800 $\gets ?$
+
++ Forward - backward
+  + at times: $\Pr(F \,|\, E)$ - easy $\quad \Pr(E |,|\, F)$ - hard
+  + example:
+    + 2 coins
+      + $H_i$: coin $i$ is h
+      + $\existsH$: at least one h
+      + $\Pr(\existsH \,|\, H_1) = 1$
+      + $\Pr(H_1 \,|\, \exists H) ?$
+    + 2 dice
+      + $D_i$: face of die $i$
+      + $S = D_1 + D_2$: sum of 2 faces
+      + $\Pr(S=5 \,|\, D_1 = 2) = \Pr(D_2 = 3) = 1/6$
+      + $\Pr(D_1 = 2 \,|\, S = 5) ?$
+  + Bayes' rule: method for converting $\Pr(F \,|\, E)$ to $\Pr(E \,|\, F)$
+
++ Bayes' rule
+  + given $\Pr(F \,|\, E)$ (an a bit more, e.g., $\Pr(E), \Pr(F)$) determining $\Pr(E \,|\, F)$
+
+    \[ \Pr(E \,|\, F) = \frac{\Pr(E) \cdot \Pr(F \,|\, E)}{\Pr(F)} \]
+
+  + $\mu$-proof
+
+    \[ \Pr(E \,|\, F) = \frac{\Pr(E \cap F)}{\Pr(F)} = \frac{\Pr(E) \cdot \Pr(F \,|\, E)}{\Pr(F)} \]
+
+  + another view
+
+    \[ \Pr(F) \cdot \Pr(E \,|\, F) = \Pr(E \cap F) = \Pr(E) \cdot \Pr(F \,|\, E) \]
+
+  + proof
+
+    \[\begin{align*}
+      \Pr(F \,|\, E) = \frac{\beta}{\alpha + \beta} \quad & \quad \Pr(E \,|\, F) = \frac{\beta}{\beta+\gamma} \\\\
+      \Pr(E \,|\, F) = \frac{\beta}{\beta + \gamma} = \frac{\beta}{\alpha + \beta} \cdot& \frac{\alpha + \beta}{\beta + \gamma} = \frac{\Pr(F \,|\, E) \cdot \Pr(E)}{\Pr(F)}
+    \end{align*}\]
+
++ Example: two fair coins
+  + #H_i$: coin $i$ h
+  + $\exists H$: at least one h
+  + set interpretation: $H_1 = \{hh, ht\}, \quad \exists H = \{hh, ht, th\}$
+
+    \[ \pr(H_1 \,|\, \exists H) = \frac{|H_1 \cap \exists H|}{|\exists H|} \]
+
+  + probability
+
+    \[ \pr(H_1 \,|\, \exists H) = \Pr(\exists H \,|\, H_1) \cdot \frac{\Pr(H_1)}{\Pr(\exists H)} = 1 \cdot \frac{1/2}{3/4} = 2/3 \]
+
+    where
+
+    \[ \Pr(\exists H \,|\, H_1) = 1 \qquad \Pr(H_1) = 1/2 \qquad \Pr(\exists H) = 3/4 \]
+
++ Example: two fir dice
+  + $D_i$: outcome of die $i$
+  + $S = D_1 + D_2$: sum of 2 dice
+  + $\Pr(D_1 = 2 \,|\, S = 5)?$
+  + probability
+
+    \[ \Pr(D_1 = 2 \,|\, S = 5) = \frac{\Pr(S=5 \,|\, D_1=2) \cdot \Pr(D_1 = 2)}{\Pr(S=5)} = \frac{\tfrac{1}{6} \cdot \tfrac{1}{6}} = \frac{1}{4} \]
+
+    where
+
+    \[ \Pr(S=5 \,|\, D_1 = 2) = \Pr(D_2=3 \,|\, D_1=2) = \pr(D_2=3) = \frac{1}{6} \quad \Pr(D_1 = 2) = \tfrac{1}{6} \quad \Pr(S=5) = \tfrac{1}{9} \]
+
+  + set interpretation
+    + $S = 5 = \{(1, 4), (2, 3), (3, 2), (4, 1)\}$
+    + $D_1 = 2 =\{(2, 3)\}$
+
+    \[ \Pr(D_1 = 2 \,|\, S = 5) = \frac{|D_1 = 2 \cap S = 5|}{|S = 5|} \]
+
++ Example: Foxconn
+  + Foxconn has 3 factories producing 50%, 30%, and 20% of its iPhones
+  + Factory defective fractions 4%, 10%, and 5% respectively
+  + Overall fraction of defective phones?
+
+    \[\begin{align*}
+      \Pr(D) &= \Pr(F_1 \cap D) + \Pr(F_2 \cap D) + \Pr(F_2 \cap D) \\
+      &= \Pr(F_1) \Pr(D \,|\, F_1) + \Pr(F_2) \Pr(D \,|\, F_2) + \Pr(F_3) \Pr(D \,|\, F_3) \\
+      & = .5 \times .04 + .3 \times .1 + .2 \times .05 = .02 + .03 + .01  = 0.06
+    \end{align*}\]
+
+  + culprit?
+
+    \[
+      \Pr(F_1 \,|\, D) = \frac{\Pr(D \,|\, F_1) \cdot \Pr(F_1)}{\Pr(D)} = \frac{.04 \cdot .5}{.06} = \frac{.02}{.06} = \frac{1}{3} \\
+      \Pr(D \,|\, F_1) = .04 \qquad \Pr(F_1) = .5 \qquad \Pr(D) = .06 \\
+      \Pr(F_2 \,|\, D) = \frac{.1 \cdot .3}{.06} = \frac{.03}{.06} = \frac{1}{2} \qquad \Pr(F_3 \,|\, D) = \frac{.05 \cdot .2}{.06} = \frac{.01}{.06} = \frac{1}{6}
+    \]
+
+  + conditional probabilities add to 1
+  + conditional order determined by both by both $\Pr(F_i)$ and $\Pr(D \,|\, F_i)$
 
 
 
++ [Original Slides](https://tinyurl.com/y77gn7y3)
 
 
 ### Problem Sets
