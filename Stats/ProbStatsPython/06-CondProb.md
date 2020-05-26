@@ -589,7 +589,7 @@
 4. A box contains six tennis balls. Peter picks two of the balls at random, plays with them, and returns them to the box. Next, Paul picks two balls at random from the box (they can be the same or different from Peter's balls), plays with them, and returns them to the box. Finally, Mary picks two balls at random and plays with them. What is the probability that each of the six balls in the box was played with exactly once?
 
   Ans: <span style="color: cyan;">2/75</span><br/>
-  Explanation: The probability that every ball picked was played with exactly once is the probability that the 2 balls Paul picks differ from the 2 Peter picked, and that the 2 balls Mary picks differ from the 4 Peter or Paul picked. This probability is $\frac{\tbinom{6−2}{2}}{\tbinom{6}{2}} \cdot \frac{\tbinom{6−2−2}{2}}{\tbinom{6}{2}=\frac{\tbinom{4}{2}}{\tbinom{6}{2}} \cdot \frac{\tbinom{2}{2}}{\tbinom{6}{2}=6/15 \cdot 1/15=2/75$.
+  Explanation: The probability that every ball picked was played with exactly once is the probability that the 2 balls Paul picks differ from the 2 Peter picked, and that the 2 balls Mary picks differ from the 4 Peter or Paul picked. This probability is $\frac{\tbinom{6−2}{2}}{\tbinom{6}{2}} \cdot \frac{\tbinom{6−2−2}{2}}{\tbinom{6}{2}}=\frac{\tbinom{4}{2}}{\tbinom{6}{2}} \cdot \frac{\tbinom{2}{2}}{\tbinom{6}{2}}=6/15 \cdot 1/15=2/75$.
 
 
 5. A bag contains 4 white and 3 blue balls. Remove a random ball and put it aside. Then remove another random ball from the bag. What is the probability that the second ball is white?<br/>
@@ -718,6 +718,46 @@
 
 ### Problem Sets
 
+0. 60% of our students are American (born), and 40% are foreign (born). 20% of the Americans and 40% of the foreigners speak two languages. What is the probability that a random student speaks two languages?<br/>
+  a. 0.18<br/>
+  b. 0.28<br/>
+  c. 0.34<br/>
+  d. 0.45<br/>
+
+  Ans: b <br/>
+  Explanation: The probability is 0.6 * 0.2 + 0.4 * 0.4 = 0.28.
+
+
+1. Three 100-marble bags are placed on a table. One bag has 60 red and 40 blue marbles, one as 75 red and 25 blue marbles, and one has 45 red and 55 blue marbles.
+
+  You select one bag at random and then choose a marble at random. What is the probability that the marble is red?<br/>
+  a. 0.2025 <br/>
+  b. 0.33 <br/>
+  c. 0.50 <br/>
+  d. 0.60<br/>
+
+  Ans: d<br/>
+  Explanation: The probability is $\tfrac{1}{3}(0.6+0.75+0.45)=0.60$.
+
+
+2. Each of Alice and Bob has an identical bag containing 6 balls numbered 1, 2, 3, 4, 5, and 6. Alice randomly selects one ball from her bag and places it in Bob’s bag, then Bob randomly select one ball from his bag and places it in Alice’s bag. What is the probability that after this process the content in two bags remain unchanged?
+
+  Ans: 2/7<br/>
+  Explanation: The two bags will remain unchanged if the ball Bob picks has the same number as the one Alice placed there. Once Alice puts a ball numbered $n$ in Bob's bag, the probability the Bob picks a ball numbered $n$ is $2/7$. The total probability is $\sum_{n=1}^n 1/6 \cdot 2/7=2/7$.
+
+
+3. Let $A$ and $B$ be two random subsets of $\{1,2,3,4\}$. What is the probability that $A \subseteq B$?
+
+  Ans: $81/16^2$<br/>
+  Explanation: This can be calculated via total probability, conditioning on the possible sizes of $A$ from 0 to 4, namely $(\tbinom{4}{0}2^0+\tbinom{4}{1}2^1+ \cdots+\tbinom{4}{4}2^44)/(2^4)^2=0.3164$.  A cleaner derivation is to observe that $A \subseteq  B \iff$ for every element $x$, $x \in A \implies x \in B$, namely $x \notin A$ and $x \notin B$, or $x \notin A$ and $x \in B$, or $x \in A$ and $x \in B$. (Just $x \in A$ and $x \notin B$ is excluded.) Since any given $x$ is in $A$ and $B$ independently at random, the probability that this holds for $x$ is $3/4$, and the probability that it holds for all four elements is $(3/4)^4=0.3164$.
+
+
+4. Eight equal-strength players, including Alice and Bob, are randomly split into $4$ pairs, and each pair plays a game (i.e. 4 games in total), resulting in four winners. What is the probability that exactly one of Alice and Bob will be among the four winners?
+
+  Ans: 4/7<br/>
+  Explanation: Here are two ways of solving the problem. One using total probability, the other by symmetry.
+    + Total Probability.<br/>Let $E$ be the desired event that exactly one of Alice or Bob is a winner. We divide the sample space into two disjoint events, $E_1$, $E_2$. $E_1$ is the event that Alice and Bob play against each other and $E_2$ is the complimentary event that Alice and Bob play against other players. Since Alice is equally likely to play with any of the seven other players, $P(E_1)=1/7$, hence $P(E_2)=6/7$. Now $P(E|E_1)=1$, while $P(E|E_2)=1/2$ since Alice and Bob each play an independent game where the probability of winning is $1/2$. Therefore $P(E)=P(E_1)⋅P(E|E_1)+P(E_2)⋅P(E|E_2)=1/7⋅1+6/7⋅1/2=4/7$.
+    + Symmetry.<br/>In the end, 4 of the 8 players will be declared winners. There are $\tbinom{8}{4}$ such 4-winner "quartets", all equally likely.  The number of "quartets" that contain exactly one of Alice and Bob is $\tbinom{2}{1} \cdot \tbinom{6}{3}$.  Hence the probability that this occurs is $\frac{\tbinom{2}{1} \cdot \tbinom{6}{3}}{\tbinom{8}{4}}=47$.
 
 
 
