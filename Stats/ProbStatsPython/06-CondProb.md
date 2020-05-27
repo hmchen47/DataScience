@@ -1013,7 +1013,29 @@
 
 ## Programming Assignment 6
 
++ [Original HW NB](https://tinyurl.com/y7halvbv)
 
++ [Local HW NB](src/HW_Topic06.ipynb)
+
++ [Local Python code for HW](src/HW_Topic06.py)
+
+
+1. Which of the following is the correct output for `conditional__probability( 2., 1., 6., 4.)`<br/>
+  a. 0.3872<br/>
+  b. 0.4545<br/>
+  c. 0.5015<br/>
+  d. 0.6666<br/>
+
+  Ans: b<br/>
+  Explanation: One of the urns is picked at random, hence $\Pr(A)=\Pr(B)=0.5$.  $\Pr(A|white)=\Pr(white|A)\Pr(A)\Pr(white)=\Pr(white|A)\Pr(A)\Pr(white|A)\Pr(A)+\Pr(white|B)\Pr(B)=\frac{\frac{w_A}{w_A+r_A}}{\frac{w_A}{w_A+r_A}+\frac{w_B}{w_B+r_B}}$
+
+  ```python
+  def conditional__probability(rA, wA, rB, wB):
+    # inputs: all of them are of type 'float'
+    # output: a variable of type 'float'
+
+    return 1 / (1 + wB * (rA + wA) / wA / (rB + wB))
+  ```
 
 
 
