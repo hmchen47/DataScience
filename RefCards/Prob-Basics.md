@@ -892,6 +892,19 @@
 
 
 
+## Sequential Probability
+
++ [Product / chain rule](../Stats/ProbStatsPython/06-CondProb.md#63-sequential-probability)
+  + two sets
+
+    \[ \Pr(F \,|\, E) = \frac{\Pr(E \cap F)}{\Pr(E)} \to \Pr(E \cap F) = \Pr(E) \cdot \Pr(F | E) \]
+
+  + three sets
+
+    \[ \Pr(E \cap F \cap G) &=  \Pr((E \cap F) \cap G) = \Pr(E \cap F) \cdot \Pr(G \,|\, E \cap F) \\
+      &= \Pr(E) \cdot \Pr(D \,|\, E) \cdot \Pr(G \,|\, E \cap F)
+    \end{align*}\]
+
 
 
 
