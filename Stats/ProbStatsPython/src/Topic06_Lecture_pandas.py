@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+def load_csv_file(fname):
+    """loading given file name and return a dataframe
+
+    Arguments:
+        fname {str} -- path/file name to open
+    """
+
+    return pd.read_csv(fname)
+
+
+def main():
+
+    # load files
+    df_heroes_info = load_csv_file("./data/heroes_information.csv")
+    df_heroes_powers = load_csv_file("./data/super_hero_powers.csv")
+
+    print("\ndf_heroes_info: \n{}".format(df_heroes_info.head()))
+    print("\ndf_heroes_powers: \n{}".format(df_heroes_powers.head()))
+
+
+    return None
+
+
+if __name__ == "__main__":
+
+    print("\nEntering Topic 6 Pandas python code ...")
+
+    main()
+
+    print("\nEns Topic 6 Pandas python code ...\n")
+
+
