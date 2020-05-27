@@ -112,8 +112,6 @@
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Probability </th>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#probability"> Basics </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#uniform-space"> Uniform Space </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#events"> Events </a></td>
