@@ -16,11 +16,13 @@ def load_csv_file(fname):
     return pd.read_csv(fname)
 
 
-def main():
+def data_query(df_heroes_info, df_heroes_powers):
+    """examples of the various data queries
 
-    # load files
-    df_heroes_info = load_csv_file("./data/heroes_information.csv")
-    df_heroes_powers = load_csv_file("./data/super_hero_powers.csv")
+    Arguments:
+        df_heroes_info {DataFrame} -- Informaton retrieved from a dataset
+        df_heroes_powers {DataFrame} -- Information retrieved from a dataset
+    """
 
     print("\ndf_heroes_info: \n{}".format(df_heroes_info.head()))
     print("\ndf_heroes_powers: \n{}".format(df_heroes_powers.head()))
@@ -72,6 +74,77 @@ def main():
     grouped = pub_power_data.groupby("Publisher")
     print("\ngrouped.sum().sum(axis=1): \n\n{}".format(grouped.sum().sum(axis=1)))
 
+    input("\nPress Enter to continue ...")
+
+    return None
+
+
+def visualize_data(df_heroes_info, df_heroes_powers):
+    """Plot the queried data 
+
+    Arguments:
+        df_heroes_info {DataFrame} -- info retrieved from given file
+        df_heroes_powers {DataFrame} -- info retrieved from given dataset
+    """
+
+    # prevent xlabel cutoff
+    from matplotlib import rcParams
+    rcParams.update({'figure.autolayout': True})
+
+    # visualize the data using a bar graph
+    heroes_publisher = pd.value_counts(df_heroes_info["Publisher"])
+    heroes_publisher.plot(kind="bar")
+    plt.title('Bar chart for Publisher w/ default style')
+    plt.xticks(fontsize=10)
+    plt.show()
+
+    # list plot styles
+    styles = plt.style.available
+    print("\nPlotting styles:")
+    for style in styles:
+        print("  {}".format(style))
+
+    input("\nPress Enter to continue ...")
+
+
+    # using seaborn-talk style
+    plt.style.use('seaborn-talk')
+
+    heroes_publisher.plot.bar()
+    plt.title('Bar chart for Publishers w/ seaborn-talk style')
+    plt.xticks(fontsize=10)
+    plt.show()
+
+
+    # histogram as height distribution
+    plt.figure(figsize=(12, 9))
+    df_heroes_info['Height'].plot.hist(20)
+    plt.xlabel('Height')
+    plt.ylabel('Frequency')
+    plt.title("Histogram as the height distribution")
+    plt.show()
+
+    # dealing missing data
+    df_heroes_info[df_heroes_info['Height']!=-99]['Height'].plot.hist(20)
+    plt.title('Historgram as the height distribution w/ eliminated missing data')
+    plt.show()
+
+
+    return None
+
+
+def main():
+
+    # load files
+    df_heroes_info = load_csv_file("./data/heroes_information.csv")
+    df_heroes_powers = load_csv_file("./data/super_hero_powers.csv")
+
+    # data query
+    # data_query(df_heroes_info, df_heroes_powers)
+
+
+    # visualizing data
+    visualize_data(df_heroes_info, df_heroes_powers)
 
     return None
 
