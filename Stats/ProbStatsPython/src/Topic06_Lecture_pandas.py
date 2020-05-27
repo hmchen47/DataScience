@@ -48,6 +48,30 @@ def main():
 
     input("\nPress Enter to continue ...")
 
+    # find the 5 most common powers and all unique powers in dataset
+    num_powers = df_heroes_powers.sum(axis=0)[1:] #+ np.zeros(len(list_powers)-1)
+
+    common_pow = num_powers.sort_values(ascending=False)[0:5].index
+    print("\n5 most common powers:")
+    for power in common_pow:
+        print("  ", power)
+
+    input("\nPress Enter to continue ...")
+
+    # all the unique power
+    unique_pow = num_powers.sort_values(ascending=True)[num_powers.sort_values(ascending=True)==1].index
+    print("\nList of unique power:")
+    for power in unique_pow:
+        print("  ", power)
+
+    input("\nPress Enter to continue ...")
+
+    # more complex query
+    pub_power_data = pd.merge(df_heroes_info[['name','Publisher']],df_heroes_powers,left_on='name',\
+        right_on='hero_names',left_index=True)
+    grouped = pub_power_data.groupby("Publisher")
+    print("\ngrouped.sum().sum(axis=1): \n\n{}".format(grouped.sum().sum(axis=1)))
+
 
     return None
 
