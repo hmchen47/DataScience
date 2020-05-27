@@ -1,6 +1,5 @@
 # Topic 6: Conditional Probability
 
-
 ## 6.1 Conditional Probability
 
 + Motivation
@@ -474,7 +473,7 @@
     + $\Pr(\text{both red}) = \Pr(R_1, R_2) = \Pr(R_1) \cdot \Pr(R_2 \,|\, R_1) = \frac{2}{3} \cdot \frac{1}{2} = \frac{1}{3}$
 
 + General product rule
-  
+
   \[\begin{align*}
     \Pr(E \cap F \cap G) &=  \Pr((E \cap F) \cap G) = \Pr(E \cap F) \cdot \Pr(G \,|\, E \cap F) \\
     &= \Pr(E) \cdot \Pr(D \,|\, E) \cdot \Pr(G \,|\, E \cap F)
