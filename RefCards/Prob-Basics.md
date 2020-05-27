@@ -924,3 +924,19 @@
     \[ \Pr(F) = \sum_{i=1}^n \Pr(E_i \cap F) = \sum_{i=1}^n \Pr(E_i) \cdot \Pr(F \,|\, E_i) \]
 
 
+
+
+## Bayes' Rule
+
++ [Bayes' rule](../Stats/ProbStatsPython/06-CondProb.md#65-bayes-rule)
+  + given $\Pr(F \,|\, E)$ (and a bit more, e.g., $\Pr(E), \Pr(F)$) determining $\Pr(E \,|\, F)$
+
+    \[ \Pr(E \,|\, F) = \frac{\Pr(E) \cdot \Pr(F \,|\, E)}{\Pr(F)} \]
+
+  + another view
+
+    \[ \Pr(F) \cdot \Pr(E \,|\, F) = \Pr(E \cap F) = \Pr(E) \cdot \Pr(F \,|\, E) \]
+
+
+
+
