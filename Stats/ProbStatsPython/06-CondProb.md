@@ -997,12 +997,17 @@
 
 ## Lecture Notebook 6
 
++ [Original Lecture NB](https://tinyurl.com/yah8s5yr)
 
++ [Local Lecture NB](src/Topic06_Lecture.ipynb)
 
++ [Local Lecture Python Code](src/Topic06_Lecture.py)
 
++ [Original lecture NB - Pandas](https://tinyurl.com/y8mz9dl5)
 
++ [Local Lecture NB - Panadas](src/Topic06_Lecture_pandas.ipynb)
 
-
++ [Local Lecture Python Code](src/Topic06_Lecture_pandas.py)
 
 
 
