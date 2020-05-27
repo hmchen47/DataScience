@@ -870,8 +870,29 @@
   \end{align*}\]
 
 
+## Independence
+  
++ [Independence](../Stats/ProbStatsPython/06-CondProb.md#62-independence)
+  + informal definition: (independence) Events $E$ and $F$ are <span style="color: magenta;">independent</span> (<span style="color: magenta;">$ E {\perp \!\!\!\! \perp} F$</span>) if occurrence of one does not change the probability  that the other occurs.
 
-## 
+    \[ \Pr(F) = \Pr(F \,|\, E) \triangleq \dfrac{\Pr(E \cap F)}{\Pr(E)} \]
+
+  + two issues:
+    + asymmetric: $\Pr(E \,|\, F)$
+    + undefined if $\Pr(E) = 0$
+  + formal definition: (independent) $E$ and $F$ are <span style="color: magenta;">independent</span> if $\Pr(E \cap F) = \Pr(E) \cdot \Pr(F)$, otherwise, <span style="color: magenta;">dependent</span>
+  + symmetric and applied when $\Pr(\varnothing) = 0$
+  + $\implies$ to intuitive definition
+    + symmetric: $\Pr(F \,|\, E) = \Pr(F) \quad \Pr(E \,|\, F) = \Pr(E)$
+    + $\Pr(F \,|\, \overline{E}) = \Pr(F) \quad \Pr(E \,|\, \overline{F}) = \Pr(E)$
+
++ [Independence of $\Omega$ and $\varnothing$](../Stats/ProbStatsPython/06-CondProb.md#62-independence)
+  + $\Omega {\perp \!\!\!\! \perp}$ of any event
+  + $\varnothing {\perp \!\!\!\! \perp}$ of any event
+
+
+
+
 
 
 
