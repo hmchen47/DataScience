@@ -907,5 +907,20 @@
 
 
 
+## Total Probability
+
++ [Law of total probability](../Stats/ProbStatsPython/06-CondProb.md#64-total-probability)
+  + $F = (E \cap F) \cup (E^c \cap F)$ s.t.
+
+    \[\begin{align*}
+      \Pr(F) &= \Pr()E \cap F) + \Pr(E^c \cap F)  \quad (\text{Product rule}) \\
+      &= \Pr(E) \cdot \Pr(F \,|\, E) + \Pr(E^c) \cdot \Pr(F \,|\, E^c)
+    \end{align*}\]
+
++ [Total probability - n conditions](../Stats/ProbStatsPython/06-CondProb.md#64-total-probability)
+  + Let $E_1, E_2, \dots, E_n$ partition $\Omega$
+  + $F = \displaystyle \biguplus_{i=1}^n (E_i \cap F)$ s.t.
+
+    \[ \Pr(F) = \sum_{i=1}^n \Pr(E_i \cap F) = \sum_{i=1}^n \Pr(E_i) \cdot \Pr(F \,|\, E_i) \]
 
 
