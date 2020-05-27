@@ -75,11 +75,77 @@ def plot_probs(iterations):
     return None
 
 
+def plot_cond_probs():
+    """Plot the conditional probability w/ data set from Kaggle
+    https://www.kaggle.com/uciml/student-alcohol-consumption/download
+    about the students' performance in Portuguese course
+
+    Attributes in dataset
+    + G3 - final grade related with the course subject, Math or Portuguese (numeric: from 0 to 20, output target)
+    + studytime - weekly study time (numeric: 1 : < 2 hours, 2 : 2 to 5 hours, 3 : 5 to 10 hours, or 4 : > 10 hours)
+    """
+
+    data_por = pd.read_csv("data/student-por.csv")
+
+    attributes = ["G3", "studytime"]
+    data_por = data_por[attributes]
+
+    # probability that a student's study-time falls in an interval
+    data_temp = data_por["studytime"].value_counts()
+    P_studytime = pd.DataFrame((data_temp/data_temp.sum()).sort_index())
+    P_studytime.index = ["< 2 hours","2 to 5 hours","5 to 10 hours","> 10 hours"]
+    P_studytime.columns = ["probability]"]
+    P_studytime.columns.name = "Study Interval"
+
+    # plot study interval probability figure
+    P_studytime.plot.bar(figsize=(12, 9), fontsize=18)
+    plt.ylabel("Probability", fontsize=16)
+    plt.xlabel("Study Interval", fontsize=18)
+    plt.show()
+
+    # calculate high score and plot it
+    data_temp = (data_por["G3"] >= 15).value_counts()
+    P_score15_p = pd.DataFrame(data_temp/data_temp.sum())
+    P_score15_p.index = ["Low", "High"]
+    P_score15_p.columns = ["probability"]
+    P_score15_p.columns.name = "Score"
+    print(P_score15_p)
+    P_score15_p.plot.bar(figsize=(10, 6), fontsize=16)
+    plt.xlabel("Score", fontsize=18)
+    plt.ylabel("Probability", fontsize=18)
+    plt.show()
+
+    # conditional probability Pr(study inteval | highscore)
+    score = 15
+    data_temp = data_por.loc[data_por["G3"] >= score, "studytime"]
+    P_T_given_score15 = pd.DataFrame((data_temp.value_counts()/data_temp.shape[0]).sort_index())
+    P_T_given_score15.index = ["< 2 hours","2 to 5 hours","5 to 10 hours","> 10 hours"]
+    P_T_given_score15.columns = ["Probability"]
+    print("Probability of study interval given that the student gets a highscore:")
+    P_T_given_score15.columns.name = "Study Interval"
+    P_T_given_score15.plot.bar(figsize=(12, 9), fontsize=16)
+    plt.xlabel("Study interval", fontsize=18)
+    plt.ylabel("probability", fontsize=18)
+    plt.show()
+
+    # predict probability w/ Bayes rule
+    P_score15_given_T_p = P_T_given_score15 * P_score15_p.loc["High"] / P_studytime
+    print("probability of high score given study interval:")
+    pd.DataFrame(P_score15_given_T_p).plot.bar(figsize=(12,9),fontsize=18).legend(loc="best")
+    plt.xlabel("Study interval", fontsize=18)
+    plt.ylabel("probability", fontsize=18)
+    plt.show()
+
+    return None
+
+
 def main():
 
     # Birthday paradox
-    plot_probs(2000)
-    
+    # plot_probs(2000)
+
+    # conditional probability
+    plot_cond_probs()
 
     return None
 
