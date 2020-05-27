@@ -67,7 +67,7 @@
 + General product rule
 
   \[\begin{align*}
-    \Pr(E \cap  F \cap G) &= P((E \cap G) \cap G) = \Pr(E \cap F) \cdot \Pr(G \,|\, E \cap F) \\
+    \Pr(E \cap  F \cap G) &= \Pr((E \cap G) \cap G) = \Pr(E \cap F) \cdot \Pr(G \,|\, E \cap F) \\
     &= \Pr(E) \cdot \Pr(F \,|\, E) \cdot \Pr(G \,|\, E \cap F)
   \end{align*}\]
 
@@ -82,15 +82,15 @@
 
 ### Problem Sets
 
-0. Let A and B be two positive-probability events. Does P(A|B)>P(A) imply P(B|A)>P(B)?<br/>
+0. Let A and B be two positive-probability events. Does \Pr(A|B)>\Pr(A) imply \Pr(B|A)>\Pr(B)?<br/>
   a. Yes<br/>
   b. Not necessarily<br/>
 
   Ans: <span style="color: magenta;">a</span><br/>
-  Explanation: Yes. $P(A|B)=P(A,B) / P(B)$ and $P(B|A)=P(A,B) / P(A)$. Hence, $P(A|B)>P(A) \iff P(A,B)>P(A) * P(B) \iff P(B|A)>P(B)$.
+  Explanation: Yes. $\Pr(A|B)=\Pr(A,B) / \Pr(B)$ and $\Pr(B|A)=\Pr(A,B) / \Pr(A)$. Hence, $\Pr(A|B)>\Pr(A) \iff \Pr(A,B)>\Pr(A) * \Pr(B) \iff \Pr(B|A)>\Pr(B)$.
 
 
-1. Suppose $P(A)>0$. Find $P(B|A)$ when:<br/>
+1. Suppose $\Pr(A)>0$. Find $\Pr(B|A)$ when:<br/>
   a. $B=A$,<br/>
   b. $B \supseteq A$,<br/>
   c. $B=\Omega$,<br/>
@@ -100,36 +100,36 @@
 
   Ans: a. (1); b. (1); c. (1); d. (0); d. (0); e. (0)<br/>
   Explanation:
-    + Given that $A$ happens, $B$ must happens. Hence $P(B|A)=1$.
+    + Given that $A$ happens, $B$ must happens. Hence $\Pr(B|A)=1$.
     + Same as above.
     + Same as above.
-    + Given that $A$ happens, $B$ can never happens. Hence $P(B|A)=0$.
+    + Given that $A$ happens, $B$ can never happens. Hence $\Pr(B|A)=0$.
     + Same as above.
     + Same as above.
 
 
-2. If \(A\) and \(B\) are disjoint positive-probability events, then \(P(A|B)\)=<br/>
-  a. \(P(A)\),<br/>
-  b. \(P(B|A)\),<br/>
-  c. \(P(A\cup B)\),<br/>
-  d. \(P(A\cap B)\).<br/>
+2. If \(A\) and \(B\) are disjoint positive-probability events, then \(\Pr(A|B)\)=<br/>
+  a. \(\Pr(A)\),<br/>
+  b. \(\Pr(B|A)\),<br/>
+  c. \(\Pr(A\cup B)\),<br/>
+  d. \(\Pr(A\cap B)\).<br/>
 
   Ans: bc<br>
-  Explanation: Since $A$ and $B$ are disjoint, $P(A|B)=0$. $P(A\ \cap B)=P(B|A)=0$, while $P(A)$ and $P(A∪B)$ are positive as $A$ and $B$ are positive-probability events.
+  Explanation: Since $A$ and $B$ are disjoint, $\Pr(A|B)=0$. $\Pr(A\ \cap B)=\Pr(B|A)=0$, while $\Pr(A)$ and $\Pr(A∪B)$ are positive as $A$ and $B$ are positive-probability events.
 
 
-3. Given events $A$, $B$ with $P(A)=0.5$, $P(B)=0.7$, and $P(A \cap B)=0.3$ , find:<br/>
-  a. $P(A|B)$ ,<br/>
-  b. $P(B|A)$ ,<br/>
-  c. $P(A^c|B^c)$ ,<br/>
-  d. $P(B^c|A^c)$ .<br/>
+3. Given events $A$, $B$ with $\Pr(A)=0.5$, $\Pr(B)=0.7$, and $\Pr(A \cap B)=0.3$ , find:<br/>
+  a. $\Pr(A|B)$ ,<br/>
+  b. $\Pr(B|A)$ ,<br/>
+  c. $\Pr(A^c|B^c)$ ,<br/>
+  d. $\Pr(B^c|A^c)$ .<br/>
 
   Ans: a. (3/7); b. (3/5); c. (1/3); d. (1/5)<br/>
   Explanation: 
-    + $P(A|B)=P(A \cap B)/P(B)=0.3/0.7=3/7$.
-    + $P(B|A)=P(B \cap A)/P(A)=0.3/0.5=3/5$.
-    + $P(A^c|B^c)=P(A^c \cap B^c)/P(B^c)=0.1/0.3=1/3$.
-    + $P(B^c|A^c)=P(B^c \cap A^c)/P(A^c)=0.1/0.5=1/5$.  
+    + $\Pr(A|B)=\Pr(A \cap B)/\Pr(B)=0.3/0.7=3/7$.
+    + $\Pr(B|A)=\Pr(B \cap A)/\Pr(A)=0.3/0.5=3/5$.
+    + $\Pr(A^c|B^c)=\Pr(A^c \cap B^c)/\Pr(B^c)=0.1/0.3=1/3$.
+    + $\Pr(B^c|A^c)=\Pr(B^c \cap A^c)/\Pr(A^c)=0.1/0.5=1/5$.  
 
 
 4. Find the probability that the outcome of a fair-die roll is at least 5, given that it is at least 4.<br/>
@@ -139,7 +139,7 @@
   d. \(\frac{1}{2}\)<br/>
 
   Ans: a<br/>
-  Explanation: $P(\text{at least 5 }|\text { at least 4})=P(\text{at least 5 } \cap \text{ at least 4})P(\text{ at least 4 })=P(\text{ at least 5 })P(\text{ at least 4 })=2/3$.
+  Explanation: $\Pr(\text{at least 5 }|\text { at least 4})=\Pr(\text{at least 5 } \cap \text{ at least 4})\Pr(\text{ at least 4 })=\Pr(\text{ at least 5 })\Pr(\text{ at least 4 })=2/3$.
 
 
 5. Two balls are painted red or blue uniformly and independently. Find the probability that both balls are red if:<br/>
@@ -159,9 +159,9 @@
 
   Ans: a. (0); b. (1/4); c. (1/7)<br/>
   Explanation:
-    + If the first coin is tails, it's impossible for all coins to be heads, hence the probability is 0. More formally, $\Pr(X_1 \cap X_2 \cap X_3|\overline{X_3}) = \frac{\Pr(X_1 \cap X_2 \cap X_3 \cap \overline{X_3})}{P(\overline{X_3})= \frac{\Pr(\varnothing)}{P(\overline{X_3})= \frac{0}{1/2}=0$.
-    + First intuitively, if the first coin is heads, then all are heads iff the second and third coins are heads, which by independence of coin flips happens with probability $\frac{1}{2} \cdot \frac{1}{2}=14$.  A bit more formally, let $X_1,X_2,X_3$ be the events that the first, second, and third coin is heads. Then $\Pr(X_1 \cap X_2 \cap X_3|X_1)=\frac{\Pr(X_1 \cap X_2 \cap X_3 \cap X_1)}{\Pr(X_1)}=\frac{\Pr(X_1 \cap X_2 \cap X_3)}{P(X_1)}=\frac{1/8}{1/2}=\frac{1}{4}$.
-    + First intuitively, there are seven possible outcome triples where at least one of the coins is heads, and only one of them has all heads. Hence the probability of all heads given that one is heads is $1/7$.  More formally, $\Pr(X_1 \cap X_2 \cap X_3|X_1 \cup X_2 \cup X_3)=\frac{\Pr((X_1 \cap X_2 \cap X_3) \cap (X_1 \cup X_2 \cup X_3))}{\Pr(X_1 \cup X_2 \cup X_3)}=\frac{P(X_1 \cap X_2 \cap 3)}{\Pr(X_1 \cup X_2 \cup X_3)}=\frac{1/8}{7/8}=\frac{1}{7}$.
+    + If the first coin is tails, it's impossible for all coins to be heads, hence the probability is 0. More formally, $\Pr(X_1 \cap X_2 \cap X_3|\overline{X_3}) = \frac{\Pr(X_1 \cap X_2 \cap X_3 \cap \overline{X_3})}{\Pr(\overline{X_3})= \frac{\Pr(\varnothing)}{\Pr(\overline{X_3})= \frac{0}{1/2}=0$.
+    + First intuitively, if the first coin is heads, then all are heads iff the second and third coins are heads, which by independence of coin flips happens with probability $\frac{1}{2} \cdot \frac{1}{2}=14$.  A bit more formally, let $X_1,X_2,X_3$ be the events that the first, second, and third coin is heads. Then $\Pr(X_1 \cap X_2 \cap X_3|X_1)=\frac{\Pr(X_1 \cap X_2 \cap X_3 \cap X_1)}{\Pr(X_1)}=\frac{\Pr(X_1 \cap X_2 \cap X_3)}{\Pr(X_1)}=\frac{1/8}{1/2}=\frac{1}{4}$.
+    + First intuitively, there are seven possible outcome triples where at least one of the coins is heads, and only one of them has all heads. Hence the probability of all heads given that one is heads is $1/7$.  More formally, $\Pr(X_1 \cap X_2 \cap X_3|X_1 \cup X_2 \cup X_3)=\frac{\Pr((X_1 \cap X_2 \cap X_3) \cap (X_1 \cup X_2 \cup X_3))}{\Pr(X_1 \cup X_2 \cup X_3)}=\frac{\Pr(X_1 \cap X_2 \cap 3)}{\Pr(X_1 \cup X_2 \cup X_3)}=\frac{1/8}{7/8}=\frac{1}{7}$.
 
 
 7. A 5-card poker hand is drawn randomly from a standard 52-card deck. Find the probability that:<br/>
@@ -205,7 +205,7 @@
 
       <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
         <a href="url" ismap target="_blank">
-          <img src="img/t06-01.png" style="margin: 0.1em;" alt="Visual interpretation of P(F|E)" title="Visual interpretation of P(F|E)" width=200>
+          <img src="img/t06-01.png" style="margin: 0.1em;" alt="Visual interpretation of $\Pr(F|E)$" title="Visual interpretation of $\Pr(F|E)$" width=200>
         </a>
       </div>
   
@@ -362,7 +362,7 @@
   b. Dependent<br/>
 
   Ans: a<br/>
-  Explanation: Let $X$ be the outcome of the first die and $Y$ be the outcome of the second die. $P(X=1|X+Y=7)=1/6=P(X=1)$. Hence, they are independent.
+  Explanation: Let $X$ be the outcome of the first die and $Y$ be the outcome of the second die. $\Pr(X=1|X+Y=7)=1/6=\Pr(X=1)$. Hence, they are independent.
 
 
 2. Of 10 students, 4 take only history, 3 take only math, and 3 take both history and math. If you select a student at random, the event that the student takes history and the event that the student takes math are:<br/>
@@ -370,7 +370,7 @@
   b. Dependent<br/>
 
   Ans: <span style="color: magenta;">b</span><br/>
-  Explanation: Let $H$ be the event that the student takes history, and $M$ the event that the student takes math. Then $P(H)=7/10$, $P(M)=6/10$, and $P(H,M)=3/10$. Since $P(H)P(M) \neq P(H,M)$, the two events are dependent.
+  Explanation: Let $H$ be the event that the student takes history, and $M$ the event that the student takes math. Then $\Pr(H)=7/10$, $\Pr(M)=6/10$, and $\Pr(H,M)=3/10$. Since $\Pr(H)\Pr(M) \neq \Pr(H,M)$, the two events are dependent.
 
 
 3. 4 freshman boys, 6 freshman girls, and 6 sophomore boys go on a trip. How many sophomore girls must join them if a student's gender and class are to be independent when a student is selected at random?
@@ -389,8 +389,8 @@
 
   Ans: ab<br/>
   Explanation: Intuitively: $A$ is independent of the null event because occurrence of $A$ doesn't change the 0 probability of the null event. Similarly $A$ is independent of $\Omega$ because occurrence of $A$ does not change the probability 1 of $\Omega$.  If $A$ has probability strictly between 0 and 1, then its occurrence changes the probability of both itself and $A^c$, implying dependence. Mathematically:
-    + True. $P(\varnothing|A)=0=P(\varnothing)$.
-    + True. $P(A|\Omega)=P(A \cap \Omega)P(\Omega)=P(A)P(\Omega)=P(A)$.
+    + True. $\Pr(\varnothing|A)=0=\Pr(\varnothing)$.
+    + True. $\Pr(A|\Omega)=\Pr(A \cap \Omega)\Pr(\Omega)=\Pr(A)\Pr(\Omega)=\Pr(A)$.
     + False.
     + False.
 
@@ -415,10 +415,10 @@
 
   Ans: acd<br/>
   Explanation: Let  X  be the outcome of the first dice, and  Y  be the second one.
-    + True.  $P(X=4|Y=2)=P(X=4)=1/6$.
-    + False. $P(X+Y=6|X=4)=1/6 .  P(X+Y=6)=5/36 .  P(X+Y=6) \neq P(X+Y=6|Y=4)$.
-    + True.  $P(X+Y=6|X=4)=1/6=P(X+Y=7)$.
-    + True.  $P(X+Y \text{ is even } |X=4)=P(Y \text{ is even })=1/2=P(X+Y \text{ is even })$.
+    + True.  $\Pr(X=4|Y=2)=\Pr(X=4)=1/6$.
+    + False. $\Pr(X+Y=6|X=4)=1/6 .  \Pr(X+Y=6)=5/36 .  \Pr(X+Y=6) \neq \Pr(X+Y=6|Y=4)$.
+    + True.  $\Pr(X+Y=6|X=4)=1/6=\Pr(X+Y=7)$.
+    + True.  $\Pr(X+Y \text{ is even } |X=4)=\Pr(Y \text{ is even })=1/2=\Pr(X+Y \text{ is even })$.
 
 
 7. Roll two dice, and let $F_e$ be the event that the first die is even, $S_4$ the event that the second die is 4, and $\Sigma_o$ the event that the sum of the two dice is odd. Which of the following events are independent:<br/>
@@ -432,7 +432,7 @@
     + True.  $\Pr(F_e,S_4)=1/12, \Pr(F_e)=1/2, \Pr(S4)=1/6$. As $\Pr(F_e,S_4)= \Pr(F_e)\Pr(S_4)$, $F_e$ and $S_4$ are independent.
     + True.  $\Pr(F_e,\Sigma_o)=1/4, \Pr(F_e)=1/2, \Pr(\Sigma_o)=1/2$. As $\Pr(F_e,\Sigma_o) = \Pr(F_e) \Pr(\Sigma_o)$, $F_e$ and $\Sigma_o$ are independent.
     + True.  $\Pr(S_4,\Sigma_o)=1/12, \Pr(S4)=1/6, \Pr(\Sigma_o)=1/2$. As $\Pr(S_4,\Sigma_o)= \Pr(S_4) \Pr(\Sigma_o)$, $S_4$ and $\Sigma_o$ are independent.
-    + False. $\Pr(F_e,S_4,\Sigma_o)=0 \neq P(F_e) \Pr(S_4) \Pr(\Sigma_o)$.
+    + False. $\Pr(F_e,S_4,\Sigma_o)=0 \neq \Pr(F_e) \Pr(S_4) \Pr(\Sigma_o)$.
 
 
 8. Two dice are rolled. Let $F_3$ be the event that the first die is 3, $S_4$ the event that the second die is 4, and $\Sigma_7$ the event that the sum is 7. Which of the following are independent:<br/>
@@ -541,7 +541,7 @@
 
 ### Problem Sets
 
-0. The equality $P(A \cap B)=P(A)P(B)$ holds whenever the events A and B are<br/>
+0. The equality $\Pr(A \cap B)=\Pr(A)\Pr(B)$ holds whenever the events A and B are<br/>
   a. independent<br/>
   b. disjoint<br/>
   c. intersecting<br/>
@@ -756,7 +756,7 @@
 
   Ans: 4/7<br/>
   Explanation: Here are two ways of solving the problem. One using total probability, the other by symmetry.
-    + Total Probability.<br/>Let $E$ be the desired event that exactly one of Alice or Bob is a winner. We divide the sample space into two disjoint events, $E_1$, $E_2$. $E_1$ is the event that Alice and Bob play against each other and $E_2$ is the complimentary event that Alice and Bob play against other players. Since Alice is equally likely to play with any of the seven other players, $P(E_1)=1/7$, hence $P(E_2)=6/7$. Now $P(E|E_1)=1$, while $P(E|E_2)=1/2$ since Alice and Bob each play an independent game where the probability of winning is $1/2$. Therefore $P(E)=P(E_1)⋅P(E|E_1)+P(E_2)⋅P(E|E_2)=1/7⋅1+6/7⋅1/2=4/7$.
+    + Total Probability.<br/>Let $E$ be the desired event that exactly one of Alice or Bob is a winner. We divide the sample space into two disjoint events, $E_1$, $E_2$. $E_1$ is the event that Alice and Bob play against each other and $E_2$ is the complimentary event that Alice and Bob play against other players. Since Alice is equally likely to play with any of the seven other players, $\Pr(E_1)=1/7$, hence $\Pr(E_2)=6/7$. Now $\Pr(E|E_1)=1$, while $\Pr(E|E_2)=1/2$ since Alice and Bob each play an independent game where the probability of winning is $1/2$. Therefore $\Pr(E)=\Pr(E_1) \cdot \Pr(E|E_1)+\Pr(E_2) \cdot \Pr(E|E_2)=1/7 \cdot 1+6/7 \cdot 1/2=4/7$.
     + Symmetry.<br/>In the end, 4 of the 8 players will be declared winners. There are $\tbinom{8}{4}$ such 4-winner "quartets", all equally likely.  The number of "quartets" that contain exactly one of Alice and Bob is $\tbinom{2}{1} \cdot \tbinom{6}{3}$.  Hence the probability that this occurs is $\frac{\tbinom{2}{1} \cdot \tbinom{6}{3}}{\tbinom{8}{4}}=47$.
 
 
@@ -857,7 +857,7 @@
       & = .5 \times .04 + .3 \times .1 + .2 \times .05 = .02 + .03 + .01  = 0.06
     \end{align*}\]
 
-  + culprit?
+  + probability of factories w/ a given defective
 
     \[
       \Pr(F_1 \,|\, D) = \frac{\Pr(D \,|\, F_1) \cdot \Pr(F_1)}{\Pr(D)} = \frac{.04 \cdot .5}{.06} = \frac{.02}{.06} = \frac{1}{3} \\
@@ -866,8 +866,7 @@
     \]
 
   + conditional probabilities add to 1
-  + conditional order determined by both by both $\Pr(F_i)$ and $\Pr(D \,|\, F_i)$
-
+  + conditional order determined by both $\Pr(F_i)$ and $\Pr(D \,|\, F_i)$
 
 
 + [Original Slides](https://tinyurl.com/y77gn7y3)
@@ -875,6 +874,117 @@
 
 ### Problem Sets
 
+0. Suppose you're on a game show, and you're given the choice of three doors. Behind one door is a car and behind the others are goats. You pick a door, say door 1. The host knows what is behind each door. He opens another door, say door 3, which has a goat. He then says to you, "Do you want to change your selection to door 2?" Is it to your advantage to switch your choice?<br/>
+  a. It is better to keep my choice of door 1.<br/>
+  b. It is better to switch to door 2.<br/>
+  c. There is no difference.<br/>
+
+  Ans: b<br/>
+  Explanation: It is better to switch.
+
+
+1. A rare disease occurs randomly in one out of 10,000 people, and a test for the disease is accurate 99% of the time, both for those who have and don't have the disease. You take the test and the result is postive. The chances you actually have the disease are approximately:<br/>
+  a. 10%<br/>
+  b. 1%<br/>
+  c. 0.1%<br/>
+  d. 0.01%<br/>
+
+  Ans: <span style="color: magenta;">b</span><br/>
+  Explanation: Let $H$ and $D$  be the events that you Have and Don't have the disease, respectively, and let $S$ be the event that the result is positive.  By the streamlined version of Bayes' Rule, $\Pr(H|S) = \frac{\Pr(H,S)}{\Pr(S)} = \frac{\Pr(H,S)}{\Pr(H,S) + \Pr(D,S)}$.  Now, $\Pr(H,S) =$ $\Pr(H) \cdot \Pr(S|H)=$ $0.0001 \cdot 0.99 \approx 0.0001$, and $\Pr(D,S) = \Pr(D) \cdot \Pr(S|D) = 0.9999 \cdot 0.01≈0.01$.  Hence $\Pr(H|S) = \frac{0.0001}{0.0001+0.01}≈0.01$.
+
+
+2. A car manufacturer has three factories producing 21%, 35%, and 44% of its cars, respectively. Of these cars, 7%, 6%, and 2%, respectively, are defective. A car is chosen at random from the manufacturer’s supply.<br/>
+  a. What is the probability that the car is defective?<br/>
+  b. Given that the car is defective, what is the probability that was produced by the first factory?<br/>
+
+  Ans: a. (0.0455); b. (0.33)<br/>
+  Explanation: 
+    + Let $F_1,F_2,F_3$ be the events that the care is made by the first, second, and third factory, respectively, and let  D  be the event that the car is defective. By the law of total probability, $\Pr(D)=\Pr(F_1) \cdot \Pr(D|F_1)+\Pr(F_2) \cdot \Pr(D|F_2)+\Pr(F_3) \cdot \Pr(D|F_3)= $ $0.21 \cdot 0.07+0.35 \cdot 0.06+0.44 \cdot 0.02=0.0445$.
+    + By Bayes' Rule and using $\Pr(D)$ from above, $\Pr(F_1|D)=\Pr(F_1) \cdot \Pr(D|F_1)\Pr(D)=0.21 \cdot 0.070.0445=0.3303$.
+
+
+3. A college graduate is applying for a job and has 3 interviews. She passes the first, second, and third interviews with probabilities 0.9, 0.8, and 0.7, respectively. If she fails any interview, she cannot proceed with subsequent interview(s) and will not get the job. If she didn’t get the job, what is the probability that she failed the second interview?
+
+  Ans: <span style="color: magenta;">0.3629</span>
+  Explanation: Let $F$, $S$, and $T$ denote the events that the applicant passed the first, second, and third interviews, respectively. The probability that she failed the second interview given that she didn't get the job is  $\Pr(\overline{S}\,|\, \overline{FST})=\Pr(\overline{FS} \,|\, \overline{FST}) =$  $\Pr(\overline{FS}\nabla \overline{FST}) \Pr(\overline{FST})$ $= \Pr(\overline{FS}) \Pr(\overline{FST})= $ $0.9 \cdot 0.21−0.9 \cdot 0.8 \cdot 0.7$, where the first equality follows as the applicant fails the second interview iff she passes the first interview and fails the second. [EstackExchange](https://tinyurl.com/ya73scpb)
+
+
+4. An ectopic pregnancy is twice as likely to develop when a pregnant woman is a smoker than when she is a nonsmoker. If 32% of women of childbearing age are smokers, what fraction of women having ectopic pregnancies are smokers?
+
+  Ans: <span style="color: magenta;">0.4848</span><br/>
+  Explanation: Let $S$ and $E$ denote the events that a pregnant woman is a smoker, and has an ectopic pregnancy, respectively. We are told that $\Pr(S)=.32$ and $\Pr(E|S^c)=.5 \cdot \Pr(E|S)$. By Bayes' Rule, $\Pr(S|E)=\Pr(E|S) \cdot \Pr(S)\Pr(E|S) \cdot \Pr(S)+\Pr(E|S^c) \cdot \Pr(S^c)=$ $\Pr(E|S) \cdot \Pr(S)\Pr(E|S) \cdot \Pr(S)+.5 \cdot \Pr(E|S) \cdot \Pr(S^c)=$ $\Pr(S)\Pr(S)+.5 \cdot \Pr(S^c)=.32.32+.5 \cdot (1−.32)=1633$. [Waterloo](https://ece.uwaterloo.ca/~oamin/Tut3.pdf)
+
+
+5. Each of Alice, Bob, and Chuck shoots at a target once, and hits it independently with probabilities 1/6, 1/4, and 1/3, respectively. If only one shot hit the target, what is the probability that Alice's shot hit the target?<br/>
+  a. 31/72<br/>
+  b. 6/31<br/>
+  c. 10/31<br/>
+  d. 15/31<br/>
+
+  Ans: b<br/>
+  Explanation: Let $A$, $B$, and $C$, be the events that Alice, Bob, and Chuck hit the target, respectively, and let $E=AB^cC^c \cap A^cBC^c \cup A^cB^cC$ be the event that only one shot hit the target. Then $\Pr(E)=16 \cdot 34 \cdot 23+56 \cdot 14 \cdot 23+56 \cdot 34 \cdot 13=3172$. By Bayes' Rule, $\Pr(A|E)=\frac{\Pr(AE)}{\Pr(E)}=\frac{\Pr(AB^cC^c)}{\Pr(E)}=\frac{6/72}{31/72}=6/31$.
+
+
+6. Jack has two coins in his pocket, one fair, and one "rigged" with heads on both sides. Jack randomly picks one of the two coins, flips it, and observes heads. What is the probability that he picked the fair coin?<br/>
+  a. 3/4<br/>
+  b. 2/3<br/>
+  c. 1/3<br/>
+  d. 1/4<br/>
+
+  Ans: c<br/>
+  Explanation: Let $F$ and $R$ be the events that Jack picked the fair and rigged coin, respectively, and let  H  be the event that he observed heads. By the "streamlined" Bayes' rule, $\Pr(F|H)=\frac{\Pr(F,H)}{\Pr(H)}=\frac{\Pr(F,H)}{\Pr(F,H)+\Pr(R,H)}$. Now, $\Pr(F,H)=\Pr(F) \cdot \Pr(H|F)=12 \cdot 12=14$, while $\Pr(R,H)=\Pr(R) \cdot \Pr(H|R)=12 \cdot 1=12$. Hence $\Pr(F|H)=1/41/4+1/2=13$.
+
+
+7. It rains in Seattle one out of three days, and the weather forecast is correct two thirds of the time (for both sunny and rainy days). You take an umbrella if and only if rain is forecasted.<br/>
+  a. What is the probability that you are caught in the rain without an umbrella?<br/>
+  b. What is the probability that you carry an umbrella and it does not rain?<br/>
+
+  Ans: a. (1/9); b. (2/9)<br/>
+  Explanation: 
+    + Let $R$ be the event that it rains, and $C$ the event that the forecast is correct. We are told that $\Pr(R)=1/3$ and $\Pr(C|R)=\Pr(C|R^c)=2/3$. The probability you are caught in the rain without an umbrella is $\Pr(R∧C^c)=\Pr(R) \cdot \Pr(C^c|R)=1/3 \cdot 1/3=1/9$.
+    + The probability you are carry and umbrella and it does not rain is $\Pr(R^c∧C^c)=\Pr(R^c) \cdot \Pr(C^c|R^c)=2/3 \cdot 1/3=2/9$.
+    + [StackExchange 1](https://tinyurl.com/y8muf6ye), [StackExchange 2](https://tinyurl.com/y8bxt2ew)
+
+
+8. On any night, there is a 92% chance that an burglary attempt will trigger the alarm, and a  1%  chance of a false alarm, namely that the alarm will go off when there is no burglary. The chance that a house will be burglarized on a given night is  1/1000 . What is the chance of a burglary attempt if you wake up at night to the sound of your alarm?
+
+  Ans: 0.09125<br/>
+  Explanation: Let $A$ be the event of triggering alarm, $B$ be the event of an burglary attempt, $NB$ be the event of no attempts. As $\Pr(A|B)=0.92,\Pr(A|NB)=0.01,\Pr(B)=0.001$. Following Bayes rule $\Pr(B|A)=0.084$.
+
+
+9. An urn labeled "heads" has  5  white and  7  black balls, and an urn labeled "tails" has  3  white and  12  black balls. Flip a fair coin, and randomly select on ball from the "heads" or "tails" urn according to the coin outcome. Suppose a white ball is selected, what is the probability that the coin landed tails?
+
+  Ans: 12/37<br/>
+  Explanation: Let $H$ and $T$ be the events that the coin turnd up heads and tails, and let $W$ be the event of selecting a white ball. $\Pr(H)=\Pr(T)=0.5,\Pr(W|H)=5/12,\Pr(W|T)=3/15$. Following Bayesian rule $\Pr(T|W)=12/37$.
+
+
+10. A car manufacturer receives its air conditioning units from 3 suppliers. 20% of the unitws come from supplier A, 30% from supplier B, and 50% from supplier C. 10% of the units from supplier A are defective, 8% of units from supplier B are defective, and 5% of units from supplier C are defective. If a unit is selected at random and is found to be defective.
+
+  What is the probability that a unit came from supplier A if it is:<br/>
+  a. defective,<br/>
+  b. non-defective,<br/>
+
+  Ans: a. (20/69); b. (0.1933)
+
+
+11. Suppose that 15% of the population have cancer, 50% of the population smokes, and 75% of those with cancer smoke. What fraction of smokers have cancer?<br/>
+  a. 0.05625 <br/>
+  b. 0.225 <br/>
+  c. 0.25 <br/>
+  d. 0.75<br/>
+
+  Ans: b<br/>
+  Explanation: Let $S$ and $C$ be the events that a person smokes, and has cancer, respectively. Then $\Pr(C|S)=\Pr(S|C)\Pr(C))\Pr(S)=0.225$.
+
+
+12. A fair coin with $\Pr(heads)=0.5$ and a biased coin with $\Pr(heads)=0.75$ are placed in an urn. One of the two coins is picked at random and tossed twice. Find the probability:<br/>
+  a. of observing two heads,<br/>
+  b. that the biased coin was picked if two heads are observed.<br/>
+
+  Ans: a. (13/32); b. (9/13)<br/>
+  Explanation:
+    + Let $F,B$, and $T$, be the events that the coin is Fair, Biased, and we observe Two heads, respectively. By the law of total probability, $\Pr(T)=\Pr(F) \cdot \Pr(T|F)+\Pr(B) \cdot \Pr(T|B)=1/2 \cdot 1/4+1/2 \cdot \tbinom{3}{4}^2=13/32$.
+    + $\Pr(B|T)=\Pr(B,T)\Pr(T)=\Pr(B) \cdot \Pr(T|B)\Pr(T)=\frac{1/2 \cdot (3/4)^2}{13/32}=\frac{1/2 \cdot (3/4)^2}{13/32}=9/13$.
 
 
 
