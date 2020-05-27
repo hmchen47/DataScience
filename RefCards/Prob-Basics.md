@@ -835,6 +835,43 @@
   + Union bound: $\Pr(A \cup B) \leq \Pr(A) + \Pr(B) \to$ very useful
 
 
+## Conditional Probability
+
++ [Motivation](../Stats/ProbStatsPython/06-CondProb.md#61-conditional-probability)
+  + modifying event probabilities
+  + importance
+    + improving estimates
+    + helping determine original unconditional probabilities
+
++ [Intuitive definition](../Stats/ProbStatsPython/06-CondProb.md#61-conditional-probability)
+  
+  \[\begin{align*}
+    \Pr(F \,|\, E) &= \text{probability that $F$ happens given that $E$ happened} \\
+    & = \text{fraction pf $E$ occurrences that F also occur}
+  \end{align*}\]
+
++ [General events - uniform spaces](../Stats/ProbStatsPython/06-CondProb.md#61-conditional-probability)
+  
+  \[ \Pr(F \,|\, E) = \frac{|E \cap F|}{|E|} \]
+
++ [General spaces](../Stats/ProbStatsPython/06-CondProb.md#61-conditional-probability)
+  
+  \[ \Pr(F \,|\, E) \frac{\Pr(E \cap F)}{\Pr(E)} \]
+
++ [Product rule](../Stats/ProbStatsPython/06-CondProb.md#61-conditional-probability)
+
+  \[ \Pr(F \,|\, E) = \frac{\Pr(E \cap F)}{\Pr(E)}  \to \Pr(E \cap F) = \Pr(E) \cdot \Pr(F \,|\, E) \]
+
++ [General product rule](../Stats/ProbStatsPython/06-CondProb.md#61-conditional-probability)
+
+  \[\begin{align*}
+    \Pr(E \cap  F \cap G) &= \Pr((E \cap G) \cap G) = \Pr(E \cap F) \cdot \Pr(G \,|\, E \cap F) \\
+    &= \Pr(E) \cdot \Pr(F \,|\, E) \cdot \Pr(G \,|\, E \cap F)
+  \end{align*}\]
+
+
+
+## 
 
 
 
