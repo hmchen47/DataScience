@@ -22,7 +22,7 @@
   + random variable, $X$
     + performance operations, e.g., $X+1, X^2$
     + combining variables, e.g., $X+Y$
-    + considering properties, average value of $X$
+    + considering properties, e.g., average value of $X$
 
 + Types of random variables
   + size of sample space $\Omega$
@@ -106,7 +106,7 @@
     + unable to be increasing: $p_i > 0 \to p_{i+1}, p_{i+2}, \dots > p_i \to \sum = \infty$
     + able to be decreasing: $\tfrac{1}{2}, \tfrac{1}{4}, \tfrac{1}{8}, \dots$
       + $\sum_{i=1}^n \frac{1}{2^i} = 1 - \frac{1}{2^n}$
-      + $\sum_{i=1}^\infty \frac{1}{2^i} = 1
+      + $\sum_{i=1}^\infty \frac{1}{2^i} = 1$
   + double infinite
     + $\dots, p_{-2}, p_{-1}, p_0, p_1, p_2, \dots$
     + e.g., $\dots, \tfrac{1}{8}, \tfrac{1}{4}, 0, \tfrac{1}{4}, \tfrac{1}{8}, \dots$
@@ -122,7 +122,44 @@
 
 ## Problem Sets
 
+0. Which of the following statements is correct?<br/>
+  a. Random variables are mappings between outcomes and real numbers.<br/>
+  b. Random variables are mappings between events and real numbers.<br/>
+  c. Neither<br/>
 
+  Ans: a
+
+
+1. For which value of $\alpha$ is the function $p_i= \frac{(\alpha+1)(i−\alpha)+2}{120}$ over $\{1,2, \dots, 10\}$ a p.m.f.?
+
+  Ans: 1.5<br/>
+  Explanation: The p.m.f should add up to 1, hence, $\sum_{i=1}^{10} p_i= \sum_{i=1}^{10} \frac{(\alpha+1)(i− \alpha)+2}{120}= \sum_{i=1}^{10} −\alpha^2+(i−1) \alpha+i+2}{120}=1$.  This reduces to the quadratic equation $2\alpha^2 − 9 \alpha + 9 = 0$ with two solutions $\alpha=3/2$ and $\alpha=3$. Recall that $0 \leq p_i \leq 1$, the solution $\alpha=3$ is discarded as some $p_i$'s are negative, and we are left with $\alpha=3/2$.
+
+
+2. Which of the following are true for random variables?<br/>
+  a. A random variable $X$ defines an event.<br/>
+  b. For a random variable $X$ and a fixed real number  a , "$X \leq a$" defines an event.<br/>
+  c. Random variables for the same sample space must be same.<br/>
+  d. For a random variable $X$, possible values for $\Pr(X=x)$ include 0, 0.5 and 1.<br/>
+
+  Ans: bd<br/>
+  Explanation: Recall either the informal definition of a random variable as a real-valued random experiment, or the more formal one as a function that maps the sample set $\Omega$ to real numbers $R$. Therefore:
+    + False. A random variable does not define an event.
+    + True. "$X\leq a$" is the set of outcomes that are at most a.
+    + False. A fair coin and a biased coin are two different variables with the same sample space \(\{h,t\}).
+    + True. $0 \leq \Pr(X=x) \leq 1$, hence both 0,0.5 and 1 are possible.
+
+
+3. An urn contains 20 balls numbered 1 through 20. Three of the balls are selected from the run randomly without replacement, and $X$ denotes the largest number selected.<br/>
+  a. How many values can $X$ take?<br/>
+  b. What is $\Pr(X=18)$?<br/>
+  c. What is $\Pr(X \geq 17)$?<br/>
+
+  Ans: a. (18); b. (0.1192); c. (0.50877)<br/>
+  Explanation: 
+    + 1 and 2 are impossible, the remaining 18 outcomes can occur.
+    + 18 is fixed, while the other 2 balls should selected from 1 to 17. $\Pr(X = 18) = \binom{17}{2}/\binom{20}{3}=0.119$.
+    + $\Pr(X \ge 17) = \Pr(X = 17) + \Pr(X = 18) + \Pr(X = 19) + \Pr(X = 20) = \frac{\binom{16}{2} + \binom{17}{2} + \binom{18}{2} + \binom{19}{2}}{\binom{20}{3}} = 0.508$
 
 
 ## Lecture Video
