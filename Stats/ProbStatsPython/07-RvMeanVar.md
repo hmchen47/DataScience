@@ -5,17 +5,16 @@
 
 + Motivation
   + basic: coin, dice, cards, dominoes, marbles, ...
-  + applications
-    + subscribers, clicks, viewers
-    + yield, weight, sales
-    + time, congestion, delay
-    + age, temperature, heart rate
-    + GPA, tuition, assignment
-    + income, cost
-  + numbers
+  + applications $\to$ numbers
+    + Internet company: subscribers, clicks, viewers
+    + manufacture: yield, weight, sales
+    + traveler: time, congestion, delay
+    + physician: age, temperature, heart rate
+    + student: GPA, tuition, assignment
+    + people: income, cost
   + random variable: number-valued random outcome
 
-+ Xtra w/ numbers
++ Difference w/ numbers
   + distribution, $p(x)$
     + viewing on a line
     + expressing as function, e.g., $p(x) = 1/x^2$
@@ -26,6 +25,7 @@
     + considering properties, average value of $X$
 
 + Types of random variables
+  + size of sample space $\Omega$
   + discrete
     + finite: $\{1, 2, 3\}, \{e, \pi\}$
     + countably infinite: $\Bbb{N}, \Bbb{Z}$
@@ -34,19 +34,17 @@
   + mixed
     + combination: $[0, 2] \cup \{e, \pi\}$
 
-+ Number outcomes
++ Numbered outcomes
   + several past examples had number outcomes
     + outcome of a die roll: $\{1, \dots, 6\}$
     + values of a domino tile: $\{0, \dots, 6\}$
-    + number of heads in 3 coin tosses: \{0, \dots, 3\}$
+    + number of heads in 3 coin tosses: $\{0, \dots, 3\}$
   + not using numerical features $\to$ use extensively
-  + familiar and new examples
-  + general formulation
 
 + Numbers of Heads
   + 3 fair coins
   + $\Omega = \{\text{ttt, tth, tht, thh, htt, hth, hht, hhh}\} \to |\Omega| = 8$
-  + equiprobable: $p = 8$
+  + equiprobable: $p = 1/8$
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="url" ismap target="_blank">
@@ -64,14 +62,14 @@
 
       <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
         <a href="url" ismap target="_blank">
-          <img src="img/t07-02.png" style="margin: 0.1em;" alt="Graphical examples of probability" title="Graphical examples of probability" width=350>
+          <img src="img/t07-02.png" style="margin: 0.1em;" alt="Graphical examples of probability" title="Graphical examples of probability" width=450>
         </a>
       </div>
   
 + Probability mass function
   + old fashion:
     + probability mass function (pmf)
-    + $p: \Omega \to \Bb{R}$
+    + $p: \Omega \to \Bbb{R}$
     + specify $\Omega$ and $p$
   + $\Omega$:
     + random variable $\to \subseteq \Bbb{R}$
@@ -83,8 +81,8 @@
 
 + Alternative notation - discrete
   + $\Omega \subseteq \Bbb{R}$
-  + often: $\Bbb{Z}, \bbb{N}, \Bbb{P}, \{1, \dots, n\}$
-  + $\p(x) \to p_x \; p_i$
+  + often: $\Bbb{Z}, \Bbb{N}, \Bbb{P}, \{1, \dots, n\}$
+  + $p(x) \to p_x \; p_i$
   + $p_i \geq 0 \quad \sum_i p_i = 1$
 
 + Types of discrete distributions
@@ -96,7 +94,7 @@
 
     \[ \forall\, 1 \leq i \leq n \quad p_i \geq 0 \qquad \sum_{i=1}^n p_i = 1 \]
   
-  + uniform: $p_1 = p_2 = \cots, p_n = 1/n$
+  + uniform: $p_1 = p_2 = \cdots, p_n = 1/n$
   + increasing: $p_1 \leq p_2 \leq \cdots \leq p_n$
   + decreasing: $p_1 \geq p_2 \geq \cdots \geq p_n$
 
@@ -104,13 +102,13 @@
   + $|\Omega| = \infty$
   + one-side infinite
     + $p_1, p_2, p_3, \dots$
-    + not uniform: $p = 0 \to \sum = 0 \quad p > 0 \to \sum = \indty$
-    + not increasing: $p_i > 0 \to p_{i+1}, p_{i+2}, \dots > p_i \to \sum = \infty$
-    + able to decrease: $\tfrac{1}{2}, \tfrac{1}{4}, \tfrac{1}{8}, \dots$
+    + unable to be uniform: $p = 0 \to \sum = 0 \quad p > 0 \to \sum = \infty$
+    + unable to be increasing: $p_i > 0 \to p_{i+1}, p_{i+2}, \dots > p_i \to \sum = \infty$
+    + able to be decreasing: $\tfrac{1}{2}, \tfrac{1}{4}, \tfrac{1}{8}, \dots$
       + $\sum_{i=1}^n \frac{1}{2^i} = 1 - \frac{1}{2^n}$
       + $\sum_{i=1}^\infty \frac{1}{2^i} = 1
   + double infinite
-    + $\dots, p_{-2}, p_{-1}, p_0, p_1, P_2, \dots$
+    + $\dots, p_{-2}, p_{-1}, p_0, p_1, p_2, \dots$
     + e.g., $\dots, \tfrac{1}{8}, \tfrac{1}{4}, 0, \tfrac{1}{4}, \tfrac{1}{8}, \dots$
 
 + Formal definition
