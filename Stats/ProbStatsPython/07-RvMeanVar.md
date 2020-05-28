@@ -183,7 +183,7 @@
   + cumulative distribution function (cdf): $F: \Bbb{R} \to \Bbb{R}$
 
     \[\begin{align*}
-      F(x) &\stackrel{\text{def}}{=}\, \Pr(X \in (-\infty, x])) \\
+      F(x) &\stackrel{\text{def}}{=}\, \Pr(X \in (-\infty, x]) \\
       &\stackrel{\text{def}}{=}\, \Pr(X \leq x) = \sum_{u \leq x} p(u)
     \end{align*}\]
 
@@ -221,6 +221,59 @@
 
 ## Problem Sets
 
+0. All cumulative distribution functions are:<br/>
+  a. Continuous.<br/>
+  b. Left continuous.<br/>
+  c. Right continuous.<br/>
+  d. None of the above.<br/>
+
+  Ans: b
+
+
+1. For the probability mass function, Find:
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ycv8nzfl" ismap target="_blank">
+      <img src="img/t07-04.png" style="margin: 0.1em;" alt="Diagram for 7.2 PS Q1" title="Diagram for 7.2 PS Q1" width=150>
+    </a>
+  </div>
+
+  a. $\Pr(X = 1)$,<br/>
+  b. $\Pr(X \geq 1)$,<br/>
+  c. $\Pr(X \in \Bbb{Z})$.<br/>
+
+  Ans: a. (.1); b. (.4); c. ()<br/>
+  Explanation
+    + $\Pr(X=1)=0.1$ from the figure.
+    + $\Pr(X\ge 1)=\Pr(X=1)+\Pr(X=2)=0.4$
+    + $\Pr(X\in \mathbb{Z})=\Pr(X=-1)+\Pr(X=0)+\Pr(X=1)+\Pr(X=2)=0.6$
+
+
+2. Recall that the "floor" of a real number $x$, denoted $\lfloor x \rfloor$, is the largest integer $\leq x$.  
+
+  \[ F(x)= \begin{cases} k-\frac{1}{\lfloor x\rfloor} & x\ge 1,\\ 0 & x\lt 1,\end{cases} \]
+  
+  is a cumulative distribution function (cdf) for some fixed number $k$. Find:<br/>
+  a. $k$,<br/>
+  b. $x_{min}$ (the smallest number with non-zero probability),<br/>
+  c. $P(X=4)$,<br/>
+  d. $P(2 < X \leq 5)$.<br/>
+
+  Ans: a. (1); b. (2); c. (1/12); d. (3/10)<br/>
+  Explanation
+    + Observe that $F(x)=0$ for $x<1$, and since $k=1$, also $F(1)=0$, hence the smallest number with non-zero probability is 2.
+    + $\Pr(X = 4) = F(4) - F(3) = \frac{3}{4} - \frac{2}{3} = \frac{1}{12}$
+    + $\Pr(2\lt X\le 5) = F(5) - F(2) = \frac{4}{5} - \frac{1}{2} = \frac{3}{10}$
+
+
+3. Flip a coin with heads probability 0.6 repeatedly till it lands on tails, and let $X$ be the total number of flips, for example, for h, h, t, $X=3$. Find:
+  a. $P(X\le 3)$
+  b. $P(X\ge 5)$
+
+  Ans: a. (0.784); b.(0.1296)<br/>
+  Explanation
+    + $\Pr(X \le 3) = \Pr(X = 1) + \Pr(X = 2) + \Pr(X = 3)$ $= 0.4 + 0.6 \times 0.4 + 0.6 \times 0.6 \times 0.4 = 0.784$
+    + $\Pr(X\ge 5) = 1 - \Pr(X \lt 5) = 1 - \Pr(X \le 4) = 1 - (\Pr(X \le 3) + \Pr(X = 4))$ $ = 1 - (\Pr(X \le 3) + 0.6 \times 0.6 \times 0.6 \times 0.4) = 0.1296$
 
 
 
