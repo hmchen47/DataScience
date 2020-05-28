@@ -171,10 +171,8 @@
 
 ## 7.2 Cumulative Distribution Function
 
-+ Interesting probabilities
-  + coin
-  + poker
-  + random variable: intervals
++ Areas of interest
+  + for random variable, often, interested in probability of intervals
     + salary > 80K
     + GPA < 3.0
     + temperature btw 60 and $80 {}^\circ F$
@@ -209,14 +207,8 @@
 
 + Properties
   + nondecreasing: $x \leq y \to F(x) \leq F(y)$
-  + limits: $\lim_{x \to -\infty} F(x) = 0 \qquad \lim_{x \to \infty} F(x) = 1$
-  + right-continuous: $\lim_{x \searrow \alpha} F(x) = F(a)$
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="url" ismap target="_blank">
-      <img src="img/t07-04.png" style="margin: 0.1em;" alt="Example of cumulative distribution function" title="Example of cumulative distribution function" height=100>
-    </a>
-  </div>
+  + limits: $\displaystyle \lim_{x \to -\infty} F(x) = 0 \qquad \lim_{x \to \infty} F(x) = 1$
+  + right-continuous: $\displaystyle \lim_{x \searrow a} F(x) = F(a)$
 
 + Interval probabilities
   + by definition: $\Pr(X \leq a) = F(a)$
