@@ -171,9 +171,60 @@
 
 ## 7.2 Cumulative Distribution Function
 
++ Interesting probabilities
+  + coin
+  + poker
+  + random variable: intervals
+    + salary > 80K
+    + GPA < 3.0
+    + temperature btw 60 and $80 {}^\circ F$
+  + one function determining all interval probabilities
+
++ Culmulative distribution function
+  + probability mass function (pmf): $p: \Omega \to \Bbb{R}$
+  + cumulative distribution function (cdf): $F: \Bbb{R} \to \Bbb{R}$
+
+    \[\begin{align*}
+      F(x) &\stackrel{\text{def}}{=}\, \Pr(X \in (-\infty, x])) \\
+      &\stackrel{\text{def}}{=}\, \Pr(X \leq x) = \sum_{u \leq x} p(u)
+    \end{align*}\]
+
+  + $X$ discrete, still $F$ defined over $\Bbb{R}$
+
++ Example
+  + PMF
+
+    \[ p(x) = \begin{cases} .2 & -1 \\ .5 & 1 \\ .3 & 2 \end{cases} \]
+
+  + CDF
+
+    \[ F(x) = \Pr(X \leq x) = \sum_{u \leq x} p(u) \]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="url" ismap target="_blank">
+      <img src="img/t07-03a.png" style="margin: 0.1em;" alt="Probability mass function" title="Probability mass function" height=100>
+      <img src="img/t07-03b.png" style="margin: 0.1em;" alt="Cumulative distribution function" title="Cumulative distribution function" height=100>
+    </a>
+  </div>
+
++ Properties
+  + nondecreasing: $x \leq y \to F(x) \leq F(y)$
+  + limits: $\lim_{x \to -\infty} F(x) = 0 \qquad \lim_{x \to \infty} F(x) = 1$
+  + right-continuous: $\lim_{x \searrow \alpha} F(x) = F(a)$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="url" ismap target="_blank">
+      <img src="img/t07-04.png" style="margin: 0.1em;" alt="Example of cumulative distribution function" title="Example of cumulative distribution function" height=100>
+    </a>
+  </div>
+
++ Interval probabilities
+  + by definition: $\Pr(X \leq a) = F(a)$
+  + $\Pr(X > a) = 1 - \Pr(X \leq a) = 1 - F(a)$
+  + $\Pr(a < X \leq b) = \Pr((X \leq b) - (X \leq a)) = \Pr(X \leq b) - \Pr(X \leq a) = F(b) - F(a)$
 
 
-
++ [Original Slides](https://tinyurl.com/yazqvt68)
 
 
 ## Problem Sets
