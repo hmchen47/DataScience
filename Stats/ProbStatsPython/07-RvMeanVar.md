@@ -292,7 +292,7 @@
     + min & max values of $X$
     + lowest & highest temperature / salary
     + $x_{\min} = \min\{x \in \Omega \mid p(x) > 0\}$
-    + $x_{\max} = \max\{x \in \Omega \mid p(x0 > 0)\}$
+    + $x_{\max} = \max\{x \in \Omega \mid p(x) > 0\}$
   + average
     + average temperature / salary
     + range average: $ \frac{x_{\min} + x_{\max}}{2}$
@@ -417,8 +417,8 @@
   </div>
 
 + Undefined expectation
-  + $p_i = \frac{3}{\pi^2} \cdot \frac{1}{i^2}$ for #i \neq 0$
-  + $EX(X) = \infty - \infty \to$ undefined, oscillated btw $\infty$ and $-\infty$
+  + $p_i = \frac{3}{\pi^2} \cdot \frac{1}{i^2}$ for $i \neq 0$
+  + $E(X) = \infty - \infty \to$ undefined, oscillated btw $\infty$ and $-\infty$
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/y87kom5a" ismap target="_blank">
