@@ -291,13 +291,13 @@
   + range:
     + min & max values of $X$
     + lowest & highest temperature / salary
-    + $x_{\min} = \min\{x \in \Omega: p(x) > 0\}$
-    + $x_{\max} = \max\{x \in \Omega: p(x0 > 0)\}$
+    + $x_{\min} = \min\{x \in \Omega \mid p(x) > 0\}$
+    + $x_{\max} = \max\{x \in \Omega \mid p(x0 > 0)\}$
   + average
     + average temperature / salary
     + range average: $ \frac{x_{\min} + x_{\max}}{2}$
     + element average
-      + $\dfrac{1}{|\Omega} \sum_{x \in \Omega} x?$
+      + $\dfrac{1}{|\Omega|} \displaystyle\sum_{x \in \Omega} x?$
       + over $x$ s.t. $p(x) > 0$
 
 + Sample mean
@@ -316,7 +316,7 @@
   + each value $\sim n/6$ times
   + average
 
-    \[ \frac{\frac{n}{6} \cdot 1 + \frac{n}{6} \cdot 2 + \cdots + \frac{n}{6} \cdot 6}{n} = \frac{1 + \cdots + 6}{6} = \farc{1}{6} \frac{(1+6) \cdot 6}{2} = 3.5 \]
+    \[ \frac{\frac{n}{6} \cdot 1 + \frac{n}{6} \cdot 2 + \cdots + \frac{n}{6} \cdot 6}{n} = \frac{1 + \cdots + 6}{6} = \frac{1}{6} \frac{(1+6) \cdot 6}{2} = 3.5 \]
 
   + outcomes $1, 2, \dots, 6 \to $ average = 3.5
 
@@ -324,7 +324,7 @@
   + average
 
     \[\begin{align*}
-      \text{average} = \frac{.1n \cdot 1 + .2n \cdot 2 + .3n \cdot 3 + .4n \cdot 4}{n}\\
+      \text{average} &= \frac{.1n \cdot 1 + .2n \cdot 2 + .3n \cdot 3 + .4n \cdot 4}{n}\\
       &= .1 \cdot 1 + 0.2 \cdot 2 + .3 \cdot 3 + .4 \cdot 4 = 3
     \end{align*}\]
 
@@ -333,7 +333,7 @@
 
 + Expectation
   + w/ $n \to \infty$ samples, $x$ appear $\to p(x) \cdot n$ times
-  + expectation, mean
+  + expectation / mean
 
     \[ E(X) \,\stackrel{\text{def}}{=}\, \sum_x P(x) \cdot x = \frac{\sum_x [\Pr(x) \cdot n] \cdot n}{n} \]
 
@@ -342,7 +342,7 @@
   + example: fair die
 
     \[\begin{align*}
-      E(x) &= \sum {i=1}^6 \Pr(i) \cdot i = \sum_{i=1}^6 \frac{1}{6} \cdot i \\
+      E(x) &= \sum_{i=1}^6 \Pr(i) \cdot i = \sum_{i=1}^6 \frac{1}{6} \cdot i \\
       &= \frac{1+2+\cdots +6}{6} = \frac{1}{6} \frac{(1+6) \cdot 6}{2} = \frac{7}{2} = 3.5
     \end{align*}\]
 
@@ -359,6 +359,10 @@
 
   + \# heads ranges from 0 to 3, on average 1.5
 
++ Symmetry
+  + a distribution $p$ is symmetric around $a$ if $\forall\, x > 0, p(a+x) = p(a-x)$
+  + $p$ is symmetric around $a \implies E(x) = a$
+
 + Uniform variables
   + $X$ uniform over $\Omega$
 
@@ -371,25 +375,23 @@
 
     \[ E(X) = \frac{1 + 2 + \cdots + 6}{6} = 3.5 \]
 
-+ Symmetry
-  + a distribution $p$ is symmetric around $a$ if $\forall\, x > 0, p(a+x) = p(a-x)$
-  + $p$ is symmetric around $a \implies E(x) = a$
+  + e.g., 3 fair coins w/ $E(X) = 1.5 \to$ symmetry around 1.5
 
-+ Properties
++ Properties of expectation
   + $E(x)$
     + not random
     + number
     + property of distribution
     + e.g., $E(x) = 1.5$
   + $x_{\min} \leq E(x) \leq x_{\max}$
-    + $=$ holds $\iff X = c$
+    + $=$ holds $\iff X = c, \quad c$ as a constant
     + e.g., $0 \leq E(x) \leq 3$
   + $X$ as a constant, viz. $X = c \to E(X) = c$
   + $E(E(X)) = E(X)$
 
 + Expectation expected
   + $\mu = EX$: expectation of $X$
-  + $p_\mu$ high?
+  + expect to see it? $\quad p_\mu$ high?
   + not necessary, probably never see it
     + $X \in \{0, 1\} \text{ w/ } p_0 = p_1 = 0.5$
     + $EX = 0 \cdot p_0 + 1 \cdot p_1 = 0 \cdot \frac{1}{2} + 1 \cdot \frac{1}{2} = \frac{1}{2}$
@@ -397,25 +399,26 @@
     + 1/2 never happened
     + many samples $\to$ average = 1/2
   + $EX$: average of large sample
-    + not necessary likely
+    + not necessary likely a number to see
     + probably not observed at all
 
 + Infinite expectation
   + Basel problem: $\sum_{i=1}^\infty \frac{1}{i^2} = \frac{\pi^2}{6}$
+  + Euler proved 
   + unitary: $\frac{6}{\pi^2} \sum_{i=1}^\infty \frac{1}{i^2} = 1$
   + probability distribution over $\Bbb{P}$: $p_i = \frac{6}{\pi^2} \cdot \frac{1}{i^2}$
-  + #E(X) = \sum_{i=1}^\infty i \cdot p_i = \frac{6}{\pi^2} \sum_{i=1}^\infty \frac{1}{i} = \infty$
+  + $E(X) = \sum_{i=1}^\infty i \cdot p_i = \frac{6}{\pi^2} \sum_{i=1}^\infty \frac{1}{i} = \infty$
   + many samples: average will go to $\infty$
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/y87kom5a" ismap target="_blank">
-      <img src="img/t07-05.png" style="margin: 0.1em;" alt="Example distribution w/ infinite expection" title="Example distribution w/ infinite expection" width=200>
+      <img src="img/t07-05.png" style="margin: 0.1em;" alt="Example distribution of Basel problem w/ infinite expection" title="Example distribution of Basel problem w/ infinite expection" width=200>
     </a>
   </div>
 
 + Undefined expectation
-  + $\p_i = \frac{3}{\pi^2} \cdot \frac{1}{i^2}$ for #i \new 0$
-  + $EX(X) = \infty - \infty \to$ undefined
+  + $p_i = \frac{3}{\pi^2} \cdot \frac{1}{i^2}$ for #i \neq 0$
+  + $EX(X) = \infty - \infty \to$ undefined, oscillated btw $\infty$ and $-\infty$
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/y87kom5a" ismap target="_blank">
