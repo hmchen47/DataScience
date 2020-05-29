@@ -256,8 +256,8 @@
   is a cumulative distribution function (cdf) for some fixed number $k$. Find:<br/>
   a. $k$,<br/>
   b. $x_{min}$ (the smallest number with non-zero probability),<br/>
-  c. $P(X=4)$,<br/>
-  d. $P(2 < X \leq 5)$.<br/>
+  c. $\Pr(X=4)$,<br/>
+  d. $\Pr(2 < X \leq 5)$.<br/>
 
   Ans: a. (1); b. (2); c. (1/12); d. (3/10)<br/>
   Explanation
@@ -267,8 +267,8 @@
 
 
 3. Flip a coin with heads probability 0.6 repeatedly till it lands on tails, and let $X$ be the total number of flips, for example, for h, h, t, $X=3$. Find:
-  a. $P(X\le 3)$
-  b. $P(X\ge 5)$
+  a. $\Pr(X\le 3)$
+  b. $\Pr(X\ge 5)$
 
   Ans: a. (0.784); b.(0.1296)<br/>
   Explanation
@@ -335,7 +335,7 @@
   + w/ $n \to \infty$ samples, $x$ appear $\to p(x) \cdot n$ times
   + expectation / mean
 
-    \[ E(X) \,\stackrel{\text{def}}{=}\, \sum_x P(x) \cdot x = \frac{\sum_x [\Pr(x) \cdot n] \cdot n}{n} \]
+    \[ E(X) \,\stackrel{\text{def}}{=}\, \sum_x \Pr(x) \cdot x = \frac{\sum_x [\Pr(x) \cdot n] \cdot n}{n} \]
 
   + $E(x)$ also denoted $EX, \mu_x, \mu$
   + not random, constant, property of the distribution
@@ -440,6 +440,100 @@
 
 ## Problem Sets
 
+0. The expectation of a random variable X must be a number X can take.<br/>
+  a. True<br/>
+  b. Not true<br/>
+
+  Ans: <span style="color: magenta;">b</span><br/>
+  Explanation: The expectation of a die roll is 3.5.
+
+
+1. Which 2 of the following are true about the expectation of a random variable?<br/>
+  a. Not random<br/>
+  b. Random value<br/>
+  c. Property of the distribution<br/>
+  d. Independent of the distribution<br/>
+
+  Ans: ac <br/>
+  Explanation: An expectation of a distribution is a constant, which can be deducted by the distribution.
+
+
+2. A quiz-show contestant is presented with two questions, question 1 and question 2, and she can choose which question to answer first. If her initial answer is incorrect, she is not allowed to answer the other question. If the rewards for correctly answering question 1 and 2 are \$200 and \$100 respectively, and the contestant is 60% and 80% certain of answering question 1 and 2, which question should she answer first as to maximize the expected reward?
+
+  Ans: <span style="color: magenta;">Question 2 first</span><br/>
+  Explanation: 
+    + The expected reward if Question  1  is answered first is given by $300\times 0.6\times0.8+200\times 0.6\times 0.2+0=168$
+    + and if Question  2  is chosen to be answered first, $300\times 0.8\times0.6+100\times 0.8\times 0.4+0=176$
+    + Thus she should choose to answer Question 2 first.
+    + [StackExchange](https://tinyurl.com/y98xq579)
+
+
+3. If we draw cards from a 52-deck with replacement 100 times, how many times can we expect to draw a black king?<br/>
+  a. 3.846<br/>
+  b. 1.923<br/>
+  c. 0.038<br/>
+  d. 7.692<br/>
+
+  Ans: a<br/>
+  Explanation: Create 100 random variables $X1,X2, \dots ,X100$, each of which is a binary number, with 1 denotes we get a black king and 0 otherwise. It is easy to show that $E[X_i]=2/52$.  The times we expect to draw a black king can be calculated using $E[X_1 + X_2 + \cdots + X_{100}] = E[X_1] + E[X_2] + \cdots + E[X_{100}] = \frac{200}{52} = 3.846$
+
+
+4. Each time you play a die rolling game you must pay `$1`. If you roll an even number, you win `$2`. If you roll an odd number, you lose additional `$1`. What is the expected value of your winnings?<br/>
+  a. `−$0.50`<br/>
+  b. `+$0.50`<br/>
+  c. `+$0.00`<br/>
+  d. `+$1.00`<br/>
+  e. `−$1.00`<br/>
+
+  Ans: a<br/>
+  Explanation: Since each time you need to pay `$1` for the game, the question is equivalent to "If you roll an even number, you win `$1`. If you roll an odd number, you lose `$2`." With $\Pr(\text{even}) = \Pr(\text{odd}) = \frac{1}{2}$, the expectation is $1×12+(−2)×12=−0.5$.  [Quora](https://tinyurl.com/y89ctmc4)
+
+
+5. Choose a random subset of $\{2^1,2^2,\cdots, 2^{10}\}$ by selecting each of the 10 elements independently with probability $1/2$. Find the expected value of the smallest element in the subset (e.g. the subset can be $\{2^1,2^3,2^4,2^7\}$. The smallest element is $2^1$).
+
+  Ans: 10<br/>
+  Explanation: An element $2^j$, $(j\in\{1,\cdots, 10\})$ is the smallest if and only if all elements less than it have not been chosen and $j$ is chosen. The probability of this happening is $1/2^j$. Therefore the expectation is $\sum_{j=1}^{10} 1/2^{j}\cdot 2^j=10.$.
+
+
+6. An edX assignment has $50$ multiple-choice questions, each with four choices of which one is correct. A student gets $3$ points for solving a question correctly, and loses a point for an incorrect answer. What is the expected score of a student who answers all questions uniformly at random?
+
+  Ans: 0<br/>
+  Explanation: Since the probability of solving a question correctly here is $1/4$, the expected score is $50\cdot(3\cdot 1/4-1\cdot3/4)=0$.
+
+
+7. Which of the following statements are true for a random variable $X$?<br/>
+  a. $E(X)$ must be in the range $(0,1)$<br/>
+  b. $E(X)$ can take a value that $X$ does not take<br/>
+  c. $\Pr(X\le E(X))=1/2$<br/>
+  d. $E(X)=\frac12 (x_{\text{max}}+x_{\text{min}})$<br/>
+
+  Ans: b<br/>
+  Explanation: 
+    + False.
+    + True. For random variable $X$ uniformly distributed over $\{−1,1\}$, the expectation is $E(X)=0$, which cannot be taken by $X$.
+    + False. For random variable $X$ uniformly distributed over $\{−1,0,1\}$, the expectation is $E(X)=0$. Then $\Pr(X \le E(X))=\Pr(X \le 0)=\frac23$.
+    + False. For random variable $X$ uniformly distributed over $\{−2,0,1\}$, the expectation is $E(X)=−\frac13 \neq \frac12 (x_{max}+x_{min})=−0.5$.
+
+
+8. A bag contains five balls numbered 1 to 5. Randomly draw two balls from the bag and let $X$ denote the sum of the numbers.
+  a. What is $\Pr(X \le 5)$?
+  b. What is $E(X)$?
+
+  Ans: a. (0.4); b. (6)<br/>
+  Explanation:
+    + The total number of ways to draw balls is $\tbinom52=10$. There are 4 ways to draw 2 balls with sum smaller or equal to 5 (i.e. $(1,2),(1,3),(1,4),(2,3)$).  Thus $\Pr(X \le 5)= \frac{4}{10}=0.4$.
+    + ind out the distribution of $X$, which is $\Pr(X = 3) = 0.1,$ $\Pr(X = 4) = 0.1,$ $ \Pr(X = 5) = 0.2,$ $\Pr(X = 6) = 0.2,$ $\Pr(X = 7) = 0.2,$ $\Pr(X = 8) = 0.1,$ $\Pr(X = 9) = 0.1$.  The expectation is $E(X) = 0.1 \times 3 + 0.1 \times 4+ 0.2 \times 5 + 0.2 \times 6 + 0.2 \times 7 + 0.1 \times 8 + 0.1 \times 9 = 6$
+
+9. A player flips two fair coins. The player wins `$3` if 2 heads occur and `$1` if 1 head occurs. How much money (in `$`) should the player lose when no heads occur for the game to be fair (expected gain is 0)?
+
+  Ans: 5<br/>
+  Explanation: The probability distribution is $\Pr(\text{2 heads}) = \Pr(\text{no heads}) = \frac{1}{4}, \Pr(\text{1 head}) = \frac{1}{2}$.  Suppose the the player loses `$x` when no heads occur. To make the game fair, $E(X) = \frac{1}{4} \times 3 + \frac{1}{2} \times 1 + \frac{1}{4} \times (-x) = 0$. Hence we have $x=5$.
+
+
+10. There are 3 classes with 20, 22 and 25 students in each class for a total of 67 students. Choose one out of the 67 students is uniformly at random, and let $X$ denote the number of students in his or her class. What is $E(X)$?
+
+  Ans: 22.5224<br/>
+  Explanation: $\Pr(\text{from the class with 20 students}) = \frac{20}{67}, \Pr(\text{from the class with 22 students}) = \frac{22}{67}, \Pr(\text{from the class with 25 students}) = \frac{25}{67}$. Hence, $E(X) = 20\cdot\frac{20}{67}+22\cdot\frac{22}{67}+25\cdot\frac{25}{67}=22.5224$
 
 
 
