@@ -553,8 +553,8 @@
     + example:
       + $X$: random salary in `$`
       + `$10` raise: $X \to Y = X + 10$
-      + 10% raise: $$X \to Y = 1.1\, X$
-      + become CEO: $$X \to Y = X^2$
+      + 10% raise: $X \to Y = 1.1\, X$
+      + become CEO: $X \to Y = X^2$
   + deterministic Functions
     + $Y = g(X)$
       + $g$ is a <span style="color: magenta;">deterministic</span> function over $\Bbb{R}$ (or $\Omega$)
@@ -653,6 +653,9 @@
 
 ## Problem Sets
 
+0. Let X be a random variable. For a fixed real function g, g(X) is also a random variable.
+
+  Ans: <span style="color: magenta;">yes</span>
 
 
 
