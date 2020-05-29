@@ -533,7 +533,7 @@
 10. There are 3 classes with 20, 22 and 25 students in each class for a total of 67 students. Choose one out of the 67 students is uniformly at random, and let $X$ denote the number of students in his or her class. What is $E(X)$?
 
   Ans: 22.5224<br/>
-  Explanation: $\Pr(\text{from the class with 20 students}) = \frac{20}{67}, \Pr(\text{from the class with 22 students}) = \frac{22}{67}, \Pr(\text{from the class with 25 students}) = \frac{25}{67}$. Hence, $E(X) = 20\cdot\frac{20}{67}+22\cdot\frac{22}{67}+25\cdot\frac{25}{67}=22.5224$
+  Explanation: $\Pr(\text{from the class with 20 students}) = \frac{20}{67},$ $\Pr(\text{from the class with 22 students}) = \frac{22}{67},$ $\Pr(\text{from the class with 25 students}) = \frac{25}{67}$. Hence, $E(X) = 20\cdot\frac{20}{67}+22\cdot\frac{22}{67}+25\cdot\frac{25}{67}=22.5224$
 
 
 
@@ -546,9 +546,115 @@
 
 ## 7.4 Variable Modifications
 
++ Functions of a random variable
+  + random variables $X$ taking values in $\Bbb{R}$
+  + often interested in related variable
+    + $Y = g(X)$ w/ $g: \Bbb{R} \to \Bbb{R}$ is a fixed function
+    + example:
+      + $X$: random salary in `$`
+      + `$10` raise: $Y = X + 10$
+      + 10% raise: $Y = 1.1\, X$
+      + to CEO: $Y = X62$
+
++ Deterministic Functions
+  + $Y = g(X)$
+    + $g$ is a <span style="color: magenta;">deterministic</span> function over $\Bbb{R}$ (or $\Omega$)
+    + e.g., $Y = X + 3$
+  + all randomness in $Y$ derived from $X$
+  + deterministically modified by $g$, e.g., $X = 5 \text{ s.t. } Y = 8$
+
++ Translation
+  + <span style="color: cyan;">add constant</span> $b$ to $X$ = <span style="color: cyan;">translate</span> $X$ by $b$
+  + $Y = X +b$
+  + $\Pr(Y=y) = \Pr(X+b = y) = \Pr(X=y-b)$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ycssyss3" ismap target="_blank">
+      <img src="img/t07-08a.png" style="margin: 0.1em;" alt="Example of translation: original random variable" title="Example of translation: original random variable" height=100>
+      <img src="img/t07-08b.png" style="margin: 0.1em;" alt="Example of translation: result of translation" title="Example of translation: result of translation" height=100>
+    </a>
+  </div>
+
++ Scaling
+  + multiplying $X$ by a constant $b$
+  + <span style="color: cyan;">scale</span> $X$ by a factor $b$, $Y = b \cdot X$
+  + $|pr(Y=y) = \Pr(bX = y) = \Pr(X = y/b)$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ycssyss3" ismap target="_blank">
+      <img src="img/t07-09a.png" style="margin: 0.1em;" alt="Example of scaling: original random variable" title="Example of scaling: original random variable" height=100>
+      <img src="img/t07-09b.png" style="margin: 0.1em;" alt="Example of scaling: result of scaling" title="Example of scaling: result of scaling" height=100>
+    </a>
+  </div>
+
++ Two square examples
+  + Square: 1-1
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th colspan="4" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$X$</th>
+        <th colspan="4" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$Y = X^2$</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">$x$</td> <td style="text-align: center;">0</td>
+        <td style="text-align: center;">1</td> <td style="text-align: center;">2</td>
+        <td style="text-align: center;">$y$</td> <td style="text-align: center;">0</td>
+        <td style="text-align: center;">1</td> <td style="text-align: center;">4</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">$p(X = x)$</td> <td style="text-align: center;">$\tfrac12$</td>
+        <td style="text-align: center;">$\tfrac13$</td> <td style="text-align: center;">$\tfrac16$</td>
+        <td style="text-align: center;">$p(Y=y)$</td> <td style="text-align: center;">$\tfrac12$</td>
+        <td style="text-align: center;">$\tfrac13$</td> <td style="text-align: center;">$\tfrac16$</td>
+      </tr>
+      </tbody>
+    </table>
+
+  + square: many to 1
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 60vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th colspan="6" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">$X$</th>
+        <th colspan="4" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$Y = X^2$</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">$x$</td> <td style="text-align: center;">-2</td>
+        <td style="text-align: center;">-1</td> <td style="text-align: center;">0</td>
+        <td style="text-align: center;">1</td> <td style="text-align: center;">2</td>
+        <td style="text-align: center;">$y$</td> <td style="text-align: center;">0</td>
+        <td style="text-align: center;">1</td> <td style="text-align: center;">4</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">$p(X-x)$</td> <td style="text-align: center;">$\tfrac15$</td>
+        <td style="text-align: center;">$\tfrac15$</td> <td style="text-align: center;">$\tfrac15$</td>
+        <td style="text-align: center;">$\tfrac15$</td> <td style="text-align: center;">$\tfrac15$</td>
+        <td style="text-align: center;">$p(Y=y)$</td> <td style="text-align: center;">$\tfrac15$</td>
+        <td style="text-align: center;">$\tfrac25$</td> <td style="text-align: center;">$\tfrac25$</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/ycssyss3" ismap target="_blank">
+        <img src="img/t07-10.png" style="margin: 0.1em;" alt="Function mapping w/ many to 1" title="Function mapping w/ many to 1" height=200>
+      </a>
+    </div>
+
+  \[ \Pr(Y=y) = \Pr(g(X) = y) = \Pr(X \in g^{-1}(y)) = \sum_{x \in g^{-1}(y)} \Pr(X=x) \]
+
++ properties
+  + $g(x) = \text{constant}$, e.g., $g(x) =1$
+  + $\Pr(Y=1) = \Pr(X \in \Omega) = 1$
 
 
 
++ [Original Slides](https://tinyurl.com/ycssyss3)
 
 
 ## Problem Sets
