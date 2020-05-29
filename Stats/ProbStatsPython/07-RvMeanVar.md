@@ -286,9 +286,153 @@
 
 ## 7.3 Expectation
 
++ Motivation
+  + important random-variable properties?
+  + range:
+    + min & max values of $X$
+    + lowest & highest temperature / salary
+    + $x_{\min} = \min\{x \in \Omega: p(x) > 0\}$
+    + $x_{\max} = \max\{x \in \Omega: p(x0 > 0)\}$
+  + average
+    + average temperature / salary
+    + range average: $ \frac{x_{\min} + x_{\max}}{2}$
+    + element average
+      + $\dfrac{1}{|\Omega} \sum_{x \in \Omega} x?$
+      + over $x$ s.t. $p(x) > 0$
+
++ Sample mean
+  + $\Omega = \{0, 1, \dots, 100\}$
+    + $p(0) = .8 \quad p(90) = .1 \quad p(100) = .1 \quad$ all other $p(x) =0$
+    + range average: $(x_{\min} + x_{\max}) / 2 \to (0 + 100)/2 = 50$
+    + element average: positive probabilities $\to (0+90+100)/3 = 63.3$
+  + ten sample
+    + typical: 0, 0, 0, 0, 90, 0, 0, 0, 100, 0
+    + sample mean: $(8 \cdot 0 + 1 \cdot 90 + 1 \cdot 100)/10 = 190/10 = 19$
+  + more representative of what we will observe
+
++ Example: fair die
+  + rolling a fair die $n \to \infty$ times
+  + average of the observed values = ?
+  + each value $\sim n/6$ times
+  + average
+
+    \[ \frac{\frac{n}{6} \cdot 1 + \frac{n}{6} \cdot 2 + \cdots + \frac{n}{6} \cdot 6}{n} = \frac{1 + \cdots + 6}{6} = \farc{1}{6} \frac{(1+6) \cdot 6}{2} = 3.5 \]
+
+  + outcomes $1, 2, \dots, 6 \to $ average = 3.5
+
++ Example: Tetrahedra die = 4-sided die
+  + average
+
+    \[\begin{align*}
+      \text{average} = \frac{.1n \cdot 1 + .2n \cdot 2 + .3n \cdot 3 + .4n \cdot 4}{n}\\
+      &= .1 \cdot 1 + 0.2 \cdot 2 + .3 \cdot 3 + .4 \cdot 4 = 3
+    \end{align*}\]
+
+  + arithmetic average: $(1 + 2 + 3 + 4)/4 = 2.5$
+  + probability skew to the right
+
++ Expectation
+  + w/ $n \to \infty$ samples, $x$ appear $\to p(x) \cdot n$ times
+  + expectation, mean
+
+    \[ E(X) \,\stackrel{\text{def}}{=}\, \sum_x P(x) \cdot x = \frac{\sum_x [\Pr(x) \cdot n] \cdot n}{n} \]
+
+  + $E(x)$ also denoted $EX, \mu_x, \mu$
+  + not random, constant, property of the distribution
+  + example: fair die
+
+    \[\begin{align*}
+      E(x) &= \sum {i=1}^6 \Pr(i) \cdot i = \sum_{i=1}^6 \frac{1}{6} \cdot i \\
+      &= \frac{1+2+\cdots +6}{6} = \frac{1}{6} \frac{(1+6) \cdot 6}{2} = \frac{7}{2} = 3.5
+    \end{align*}\]
+
+  + example: 4 sided-die
+
+    \[ E(x) = \sum_{i=1}^4 p_i \cdot i = 0.1 \cdot 1 + 0.2 \cdot 2 + 0.3 \cdot 3 + 0.4 \cdot 4 = 3 \]
+
++ Example: 3 fair coins
+  + toss a coin 3 times
+  + $X$: number of heads
+  + $E(X) = ?$
+  
+    \[ \sum \Pr(x) \cdot x = 1/8 \cdot 0 + 3/8 \cdot 1 + 3/8 \cdot 2 + 1/8 \cdot 3 = 1.5 \]
+
+  + \# heads ranges from 0 to 3, on average 1.5
+
++ Uniform variables
+  + $X$ uniform over $\Omega$
+
+    \[\begin{align*}
+      p(x) &= \frac{1}{|\Omega|} \\
+      E(X) &= \sum_{x \in \Omega} \,p(x) \cdot x = \sum_{x \in \Omega} \frac{1}{|\Omega|} \cdot x = \frac{1}{|\Omega|} \sum_{x \in \Omega} x
+    \end{align*}\]
+
+  + $E(x)$: the arithmetic average of element in $\Omega$
+
+    \[ E(X) = \frac{1 + 2 + \cdots + 6}{6} = 3.5 \]
+
++ Symmetry
+  + a distribution $p$ is symmetric around $a$ if $\forall\, x > 0, p(a+x) = p(a-x)$
+  + $p$ is symmetric around $a \implies E(x) = a$
+
++ Properties
+  + $E(x)$
+    + not random
+    + number
+    + property of distribution
+    + e.g., $E(x) = 1.5$
+  + $x_{\min} \leq E(x) \leq x_{\max}$
+    + $=$ holds $\iff X = c$
+    + e.g., $0 \leq E(x) \leq 3$
+  + $X$ as a constant, viz. $X = c \to E(X) = c$
+  + $E(E(X)) = E(X)$
+
++ Expectation expected
+  + $\mu = EX$: expectation of $X$
+  + $p_\mu$ high?
+  + not necessary, probably never see it
+    + $X \in \{0, 1\} \text{ w/ } p_0 = p_1 = 0.5$
+    + $EX = 0 \cdot p_0 + 1 \cdot p_1 = 0 \cdot \frac{1}{2} + 1 \cdot \frac{1}{2} = \frac{1}{2}$
+    + symmetric around 1/2
+    + 1/2 never happened
+    + many samples $\to$ average = 1/2
+  + $EX$: average of large sample
+    + not necessary likely
+    + probably not observed at all
+
++ Infinite expectation
+  + Basel problem: $\sum_{i=1}^\infty \frac{1}{i^2} = \frac{\pi^2}{6}$
+  + unitary: $\frac{6}{\pi^2} \sum_{i=1}^\infty \frac{1}{i^2} = 1$
+  + probability distribution over $\Bbb{P}$: $p_i = \frac{6}{\pi^2} \cdot \frac{1}{i^2}$
+  + #E(X) = \sum_{i=1}^\infty i \cdot p_i = \frac{6}{\pi^2} \sum_{i=1}^\infty \frac{1}{i} = \infty$
+  + many samples: average will go to $\infty$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y87kom5a" ismap target="_blank">
+      <img src="img/t07-05.png" style="margin: 0.1em;" alt="Example distribution w/ infinite expection" title="Example distribution w/ infinite expection" width=200>
+    </a>
+  </div>
+
++ Undefined expectation
+  + $\p_i = \frac{3}{\pi^2} \cdot \frac{1}{i^2}$ for #i \new 0$
+  + $EX(X) = \infty - \infty \to$ undefined
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y87kom5a" ismap target="_blank">
+      <img src="img/t07-06.png" style="margin: 0.1em;" alt="Example distribution w/ undefined expectation " title="Example distribution w/ undefined expectation " width=200>
+    </a>
+  </div>
+
++ Example: life expectancy
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y87kom5a" ismap target="_blank">
+      <img src="img/t07-07.png" style="margin: 0.1em;" alt="Life expectancy of different contentints" title="Life expectancy of different contentints" width=450>
+    </a>
+  </div>
 
 
-
++ [Original Slides](https://tinyurl.com/y87kom5a)
 
 
 ## Problem Sets
