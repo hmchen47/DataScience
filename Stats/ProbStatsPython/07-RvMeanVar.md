@@ -630,7 +630,7 @@
         <td style="text-align: center;">1</td> <td style="text-align: center;">4</td>
       </tr>
       <tr>
-        <td style="text-align: center;">$p(X-x)$</td> <td style="text-align: center;">$\tfrac15$</td>
+        <td style="text-align: center;">$p(X=x)$</td> <td style="text-align: center;">$\tfrac15$</td>
         <td style="text-align: center;">$\tfrac15$</td> <td style="text-align: center;">$\tfrac15$</td>
         <td style="text-align: center;">$\tfrac15$</td> <td style="text-align: center;">$\tfrac15$</td>
         <td style="text-align: center;">$p(Y=y)$</td> <td style="text-align: center;">$\tfrac15$</td>
@@ -686,7 +686,7 @@
         <td style="text-align: center;">1</td> <td style="text-align: center;">4</td>
       </tr>
       <tr>
-        <td style="text-align: center;">$p(X-x)$</td> <td style="text-align: center;">$\tfrac15$</td>
+        <td style="text-align: center;">$p(X=x)$</td> <td style="text-align: center;">$\tfrac15$</td>
         <td style="text-align: center;">$\tfrac15$</td> <td style="text-align: center;">$\tfrac15$</td>
         <td style="text-align: center;">$\tfrac15$</td> <td style="text-align: center;">$\tfrac15$</td>
         <td style="text-align: center;">$p(Y=y)$</td> <td style="text-align: center;">$\tfrac15$</td>
@@ -697,7 +697,7 @@
 
   \[\begin{align*}
     E(X) &= \sum_x p(x) \cdot x \\
-    &= \underbrace{-1 \cdot \frac15 + \underbrace{-1 \cdot \frac15 + 0 \cdot \frac15 + 1 \cdot \frac15}_{0} + 2 \cdot \frac15}_{\substack{0 \\\\ \text{By Symmetry}}} = 0
+    &= \underbrace{-2 \cdot \frac15 + \underbrace{-1 \cdot \frac15 + 0 \cdot \frac15 + 1 \cdot \frac15}_{0} + 2 \cdot \frac15}_{\substack{0 \\\\ \text{By Symmetry}}} = 0
   \end{align*}\]
 
   \[\begin{align*}
@@ -710,7 +710,7 @@
   + Alternative formulation
 
     \[\begin{align*}
-      E(Y) &= \sum_y y \cdot \Pr(Y=y) = \sum_y y \cdot \Pr(X \in g^{-1}(y)) = \sum_y y \sum_{z \in g^{-1}(y)} y \cdot p(x) \\
+      E(Y) &= \sum_y y \cdot \Pr(Y=y) = \sum_y y \cdot \Pr(X \in g^{-1}(y)) = \sum_y y \sum_{x \in g^{-1}(y)} p(x) \\
       &= \sum_y \sum_{x \in g^{-1}(y)} y \cdot p(x) = \sum_y \sum_{x \in g^{-1}(y)} g(x) \cdot p(x) = \sum_x g(x) \cdot p(x)
     \end{align*}\]
 
@@ -725,7 +725,7 @@
   + Visualization
 
     \[\begin{align*}
-      E(Y) &= \sum_y y \cdot \Pr(Y=y) = \sum_y y \cdot \Pr(X \in g^{-1}(y))\\
+      E(Y) &= \sum_y y \cdot \Pr(Y=y) = \sum_y y \cdot \Pr(X \in g^{-1}(y)) = \sum_y y \sum_{x \in g^{-1}(y)} p(x)\\
       &= \sum_y \sum_{x \in g^{-1}(y)} y \cdot p(x) = \sum_y \sum_{x \in g^{-1}(y)} g(x) \cdot p(x) = \sum_x g(x) \cdot p(x)
     \end{align*}\]
 
@@ -750,7 +750,7 @@
 + Constant addition
 
   \[\begin{align*}
-    E(X + b) &= \sum p(x) \cdot (x + b) = \\sum p(x) \cdot x + \sum p(x) \cdot b = E(X) + b \cdot \sum p(x) \\
+    E(X + b) &= \sum p(x) \cdot (x + b) = \sum p(x) \cdot x + \sum p(x) \cdot b = E(X) + b \cdot \sum p(x) \\
     &= E(X) + b
   \end{align*}\]
 
@@ -765,14 +765,11 @@
 
 + Constant multiplication
   
-  \[\begin{align*}
-    E(aX) &= \sum p(x) \cdot (ax) = a \sum p(x) \cdot a \\
-    &= a E(X)
-  \end{align*}\]
+  \[ E(aX) = \sum p(x) \cdot (ax) = a \sum p(x) \cdot a = a E(X) \]
 
   + example: Bernoulli p
 
-    \[E(3X) &= (1-p) \cdot (3 \cdot 0) + p \cdot (3 \cdot 1) = 2p = 3 E(X) \]
+    \[E(3X) = (1-p) \cdot (3 \cdot 0) + p \cdot (3 \cdot 1) = 2p = 3 E(X) \]
 
 + Linearity of expectation
 
@@ -780,7 +777,7 @@
 
   + example: Bernoulli p
 
-    \[ E(2X+3) &= (1-p)(2 \cdot 0 + 3) + p(2\cdot 1 + 3) = 3 - 3p + 5p = 2p + 3 = 2E(X) +3 \]
+    \[ E(2X+3) = (1-p)(2 \cdot 0 + 3) + p(2\cdot 1 + 3) = 3 - 3p + 5p = 2p + 3 = 2E(X) +3 \]
 
 
 + [Original Slides](https://tinyurl.com/y9t3hykh)
