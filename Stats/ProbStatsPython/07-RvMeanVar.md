@@ -668,9 +668,114 @@
 
 ## 7.5 Expectation of Modified Variables
 
++ Expectation of Square
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th colspan="6" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">$X$</th>
+        <th colspan="4" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$Y = X^2$</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">$x$</td> <td style="text-align: center;">-2</td>
+        <td style="text-align: center;">-1</td> <td style="text-align: center;">0</td>
+        <td style="text-align: center;">1</td> <td style="text-align: center;">2</td>
+        <td style="text-align: center;">$y$</td> <td style="text-align: center;">0</td>
+        <td style="text-align: center;">1</td> <td style="text-align: center;">4</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">$p(X-x)$</td> <td style="text-align: center;">$\tfrac15$</td>
+        <td style="text-align: center;">$\tfrac15$</td> <td style="text-align: center;">$\tfrac15$</td>
+        <td style="text-align: center;">$\tfrac15$</td> <td style="text-align: center;">$\tfrac15$</td>
+        <td style="text-align: center;">$p(Y=y)$</td> <td style="text-align: center;">$\tfrac15$</td>
+        <td style="text-align: center;">$\tfrac25$</td> <td style="text-align: center;">$\tfrac25$</td>
+      </tr>
+      </tbody>
+    </table>
+
+  \[\begin{align*}
+    E(X) &= \sum_x p(x) \cdot x \\
+    &= \underbrace{-1 \cdot \frac15 + \underbrace{-1 \cdot \frac15 + 0 \cdot \frac15 + 1 \cdot \frac15}_{0} + 2 \frac15}_{\substack{0 \\\\ \text{By Symmetry}}} = 0
+  \end{align*}\]
+
+  \[\begin{align*}
+    \Pr(Y = 0) &= \Pr(X^2 = 0) = \Pr(X = 0) = \frac15 \\
+    \Pr(Y = 1) &= \Pr(X^2 = 1) = \Pr(X \in \{-1, 1\}) = \frac25 \\
+    \Pr(Y = 4) &= \Pr(X^2 = 4) = \Pr(X \in \{-2, 2\}) = \frac25 \\\\
+    E(Y) &= \frac15 \cdot 0 + \frac25 \cdot 1 + \frac25 \cdot 4 = \frac{10}{5} = 2
+  \end{align*}\]
+
++ Alternative formulation
+
+  \[\begin{align*}
+    E(Y) &= \sum_y y \cdot \Pr(Y=y) = \sum_y y \cdot \Pr(X \in g^{-1}(y)) = \sum_y y \sum_{z \in g^{-1}(y)} y \cdot p(x) \\
+    &= \sum_y \sum_{x \in g^{-1}(y)} y \cdot p(x) = \sum_y \sum_{x \in g^{-1}(y)} g(x) \cdot p(x) = \sum_x g(x) \cdot p(x)
+  \end{align*}\]
+
++ Square again
+
+  \[\begin{align*}
+    E(Y) &= \sum_{y=0, 1, 4} y \cdot p(Y=y) = \frac15 \cdot 0 + \frac25 \cdot 1 + \frac25 \cdot 4 = \frac{10}{5} = 2 \\\\
+    E(Y) &= \sum_x x^2 \cdot p(x) = (-2)^2 \cdot \frac15 + (-1)^2 \cdot \frac15 + 0^2 \cdot \frac15 + 1^2 \cdot \frac15 + 2^2 \cdot \frac15
+  \end{align*}\]
+
++ Visualization
+
+  \[\begin{align*}
+    E(Y) &= \sum_y y \cdot \Pr(Y=y) = \sum_y y \cdot \Pr(X \in g^{-1}(y)) = 
+  \end{align*}\]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y9t3hykh" ismap target="_blank">
+      <img src="img/t07-11.png" style="margin: 0.1em;" alt="text" title="caption" width=350>
+    </a>
+  </div>
+
++ Constant addition
+
+  \[\begin{align*}
+    E(X + b) &= \sum p(x) \cdot (x + b) = \\sum p(x) \cdot x + \sum p(x) \cdot b = E(X) + b \cdot \sum p(x) \\
+    &= E(X) + b
+  \end{align*}\]
+
+  + example: Bernoulli p
+    + $p(x) = \begin{cases} 1-p & \text{if } x = 0 \\ p x = 1 & \text{if } x = 1 \end{cases}$
+
+    \[\begin{align*}
+      E(X) &= (1-p) \cdot 0 + p \cdot 1 = p \\
+      E(X+2) &= (1-p) \cdot (0+2) + p \cdot (1+2) = 2 - 2p +30p = p + 2 = E(X) + 2
+    \end{align*}\]
+
++ Constant multiplication
+  
+  \[\begin{align*}
+    E(aX) &= \sum p(x) \cdot (ax) = a \sum p(x) \cdot a \\
+    &= a E(X)
+  \end{align*}\]
+
+  + example: Bernoulli p
+
+    \[\begin{align*}
+      E(X) &= (1-p) \cdot 0 + p \cdot 1 = p \\
+      E(3X) &= (1-p) \cdot (3 \cdot 0) + p \cdot (3 \cdot 1) = 2p = 3 E(X)
+    \end{align*}\]
+
++ Linearity of expectation
+
+  \[ E(aX + b) = E(aX) + b = aE(X) + b \]
+
+  + example: Bernoulli p
+
+    \[\begin{align*}
+      E(X) &= (1-p) \cdot 0 + p \cdot 1 = p \\
+      E(2X+3) &= (1-p)(2 \cdot 0 + 3) + p(2\cdot 1 + 3) = 3 - 3p + 5p = 2p + 3 = 2E(X) +3
+    \end{align*}\]
 
 
 
++ [Original Slides](https://tinyurl.com/y9t3hykh)
 
 
 ## Problem Sets
