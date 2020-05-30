@@ -666,7 +666,7 @@
 </a><br/>
 
 
-## 7.5 Expectation of Modified Variables
+## 7.5 Expectation of Functions of Random Variables
 
 + Expectation of Square
 
@@ -697,7 +697,7 @@
 
   \[\begin{align*}
     E(X) &= \sum_x p(x) \cdot x \\
-    &= \underbrace{-1 \cdot \frac15 + \underbrace{-1 \cdot \frac15 + 0 \cdot \frac15 + 1 \cdot \frac15}_{0} + 2 \frac15}_{\substack{0 \\\\ \text{By Symmetry}}} = 0
+    &= \underbrace{-1 \cdot \frac15 + \underbrace{-1 \cdot \frac15 + 0 \cdot \frac15 + 1 \cdot \frac15}_{0} + 2 \cdot \frac15}_{\substack{0 \\\\ \text{By Symmetry}}} = 0
   \end{align*}\]
 
   \[\begin{align*}
@@ -707,31 +707,45 @@
     E(Y) &= \frac15 \cdot 0 + \frac25 \cdot 1 + \frac25 \cdot 4 = \frac{10}{5} = 2
   \end{align*}\]
 
-+ Alternative formulation
+  + Alternative formulation
 
-  \[\begin{align*}
-    E(Y) &= \sum_y y \cdot \Pr(Y=y) = \sum_y y \cdot \Pr(X \in g^{-1}(y)) = \sum_y y \sum_{z \in g^{-1}(y)} y \cdot p(x) \\
-    &= \sum_y \sum_{x \in g^{-1}(y)} y \cdot p(x) = \sum_y \sum_{x \in g^{-1}(y)} g(x) \cdot p(x) = \sum_x g(x) \cdot p(x)
-  \end{align*}\]
+    \[\begin{align*}
+      E(Y) &= \sum_y y \cdot \Pr(Y=y) = \sum_y y \cdot \Pr(X \in g^{-1}(y)) = \sum_y y \sum_{z \in g^{-1}(y)} y \cdot p(x) \\
+      &= \sum_y \sum_{x \in g^{-1}(y)} y \cdot p(x) = \sum_y \sum_{x \in g^{-1}(y)} g(x) \cdot p(x) = \sum_x g(x) \cdot p(x)
+    \end{align*}\]
 
-+ Square again
+  + Square again
 
-  \[\begin{align*}
-    E(Y) &= \sum_{y=0, 1, 4} y \cdot p(Y=y) = \frac15 \cdot 0 + \frac25 \cdot 1 + \frac25 \cdot 4 = \frac{10}{5} = 2 \\\\
-    E(Y) &= \sum_x x^2 \cdot p(x) = (-2)^2 \cdot \frac15 + (-1)^2 \cdot \frac15 + 0^2 \cdot \frac15 + 1^2 \cdot \frac15 + 2^2 \cdot \frac15
-  \end{align*}\]
+    \[\begin{align*}
+      E(Y) &= \sum_{y=0, 1, 4} y \cdot p(Y=y) = \frac15 \cdot 0 + \frac25 \cdot 1 + \frac25 \cdot 4 = \frac{10}{5} = 2 \\\\
+      E(Y) &= \sum_x x^2 \cdot p(x) = (-2)^2 \cdot \frac15 + (-1)^2 \cdot \frac15 + 0^2 \cdot \frac15 + 1^2 \cdot \frac15 + 2^2 \cdot \frac15 \\
+      &= \frac45 + \frac15 + \frac15 + \frac45 = 2
+    \end{align*}\]
 
-+ Visualization
+  + Visualization
 
-  \[\begin{align*}
-    E(Y) &= \sum_y y \cdot \Pr(Y=y) = \sum_y y \cdot \Pr(X \in g^{-1}(y)) = 
-  \end{align*}\]
+    \[\begin{align*}
+      E(Y) &= \sum_y y \cdot \Pr(Y=y) = \sum_y y \cdot \Pr(X \in g^{-1}(y))\\
+      &= \sum_y \sum_{x \in g^{-1}(y)} y \cdot p(x) = \sum_y \sum_{x \in g^{-1}(y)} g(x) \cdot p(x) = \sum_x g(x) \cdot p(x)
+    \end{align*}\]
 
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://tinyurl.com/y9t3hykh" ismap target="_blank">
-      <img src="img/t07-11.png" style="margin: 0.1em;" alt="text" title="caption" width=350>
-    </a>
-  </div>
+    + diagram:
+      + three red circles: $\sum_y y \cdot \Pr(Y=y) \to$ sum by $y$
+      + $\sum_y y \sum_{x \in g^{-1}(y)} p(x)$
+        + lowest red circle: $y_1(p_1 + p_5)$
+        + middle red circle: $y_2(p_2 + p_4)$
+        + top red circle: $y_3(p_3)$
+      + $\sum_y \sum_{x \in g^{-1}(y)} y \cdot p(x)$: points $y_1p_1, y_1p_5, y_2p_2, y_2p_4, y_3p_5$
+      + $\sum_y \sum_{x \in g^{-1}(y)} g(x) \cdot p(x)$: $y_1p_1 \to g(1)p_1,$ $y_1p_5 \to g(5)p_5,$ $y_2p_2 \to g(2)p_2,$ $y_2p_4 \to g(4)p_4,$ $y_3p_5 \to g(3)p_3$
+      + blue circles: sum by $x, \sum_x g(x) \cdot p(x)$
+    + $y$: fewer multiplication
+    + $x$: properties w/ general formula
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y9t3hykh" ismap target="_blank">
+        <img src="img/t07-11.png" style="margin: 0.1em;" alt="text" title="caption" width=350>
+      </a>
+    </div>
 
 + Constant addition
 
@@ -741,7 +755,8 @@
   \end{align*}\]
 
   + example: Bernoulli p
-    + $p(x) = \begin{cases} 1-p & \text{if } x = 0 \\ p x = 1 & \text{if } x = 1 \end{cases}$
+
+    \[p(x) = \begin{cases} 1-p & \text{if } x = 0 \\ p x = 1 & \text{if } x = 1 \end{cases}\]
 
     \[\begin{align*}
       E(X) &= (1-p) \cdot 0 + p \cdot 1 = p \\
@@ -757,10 +772,7 @@
 
   + example: Bernoulli p
 
-    \[\begin{align*}
-      E(X) &= (1-p) \cdot 0 + p \cdot 1 = p \\
-      E(3X) &= (1-p) \cdot (3 \cdot 0) + p \cdot (3 \cdot 1) = 2p = 3 E(X)
-    \end{align*}\]
+    \[E(3X) &= (1-p) \cdot (3 \cdot 0) + p \cdot (3 \cdot 1) = 2p = 3 E(X) \]
 
 + Linearity of expectation
 
@@ -768,11 +780,7 @@
 
   + example: Bernoulli p
 
-    \[\begin{align*}
-      E(X) &= (1-p) \cdot 0 + p \cdot 1 = p \\
-      E(2X+3) &= (1-p)(2 \cdot 0 + 3) + p(2\cdot 1 + 3) = 3 - 3p + 5p = 2p + 3 = 2E(X) +3
-    \end{align*}\]
-
+    \[ E(2X+3) &= (1-p)(2 \cdot 0 + 3) + p(2\cdot 1 + 3) = 3 - 3p + 5p = 2p + 3 = 2E(X) +3 \]
 
 
 + [Original Slides](https://tinyurl.com/y9t3hykh)
