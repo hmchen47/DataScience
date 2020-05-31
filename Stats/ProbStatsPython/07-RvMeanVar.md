@@ -785,6 +785,84 @@
 
 ## Problem Sets
 
+0. Which of the following does not hold for all random variables?<br/>
+  a. $E[X+2]=E[X]+2$<br/>
+  b. $E[2X]=2E[X]$<br/>
+  c. $E[X^2]=E[X]^2$<br/>
+  d. All of them hold<br/>
+
+  Ans: c<br/>
+  Explanation
+    + $E[X^2]=E[X]^2$ doesn't hold. For example, if X is equally likely to be -1 or 1, then $E(X)=0$ so $E(X)^2=0^2=0$ But $X^2=1$, so $E(X^2)=E(1)=1$
+
+
+1. Let $X$ be distributed over the set $\Bbb{N}$ of non-negative integers, with pmf
+
+  \[ \Pr(X=i)= \frac{\alpha}{2^i} \]
+  
+  a. $\alpha$<br/>
+  b. $E[X]$<br/>
+
+  For $Y = X \mod 3$, find<br/>
+  c. $\Pr(Y=1)$<br/>
+  d. $E[Y]$<br/>
+
+  Ans: a. (1/2); b. (1); c. (2/7); d. (4/7)<br/>
+  <span style="color: magenta;">Explanation</span>
+    + Since the total probability must sum to 1, We must have $1=\sum_{i=0}^{\infty}P(X=i)=\sum_{i=0}^{\infty}\frac{\alpha}{2^i}= \alpha \cdot \sum_{i=0}^{\infty} \frac{1}{2^i} = \alpha\cdot 2$. Thus $\alpha=1/2$.
+    + y definition, $E(X)=\sum_{i=0}^{\infty}i\cdot P(X=i)=\sum_{i=1}^{\infty}i.\frac{\alpha}{2^i}$. This may be re-written to give $2E(X)=\sum_{i=0}^{\infty}(i+1).\frac{\alpha}{2^i}$. Subtracting the former from the latter we have $E(X)=\sum_{i=0}^{\infty}\frac{\alpha}{2^i}=2\cdot \alpha=1$.
+    + $P(Y=1) = \sum_{j=0}^{\infty} P(X = 3j + 1) =$ $\sum_{j=0}^{\infty}\frac{\alpha}{2^{3j+1}} = $ $1/2\cdot\sum_{j=0}^{\infty}\frac{\alpha}{8^{j}} = $ $1/2\cdot\alpha \cdot 8/7 =2/7$
+    + First note that $P(Y=2) = \sum_{j=0}^{\infty} P(X = 3j + 2) =$ $\sum_{j=0}^{\infty}\frac{\alpha}{2^{3j+2}} = $ $1/4\cdot\sum_{j=0}^{\infty}\frac{\alpha}{8^{j}} =$ $1/4\cdot\alpha\cdot8/7 = $ $1/7$. Now $E(Y)=1\cdot P(Y=1)+2\cdot P(Y=2)=2/7+2\cdot 1/7=4/7$
+
+
+2. Which of the following statements hold for all finite-expectation random variables $X,Y$ and all fixed numbers $a,b \in \Bbb{R}$? <br/>
+  a. $E[X+a]=E[X+b]\quad\implies\quad a=b$<br/>
+  b. $E[aX]=E[bX]\quad\implies\quad a=b$<br/>
+  c. $E[X]\neq E[Y]\quad\implies\quad E[aX+b]\neq E[aY+b]\quad$ for $a \neq 0$<br/>
+  d. $E[X]\neq E[Y]\quad\implies\quad E[X^2]\neq E[Y^2]$<br/>
+  e. $E[X^2]\neq E[Y^2]\quad\implies\quad E[X]\neq E[Y]$<br/>
+
+  Ans: ac <br/>
+  Explanation
+    + Ture. $E[X+a]=E[X+b] \implies E[X]+a=E[X]+b \implies a=b$.
+    + False. $E[aX]=E[bX] \implies aE[X]=bE[X]$. If $E[X]=0$, it does not guarantee $a=b$.
+    + True. If $a \neq 0$ and $E[X] \neq E[Y]$, $aE[X] \neq aE[Y] \implies aE[X]+b \neq aE[Y]+b \implies E[aX+b] \neq E[aY+b]$.
+    + False. Suppose $X$ is uniformly distributed over $\{−1,0\}$, $Y$ is uniformly distributed over $\{0,1\}$. Then $E[X]=−1/2$, $E[Y]=1/2$. However, $E[X2]=E[Y2]=1/2$.
+    + False. Suppose $X$ is uniformly distributed over $\{−1,0,1\}$, $Y$ is uniformly distributed over $\{−2,0,2\}$. Then $E[X2]=2/3$, $E[Y2]=8/3$. However, $E[X]=E[Y]=0$.
+
+
+3. Every morning, the campus coffeeshop orders the day's croissant supply. The coffeeshop buys each croissant for `$1`, and sells it for `$4`. Experience has shown that the number of croissants customers wish to buy on any given day is distributed uniformly between 0 and 49. Once the coffeeshop runs out of croissants, they cannot sell any more, while on the other hand, all croissants left at the end of the day are given to charity for free.
+
+  How many croissants should the coffeeshop order to maximize their expected profit?
+
+  For example, if the coffeeshop orders 1 croissant, then they spend $1 to buy it, and then with probability 0.02 they don't sell any croissants and with probability 0.98 they sell it and bring in `$4`, hence their expected `$` profit is $0.02 \cdot 0+0.98 \cdot 4−1=2.92$. If the coffeeshop orders 2 croissants, then they spend `$2` to buy them, and then with probability 0.02 they sell nothing, with probability 0.02 they sell 1, and with probability 0.96 they sell both, hence their expected `$` profit is $0.02 \cdot 0+0.02 \cdot 4+0.96 \cdot 8−2=7.76−2=5.76$.
+  
+  Ans: <span style="color: magenta;">37</span><br/>
+  Explanation: It may be clearer to track what happens if we use letters to represent the various values. Assume that the coffeeshop buys each croissant for `$b` and sells it for `$s`, the number of croissants customers wish to buy is uniformly distributed over $0, \dots, w−1$ so that each value in the range has probability $1/w$, and the store orders $r$ croissants. In the question, $b=1$, $s=4$, and $w=50$, and we are trying to find the $r$ that will maximize the expected profit.
+
+  The coffeeshop will never order more than $w−1$ croissants, hence $r \leq w−1$. If customers wish to buy $1 \le i \le r−1$ croissants, their sale will bring in  $i \cdot s$ dollars, and if customers wish to buy more than $r$ croissants, their sale will fetch $r \cdot s$ dollars. Hence the expected revenue from selling the croissants is
+
+  \[ \sum_{i=0}^{r-1} \frac{i \cdot s}{w} + \sum_{i=r}^{w-1} \frac{r \cdot s}{w} = \frac{s}{w} \cdot \frac{r \cdot (r-1)}{2} + \frac{s}{w} \cdot (w - r) \cdot r = \frac{s}{w} \cdot (-\frac{r^2}{2} + (w - \frac12) \cdot r) \]
+
+  The coffeeshop spends $b \cdot r$ to purchase the croissants, hence their profit is $\frac{s}{w} \cdot (-\frac{r2}{2} + (w--\frac12)\cdot r) - b \cdot r$
+
+  We would like to find the value of $r$ maximizing the equation. Since it is quadratic in $r$ with a negative leading coefficient, the profit is maximized when the derivative is 0, namely $-\frac{s}{w} \cdot r + \frac{s}{w} (w - \frac12) - b = 0$, or $r=w \cdot 1−\frac{b}{s})−\frac12$.
+
+  In our case, $w=50$, $b=1$, and $s=4$, hence the expected profit is highest when $r=50 \cdot (1−\frac14)−\frac12=37$.
+
+
+4. Let $X$ follows a distribution $P$ over $\Omega$. The indicator function of an event $A \subseteq \Omega$ , is the 0-1 function $I_A(x)= \begin{cases} 1 & \text{if } x \in A, \\0 & \text{if } x \notin A.\end{cases}$.
+
+  Observe that $I_A(X)$ is a random variable whose value is 1 if $A$ occurred, and 0 if $A$ did not occur.
+
+  $E[I_A(X)]$ is:
+
+  a. always 0 or 1,<br/>
+  b. $E(X)$,<br/>
+  c. $\Pr(A)$.<br/>
+
+  Ans: <span style="color:magenta;">c</span><br/>
+  Explanation $E(I_A(X)) = \displaystyle \sum_{x \in \Omega} I_A(X = x)\Pr(X = x) =$ $\displaystyle \sum_{x \in A} I_A(X = x)\Pr(X = x) + \sum_{x \not\in A} I_A(X = x)\Pr(X = x) =$ $\displaystyle \sum_{x \in A} \Pr(X = x) + \sum_{x \not\in A} 0 = \Pr(A)$
 
 
 
