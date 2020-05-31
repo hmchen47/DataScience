@@ -901,11 +901,11 @@
 + variance
   + expected squared difference btw $X$ and its mean
 
-    \[ V(X) = E[(X - \mu)^2] = E(X - \mu)^2] \]
+    \[ Var(X) = E[(X - \mu)^2] = E(X - \mu)^2] \]
 
   + standard deviation
 
-    \[ \sigma_X = +\sqrt{V(X)} \]
+    \[ \sigma_X = +\sqrt{Var(X)} \]
 
   + constants
   + properties of distribution
@@ -928,14 +928,14 @@
   </table>
 
   + $X$ w/ $\mu = 0$
-  + $V(X) = \frac12 \cdot a^2 + \frac12 \cdot a^2 = a^2$
+  + $Var(X) = \frac12 \cdot a^2 + \frac12 \cdot a^2 = a^2$
     + $X^2$: always $a^2$
     + $(X - \mu)^2 = a^2$ always
   + $\sigma_x =a$: "average" distance from mean
 
 + Example: fair die
   + $\mu = 3.5$
-  + $V(X) = E[(X - \mu)^2] = \frac{2(6.25+2.25+.25)}{6} = \frac{8.75}{3} = 2.92$
+  + $Var(X) = E[(X - \mu)^2] = \frac{2(6.25+2.25+.25)}{6} = \frac{8.75}{3} = 2.92$
   + $\sigma = \sqrt{2.92 \dots} = 1.71\dots$
 
   <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
@@ -974,7 +974,7 @@
     </tbody>
   </table>
 
-  \[ V(X) = q \cdot p^2 + p \cdot q^2 = pq(p+q) = pq \]
+  \[ Var(X) = q \cdot p^2 + p \cdot q^2 = pq(p+q) = pq \]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/y6wpn2qe" ismap target="_blank">
@@ -1010,33 +1010,33 @@
 + Different formula
   
   \[\begin{align*}
-    V(X) &= E[(X - \mu)^2] = E[X^2 - 2\mu X + \mu^2] = E]X^2] - E[2\mu X] + E[\mu^2] \\
+    Var(X) &= E[(X - \mu)^2] = E[X^2 - 2\mu X + \mu^2] = E]X^2] - E[2\mu X] + E[\mu^2] \\
     &= E[X^2] - 2\mu E[X] + \mu^2 = E[X^2] -2\mu^2 + \mu^2 = E[X^2] - \mu^2 \\
     &= E[X^2] - (E[X])^2
   \end{align*}\]
 
   + example: Bernoulli p
     + $X \sim B(p)$
-    + $E[X] = p, V(X) = pq$
-    + re-deriving w/ $V(X) = E[X^2] - (E[X])^2$
+    + $E[X] = p, Var(X) = pq$
+    + re-deriving w/ $Var(X) = E[X^2] - (E[X])^2$
       + $E[X^2] = (1-p) \cdot 0^2 + p \cdot 1^2 = p$
       + even simplier: $0^2 = 0, 1^2 = 1 \to X^2 =X \to E[X^2] = E[X] = p$
 
-      \[ V(X) = E[X^2] - (E[X])^2 = p - p^2 = p(1-p) = pq \]
+      \[ Var(X) = E[X^2] - (E[X])^2 = p - p^2 = p(1-p) = pq \]
 
 
 + Observation
-  + $V(X) = E[(X - \mu)^2]$
+  + $Var(X) = E[(X - \mu)^2]$
   
     \[\begin{array}{lcccr}
-      0 &\le & V(X) & \le & \max((X-\mu)^2) \\
+      0 &\le & Var(X) & \le & \max((X-\mu)^2) \\
       0 &\le & \sigma_x & \le & \max(|X - \mu|)
     \end{array}\]
 
     + left `=`: $X$ is a constant
     + right `=`: $X$ constant or taking two values w/ equal prob.
 
-  + $V(X) = E[X^2] - \mu^2 \to V(X) \le E[X^2]$
+  + $Var(X) = E[X^2] - \mu^2 \to Var(X) \le E[X^2]$
 
 + Properties
   + how simple modification affect $V$ and $\sigma$
@@ -1050,16 +1050,16 @@
   + linearity of expectation: $\mu_{x+b} = \mu_x + b$
   + addition of variance
   
-    \[ V(X+b) = E[(X + b - \mu_{x+b})^2] = E[(X + b - \mu_x -b)^2] = E[(X - \mu_x)^2] = V(X) \]
+    \[ Var(X+b) = E[(X + b - \mu_{x+b})^2] = E[(X + b - \mu_x -b)^2] = E[(X - \mu_x)^2] = Var(X) \]
 
 + Example: translated $B(p)$
-  + $X \sim B(p) \quad V(X) = p(1-p)$
+  + $X \sim B(p) \quad Var(X) = p(1-p)$
   + $Y = X + 1$
   + linearity of expectation: $\mu_y = 1 + p$
   
     \[\begin{align*}
-      V(Y) &= E[(Y - \mu_y)^2] = (1 - p)(1 - 1-p)^2 + p(2-1-p)^2 \\
-      &= (1-p)p^2 + p (1-p)^2 = p(1-p)(p+1-p) = p(1-p) = V(X)
+      Var(Y) &= E[(Y - \mu_y)^2] = (1 - p)(1 - 1-p)^2 + p(2-1-p)^2 \\
+      &= (1-p)p^2 + p (1-p)^2 = p(1-p)(p+1-p) = p(1-p) = Var(X)
     \end{align*}\]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -1072,13 +1072,13 @@
   + variance: different from mean grew by $a^2$
 
     \[\begin{align*}
-      V(aX) & = E[(aX - \mu_{ax})^2] = E[a^2(X - \mu_x)^2] \\
-      &= a^2 E[(X - \mu_x)^2] = a^2 V(X)
+      Var(aX) & = E[(aX - \mu_{ax})^2] = E[a^2(X - \mu_x)^2] \\
+      &= a^2 E[(X - \mu_x)^2] = a^2 Var(X)
     \end{align*}\]
 
   + standard deviation: "average" difference from mean grew by a factor of $|a|$
   
-    \[ \sigma_{aX} = \sqrt{V(aX)} = \sqrt{a^2 V(X)} = |a| \sigma_x \]
+    \[ \sigma_{aX} = \sqrt{Var(aX)} = \sqrt{a^2 Var(X)} = |a| \sigma_x \]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/y6wpn2qe" ismap target="_blank">
@@ -1088,7 +1088,7 @@
   </div>
 
 + Affine transformation
-  + $V(aX + b) = V(aX) = a^2 V(X)$
+  + $Var(aX + b) = Var(aX) = a^2 Var(X)$
   + $\sigma_{ax+b} = |a| \sigma_x$
 
 
@@ -1097,6 +1097,126 @@
 
 ## Problem Sets
 
+0. Which of the following is greater ($\ge$) for a random variable $X$?<br/>
+  a. $E[X^2]$<br/>
+  b. $E[X]^2$<br/>
+  c. Depends on X<br/>
+
+  Ans: a<br/>
+  Explanation: $E[X^2]$ will be greater. Since $Var(X)=E[X^2]-E[X]^2$, and $Var(X)$ is always non-negative.
+
+
+1. Given 4 probability density functions, which one shows the greatest variance?
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ybstm7p6" ismap target="_blank">
+      <img src="img/t07-15.png" style="margin: 0.1em;" alt="Diagram for 7.5 Variance PS Q1" title="Diagram for 7.5 Variance PS Q1" width=250>
+    </a>
+  </div>
+
+  a. $\(1\)$<br/>
+  b. $\(2\)$<br/>
+  c. $\(3\)$<br/>
+  d. $\(4\)$<br/>
+  
+  Ans: c<br/>
+  Explanation: Variance measures how far a set of (random) numbers are spread out from their average value. 3 is the broadest one.
+
+
+2. A random variable $X$ is distributed over $\{−1,0,1\}$ according to the p.m.f. $P(X=x)=|x|+15$.<b/>
+  a. Find its expectation $E(X)$<b/>
+  b. and variance $Var(X)$<b/>
+
+  Ans: a. (0); b. (4/5)<br/>
+  Explanation:
+    + The pmf is symmetric around 0, hence the mean is 0.
+    + By definition, $Var(X) = \frac{2}{5} \times (-1 - 0)^2 + \frac{1}{5} \times (0 - 0)^2 + \frac{2}{5} \times (1 - 0)^2 = \frac{2}{5} + 0 + \frac{2}{5} = \frac{4}{5}$, Or, $Var(X)=\mathbb{E}(X^2)-\mathbb{E}(X)^2=4/5-0=4/5$
+
+
+3. Let random variable X be distributed according to the p.m.f
+
+  \[\begin{array}{c|ccc}
+    x & 1 & 2 & 3 \\
+    \hline
+    P(x) & 0.3 & 0.5 & 0.2\\
+  \end{array} \]
+
+  If $Y=2^X$, what are<br/>
+  a. $E[Y]$<br/>
+  b. $Var(Y)$<br/>
+ 
+  If $Z=aX+b$ has $E[Z]=0$ and $Var(Z)=1$, what are:<br/>
+  c. |a|<br/>
+  d. |b|<br/>
+
+  Ans: a. (4.2); b. (4.36); c. (10/7); d. (19/7)<br/>
+  Explanation
+    + $E(Y)=E(2^X)=2\times 0.3+4\times 0.5+8\times0.2=4.2$
+    + For any random variable $V(Z)=E(Z^2)-E(Z)^2$. Here, $E(Y^2)=E(2^{2X})=4\times 0.3+16\times 0.5+64\times0.2=22$. Thus, $V(Y)=22-4.2^2=4.36$
+    + 10/7
+    + First, $E(X)=0.3×1+0.5×2+0.2×3=1.9$, $E(X2)=0.3×1+0.5×4+0.2×9=4.1$ and thus $Var(X)=E(X2)−E(X)2=4.1−1.92=0.49$.  Now, by linearity of expectation, $0=E(Z)=aE(X)+b=1.9 \cdot a+b$. Further, we know $1=Var(Z)=Var(aX+b)=a2 \cdot Var(X)=a2 \cdot 0.49$. Solving these two equations gives $|a|=1.42857$, $|b|=2.71485$.
+
+
+4. Consider two games. One with a guaranteed payout $P_1=90$, and the other whose payout $P_2$ is equally likely to be 80 or 120. Find:<br/>
+  a. $E(P_1)$<br/>
+  b. $E(P_2)$<br/>
+  c. $Var(P_1)$<br/>
+  d. $Var(P_2)$<br/>
+  e. Which of games 1 and 2 maximizes the `risk-adjusted reward' $E(P_i)-\sqrt{\text{Var}(P_i)}$?
+
+  Ans: a. (90); b. (100); c. (0); d. (); e. (1)<br/>
+  Explanation
+    + The distribution of $P_1$ is $P(P_1=90)=1$. Hence, $E(P1)=1×90=90$.
+    + The distribution of $P_2$ is $P(P_2=80)=P(P_2=120)=1/2$. Hence, $E(P_2)=1/2×80+1/2×120=100$.
+    + By definition, $Var(P_1)=1×(90−90)2=0$.
+    + By definition, $Var(P_2)=12×(80−100)2+12×(120−100)2=400$.
+    + By definition, $E(P_1)-\sqrt{\text{Var}(P_1)} = 90$, $E(P_2)-\sqrt{\text{Var}(P_2)} = 80$
+
+
+5. Which of the following are always true for random variables \(X\), \(Y\) and real numbers \(a\), \(b\)?<br/>
+  a. The variance of \(X\) is always non-negative.<br/>
+  b. The standard deviation of \(X\) is always non-negative.<br/>
+  c. If \(V(X)=V(Y)\), then \(V(X+a)=V(Y+b)\).<br/>
+  d. If \(V(aX)=V(bX)\) for \(a\not=0\) and \(b\not=0\), then \(a=b\).<br/>
+  e. If \(E[X]=E[Y]\) and \(V(X)=V(Y)\), then \(X=Y\).<br/>
+  f. If \(E[X]=E[Y]\) and \(V(X)=V(Y)\), then \(E[X^2]=E[Y^2]\).<br/>
+
+  Ans: abcf<br>
+  Explanation
+    + True.
+    + True. Standard deviation is defined by $\sqrt{V(X)}$, which is also non-negative.
+    + True. Adding a constant $a$ to random varianle $X$ will not affect its varaince. $V(X + a) = E((X + a - E(X + a))^2) = E((X + a - E(X) - a)^2) = E((X - E(X))^2) = V(X)$
+    + False. When $V(X)=0$, this does not hold.
+    + False. Consider two random variables $X,Y$ with pmf, $\Pr(X= x) = \begin{cases} \frac12 & x = -1\\ \frac12 & x=1 \end{cases}$, and$\Pr(Y=y) = \begin{cases} \frac18 & y = -2 \\ \frac34 & y=0 \\ \frac18 & y=2 \end{cases}$.  Now $E(X) = E(Y) = 0, V(X) = V(Y) = 1$.  However, $X \neq Y$
+    + True, as $E(X^2)=V(X)+E^2 [X]$, if $E(X)=E(Y)$ and $V(X)=V(Y)$, then $E(X^2)=E(Y^2)$.
+
+
+6. We say $X_A$ is an indicator variable for event $A$: $X_A=1$ if A occurs, $X_A=0$ if $A$ does not occur. 
+  
+  If $P(A)=0.35$, what is:<br/>
+  a. $E(XA)$?<br/>
+  b. $Var(X_A)$?<br/>
+
+  Ans: a. (0.35); b. (0.2275)<br/>
+  Explanation
+    + The distribution of $X_A$ is $P(X_A=1)=P(A)=0.35, P(X_A=0)=1−P(A)=0.65$. The spectation is $E(X_A)=0.35×1+0.65×0=0.35$
+    + The variance of $X_A$ is $Var(X_A)=0.35×(1−0.35)2+0.65×(0−0.35)2=0.2275$
+
+
+7. Let $X$ denote the number when rolling a fair six-sided die, then what is:<br/>
+  a. $Var(X)$?<br/>
+  b. $\sigma_X$?<br/>
+
+  Ans: a. (2.9167); b. (1.7078)<br/>
+  Explanation
+    + The expectation of $X$ is $E(X)=3.5$. The variance of $X$ is $\text{Var}(X) = \frac{1}{6} \times (1 - 3.5)^2 + \frac{1}{6} \times (2 - 3.5)^2 + \frac{1}{6} \times (3 - 3.5)^2 + \frac{1}{6} \times (4 - 3.5)^2 + \frac{1}{6} \times (5 - 3.5)^2 + \frac{1}{6} \times (6 - 3.5)^2 = \frac{35}{12}$
+    + The standard deviation of $X$ is $\sigma_X = \sqrt{\text{Var}(X)} = 1.7078$
+
+
+8. Let $X$ and $Y$ be independent random variables with expectations 1 and 2, and variances 3 and 4, respectively. Find the variance of $V(XY)$.
+
+  Ans: 28<br/>
+  Explanation: $E(X^2)=V(X)+(EX)^2=3+12=4$ and $E(Y^2)=V(Y)+(EY)^2=4+22=8$. Hence $V(XY)=E((XY)2)−E^2(XY)=E(X^2 \cdot Y^2)−(EX \cdot EY)^2 =$ $E(X^2) \cdot E(Y^2)−(EX)^2 \cdot (EY)^2=4 \cdot 8−(1⋅2)2=28$.
 
 
 
