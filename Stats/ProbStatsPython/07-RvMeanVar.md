@@ -878,11 +878,11 @@
 + Distribution properties
   + deterministic function of distribution $\to$ not random
   + long term average
-    + expectation, EX, $\$\mu$
+    + expectation, EX, $\mu$
     + e.g., die: $\mu = 3.5$
   + consistency: variation from the mean
 
-+ Money matter
++ Example: money matter
   + two companies, each w/ 1000 employees
   + both same mean salary: \$100K
     + C1: every employee makes \$100K
@@ -896,7 +896,7 @@
   + how much $X$ differs from $\mu$ on average?
   + candidate: $E[|X - \mu|]$, mean absolute difference
   + not commonly used, absolute value function hard to analyze
-  + instead: $E(X - \mu)^2$
+  + instead: $E[(X - \mu)^2]$
 
 + variance
   + expected squared difference btw $X$ and its mean
@@ -905,11 +905,12 @@
 
   + standard deviation
 
-    \[ \sigma^_X = +\sqrt{V(X)} \]
+    \[ \sigma^2_X = +\sqrt{V(X)} \]
 
-  + constants: properties of distribution
+  + as constants
+  + properties of distribution
 
-+ Example
++ Example:
 
   <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <thead>
@@ -926,15 +927,16 @@
     </tbody>
   </table>
 
+  + $X$ w/ $\mu = 0$
   + $V(X) = \frac12 \cdot a^2 + \frac12 \cdot a^2 = a^2$
     + $X^2$: always $a^2$
     + $(X - \mu)^2 = a^2$ always
   + $\sigma_x =a$: "average" distance from mean
 
-+ Fair die
++ Example: fair die
   + $\mu = 3.5$
   + $V(X) = E(X - \mu)^2 = \frac{2(6.25+2.25+.25)}{6} = \frac{8.75}{3} = 2.92$
-  + $\sigma = \sqrt{2.92 \dots}$
+  + $\sigma = \sqrt{2.92 \dots} = 1.71\dots$
 
   <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <thead>
@@ -968,7 +970,7 @@
     </thead>
     <tbody>
     <tr> <td style="text-align: center;">0</td> <td style="text-align: center;">$q$</td> <td style="text-align: center;">$0 - p = -p$</td> <td style="text-align: center;">$p^2$</td> </tr>
-    <tr> <td style="text-align: center;">1</td> <td style="text-align: center;">$q$</td> <td style="text-align: center;">$1-p=q$</td> <td style="text-align: center;">$q^2$</td> </tr>
+    <tr> <td style="text-align: center;">1</td> <td style="text-align: center;">$p$</td> <td style="text-align: center;">$1-p=q$</td> <td style="text-align: center;">$q^2$</td> </tr>
     </tbody>
   </table>
 
@@ -984,8 +986,7 @@
   + toss 3 fair coins
   + X = \# heads
 
-    <table style="font-family: arial,helvetica,sans-serif; width: 80vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-      <caption style="font-size: 1.5em; margin: 0.2em;"><a href="url">CAPTION</a></caption>
+    <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
       <thead>
       <tr style="font-size: 1.2em;">
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$x$</th>
@@ -1003,21 +1004,39 @@
     </table>
 
   + $\mu = 1.5$
-  + $V = 2 (\farc18 \cdot 2.24 + \frac38 \cdot 0.25) = \frac14 (2.25 + 0.75) = \frac34$
-  $ $\sigma = \sqrt{2}/2$
+  + $V = 2 (\frac18 \cdot 2.24 + \frac38 \cdot 0.25) = \frac14 (2.25 + 0.75) = \frac34$
+  + $\sigma = \sqrt{3}/2$
+
++ Different formula
+  
+  \[\begin{align*}
+    V(X) &= E[(X - \mu)^2] = E[X^2 - 2\mu X + \mu^2] = E]X^2] = E[2\mu X] + E[\mu^2] \\
+    &= E[X^2] - 2\mu E[X] + \mu^2 = E[X^2] -2\mu^2 + \mu^2 = E[X^2] - \mu^2 \\
+    &= E[X^2] - (E[X])^2
+  \end{align*}\]
+
+  + example: Bernoulli p
+    + $X \sim B(p)$
+    + E[X] = p, V(X) = pq$
+    + re-deriving w/ $V(X) = E[X62] - (X[X])^2$
+      + $E[X^2] = (1-p) \cdot 0^2 + p \cdot 1^2 = p$
+      + even simplier: 0^2 = 0, 1^2 = 1 \to X^2 =X \to E[X^2] = E[X] = p$
+
+      \[ V(X) = E[X62] - (E[X])^2 = p - p^2 = p(1-p) = pq \]
+
 
 + Observation
   + $V(X) = E(X - \mu)^2$
   
-    \[\begin{array}{lcr}}
-      0 \le & V(X) & \max(X-\mu)^2 \\
-      0 \le & \sigma_x & \le \max|X - \mu|
+    \[\begin{array}{lcccr}
+      0 &\le & V(X) & \le & \max(X-\mu)^2 \\
+      0 &\le & \sigma_x & \le & \max|X - \mu|
     \end{array}\]
 
-    + left =: $X$ is a constant
-    + right =: $X$ constant or taking two values w/ equal prob.
+    + left `=`: $X$ is a constant
+    + right `=`: $X$ constant or taking two values w/ equal prob.
 
-  + $V(X) = EX^2 - \mu^2 \tp V(X) \le E(X^2)$
+  + $V(X) = E[X^2] - \mu^2 \to V(X) \le E(X^2)$
 
 + Properties
   + how simple modification affect $V$ and $\sigma$
@@ -1029,24 +1048,31 @@
   + $Z$: random variable
   + $b$: constant (e.g., 2)
   + linearity of expectation: $\mu_{x+b} = \mu_x + b$
+  + addition of variance
   
-    \[ V(X+b) &= E[(X + b - \mu_{x+b})^2] = E[(X + b - \mu_x -b)^2] = E(X - \mu_x)^2 = V(X) \]
+    \[ V(X+b) = E[(X + b - \mu_{x+b})^2] = E[(X + b - \mu_x -b)^2] = E(X - \mu_x)^2 = V(X) \]
 
-+ Translated $B(p)$
++ Example: translated $B(p)$
   + $X \sim B(p) \quad V(X) = p(1-p)$
   + $Y = X + 1$
   + linearity of expectation: $\mu_y = 1 + p$
   
-    \[\begin{aslign*}
-      V(Y) &= E(Y - \mu_y)^2 = (1 - p)(1 - 1-p)^2 + p(2-1-p)^2 \\
+    \[\begin{align*}
+      V(Y) &= E[(Y - \mu_y)^2] = (1 - p)(1 - 1-p)^2 + p(2-1-p)^2 \\
       &= (1-p)p^2 + p (1-p)^2 = p(1-p)(p_1-p) = p(1-p) = V(X)
     \end{align*}\]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y6wpn2qe" ismap target="_blank">
+      <img src="img/t07-13.png" style="margin: 0.1em;" alt="Example of Bernulli p w/ translation" title="Example of Bernulli p w/ translation" height=150>
+    </a>
+  </div>
 
 + Scaling
   + variance: different from mean grew by $a^2$
 
-    \[\beginPalign*}
-      V(aX) & = E(aX - \mu_{ax})^2 = E[a^2(X - \mu_x)^2] \\
+    \[\begin{align*}
+      V(aX) & = E[(aX - \mu_{ax})^2] = E[a^2(X - \mu_x)^2] \\
       &= a^2 E(X - \mu_x)^2 = a^2 V(X)
     \end{align*}\]
 
@@ -1056,14 +1082,14 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/y6wpn2qe" ismap target="_blank">
-      <img src="img/t07-13a.png" style="margin: 0.1em;" alt="Example of pmf w/mean=2.5" title="Example of pmf w/mean=2.5" height=150>
-      <img src="img/t07-13b.png" style="margin: 0.1em;" alt="Example of pmf w/mean=3.75" title="Example of pmf w/mean=3.75" height=150>
+      <img src="img/t07-14a.png" style="margin: 0.1em;" alt="Example of pmf w/mean=2.5" title="Example of pmf w/mean=2.5" height=100>
+      <img src="img/t07-14b.png" style="margin: 0.1em;" alt="Example of pmf w/mean=3.75" title="Example of pmf w/mean=3.75" height=100>
     </a>
   </div>
 
 + Affine transformation
-  + $V(aX + b) = V(aX) + a^2 V(X)$
-  + $\sigma_{ax+b} = \A| \sigma_x
+  + $V(aX + b) = V(aX) = a^2 V(X)$
+  + $\sigma_{ax+b} = |a| \sigma_x$
 
 
 + [Original Slides](https://tinyurl.com/y6wpn2qe)
