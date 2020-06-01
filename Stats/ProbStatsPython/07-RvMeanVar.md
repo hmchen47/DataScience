@@ -1229,14 +1229,14 @@
 
 ## 7.7 Two Variables
 
-+ Probabilistic reasons
-  + outcomes often result from multiple factors
++ Motivation
+  + experiments often result in multiple observations
   + examples:
-    + rain: temperature and humidity
+    + weather: temperature and precipitation
     + economy: unemployment and inflation
-    + hiring: experience and salary
+    + database table: experience and salary
     + student: \# classes, GPA
-    + human condition: profession, age, cholesterol, salary, happiness, location, dinner plans, ...
+    + human experiment: profession, age, cholesterol, salary, happiness, location, dinner plans, ...
 
 + Join distribution
   + simple extension of one variable
@@ -1330,15 +1330,40 @@
 + Example: coins
   + fair coins
     + story: two independent fair coins
-    + symbolic: $U, V \sim B(\frac12) \quad U {\perp \!\!\!\! \perp}$
-    + explicit: $\Pr(u, v) \stackrel{\text{def}}{=} \Pr(U = u, V = v) = \frac14 \quad \forall\, \{u, v\} \in \{0, 1\}$
-    + table:
+    + symbolic: $U, V \sim B(\frac12) \quad U {\perp \!\!\!\! \perp} V$
+    + ways to indicate distribution
+      + explicit: $\Pr(u, v) \stackrel{\text{def}}{=} \Pr(U = u, V = v) = \frac14 \quad \forall\, \{u, v\} \in \{0, 1\}$
+      + table:
+
+        <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+          <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
+            <img src="img/t07-16.png" style="margin: 0.1em;" alt="Tables for fair coins" title="Tables for fair coins" width=350>
+          </a>
+        </div>
+
+    + Min-Max: $X = \min(U, V \quad Y = \max(U, V)$)
+      + $(u, v) = (0, 0) \to min(u, v) = 0, \max(u, v) = 0 \to p(X, Y) = p(0, 0) = \frac14$
+      + $(u, v) = (0, 1) & (1, 0) \to min(u, v) = 0, \max(u, v) = 1 \to p(X, Y) = p(0, 1) = \frac12$
+      + $(u, v) = (1, 1) \to min(u, v) = 1, \max(u, v) = 1 \to p(X, Y) = p(1, 1) = \frac14$
+      + $p(X, Y) = p(1, 0) = 0$
+    + Product-sum: $X = U\cdot V \quad Y = X + Y$
+      + $(u, v) = (0, 0) \to x = 0, y = 0 \to p(x, y) = \frac14$
+      + $(u, v) = (0, 1) or (1, 0) \to x = 0, y = 1 \to p(x, y) = \frac12$
+      + $(u, v) = (1, 1) \to x = 1, y = 2 \to p(1, 2) = \frac14$
+      + $p(1, 0) = p(1, 1) = p(0, 2) = 0$
+
+  + 3 coins
+    + $U_1, U_2, U_3 \sim B(1/2) \quad {\perp \!\!\!\! \perp}$
+    + $X = U_1 + U_2$: \# heads among first 2
+    + $Y = U_2 + U_3$: \# heads among the last 2
 
       <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
         <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
-          <img src="img/t07-16.png" style="margin: 0.1em;" alt="Tables for fair coins" title="Tables for fair coins" width=350>
+          <img src="img/t07-25a.png" style="margin: 0.1em;" alt="Table of all possible values w/ 3 coins and results of X and Y" title="Table of all possible values w/ 3 coins and results of X and Y" height=150>
+          <img src="img/t07-25b.png" style="margin: 0.1em;" alt="Probability distribution of X and Y" title="Probability distribution of X and Y" height=100>
         </a>
       </div>
+
   + bias coins
     + independent $B(p)$ and $B(q)$
 
@@ -1347,6 +1372,17 @@
           <img src="img/t07-17.png" style="margin: 0.1em;" alt="Tables for bias coin" title="Tables for bias coin" width=350>
         </a>
       </div>
+
++ General $B(p)$
+  + $U \sim B(p), V \sim B(q), B {\perp \!\!\!\! \perp} V$
+  + $X = \min(U, V), Y = \max(U, V)$
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
+        <img src="img/t07-26a.png" style="margin: 0.1em;" alt="Table of all possible values w/ 3 coins and results of X and Y" title="Table of all possible values w/ 3 coins and results of X and Y" height=100>
+        <img src="img/t07-26b.png" style="margin: 0.1em;" alt="Probability distribution of X and Y" title="Probability distribution of X and Y" height=100>
+      </a>
+    </div>
 
 + Fair and Rigged
   + two coins:
@@ -1361,8 +1397,18 @@
       </a>
     </div>
 
-+ Event probability
-  + join distribution determining probabilities of all events
++ Join distribution
+  + $X, Y$: random variables
+  + joint distribution: probability of every possible $(x, y)$ pair
+
+    \[ p(x, y) \stackrel{\text{def}}{=} \Pr(X = x, Y=y) \]
+
+  + properties
+    + $\forall\, x, y, \;p(x, y) \ge 0$
+    + $\sum_{x, y} p(x, y) = 1$
+
+  + omnipotent
+    + joint distribution determines all probabilities of interest
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
@@ -1370,10 +1416,10 @@
       </a>
     </div>
 
-  \[\begin{align*}
-    \Pr(X \le Y) &= \Pr(X=0, Y=0) + \Pr(X = 0, Y = 1) + \Pr(X=1, Y=1) \\
-    &= \Pr(0, 0) + \Pr(0, 1) + \Pr(1, 1) = 0.1 + 0.2 + 0.4 = 0.7
-  \end{align*}\]
+    \[\begin{align*}
+      \Pr(X \le Y) &= \Pr(X=0, Y=0) + \Pr(X = 0, Y = 1) + \Pr(X=1, Y=1) \\
+      &= \Pr(0, 0) + \Pr(0, 1) + \Pr(1, 1) = 0.1 + 0.2 + 0.4 = 0.7
+    \end{align*}\]
 
 + Quiz: find a simple description of following events and their probability
   + $X = Y$:
@@ -1384,8 +1430,8 @@
   + $\max(X, Y)=1$
 
 + Marginals
-  + margin of $X$: $P(x) \stackrel{\text{def}}{=} P_x(x) \stackrel{\text{def}}{=} \Pr(X = x) = \sum_y p(x, y)$
-  + margin of $Y$: $P(y) \stackrel{\text{def}}{=} P_Y(y) \stackrel{\text{def}}{=} \Pr(Y = y) = \sum_x p(x, y)$
+  + margin of $X$: $\Pr(x) \stackrel{\text{def}}{=} P_x(x) \stackrel{\text{def}}{=} \Pr(X = x) = \sum_y p(x, y)$
+  + margin of $Y$: $\Pr(y) \stackrel{\text{def}}{=} P_Y(y) \stackrel{\text{def}}{=} \Pr(Y = y) = \sum_x p(x, y)$
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
@@ -1394,7 +1440,7 @@
     </div>
 
     \[\begin{align*}
-      \Pr(X=0) &= \Pr(X=0, Y=0) + \Pr(X=0, Y= 1) \qquad (\text{Total probability}) \\
+      \Pr(X=0) &= \Pr(X=0, Y=0) + \Pr(X=0, Y= 1) \qquad (\text{rule of total probability}) \\
       &= \Pr(0, 0) + \Pr(0, 1) = .1 + .2 = .3
     \end{align*}\]
 
@@ -1421,14 +1467,14 @@
     </div>
 
     \[\begin{align*}
-      \Pr(Y=0 \mid X=0) &= \frac{\Pr(X=0, Y=0)}{\Pr(X=0)} = \frac{0.1}{0.3} = \frac13 \\
-      \Pr(Y=1 \mid X=0) &= \frac{\Pr(X=0, Y=1)}{\Pr(X=0)} = \frac{0.2}{0.3} = \frac23 \\
-      \Pr(X=0 \mid Y=0) &= \frac{\Pr(X=0, Y=0)}{\Pr(Y=0)} = \frac{0.1}{0.4} = \frac14 \\
-      \Pr(X=1 \mid Y=0) &= 1 - \Pr(X=0, Y=0) = 1 - \frac14 = \frac34
+      \Pr(Y=0 \mid X=0) &= \tfrac{\Pr(X=0, Y=0)}{\Pr(X=0)} = \tfrac{0.1}{0.3} = \tfrac13 \\
+      \Pr(Y=1 \mid X=0) &= \tfrac{\Pr(X=0, Y=1)}{\Pr(X=0)} = \tfrac{0.2}{0.3} = \tfrac23 \\
+      \Pr(X=0 \mid Y=0) &= \tfrac{\Pr(X=0, Y=0)}{\Pr(Y=0)} = \tfrac{0.1}{0.4} = \tfrac14 \\
+      \Pr(X=1 \mid Y=0) &= 1 - \Pr(X=0, Y=0) = 1 - \tfrac14 = \tfrac34
     \end{align*}\]
 
 + Independence
-  + $X, Y$ independent: $X {\perp \!\!\!\! \perp}$
+  + $X, Y$ independent: $X {\perp \!\!\!\! \perp} Y$
   + $\forall, x, y$
 
     \[\begin{align*}
@@ -1439,15 +1485,15 @@
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
-        <img src="img/t07-22a.png" style="margin: 0.1em;" alt="Probability distribution of independent r.v.s" title="Probability distribution of independent r.v.s" height=150>
+        <img src="img/t07-22a.png" style="margin: 0.1em;" alt="Probability distribution of independent r.v.s" title="Probability distribution of independent r.v.s" height=150>&nbsp;&nbsp;&nbsp;&nbsp;
         <img src="img/t07-22b.png" style="margin: 0.1em;" alt="Probability distribution of dependent r.v.s" title="Probability distribution of dependent r.v.s" height=150>
       </a>
     </div>
 
-  + checking
+  + quick checking
 
     \[\begin{align*}
-      \text{independent} &\to \text{rows proportioanl to each other} \\\\
+      \text{independent} &\to \text{rows proportioanl to each other} \\
       &\to \text{columns proportioanl to each other}
     \end{align*}\]
 
@@ -1460,12 +1506,12 @@
       </a>
     </div>
 
-  + $X {\prep \!\!\!\! \prep}$: for all $x$ and all $y \to$ events $X = x {\prep \!\!\!\! \prep} Y = y$
+  + $X {\perp \!\!\!\! \perp} Y$: for all $x$ and all $y \to$ events $X = x {\perp \!\!\!\! \perp} Y = y$
 
 + Marginal events
   + $X$-event: defined on $X$
   + $Y$-event: similar
-  + $X {\prep \!\!\!\! Y \implies$ all $X$-events are ${\prep \!\!\!\! \prep}$ of all $Y$-events
+  + $X {\perp \!\!\!\! Y \implies$ all $X$-events are ${\perp \!\!\!\! \perp}$ of all $Y$-events
 
 
 + [Original Slides](https://tinyurl.com/y8ge2yda)
