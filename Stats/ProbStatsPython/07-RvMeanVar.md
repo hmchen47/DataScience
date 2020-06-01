@@ -1247,83 +1247,26 @@
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"># Variables</th>
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Variable Names</th>
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Sample Space</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Probability</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Abbreviation</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Prob.</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Abbr.</th>
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Properties</th>
     </tr>
     </thead>
     <tbody>
     <tr>
-      <th>One</th>
-      <td style="text-align: center;">X</td>
-      <td style="text-align: center;">$X$</td>
-      <td style="text-align: center;">$p(X = x)$</td>
-      <td style="text-align: center;">$p(x)$</td>
-      <td style="text-align: center;">$p(x) \ge 1 \\ \sum_x p(x) =1$</td>
+      <th>One</th> <td style="text-align: center;">X</td> <td style="text-align: center;">$X$</td> <td style="text-align: center;">$p(X = x)$</td> <td style="text-align: center;">$p(x)$</td> <td style="text-align: center;">$p(x) \ge 1 \\ \sum_x p(x) =1$</td>
     </tr>
     <tr>
-      <th>Two</th>
-      <td style="text-align: center;">X, Y</td>
-      <td style="text-align: center;">$X \times Y$</td>
-      <td style="text-align: center;">$p((X, Y) = (x, y))$</td>
-      <td style="text-align: center;">$p(x, y)$</td>
-      <td style="text-align: center;">p(x, y) \ge 0 \\ \sum_{x, y} p(x, y) = 1$</td>
+      <th>Two</th> <td style="text-align: center;">X, Y</td> <td style="text-align: center;">$X \times Y$</td> <td style="text-align: center;">$p((X, Y) = (x, y))$</td> <td style="text-align: center;">$p(x, y)$</td> <td style="text-align: center;">$p(x, y) \ge 0 \\ \sum_{x, y} p(x, y) = 1$</td>
     </tr>
     </tbody>
   </table>
 
 + Specification
   + state probability of every possible $(x, y)$ pair
-  + wayss to representation
+  + ways to representation
     + table: 1-d
-
-      <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-        <thead>
-        <tr style="font-size: 1.2em;">
-          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$x$</th>
-          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$y$</th>
-          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$\Pr(x, y)$</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr> <td style="text-align: center;">0</td> <td style="text-align: center;">0</td> <td style="text-align: center;">.1</td> </tr>
-        <tr> <td style="text-align: center;">0</td> <td style="text-align: center;">2</td> <td style="text-align: center;">.2</td> </tr>
-        <tr> <td style="text-align: center;">1</td> <td style="text-align: center;">2</td> <td style="text-align: center;">.3</td> </tr>
-        <tr> <td style="text-align: center;">1</td> <td style="text-align: center;">3</td> <td style="text-align: center;">.4</td> </tr>
-        </tbody>
-      </table>
-
     + structure: 2-d
-
-      <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-        <thead>
-        <tr style="font-size: 1.2em;">
-          <th colspan="5" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:40%;">y</th>
-        </tr>
-        <tr style="font-size: 1.2em;">
-          <th colspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"></th>
-          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">0</th>
-          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">2</th>
-          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">3</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <th rowspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff;">$x$</th>
-          <th style="text-align: center; background-color: #3d64a0; color: #ffffff;">0</th>
-          <td style="text-align: center;">0.1</td>
-          <td style="text-align: center;">0.2</td>
-          <td style="text-align: center;">0</td>
-        </tr>
-        <tr>
-          <th style="text-align: center; background-color: #3d64a0; color: #ffffff;">1</th>
-          <td style="text-align: center;">0</td>
-          <td style="text-align: center;">.3</td>
-          <td style="text-align: center;">.4</td>
-        </tr>
-        </tbody>
-      </table>
-
     + structured distributions
   + more natural options
 
@@ -1341,9 +1284,9 @@
           </a>
         </div>
 
-    + Min-Max: $X = \min(U, V \quad Y = \max(U, V)$)
+    + Min-Max: $X = \min(U, V) \quad Y = \max(U, V)$
       + $(u, v) = (0, 0) \to min(u, v) = 0, \max(u, v) = 0 \to p(X, Y) = p(0, 0) = \frac14$
-      + $(u, v) = (0, 1) & (1, 0) \to min(u, v) = 0, \max(u, v) = 1 \to p(X, Y) = p(0, 1) = \frac12$
+      + $(u, v) = (0, 1) \& (1, 0) \to \min(u, v) = 0, \max(u, v) = 1 \to p(X, Y) = p(0, 1) = \frac12$
       + $(u, v) = (1, 1) \to min(u, v) = 1, \max(u, v) = 1 \to p(X, Y) = p(1, 1) = \frac14$
       + $p(X, Y) = p(1, 0) = 0$
     + Product-sum: $X = U\cdot V \quad Y = X + Y$
@@ -1354,7 +1297,7 @@
 
   + 3 coins
     + $U_1, U_2, U_3 \sim B(1/2) \quad {\perp \!\!\!\! \perp}$
-    + $X = U_1 + U_2$: \# heads among first 2
+    + $X = U_1 + U_2$: \# heads among the first 2
     + $Y = U_2 + U_3$: \# heads among the last 2
 
       <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -1458,7 +1401,7 @@
     </div>
 
 + Conditionals
-  + $\Pr(X = x \mid Y=y) \to \Pr(X \mid y) = \frac{p(x, y)}{p(y)} \quad \Pr(y \mid x) = \frac{p(x, y)}{p(x)}$
+  + $\Pr(X \mid y) = \frac{p(x, y)}{p(y)} \quad \Pr(y \mid x) = \frac{p(x, y)}{p(x)}$
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
@@ -1483,19 +1426,19 @@
       p(x, y) &= p(x) \cdot p(y) \gets \text{ more robust} \hspace{2em} \text{Formal}
     \end{align*}\]
 
-    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-      <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
-        <img src="img/t07-22a.png" style="margin: 0.1em;" alt="Probability distribution of independent r.v.s" title="Probability distribution of independent r.v.s" height=150>&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="img/t07-22b.png" style="margin: 0.1em;" alt="Probability distribution of dependent r.v.s" title="Probability distribution of dependent r.v.s" height=150>
-      </a>
-    </div>
-
   + quick checking
 
     \[\begin{align*}
       \text{independent} &\to \text{rows proportioanl to each other} \\
       &\to \text{columns proportioanl to each other}
     \end{align*}\]
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
+        <img src="img/t07-22a.png" style="margin: 0.1em;" alt="Probability distribution of independent r.v.s" title="Probability distribution of independent r.v.s" height=150>&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="img/t07-22b.png" style="margin: 0.1em;" alt="Probability distribution of dependent r.v.s" title="Probability distribution of dependent r.v.s" height=150>
+      </a>
+    </div>
 
   + example: $X \sim B(\frac12) \quad Y = X \quad Y = 1- X$
 
@@ -1511,7 +1454,7 @@
 + Marginal events
   + $X$-event: defined on $X$
   + $Y$-event: similar
-  + $X {\perp \!\!\!\! Y \implies$ all $X$-events are ${\perp \!\!\!\! \perp}$ of all $Y$-events
+  + $X {\perp \!\!\!\! \perp} Y \implies$ all $X$-events are ${\perp \!\!\!\! \perp}$ of all $Y$-events
 
 
 + [Original Slides](https://tinyurl.com/y8ge2yda)
