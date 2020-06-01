@@ -1558,12 +1558,12 @@
 
     \[ \Pr(g(X, Y) = z) = \Pr((X, Y) \in g^{-1}(z)) = \sum_{(x, y) \in g^{-1}(z)} p(x, y) \]
 
-+ Two unconcious statisticians
++ Two unconscious statisticians
 
   \[\begin{align*}
     E_g(X) &= \sum_x z \cdot \Pr(g(x) = z) = \sum_x z \sum_{x \in g^{-1}} p(x) \\
     &= \sum_x \sum_{x \in g^{-1}(z)} z \cdot p(x) = \sum_z \sum_{x \in g^{-1}(z)} g(x)p(x) \\
-    &= \sum_x g(x)p(x)
+    &= \sum_x g(x)p(x)\\
   \end{align*}\]
 
   \[ E_g(X, Y) = \sum_{x, y} g(x, y) p(x, y) \]
@@ -1591,7 +1591,7 @@
       Var(X+Y) &= E[(X+Y)^2] - (E[X+Y])^2 = E[X^2 + 2XY + Y^2) - (E[X] + E[Y])^2] \\
       &= E[X^2] + 2E[XY] + E[Y^2] - (E^2[X] + 2E[X] \cdot E[Y] + E^2[Y])\\
       &= E[X^2] - E^2[X] + E[Y^2] - E^2[Y] + 2(E[XY] - E[X] \cdot E[Y])\\
-      &= V(X) + V(Y) + 2(E[XY] - E[X] \cdot E[Y])
+      &= V(X) + V(Y) + \underbrace{2(E[XY] - E[X] \cdot E[Y])}_{E[XY] \stackrel{?}{=} E[X]\cdot E[y]} 
     \end{align*}\]
 
 + The hat problem
@@ -1616,8 +1616,8 @@
 
     \[\begin{align*}
       Y = -X & Var(X+Y) = Var(X-X) = Var(0) = 0\\
-      Y = X & Car(X+Y) = Var(X + X) = Var(2X) = 4Var(X)
-      \therefore & Var(X + Y) \neq Var(X) + Var(Y)
+      Y = X & Car(X+Y) = Var(X + X) = Var(2X) = 4Var(X)\\
+      \therefore & Var(X + Y) \eq Var(X) + Var(Y) \text{ only if } E[XY] = E[X]\cdot E[y]
     \end{align*}\]
 
 
