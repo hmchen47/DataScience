@@ -1551,9 +1551,77 @@
 
 ## 7.8 Linearity of Expectations
 
++ Functions of two variables
+  + $(X, Y) \sim p(x, y)$ over $\Bbb{R} \times \Bbb{R}$
+  + $g: \Bbb{R} \times \Bbb{R} \to \Bbb{R}$
+  + $g(X, Y)$: new random variable
+
+    \[ \Pr(g(X, Y) = z) = \Pr((X, Y) \in g^{-1}(z)) = \sum_{(x, y) \in g^{-1}(z)} p(x, y) \]
+
++ Two unconcious statisticians
+
+  \[\begin{align*}
+    E_g(X) &= \sum_x z \cdot \Pr(g(x) = z) = \sum_x z \sum_{x \in g^{-1}} p(x) \\
+    &= \sum_x \sum_{x \in g^{-1}(z)} z \cdot p(x) = \sum_z \sum_{x \in g^{-1}(z)} g(x)p(x) \\
+    &= \sum_x g(x)p(x)
+  \end{align*}\]
+
+  \[ E_g(X, Y) = \sum_{x, y} g(x, y) p(x, y) \]
+
++ Linearity of expectation
+
+  \[\begin{align*}
+    E[X+Y] &= \sum_x \sum_y (x+y) \cdot p(x,, y) = \sum_x \sum_y x \cdot p(x, y) + \sum_x \sum_y y \cdot p(x, y) \\
+    &= \sum_x x \sum_y p(x, y) + \sum_y y \sum_x p(x, y) = \sum_x x \cdot p(x) + \sum_y y \cdot p(y) \\
+    &= E[X] + E[Y]
+  \end{align*}\]
+
+  + expection of sum = sum of expectations
+  + example
+    + $\Pr(1, 0) = .05,$ $\Pr(1, 1) = .15,$ $\Pr(1, 3) = .30,$ $\Pr(3, 0) = .15,$ $\Pr(3, 1) = .25,$ $\Pr(3, 3) = .10,$
+    + $Pr(X= 1) = 0.5$, $Pr(X= 3) = 0.5$, $Pr(Y= 0) = 0.2$, $Pr(Y= 1) = 0.4$, $Pr(Y= 3) = 0.4$
+    + $E[Y] = .5 \cdot 1 + .5 \cdot 3 = 2$
+    + $E[X] = .2 \cdot 0 + .4 \cdot 2 + .4 \cdot 4 = 2.4$
+
++ Variance
+  + Expectations add: $E[X+Y]= E[X] + E[Y]$
+  + $Var(X+Y) \stackrel{?}{=} Var(X) + Var(Y)$
+
+    \[\begin{align*}
+      Var(X+Y) &= E[(X+Y)^2] - (E[X+Y])^2 = E[X^2 + 2XY + Y^2) - (E[X] + E[Y])^2] \\
+      &= E[X^2] + 2E[XY] + E[Y^2] - (E^2[X] + 2E[X] \cdot E[Y] + E^2[Y])\\
+      &= E[X^2] - E^2[X] + E[Y^2] - E^2[Y] + 2(E[XY] - E[X] \cdot E[Y])\\
+      &= V(X) + V(Y) + 2(E[XY] - E[X] \cdot E[Y])
+    \end{align*}\]
+
++ The hat problem
+  + $\Bbb{I}_i$: indicator function $i^{th}$ student caught their own hat
+  + $H$: \# students who caught their own hat, i.e., $H = \displaystyle \sum_{i=1}^n \Bbb{I}_i, \quad \Bbb{I}_i \sim$ Bernoulli
+
+    \[\begin{align*}
+      \Pr(\Bbb{I}_i = 1) &= \frac{\text{# permutations of $(\sigma_1, \cdots, \sigma_n)$ when $\sigma_i = i$}}{\text{# permutations of  $(\sigma_1, \cdots, \sigma_n)$}} = \frac{(n-1)!}{n!} = \frac{1}{n} \\\\
+      E[\Bbb{I}_i] &= \Pr(\Bbb{I}_i) = \frac{1}{n} \\\\
+      E[H] &= E\left[ \sum_{i=1}^n \Bbb{I}_i \right] = \sum_{i=1}^n E(\Bbb{I}_i) = \sum_{i=1}^n \frac{1}{n} = 1
+    \end{align*}\]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yc9g7yyz" ismap target="_blank">
+      <img src="img/t07-27.png" style="margin: 0.1em;" alt="Table of counts w/ hat catching" title="Table of counts w/ hat catching" width=150>
+    </a>
+  </div>
+
++ Do variance add?
+  + expectations add: linearity
+  + do varinaces? $Var(X+Y) = Var(X) + Var(Y)$
+
+    \[\begin{align*}
+      Y = -X & Var(X+Y) = Var(X-X) = Var(0) = 0\\
+      Y = X & Car(X+Y) = Var(X + X) = Var(2X) = 4Var(X)
+      \therefore & Var(X + Y) \neq Var(X) + Var(Y)
+    \end{align*}\]
 
 
-
++ [Original Slides](https://tinyurl.com/yc9g7yyz)
 
 
 ## Problem Sets
