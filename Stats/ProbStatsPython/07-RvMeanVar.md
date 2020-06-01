@@ -809,10 +809,10 @@
 
   Ans: a. (1/2); b. (1); c. (2/7); d. (4/7)<br/>
   <span style="color: magenta;">Explanation</span>
-    + Since the total probability must sum to 1, We must have $1=\sum_{i=0}^{\infty}P(X=i)=\sum_{i=0}^{\infty}\frac{\alpha}{2^i}= \alpha \cdot \sum_{i=0}^{\infty} \frac{1}{2^i} = \alpha\cdot 2$. Thus $\alpha=1/2$.
-    + y definition, $E(X)=\sum_{i=0}^{\infty}i\cdot P(X=i)=\sum_{i=1}^{\infty}i.\frac{\alpha}{2^i}$. This may be re-written to give $2E(X)=\sum_{i=0}^{\infty}(i+1).\frac{\alpha}{2^i}$. Subtracting the former from the latter we have $E(X)=\sum_{i=0}^{\infty}\frac{\alpha}{2^i}=2\cdot \alpha=1$.
-    + $P(Y=1) = \sum_{j=0}^{\infty} P(X = 3j + 1) =$ $\sum_{j=0}^{\infty}\frac{\alpha}{2^{3j+1}} = $ $1/2\cdot\sum_{j=0}^{\infty}\frac{\alpha}{8^{j}} = $ $1/2\cdot\alpha \cdot 8/7 =2/7$
-    + First note that $P(Y=2) = \sum_{j=0}^{\infty} P(X = 3j + 2) =$ $\sum_{j=0}^{\infty}\frac{\alpha}{2^{3j+2}} = $ $1/4\cdot\sum_{j=0}^{\infty}\frac{\alpha}{8^{j}} =$ $1/4\cdot\alpha\cdot8/7 = $ $1/7$. Now $E(Y)=1\cdot P(Y=1)+2\cdot P(Y=2)=2/7+2\cdot 1/7=4/7$
+    + Since the total probability must sum to 1, We must have $1=\sum_{i=0}^{\infty}\Pr(X=i)=\sum_{i=0}^{\infty}\frac{\alpha}{2^i}= \alpha \cdot \sum_{i=0}^{\infty} \frac{1}{2^i} = \alpha\cdot 2$. Thus $\alpha=1/2$.
+    + y definition, $E(X)=\sum_{i=0}^{\infty}i\cdot \Pr(X=i)=\sum_{i=1}^{\infty}i.\frac{\alpha}{2^i}$. This may be re-written to give $2E(X)=\sum_{i=0}^{\infty}(i+1).\frac{\alpha}{2^i}$. Subtracting the former from the latter we have $E(X)=\sum_{i=0}^{\infty}\frac{\alpha}{2^i}=2\cdot \alpha=1$.
+    + $\Pr(Y=1) = \sum_{j=0}^{\infty} \Pr(X = 3j + 1) =$ $\sum_{j=0}^{\infty}\frac{\alpha}{2^{3j+1}} = $ $1/2\cdot\sum_{j=0}^{\infty}\frac{\alpha}{8^{j}} = $ $1/2\cdot\alpha \cdot 8/7 =2/7$
+    + First note that $\Pr(Y=2) = \sum_{j=0}^{\infty} \Pr(X = 3j + 2) =$ $\sum_{j=0}^{\infty}\frac{\alpha}{2^{3j+2}} = $ $1/4\cdot\sum_{j=0}^{\infty}\frac{\alpha}{8^{j}} =$ $1/4\cdot\alpha\cdot8/7 = $ $1/7$. Now $E(Y)=1\cdot \Pr(Y=1)+2\cdot \Pr(Y=2)=2/7+2\cdot 1/7=4/7$
 
 
 2. Which of the following statements hold for all finite-expectation random variables $X,Y$ and all fixed numbers $a,b \in \Bbb{R}$? <br/>
@@ -1123,7 +1123,7 @@
   Explanation: Variance measures how far a set of (random) numbers are spread out from their average value. 3 is the broadest one.
 
 
-2. A random variable $X$ is distributed over $\{−1,0,1\}$ according to the p.m.f. $P(X=x)=|x|+15$.<b/>
+2. A random variable $X$ is distributed over $\{−1,0,1\}$ according to the p.m.f. $\Pr(X=x)=|x|+15$.<b/>
   a. Find its expectation $E(X)$<b/>
   b. and variance $Var(X)$<b/>
 
@@ -1138,7 +1138,7 @@
   \[\begin{array}{c|ccc}
     x & 1 & 2 & 3 \\
     \hline
-    P(x) & 0.3 & 0.5 & 0.2\\
+    \Pr(x) & 0.3 & 0.5 & 0.2\\
   \end{array} \]
 
   If $Y=2^X$, what are<br/>
@@ -1152,7 +1152,7 @@
   Ans: a. (4.2); b. (4.36); c. (10/7); d. (19/7)<br/>
   Explanation
     + $E(Y)=E(2^X)=2\times 0.3+4\times 0.5+8\times0.2=4.2$
-    + For any random variable $V(Z)=E(Z^2)-E(Z)^2$. Here, $E(Y^2)=E(2^{2X})=4\times 0.3+16\times 0.5+64\times0.2=22$. Thus, $V(Y)=22-4.2^2=4.36$
+    + For any random variable $Var(Z)=E(Z^2)-E(Z)^2$. Here, $E(Y^2)=E(2^{2X})=4\times 0.3+16\times 0.5+64\times0.2=22$. Thus, $Var(Y)=22-4.2^2=4.36$
     + 10/7
     + First, $E(X)=0.3×1+0.5×2+0.2×3=1.9$, $E(X2)=0.3×1+0.5×4+0.2×9=4.1$ and thus $Var(X)=E(X2)−E(X)2=4.1−1.92=0.49$.  Now, by linearity of expectation, $0=E(Z)=aE(X)+b=1.9 \cdot a+b$. Further, we know $1=Var(Z)=Var(aX+b)=a2 \cdot Var(X)=a2 \cdot 0.49$. Solving these two equations gives $|a|=1.42857$, $|b|=2.71485$.
 
@@ -1166,8 +1166,8 @@
 
   Ans: a. (90); b. (100); c. (0); d. (); e. (1)<br/>
   Explanation
-    + The distribution of $P_1$ is $P(P_1=90)=1$. Hence, $E(P1)=1×90=90$.
-    + The distribution of $P_2$ is $P(P_2=80)=P(P_2=120)=1/2$. Hence, $E(P_2)=1/2×80+1/2×120=100$.
+    + The distribution of $P_1$ is $\Pr(P_1=90)=1$. Hence, $E(P1)=1×90=90$.
+    + The distribution of $P_2$ is $\Pr(P_2=80)=\Pr(P_2=120)=1/2$. Hence, $E(P_2)=1/2×80+1/2×120=100$.
     + By definition, $Var(P_1)=1×(90−90)2=0$.
     + By definition, $Var(P_2)=12×(80−100)2+12×(120−100)2=400$.
     + By definition, $E(P_1)-\sqrt{\text{Var}(P_1)} = 90$, $E(P_2)-\sqrt{\text{Var}(P_2)} = 80$
@@ -1176,30 +1176,30 @@
 5. Which of the following are always true for random variables \(X\), \(Y\) and real numbers \(a\), \(b\)?<br/>
   a. The variance of \(X\) is always non-negative.<br/>
   b. The standard deviation of \(X\) is always non-negative.<br/>
-  c. If \(V(X)=V(Y)\), then \(V(X+a)=V(Y+b)\).<br/>
-  d. If \(V(aX)=V(bX)\) for \(a\not=0\) and \(b\not=0\), then \(a=b\).<br/>
-  e. If \(E[X]=E[Y]\) and \(V(X)=V(Y)\), then \(X=Y\).<br/>
-  f. If \(E[X]=E[Y]\) and \(V(X)=V(Y)\), then \(E[X^2]=E[Y^2]\).<br/>
+  c. If \(Var(X)=Var(Y)\), then \(Var(X+a)=Var(Y+b)\).<br/>
+  d. If \(Var(aX)=Var(bX)\) for \(a\not=0\) and \(b\not=0\), then \(a=b\).<br/>
+  e. If \(E[X]=E[Y]\) and \(Var(X)=Var(Y)\), then \(X=Y\).<br/>
+  f. If \(E[X]=E[Y]\) and \(Var(X)=Var(Y)\), then \(E[X^2]=E[Y^2]\).<br/>
 
   Ans: abcf<br>
   Explanation
     + True.
-    + True. Standard deviation is defined by $\sqrt{V(X)}$, which is also non-negative.
-    + True. Adding a constant $a$ to random varianle $X$ will not affect its varaince. $V(X + a) = E((X + a - E(X + a))^2) = E((X + a - E(X) - a)^2) = E((X - E(X))^2) = V(X)$
-    + False. When $V(X)=0$, this does not hold.
-    + False. Consider two random variables $X,Y$ with pmf, $\Pr(X= x) = \begin{cases} \frac12 & x = -1\\ \frac12 & x=1 \end{cases}$, and$\Pr(Y=y) = \begin{cases} \frac18 & y = -2 \\ \frac34 & y=0 \\ \frac18 & y=2 \end{cases}$.  Now $E(X) = E(Y) = 0, V(X) = V(Y) = 1$.  However, $X \neq Y$
-    + True, as $E(X^2)=V(X)+E^2 [X]$, if $E(X)=E(Y)$ and $V(X)=V(Y)$, then $E(X^2)=E(Y^2)$.
+    + True. Standard deviation is defined by $\sqrt{Var(X)}$, which is also non-negative.
+    + True. Adding a constant $a$ to random varianle $X$ will not affect its varaince. $Var(X + a) = E((X + a - E(X + a))^2) = E((X + a - E(X) - a)^2) = E((X - E(X))^2) = Var(X)$
+    + False. When $Var(X)=0$, this does not hold.
+    + False. Consider two random variables $X,Y$ with pmf, $\Pr(X= x) = \begin{cases} \frac12 & x = -1\\ \frac12 & x=1 \end{cases}$, and$\Pr(Y=y) = \begin{cases} \frac18 & y = -2 \\ \frac34 & y=0 \\ \frac18 & y=2 \end{cases}$.  Now $E(X) = E(Y) = 0, Var(X) = Var(Y) = 1$.  However, $X \neq Y$
+    + True, as $E(X^2)=Var(X)+E^2 [X]$, if $E(X)=E(Y)$ and $Var(X)=Var(Y)$, then $E(X^2)=E(Y^2)$.
 
 
 6. We say $X_A$ is an indicator variable for event $A$: $X_A=1$ if A occurs, $X_A=0$ if $A$ does not occur. 
   
-  If $P(A)=0.35$, what is:<br/>
+  If $\Pr(A)=0.35$, what is:<br/>
   a. $E(XA)$?<br/>
   b. $Var(X_A)$?<br/>
 
   Ans: a. (0.35); b. (0.2275)<br/>
   Explanation
-    + The distribution of $X_A$ is $P(X_A=1)=P(A)=0.35, P(X_A=0)=1−P(A)=0.65$. The spectation is $E(X_A)=0.35×1+0.65×0=0.35$
+    + The distribution of $X_A$ is $\Pr(X_A=1)=\Pr(A)=0.35, \Pr(X_A=0)=1−\Pr(A)=0.65$. The spectation is $E(X_A)=0.35×1+0.65×0=0.35$
     + The variance of $X_A$ is $Var(X_A)=0.35×(1−0.35)2+0.65×(0−0.35)2=0.2275$
 
 
@@ -1213,10 +1213,10 @@
     + The standard deviation of $X$ is $\sigma_X = \sqrt{\text{Var}(X)} = 1.7078$
 
 
-8. Let $X$ and $Y$ be independent random variables with expectations 1 and 2, and variances 3 and 4, respectively. Find the variance of $V(XY)$.
+8. Let $X$ and $Y$ be independent random variables with expectations 1 and 2, and variances 3 and 4, respectively. Find the variance of $Var(XY)$.
 
   Ans: 28<br/>
-  Explanation: $E(X^2)=V(X)+(EX)^2=3+12=4$ and $E(Y^2)=V(Y)+(EY)^2=4+22=8$. Hence $V(XY)=E((XY)2)−E^2(XY)=E(X^2 \cdot Y^2)−(EX \cdot EY)^2 =$ $E(X^2) \cdot E(Y^2)−(EX)^2 \cdot (EY)^2=4 \cdot 8−(1⋅2)2=28$.
+  Explanation: $E(X^2)=Var(X)+(EX)^2=3+12=4$ and $E(Y^2)=Var(Y)+(EY)^2=4+22=8$. Hence $Var(XY)=E((XY)2)−E^2(XY)=E(X^2 \cdot Y^2)−(EX \cdot EY)^2 =$ $E(X^2) \cdot E(Y^2)−(EX)^2 \cdot (EY)^2=4 \cdot 8−(1⋅2)2=28$.
 
 
 
@@ -1393,10 +1393,10 @@
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
-        <img src="img/t07-21a.png" style="margin: 0.1em;" alt="Probability tables and their join distribtion" title="Probability tables and their join distribtion" height=100> 
-        <img src="img/t07-21c.png" style="margin: 0.1em;" alt="Probability tables and their join distribtion" title="Probability tables and their join distribtion" height=80> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="img/t07-21b.png" style="margin: 0.1em;" alt="Probability tables and their join distribtion" title="Probability tables and their join distribtion" height=100>
-        <img src="img/t07-21d.png" style="margin: 0.1em;" alt="Probability tables and their join distribtion" title="Probability tables and their join distribtion" height=80>
+        <img src="img/t07-21a.png" style="margin: 0.1em;" alt="Probability tables and their join distribution" title="Probability tables and their join distribution" height=100> 
+        <img src="img/t07-21c.png" style="margin: 0.1em;" alt="Probability tables and their join distribution" title="Probability tables and their join distribution" height=80> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="img/t07-21b.png" style="margin: 0.1em;" alt="Probability tables and their join distribution" title="Probability tables and their join distribution" height=100>
+        <img src="img/t07-21d.png" style="margin: 0.1em;" alt="Probability tables and their join distribution" title="Probability tables and their join distribution" height=80>
       </a>
     </div>
 
@@ -1429,8 +1429,8 @@
   + quick checking
 
     \[\begin{align*}
-      \text{independent} &\to \text{rows proportioanl to each other} \\
-      &\to \text{columns proportioanl to each other}
+      \text{independent} &\to \text{rows proportional to each other} \\
+      &\to \text{columns proportional to each other}
     \end{align*}\]
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -1444,8 +1444,8 @@
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
-        <img src="img/t07-23a.png" style="margin: 0.1em;" alt="Probability distributon of Y = X" title="Probability distributon of Y = X" height=120>
-        <img src="img/t07-23b.png" style="margin: 0.1em;" alt="Probability distributon of Y = 1 -X" title="Probability distributon of Y = 1- X" height=120>
+        <img src="img/t07-23a.png" style="margin: 0.1em;" alt="Probability distribution of Y = X" title="Probability distribution of Y = X" height=120>
+        <img src="img/t07-23b.png" style="margin: 0.1em;" alt="Probability distribution of Y = 1 -X" title="Probability distribution of Y = 1- X" height=120>
       </a>
     </div>
 
@@ -1462,6 +1462,83 @@
 
 ## Problem Sets
 
+0. If X has three different outcomes and Y has four different outcomes, how many outcomes does the joint random variable (X,Y) have?<br/>
+  a. 4<br/>
+  b. 7<br/>
+  c. 12<br/>
+  d. None of the above<br/>
+
+  Ans: c<br/>
+  Explanation: The answer is 3x4=12.
+
+
+1. Which of the following hold for all Independent random variables, $X$ and $Y$?
+  a. $\Pr(X=x|Y=y) = \Pr(X=x)$<br/>
+  b. $\Pr(X=x|Y=y) = \Pr(Y=y|X=x)$<br/>
+
+  Ans: a<br/>
+  Explanation: If two random variables are independent, by definition, $\Pr(X=x,Y=y)=\Pr(X=x)\Pr(Y=y)$. Since $\Pr(X=x,Y=y)=\Pr(X=x|Y=y)\Pr(Y=y)$, we have $\Pr(X=x|Y=y)=\Pr(X=x)$.
+
+
+2. A joint probabilty mass table is given as follows:
+
+  \[ \begin{array}{|c|c|c|} \hline X\backslash Y & 0 & 1\\ \hline 0 & 0.15 & 0.25\\ \hline 1 & 0.45 & 0.15\\ \hline \end{array}  \]
+
+  1) Choose the correct marginal PMFs for $X$ and $Y$.<br/>
+    a. $\begin{array}{|c|c|c|} \hline x,y & \Pr(x) & \Pr(y)\\ \hline 0 & 0.15 & 0.45\\ \hline 1 & 0.25 & 0.5\\ \hline \end{array}$<br/>
+    b. $\begin{array}{|c|c|c|} \hline x,y & \Pr(x) & \Pr(y)\\ \hline 0 & 0.4 & 0.6\\ \hline 1 & 0.6 & 0.4\\ \hline \end{array}$<br/>
+    c. $\begin{array}{|c|c|c|} \hline x,y & \Pr(x) & \Pr(y)\\ \hline 0 & 0.6 & 0.4\\ \hline 1 & 0.4 & 0.6\\ \hline \end{array}$<br/>
+
+  2) Find $\Pr(X=0|Y=0)$.<br/>
+    a. 0.250 <br/>
+    b. 0.375 <br/>
+    c. 0.667 <br/>
+    d. 1<br/>
+
+  3) Find $\Pr(Y=1|X=0)$.<br/>
+    a. 0.375<br/>
+    b. 0.417<br/>
+    c. 0.625<br/>
+    d. 0.750<br/>
+
+  Ans: 1) b; 2) a; 3) c
+
+
+3. Given independent random variables $X$ and $Y$ with the following joint distribution. Find $a, b$
+
+  \[ \begin{array}{c|cc|c}  X\setminus Y & 0 & 1 & \text{sum}\\  \hline  0 & b & ? & 0.7\\  1 & ? & 0.18 & ?\\  \hline  \text{sum} & a & ? &\end{array} \]
+
+  Ans: a = 0.4, b = 0.28<br/>
+  Explanation
+    + $\Pr(X=1)=1−\Pr(X=0)=0.3$, $\Pr(Y=1)=1−\Pr(Y=0)=1−a$. By independence of $X$ and $Y$, $\Pr(X=1,Y=1)=0.18=\Pr(X=1)⋅\Pr(Y=1)=0.3⋅(1−a)$. Thus $a=0.4$.
+    + $b=\Pr(X=0,Y=0)=\Pr(X=0)⋅\Pr(Y=0)=\Pr(X=0)⋅a=0.7×0.4=0.28$.
+
+
+4. Which equation accurately describes the marginal PMFs for the random variables, $X$ and $Y$?<br/>
+  a. $\Pr(X = x) = \sum_{x}p(X = x, Y = y), \quad \Pr(Y = y) = \sum_{y}p(X = x, Y = y)$<br/>
+  b. $\Pr(X = x) = \sum_{y}p(X = x, Y = y), \quad \Pr(Y = y) = \sum_{x}p(X = x, Y = y)$<br/>
+  c. $\Pr(X = x) = \sum_{x}p(Y = y), \quad \Pr(Y = y) = \sum_{y}p(X = x)$<br/>
+  d. $\Pr(X = x) = \sum_{y}p(X = x), \quad \Pr(Y = y) = \sum_{x}p(Y = y)$<br/>
+
+  Ans: b
+
+
+5. Roll two fair six-sided dice, and let $X$, $Y$ denote the first and the second numbers.
+
+  1) If $Z=\max{X,Y}$, find<br/>
+    a. $E(Z)$<br/>
+    b. $Var(Z)$<br/>
+
+  2) If $Z=|X−Y|$, find<br/>
+    c. $E(Z)$<br/>
+    d. $Var(Z)$<br/>
+
+  Ans: a. (4.4722 ); b. (1.97145); c. (1.9444); d. (2.0525)<br/>
+  Explanation
+    + The distribution of $Z$ is $\Pr(Z=1)=1/36,$ $\Pr(Z=2)=3/36,$ $\Pr(Z=3)=5/36,$ $\Pr(Z=4)=7/36,$ $\Pr(Z=5)=9/36,$ $\Pr(Z=6)=11/36$. The expectation of $Z$ is $E(Z) = \sum_{i = 1}^{6} i \cdot \Pr(Z = i) = \frac{161}{36} = 4.472$
+    + $E(Z) = \sum_{i = 1}^{6} i \cdot \Pr(Z = i) = \frac{161}{36} = 4.472$. The variance of $Z$ is $Var(Z) = E(Z^2) - E^2(Z) = 1.9715$
+    + The distribution of $Z$ is $\Pr(Z=0)=6/36,$ $\Pr(Z=1)=10/36,$ $\Pr(Z=2)=8/36,$ $\Pr(Z=3)=6/36,$ $\Pr(Z=4)=4/36,$ $\Pr(Z=5)=236$.  The expectation of $Z$ is $E(Z) = \sum_{i = 0}^{5} i \cdot \Pr(Z = i) = \frac{35}{18} = 1.9444$
+    + $E(Z^2) = \sum_{i = 0}^{5} i^2 \cdot \Pr(Z = i) = \frac{35}{6}$.  The variance of $Z$ is $Var(Z) = E(Z^2) - E^2(Z) = 2.0525$
 
 
 
