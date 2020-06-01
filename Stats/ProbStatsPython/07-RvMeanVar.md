@@ -1229,9 +1229,246 @@
 
 ## 7.7 Two Variables
 
++ Probabilistic reasons
+  + outcomes often result from multiple factors
+  + examples:
+    + rain: temperature and humidity
+    + economy: unemployment and inflation
+    + hiring: experience and salary
+    + student: \# classes, GPA
+    + human condition: profession, age, cholesterol, salary, happiness, location, dinner plans, ...
+
++ Join distribution
+  + simple extension of one variable
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 60vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"># Variables</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Variable Names</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Sample Space</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Probability</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Abbreviation</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Properties</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th>One</th>
+      <td style="text-align: center;">X</td>
+      <td style="text-align: center;">$X$</td>
+      <td style="text-align: center;">$p(X = x)$</td>
+      <td style="text-align: center;">$p(x)$</td>
+      <td style="text-align: center;">$p(x) \ge 1 \\ \sum_x p(x) =1$</td>
+    </tr>
+    <tr>
+      <th>Two</th>
+      <td style="text-align: center;">X, Y</td>
+      <td style="text-align: center;">$X \times Y$</td>
+      <td style="text-align: center;">$p((X, Y) = (x, y))$</td>
+      <td style="text-align: center;">$p(x, y)$</td>
+      <td style="text-align: center;">p(x, y) \ge 0 \\ \sum_{x, y} p(x, y) = 1$</td>
+    </tr>
+    </tbody>
+  </table>
+
++ Specification
+  + state probability of every possible $(x, y)$ pair
+  + wayss to representation
+    + table: 1-d
+
+      <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+        <thead>
+        <tr style="font-size: 1.2em;">
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$x$</th>
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$y$</th>
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$\Pr(x, y)$</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr> <td style="text-align: center;">0</td> <td style="text-align: center;">0</td> <td style="text-align: center;">.1</td> </tr>
+        <tr> <td style="text-align: center;">0</td> <td style="text-align: center;">2</td> <td style="text-align: center;">.2</td> </tr>
+        <tr> <td style="text-align: center;">1</td> <td style="text-align: center;">2</td> <td style="text-align: center;">.3</td> </tr>
+        <tr> <td style="text-align: center;">1</td> <td style="text-align: center;">3</td> <td style="text-align: center;">.4</td> </tr>
+        </tbody>
+      </table>
+
+    + structure: 2-d
+
+      <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+        <thead>
+        <tr style="font-size: 1.2em;">
+          <th colspan="5" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:40%;">y</th>
+        </tr>
+        <tr style="font-size: 1.2em;">
+          <th colspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"></th>
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">0</th>
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">2</th>
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">3</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th rowspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff;">$x$</th>
+          <th style="text-align: center; background-color: #3d64a0; color: #ffffff;">0</th>
+          <td style="text-align: center;">0.1</td>
+          <td style="text-align: center;">0.2</td>
+          <td style="text-align: center;">0</td>
+        </tr>
+        <tr>
+          <th style="text-align: center; background-color: #3d64a0; color: #ffffff;">1</th>
+          <td style="text-align: center;">0</td>
+          <td style="text-align: center;">.3</td>
+          <td style="text-align: center;">.4</td>
+        </tr>
+        </tbody>
+      </table>
+
+    + structured distributions
+  + more natural options
+
++ Example: coins
+  + fair coins
+    + story: two independent fair coins
+    + symbolic: $U, V \sim B(\frac12) \quad U {\perp \!\!\!\! \perp}$
+    + explicit: $\Pr(u, v) \stackrel{\text{def}}{=} \Pr(U = u, V = v) = \frac14 \quad \forall\, \{u, v\} \in \{0, 1\}$
+    + table:
+
+      <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+        <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
+          <img src="img/t07-16.png" style="margin: 0.1em;" alt="Tables for fair coins" title="Tables for fair coins" width=350>
+        </a>
+      </div>
+  + bias coins
+    + independent $B(p)$ and $B(q)$
+
+      <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+        <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
+          <img src="img/t07-17.png" style="margin: 0.1em;" alt="Tables for bias coin" title="Tables for bias coin" width=350>
+        </a>
+      </div>
+
++ Fair and Rigged
+  + two coins:
+    + fair: $B(\frac12)$
+    + rigged: $B(0)$
+  + randomly choose fair or rigged
+  + flip chosen coin
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
+        <img src="img/t07-18.png" style="margin: 0.1em;" alt="Probability table for fair and rigged coin" title="Probability table for fair and rigged coins" width=200>
+      </a>
+    </div>
+
++ Event probability
+  + join distribution determining probabilities of all events
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
+        <img src="img/t07-19.png" style="margin: 0.1em;" alt="Probability table w/ two r.v.s" title="Probability table for  w/ two r.v.s" width=150>
+      </a>
+    </div>
+
+  \[\begin{align*}
+    \Pr(X \le Y) &= \Pr(X=0, Y=0) + \Pr(X = 0, Y = 1) + \Pr(X=1, Y=1) \\
+    &= \Pr(0, 0) + \Pr(0, 1) + \Pr(1, 1) = 0.1 + 0.2 + 0.4 = 0.7
+  \end{align*}\]
+
++ Quiz: find a simple description of following events and their probability
+  + $X = Y$:
+  + $X \neq Y$
+  + $X+Y = 1$
+  + $X \cdot Y$
+  + $\min(X, Y)=1$
+  + $\max(X, Y)=1$
+
++ Marginals
+  + margin of $X$: $P(x) \stackrel{\text{def}}{=} P_x(x) \stackrel{\text{def}}{=} \Pr(X = x) = \sum_y p(x, y)$
+  + margin of $Y$: $P(y) \stackrel{\text{def}}{=} P_Y(y) \stackrel{\text{def}}{=} \Pr(Y = y) = \sum_x p(x, y)$
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
+        <img src="img/t07-20.png" style="margin: 0.1em;" alt="Probability table w/ two r.v.s and margins" title="Probability table for  w/ two r.v.s and margins" width=250>
+      </a>
+    </div>
+
+    \[\begin{align*}
+      \Pr(X=0) &= \Pr(X=0, Y=0) + \Pr(X=0, Y= 1) \qquad (\text{Total probability}) \\
+      &= \Pr(0, 0) + \Pr(0, 1) = .1 + .2 = .3
+    \end{align*}\]
+
++ Join matters
+  + very different join distributions able to have the same marginals
+  + in all following, $X, Y \sim B(.5)$, but very different joint distributions
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
+        <img src="img/t07-21a.png" style="margin: 0.1em;" alt="Probability tables and their join distribtion" title="Probability tables and their join distribtion" height=100> 
+        <img src="img/t07-21c.png" style="margin: 0.1em;" alt="Probability tables and their join distribtion" title="Probability tables and their join distribtion" height=80> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="img/t07-21b.png" style="margin: 0.1em;" alt="Probability tables and their join distribtion" title="Probability tables and their join distribtion" height=100>
+        <img src="img/t07-21d.png" style="margin: 0.1em;" alt="Probability tables and their join distribtion" title="Probability tables and their join distribtion" height=80>
+      </a>
+    </div>
+
++ Conditionals
+  + $\Pr(X = x \mid Y=y) \to \Pr(X \mid y) = \frac{p(x, y)}{p(y)} \quad \Pr(y \mid x) = \frac{p(x, y)}{p(x)}$
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
+        <img src="img/t07-20.png" style="margin: 0.1em;" alt="Probability table w/ two r.v.s and margins" title="Probability table for  w/ two r.v.s and margins" width=250>
+      </a>
+    </div>
+
+    \[\begin{align*}
+      \Pr(Y=0 \mid X=0) &= \frac{\Pr(X=0, Y=0)}{\Pr(X=0)} = \frac{0.1}{0.3} = \frac13 \\
+      \Pr(Y=1 \mid X=0) &= \frac{\Pr(X=0, Y=1)}{\Pr(X=0)} = \frac{0.2}{0.3} = \frac23 \\
+      \Pr(X=0 \mid Y=0) &= \frac{\Pr(X=0, Y=0)}{\Pr(Y=0)} = \frac{0.1}{0.4} = \frac14 \\
+      \Pr(X=1 \mid Y=0) &= 1 - \Pr(X=0, Y=0) = 1 - \frac14 = \frac34
+    \end{align*}\]
+
++ Independence
+  + $X, Y$ independent: $X {\perp \!\!\!\! \perp}$
+  + $\forall, x, y$
+
+    \[\begin{align*}
+      p(y \mid x) &= p(y) \qquad \text{Value of $X$ not affect distribution of $Y$} \\
+      p(x \mid y) &= p(x) \qquad \text{Value of $Y$ not affect distribution of $X$} \\
+      p(x, y) &= p(x) \cdot p(y) \gets \text{ more robust} \hspace{2em} \text{Formal}
+    \end{align*}\]
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
+        <img src="img/t07-22a.png" style="margin: 0.1em;" alt="Probability distribution of independent r.v.s" title="Probability distribution of independent r.v.s" height=150>
+        <img src="img/t07-22b.png" style="margin: 0.1em;" alt="Probability distribution of dependent r.v.s" title="Probability distribution of dependent r.v.s" height=150>
+      </a>
+    </div>
+
+  + checking
+
+    \[\begin{align*}
+      \text{independent} &\to \text{rows proportioanl to each other} \\\\
+      &\to \text{columns proportioanl to each other}
+    \end{align*}\]
+
+  + example: $X \sim B(\frac12) \quad Y = X \quad Y = 1- X$
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
+        <img src="img/t07-23a.png" style="margin: 0.1em;" alt="Probability distributon of Y = X" title="Probability distributon of Y = X" height=120>
+        <img src="img/t07-23b.png" style="margin: 0.1em;" alt="Probability distributon of Y = 1 -X" title="Probability distributon of Y = 1- X" height=120>
+      </a>
+    </div>
+
+  + $X {\prep \!\!\!\! \prep}$: for all $x$ and all $y \to$ events $X = x {\prep \!\!\!\! \prep} Y = y$
+
++ Marginal events
+  + $X$-event: defined on $X$
+  + $Y$-event: similar
+  + $X {\prep \!\!\!\! Y \implies$ all $X$-events are ${\prep \!\!\!\! \prep}$ of all $Y$-events
 
 
-
++ [Original Slides](https://tinyurl.com/y8ge2yda)
 
 
 ## Problem Sets
