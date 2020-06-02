@@ -1656,12 +1656,12 @@
 3. $E(X)=2$ and $E(X(X−1))=5$. Find $V(X)$.
 
   Ans: 3 <br/>
-  Explanation: $5 = E[X(X−1)] = E(X^2−X) =E(X^2)−E(X) = E(X^2)−2  \to E(X^2)=5+2=7 \to Var(X)=E(X^2)−E(X)^2=7−4=3$
+  Explanation: $5 = E[X(X−1)] =$ $E(X^2−X) =E(X^2)−E(X) =$ $E(X^2)−2 $ $\to E(X^2)=5+2=7$ $\to Var(X)=E(X^2)−E(X)^2=7−4=3$
 
 
 ## Lecture Video
 
-<a href="url" target="_BLANK">
+<a href="https://tinyurl.com/y9acreuq" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
 </a><br/>
 
