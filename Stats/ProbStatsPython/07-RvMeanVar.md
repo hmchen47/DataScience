@@ -1626,7 +1626,37 @@
 
 ## Problem Sets
 
+0. Which of the following always holds?<br/>
+  a. $E[X+Y]=E[X]+E[Y]$<br/>
+  b. $E[X-Y]=E[X]-E[Y]$<br/>
+  c. Both<br/>
+  d. None<br/>
 
+  Ans: c
+
+
+1. Let $X$ be number of heads you get by flipping a fair coin 100 times. Then what is $E(X)$?<br/>
+  a. $E[X]=25$<br/>
+  b. $E[X]=50$<br/>
+  c. $E[X]=75$<br/>
+  d. None of the above<br/>
+
+  Ans: b<br/>
+  Explanation: Let $X_i$ be the random variable for the $i$-th flip, with $1$ representing heads and $0$ representing tails. Then $E(X_i)=1/2$.  It is obvious that $X= \sum^{100}_{i=1} X_i$. Its expectation $E(X)=E(\sum^{100}_{i=1} X_i) = \sum^{100}_{i=1} E(X_i)=100×1/2=50$.
+
+
+2. Starting with 10 blue balls, in each of 10 sequential rounds, we remove a random ball and replace it with a new red ball. For example, after the first round we have 9 blue balls and one red ball, after the second round, with probability $9/10$ we have 8 blue balls and 2 red balls, and with probability $1/10$ we have 9 blue balls and one red ball, etc.
+
+  What is the probability that the ball we remove at the 11th round is blue?
+
+  Ans: <span style="color: magenta;">0.348678</span><br/>
+  Explanation: Imagine that the balls are placed in 10 locations 1 to 10. Let $B_i$ be the event that at the final ($11$th) round, the ball in location $i$ is blue. $B_i$ occurs iff the ball in location $i$ was not discarded in any of the previous 10 rounds, hence $P(B_i)=(1−1/10)10=(9/10)10$.  Let $B$ be the event that the final ball, picked at the 11th round, is blue. By the rule of total probability, $P(B)=\sum^{10}_{i=1} \frac{1}{10} \Pr(B_i)=10 \cdot \frac{1}{10} (\frac{9}{10})^{10}=(\frac{9}{10})^{10}=0.3486$. [Quora](https://tinyurl.com/y8fokmw7)
+
+
+3. $E(X)=2$ and $E(X(X−1))=5$. Find $V(X)$.
+
+  Ans: 3 <br/>
+  Explanation: $5 = E[X(X−1)] = E(X^2−X) =E(X^2)−E(X) = E(X^2)−2  \to E(X^2)=5+2=7 \to Var(X)=E(X^2)−E(X)^2=7−4=3$
 
 
 ## Lecture Video
