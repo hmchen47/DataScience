@@ -1668,9 +1668,225 @@
 
 ## 7.9 Covariance
 
++ Relationship btw $X$ and $Y$
+  + as $X \nearrow \hspace{2em}$ what happen to $Y?$
+  + student
+    + height vs weight: $\nearrow$
+    + absences vs. grade: $\searrow$
+
++ Simplification
+  + $X \ge 0 \to Y \gtrless 0?$
+  + left diagram: $X \ge 0 \to Y \ge 0 \implies E[XY] \ge 0$
+  + right diagram: $X \ge 0 \to Y \le 0 \implies E[XY] \le 0$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ybpsl93v" ismap target="_blank">
+      <img src="img/t07-28.png" style="margin: 0.1em;" alt="Relationship btw X and Y" title="Relationship btw X and Y" width=450>
+    </a>
+  </div>
+
++ More relevant
+  + suppose $X \ge \mu_X$, do we expect $Y \gtrless \mu_Y?$
+  + left diagram: $E[(X - \mu_X)(Y - \mu_Y)] \ge 0 o$ expect $Y \ge \mu_Y$
+  + right diagram: $E[(X - \mu_X)(Y - \mu_Y)] \le 0 \to$ expect $Y \le \mu_Y$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ybpsl93v" ismap target="_blank">
+      <img src="img/t07-29.png" style="margin: 0.1em;" alt="Relationship btw X and Y w/ their mean" title="Relationship btw X and Y w/ their mean" width=450>
+    </a>
+  </div>
+
++ Covariance
+
+  \[ \sigma_{X, Y} \triangleq Cov(X, Y) \triangleq E[(X - \mu_X)\cdot (Y - \mu_Y)] \]
+
++ Alternative formulation
+  + variance
+
+    \[ V(X) = E[(X - \mu_X)^2] = E[X^2] - \mu_X^2 \]
+
+  + expectation of square - square of expectation
+
++ 2nd Covariance folumation
+
+  \[\begin{align*}
+    Cov(X, Y) &\triangleq E[(X - \mu_X) \cdot (Y - \mu_Y)] = E[XY - X \mu_Y - \mu_Y Y + \mu_X \mu_Y] \\
+    &= E[XY] - E[X \mu_Y] - E[\mu_X Y] + E[\mu_X \mu_Y] = E[XY] - E[X] \mu_Y - \mu_X E[Y] + \mu_X \mu_Y \\
+    &= E[XY] - \mu_X \mu_Y
+  \end{align*}\]
+
+  + expectation of product - product of expectation
+
++ Properties
+
+  \[\begin{align*}
+    Cov(X, Y) &= E[X^2] - \mu_X^2 = Var[X] \\
+    Cov(X, Y) &= E[(X - \mu_X)(Y - \mu_Y)] = Cov(Y, X)\\
+    Cov(aX, Y) &= E[aXY] - \mu_{aX} \mu_Y = a E[XY] - a \mu_X \mu_Y = a Cov(X, Y) \\
+    Cov(X + a, Y) &= E[((X+a) - \mu_{X+a})(Y - \mu_Y)] = E[(X - \mu_X)(Y-\mu_Y)] = Cov(X, Y)
+  \end{align*}\]
+
++ Size
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ybpsl93v" ismap target="_blank">
+      <img src="img/t07-30.png" style="margin: 0.1em;" alt="Correlation w/ different size" title="Correlation w/ different size" width=550>
+    </a>
+  </div>
+
++ Correlation
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ybpsl93v" ismap target="_blank">
+      <img src="img/t07-31.png" style="margin: 0.1em;" alt="Types of correlation" title="Types of correlation" width=550>
+    </a>
+  </div>
+
++ Correlation examples
+  + $X, Y \sim B(\frac12)$
+  + Correlation
+    + positive: $(X, X + Y)$, $(X, 2X-Y)$, $(\min(X, Y), \max(X, Y))$
+    + uncorrelated: $(X, Y)$, $(3X, 4X+1)$, $(X+Y, X-Y)$
+    + negative: $(X, Y-X)$, $(X-2Y, Y-2X)$, $(|X - Y|, \min(X, Y))$
+
++ Interpretation
+  + ver roughly speaking
+  + $X, Y$ linearly independent
+  + $Y = aX +b$
+    + $X = x \to Y = ax+b$
+    + $X = x+1 to Y = a(x+1)+b = ax+b+a
+
+    \[ \frac{Cov(X, Y)}{Var(X)} = \frac{a Var(X)}{Var(X)} = a \]
+
+  + observed value if $X$ increasing by 1 $\to Y$ increasing by $\dfrac{Cov(X, Y)}{Var(X)}$
+
++ Back to variance
+  + $Var(X+Y) \stackrel{?}{=} Var(X) + Var(Y)$
+
+    \[ Var(X+Y) = V(X) + V(Y) + 2(E[XY] - E[X] \cdot E[Y]) = Var(X) + Var(Y) + 2Cov(X, Y) \]
+
+  + $= \iff Cov(X, Y) = 0 \gets$ uncorrelated
+
++ Cauchy-Schwarz inequality
+  + $E[X \cdot Y]$ unable to take all posibl values
+
+    \[ |E[XY] \le \sqrt{E[X^2]} \cdot \sqrt{E[Y^2]} \]
+
+  + $\forall\, \alpha$
+
+    \[ 0 \le E[(\alpha X+ Y)^2] = \alpha^2 E[X^2] + s \alpha E[X^2] + 2 \alpha E[XY] + E[Y^2] \]
+
+    true $\forall\, \alpha$, so discriminant mut be negaive
+
+    \[ 4(E[XY])^2 - 4E[X^2] \cdot E[Y^2] \le 0 \to (E[XY])^2 \le E[X^2] \cdot E[Y^2] \]
+
++ Covariance
+  + $Var(X+Y) \gtrless Var(X) + Var(Y)$
+  + $X \perp Y \iff \sigma_{X, Y} = 0 \iff Var(X+Y) = Var(X) + Var)Y)$
+  + $X {\perp \!\!\!\! \perp} Y \to X \perp Y \to Var(X+Y) = Var(X) + Var(Y)$
+  + counter example
+    + $X, Y \sim B(\frac12)$
+    + $X = Y \to \sigma_{X, Y} = Var(X)$
+
+      \[ Var(X + Y) = Var(2X) = 4Var(X) = Var(X) + Var(Y) + 2Var(X) \]
+
+    + $Y = -X$
+
+      \[ Var(X + Y) = Var(0) - 0 = Var(X) + Var(X) -2Var(X) \]
+
++ Corelation coefficient
+  + $Cov(aX, bY) = ab\; Var(X, Y)$
+  + dependence on units
+    + heights & weight:
+      + France (meters, kg)
+      + US (feet, lb)
+    + french more covariance than US
+  + related quantities regardless of units?
+
++ Pearson's Correlation coefficient
+
+    \[ \rho_{XY} = \frac{Cov(X, Y)}{\sigma_X \sigma_Y} \]
+
+  + properties
+    + $\rho_{X, Y} = 1 \quad \rho_{X, -X} = -1$
+    + $\rho_{X, Y} = \rho_{Y, X}$
+    + $\rho_{aX+b, cX+d} = \text{sign}{ac} \cdot \rho_{X, Y} \quad \text{sign}(x) = \begin{cases} 1 & x >0 \\ 0 & 0 \\ -1 & x < 0 \end{cases}$
+  + if $X \nearrow$ by $\sigma_X$, by how many $\sigma_Y$ do we expect $Y$ to $\nearrow$
+  + Correlation coefficient
+
+    \[ |E[(X-\nu_X)(Y - \mu_Y)| \le \sqrt{E[(X - \mu_X)^2] \cdot E[(Y - \mu_Y)^2]}] \]
+
+    viz.
+
+    \[ |\sigma_{X, Y}| \le \sigma_X \cdot \sigma_Y \quad \rho_{X, Y} \triangleq \frac{Cov(X, Y)}{\sigma_X \cdot \sigma_Y}  \to |\rho_{X, Y}| \le 1 \]
+
++ Visualization
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ybpsl93v" ismap target="_blank">
+      <img src="img/t07-32.png" style="margin: 0.1em;" alt="Visualization of various different correlation coefficient" title="Visualization of various different correlation coefficient" width=550>
+    </a>
+    <a href="https://tinyurl.com/ybpsl93v" ismap target="_blank">
+      <img src="img/t07-33.png" style="margin: 0.1em;" alt="Visualization of various different correlation coefficient" title="Visualization of various different correlation coefficient" width=550>
+    </a>
+  </div>
+
++ Covariance vs. Corelaton Coefficient
+  + same
+    + $\ge$ if increasing together
+    + $\le$ if decreasing together
+    + higher absolute value if relation close to linear
+  + different
+    + cocariance: chanew/ size of variables
+    + correlation: insenitive to variable size
+
++ Independence and uncorrelated
+  + independence $\implies$ uncorrelated: ${\perp \!\!\!\! \perp} \implies \perp$
+
+    \[\begin{align*}
+      E[XY] &= \sum_X \sum_y xy \cdot p(x, y) = \sum_x \sum_y xy \cdot p(x)p(y) = \sum_x x \cdot p(x) \sum_y y \cdot p(y) \\
+      &= E[X] \cdot E[Y]
+    \end{align*}\]
+
+  + uncorrelated \stackrel{?}{\implies} independence
+    + counter example
+
+      \[ X = \begin{cases} -1 & \frac12 \qquad X = -1 \to Y = 0 \\ +1 & \frac12 \qquad X =+1 \to Y = \begin{cases} +1 \\ -1 \end{cases} \end{cases} \]
+
+    + uncorrelated
+
+      \[E[X] = \quad E{Y} = 0 \\  E[XY] = \frac14 \cdot -1 + \frac12 \cdot 0 + \frac14 \cdot 1 = 0 = E[X] \cdot E[Y] \]
+
+      clearly dependent
+    + note: uncorrelated binary random pairs independent
+
++ Product expectation w/ 2 r.v.s
+  + $E[XY] = \sum_{x, y} xy \cdot p(x, y) \stackrel{?}{=} E[X] \cdot E[Y]$
+  
+    \[ X = Y = \begin{cases} -1 & \to p(-1, -1) = \frac12 \\1 & \frac12 \to (1, 1) = \frac12 \end{cases} \]
+
+  + $E[X] = E[Y] = 0 \qquad E[X] \cdot E[Y]  = 0$
+  + $E[XY] = E[X^2] = E[1] = 1 \to E[XY] \neq E[X] \cdot E[Y]$
+  + expectations not always multiply
+
++ Product expectations
+  + $\forall, \alpha, \beta, \gamma\; \exists\, X, Y$ w/: $E[X] = \alpha \quad E[Y] = \beta \quad E[XY] = \gamma$
+  
+    \[ Y^\prime = X^\prime = \begin{cases} -1 \to p(X^\prime, Y^\prime) = \frac12 \\ +1 & \to p(X^\prime, Y^\prime) = \frac12 \]
+
+  + $E[X^\prime] = E[Y^\prime] = 0 \quad E[X^\prime Y^\prime] = E[(X^\prime)^2] = 1$
+  + $X = (\gamma - \alpha \beta) X^\prime + \alpha \quad Y = Y^\prime + \beta$
+  + $E[X] = \alpha \quad E[Y] = \beta$
+
+    \[\begin{align*}
+      E[XY] &= E[(\gamma - \alpha \beta) X^\prime + \alpha)(Y^\prime + \beta)] \\
+      &= (\gamma - \alpha \beta) E[X^\prime Y^\prime] + \alpha E[Y^\prime] + (\gamma - \alpha \beta) \beta E[X^\prime] + \alpha \beta \\
+      &= \gamma
+    \end{align*}\]
 
 
 
++ [Original Slides](https://tinyurl.com/ybpsl93v)
 
 
 ## Problem Sets
