@@ -1668,6 +1668,81 @@
 
 ## 7.9 Covariance
 
++ Product expectation w/ 2 r.v.s
+  + $E[XY] = \sum_{x, y} xy \cdot p(x, y) \stackrel{?}{=} E[X] \cdot E[Y]$
+  
+    \[ X = Y = \begin{cases} -1 & \to p(-1, -1) = \frac12 \\1 & \to p(1, 1) = \frac12 \end{cases} \]
+
+  + example
+    + $E[X] = E[Y] = 0 \qquad E[X] \cdot E[Y]  = 0$
+    + $E[XY] = E[X^2] = E[1] = 1 \to E[XY] \neq E[X] \cdot E[Y]$
+  + expectations not always multiplying
+  + other relations?
+
++ Product expectations - general
+  + $\forall, \alpha, \beta, \gamma\quad \exists\, X, Y$ w/: $E[X] = \alpha \quad E[Y] = \beta \quad E[XY] = \gamma$
+  + example
+  
+    \[ Y^\prime = X^\prime = \begin{cases} -1 & \to p(X^\prime, Y^\prime) = \frac12 \\ +1 & \to p(X^\prime, Y^\prime) = \frac12 \end{cases} \]
+
+    + $E[X^\prime] = E[Y^\prime] = 0 \to E[X^\prime Y^\prime] = E[(X^\prime)^2] = 1$
+  + $X = (\gamma - \alpha \beta) X^\prime + \alpha \to E[X] = \alpha$
+  + $Y = Y^\prime + \beta \to E[Y] = \beta$
+
+  \[\begin{align*}
+    E[XY] &= E[(\gamma - \alpha \beta) X^\prime + \alpha)(Y^\prime + \beta)] \\
+    &= (\gamma - \alpha \beta) E[X^\prime Y^\prime] + \alpha E[Y^\prime] + (\gamma - \alpha \beta) \beta E[X^\prime] + \alpha \beta \\
+    &= \gamma
+  \end{align*}\]
+
++ Covariance
+  + sufficient, and easier, to undertand 0-mean variables
+  + 'centralizeing' $X, Y$, consider expectataion of centralized product
+
+    \[\begin{align*}
+      \sigma_{X, Y} \triangleq Cov(X, Y) &\triangleq E[(X - \mu_X)\cdot (Y - \mu_Y)]) \\
+      &= E[XY] -E[X\mu_Y] - E[\mu_X Y] + E[\mu_X \mu_Y] \\
+      &= E[XY] - E[X] \mu_Y - \mu_X E[Y] + \mu_X \mu_Y \\
+      &= E[XY] - \mu_X \mu_Y
+    \end{align*}\]
+
+  + complicated? think of $E[XY]$ for 0-mean variables
+  + among $X$ and $Y$ varying together
+
++ Pearson's Correlation coefficient
+
+    \[ \rho_{XY} = \frac{Cov(X, Y)}{\sigma_X \sigma_Y} \]
+
+  + properties
+    + $\rho_{X, Y} = 1 \quad \rho_{X, -X} = -1$
+    + $\rho_{X, Y} = \rho_{Y, X}$
+    + $\rho_{aX+b, cX+d} = \text{sign}{ac} \cdot \rho_{X, Y} \quad \text{sign}(x) = \begin{cases} 1 & x >0 \\ 0 & 0 \\ -1 & x < 0 \end{cases}$
+  + if $X \nearrow$ by $\sigma_X$, by how many $\sigma_Y$ do we expect $Y$ to $\nearrow$
+  + bounds on $\sigma_{X, Y}?$
+
++ Cauchy-Schwarz inequality
+  + $E[X \cdot Y]$ unable to take all possible values, viz.
+
+    \[ |E[XY] \le \sqrt{E[X^2]} \cdot \sqrt{E[Y^2]} \]
+
+  + $\forall\, \alpha$
+
+    \[ 0 \le E[(\alpha X+ Y)^2] = \alpha^2 E[X^2] + 2 \alpha E[X^2] + 2 \alpha E[XY] + E[Y^2] \]
+
+    true $\forall\, \alpha$, so discriminant mut be negaive
+
+    \[ 4(E[XY])^2 - 4E[X^2] \cdot E[Y^2] \le 0 \to (E[XY])^2 \le E[X^2] \cdot E[Y^2] \]
+
+  + corollary
+
+    \[ |E[(X-\nu_X)(Y - \mu_Y)| \le \sqrt{E[(X - \mu_X)^2] \cdot E[(Y - \mu_Y)^2]}] \]
+
+    viz.
+
+    \[ |\sigma_{X, Y}| \le \sigma_X \cdot \sigma_Y \quad \rho_{X, Y} \triangleq \frac{Cov(X, Y)}{\sigma_X \cdot \sigma_Y}  \to |\rho_{X, Y}| \le 1 \]
+
+-------------------------------------
+
 + Relationship btw $X$ and $Y$
   + as $X \nearrow \hspace{2em}$ what happen to $Y?$
   + student
@@ -1707,7 +1782,7 @@
 
   + expectation of square - square of expectation
 
-+ 2nd Covariance folumation
++ 2nd Covariance formulation
 
   \[\begin{align*}
     Cov(X, Y) &\triangleq E[(X - \mu_X) \cdot (Y - \mu_Y)] = E[XY - X \mu_Y - \mu_Y Y + \mu_X \mu_Y] \\
@@ -1730,7 +1805,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/ybpsl93v" ismap target="_blank">
-      <img src="img/t07-30.png" style="margin: 0.1em;" alt="Correlation w/ different size" title="Correlation w/ different size" width=550>
+      <img src="img/t07-30.png" style="margin: 0.1em;" alt="Correlation w/ different size" title="Correlation w/ different size" width=450>
     </a>
   </div>
 
@@ -1738,7 +1813,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/ybpsl93v" ismap target="_blank">
-      <img src="img/t07-31.png" style="margin: 0.1em;" alt="Types of correlation" title="Types of correlation" width=550>
+      <img src="img/t07-31.png" style="margin: 0.1em;" alt="Types of correlation" title="Types of correlation" width=450>
     </a>
   </div>
 
@@ -1763,22 +1838,12 @@
 + Back to variance
   + $Var(X+Y) \stackrel{?}{=} Var(X) + Var(Y)$
 
-    \[ Var(X+Y) = V(X) + V(Y) + 2(E[XY] - E[X] \cdot E[Y]) = Var(X) + Var(Y) + 2Cov(X, Y) \]
+    \[\begin{align*}
+      Var(X+Y) &= V(X) + V(Y) + 2(E[XY] - E[X] \cdot E[Y]) 
+      &= Var(X) + Var(Y) + 2Cov(X, Y)
+    \end{align*}\]
 
   + $= \iff Cov(X, Y) = 0 \gets$ uncorrelated
-
-+ Cauchy-Schwarz inequality
-  + $E[X \cdot Y]$ unable to take all posibl values
-
-    \[ |E[XY] \le \sqrt{E[X^2]} \cdot \sqrt{E[Y^2]} \]
-
-  + $\forall\, \alpha$
-
-    \[ 0 \le E[(\alpha X+ Y)^2] = \alpha^2 E[X^2] + s \alpha E[X^2] + 2 \alpha E[XY] + E[Y^2] \]
-
-    true $\forall\, \alpha$, so discriminant mut be negaive
-
-    \[ 4(E[XY])^2 - 4E[X^2] \cdot E[Y^2] \le 0 \to (E[XY])^2 \le E[X^2] \cdot E[Y^2] \]
 
 + Covariance
   + $Var(X+Y) \gtrless Var(X) + Var(Y)$
@@ -1802,23 +1867,6 @@
       + US (feet, lb)
     + french more covariance than US
   + related quantities regardless of units?
-
-+ Pearson's Correlation coefficient
-
-    \[ \rho_{XY} = \frac{Cov(X, Y)}{\sigma_X \sigma_Y} \]
-
-  + properties
-    + $\rho_{X, Y} = 1 \quad \rho_{X, -X} = -1$
-    + $\rho_{X, Y} = \rho_{Y, X}$
-    + $\rho_{aX+b, cX+d} = \text{sign}{ac} \cdot \rho_{X, Y} \quad \text{sign}(x) = \begin{cases} 1 & x >0 \\ 0 & 0 \\ -1 & x < 0 \end{cases}$
-  + if $X \nearrow$ by $\sigma_X$, by how many $\sigma_Y$ do we expect $Y$ to $\nearrow$
-  + Correlation coefficient
-
-    \[ |E[(X-\nu_X)(Y - \mu_Y)| \le \sqrt{E[(X - \mu_X)^2] \cdot E[(Y - \mu_Y)^2]}] \]
-
-    viz.
-
-    \[ |\sigma_{X, Y}| \le \sigma_X \cdot \sigma_Y \quad \rho_{X, Y} \triangleq \frac{Cov(X, Y)}{\sigma_X \cdot \sigma_Y}  \to |\rho_{X, Y}| \le 1 \]
 
 + Visualization
 
@@ -1860,29 +1908,6 @@
       clearly dependent
     + note: uncorrelated binary random pairs independent
 
-+ Product expectation w/ 2 r.v.s
-  + $E[XY] = \sum_{x, y} xy \cdot p(x, y) \stackrel{?}{=} E[X] \cdot E[Y]$
-  
-    \[ X = Y = \begin{cases} -1 & \to p(-1, -1) = \frac12 \\1 & \frac12 \to (1, 1) = \frac12 \end{cases} \]
-
-  + $E[X] = E[Y] = 0 \qquad E[X] \cdot E[Y]  = 0$
-  + $E[XY] = E[X^2] = E[1] = 1 \to E[XY] \neq E[X] \cdot E[Y]$
-  + expectations not always multiply
-
-+ Product expectations
-  + $\forall, \alpha, \beta, \gamma\; \exists\, X, Y$ w/: $E[X] = \alpha \quad E[Y] = \beta \quad E[XY] = \gamma$
-  
-    \[ Y^\prime = X^\prime = \begin{cases} -1 \to p(X^\prime, Y^\prime) = \frac12 \\ +1 & \to p(X^\prime, Y^\prime) = \frac12 \]
-
-  + $E[X^\prime] = E[Y^\prime] = 0 \quad E[X^\prime Y^\prime] = E[(X^\prime)^2] = 1$
-  + $X = (\gamma - \alpha \beta) X^\prime + \alpha \quad Y = Y^\prime + \beta$
-  + $E[X] = \alpha \quad E[Y] = \beta$
-
-    \[\begin{align*}
-      E[XY] &= E[(\gamma - \alpha \beta) X^\prime + \alpha)(Y^\prime + \beta)] \\
-      &= (\gamma - \alpha \beta) E[X^\prime Y^\prime] + \alpha E[Y^\prime] + (\gamma - \alpha \beta) \beta E[X^\prime] + \alpha \beta \\
-      &= \gamma
-    \end{align*}\]
 
 
 
