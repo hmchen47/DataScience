@@ -1591,7 +1591,7 @@
       Var(X+Y) &= E[(X+Y)^2] - (E[X+Y])^2 = E[X^2 + 2XY + Y^2) - (E[X] + E[Y])^2] \\
       &= E[X^2] + 2E[XY] + E[Y^2] - (E^2[X] + 2E[X] \cdot E[Y] + E^2[Y])\\
       &= E[X^2] - E^2[X] + E[Y^2] - E^2[Y] + 2(E[XY] - E[X] \cdot E[Y])\\
-      &= V(X) + V(Y) + \underbrace{2(E[XY] - E[X] \cdot E[Y])}_{E[XY] \stackrel{?}{=} E[X]\cdot E[Y]} 
+      &= Var(X) + Var(Y) + \underbrace{2(E[XY] - E[X] \cdot E[Y])}_{E[XY] \stackrel{?}{=} E[X]\cdot E[Y]} 
     \end{align*}\]
 
 + The hat problem
@@ -1653,7 +1653,7 @@
   Explanation: Imagine that the balls are placed in 10 locations 1 to 10. Let $B_i$ be the event that at the final ($11$th) round, the ball in location $i$ is blue. $B_i$ occurs iff the ball in location $i$ was not discarded in any of the previous 10 rounds, hence $P(B_i)=(1−1/10)10=(9/10)10$.  Let $B$ be the event that the final ball, picked at the 11th round, is blue. By the rule of total probability, $P(B)=\sum^{10}_{i=1} \frac{1}{10} \Pr(B_i)=10 \cdot \frac{1}{10} (\frac{9}{10})^{10}=(\frac{9}{10})^{10}=0.3486$. [Quora](https://tinyurl.com/y8fokmw7)
 
 
-3. $E(X)=2$ and $E(X(X−1))=5$. Find $V(X)$.
+3. $E(X)=2$ and $E(X(X−1))=5$. Find $Var(X)$.
 
   Ans: 3 <br/>
   Explanation: $5 = E[X(X−1)] =$ $E(X^2−X) =E(X^2)−E(X) =$ $E(X^2)−2 $ $\to E(X^2)=5+2=7$ $\to Var(X)=E(X^2)−E(X)^2=7−4=3$
@@ -1680,24 +1680,24 @@
   + other relations?
 
 + Product expectations - general
-  + $\forall, \alpha, \beta, \gamma\quad \exists\, X, Y$ w/: $E[X] = \alpha \quad E[Y] = \beta \quad E[XY] = \gamma$
   + example
-  
-    \[ Y^\prime = X^\prime = \begin{cases} -1 & \to p(X^\prime, Y^\prime) = \frac12 \\ +1 & \to p(X^\prime, Y^\prime) = \frac12 \end{cases} \]
+      \[ Y^\prime = X^\prime = \begin{cases} -1 & \to p(X^\prime, Y^\prime) = \frac12 \\ +1 & \to p(X^\prime, Y^\prime) = \frac12 \end{cases} \]
 
     + $E[X^\prime] = E[Y^\prime] = 0 \to E[X^\prime Y^\prime] = E[(X^\prime)^2] = 1$
+
+  + $\forall, \alpha, \beta, \gamma\quad \exists\, X, Y$ w/: $E[X] = \alpha \quad E[Y] = \beta \quad E[XY] = \gamma$
   + $X = (\gamma - \alpha \beta) X^\prime + \alpha \to E[X] = \alpha$
   + $Y = Y^\prime + \beta \to E[Y] = \beta$
 
   \[\begin{align*}
-    E[XY] &= E[(\gamma - \alpha \beta) X^\prime + \alpha)(Y^\prime + \beta)] \\
+    E[XY] &= E[((\gamma - \alpha \beta) X^\prime + \alpha)(Y^\prime + \beta)] \\
     &= (\gamma - \alpha \beta) E[X^\prime Y^\prime] + \alpha E[Y^\prime] + (\gamma - \alpha \beta) \beta E[X^\prime] + \alpha \beta \\
     &= \gamma
   \end{align*}\]
 
 + Covariance
-  + sufficient, and easier, to undertand 0-mean variables
-  + 'centralizeing' $X, Y$, consider expectataion of centralized product
+  + sufficient, and easier, to understand 0-mean variables
+  + 'centralizeing' $X, Y$, consider expectation of centralized product
 
     \[\begin{align*}
       \sigma_{X, Y} \triangleq Cov(X, Y) &\triangleq E[(X - \mu_X)\cdot (Y - \mu_Y)]) \\
@@ -1716,7 +1716,7 @@
   + properties
     + $\rho_{X, Y} = 1 \quad \rho_{X, -X} = -1$
     + $\rho_{X, Y} = \rho_{Y, X}$
-    + $\rho_{aX+b, cX+d} = \text{sign}{ac} \cdot \rho_{X, Y} \quad \text{sign}(x) = \begin{cases} 1 & x >0 \\ 0 & 0 \\ -1 & x < 0 \end{cases}$
+    + $\rho_{aX+b, cX+d} = \text{sign}(ac) \cdot \rho_{X, Y} \quad \text{sign}(x) = \begin{cases} 1 & x >0 \\ 0 & x =0 \\ -1 & x < 0 \end{cases}$
   + if $X \nearrow$ by $\sigma_X$, by how many $\sigma_Y$ do we expect $Y$ to $\nearrow$
   + bounds on $\sigma_{X, Y}?$
 
@@ -1727,15 +1727,15 @@
 
   + $\forall\, \alpha$
 
-    \[ 0 \le E[(\alpha X+ Y)^2] = \alpha^2 E[X^2] + 2 \alpha E[X^2] + 2 \alpha E[XY] + E[Y^2] \]
+    \[ 0 \le E[(\alpha X+ Y)^2] = \alpha^2 E[X^2] + 2 \alpha E[XY] + E[Y^2] \]
 
-    true $\forall\, \alpha$, so discriminant mut be negaive
+    true $\forall\, \alpha$, so discriminant must be negative
 
     \[ 4(E[XY])^2 - 4E[X^2] \cdot E[Y^2] \le 0 \to (E[XY])^2 \le E[X^2] \cdot E[Y^2] \]
 
   + corollary
 
-    \[ |E[(X-\nu_X)(Y - \mu_Y)| \le \sqrt{E[(X - \mu_X)^2] \cdot E[(Y - \mu_Y)^2]}] \]
+    \[ |E[(X-\mu_X)(Y - \mu_Y)| \le \sqrt{E[(X - \mu_X)^2] \cdot E[(Y - \mu_Y)^2]}] \]
 
     viz.
 
@@ -1756,13 +1756,13 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/ybpsl93v" ismap target="_blank">
-      <img src="img/t07-28.png" style="margin: 0.1em;" alt="Relationship btw X and Y" title="Relationship btw X and Y" width=450>
+      <img src="img/t07-28.png" style="margin: 0.1em;" alt="Relationship btw X and Y" title="Relationship btw X and Y" width=350>
     </a>
   </div>
 
 + More relevant
   + suppose $X \ge \mu_X$, do we expect $Y \gtrless \mu_Y?$
-  + left diagram: $E[(X - \mu_X)(Y - \mu_Y)] \ge 0 o$ expect $Y \ge \mu_Y$
+  + left diagram: $E[(X - \mu_X)(Y - \mu_Y)] \ge 0 \to$ expect $Y \ge \mu_Y$
   + right diagram: $E[(X - \mu_X)(Y - \mu_Y)] \le 0 \to$ expect $Y \le \mu_Y$
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -1778,7 +1778,7 @@
 + Alternative formulation
   + variance
 
-    \[ V(X) = E[(X - \mu_X)^2] = E[X^2] - \mu_X^2 \]
+    \[ Var(X) = E[(X - \mu_X)^2] = E[X^2] - \mu_X^2 \]
 
   + expectation of square - square of expectation
 
@@ -1786,7 +1786,8 @@
 
   \[\begin{align*}
     Cov(X, Y) &\triangleq E[(X - \mu_X) \cdot (Y - \mu_Y)] = E[XY - X \mu_Y - \mu_Y Y + \mu_X \mu_Y] \\
-    &= E[XY] - E[X \mu_Y] - E[\mu_X Y] + E[\mu_X \mu_Y] = E[XY] - E[X] \mu_Y - \mu_X E[Y] + \mu_X \mu_Y \\
+    &= E[XY] - E[X \mu_Y] - E[\mu_X Y] + E[\mu_X \mu_Y] \\
+    &= E[XY] - E[X] \mu_Y - \mu_X E[Y] + \mu_X \mu_Y \\
     &= E[XY] - \mu_X \mu_Y
   \end{align*}\]
 
@@ -1795,7 +1796,7 @@
 + Properties
 
   \[\begin{align*}
-    Cov(X, Y) &= E[X^2] - \mu_X^2 = Var[X] \\
+    Cov(X, X) &= E[X^2] - \mu_X^2 = Var(X) \\
     Cov(X, Y) &= E[(X - \mu_X)(Y - \mu_Y)] = Cov(Y, X)\\
     Cov(aX, Y) &= E[aXY] - \mu_{aX} \mu_Y = a E[XY] - a \mu_X \mu_Y = a Cov(X, Y) \\
     Cov(X + a, Y) &= E[((X+a) - \mu_{X+a})(Y - \mu_Y)] = E[(X - \mu_X)(Y-\mu_Y)] = Cov(X, Y)
@@ -1829,7 +1830,7 @@
   + $X, Y$ linearly independent
   + $Y = aX +b$
     + $X = x \to Y = ax+b$
-    + $X = x+1 to Y = a(x+1)+b = ax+b+a
+    + $X = x+1 \to Y = a(x+1)+b = ax+b+a$
 
     \[ \frac{Cov(X, Y)}{Var(X)} = \frac{a Var(X)}{Var(X)} = a \]
 
@@ -1839,7 +1840,7 @@
   + $Var(X+Y) \stackrel{?}{=} Var(X) + Var(Y)$
 
     \[\begin{align*}
-      Var(X+Y) &= V(X) + V(Y) + 2(E[XY] - E[X] \cdot E[Y]) 
+      Var(X+Y) &= Var(X) + Var(Y) + 2(E[XY] - E[X] \cdot E[Y]) \\
       &= Var(X) + Var(Y) + 2Cov(X, Y)
     \end{align*}\]
 
@@ -1847,7 +1848,7 @@
 
 + Covariance
   + $Var(X+Y) \gtrless Var(X) + Var(Y)$
-  + $X \perp Y \iff \sigma_{X, Y} = 0 \iff Var(X+Y) = Var(X) + Var)Y)$
+  + $X \perp Y \iff \sigma_{X, Y} = 0 \iff Var(X+Y) = Var(X) + Var()Y)$
   + $X {\perp \!\!\!\! \perp} Y \to X \perp Y \to Var(X+Y) = Var(X) + Var(Y)$
   + counter example
     + $X, Y \sim B(\frac12)$
@@ -1879,14 +1880,14 @@
     </a>
   </div>
 
-+ Covariance vs. Corelaton Coefficient
++ Covariance vs. Corelation Coefficient
   + same
     + $\ge$ if increasing together
     + $\le$ if decreasing together
     + higher absolute value if relation close to linear
   + different
-    + cocariance: chanew/ size of variables
-    + correlation: insenitive to variable size
+    + covariance: change w/ size of variables
+    + correlation: insensitive to variable size
 
 + Independence and uncorrelated
   + independence $\implies$ uncorrelated: ${\perp \!\!\!\! \perp} \implies \perp$
@@ -1896,19 +1897,17 @@
       &= E[X] \cdot E[Y]
     \end{align*}\]
 
-  + uncorrelated \stackrel{?}{\implies} independence
+  + uncorrelated $\stackrel{?}{\implies}$ independence
     + counter example
 
       \[ X = \begin{cases} -1 & \frac12 \qquad X = -1 \to Y = 0 \\ +1 & \frac12 \qquad X =+1 \to Y = \begin{cases} +1 \\ -1 \end{cases} \end{cases} \]
 
-    + uncorrelated
+      $\therefore\; X, Y$ uncorrelated
 
       \[E[X] = \quad E{Y} = 0 \\  E[XY] = \frac14 \cdot -1 + \frac12 \cdot 0 + \frac14 \cdot 1 = 0 = E[X] \cdot E[Y] \]
 
       clearly dependent
     + note: uncorrelated binary random pairs independent
-
-
 
 
 + [Original Slides](https://tinyurl.com/ybpsl93v)
