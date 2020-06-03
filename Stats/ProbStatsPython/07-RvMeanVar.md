@@ -1216,7 +1216,7 @@
 8. Let $X$ and $Y$ be independent random variables with expectations 1 and 2, and variances 3 and 4, respectively. Find the variance of $Var(XY)$.
 
   Ans: 28<br/>
-  Explanation: $E(X^2)=Var(X)+(EX)^2=3+12=4$ and $E(Y^2)=Var(Y)+(EY)^2=4+22=8$. Hence $Var(XY)=E((XY)2)−E^2(XY)=E(X^2 \cdot Y^2)−(EX \cdot EY)^2 =$ $E(X^2) \cdot E(Y^2)−(EX)^2 \cdot (EY)^2=4 \cdot 8−(1⋅2)2=28$.
+  Explanation: $E(X^2)=Var(X)+(EX)^2=3+12=4$ and $E(Y^2)=Var(Y)+(EY)^2=4+22=8$. Hence $Var(XY)=E((XY)2)−E^2(XY)=E(X^2 \cdot Y^2)−(EX \cdot EY)^2 =$ $E(X^2) \cdot E(Y^2)−(EX)^2 \cdot (EY)^2=4 \cdot 8−(1 \cdot 2)2=28$.
 
 
 
@@ -1510,8 +1510,8 @@
 
   Ans: a = 0.4, b = 0.28<br/>
   Explanation
-    + $\Pr(X=1)=1−\Pr(X=0)=0.3$, $\Pr(Y=1)=1−\Pr(Y=0)=1−a$. By independence of $X$ and $Y$, $\Pr(X=1,Y=1)=0.18=\Pr(X=1)⋅\Pr(Y=1)=0.3⋅(1−a)$. Thus $a=0.4$.
-    + $b=\Pr(X=0,Y=0)=\Pr(X=0)⋅\Pr(Y=0)=\Pr(X=0)⋅a=0.7×0.4=0.28$.
+    + $\Pr(X=1)=1−\Pr(X=0)=0.3$, $\Pr(Y=1)=1−\Pr(Y=0)=1−a$. By independence of $X$ and $Y$, $\Pr(X=1,Y=1)=0.18=\Pr(X=1) \cdot \Pr(Y=1)=0.3 \cdot (1−a)$. Thus $a=0.4$.
+    + $b=\Pr(X=0,Y=0)=\Pr(X=0) \cdot \Pr(Y=0)=\Pr(X=0) \cdot a=0.7×0.4=0.28$.
 
 
 4. Which equation accurately describes the marginal PMFs for the random variables, $X$ and $Y$?<br/>
@@ -1650,7 +1650,7 @@
   What is the probability that the ball we remove at the 11th round is blue?
 
   Ans: <span style="color: magenta;">0.348678</span><br/>
-  Explanation: Imagine that the balls are placed in 10 locations 1 to 10. Let $B_i$ be the event that at the final ($11$th) round, the ball in location $i$ is blue. $B_i$ occurs iff the ball in location $i$ was not discarded in any of the previous 10 rounds, hence $P(B_i)=(1−1/10)10=(9/10)10$.  Let $B$ be the event that the final ball, picked at the 11th round, is blue. By the rule of total probability, $P(B)=\sum^{10}_{i=1} \frac{1}{10} \Pr(B_i)=10 \cdot \frac{1}{10} (\frac{9}{10})^{10}=(\frac{9}{10})^{10}=0.3486$. [Quora](https://tinyurl.com/y8fokmw7)
+  Explanation: Imagine that the balls are placed in 10 locations 1 to 10. Let $B_i$ be the event that at the final ($11$th) round, the ball in location $i$ is blue. $B_i$ occurs iff the ball in location $i$ was not discarded in any of the previous 10 rounds, hence $\Pr(B_i)=(1−1/10)10=(9/10)10$.  Let $B$ be the event that the final ball, picked at the 11th round, is blue. By the rule of total probability, $\Pr(B)=\sum^{10}_{i=1} \frac{1}{10} \Pr(B_i)=10 \cdot \frac{1}{10} (\frac{9}{10})^{10}=(\frac{9}{10})^{10}=0.3486$. [Quora](https://tinyurl.com/y8fokmw7)
 
 
 3. $E(X)=2$ and $E(X(X−1))=5$. Find $Var(X)$.
@@ -1914,6 +1914,101 @@
 
 
 ## Problem Sets
+
+0. Which of the following holds for all random variables?<br/>
+  a. Independent implies uncorrelated<br/>
+  b. Uncorrelated implies independent<br/>
+  c. Both<br/>
+  d. Neither<br/>
+
+  Ans: <span style="color: magenta;">a</span>
+  
+
+1. Which of the following hold for all random variables?<br/>
+  a. Uncorrelated \(\Rightarrow\) independent<br/>
+  b. Independent \(\Rightarrow\) uncorrelated<br/>
+
+  Ans: b<br/>
+  Explanation
+    + False. Let random variable $X$ have the distribution $\Pr(X=−1)=\Pr(X=1)=1/4, \Pr(X=0)=1/2$, and $Y=X^2$ . We can solve that $Cov(X,Y)=E(XY)−E(X)E(Y)=0$, while $X$ and $Y$ are not independent.
+    + True. If two random variables $X$ and $Y$ are independent, then $E(XY)= \sum_x \sum_y xy \Pr(X=x,Y=y)=$ $\sum_x \sum_y yxy\Pr(X=x)\Pr(Y=y)=$ $\sum_x x\Pr(X=x) \sum_y y\Pr(Y=y) =E(X)E(Y)$.
+
+
+2. Which of the following hold for all uncorrelated random variables \(X\) and \(Y\)?<br/>
+  a. \(E[XY]=E[X]E[Y]\)<br/>
+  b. \(V(X+Y)=V(X)+V(Y)\)<br/>
+  c. \(\rho_{X,Y}=0\)<br/>
+
+  Ans: abc<br/>
+  Explanation
+    + True. By definition.
+    + True. $V(X+Y)=E((X+Y)2)−E2(X+Y)$ $=E(X2)+2E(X)E(Y)+E(Y2)−E2(X)−2E(X)E(Y)−E2(Y)$ $=V(X)+V(Y)$.
+    + Ture. By definition of correlation coefficient.
+
+
+3. Which of the following hold for all random variables \(X\) and \(Y\)?<br/>
+  a. \(Var(2X) = 4Var(X)\)<br/>
+  b. \(Var(X+10) = Var(X)\)<br/>
+  c. \(Var(X+Y) = Var(X) + Var(Y)\)<br/>
+  d. \(Var(3X+3Y) = 9Var(X+Y)\)<br/>
+
+  Ans: abd<br/>
+  Explanaton
+    + True.
+    + True.
+    + False. It only holds when $X$ and $Y$ are uncorrelated.
+    + True.
+
+
+4. The correlation coefficient between \(X\) and \(-X\) is 0.
+
+  Ans: False<br/>
+  Explanation: $\rho_{X, -X} = -1$
+
+
+5. The correlation coefficient \(\rho_{XY}\) of two random variables:<br/>
+  a. always lies between 0 and 1,<br/>
+  b. always lies between -1 and 1.<br/>
+
+  Ans: b
+
+
+6. For the outcomes  X  and  Y  of two fair die rolls, find:<br/>
+  a. $E(X+Y)$,<br/>
+  b. $E(X \cdot Y)$,<br/>
+  c. $Var(X+Y)$.<br/>
+
+  Ans: a. (7); b. ($3.5^2$); c. (5.8333)<br/>
+  Explanation
+    + $E(X + Y) = E(X) + E(Y) = 7$
+    + $X$ and $Y$ are independent.  $E(X\cdot Y) = E(X) \cdot E(Y) = 12.25$
+    + $\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y) = 5.833$
+
+
+7. Find $Cov(X,Y)$ when $X$ is distributed uniformly over $\{−1,1\}$ and $Y=\begin{cases}\ \ X\text{ w.p.}\ 3/4,\\-X\text{ w.p.}\ 1/4.\end{cases}$
+
+  Ans: 1/2<br/>
+  Explanation: $P(X = -1, Y = -1) = P(Y = -1 | X = -1) \cdot P(X = -1) = 3/4 \cdot 1/2 = 3/8$. Similarly, $P(X = -1, Y = 1) = 1/8, P(X = 1, Y = 1) = 3/8, P(X = 1, Y = -1) = 1/8$
+
+
+8. Let $N$ be the number of heads, and $L$ the length of the longest consecutive string of heads, in three coin flips. For example, if the three coins turn $h,t,h$, then $N=2$ and $L=1$, while if the coins turn $t,h,h$, then $N=L=2$. Find:<br/>
+  a. $Cov(N,L)$,<br/>
+  b. $\rho_{N,L}$.<br/>
+
+  Ans: a. (11/16); b. (0.92)<br/>
+  <span style="color: magenta;">Explanation</span>
+    + Since $N$ is the number of flips in 3 coin flips, $E(N)=1.5$. For the rest, we can create a table: $P(N=n,L=l)=\begin{cases}\frac18\quad n=3,\ l=3,\\ \frac28\quad n=2,\ l=2,\\ \frac18\quad n=2,\ l=1,\\ \frac38\quad n=1,\ l=1,\\ \frac18\quad n=0,\ l=0.\end{cases}$.  Hence, $E(L)=3\cdot\frac18+2\cdot\frac14+1\cdot\frac12=\frac{11}8$. Also, $E(NL)=9\cdot\frac18+4\cdot\frac28+2\cdot\frac18+1\cdot\frac38=\frac{22}8$. It follows that $\text{Cov}(N,L)=E(NL)-E(N)\cdot E(L)=\frac{22}8-\frac32\cdot\frac{11}8=\frac{11}{16}$
+    + $V(N) = \frac{3}{4}, V(L) = \frac{47}{64}$, $\rho_{N,L} = \frac{\text{Cov}(N,L)}{\sqrt{V(N)V(L)}} = 0.92$
+
+
+9. Flip a coin thrice (3 times), and let $X$ and $Y$ denote the number of heads in the first two flips, and in the last two flips, respectively. For example, if the coins turn up h,h,t then $X=2$ and $Y=1$, while if they turn up t,t,h then $X=0$ and $Y=1$. Find:<br/>
+  a. $Cov(X,Y)$,<br/>
+  b. $\rho{X,Y}$.<br/>
+
+  Ans: a. (1/4); b. (1/2) <br/>
+  Explanation: 
+    + $X$ and $Y$ are the number of heads in two coin flips, hence $E(X)=E(Y)=1$. $XY$ is 0 for ttt, tth, and htt; is 1 for hth and tht; is 2 for hht and thh; and 4 for hhh. Hence $E(XY)=\frac38 \cdot 0+\frac28 \cdot 1+\frac28 \cdot 2+\frac18 \cdot 4=5/4$, and $Cov(X,Y)=E(XY)−E(X) \cdot E(Y)=1/4$.
+    + Since $X$ is the number of heads in two coin flips, $E(X)=1$, and $E(X2)= \frac14 \cdot 0^2+ \frac24 \cdot 1^2 + \frac14 \cdot 2^2=1.5$. Hence $V(X)=1.5−1=0.5$, and similarly $V(Y)=0.5$. It follows that $\rho_{X,Y}= \frac{Cov(X,Y)}{\sigma_X \cdot \sigma_Y}= \frac{1/4}{1/2}=\frac12$.
 
 
 
