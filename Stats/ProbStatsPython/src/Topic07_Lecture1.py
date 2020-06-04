@@ -116,6 +116,86 @@ def independence_test():
     return None
 
 
+from math import sqrt
+
+def covariance():
+
+    # assign values for random variables
+    P = np.array([[2.0, 2, 4], [1, 1, 2]])
+
+    P /= np.sum(P)
+    # print("\nNormalized P2 values w/ P2 /= np.sum(P): \n{}".format(P))
+
+    x = np.array([1, 2, 6])
+    y = np.array([-1, 1])
+
+    Px = np.sum(P, axis=0)
+    Py = np.sum(P, axis=1)
+
+    # print("\nThe margin dist w/ np.sum(P, axis=0/1): \n  Px= {} \n  Py= {}".format(Px, Py))
+
+    # compute E[x] = \sum_x p(X=x) x
+    # the python way
+    Ex = 0
+    for i in range(3):
+        Ex += Px[i]*x[i]
+
+    Ey = 0
+    for i in range(2):
+        Ey += Py[i]*y[i]
+
+    varx = 0
+    for i in range(3):
+        varx += Px[i]*(x[i] - Ex)**2
+    stdx = sqrt(varx)
+
+    vary = 0
+    for i in range(2):
+        vary += Py[i]*(y[i] - Ey)**2
+    stdy = sqrt(vary)
+
+    print("\nExpectation, variance, and standard deviation of X and Y - Python way:\
+        \n  E[X]= {:+9.4f}    Var(X)= {:+9.4f}    SD(X)= {:+9.4f}\
+        \n  E[Y]= {:+9.4f}    Var(Y)= {:+9.4f}    SD(Y)= {:+9.4f}"\
+        .format(Ex, varx, stdx, Ey, vary, stdy))
+
+    # using np.dot(A, B) to calculate the pairwise product of element
+    Ex = np.dot(Px, x)
+    Ey = np.dot(Py, y)
+    Ex2 = np.dot(Px, x**2)
+    Ey2 = np.dot(Py, y**2)
+    stdx = sqrt(Ex2 - Ex**2)
+    stdy = sqrt(Ex2 - Ey**2)
+
+    print("\nExpectation, variance, and standard deviation of X and Y - np.dot(X, Y):\
+        \n  E[X]= {:+9.4f}    Var(X)= {:+9.4f}    SD(X)= {:+9.4f}\
+        \n  E[Y]= {:+9.4f}    Var(Y)= {:+9.4f}    SD(Y)= {:+9.4f}"\
+        .format(Ex, varx, stdx, Ey, vary, stdy))
+
+    input("\nPress Enter to continue ............................")
+
+    # substract the means
+    nx = x - Ex
+    ny = y - Ey
+
+    print("\nTranslate r.v w/ mean: \n  X - E[X]= {}\n  Y - E[Y]= {}".format(nx, ny))
+
+    # calculate the covariance
+    # the Python way
+    s = 0
+    for i in range(len(x)):
+        for j in range(len(y)): 
+            s += P[j, i] * nx[i] * ny[j]
+
+    print("\nThe covariance Cov(x, Y) w/ loop:\n  {}".format(s))
+
+    # the numpy 
+    print("\nThe covariance Cov(X, Y) w/ np.dot(P.flatten(), np.outer(ny,nx).flatten())):\
+        \n  {}".format(np.dot(P.flatten(), np.outer(ny,nx).flatten())))
+
+
+    return None
+
 
 def main():
 
@@ -124,6 +204,9 @@ def main():
 
     # Testing independence
     independence_test()
+
+    # Computing the covariance
+    covariance()
 
     return None
 
