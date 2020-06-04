@@ -2022,10 +2022,61 @@
 
 ## Lecture Notebook 7
 
++ [Original Lecture NB 1](https://tinyurl.com/y9ox77ju)
 
++ [Original Lecture NB 2](https://tinyurl.com/y94ghh5s)
 
++ [Local Lecture NB 1](src/Topic07_Lecture1.ipynb)
 
++ [Local Lecture NB 2](src/Topic07_Lecture2.ipynb)
 
++ [Local Lecture Python code 1](src/Topic07_Lecture1.py)
+
++ [Local Lecture Python code 1](src/Topic07_Lecture2.py)
+
++ Python function to compute statistics w/ numpy
+
+  ```python
+  import numpy as np
+  from math import sqrt
+
+  def ComputeStatistics(P, x, y):
+      """Generate statistics of given data x, y, and P
+
+      Args:
+          P (np.array): weights of the given data for probability
+          x (np.array): numerical values of variable X
+          y (np.array): numerical values of variable Y
+
+      Returns:
+          dict: P as probability, x as the input of random variable x
+              y as the input of random variable y, 
+              Px as the marginal probability of X
+              Py as the marginal probability of Y
+              Ex, Ey as the expectations of X and Y
+              Ex2, Ey2 as the expectations of X^2 and Y^2
+              stdx, stdy as the standard deviations of X nd Y
+              cov as the covariance of X and Y
+              corr as the correlation coefficients of A and Y
+      """
+      P /= np.sum(P)            # normalize the distribution
+      Px = np.sum(P, axis=0)    # Compute margins
+      Py = np.sum(P, axis=1)
+      Ex = np.dot(Px, x)
+      Ey = np.dot(Py, y)
+      Ex2 = np.dot(Px, x**2)
+      Ey2 = np.dot(Py, y**2)
+      stdx = sqrt(Ex2 - Ex**2)
+      stdy = sqrt(Ey2 - Ey**2)
+
+      nx = x - Ex
+      ny = y - Ey
+
+      cov = np.dot(P.flatten(), np.outer(ny, nx).flatten())
+      corr = cov/(stdx*stdy)
+      return {'P': P, 'x': x, 'y': y, 'Px': Px, 'Py': Py,
+          'Ex': Ex, 'Ey': Ey, 'stdx': stdx, 'stdy': stdy, 'cov': cov, 'corr': corr}
+  ```
 
 ## Programming Assignment 7
 
