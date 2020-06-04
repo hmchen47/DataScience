@@ -165,7 +165,7 @@ def covariance():
     Ex2 = np.dot(Px, x**2)
     Ey2 = np.dot(Py, y**2)
     stdx = sqrt(Ex2 - Ex**2)
-    stdy = sqrt(Ex2 - Ey**2)
+    stdy = sqrt(Ey2 - Ey**2)
 
     print("\nExpectation, variance, and standard deviation of X and Y - np.dot(X, Y):\
         \n  E[X]= {:+9.4f}    Var(X)= {:+9.4f}    SD(X)= {:+9.4f}\
@@ -193,20 +193,77 @@ def covariance():
     print("\nThe covariance Cov(X, Y) w/ np.dot(P.flatten(), np.outer(ny,nx).flatten())):\
         \n  {}".format(np.dot(P.flatten(), np.outer(ny,nx).flatten())))
 
+    # the correlation coefficient
+    print("\nThe correlation coefficient: {}".format(s/(stdx*stdy)))
+
+    input("\nPress Enter to continue ............................")
 
     return None
+
+
+def ComputeStatistics(P, x, y):
+    """Generate statistics of given data x, y, and P
+
+    Args:
+        P (np.array): weights of the given data for probability
+        x (np.array): numerical values of variable X
+        y (np.array): numerical values of variable Y
+
+    Returns:
+        dict: P as probability, x as the input of random variable x
+            y as the input of random variable y, 
+            Px as the marginal probability of X
+            Py as the marginal probability of Y
+            Ex, Ey as the expectations of X and Y
+            Ex2, Ey2 as the expectations of X^2 and Y^2
+            stdx, stdy as the standard deviations of X nd Y
+            cov as the covariance of X and Y
+            corr as the correlation coefficients of A and Y
+    """
+    P /= np.sum(P)  # normalize the distribution
+    Px = np.sum(P, axis=0)  # Compute margins
+    Py = np.sum(P, axis=1)
+    Ex = np.dot(Px, x)
+    Ey = np.dot(Py, y)
+    Ex2 = np.dot(Px, x**2)
+    Ey2 = np.dot(Py, y**2)
+    stdx = sqrt(Ex2 - Ex**2)
+    stdy = sqrt(Ey2 - Ey**2)
+
+    nx = x - Ex
+    ny = y - Ey
+
+    cov = np.dot(P.flatten(), np.outer(ny, nx).flatten())
+    corr = cov/(stdx*stdy)
+    return {'P': P, 'x': x, 'y': y, 'Px': Px, 'Py': Py,
+        'Ex': Ex, 'Ey': Ey, 'stdx': stdx, 'stdy': stdy, 'cov': cov, 'corr': corr}
+
 
 
 def main():
 
     # join distribution of two discrete random variables
-    multivariates_dist()
+    # multivariates_dist()
 
     # Testing independence
-    independence_test()
+    # independence_test()
 
     # Computing the covariance
     covariance()
+
+    # computing statistics
+    x = np.arange(1., 2., 0.2)
+    y = np.arange(0., 1., 0.2)
+
+    P = np.eye(5)
+
+    print("\nInput for Statistics computing:\n\nx= {} y= {}\nP= {}".format(x, y, P))
+
+    A = ComputeStatistics(P, x, y)
+
+    print("\nStatistics of x, y, P: \n{}".format(A))
+
+
 
     return None
 
