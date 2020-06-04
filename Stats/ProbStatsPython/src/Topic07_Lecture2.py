@@ -54,12 +54,31 @@ def cond_prob(df_por, debug=False):
     P_G3_given_S_MS = P_G3_given_S_MS.fillna(0)
     if debug: print("\nP_G3_given_S_MS= \n{}".format(P_G3_given_S_MS.head()))
 
-    plot_cond_prob(P_G3_given_S_GP, P_G3_given_S_MS)
 
+    return P_G3_given_S_GP, P_G3_given_S_MS
+
+def plot_estimating_schools(df_por, P_G3_given_S_GP, P_G3_given_S_MS):
+    """plot the probability P(s) that a student belongs to a given school
+
+    Args:
+        df_por (DataFrame): data extracted from student_por.csv
+    """
+
+    data_tmp = df_por["school"].value_counts()
+    P_S = pd.DataFrame(data_tmp/data_tmp.sum())
+    P_S.columns = ["Probability"]
+    P_S.columns.name = "School"
+    P_S.plot.bar()
+
+    P_G3 = P_G3_given_S_GP * P_S.loc["GP"].values + P_G3_given_S_MS * P_S.loc["MS"].values
+    plt.figure(figsize=(12, 9))
+    P_G3.plot.bar()
+    plt.xlabel("Scores")
+    plt.ylabel("$P(g)$")
+    plt.title("Distribution of scores for both schools")
+    plt.show()
 
     return None
-
-
 
 
 def main():
@@ -88,8 +107,13 @@ def main():
 
     # compute the distribution of the final grades for students in each school
     # P(g|s) = P(G = g|S = s), for all g \in {0, 1, ..., 20}, s \in {'GP', 'MS'}
-    cond_prob(df_por, debug)
+    
+    p_G3_given_S_GP, p_G3_given_S_MS = cond_prob(df_por, debug)
 
+    # plot_cond_prob(p_G3_given_S_GP, p_G3_given_S_MS)
+
+    # estimating the probability P(s) that a student belongs to a given school
+    plot_estimating_schools(df_por, p_G3_given_S_GP, p_G3_given_S_MS)
 
 
     return None
