@@ -80,6 +80,30 @@ def plot_estimating_schools(df_por, P_G3_given_S_GP, P_G3_given_S_MS):
 
     return None
 
+def expectation_schools(df_por, p_G3_given_S_GP, p_G3_given_S_MS):
+    """compute the expectations of grades w/ schools
+
+    Args:
+        p_G3_given_S_GP (DataFrame): conditional probability of grades on given GP
+        p_G3_given_S_MS (DataFrame): conditional probability of grades on given MS
+    """
+    data_tmp = df_por["school"].value_counts()
+    P_S = pd.DataFrame(data_tmp/data_tmp.sum())
+    P_G3 = p_G3_given_S_GP * P_S.loc["GP"].values + p_G3_given_S_MS * P_S.loc["MS"].values
+
+    E_G3_given_S_GP = np.sum([index*value for index, value in \
+        zip(p_G3_given_S_GP.index, p_G3_given_S_GP.values)])
+    print("\nE[G]S = Gabriel Pereira]= {:.3f}".format(E_G3_given_S_GP))
+
+    E_G3_given_S_MP = np.sum([index*value for index, value in \
+        zip(p_G3_given_S_MS.index, p_G3_given_S_MS.values)])
+    print("\nE[G|S = Mousubho da Silveira]= {:.3f}".format(E_G3_given_S_MP))
+
+    E_G3 = np.sum([index*value for index, value in zip(P_G3.index, P_G3.values)])
+    print("\nE[G] = {:.3f}".format(E_G3))
+
+    return None
+
 
 def main():
 
@@ -114,6 +138,9 @@ def main():
 
     # estimating the probability P(s) that a student belongs to a given school
     plot_estimating_schools(df_por, p_G3_given_S_GP, p_G3_given_S_MS)
+
+    # compute expectation
+    expectation_schools(df_por, p_G3_given_S_GP, p_G3_given_S_MS)
 
 
     return None
