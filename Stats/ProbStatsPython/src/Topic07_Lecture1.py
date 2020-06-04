@@ -239,6 +239,54 @@ def ComputeStatistics(P, x, y):
         'Ex': Ex, 'Ey': Ey, 'stdx': stdx, 'stdy': stdy, 'cov': cov, 'corr': corr}
 
 
+def empirical_stat():
+
+    P = np.array([[1., 1, 1], [1., 1, 2], [2, 1, 1]])
+    x = np.array([-1, 0, 1])
+    y = np.array([-1, 0, 1])
+
+    A = ComputeStatistics(P, x, y)
+    print("\nComputing the statistics of x, y, P:\n\nx = {}  y= {}\nP=\n{}".format(x, y, P))
+    print("\n  Probability of X: {}".format(A['Px']))
+    print("  Expection of X: {}".format(A['Ex']))
+    print("  Covariance of X & Y: {}".format(A['cov']))
+    print("  Correlation coefficient of X & Y: {}".format(A['corr']))
+
+    input("\nPress Enter to continue ............................")
+
+
+    # compute statistics w/ random generated data
+    print("\nRandomly generating data for statistics exercise ...")
+    numsamples = [2, 10, 100, 100000]
+
+    for num in numsamples:
+        print("Sample mean after drawing {num:6d} samples = {s:8.4f}".format(
+            num = num,
+            s = np.mean(np.random.choice(x, num, True, A['Px']))
+        ))
+
+    input("\nPress Enter to continue ............................")
+
+    # calculate covariance w/ generated sample (x, y) from the joint probability P
+    xy = np.array([(i, j) for i in x for j in y])
+    I = np.random.choice(xy.shape[0], num, True, P.T.flatten())
+
+    print("\nListing first 10 elements of (x, y): \n{}".format(xy[I][:10]))
+    print("\nCompute the population covariance of generated data:")
+
+    for num in numsamples:
+        samples = np.random.choice(xy.shape[0], num, True, P.T.flatten()) # choose rows
+        print("Population covariance after drawing {num:6d} samples: {s:7.4f}".format(
+            num = num,
+            s = np.cov(
+                xy[samples][:, 0],
+                xy[samples][:, 1]
+            )[0, 1]
+        ))
+
+
+    return None
+
 
 def main():
 
@@ -263,6 +311,10 @@ def main():
 
     print("\nStatistics of x, y, P: \n{}".format(A))
 
+    # Empirical statistics: population mean, population standard deviation and 
+    # population covariance
+
+    empirical_stat()
 
 
     return None
