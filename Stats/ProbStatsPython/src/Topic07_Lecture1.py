@@ -85,12 +85,45 @@ def multivariates_dist():
 
     return None
 
+def independence_test():
+
+    # two r.v. X and Y independence, the outer product of the marginals should be equal P
+
+    # assign values for random variables
+    P = np.array([[2.0, 2, 4], [1, 1, 2]])
+    x = np.array([1, 2, 6])
+    y = np.array([-1, 1])
+
+    Px = np.sum(P, axis=0)
+    Py = np.sum(P, axis=1)
+
+    # the pure python way
+    print("\nX, Y independence --> outter product of the margin = P")
+    for i in range(Px.size):
+        for j in range(Py.size):
+            if Px[i]*Py[j] != P[j, i]:
+                print("  Px[{:d}]*Py[{:d}] ! = P[{:d}, {:d}] :::: {:5.3f}*{:5.3f} = {:5.3f} ! = {:5.3f}".format(\
+                    i, j, j, i, Px[i], Py[j], Px[i]*Py[j], P[j, i]))
+                # print("Px[%d]*Py[%d] != P[%d,%d] ::::: %5.3f*%5.3f = %5.3f != %5.3f"%(i,j,j,i,Px[i],Py[j],Px[i]*Py[j],P[j,i]))
+
+    input("\nPress Enter to continue ............................\n")
+
+    # the numpy way
+    print("\nIndependence test w/ np.outer(Px, Py).T - P = 0:\n{}".format(np.outer(Px, Py)))
+
+    input("\nPress Enter to continue ............................\n")
+
+    return None
+
+
 
 def main():
 
     # join distribution of two discrete random variables
     multivariates_dist()
 
+    # Testing independence
+    independence_test()
 
     return None
 
