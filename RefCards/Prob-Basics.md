@@ -1297,5 +1297,74 @@
 
 
 
+## Covariance
+
++ [Product expectations - general](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
+  + $\forall, \alpha, \beta, \gamma\quad \exists\, X, Y$ w/: $E[X] = \alpha \quad E[Y] = \beta \quad E[XY] = \gamma$
+  + $X = (\gamma - \alpha \beta) X^\prime + \alpha \to E[X] = \alpha$
+  + $Y = Y^\prime + \beta \to E[Y] = \beta$
+
+  \[ E[XY] &= E[((\gamma - \alpha \beta) X^\prime + \alpha)(Y^\prime + \beta)] = \gamma \]
+
++ [Covariance](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
+  + 'centralizing' $X, Y$, consider expectation of centralized product
+
+    \[ \sigma_{X, Y} \triangleq Cov(X, Y) &\triangleq E[(X - \mu_X)\cdot (Y - \mu_Y)]) = E[XY] - \mu_X \mu_Y \]
+
++ [Pearson's Correlation coefficient](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
+
+    \[ \rho_{XY} = \frac{Cov(X, Y)}{\sigma_X \sigma_Y} \]
+
+  + properties
+    + $\rho_{X, Y} = 1 \quad \rho_{X, -X} = -1$
+    + $\rho_{X, Y} = \rho_{Y, X}$
+    + $\rho_{aX+b, cX+d} = \text{sign}(ac) \cdot \rho_{X, Y} \quad \text{sign}(x) = \begin{cases} 1 & x >0 \\ 0 & x =0 \\ -1 & x < 0 \end{cases}$
+  + if $X \nearrow$ by $\sigma_X$, by how many $\sigma_Y$ do we expect $Y$ to $\nearrow$
+  + bounds on $\sigma_{X, Y}?$
+
++ [Cauchy-Schwarz inequality](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
+  + $E[X \cdot Y]$ unable to take all possible values, viz.
+
+    \[ |E[XY] \le \sqrt{E[X^2]} \cdot \sqrt{E[Y^2]} \]
+
+  + corollary
+
+    \[ |\sigma_{X, Y}| \le \sigma_X \cdot \sigma_Y \quad \rho_{X, Y} \triangleq \frac{Cov(X, Y)}{\sigma_X \cdot \sigma_Y}  \to |\rho_{X, Y}| \le 1 \]
+
++ [2nd Covariance formulation](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
+
+  \[ Cov(X, Y) &\triangleq E[(X - \mu_X) \cdot (Y - \mu_Y)] = E[XY - X \mu_Y - \mu_Y Y + \mu_X \mu_Y] = E[XY] - \mu_X \mu_Y \]
+
+  + if $X$ increasing by 1 $\to Y$ increasing by $\dfrac{Cov(X, Y)}{Var(X)}$
+
++ [Properties](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
+
+  \[\begin{align*}
+    Cov(X, X) &= E[X^2] - \mu_X^2 = Var(X) \\
+    Cov(X, Y) &= E[(X - \mu_X)(Y - \mu_Y)] = Cov(Y, X)\\
+    Cov(aX, Y) &= a Cov(X, Y) \\
+    Cov(X + a, Y) &= Cov(X, Y)
+  \end{align*}\]
+
++ [Covariance](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
+  + $Var(X+Y) \gtrless Var(X) + Var(Y)$
+  + $X \perp Y \iff \sigma_{X, Y} = 0 \iff Var(X+Y) = Var(X) + Var()Y)$
+  + $X {\perp \!\!\!\! \perp} Y \to X \perp Y \to Var(X+Y) = Var(X) + Var(Y)$
+
++ [Covariance vs. Corelation Coefficient](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
+  + same
+    + $\ge$ if increasing together
+    + $\le$ if decreasing together
+    + higher absolute value if relation close to linear
+  + different
+    + covariance: change w/ size of variables
+    + correlation: insensitive to variable size
+
++ [Independence and uncorrelated](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
+  + independence $\implies$ uncorrelated: ${\perp \!\!\!\! \perp} \implies \perp$
+  + uncorrelated $\stackrel{?}{\implies}$ independence
+
+
+
 
 
