@@ -1159,3 +1159,34 @@
 
 
 
+
+## Expectation of Functions of Random Variables
+
++ [Expectation formulation](../Stats/ProbStatsPython/07-RvMeanVar.md#75-expectation-of-functions-of-random-variables)
+
+  \[\begin{align*}
+    E(Y) &= \sum_y y \cdot \Pr(Y=y) = \sum_y y \cdot \Pr(X \in g^{-1}(y)) = \sum_y y \sum_{x \in g^{-1}(y)} p(x) \\
+    &= \sum_y \sum_{x \in g^{-1}(y)} y \cdot p(x) = \sum_y \sum_{x \in g^{-1}(y)} g(x) \cdot p(x) = \sum_x g(x) \cdot p(x)
+  \end{align*}\]
+
++ [Constant addition](../Stats/ProbStatsPython/07-RvMeanVar.md#75-expectation-of-functions-of-random-variables)
+
+  \[\begin{align*}
+    E(X + b) &= \sum p(x) \cdot (x + b) = \sum p(x) \cdot x + \sum p(x) \cdot b = E(X) + b \cdot \sum p(x) \\
+    &= E(X) + b
+  \end{align*}\]
+
++ [Constant multiplication](../Stats/ProbStatsPython/07-RvMeanVar.md#75-expectation-of-functions-of-random-variables)
+  
+  \[ E(aX) = \sum p(x) \cdot (ax) = a \sum p(x) \cdot a = a E(X) \]
+
++ [Linearity of expectation](../Stats/ProbStatsPython/07-RvMeanVar.md#75-expectation-of-functions-of-random-variables)
+
+  \[ E(aX + b) = E(aX) + b = aE(X) + b \]
+
+
+
+
+
+
+
