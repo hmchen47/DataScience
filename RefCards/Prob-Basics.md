@@ -1187,6 +1187,91 @@
 
 
 
+## Multivariate
 
++ [Join distribution](../Stats/ProbStatsPython/07-RvMeanVar.md#77-two-variables)
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"># Variables</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Variable Names</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Sample Space</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Prob.</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Abbr.</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Properties</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th>One</th> <td style="text-align: center;">X</td> <td style="text-align: center;">$X$</td> <td style="text-align: center;">$p(X = x)$</td> <td style="text-align: center;">$p(x)$</td> <td style="text-align: center;">$p(x) \ge 1 \\ \sum_x p(x) =1$</td>
+    </tr>
+    <tr>
+      <th>Two</th> <td style="text-align: center;">X, Y</td> <td style="text-align: center;">$X \times Y$</td> <td style="text-align: center;">$p((X, Y) = (x, y))$</td> <td style="text-align: center;">$p(x, y)$</td> <td style="text-align: center;">$p(x, y) \ge 0 \\ \sum_{x, y} p(x, y) = 1$</td>
+    </tr>
+    </tbody>
+  </table>
+
++ [Specification](../Stats/ProbStatsPython/07-RvMeanVar.md#77-two-variables)
+  + state probability of every possible $(x, y)$ pair
+  + ways to representation
+    + table: 1-d
+    + structure: 2-d
+    + structured distributions
+
++ [General $B(p)$](../Stats/ProbStatsPython/07-RvMeanVar.md#77-two-variables)
+  + $U \sim B(p), V \sim B(q), B {\perp \!\!\!\! \perp} V$
+  + $X = \min(U, V), Y = \max(U, V)$
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
+        <img src="img/t07-26a.png" style="margin: 0.1em;" alt="Table of all possible values w/ 3 coins and results of X and Y" title="Table of all possible values w/ 3 coins and results of X and Y" height=100>
+        <img src="img/t07-26b.png" style="margin: 0.1em;" alt="Probability distribution of X and Y" title="Probability distribution of X and Y" height=100>
+      </a>
+    </div>
+
++ [Join distribution](../Stats/ProbStatsPython/07-RvMeanVar.md#77-two-variables)
+  + joint distribution: probability of every possible $(x, y)$ pair
+
+    \[ p(x, y) \stackrel{\text{def}}{=} \Pr(X = x, Y=y) \]
+
+  + properties
+    + $\forall\, x, y, \;p(x, y) \ge 0$
+    + $\sum_{x, y} p(x, y) = 1$
+
+  + omnipotent
+    + joint distribution determines all probabilities of interest
+
+    \[\begin{align*}
+      \Pr(X \le Y) &= \Pr(X=0, Y=0) + \Pr(X = 0, Y = 1) + \Pr(X=1, Y=1) \\
+      &= \Pr(0, 0) + \Pr(0, 1) + \Pr(1, 1) = 0.1 + 0.2 + 0.4 = 0.7
+    \end{align*}\]
+
++ [Marginals](../Stats/ProbStatsPython/07-RvMeanVar.md#77-two-variables)
+  + margin of $X$: $\Pr(x) \stackrel{\text{def}}{=} P_x(x) \stackrel{\text{def}}{=} \Pr(X = x) = \sum_y p(x, y)$
+  + margin of $Y$: $\Pr(y) \stackrel{\text{def}}{=} P_Y(y) \stackrel{\text{def}}{=} \Pr(Y = y) = \sum_x p(x, y)$
+  + very different join distributions able to have the same marginals
+
++ Conditionals
+
+  \[ \Pr(X \mid y) = \frac{p(x, y)}{p(y)} \quad \Pr(y \mid x) = \frac{p(x, y)}{p(x)} \]
+
+
++ [Independence](../Stats/ProbStatsPython/07-RvMeanVar.md#77-two-variables)
+  + $X, Y$ independent: $X {\perp \!\!\!\! \perp} Y$
+  + $\forall\, x, y$
+
+    \[\begin{align*}
+      p(y \mid x) &= p(y) \qquad \text{Value of $X$ not affect distribution of $Y$} \\
+      p(x \mid y) &= p(x) \qquad \text{Value of $Y$ not affect distribution of $X$} \\
+      p(x, y) &= p(x) \cdot p(y) \gets \text{ more robust} \hspace{2em} \text{Formal}
+    \end{align*}\]
+
+  + quick checking
+
+    \[\begin{align*}
+      \text{independent} &\to \text{rows proportional to each other} \\
+      &\to \text{columns proportional to each other}
+    \end{align*}\]
 
 
