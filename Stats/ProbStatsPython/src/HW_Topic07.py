@@ -31,6 +31,13 @@ def sample_median(n, pdf):
 
     return stat.median(seq)
 
+def expected_cal(pdf):
+    exp = 0.0
+    for i, val in enumerate(pdf):
+        exp += val *(i+1)
+
+    return exp
+
 
 if __name__ == "__main__":
 
@@ -59,6 +66,13 @@ if __name__ == "__main__":
 
     print(sample_median(10, [0.12,0.04,0.12,0.12,0.2,0.16,0.16,0.08]))
     print(sample_median(10, [0.12,0.04,0.12,0.12,0.2,0.16,0.16,0.08]))
+
+
+    input("\nPress Enter to continue ........................")
+
+    print(expected_cal([0.25,0.25,0.25,0.25]))
+    print(expected_cal([0.3,0.4,0.3]))
+    print(expected_cal([0.12, 0.04, 0.12, 0.12, 0.2, 0.16, 0.16, 0.08]))
 
 
     print("\nEnf Topic 7 HW Python code .....\n")
