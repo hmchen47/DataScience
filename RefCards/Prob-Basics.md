@@ -1191,7 +1191,7 @@
 
 + [Join distribution](../Stats/ProbStatsPython/07-RvMeanVar.md#77-two-variables)
 
-  <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <thead>
     <tr style="font-size: 1.2em;">
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"># Variables</th>
@@ -1225,8 +1225,8 @@
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
-        <img src="img/t07-26a.png" style="margin: 0.1em;" alt="Table of all possible values w/ 3 coins and results of X and Y" title="Table of all possible values w/ 3 coins and results of X and Y" height=100>
-        <img src="img/t07-26b.png" style="margin: 0.1em;" alt="Probability distribution of X and Y" title="Probability distribution of X and Y" height=100>
+        <img src="../Stats/ProbStatsPython/img/t07-26a.png" style="margin: 0.1em;" alt="Table of all possible values w/ 3 coins and results of X and Y" title="Table of all possible values w/ 3 coins and results of X and Y" height=100>
+        <img src="../Stats/ProbStatsPython/img/t07-26b.png" style="margin: 0.1em;" alt="Probability distribution of X and Y" title="Probability distribution of X and Y" height=100>
       </a>
     </div>
 
@@ -1304,12 +1304,12 @@
   + $X = (\gamma - \alpha \beta) X^\prime + \alpha \to E[X] = \alpha$
   + $Y = Y^\prime + \beta \to E[Y] = \beta$
 
-  \[ E[XY] &= E[((\gamma - \alpha \beta) X^\prime + \alpha)(Y^\prime + \beta)] = \gamma \]
+    \[ E[XY] = E[((\gamma - \alpha \beta) X^\prime + \alpha)(Y^\prime + \beta)] = \gamma \]
 
 + [Covariance](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
   + 'centralizing' $X, Y$, consider expectation of centralized product
 
-    \[ \sigma_{X, Y} \triangleq Cov(X, Y) &\triangleq E[(X - \mu_X)\cdot (Y - \mu_Y)]) = E[XY] - \mu_X \mu_Y \]
+    \[ \sigma_{X, Y} \triangleq Cov(X, Y) \triangleq E[(X - \mu_X)\cdot (Y - \mu_Y)]) = E[XY] - \mu_X \mu_Y \]
 
 + [Pearson's Correlation coefficient](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
 
@@ -1333,7 +1333,7 @@
 
 + [2nd Covariance formulation](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
 
-  \[ Cov(X, Y) &\triangleq E[(X - \mu_X) \cdot (Y - \mu_Y)] = E[XY - X \mu_Y - \mu_Y Y + \mu_X \mu_Y] = E[XY] - \mu_X \mu_Y \]
+  \[ Cov(X, Y) \triangleq E[(X - \mu_X) \cdot (Y - \mu_Y)] = E[XY - X \mu_Y - \mu_Y Y + \mu_X \mu_Y] = E[XY] - \mu_X \mu_Y \]
 
   + if $X$ increasing by 1 $\to Y$ increasing by $\dfrac{Cov(X, Y)}{Var(X)}$
 
