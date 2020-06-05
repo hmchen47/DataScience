@@ -92,13 +92,13 @@ In this course you will learn the following topics (some may be added or dropped
 
 
 + Topic 6: Conditional Probability
-  + 6.1 [Conditional Probability](./06-CondProb.md#)
-  + 6.2 [Independence](./06-CondProb.md#)
-  + 6.3 [Sequential Probability](./06-CondProb.md#)
-  + 6.4 [Total Probability](./06-CondProb.md#)
-  + 6.5 [Bayes' Rule](./06-CondProb.md#)
-  + [Lecture Notebook 6](./06-CondProb.md#)
-  + [Programming Assignment 6](./06-CondProb.md#)
+  + 6.1 [Conditional Probability](./06-CondProb.md#61-conditional-probability)
+  + 6.2 [Independence](./06-CondProb.md#62-independence)
+  + 6.3 [Sequential Probability](./06-CondProb.md#63-sequential-probability)
+  + 6.4 [Total Probability](./06-CondProb.md#64-total-probability)
+  + 6.5 [Bayes' Rule](./06-CondProb.md#65-bayes-rule)
+  + [Lecture Notebook 6](./06-CondProb.md#lecture-notebook-6)
+  + [Programming Assignment 6](./06-CondProb.md#programming-assignment-6)
 
 
 + Topic 7: Random Variables, Expectation, and Variance
