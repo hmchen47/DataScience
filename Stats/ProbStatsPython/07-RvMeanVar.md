@@ -1697,7 +1697,7 @@
 
 + Covariance
   + sufficient, and easier, to understand 0-mean variables
-  + 'centralizeing' $X, Y$, consider expectation of centralized product
+  + 'centralizing' $X, Y$, consider expectation of centralized product
 
     \[\begin{align*}
       \sigma_{X, Y} \triangleq Cov(X, Y) &\triangleq E[(X - \mu_X)\cdot (Y - \mu_Y)]) \\
