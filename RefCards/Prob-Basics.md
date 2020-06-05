@@ -1117,3 +1117,45 @@
 
 
 
+
+
+## Modification
+
++ [Functions of a random variable](../Stats/ProbStatsPython/07-RvMeanVar.md#74-variable-modifications)
+  + random variables $X$ taking values in $\Bbb{R}$
+  + often interested in related variable
+    + $Y = g(X)$ w/ $g: \Bbb{R} \to \Bbb{R}$ is a fixed function
+  + deterministic Functions
+    + $Y = g(X)$: $g$ is a <span style="color: magenta;">deterministic</span> function over $\Bbb{R}$ (or $\Omega$)
+    + all randomness in $Y$ derived from $X$
+    + deterministically modified by $g$
+
++ [Translation](../Stats/ProbStatsPython/07-RvMeanVar.md#74-variable-modifications)
+  + <span style="color: cyan;">add constant</span> $b$ to $X$ = <span style="color: cyan;">translate</span> $X$ by $b$
+  + $Y = X +b$
+  + $\Pr(Y=y) = \Pr(X+b = y) = \Pr(X=y-b)$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ycssyss3" ismap target="_blank">
+      <img src="../Stats/ProbStatsPython/img/t07-08a.png" style="margin: 0.1em;" alt="Example of translation: original random variable" title="Example of translation: original random variable" height=100>
+      <img src="../Stats/ProbStatsPython/img/t07-08b.png" style="margin: 0.1em;" alt="Example of translation: result of translation" title="Example of translation: result of translation" height=100>
+    </a>
+  </div>
+
++ [Scaling](../Stats/ProbStatsPython/07-RvMeanVar.md#74-variable-modifications)
+  + <span style="color: cyan;">scale</span> $X$ by a factor $b$, $Y = b \cdot X$
+  + $\Pr(Y=y) = \Pr(bX = y) = \Pr(X = y/b)$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ycssyss3" ismap target="_blank">
+      <img src="../Stats/ProbStatsPython/img/t07-09a.png" style="margin: 0.1em;" alt="Example of scaling: original random variable" title="Example of scaling: original random variable" height=100>
+      <img src="../Stats/ProbStatsPython/img/t07-09b.png" style="margin: 0.1em;" alt="Example of scaling: result of scaling" title="Example of scaling: result of scaling" height=100>
+    </a>
+  </div>
+
++ [Reverse mapping](../Stats/ProbStatsPython/07-RvMeanVar.md#74-variable-modifications)
+
+  \[ \Pr(Y=y) = \Pr(g(X) = y) = \Pr(X \in g^{-1}(y)) = \sum_{x \in g^{-1}(y)} \Pr(X=x) \]
+
+
+
