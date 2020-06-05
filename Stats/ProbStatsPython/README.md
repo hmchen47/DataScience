@@ -67,16 +67,16 @@ In this course you will learn the following topics (some may be added or dropped
 
 
 + Topic 4: Combinatorics
-  + 4.1 [Permutations](./04-Combinatorics.md#)
-  + 4.2 [Partial Permutations](./04-Combinatorics.md#)
-  + 4.3 [Combinations](./04-Combinatorics.md#)
-  + 4.4 [Applications of Binomial Coefficients](./04-Combinatorics.md#)
-  + 4.5 [Properties of Binomial Coefficient](./04-Combinatorics.md#)
-  + 4.6 [Pascal Triangle and Binomial Theorem](./04-Combinatorics.md#)
-  + 4.7 [Multinomials](./04-Combinatorics.md#)
-  + 4.8 [Stars and Bars](./04-Combinatorics.md#)
-  + [Lecture Notebook 4](./04-Combinatorics.md#)
-  + [Programming Assignment 4](./04-Combinatorics.md#)
+  + 4.1 [Permutations](./04-Combinatorics.md#41-permutations)
+  + 4.2 [Partial Permutations](./04-Combinatorics.md#42-partial-permutations)
+  + 4.3 [Combinations](./04-Combinatorics.md#43-combinations)
+  + 4.4 [Applications of Binomial Coefficients](./04-Combinatorics.md#44-applications-of-binomial-coefficients)
+  + 4.5 [Properties of Binomial Coefficient](./04-Combinatorics.md#45-properties-of-binomial-coefficient)
+  + 4.6 [Pascal Triangle and Binomial Theorem](./04-Combinatorics.md#46-pascal-triangle-and-binomial-theorem)
+  + 4.7 [Multinomials](./04-Combinatorics.md#47-multinomials)
+  + 4.8 [Stars and Bars](./04-Combinatorics.md#48-stars-and-bars)
+  + [Lecture Notebook 4](./04-Combinatorics.md#lecture-notebook-4)
+  + [Programming Assignment 4](./04-Combinatorics.md#programming-assignment-4)
 
 
 + Topic 5: Probability Introduction
