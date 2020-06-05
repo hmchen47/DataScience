@@ -1275,3 +1275,27 @@
     \end{align*}\]
 
 
+
+## Linearity of Expectation
+
++ [Functions of two variables](../Stats/ProbStatsPython/07-RvMeanVar.md#78-linearity-of-expectations)
+
+    \[ \Pr(g(X, Y) = z) = \Pr((X, Y) \in g^{-1}(z)) = \sum_{(x, y) \in g^{-1}(z)} p(x, y) \]
+
++ [Two unconscious statisticians](../Stats/ProbStatsPython/07-RvMeanVar.md#78-linearity-of-expectations)
+
+  \[ E_g(X, Y) = \sum_{x, y} g(x, y) p(x, y) \]
+
++ [Linearity of expectation](../Stats/ProbStatsPython/07-RvMeanVar.md#78-linearity-of-expectations)
+
+  \[ E[X+Y] = \sum_x \sum_y (x+y) \cdot p(x, y) = E[X] + E[Y] \]
+
++ [Variance](../Stats/ProbStatsPython/07-RvMeanVar.md#78-linearity-of-expectations)
+
+    \[ Var(X+Y) = = Var(X) + Var(Y) + \underbrace{2(E[XY] - E[X] \cdot E[Y])}_{E[XY] \stackrel{?}{=} E[X]\cdot E[Y]} \]
+
+
+
+
+
+
