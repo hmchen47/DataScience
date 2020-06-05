@@ -120,7 +120,7 @@
 + [Original Slides](https://tinyurl.com/ya6muda5)
 
 
-## Problem Sets
+### Problem Sets
 
 0. Which of the following statements is correct?<br/>
   a. Random variables are mappings between outcomes and real numbers.<br/>
@@ -133,7 +133,7 @@
 1. For which value of $\alpha$ is the function $p_i= \frac{(\alpha+1)(i−\alpha)+2}{120}$ over $\{1,2, \dots, 10\}$ a p.m.f.?
 
   Ans: 1.5<br/>
-  Explanation: The p.m.f should add up to 1, hence, $\sum_{i=1}^{10} p_i= \sum_{i=1}^{10} \frac{(\alpha+1)(i− \alpha)+2}{120}= \sum_{i=1}^{10} −\alpha^2+(i−1) \alpha+i+2}{120}=1$.  This reduces to the quadratic equation $2\alpha^2 − 9 \alpha + 9 = 0$ with two solutions $\alpha=3/2$ and $\alpha=3$. Recall that $0 \leq p_i \leq 1$, the solution $\alpha=3$ is discarded as some $p_i$'s are negative, and we are left with $\alpha=3/2$.
+  Explanation: The p.m.f should add up to 1, hence, $\sum_{i = 1}^{10}p_i = \sum_{i = 1}^{10} \frac{(\alpha+1)(i-\alpha)+2}{120} =$ $\sum_{i = 1}^{10} \frac{-\alpha^2 + (i - 1)\alpha + i + 2}{120} =$ $1$.  This reduces to the quadratic equation $2\alpha^2 − 9 \alpha + 9 = 0$ with two solutions $\alpha=3/2$ and $\alpha=3$. Recall that $0 \leq p_i \leq 1$, the solution $\alpha=3$ is discarded as some $p_i$'s are negative, and we are left with $\alpha=3/2$.
 
 
 2. Which of the following are true for random variables?<br/>
@@ -159,10 +159,10 @@
   Explanation: 
     + 1 and 2 are impossible, the remaining 18 outcomes can occur.
     + 18 is fixed, while the other 2 balls should selected from 1 to 17. $\Pr(X = 18) = \binom{17}{2}/\binom{20}{3}=0.119$.
-    + $\Pr(X \ge 17) = \Pr(X = 17) + \Pr(X = 18) + \Pr(X = 19) + \Pr(X = 20) = \frac{\binom{16}{2} + \binom{17}{2} + \binom{18}{2} + \binom{19}{2}}{\binom{20}{3}} = 0.508$
+    + $\Pr(X \ge 17) = \Pr(X = 17) + \Pr(X = 18) + \Pr(X = 19) + \Pr(X = 20) =$ $\frac{\binom{16}{2} + \binom{17}{2} + \binom{18}{2} + \binom{19}{2}}{\binom{20}{3}} =$ $0.508$
 
 
-## Lecture Video
+### Lecture Video
 
 <a href="https://tinyurl.com/ycvl829d" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
@@ -178,7 +178,7 @@
     + temperature btw 60 and $80 {}^\circ F$
   + one function determining all interval probabilities
 
-+ Culmulative distribution function
++ Cumulative distribution function
   + probability mass function (pmf): $p: \Omega \to \Bbb{R}$
   + cumulative distribution function (cdf): $F: \Bbb{R} \to \Bbb{R}$
 
@@ -219,7 +219,7 @@
 + [Original Slides](https://tinyurl.com/yazqvt68)
 
 
-## Problem Sets
+### Problem Sets
 
 0. All cumulative distribution functions are:<br/>
   a. Continuous.<br/>
@@ -277,7 +277,7 @@
 
 
 
-## Lecture Video
+### Lecture Video
 
 <a href="https://youtu.be/atJ4dzgZizo" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
@@ -438,7 +438,7 @@
 + [Original Slides](https://tinyurl.com/y87kom5a)
 
 
-## Problem Sets
+### Problem Sets
 
 0. The expectation of a random variable X must be a number X can take.<br/>
   a. True<br/>
@@ -537,7 +537,7 @@
 
 
 
-## Lecture Video
+### Lecture Video
 
 <a href="https://youtu.be/NnYtzd9Zk94" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
@@ -651,7 +651,7 @@
 + [Original Slides](https://tinyurl.com/ycssyss3)
 
 
-## Problem Sets
+### Problem Sets
 
 0. Let X be a random variable. For a fixed real function g, g(X) is also a random variable.
 
@@ -659,7 +659,7 @@
 
 
 
-## Lecture Video
+### Lecture Video
 
 <a href="https://youtu.be/MUhMcjhQQcw" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
@@ -783,7 +783,7 @@
 + [Original Slides](https://tinyurl.com/y9t3hykh)
 
 
-## Problem Sets
+### Problem Sets
 
 0. Which of the following does not hold for all random variables?<br/>
   a. $E[X+2]=E[X]+2$<br/>
@@ -866,7 +866,7 @@
 
 
 
-## Lecture Video
+### Lecture Video
 
 <a href="https://youtu.be/0NYdAJcVNTM" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
@@ -1095,7 +1095,7 @@
 + [Original Slides](https://tinyurl.com/y6wpn2qe)
 
 
-## Problem Sets
+### Problem Sets
 
 0. Which of the following is greater ($\ge$) for a random variable $X$?<br/>
   a. $E[X^2]$<br/>
@@ -1114,18 +1114,18 @@
     </a>
   </div>
 
-  a. $\(1\)$<br/>
-  b. $\(2\)$<br/>
-  c. $\(3\)$<br/>
-  d. $\(4\)$<br/>
+  a. \(1\)<br/>
+  b. \(2\)<br/>
+  c. \(3\)<br/>
+  d. \(4\)<br/>
   
   Ans: c<br/>
   Explanation: Variance measures how far a set of (random) numbers are spread out from their average value. 3 is the broadest one.
 
 
-2. A random variable $X$ is distributed over $\{−1,0,1\}$ according to the p.m.f. $\Pr(X=x)=|x|+15$.<b/>
-  a. Find its expectation $E(X)$<b/>
-  b. and variance $Var(X)$<b/>
+2. A random variable $X$ is distributed over $\{−1,0,1\}$ according to the p.m.f. $\Pr(X=x)=|x|+15$.<br/>
+  a. Find its expectation $E(X)$<br/>
+  b. and variance $Var(X)$<br/>
 
   Ans: a. (0); b. (4/5)<br/>
   Explanation:
@@ -1185,7 +1185,7 @@
   Explanation
     + True.
     + True. Standard deviation is defined by $\sqrt{Var(X)}$, which is also non-negative.
-    + True. Adding a constant $a$ to random varianle $X$ will not affect its varaince. $Var(X + a) = E((X + a - E(X + a))^2) = E((X + a - E(X) - a)^2) = E((X - E(X))^2) = Var(X)$
+    + True. Adding a constant $a$ to random variance $X$ will not affect its variance. $Var(X + a) = E((X + a - E(X + a))^2) =$ $E((X + a - E(X) - a)^2) =$ $E((X - E(X))^2) =$ $Var(X)$
     + False. When $Var(X)=0$, this does not hold.
     + False. Consider two random variables $X,Y$ with pmf, $\Pr(X= x) = \begin{cases} \frac12 & x = -1\\ \frac12 & x=1 \end{cases}$, and$\Pr(Y=y) = \begin{cases} \frac18 & y = -2 \\ \frac34 & y=0 \\ \frac18 & y=2 \end{cases}$.  Now $E(X) = E(Y) = 0, Var(X) = Var(Y) = 1$.  However, $X \neq Y$
     + True, as $E(X^2)=Var(X)+E^2 [X]$, if $E(X)=E(Y)$ and $Var(X)=Var(Y)$, then $E(X^2)=E(Y^2)$.
@@ -1220,7 +1220,7 @@
 
 
 
-## Lecture Video
+### Lecture Video
 
 <a href="https://tinyurl.com/ya6hz4gp" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
@@ -1418,7 +1418,7 @@
 
 + Independence
   + $X, Y$ independent: $X {\perp \!\!\!\! \perp} Y$
-  + $\forall, x, y$
+  + $\forall\, x, y$
 
     \[\begin{align*}
       p(y \mid x) &= p(y) \qquad \text{Value of $X$ not affect distribution of $Y$} \\
@@ -1460,7 +1460,7 @@
 + [Original Slides](https://tinyurl.com/y8ge2yda)
 
 
-## Problem Sets
+### Problem Sets
 
 0. If X has three different outcomes and Y has four different outcomes, how many outcomes does the joint random variable (X,Y) have?<br/>
   a. 4<br/>
@@ -1542,7 +1542,7 @@
 
 
 
-## Lecture Video
+### Lecture Video
 
 <a href="https://tinyurl.com/y797gmt6" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
@@ -1624,7 +1624,7 @@
 + [Original Slides](https://tinyurl.com/yc9g7yyz)
 
 
-## Problem Sets
+### Problem Sets
 
 0. Which of the following always holds?<br/>
   a. $E[X+Y]=E[X]+E[Y]$<br/>
@@ -1659,7 +1659,7 @@
   Explanation: $5 = E[X(X−1)] =$ $E(X^2−X) =E(X^2)−E(X) =$ $E(X^2)−2 $ $\to E(X^2)=5+2=7$ $\to Var(X)=E(X^2)−E(X)^2=7−4=3$
 
 
-## Lecture Video
+### Lecture Video
 
 <a href="https://tinyurl.com/y9acreuq" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
@@ -1913,7 +1913,7 @@
 + [Original Slides](https://tinyurl.com/ybpsl93v)
 
 
-## Problem Sets
+### Problem Sets
 
 0. Which of the following holds for all random variables?<br/>
   a. Independent implies uncorrelated<br/>
@@ -2012,7 +2012,7 @@
 
 
 
-## Lecture Video
+### Lecture Video
 
 <a href="https://tinyurl.com/y85jxox8" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
@@ -2080,9 +2080,89 @@
 
 ## Programming Assignment 7
 
++ [original Topic 7 HW NB](https://tinyurl.com/y86pdob9)
+
++ [Local Topic 7 HW NB](src/HW_Topic07.ipynb)
+
++ [Local Topic 7 HW Python Code](src/HW_Topic07.py)
+
+1. what value does `median_cal([0.12,0.04,0.12,0.12,0.2,0.16,0.16,0.08])` return?
+
+  Ans: 5
+
+  ```python
+  def median_cal(P):
+      # inputs: P is a list representing pmf 
+      # output: a variable of type 'float' or 'int'
+
+      sum_p = 0
+      for i, p in enumerate(P):
+          sum_p += p
+          if sum_p == 0.5:
+              return i + 1.5
+          if sum_p > 0.5:
+              return i + 1
+  ```
 
 
+2. Which of the following is a possible output of `sample_median(n, [0.12,0.04,0.12,0.12,0.2,0.16,0.16,0.08])` for any n?<br/>
+  a. 3<br/>
+  b. 9<br/>
+  c. 7<br/>
+  d. 4<br/>
+
+  Ans: acd
 
 
+3. What value does `expected_cal([0.12, 0.04, 0.12, 0.12, 0.2, 0.16, 0.16, 0.08])` return?
 
+  Ans: 4.76
+
+  ```python
+  def expected_cal(P):
+    # inputs: P is a list representing pmf 
+    # output: a variable of type 'float'
+
+    mean = 0
+    for i, p in enumerate(P):
+        mean += (i + 1) * p
+
+    return mean
+  ```
+
+4. what value does `average_sample_median(100,[0.12, 0.04, 0.12, 0.12, 0.2, 0.16, 0.16, 0.08])` return?
+
+  Ans: 5
+
+
+5. Compare the value in Q3 and `average_sample_median(1,[0.12, 0.04, 0.12, 0.12, 0.2, 0.16, 0.16, 0.08])`.<br/>
+  
+  What can $E[M1]$ be equal to?<br/>
+  a. median of the distribution<br/>
+  b. mean<br/>
+  c. some random value<br/>
+
+  Ans: b<br/>
+
+  ```python
+  import random
+  from statistics import median
+
+  def sample_median(n,P):
+      # inputs: P is a list representing pmf 
+      # output: a variable of type 'float'
+
+      rms = random.choices(range(1, len(P) + 1), weights = P, k = n)
+      return median(rms)
+
+  def average_sample_median(n,P):
+      # inputs: P is a list representing pmf 
+      # output: a variable of type 'float'
+
+      M = 1000
+      sum_median = 0
+      for i in range(M):
+          sum_median += sample_median(n, P)
+      return sum_median / M
+  ```
 
