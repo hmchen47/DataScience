@@ -106,7 +106,7 @@ In this course you will learn the following topics (some may be added or dropped
   + 7.2 [Cumulative Distribution Function](./07-RvMeanVar.md#)
   + 7.3 [Expectation](./07-RvMeanVar.md#)
   + 7.4 [Variable Modifications](./07-RvMeanVar.md#)
-  + 7.5 [Expectation of Modified Variables](./07-RvMeanVar.md#)
+  + 7.5 [Expectation of Functions of Random Variables](./07-RvMeanVar.md#)
   + 7.6 [Variance](./07-RvMeanVar.md#)
   + 7.7 [Two Variables](./07-RvMeanVar.md#)
   + 7.8 [Linearity of Expectations](./07-RvMeanVar.md#)
