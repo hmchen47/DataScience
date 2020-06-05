@@ -89,12 +89,12 @@
 ## Set Relations
 
 + [Divisibility](../Stats/ProbStatsPython/02-Sets.md#22-basic-sets)
-  + $\exists\, m, n \in \mathbb{Z}$, if $n = c \cdot m$ for some $c \in \mathbb{Z}$, we say that <span style="color: magenta;">n is a multiple of $m$</span>, or <span style="color: magenta;">$m$ divides $n$</span> and written <span style="color: magenta;">$m \,|\, n$</span>
+  + $\exists\, m, n \in \mathbb{Z}$, if $n = c \cdot m$ for some $c \in \mathbb{Z}$, we say that <span style="color: magenta;">n is a multiple of $m$</span>, or <span style="color: magenta;">$m$ divides $n$</span> and written <span style="color: magenta;">$m \mid n$</span>
   + if no such $c$ exists, <span style="color: magenta;">$m$ does not divide $n$</span>, or <span style="color: magenta;">$n$ is not a multiple of $m$</span>, denoted <span style="color: magenta;">$m \nmid n$</span>
 
 + [Set of multiples](../Stats/ProbStatsPython/02-Sets.md#22-basic-sets)
-  + integer multiples of $m$: $\exists\, m \in \mathbb{Z},\; _m\mathbb{Z} \stackrel{\text{def}}{=} \{ i \in \mathbb{Z}: m \,|\, i\}$
-  + multiplies of $m$ in {1..n}: $\exists\; m\in \mathbb{Z}, n \in \mathbb{P}, {}_m[n] \stackrel{\text{def}}{=} \{i \in [n]: m \,|\, i\}$
+  + integer multiples of $m$: $\exists\, m \in \mathbb{Z},\; _m\mathbb{Z} \stackrel{\text{def}}{=} \{ i \in \mathbb{Z}: m \mid i\}$
+  + multiplies of $m$ in {1..n}: $\exists\; m\in \mathbb{Z}, n \in \mathbb{P}, {}_m[n] \stackrel{\text{def}}{=} \{i \in [n]: m \mid i\}$
 
 + [Equality](../Stats/ProbStatsPython/02-Sets.md#24-relations)
   + $=$: <span style="color: cyan;">all</span> elements must be identical, e.g., $\{1, 2, 4\} = \{4, 1, 2\}$
@@ -133,7 +133,7 @@
 
 + [Complement](../Stats/ProbStatsPython/02-Sets.md#25-operations)
   + the <span style="color: magenta;">complement</span> $A^c$ of $A$ is the set of $\Omega$ elements not in $A$
-  + Definition: (complement set) $A^c = \overline{A} = A^\prime = \{x \in \Omega \,|\, x \not\in A\}$
+  + Definition: (complement set) $A^c = \overline{A} = A^\prime = \{x \in \Omega \mid x \not\in A\}$
 
 + [Set identities](../Stats/ProbStatsPython/02-Sets.md#25-operations)
   + relations that hold for all sets
@@ -302,7 +302,7 @@
 + [Cartesian products](../Stats/ProbStatsPython/02-Sets.md#26-cartesian-products)
   + the <span style="color: magenta;">Cartesian product</span> of $A$ and $B$ is the set $A \,{\color{Magenta}{\times}} B$ of ordered pairs $(a, b)$ where $a \in A$ and $b \in B$
   + Definition: (Cartesian product) $A \times B = \{(a, b) | a \in A,\, b \in B\}$
-  + Cartesian plane: $\mathbb{R}^2 = \{(x, y) \,|\, x, y \in \mathbb{R}\}, \; \mathbb{R} \times \mathbb{R} = \mathbb{R}^2$
+  + Cartesian plane: $\mathbb{R}^2 = \{(x, y) \mid x, y \in \mathbb{R}\}, \; \mathbb{R} \times \mathbb{R} = \mathbb{R}^2$
 
 + [Identity for Cartesian product](../Stats/ProbStatsPython/02-Sets.md#26-cartesian-products)
   + $A \times \varnothing = \varnothing \times A = \varnothing$
@@ -846,27 +846,27 @@
 + [Intuitive definition](../Stats/ProbStatsPython/06-CondProb.md#61-conditional-probability)
   
   \[\begin{align*}
-    \Pr(F \,|\, E) &= \text{probability that $F$ happens given that $E$ happened} \\
+    \Pr(F \mid E) &= \text{probability that $F$ happens given that $E$ happened} \\
     & = \text{fraction pf $E$ occurrences that F also occur}
   \end{align*}\]
 
 + [General events - uniform spaces](../Stats/ProbStatsPython/06-CondProb.md#61-conditional-probability)
   
-  \[ \Pr(F \,|\, E) = \frac{|E \cap F|}{|E|} \]
+  \[ \Pr(F \mid E) = \frac{|E \cap F|}{|E|} \]
 
 + [General spaces](../Stats/ProbStatsPython/06-CondProb.md#61-conditional-probability)
   
-  \[ \Pr(F \,|\, E) \frac{\Pr(E \cap F)}{\Pr(E)} \]
+  \[ \Pr(F \mid E) \frac{\Pr(E \cap F)}{\Pr(E)} \]
 
 + [Product rule](../Stats/ProbStatsPython/06-CondProb.md#61-conditional-probability)
 
-  \[ \Pr(F \,|\, E) = \frac{\Pr(E \cap F)}{\Pr(E)}  \to \Pr(E \cap F) = \Pr(E) \cdot \Pr(F \,|\, E) \]
+  \[ \Pr(F \mid E) = \frac{\Pr(E \cap F)}{\Pr(E)}  \to \Pr(E \cap F) = \Pr(E) \cdot \Pr(F \mid E) \]
 
 + [General product rule](../Stats/ProbStatsPython/06-CondProb.md#61-conditional-probability)
 
   \[\begin{align*}
-    \Pr(E \cap  F \cap G) &= \Pr((E \cap G) \cap G) = \Pr(E \cap F) \cdot \Pr(G \,|\, E \cap F) \\
-    &= \Pr(E) \cdot \Pr(F \,|\, E) \cdot \Pr(G \,|\, E \cap F)
+    \Pr(E \cap  F \cap G) &= \Pr((E \cap G) \cap G) = \Pr(E \cap F) \cdot \Pr(G \mid E \cap F) \\
+    &= \Pr(E) \cdot \Pr(F \mid E) \cdot \Pr(G \mid E \cap F)
   \end{align*}\]
 
 
@@ -875,16 +875,16 @@
 + [Independence](../Stats/ProbStatsPython/06-CondProb.md#62-independence)
   + informal definition: (independence) Events $E$ and $F$ are <span style="color: magenta;">independent</span> (<span style="color: magenta;">$ E {\perp \!\!\!\! \perp} F$</span>) if occurrence of one does not change the probability  that the other occurs.
 
-    \[ \Pr(F) = \Pr(F \,|\, E) \triangleq \dfrac{\Pr(E \cap F)}{\Pr(E)} \]
+    \[ \Pr(F) = \Pr(F \mid E) \triangleq \dfrac{\Pr(E \cap F)}{\Pr(E)} \]
 
   + two issues:
-    + asymmetric: $\Pr(E \,|\, F)$
+    + asymmetric: $\Pr(E \mid F)$
     + undefined if $\Pr(E) = 0$
   + formal definition: (independent) $E$ and $F$ are <span style="color: magenta;">independent</span> if $\Pr(E \cap F) = \Pr(E) \cdot \Pr(F)$, otherwise, <span style="color: magenta;">dependent</span>
   + symmetric and applied when $\Pr(\varnothing) = 0$
   + $\implies$ to intuitive definition
-    + symmetric: $\Pr(F \,|\, E) = \Pr(F) \quad \Pr(E \,|\, F) = \Pr(E)$
-    + $\Pr(F \,|\, \overline{E}) = \Pr(F) \quad \Pr(E \,|\, \overline{F}) = \Pr(E)$
+    + symmetric: $\Pr(F \mid E) = \Pr(F) \quad \Pr(E \mid F) = \Pr(E)$
+    + $\Pr(F \mid \overline{E}) = \Pr(F) \quad \Pr(E \mid \overline{F}) = \Pr(E)$
 
 + [Independence of $\Omega$ and $\varnothing$](../Stats/ProbStatsPython/06-CondProb.md#62-independence)
   + $\Omega {\perp \!\!\!\! \perp}$ of any event
@@ -897,12 +897,13 @@
 + [Product / chain rule](../Stats/ProbStatsPython/06-CondProb.md#63-sequential-probability)
   + two sets
 
-    \[ \Pr(F \,|\, E) = \frac{\Pr(E \cap F)}{\Pr(E)} \to \Pr(E \cap F) = \Pr(E) \cdot \Pr(F | E) \]
+    \[ \Pr(F \mid E) = \frac{\Pr(E \cap F)}{\Pr(E)} \to \Pr(E \cap F) = \Pr(E) \cdot \Pr(F | E) \]
 
   + three sets
 
-    \[ \Pr(E \cap F \cap G) &=  \Pr((E \cap F) \cap G) = \Pr(E \cap F) \cdot \Pr(G \,|\, E \cap F) \\
-      &= \Pr(E) \cdot \Pr(D \,|\, E) \cdot \Pr(G \,|\, E \cap F)
+    \[\begin{align*}
+      \Pr(E \cap F \cap G) &=  \Pr((E \cap F) \cap G) = \Pr(E \cap F) \cdot \Pr(G \mid E \cap F) \\
+      &= \Pr(E) \cdot \Pr(D \mid E) \cdot \Pr(G \mid E \cap F)
     \end{align*}\]
 
 
@@ -914,14 +915,14 @@
 
     \[\begin{align*}
       \Pr(F) &= \Pr()E \cap F) + \Pr(E^c \cap F)  \quad (\text{Product rule}) \\
-      &= \Pr(E) \cdot \Pr(F \,|\, E) + \Pr(E^c) \cdot \Pr(F \,|\, E^c)
+      &= \Pr(E) \cdot \Pr(F \mid E) + \Pr(E^c) \cdot \Pr(F \mid E^c)
     \end{align*}\]
 
 + [Total probability - n conditions](../Stats/ProbStatsPython/06-CondProb.md#64-total-probability)
   + Let $E_1, E_2, \dots, E_n$ partition $\Omega$
   + $F = \displaystyle \biguplus_{i=1}^n (E_i \cap F)$ s.t.
 
-    \[ \Pr(F) = \sum_{i=1}^n \Pr(E_i \cap F) = \sum_{i=1}^n \Pr(E_i) \cdot \Pr(F \,|\, E_i) \]
+    \[ \Pr(F) = \sum_{i=1}^n \Pr(E_i \cap F) = \sum_{i=1}^n \Pr(E_i) \cdot \Pr(F \mid E_i) \]
 
 
 
@@ -929,14 +930,66 @@
 ## Bayes' Rule
 
 + [Bayes' rule](../Stats/ProbStatsPython/06-CondProb.md#65-bayes-rule)
-  + given $\Pr(F \,|\, E)$ (and a bit more, e.g., $\Pr(E), \Pr(F)$) determining $\Pr(E \,|\, F)$
+  + given $\Pr(F \mid E)$ (and a bit more, e.g., $\Pr(E), \Pr(F)$) determining $\Pr(E \mid F)$
 
-    \[ \Pr(E \,|\, F) = \frac{\Pr(E) \cdot \Pr(F \,|\, E)}{\Pr(F)} \]
+    \[ \Pr(E \mid F) = \frac{\Pr(E) \cdot \Pr(F \mid E)}{\Pr(F)} \]
 
   + another view
 
-    \[ \Pr(F) \cdot \Pr(E \,|\, F) = \Pr(E \cap F) = \Pr(E) \cdot \Pr(F \,|\, E) \]
+    \[ \Pr(F) \cdot \Pr(E \mid F) = \Pr(E \cap F) = \Pr(E) \cdot \Pr(F \mid E) \]
 
 
+
+
+## Random variables
+
++ [Types of random variables](../Stats/ProbStatsPython/07-RvMeanVar.md#71-random-variables)
+  + discrete
+  + continuous
+  + mixed
+
++ [Specification of distribution](../Stats/ProbStatsPython/07-RvMeanVar.md#71-random-variables)
+  + old fashion
+    + explicit
+    + table
+  + with numbers:
+    + function
+    + graphs
+
+      <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+        <a href="url" ismap target="_blank">
+          <img src="../Stats/ProbStatsPython/img/t07-02.png" style="margin: 0.1em;" alt="Graphical examples of probability" title="Graphical examples of probability" width=350>
+        </a>
+      </div>
+
++ [Probability mass function](../Stats/ProbStatsPython/07-RvMeanVar.md#71-random-variables)
+  + $\Omega$:
+    + random variable $\to \subseteq \Bbb{R}$
+    + discrete $\to$ finite or countably infinite
+  + $p$:
+    + $p(x) \geq 0 \quad \forall\, x \in \Omega$
+    + $\sum_{x \in \Omega} p(x) = 1$
+  + if $X$ is distributed according to $p$, denoted $X \sim p$
+
++ [Types of discrete distributions](../Stats/ProbStatsPython/07-RvMeanVar.md#71-random-variables)
+  + finite: $|\Omega| = n \in \Bbb{P}$
+  + infinite: $|\Omega| = \infty = \aleph_0$
+
++ Finite distributions
+  + $\exists\, |\Omega| = n$ specifying pmf, $p_1, p_2, \dots, p_n$
+
+    \[ \forall\, 1 \leq i \leq n \quad p_i \geq 0 \qquad \sum_{i=1}^n p_i = 1 \]
+  
+  + uniform: $p_1 = p_2 = \cdots, p_n = 1/n$
+  + increasing: $p_1 \leq p_2 \leq \cdots \leq p_n$
+  + decreasing: $p_1 \geq p_2 \geq \cdots \geq p_n$
+
++ [Infinite distributions](../Stats/ProbStatsPython/07-RvMeanVar.md#71-random-variables)
+  + $|\Omega| = \infty$
+  + one-side infinite
+    + unable to be uniform
+    + unable to be increasing
+    + able to be decreasing
+  + double infinite
 
 
