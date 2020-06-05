@@ -80,15 +80,15 @@ In this course you will learn the following topics (some may be added or dropped
 
 
 + Topic 5: Probability Introduction
-  + 5.1 [Probability](./05-ProbIntro.md#)
-  + 5.2 [Distribution Types](./05-ProbIntro.md#)
-  + 5.3 [Events](./05-ProbIntro.md#)
-  + 5.4 [Repeated Experiments](./05-ProbIntro.md#)
-  + 5.5 [Games of Chance](./05-ProbIntro.md#)
-  + 5.6 [Axiomatic Formulation](./05-ProbIntro.md#)
-  + 5.7 [Inequalities](./05-ProbIntro.md#)
-  + [Lecture Notebook 5](./05-ProbIntro.md#)
-  + [Programming Assignment 5](./05-ProbIntro.md#)
+  + 5.1 [Probability](./05-ProbIntro.md#51-probability)
+  + 5.2 [Distribution Types](./05-ProbIntro.md#52-distribution-types)
+  + 5.3 [Events](./05-ProbIntro.md#53-events)
+  + 5.4 [Repeated Experiments](./05-ProbIntro.md#54-repeated-experiments)
+  + 5.5 [Games of Chance](./05-ProbIntro.md#55-games-of-chance)
+  + 5.6 [Axiomatic Formulation](./05-ProbIntro.md#56-axiomatic-formulation)
+  + 5.7 [Inequalities](./05-ProbIntro.md#57-inequalities)
+  + [Lecture Notebook 5](./05-ProbIntro.md#lecture-notebook-5)
+  + [Programming Assignment 5](./05-ProbIntro.md#programming-assignment-5)
 
 
 + Topic 6: Conditional Probability
