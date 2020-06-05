@@ -993,3 +993,127 @@
   + double infinite
 
 
+
+
+## Cumulative Distribution Function
+
++ [Cumulative distribution function](../Stats/ProbStatsPython/07-RvMeanVar.md#72-cumulative-distribution-function)
+  + probability mass function (pmf): $p: \Omega \to \Bbb{R}$
+  + cumulative distribution function (cdf): $F: \Bbb{R} \to \Bbb{R}$
+
+    \[\begin{align*}
+      F(x) &\stackrel{\text{def}}{=}\, \Pr(X \in (-\infty, x]) \\
+      &\stackrel{\text{def}}{=}\, \Pr(X \leq x) = \sum_{u \leq x} p(u)
+    \end{align*}\]
+
++ [Properties](../Stats/ProbStatsPython/07-RvMeanVar.md#72-cumulative-distribution-function)
+  + nondecreasing: $x \leq y \to F(x) \leq F(y)$
+  + limits: $\displaystyle \lim_{x \to -\infty} F(x) = 0 \qquad \lim_{x \to \infty} F(x) = 1$
+  + right-continuous: $\displaystyle \lim_{x \searrow a} F(x) = F(a)$
+
++ [Interval probabilities](../Stats/ProbStatsPython/07-RvMeanVar.md#72-cumulative-distribution-function)
+  + by definition: $\Pr(X \leq a) = F(a)$
+  + $\Pr(X > a) = 1 - \Pr(X \leq a) = 1 - F(a)$
+  + $\Pr(a < X \leq b) = \Pr((X \leq b) - (X \leq a)) = \Pr(X \leq b) - \Pr(X \leq a) = F(b) - F(a)$
+
+
+
+
+## Expectation
+
++ [Expectation](../Stats/ProbStatsPython/07-RvMeanVar.md#73-expectation)
+  + w/ $n \to \infty$ samples, $x$ appear $\to p(x) \cdot n$ times
+  + expectation / mean
+
+    \[ E(X) \,\stackrel{\text{def}}{=}\, \sum_x \Pr(x) \cdot x = \frac{\sum_x [\Pr(x) \cdot n] \cdot n}{n} \]
+
+  + $E(x)$ also denoted $EX, \mu_x, \mu$
+  + not random, constant, property of the distribution
+
++ [Symmetry](../Stats/ProbStatsPython/07-RvMeanVar.md#73-expectation)
+  + a distribution $p$ is symmetric around $a$ if $\forall\, x > 0, p(a+x) = p(a-x)$
+  + $p$ is symmetric around $a \implies E(x) = a$
+
++ [Uniform variables](../Stats/ProbStatsPython/07-RvMeanVar.md#73-expectation)
+
+    \[\begin{align*}
+      p(x) &= \frac{1}{|\Omega|} \\
+      E(X) &= \sum_{x \in \Omega} \,p(x) \cdot x = \sum_{x \in \Omega} \frac{1}{|\Omega|} \cdot x = \frac{1}{|\Omega|} \sum_{x \in \Omega} x
+    \end{align*}\]
+
++ [Properties of expectation](../Stats/ProbStatsPython/07-RvMeanVar.md#73-expectation)
+  + $E(x)$
+    + not random
+    + number
+    + property of distribution
+  + $x_{\min} \leq E(x) \leq x_{\max}$
+    + $=$ holds $\iff X = c, \quad c$ as a constant
+  + $X$ as a constant, viz. $X = c \to E(X) = c$
+  + $E(E(X)) = E(X)$
+
++ [Infinite expectation](../Stats/ProbStatsPython/07-RvMeanVar.md#73-expectation)
+  + $E(X) = \sum_{i=1}^\infty i \cdot p_i = \frac{6}{\pi^2} \sum_{i=1}^\infty \frac{1}{i} = \infty$
+  + many samples: average will go to $\infty$
+
+
+
+
+## Variance
+
++ [Variance](../Stats/ProbStatsPython/07-RvMeanVar.md#76-variance)
+  + expected squared difference btw $X$ and its mean
+
+    \[ Var(X) = E[(X - \mu)^2] = E(X - \mu)^2] \]
+
+  + standard deviation
+
+    \[ \sigma_X = +\sqrt{Var(X)} \]
+
+  + constants
+  + properties of distribution
+
++ [Different formula](../Stats/ProbStatsPython/07-RvMeanVar.md#76-variance)
+  
+  \[ Var(X) = E[(X - \mu)^2] = E[X^2] - (E[X])^2 \]
+
++ [Observation](../Stats/ProbStatsPython/07-RvMeanVar.md#76-variance)
+  + $Var(X) = E[(X - \mu)^2]$
+  
+    \[\begin{array}{lcccr}
+      0 &\le & Var(X) & \le & \max((X-\mu)^2) \\
+      0 &\le & \sigma_x & \le & \max(|X - \mu|)
+    \end{array}\]
+
+    + left `=`: $X$ is a constant
+    + right `=`: $X$ constant or taking two values w/ equal prob.
+
+  + $Var(X) = E[X^2] - \mu^2 \to Var(X) \le E[X^2]$
+
++ [Addition](../Stats/ProbStatsPython/07-RvMeanVar.md#76-variance)
+  + linearity of expectation: $\mu_{x+b} = \mu_x + b$
+  + addition of variance
+  
+    \[ Var(X+b) = E[(X + b - \mu_{x+b})^2] = E[(X + b - \mu_x -b)^2] = E[(X - \mu_x)^2] = Var(X) \]
+
++ [Scaling](../Stats/ProbStatsPython/07-RvMeanVar.md#76-variance)
+  + variance: different from mean grew by $a^2$
+
+    \[ Var(aX) =  a^2 Var(X) \]
+
+  + standard deviation: "average" difference from mean grew by a factor of $|a|$
+  
+    \[ \sigma_{aX} = \sqrt{Var(aX)} = \sqrt{a^2 Var(X)} = |a| \sigma_x \]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y6wpn2qe" ismap target="_blank">
+      <img src="../Stats/ProbStatsPython/img/t07-14a.png" style="margin: 0.1em;" alt="Example of pmf w/mean=2.5" title="Example of pmf w/mean=2.5" height=100>
+      <img src="../Stats/ProbStatsPython/img/t07-14b.png" style="margin: 0.1em;" alt="Example of pmf w/mean=3.75" title="Example of pmf w/mean=3.75" height=100>
+    </a>
+  </div>
+
++ [Affine transformation](../Stats/ProbStatsPython/07-RvMeanVar.md#76-variance)
+  + $Var(aX + b) = Var(aX) = a^2 Var(X)$
+  + $\sigma_{ax+b} = |a| \sigma_x$
+
+
+
