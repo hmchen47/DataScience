@@ -102,17 +102,17 @@ In this course you will learn the following topics (some may be added or dropped
 
 
 + Topic 7: Random Variables, Expectation, and Variance
-  + 7.1 [Random Variables](./07-RvMeanVar.md#)
-  + 7.2 [Cumulative Distribution Function](./07-RvMeanVar.md#)
-  + 7.3 [Expectation](./07-RvMeanVar.md#)
-  + 7.4 [Variable Modifications](./07-RvMeanVar.md#)
-  + 7.5 [Expectation of Modified Variables](./07-RvMeanVar.md#)
-  + 7.6 [Variance](./07-RvMeanVar.md#)
-  + 7.7 [Two Variables](./07-RvMeanVar.md#)
-  + 7.8 [Linearity of Expectations](./07-RvMeanVar.md#)
-  + 7.9 [Covariance](./07-RvMeanVar.md#)
-  + [Lecture Notebook 7](./07-RvMeanVar.md#)
-  + [Programming Assignment 7](./07-RvMeanVar.md#)
+  + 7.1 [Random Variables](./07-RvMeanVar.md#71-random-variables)
+  + 7.2 [Cumulative Distribution Function](./07-RvMeanVar.md#72-cumulative-distribution-function)
+  + 7.3 [Expectation](./07-RvMeanVar.md#73-expectation)
+  + 7.4 [Variable Modifications](./07-RvMeanVar.md#74-variable-modifications)
+  + 7.5 [Expectation of Functions of Random Variables](./07-RvMeanVar.md#75-expectation-of-functions-of-random-variables)
+  + 7.6 [Variance](./07-RvMeanVar.md#76-variance)
+  + 7.7 [Two Variables](./07-RvMeanVar.md#77-two-variables)
+  + 7.8 [Linearity of Expectations](./07-RvMeanVar.md#78-linearity-of-expectations)
+  + 7.9 [Covariance](./07-RvMeanVar.md#79-covariance)
+  + [Lecture Notebook 7](./07-RvMeanVar.md#lecture-notebook-7)
+  + [Programming Assignment 7](./07-RvMeanVar.md#programming-assignment-7)
 
 
 + Topic 8: Discrete Distribution Families
