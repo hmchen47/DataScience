@@ -111,24 +111,45 @@
     <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#cartesian-power"> Cartesian Power </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Probability </th>
+    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Probability </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#probability"> Basics </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#uniform-space"> Uniform Space </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#events"> Events </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#experiments"> Experiments </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#"> Basics </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#"> Uniform Space </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#"> Events </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#"> Experiments </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#probability-axioms"> Axioms </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#inequalities"> Inequalities </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#conditional-probability"> Conditional </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#independence"> Independence </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#"> Axioms </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#"> Inequalities </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#sequential-probability"> Sequential </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#total-probability"> Total </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#bayes-rule"> Bayes' Rule </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Random Variables </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#random-variables"> Basics </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#cumulative-distribution-function"> Cumulative Distribution Function </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#expectation"> Expectation </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#variance"> Variance </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#modification"> Modification </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#expectation-of-functions-of-random-variables"> Expectation of Functions of R.V. </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#multivariate"> Multivariate </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#linearity-of-expectation"> Linearity </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#covariance"> Covariance </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
