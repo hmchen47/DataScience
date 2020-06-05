@@ -80,39 +80,39 @@ In this course you will learn the following topics (some may be added or dropped
 
 
 + Topic 5: Probability Introduction
-  + 5.1 [Probability](./05-probIntro.md#)
-  + 5.2 [Distribution Types](./05-probIntro.md#)
-  + 5.3 [Events](./05-probIntro.md#)
-  + 5.4 [Repeated Experiments](./05-probIntro.md#)
-  + 5.5 [Games of Chance](./05-probIntro.md#)
-  + 5.6 [Axiomatic Formulation](./05-probIntro.md#)
-  + 5.7 [Inequalities](./05-probIntro.md#)
-  + [Lecture Notebook 5](./05-probIntro.md#)
-  + [Programming Assignment 5](./05-probIntro.md#)
+  + 5.1 [Probability](./05-ProbIntro.md#51-probability)
+  + 5.2 [Distribution Types](./05-ProbIntro.md#52-distribution-types)
+  + 5.3 [Events](./05-ProbIntro.md#53-events)
+  + 5.4 [Repeated Experiments](./05-ProbIntro.md#54-repeated-experiments)
+  + 5.5 [Games of Chance](./05-ProbIntro.md#55-games-of-chance)
+  + 5.6 [Axiomatic Formulation](./05-ProbIntro.md#56-axiomatic-formulation)
+  + 5.7 [Inequalities](./05-ProbIntro.md#57-inequalities)
+  + [Lecture Notebook 5](./05-ProbIntro.md#lecture-notebook-5)
+  + [Programming Assignment 5](./05-ProbIntro.md#programming-assignment-5)
 
 
 + Topic 6: Conditional Probability
-  + 6.1 [Conditional Probability](./06-CondProb.md#)
-  + 6.2 [Independence](./06-CondProb.md#)
-  + 6.3 [Sequential Probability](./06-CondProb.md#)
-  + 6.4 [Total Probability](./06-CondProb.md#)
-  + 6.5 [Bayes' Rule](./06-CondProb.md#)
-  + [Lecture Notebook 6](./06-CondProb.md#)
-  + [Programming Assignment 6](./06-CondProb.md#)
+  + 6.1 [Conditional Probability](./06-CondProb.md#61-conditional-probability)
+  + 6.2 [Independence](./06-CondProb.md#62-independence)
+  + 6.3 [Sequential Probability](./06-CondProb.md#63-sequential-probability)
+  + 6.4 [Total Probability](./06-CondProb.md#64-total-probability)
+  + 6.5 [Bayes' Rule](./06-CondProb.md#65-bayes-rule)
+  + [Lecture Notebook 6](./06-CondProb.md#lecture-notebook-6)
+  + [Programming Assignment 6](./06-CondProb.md#programming-assignment-6)
 
 
 + Topic 7: Random Variables, Expectation, and Variance
-  + 7.1 [Random Variables](./07-RvMeanVar.md#)
-  + 7.2 [Cumulative Distribution Function](./07-RvMeanVar.md#)
-  + 7.3 [Expectation](./07-RvMeanVar.md#)
-  + 7.4 [Variable Modifications](./07-RvMeanVar.md#)
-  + 7.5 [Expectation of Modified Variables](./07-RvMeanVar.md#)
-  + 7.6 [Variance](./07-RvMeanVar.md#)
-  + 7.7 [Two Variables](./07-RvMeanVar.md#)
-  + 7.8 [Linearity of Expectations](./07-RvMeanVar.md#)
-  + 7.9 [Covariance](./07-RvMeanVar.md#)
-  + [Lecture Notebook 7](./07-RvMeanVar.md#)
-  + [Programming Assignment 7](./07-RvMeanVar.md#)
+  + 7.1 [Random Variables](./07-RvMeanVar.md#71-random-variables)
+  + 7.2 [Cumulative Distribution Function](./07-RvMeanVar.md#72-cumulative-distribution-function)
+  + 7.3 [Expectation](./07-RvMeanVar.md#73-expectation)
+  + 7.4 [Variable Modifications](./07-RvMeanVar.md#74-variable-modifications)
+  + 7.5 [Expectation of Functions of Random Variables](./07-RvMeanVar.md#75-expectation-of-functions-of-random-variables)
+  + 7.6 [Variance](./07-RvMeanVar.md#76-variance)
+  + 7.7 [Two Variables](./07-RvMeanVar.md#77-two-variables)
+  + 7.8 [Linearity of Expectations](./07-RvMeanVar.md#78-linearity-of-expectations)
+  + 7.9 [Covariance](./07-RvMeanVar.md#79-covariance)
+  + [Lecture Notebook 7](./07-RvMeanVar.md#lecture-notebook-7)
+  + [Programming Assignment 7](./07-RvMeanVar.md#programming-assignment-7)
 
 
 + Topic 8: Discrete Distribution Families

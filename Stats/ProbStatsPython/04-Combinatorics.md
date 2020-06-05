@@ -898,8 +898,7 @@
 ## 4.7 Multinomials
 
 + Multinomial coefficients
-  + ternary alphabets
-  + $k_1 + k_2 + k_3 = n$
+  + ternary alphabets: $k_1 + k_2 + k_3 = n$
   + \# {1, 2, 3} sequences w/ $\begin{cases} k_1 & \text{1's} \\ k_2 & \text{2's} \\ k_3 & \text{3's} \end{cases}$
 
     \[ \dbinom{n}{k_1} \dbinom{n-k_1}{k_2} = \dfrac{n!}{k_1! \cdot (n-k)!} \cdot \dfrac{(n-k_1)!}{k_2! \cdot \underbrace{(n - k_1 - k_2)!}_{k_3}} = \dfrac{n!}{k_1! \cdot k_2! \cdot k_3!} \triangleq \dbinom{n}{k_1,k_2,k_3} \]

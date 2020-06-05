@@ -28,6 +28,24 @@
     + providing a precise answer
     + much faster than Monte-Carlo simulations
 
++ [Random phenomena](../Stats/ProbStatsPython/05-probIntro.md#51-probability)
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Subject</th>
+      <th colspan="3" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Properties</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr> <th>Learn</th> <td>range</td> <td>average</td> <td>variability</td> </tr>
+    <tr> <th>Infer</th> <td>relations</td> <td>structure</td> <td>change</td> </tr>
+    <tr> <th>Predict</th> <td>future</td> <td>likelihood</td> <td>guarantees</td> </tr>
+    <tr> <th>Benefit</th> <td>understand</td> <td>plan</td> <td>build</td> </tr>
+    </tbody>
+  </table>
+
+
 
 
 ## Basic Sets
@@ -71,12 +89,12 @@
 ## Set Relations
 
 + [Divisibility](../Stats/ProbStatsPython/02-Sets.md#22-basic-sets)
-  + $\exists\, m, n \in \mathbb{Z}$, if $n = c \cdot m$ for some $c \in \mathbb{Z}$, we say that <span style="color: magenta;">n is a multiple of $m$</span>, or <span style="color: magenta;">$m$ divides $n$</span> and written <span style="color: magenta;">$m \,|\, n$</span>
+  + $\exists\, m, n \in \mathbb{Z}$, if $n = c \cdot m$ for some $c \in \mathbb{Z}$, we say that <span style="color: magenta;">n is a multiple of $m$</span>, or <span style="color: magenta;">$m$ divides $n$</span> and written <span style="color: magenta;">$m \mid n$</span>
   + if no such $c$ exists, <span style="color: magenta;">$m$ does not divide $n$</span>, or <span style="color: magenta;">$n$ is not a multiple of $m$</span>, denoted <span style="color: magenta;">$m \nmid n$</span>
 
 + [Set of multiples](../Stats/ProbStatsPython/02-Sets.md#22-basic-sets)
-  + integer multiples of $m$: $\exists\, m \in \mathbb{Z},\; _m\mathbb{Z} \stackrel{\text{def}}{=} \{ i \in \mathbb{Z}: m \,|\, i\}$
-  + multiplies of $m$ in {1..n}: $\exists\; m\in \mathbb{Z}, n \in \mathbb{P}, {}_m[n] \stackrel{\text{def}}{=} \{i \in [n]: m \,|\, i\}$
+  + integer multiples of $m$: $\exists\, m \in \mathbb{Z},\; _m\mathbb{Z} \stackrel{\text{def}}{=} \{ i \in \mathbb{Z}: m \mid i\}$
+  + multiplies of $m$ in {1..n}: $\exists\; m\in \mathbb{Z}, n \in \mathbb{P}, {}_m[n] \stackrel{\text{def}}{=} \{i \in [n]: m \mid i\}$
 
 + [Equality](../Stats/ProbStatsPython/02-Sets.md#24-relations)
   + $=$: <span style="color: cyan;">all</span> elements must be identical, e.g., $\{1, 2, 4\} = \{4, 1, 2\}$
@@ -115,7 +133,7 @@
 
 + [Complement](../Stats/ProbStatsPython/02-Sets.md#25-operations)
   + the <span style="color: magenta;">complement</span> $A^c$ of $A$ is the set of $\Omega$ elements not in $A$
-  + Definition: (complement set) $A^c = \overline{A} = A^\prime = \{x \in \Omega \,|\, x \not\in A\}$
+  + Definition: (complement set) $A^c = \overline{A} = A^\prime = \{x \in \Omega \mid x \not\in A\}$
 
 + [Set identities](../Stats/ProbStatsPython/02-Sets.md#25-operations)
   + relations that hold for all sets
@@ -284,7 +302,7 @@
 + [Cartesian products](../Stats/ProbStatsPython/02-Sets.md#26-cartesian-products)
   + the <span style="color: magenta;">Cartesian product</span> of $A$ and $B$ is the set $A \,{\color{Magenta}{\times}} B$ of ordered pairs $(a, b)$ where $a \in A$ and $b \in B$
   + Definition: (Cartesian product) $A \times B = \{(a, b) | a \in A,\, b \in B\}$
-  + Cartesian plane: $\mathbb{R}^2 = \{(x, y) \,|\, x, y \in \mathbb{R}\}, \; \mathbb{R} \times \mathbb{R} = \mathbb{R}^2$
+  + Cartesian plane: $\mathbb{R}^2 = \{(x, y) \mid x, y \in \mathbb{R}\}, \; \mathbb{R} \times \mathbb{R} = \mathbb{R}^2$
 
 + [Identity for Cartesian product](../Stats/ProbStatsPython/02-Sets.md#26-cartesian-products)
   + $A \times \varnothing = \varnothing \times A = \varnothing$
@@ -564,6 +582,789 @@
     + \# non-negative adding to $\leq n$ = \# k+1 non-negative adding to n
 
       \[ \dbinom{n+(k+1) -1}{(k+1)-1} = \dbinom{n+k}{k} \]
+
+
+
+
+## Probability
+
++ [Outcomes and sample space](../Stats/ProbStatsPython/05-probIntro.md#51-probability)
+  + <span style="color: magenta;">outcomes</span>: possible experiment results
+  + <span style="color: magenta;">sample space</span>: set of possible outcomes, denoted <span style="color: magenta;">$\Omega, S \text{ or } U$</span>
+
++ [Two sample-space types](../Stats/ProbStatsPython/05-probIntro.md#51-probability)
+  + <span style="color: magenta;">discrete</span>: finite or countable infinite sample space
+    + e.g., $\{h, t\}, \{1, 2, \dots, 6\}, \Bbb{N}, \Bbb{Z}, \{words\}, \{cities\}, \{people\}$
+  + <span style="color: magenta;">continuous</span>: uncountably infinite sample space
+    + e.g., $\Bbb{R}, [0, 1], \{\text{temperatures}\}, \underbrace{\{\text{salaries}\}, \{\text{prices}\}}_{\text{upgraded}}$
+  + discrete space: easier to understand, visualize, analyze; important; first
+  + continuous: important; conceptually harder; later
+
++ [Probability of an outcome](../Stats/ProbStatsPython/05-probIntro.md#51-probability)
+  + the <span style="color: magenta;">probability</span>, or <span style="color: magenta;">likelihood</span>, of an outcome $x \in \Omega$, denoted <span style="color: magenta;">$P(x), \Pr(x)$</span>, or <span style="color: magenta;">$P(X = x), \Pr(X = x)$</span>, is the fraction of times $x$ will occur when experiment is repeated many times
+
++ [Probability portrait](../Stats/ProbStatsPython/05-probIntro.md#51-probability)
+  + $n$ experiments
+  + $x \in \Omega \quad n_x =$ \# times x appeared
+
+    \[ \Pr(x) = \lim_{n \to \infty} \frac{n_x}{n} \]
+
++ [Probability distribution function](../Stats/ProbStatsPython/05-probIntro.md#51-probability)
+  + <span style="color: magenta;">Probability distribution function (PDF)</span>: $\Pr$ mapping outcome in $\Omega$ to nonnegative values that sum to 1
+  
+    \[ \Pr: \Omega \to \Bbb{R} , \; \Pr(x) \geq 0 \text{ s.t. } \sum_{x\in \Omega} \Pr(x) = 1 \]
+
+  + sample space $\Omega$ + distribution $P$ = probability space
+
+
+
+## Uniform Space
+
++ [Uniform probability spaces](../Stats/ProbStatsPython/05-probIntro.md#52-distribution-types)
+  + generally, outcomes may have different probability
+  + uniform (equiprobable) spaces: uniform distribution
+    + $\forall\, x \in \Omega \quad \Pr(x) = p$
+    + $1 = \sum_{x \in \Omega} \Pr(x) = \sum_{x \in \Omega} p = |\Omega| \cdot p$
+    + $p = 1 / |\Omega|$
+  + notation: denoted $U$, drawing uniformly, randomly
+
++ [Non-uniform](../Stats/ProbStatsPython/05-probIntro.md#52-distribution-types)
+  + uniform, equiprobable, spaces
+  + in nature, nonuniform spaces around
+
++ [Do's and Don'ts](../Stats/ProbStatsPython/05-probIntro.md#52-distribution-types)
+  + random notation may be confusing at first
+  + which expressions are valid?
+    + valid expression
+      + $\Pr(x)$ specify $x$
+    + possible, but less common, make sure it's what you mean
+    + even less likely, probably wrong
+
+
+
+## Events
+
++ [Events](../Stats/ProbStatsPython/05-probIntro.md#53-events)
+  + outcome: single element of $\Omega$
+  + event: subset of a space $\Omega$
+
++ [Event probability](../Stats/ProbStatsPython/05-probIntro.md#53-events)
+  + $\Pr(E)$: probability of event $E$
+  + $\Pr(X \in E)$: probability that $E$ occurs
+  + fraction of experiments where $E$ occurs, as \# experiments grows
+
++ [$\Pr(X) \to \Pr(E)$](../Stats/ProbStatsPython/05-probIntro.md#53-events)
+  + general event $E$
+    + \# times E occurs = sum of \# times its elements occur
+
+    \[ \Pr(E) &= \Pr(X \in E) = \sum_{x \in E} \Pr(x) \]
+
++ [Uniform spaces](../Stats/ProbStatsPython/05-probIntro.md#53-events)
+  + equiprobable spaces
+  + simple formula for probability of
+    + outcome: $\Pr(x) = 1/|\Omega|$
+    + event
+
+      \[ \Pr(E) = \sum_{x \in E} \Pr(x) = \sum_{x \in E} \dfrac{1}{|\Omega|} = \dfrac{\sum_{x \in E} 1}{|\Omega|} = \frac{|E|}{|\Omega|} \]
+
+
+## Experiments
+
++ [Experiments](../Stats/ProbStatsPython/05-probIntro.md#51-probability)
+  + probability developed in part to aid science
+  + process
+    + generate random data
+    + observe outcome
+  + unified approach
+    + applies generally
+    + understand
+    + analyze
+    + generalize
+
++ [Independent repetitions](../Stats/ProbStatsPython/05-probIntro.md#54-repeated-experiments)
+  + repetition: all experiments of same type
+  + independent: different components unrelated
+
++ [Events](../Stats/ProbStatsPython/05-probIntro.md#54-repeated-experiments)
+  + probability of event
+
+    \[ \Pr(E) = \Pr(X \in E) = \sum_{x \in E} \Pr(x) \]
+
+  + uniform space: $U \to \Pr(E) = |E|/|\Omega|$
+
++ [Replacement](../Stats/ProbStatsPython/05-probIntro.md#54-repeated-experiments)
+  + two sampling types: with or without replacement
+  + sequentially select physical objects
+  + with replacement
+    + <span style="color: cyan;">replace</span> (reuse) selected element
+    + outcomes <span style="color: cyan;">can</span> repeat
+    + experiments often <span style="color: cyan;">independent</span>
+  + without replacement
+    + <span style="color: cyan;">do not replace</span> (reuse) selected element
+    + outcomes <span style="color: cyan;">cannot</span> repeat
+    + experiments <span style="color: cyan;">dependent</span>
+    + cf. difference largest for small $\Omega$
+
++ [Sampling (selection) With / Without differences](../Stats/ProbStatsPython/05-probIntro.md#54-repeated-experiments)
+  + __with__ replacement
+    + repeat as if from scratch
+    + same element able to be selected again
+  + __without__ replacement
+    + repeat w/ smaller set
+    + same element unable to be selected again
+
++ [Replacement summary](../Stats/ProbStatsPython/05-probIntro.md#54-repeated-experiments)
+  + 2 selections
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 58vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;"></th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Original</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;">with replacement</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:15%;">without replacement</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">Description</td>
+        <td style="text-align: center;"></td>
+        <td style="text-align: center;">outcomes can repeat</td>
+        <td style="text-align: center;">outcomes cannot repeat</td>
+      </tr>
+      <tr> <td style="text-align: center;">Sample space</td> <td style="text-align: center;">$\Omega_1$</td> <td style="text-align: center;">$\{(x, y): x, y \in \Omega_1 \} = \Omega_1^2$</td> <td style="text-align: center;">$\{(x, y): x, y \in \Omega_1, x \neq y \} = \Omega_1^{\underline{2}}$</td> </tr>
+      <tr> <td style="text-align: center;">| Sample space |</td> <td style="text-align: center;">$|\Omega_1|$</td> <td style="text-align: center;">$|\Omega_1^2|$</td> <td style="text-align: center;">$|\Omega_1^{\underline{2}}| = |\Omega_1| \cdot (|\Omega_1| - 1)$</td> </tr>
+      </tbody>
+    </table>
+
+  + probabilities if original sample space uniform
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"></th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Original</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">with replacement</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">without replacement</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr> <td style="text-align: center;">Uniformity</td> <td style="text-align: center;">Uniform</td> <td style="text-align: center;">Uniform</td> <td style="text-align: center;">Uniform</td> </tr>
+      <tr> <td style="text-align: center;">$\Pr(\text{ element })$</td> <td style="text-align: center;">$1 / \Omega_1$</td> <td style="text-align: center;">$1 / |\Omega_1|^2$</td> <td style="text-align: center;">$1 / \left(|\Omega_1| \cdot (|\Omega_1| - 1) \right)$</td> </tr>
+      </tbody>
+    </table>
+
++ [Order not matter](../Stats/ProbStatsPython/05-probIntro.md#54-repeated-experiments)
+  + $\to$: order matter, easier to calculate
+  + $\gets$ order not matter, considering w/ & w/o replacement
+
++ [Order consideration with replacement](../Stats/ProbStatsPython/05-probIntro.md#54-repeated-experiments)
+  + order: remaining uniform
+    + $\to$, not matter: not uniform
+  + sanity check: $\sum$ Probabilities = 1
+
++ [Order consideration w/o replacement](../Stats/ProbStatsPython/05-probIntro.md#54-repeated-experiments)
+  + order:
+    + $\gets$, matter: remaining unifrom
+    + $\to$, not matter: remaining uniform
+  + sanity check: probabilities sum to 1
+
+
+
+## Probability Axioms
+
++ [Three axioms](../Stats/ProbStatsPython/05-probIntro.md#56-axiomatic-formulation)
+  + Non-negative:
+  
+    \[ \forall\, A, \Pr(A) \geq 0 \]
+
+  + Unitary: 
+  
+    \[ \Pr(\Omega) = 1 \]
+
+  + Addition rule:
+
+    \[ A, B \text{ disjoint} \implies P(A \cup B) = P(A) + P(B) \]
+
+    + generalization
+
+      \[ A_1, A_2, \dots \text{ disjoint} \implies P(A_1 \cup A_2 \cdots) = P(A_1) + P(A_2) + \cdots \]
+
+    + applied to countable unions only
+
++ [Complement rule for probability](../Stats/ProbStatsPython/05-probIntro.md#56-axiomatic-formulation): $\Pr(A^c) = 1 - \Pr(A)$
+
++ [Subtraction rule - nested sets](../Stats/ProbStatsPython/05-probIntro.md#56-axiomatic-formulation): $\Pr(B-A) = \Pr(B) - \Pr(A)$
+
++ [Subtraction rule - general sets](../Stats/ProbStatsPython/05-probIntro.md#56-axiomatic-formulation)
+  + Nested: $A \subseteq B \;\text{ s.t. }\; \Pr(B-A) = \Pr(B) - \Pr(A)$
+  + general: $\forall\, A, B \;\text{ s.t. }\; \Pr(B-A) = \Pr(B) - \Pr(A \cap B)$
+
++ [Inclusion-exclusion](../Stats/ProbStatsPython/05-probIntro.md#56-axiomatic-formulation)
+  + $\Pr(A \cup B) = \Pr(A) + \Pr(B) - \Pr(A \cap B)$
+  + two sets: $\Pr(A \cup B) = \Pr(A) + \Pr(B) - \Pr(A \cap B)$
+  + three sets: 
+  
+    \[\begin{align*}
+      \Pr(A \cup B \cup C) &= \Pr(A) + \Pr(B) + \Pr(C) \\
+      &\hspace{1.0em} - \Pr(A \cap B) - \Pr(A \cap B) - \Pr(B \cap C) \\
+      &\hspace{1.0em} + \Pr(A \cap B \cap C)
+    \end{align*}\]
+
+  + n sets
+
+    \[ \Pr\left(\bigcup_{i=1}^n A_i \right) = \sum_{1 \leq i \leq n} \Pr(A_i) - \sum_{1\leq i < j \leq n} \Pr(A_i \cap A_j) + \cdots + (-1)^{n-1} \Pr\left( \bigcap_{i=1}^n A_i \right) \]
+
+
+
+## Inequalities
+
++ [Probability of null event](../Stats/ProbStatsPython/05-probIntro.md#57-inequalities)
+  + $\Pr(\varnothing) = 0$
+  + the null event has nil probability
+
++ [Probability value range](../Stats/ProbStatsPython/05-probIntro.md#57-inequalities)
+  + $0 \leq \Pr(A) \leq 1$
+  + probability always between 0 and 1
+
++ [Subset](../Stats/ProbStatsPython/05-probIntro.md#57-inequalities)
+  + $A \subseteq B \to \Pr(A) \leq \Pr(B)$
+
++ [Union](../Stats/ProbStatsPython/05-probIntro.md#57-inequalities)
+  + $\max(\Pr(A), \Pr(B)) \leq \Pr(A \cup B) \leq \Pr(A) + \Pr(B)$
+  + Union bound: $\Pr(A \cup B) \leq \Pr(A) + \Pr(B) \to$ very useful
+
+
+## Conditional Probability
+
++ [Motivation](../Stats/ProbStatsPython/06-CondProb.md#61-conditional-probability)
+  + modifying event probabilities
+  + importance
+    + improving estimates
+    + helping determine original unconditional probabilities
+
++ [Intuitive definition](../Stats/ProbStatsPython/06-CondProb.md#61-conditional-probability)
+  
+  \[\begin{align*}
+    \Pr(F \mid E) &= \text{probability that $F$ happens given that $E$ happened} \\
+    & = \text{fraction pf $E$ occurrences that F also occur}
+  \end{align*}\]
+
++ [General events - uniform spaces](../Stats/ProbStatsPython/06-CondProb.md#61-conditional-probability)
+  
+  \[ \Pr(F \mid E) = \frac{|E \cap F|}{|E|} \]
+
++ [General spaces](../Stats/ProbStatsPython/06-CondProb.md#61-conditional-probability)
+  
+  \[ \Pr(F \mid E) \frac{\Pr(E \cap F)}{\Pr(E)} \]
+
++ [Product rule](../Stats/ProbStatsPython/06-CondProb.md#61-conditional-probability)
+
+  \[ \Pr(F \mid E) = \frac{\Pr(E \cap F)}{\Pr(E)}  \to \Pr(E \cap F) = \Pr(E) \cdot \Pr(F \mid E) \]
+
++ [General product rule](../Stats/ProbStatsPython/06-CondProb.md#61-conditional-probability)
+
+  \[\begin{align*}
+    \Pr(E \cap  F \cap G) &= \Pr((E \cap G) \cap G) = \Pr(E \cap F) \cdot \Pr(G \mid E \cap F) \\
+    &= \Pr(E) \cdot \Pr(F \mid E) \cdot \Pr(G \mid E \cap F)
+  \end{align*}\]
+
+
+## Independence
+  
++ [Independence](../Stats/ProbStatsPython/06-CondProb.md#62-independence)
+  + informal definition: (independence) Events $E$ and $F$ are <span style="color: magenta;">independent</span> (<span style="color: magenta;">$ E {\perp \!\!\!\! \perp} F$</span>) if occurrence of one does not change the probability  that the other occurs.
+
+    \[ \Pr(F) = \Pr(F \mid E) \triangleq \dfrac{\Pr(E \cap F)}{\Pr(E)} \]
+
+  + two issues:
+    + asymmetric: $\Pr(E \mid F)$
+    + undefined if $\Pr(E) = 0$
+  + formal definition: (independent) $E$ and $F$ are <span style="color: magenta;">independent</span> if $\Pr(E \cap F) = \Pr(E) \cdot \Pr(F)$, otherwise, <span style="color: magenta;">dependent</span>
+  + symmetric and applied when $\Pr(\varnothing) = 0$
+  + $\implies$ to intuitive definition
+    + symmetric: $\Pr(F \mid E) = \Pr(F) \quad \Pr(E \mid F) = \Pr(E)$
+    + $\Pr(F \mid \overline{E}) = \Pr(F) \quad \Pr(E \mid \overline{F}) = \Pr(E)$
+
++ [Independence of $\Omega$ and $\varnothing$](../Stats/ProbStatsPython/06-CondProb.md#62-independence)
+  + $\Omega {\perp \!\!\!\! \perp}$ of any event
+  + $\varnothing {\perp \!\!\!\! \perp}$ of any event
+
+
+
+## Sequential Probability
+
++ [Product / chain rule](../Stats/ProbStatsPython/06-CondProb.md#63-sequential-probability)
+  + two sets
+
+    \[ \Pr(F \mid E) = \frac{\Pr(E \cap F)}{\Pr(E)} \to \Pr(E \cap F) = \Pr(E) \cdot \Pr(F | E) \]
+
+  + three sets
+
+    \[\begin{align*}
+      \Pr(E \cap F \cap G) &=  \Pr((E \cap F) \cap G) = \Pr(E \cap F) \cdot \Pr(G \mid E \cap F) \\
+      &= \Pr(E) \cdot \Pr(D \mid E) \cdot \Pr(G \mid E \cap F)
+    \end{align*}\]
+
+
+
+## Total Probability
+
++ [Law of total probability](../Stats/ProbStatsPython/06-CondProb.md#64-total-probability)
+  + $F = (E \cap F) \cup (E^c \cap F)$ s.t.
+
+    \[\begin{align*}
+      \Pr(F) &= \Pr()E \cap F) + \Pr(E^c \cap F)  \quad (\text{Product rule}) \\
+      &= \Pr(E) \cdot \Pr(F \mid E) + \Pr(E^c) \cdot \Pr(F \mid E^c)
+    \end{align*}\]
+
++ [Total probability - n conditions](../Stats/ProbStatsPython/06-CondProb.md#64-total-probability)
+  + Let $E_1, E_2, \dots, E_n$ partition $\Omega$
+  + $F = \displaystyle \biguplus_{i=1}^n (E_i \cap F)$ s.t.
+
+    \[ \Pr(F) = \sum_{i=1}^n \Pr(E_i \cap F) = \sum_{i=1}^n \Pr(E_i) \cdot \Pr(F \mid E_i) \]
+
+
+
+
+## Bayes' Rule
+
++ [Bayes' rule](../Stats/ProbStatsPython/06-CondProb.md#65-bayes-rule)
+  + given $\Pr(F \mid E)$ (and a bit more, e.g., $\Pr(E), \Pr(F)$) determining $\Pr(E \mid F)$
+
+    \[ \Pr(E \mid F) = \frac{\Pr(E) \cdot \Pr(F \mid E)}{\Pr(F)} \]
+
+  + another view
+
+    \[ \Pr(F) \cdot \Pr(E \mid F) = \Pr(E \cap F) = \Pr(E) \cdot \Pr(F \mid E) \]
+
+
+
+
+## Random variables
+
++ [Types of random variables](../Stats/ProbStatsPython/07-RvMeanVar.md#71-random-variables)
+  + discrete
+  + continuous
+  + mixed
+
++ [Specification of distribution](../Stats/ProbStatsPython/07-RvMeanVar.md#71-random-variables)
+  + old fashion
+    + explicit
+    + table
+  + with numbers:
+    + function
+    + graphs
+
+      <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+        <a href="url" ismap target="_blank">
+          <img src="../Stats/ProbStatsPython/img/t07-02.png" style="margin: 0.1em;" alt="Graphical examples of probability" title="Graphical examples of probability" width=350>
+        </a>
+      </div>
+
++ [Probability mass function](../Stats/ProbStatsPython/07-RvMeanVar.md#71-random-variables)
+  + $\Omega$:
+    + random variable $\to \subseteq \Bbb{R}$
+    + discrete $\to$ finite or countably infinite
+  + $p$:
+    + $p(x) \geq 0 \quad \forall\, x \in \Omega$
+    + $\sum_{x \in \Omega} p(x) = 1$
+  + if $X$ is distributed according to $p$, denoted $X \sim p$
+
++ [Types of discrete distributions](../Stats/ProbStatsPython/07-RvMeanVar.md#71-random-variables)
+  + finite: $|\Omega| = n \in \Bbb{P}$
+  + infinite: $|\Omega| = \infty = \aleph_0$
+
++ Finite distributions
+  + $\exists\, |\Omega| = n$ specifying pmf, $p_1, p_2, \dots, p_n$
+
+    \[ \forall\, 1 \leq i \leq n \quad p_i \geq 0 \qquad \sum_{i=1}^n p_i = 1 \]
+  
+  + uniform: $p_1 = p_2 = \cdots, p_n = 1/n$
+  + increasing: $p_1 \leq p_2 \leq \cdots \leq p_n$
+  + decreasing: $p_1 \geq p_2 \geq \cdots \geq p_n$
+
++ [Infinite distributions](../Stats/ProbStatsPython/07-RvMeanVar.md#71-random-variables)
+  + $|\Omega| = \infty$
+  + one-side infinite
+    + unable to be uniform
+    + unable to be increasing
+    + able to be decreasing
+  + double infinite
+
+
+
+
+## Cumulative Distribution Function
+
++ [Cumulative distribution function](../Stats/ProbStatsPython/07-RvMeanVar.md#72-cumulative-distribution-function)
+  + probability mass function (pmf): $p: \Omega \to \Bbb{R}$
+  + cumulative distribution function (cdf): $F: \Bbb{R} \to \Bbb{R}$
+
+    \[\begin{align*}
+      F(x) &\stackrel{\text{def}}{=}\, \Pr(X \in (-\infty, x]) \\
+      &\stackrel{\text{def}}{=}\, \Pr(X \leq x) = \sum_{u \leq x} p(u)
+    \end{align*}\]
+
++ [Properties](../Stats/ProbStatsPython/07-RvMeanVar.md#72-cumulative-distribution-function)
+  + nondecreasing: $x \leq y \to F(x) \leq F(y)$
+  + limits: $\displaystyle \lim_{x \to -\infty} F(x) = 0 \qquad \lim_{x \to \infty} F(x) = 1$
+  + right-continuous: $\displaystyle \lim_{x \searrow a} F(x) = F(a)$
+
++ [Interval probabilities](../Stats/ProbStatsPython/07-RvMeanVar.md#72-cumulative-distribution-function)
+  + by definition: $\Pr(X \leq a) = F(a)$
+  + $\Pr(X > a) = 1 - \Pr(X \leq a) = 1 - F(a)$
+  + $\Pr(a < X \leq b) = \Pr((X \leq b) - (X \leq a)) = \Pr(X \leq b) - \Pr(X \leq a) = F(b) - F(a)$
+
+
+
+
+## Expectation
+
++ [Expectation](../Stats/ProbStatsPython/07-RvMeanVar.md#73-expectation)
+  + w/ $n \to \infty$ samples, $x$ appear $\to p(x) \cdot n$ times
+  + expectation / mean
+
+    \[ E(X) \,\stackrel{\text{def}}{=}\, \sum_x \Pr(x) \cdot x = \frac{\sum_x [\Pr(x) \cdot n] \cdot n}{n} \]
+
+  + $E(x)$ also denoted $EX, \mu_x, \mu$
+  + not random, constant, property of the distribution
+
++ [Symmetry](../Stats/ProbStatsPython/07-RvMeanVar.md#73-expectation)
+  + a distribution $p$ is symmetric around $a$ if $\forall\, x > 0, p(a+x) = p(a-x)$
+  + $p$ is symmetric around $a \implies E(x) = a$
+
++ [Uniform variables](../Stats/ProbStatsPython/07-RvMeanVar.md#73-expectation)
+
+    \[\begin{align*}
+      p(x) &= \frac{1}{|\Omega|} \\
+      E(X) &= \sum_{x \in \Omega} \,p(x) \cdot x = \sum_{x \in \Omega} \frac{1}{|\Omega|} \cdot x = \frac{1}{|\Omega|} \sum_{x \in \Omega} x
+    \end{align*}\]
+
++ [Properties of expectation](../Stats/ProbStatsPython/07-RvMeanVar.md#73-expectation)
+  + $E(x)$
+    + not random
+    + number
+    + property of distribution
+  + $x_{\min} \leq E(x) \leq x_{\max}$
+    + $=$ holds $\iff X = c, \quad c$ as a constant
+  + $X$ as a constant, viz. $X = c \to E(X) = c$
+  + $E(E(X)) = E(X)$
+
++ [Infinite expectation](../Stats/ProbStatsPython/07-RvMeanVar.md#73-expectation)
+  + $E(X) = \sum_{i=1}^\infty i \cdot p_i = \frac{6}{\pi^2} \sum_{i=1}^\infty \frac{1}{i} = \infty$
+  + many samples: average will go to $\infty$
+
+
+
+
+## Variance
+
++ [Variance](../Stats/ProbStatsPython/07-RvMeanVar.md#76-variance)
+  + expected squared difference btw $X$ and its mean
+
+    \[ Var(X) = E[(X - \mu)^2] = E(X - \mu)^2] \]
+
+  + standard deviation
+
+    \[ \sigma_X = +\sqrt{Var(X)} \]
+
+  + constants
+  + properties of distribution
+
++ [Different formula](../Stats/ProbStatsPython/07-RvMeanVar.md#76-variance)
+  
+  \[ Var(X) = E[(X - \mu)^2] = E[X^2] - (E[X])^2 \]
+
++ [Observation](../Stats/ProbStatsPython/07-RvMeanVar.md#76-variance)
+  + $Var(X) = E[(X - \mu)^2]$
+  
+    \[\begin{array}{lcccr}
+      0 &\le & Var(X) & \le & \max((X-\mu)^2) \\
+      0 &\le & \sigma_x & \le & \max(|X - \mu|)
+    \end{array}\]
+
+    + left `=`: $X$ is a constant
+    + right `=`: $X$ constant or taking two values w/ equal prob.
+
+  + $Var(X) = E[X^2] - \mu^2 \to Var(X) \le E[X^2]$
+
++ [Addition](../Stats/ProbStatsPython/07-RvMeanVar.md#76-variance)
+  + linearity of expectation: $\mu_{x+b} = \mu_x + b$
+  + addition of variance
+  
+    \[ Var(X+b) = E[(X + b - \mu_{x+b})^2] = E[(X + b - \mu_x -b)^2] = E[(X - \mu_x)^2] = Var(X) \]
+
++ [Scaling](../Stats/ProbStatsPython/07-RvMeanVar.md#76-variance)
+  + variance: different from mean grew by $a^2$
+
+    \[ Var(aX) =  a^2 Var(X) \]
+
+  + standard deviation: "average" difference from mean grew by a factor of $|a|$
+  
+    \[ \sigma_{aX} = \sqrt{Var(aX)} = \sqrt{a^2 Var(X)} = |a| \sigma_x \]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y6wpn2qe" ismap target="_blank">
+      <img src="../Stats/ProbStatsPython/img/t07-14a.png" style="margin: 0.1em;" alt="Example of pmf w/mean=2.5" title="Example of pmf w/mean=2.5" height=100>
+      <img src="../Stats/ProbStatsPython/img/t07-14b.png" style="margin: 0.1em;" alt="Example of pmf w/mean=3.75" title="Example of pmf w/mean=3.75" height=100>
+    </a>
+  </div>
+
++ [Affine transformation](../Stats/ProbStatsPython/07-RvMeanVar.md#76-variance)
+  + $Var(aX + b) = Var(aX) = a^2 Var(X)$
+  + $\sigma_{ax+b} = |a| \sigma_x$
+
+
+
+
+
+## Modification
+
++ [Functions of a random variable](../Stats/ProbStatsPython/07-RvMeanVar.md#74-variable-modifications)
+  + random variables $X$ taking values in $\Bbb{R}$
+  + often interested in related variable
+    + $Y = g(X)$ w/ $g: \Bbb{R} \to \Bbb{R}$ is a fixed function
+  + deterministic Functions
+    + $Y = g(X)$: $g$ is a <span style="color: magenta;">deterministic</span> function over $\Bbb{R}$ (or $\Omega$)
+    + all randomness in $Y$ derived from $X$
+    + deterministically modified by $g$
+
++ [Translation](../Stats/ProbStatsPython/07-RvMeanVar.md#74-variable-modifications)
+  + <span style="color: cyan;">add constant</span> $b$ to $X$ = <span style="color: cyan;">translate</span> $X$ by $b$
+  + $Y = X +b$
+  + $\Pr(Y=y) = \Pr(X+b = y) = \Pr(X=y-b)$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ycssyss3" ismap target="_blank">
+      <img src="../Stats/ProbStatsPython/img/t07-08a.png" style="margin: 0.1em;" alt="Example of translation: original random variable" title="Example of translation: original random variable" height=100>
+      <img src="../Stats/ProbStatsPython/img/t07-08b.png" style="margin: 0.1em;" alt="Example of translation: result of translation" title="Example of translation: result of translation" height=100>
+    </a>
+  </div>
+
++ [Scaling](../Stats/ProbStatsPython/07-RvMeanVar.md#74-variable-modifications)
+  + <span style="color: cyan;">scale</span> $X$ by a factor $b$, $Y = b \cdot X$
+  + $\Pr(Y=y) = \Pr(bX = y) = \Pr(X = y/b)$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ycssyss3" ismap target="_blank">
+      <img src="../Stats/ProbStatsPython/img/t07-09a.png" style="margin: 0.1em;" alt="Example of scaling: original random variable" title="Example of scaling: original random variable" height=100>
+      <img src="../Stats/ProbStatsPython/img/t07-09b.png" style="margin: 0.1em;" alt="Example of scaling: result of scaling" title="Example of scaling: result of scaling" height=100>
+    </a>
+  </div>
+
++ [Reverse mapping](../Stats/ProbStatsPython/07-RvMeanVar.md#74-variable-modifications)
+
+  \[ \Pr(Y=y) = \Pr(g(X) = y) = \Pr(X \in g^{-1}(y)) = \sum_{x \in g^{-1}(y)} \Pr(X=x) \]
+
+
+
+
+## Expectation of Functions of Random Variables
+
++ [Expectation formulation](../Stats/ProbStatsPython/07-RvMeanVar.md#75-expectation-of-functions-of-random-variables)
+
+  \[\begin{align*}
+    E(Y) &= \sum_y y \cdot \Pr(Y=y) = \sum_y y \cdot \Pr(X \in g^{-1}(y)) = \sum_y y \sum_{x \in g^{-1}(y)} p(x) \\
+    &= \sum_y \sum_{x \in g^{-1}(y)} y \cdot p(x) = \sum_y \sum_{x \in g^{-1}(y)} g(x) \cdot p(x) = \sum_x g(x) \cdot p(x)
+  \end{align*}\]
+
++ [Constant addition](../Stats/ProbStatsPython/07-RvMeanVar.md#75-expectation-of-functions-of-random-variables)
+
+  \[\begin{align*}
+    E(X + b) &= \sum p(x) \cdot (x + b) = \sum p(x) \cdot x + \sum p(x) \cdot b = E(X) + b \cdot \sum p(x) \\
+    &= E(X) + b
+  \end{align*}\]
+
++ [Constant multiplication](../Stats/ProbStatsPython/07-RvMeanVar.md#75-expectation-of-functions-of-random-variables)
+  
+  \[ E(aX) = \sum p(x) \cdot (ax) = a \sum p(x) \cdot a = a E(X) \]
+
++ [Linearity of expectation](../Stats/ProbStatsPython/07-RvMeanVar.md#75-expectation-of-functions-of-random-variables)
+
+  \[ E(aX + b) = E(aX) + b = aE(X) + b \]
+
+
+
+
+## Multivariate
+
++ [Join distribution](../Stats/ProbStatsPython/07-RvMeanVar.md#77-two-variables)
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"># Variables</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Variable Names</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Sample Space</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Prob.</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Abbr.</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Properties</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th>One</th> <td style="text-align: center;">X</td> <td style="text-align: center;">$X$</td> <td style="text-align: center;">$p(X = x)$</td> <td style="text-align: center;">$p(x)$</td> <td style="text-align: center;">$p(x) \ge 1 \\ \sum_x p(x) =1$</td>
+    </tr>
+    <tr>
+      <th>Two</th> <td style="text-align: center;">X, Y</td> <td style="text-align: center;">$X \times Y$</td> <td style="text-align: center;">$p((X, Y) = (x, y))$</td> <td style="text-align: center;">$p(x, y)$</td> <td style="text-align: center;">$p(x, y) \ge 0 \\ \sum_{x, y} p(x, y) = 1$</td>
+    </tr>
+    </tbody>
+  </table>
+
++ [Specification](../Stats/ProbStatsPython/07-RvMeanVar.md#77-two-variables)
+  + state probability of every possible $(x, y)$ pair
+  + ways to representation
+    + table: 1-d
+    + structure: 2-d
+    + structured distributions
+
++ [General $B(p)$](../Stats/ProbStatsPython/07-RvMeanVar.md#77-two-variables)
+  + $U \sim B(p), V \sim B(q), B {\perp \!\!\!\! \perp} V$
+  + $X = \min(U, V), Y = \max(U, V)$
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
+        <img src="../Stats/ProbStatsPython/img/t07-26a.png" style="margin: 0.1em;" alt="Table of all possible values w/ 3 coins and results of X and Y" title="Table of all possible values w/ 3 coins and results of X and Y" height=100>
+        <img src="../Stats/ProbStatsPython/img/t07-26b.png" style="margin: 0.1em;" alt="Probability distribution of X and Y" title="Probability distribution of X and Y" height=100>
+      </a>
+    </div>
+
++ [Join distribution](../Stats/ProbStatsPython/07-RvMeanVar.md#77-two-variables)
+  + joint distribution: probability of every possible $(x, y)$ pair
+
+    \[ p(x, y) \stackrel{\text{def}}{=} \Pr(X = x, Y=y) \]
+
+  + properties
+    + $\forall\, x, y, \;p(x, y) \ge 0$
+    + $\sum_{x, y} p(x, y) = 1$
+
+  + omnipotent
+    + joint distribution determines all probabilities of interest
+
+    \[\begin{align*}
+      \Pr(X \le Y) &= \Pr(X=0, Y=0) + \Pr(X = 0, Y = 1) + \Pr(X=1, Y=1) \\
+      &= \Pr(0, 0) + \Pr(0, 1) + \Pr(1, 1) = 0.1 + 0.2 + 0.4 = 0.7
+    \end{align*}\]
+
++ [Marginals](../Stats/ProbStatsPython/07-RvMeanVar.md#77-two-variables)
+  + margin of $X$: $\Pr(x) \stackrel{\text{def}}{=} P_x(x) \stackrel{\text{def}}{=} \Pr(X = x) = \sum_y p(x, y)$
+  + margin of $Y$: $\Pr(y) \stackrel{\text{def}}{=} P_Y(y) \stackrel{\text{def}}{=} \Pr(Y = y) = \sum_x p(x, y)$
+  + very different join distributions able to have the same marginals
+
++ Conditionals
+
+  \[ \Pr(X \mid y) = \frac{p(x, y)}{p(y)} \quad \Pr(y \mid x) = \frac{p(x, y)}{p(x)} \]
+
+
++ [Independence](../Stats/ProbStatsPython/07-RvMeanVar.md#77-two-variables)
+  + $X, Y$ independent: $X {\perp \!\!\!\! \perp} Y$
+  + $\forall\, x, y$
+
+    \[\begin{align*}
+      p(y \mid x) &= p(y) \qquad \text{Value of $X$ not affect distribution of $Y$} \\
+      p(x \mid y) &= p(x) \qquad \text{Value of $Y$ not affect distribution of $X$} \\
+      p(x, y) &= p(x) \cdot p(y) \gets \text{ more robust} \hspace{2em} \text{Formal}
+    \end{align*}\]
+
+  + quick checking
+
+    \[\begin{align*}
+      \text{independent} &\to \text{rows proportional to each other} \\
+      &\to \text{columns proportional to each other}
+    \end{align*}\]
+
+
+
+## Linearity of Expectation
+
++ [Functions of two variables](../Stats/ProbStatsPython/07-RvMeanVar.md#78-linearity-of-expectations)
+
+    \[ \Pr(g(X, Y) = z) = \Pr((X, Y) \in g^{-1}(z)) = \sum_{(x, y) \in g^{-1}(z)} p(x, y) \]
+
++ [Two unconscious statisticians](../Stats/ProbStatsPython/07-RvMeanVar.md#78-linearity-of-expectations)
+
+  \[ E_g(X, Y) = \sum_{x, y} g(x, y) p(x, y) \]
+
++ [Linearity of expectation](../Stats/ProbStatsPython/07-RvMeanVar.md#78-linearity-of-expectations)
+
+  \[ E[X+Y] = \sum_x \sum_y (x+y) \cdot p(x, y) = E[X] + E[Y] \]
+
++ [Variance](../Stats/ProbStatsPython/07-RvMeanVar.md#78-linearity-of-expectations)
+
+    \[ Var(X+Y) = = Var(X) + Var(Y) + \underbrace{2(E[XY] - E[X] \cdot E[Y])}_{E[XY] \stackrel{?}{=} E[X]\cdot E[Y]} \]
+
+
+
+
+## Covariance
+
++ [Product expectations - general](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
+  + $\forall, \alpha, \beta, \gamma\quad \exists\, X, Y$ w/: $E[X] = \alpha \quad E[Y] = \beta \quad E[XY] = \gamma$
+  + $X = (\gamma - \alpha \beta) X^\prime + \alpha \to E[X] = \alpha$
+  + $Y = Y^\prime + \beta \to E[Y] = \beta$
+
+    \[ E[XY] = E[((\gamma - \alpha \beta) X^\prime + \alpha)(Y^\prime + \beta)] = \gamma \]
+
++ [Covariance](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
+  + 'centralizing' $X, Y$, consider expectation of centralized product
+
+    \[ \sigma_{X, Y} \triangleq Cov(X, Y) \triangleq E[(X - \mu_X)\cdot (Y - \mu_Y)]) = E[XY] - \mu_X \mu_Y \]
+
++ [Pearson's Correlation coefficient](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
+
+    \[ \rho_{XY} = \frac{Cov(X, Y)}{\sigma_X \sigma_Y} \]
+
+  + properties
+    + $\rho_{X, Y} = 1 \quad \rho_{X, -X} = -1$
+    + $\rho_{X, Y} = \rho_{Y, X}$
+    + $\rho_{aX+b, cX+d} = \text{sign}(ac) \cdot \rho_{X, Y} \quad \text{sign}(x) = \begin{cases} 1 & x >0 \\ 0 & x =0 \\ -1 & x < 0 \end{cases}$
+  + if $X \nearrow$ by $\sigma_X$, by how many $\sigma_Y$ do we expect $Y$ to $\nearrow$
+  + bounds on $\sigma_{X, Y}?$
+
++ [Cauchy-Schwarz inequality](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
+  + $E[X \cdot Y]$ unable to take all possible values, viz.
+
+    \[ |E[XY] \le \sqrt{E[X^2]} \cdot \sqrt{E[Y^2]} \]
+
+  + corollary
+
+    \[ |\sigma_{X, Y}| \le \sigma_X \cdot \sigma_Y \quad \rho_{X, Y} \triangleq \frac{Cov(X, Y)}{\sigma_X \cdot \sigma_Y}  \to |\rho_{X, Y}| \le 1 \]
+
++ [2nd Covariance formulation](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
+
+  \[ Cov(X, Y) \triangleq E[(X - \mu_X) \cdot (Y - \mu_Y)] = E[XY - X \mu_Y - \mu_Y Y + \mu_X \mu_Y] = E[XY] - \mu_X \mu_Y \]
+
+  + if $X$ increasing by 1 $\to Y$ increasing by $\dfrac{Cov(X, Y)}{Var(X)}$
+
++ [Properties](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
+
+  \[\begin{align*}
+    Cov(X, X) &= E[X^2] - \mu_X^2 = Var(X) \\
+    Cov(X, Y) &= E[(X - \mu_X)(Y - \mu_Y)] = Cov(Y, X)\\
+    Cov(aX, Y) &= a Cov(X, Y) \\
+    Cov(X + a, Y) &= Cov(X, Y)
+  \end{align*}\]
+
++ [Covariance](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
+  + $Var(X+Y) \gtrless Var(X) + Var(Y)$
+  + $X \perp Y \iff \sigma_{X, Y} = 0 \iff Var(X+Y) = Var(X) + Var()Y)$
+  + $X {\perp \!\!\!\! \perp} Y \to X \perp Y \to Var(X+Y) = Var(X) + Var(Y)$
+
++ [Covariance vs. Corelation Coefficient](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
+  + same
+    + $\ge$ if increasing together
+    + $\le$ if decreasing together
+    + higher absolute value if relation close to linear
+  + different
+    + covariance: change w/ size of variables
+    + correlation: insensitive to variable size
+
++ [Independence and uncorrelated](../Stats/ProbStatsPython/07-RvMeanVar.md#79-covariance)
+  + independence $\implies$ uncorrelated: ${\perp \!\!\!\! \perp} \implies \perp$
+  + uncorrelated $\stackrel{?}{\implies}$ independence
+
+
 
 
 
