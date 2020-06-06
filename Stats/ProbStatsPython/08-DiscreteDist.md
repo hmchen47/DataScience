@@ -7,6 +7,20 @@
   + discrete: Bernoulli, Binomial, Poisson, Geometric
   + continuous: uniform, exponential, Gaussian
 
++ Discussion
+  + Motivation
+  + Applications
+  + Formulate
+  + Visualize
+  + Examples
+  + Properties: $\mu \; Var\; \sigma$
+  + Python: plot and experiment within NB
+
++ Show distribution
+  + non-negative
+  + sum to 1
+
+
 + Bernoulli distribution
   + simplest non-constant distribution
   + foundation of many others
