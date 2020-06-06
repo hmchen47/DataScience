@@ -117,15 +117,19 @@
   </table>
 
 
-
-
-
 + [Original Slides](https://tinyurl.com/ybc73cpq)
 
 
 ### Problem Sets
 
+1. For which value of the parameter $\alpha$ is the function $f(x)=\frac{2(10−x)+\alpha}{100}$ over $\{1,2, \cdots,10\}$ a p.m.f.?<br/>
+  a. -1<br/>
+  b. 0<br/>
+  c. 1<br/>
+  d. 2<br/>
 
+  Ans: c<br/>
+  Explanation: Following $\sum_{x = 1}^{10} f(x) = 1$, we have $\alpha = 1$
 
 
 ### Lecture Video
