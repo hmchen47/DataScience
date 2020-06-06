@@ -46,40 +46,44 @@
 
 ## 8.1 Bernoulli Distribution
 
-+ Bernoulli distribution
++ Contents covered w/ Bernoulli distribution
   + simplest non-constant distribution
   + foundation of many others
   + parameters: $\mu, Var, \sigma$
   + repeated experiments
-  + Jacob Bernoulli
-    + 1655 ~ 1705
-    + Theology $\to$ Mathematics
-    + main contribution:
-      + calculus, integrals
-      + "Euler" number
-      + $e = \lim_{n \to \infty} (1 + \frac 1 n)^n$
-      + $e \to b$
-      + ars conjectandi = First law of large numbers
-    + mentored brother Johann: Medicine $\to$ Math, Dynasty
-  + the simplest distribution
-    + simplest: one value, 5, constant, always the same, trivial
-    + simplest non-trivial: two values
-      + simplest values: 0 and 1
-      + Bernoulli coin
-  + modeling
-    + $B_p\; 0 \le p \le 1$
-    + $p(0) = 1-p = \overline(p) = q \quad p(1) = p$
-  + unitarity: $p(0) + p(1) = (1-p) + p = 1$
-  + $X \sim B_p$:
-    + Bernoulli
-    + random variable, coin, experiment, trial
 
-+ Who cares about two values?
++ Jacob Bernoulli
+  + 1655 ~ 1705
+  + Theology $\to$ Mathematics
+  + main contribution:
+    + calculus, integrals
+    + "Euler" number: $e = \lim_{n \to \infty} (1 + \frac 1 n)^n$; $e \to b$
+    + ars conjectandi = The Art of Conjecture
+    + First law of large numbers
+  + mentored brother Johann: Medicine $\to$ Math, Dynasty
+
++ The simplest distribution
+  + simplest: one value, constant, always the same, trivial, e.g., 5
+  + simplest non-trivial
+    + two values
+    + simplest values: 0 and 1
+    + Bernoulli coin
+
++ Bernoulli distribution
+  + two values: 0 and 1, or failure and success
+  + $B_p\; 0 \le p \le 1$
+  + $p(0) = 1-p = \overline(p) = q \quad p(1) = p$
++ unitarity: $p(0) + p(1) = (1-p) + p = 1$
++ $X \sim B_p$:
+  + Bernoulli
+  + random variable, coin, experiment, trial
+
++ Characteristics
   + binary version of complex events
-    + products
-      + 80 good, 20 defective
+    + example
+      + products: 80 good, 20 defective
       + select one: good or not
-      + $!\sim B_{.8}$
+      + $\sim B_{.8}$
     + next child will be a boy: $\sim B_{.5}$
   + generalized to more complex variables
     + e.g., patient has one of three diseases
@@ -98,20 +102,20 @@
   + $X \sim B_p \to E[X] = p$
   + variance
     + easy route
-    + #0^2 = 0 \quad 1^2 =1 \quad X^2 = X \quad E[X^2]=E[X] = p$
+    + $0^2 = 0 \quad 1^2 =1 \quad X^2 = X \quad E[X^2]=E[X] = p$
     + $Var(X) = E[X^2] - (E[X])^2 = p - p^2 = p(1-p) = pq$
   + standard deviation: $\sigma = \sqrt{pq}$
-  + $E, Var, \sigma$ for various $p$
-    + $B_p$ varying most when $p = \frac12$
+  + various $p$
     + $p = 0 \to E[X] = 0, \;Var(X) = 0, \;\sigma = 0$
     + $p = 1 \to E[X] = 1, \;Var(1) = 0, \;\sigma = 0$
     + $p = \tfrac12 \to E[X] = \tfrac12, \;Var(X) = \frac14, \;\sigma = \frac12$
+    + $B_p$ varying most when $p = \frac12$
 
 + Independent trials
   + much of $B_p$ importance stems from multiple trials
-  + most common: independent ${\perp \!\!\!\! \perp}$
+  + most common type of Bernoulli distribution: independent ${\perp \!\!\!\! \perp}$
     + $0 \le p \le 1\quad X_1, X_2, X_3 \sim B_p \to {\perp \!\!\!\! \perp}$
-    + $q \stackrel{\text{def}}{=} 1-p\; P(110) = p^2q = P(101) = P(011)$
+    + $q \stackrel{\text{def}}{=} 1-p\quad P(110) = p^2q = P(101) = P(011)$
   + generally, $X_1, X_2, \cdot, X_n \sim B_p \to  {\perp \!\!\!\! \perp}$
     + $x^n = x_1, x_2, \cdots, x_n \in \{0, 1\}^n$
     + $n_0$: number of 0's
@@ -131,7 +135,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr> <td style="text-align: center;">$B_0$</td> <td style="text-align: center;">$0000000000$</td> <td style="text-align: center;">constant 0</td> <td style="text-align: center;">$1^{10} = 1</td> </tr>
+    <tr> <td style="text-align: center;">$B_0$</td> <td style="text-align: center;">$0000000000$</td> <td style="text-align: center;">constant 0</td> <td style="text-align: center;">$1^{10} = 1$</td> </tr>
     <tr> <td style="text-align: center;">$B_1$</td> <td style="text-align: center;">$1111111111$</td> <td style="text-align: center;">constant 1</td> <td style="text-align: center;">$1^{10} = 1$</td> </tr>
     <tr> <td style="text-align: center;">$B_{0.8}$</td> <td style="text-align: center;">$1110111011$</td> <td style="text-align: center;">80% 1's</td> <td style="text-align: center;">$0.8^8 \cdot 0.2^2$ ${}^{\star}$</td> </tr>
     <tr> <td style="text-align: center;">$B_{0.5}$</td> <td style="text-align: center;">$1011010010$</td> <td style="text-align: center;">50% 1's ${}^{\S}$</td> <td style="text-align: center;">$0.5^{10}$</td> </tr>
@@ -141,10 +145,20 @@
     </tbody>
   </table>
 
++ Summary: Bernoulli distribution
+  + simplest non-constant distribution
+  + notation: $B_p \quad 0 \le p \le 1$
+  + typical values
+    + 0 and 1
+    + $p(1) = p \quad p(0) = 1 -9$
+  + properties:
+    + $\mu = p$
+    + $Var = pq$
+    + $\sigma = \sqrt{pq}$
+  + foundation of many other distributions
 
 
-
-+ [Original Slides]()
++ [Original Slides](https://tinyurl.com/yb6l3dwa)
 
 
 ### Problem Sets
