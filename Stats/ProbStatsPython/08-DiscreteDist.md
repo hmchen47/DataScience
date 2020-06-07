@@ -73,7 +73,7 @@
   + two values: 0 and 1, or failure and success
   + $B_p\quad 0 \le p \le 1$
   + $p(0) = 1-p = \overline{p} = q \quad p(1) = p$
-  + unitarity: $p(0) + p(1) = (1-p) + p = 1$
+  + unitary: $p(0) + p(1) = (1-p) + p = 1$
   + $X \sim B_p$:
     + Bernoulli
     + random variable, coin, experiment, trial
@@ -295,12 +295,12 @@
   + $n$ independent Bernoulli experiments
   + each "success" w/ the same probability $p$
   + "failure" w/ probability $1 - p = \overline{p} = q$
-  + $B_{p,n}$: distribution of \# successes
+  + $B_{p,n}$ or $B_{n, p}$: distribution of \# successes
+    + $B_{n, p}$ more common, using $B_{p, n}$ as generalized $B_p$, natural for Poisson Binomial 
     + $n$ independent coin flips
     + $\Pr(\text{heads}) = p$
-    + $P_{p, n}$: distribution of \# heads
+    + $B_{p, n}$: distribution of \# heads
     + e.g., $B_{\frac13, 5} \quad B_{.2, 10}$
-  + $B_{n, p}$ more common: $B_{5, \frac13} \quad B_{10, .2}$
   + no confusion: $n \in \Bbb{N}, \;0 \le p \le 1$
   + use $B_{p, n}$ because
     + generalized $B_p$
@@ -319,29 +319,30 @@
   + failure probability: $q = 1 - p$
   + $b_{p, n}(k)$: probability of $k$ success, $0 \le k \le n$
   + example:
-    + $n = 1$: $seq = \Lambda \quad k = 0 \quad b_{p, 0}(k) = 1$
-    + $n = 2$: 
+    + $n = 0$: $seq = \Lambda \quad k = 0 \quad b_{p, 0}(k) = 1$
+    + $n = 1$: 
       + seq = 0: $k = 0 \quad b_{p, 1}(k) = q$
       + seq = 1: $k = 1 \quad b_{p, 1}(k) = p$
       + $p + q = 1$
-    + $n = 3$:
+    + $n = 2$:
       + seq = 00: $k = 1 \quad b_{p, 2}(k) =q^2$
-      + seq = 01${}^\star$, 10: $k = 1 \quad b_{p, 2}(k) = 2pq$
+      + seq${}^\star$ = 01, 10: $k = 1 \quad b_{p, 2}(k) = 2pq$
       + seq = 11: $k = 2 \quad b_{p, 2}(k) = p^2$
       + $p^2 + 2pq + q^2 = (p+q)^2 = 1^2 = 1$
       + ${}^\star$: each sequence w/ probability $pq$
 
-+ General $n$
-  + $n$ independent (${\perp \!\!\!\! \perp}$) $B_p$ experiments
++ General $n$ and $k$
+  + $n$ ${\perp \!\!\!\! \perp}$ $B_p$ experiments
     + $k$ successes: success = 1
-    + $0 \le k \le n$: $n+1$ values
+    + $0 \le k \le n$
   + $b_{p, n}(k) = p(k \text{ successes}) = \binom n k p^k q^{n-k}$
-    + $k$ successes
-    + $n-k$ failures
-    + each such sequence w/ prob. $p^k \cdot q^{n-k}$
+    + every $k$ successes sequence
+      + $n-k$ failures
+      + prob. $p^k \cdot q^{n-k}$
     + $\tbinom n k$ such sequences
+  + distribution over $n+1$ values, including $0$ and $n$
 
-+ Unitarity
++ Unitary
   + $0 \le k \le n \quad p(X = k) = b_{p, n}(k) = \binom n k p^k q^{n-k}$
   + Binomial theorem:
 
@@ -351,7 +352,7 @@
 
     \[ \sum_{k=0}^n b_{p, n} (k) = \sum_{k=0}^n p^k q^{n-k} = (p + q)^n = 1^n = 1 \]
 
-+ Typical distributions
++ Simulation: Typical distributions
   + $n= 20 \to b_{p, 20}(k)$
   + coin: $\Pr(\text{heads}) = p \quad$ 20 flips $\Pr(k, \text{ heads})$
 
@@ -361,7 +362,7 @@
     </a>
   </div>
 
-+ Typical samples
++ Simulation: Typical samples
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/yajcj3dk" ismap target="_blank">
@@ -369,7 +370,7 @@
     </a>
   </div>
 
-+ Multiple choice
++ Example: Multiple choice
   + exam w/ 6 multiple-choice questions, each w/ 4 possible answers
   + each question, student selects one of the 4 answers randomly
   + $X$ = \# correct answer $\sim B_{\frac14, 6}$
@@ -377,14 +378,14 @@
   + $\Pr(\text{passing}) = ?$
 
     \[\begin{align*}
-      \Pr(4) &= \binom64 \cdot (\frac14)^4 \cdot (\frac34)^2 \approx 0.0329 \\
-      \Pr(5) &= \binom65 \cdot (\frac14)^5 \cdot (\frac34)^1 \approx 0.00439 \\
-      \Pr(6) &= \binom66 \cdot (\frac14)^6 \cdot (\frac34)^0 \approx 0.000244 \\
+      \Pr(4) &= \tbinom64 \cdot (\tfrac14)^4 \cdot (\tfrac34)^2 \approx 0.0329 \\
+      \Pr(5) &= \tbinom65 \cdot (\tfrac14)^5 \cdot (\tfrac34)^1 \approx 0.00439 \\
+      \Pr(6) &= \tbinom66 \cdot (\tfrac14)^6 \cdot (\tfrac34)^0 \approx 0.000244 \\
       \Pr(\ge 4) &= \Pr(4) + \Pr(5) + \Pr(6) \approx 0.03759
     \end{align*}\]
 
-+ Binomial as a sum
-  + $B_{p, b}$: a sum of $n\;B_p$
++ Interpretation as a Sum
+  + $B_{p, n}$: a sum of $n\;B_p$
   + $X_1, \cdots, X_n \sim B_p\quad {\perp \!\!\!\! \perp}$
   + $X \stackrel{\text{def}}{=} \sum_{i=1}^n X_i$
   + $\Pr(X=k) = \Pr(\text{exactly } k \text{ of } X_1, \cdots, X_n \text{ are } 1) = \binom n k p^k q^{n-k} = b_{p, n}(k)$
@@ -401,35 +402,34 @@
       \sigma &= \sqrt{npq}
     \end{align*}\]
 
-+ Multiple choice
++ Example: Multiple choice
   + exam w/ 6 multiple-choice questions, each w/ 4 possible answers
   + for each question, student selects one of the 4 answers randomly
   + $X$ = \# correct answers $\sim B_{\frac14, 6}$
   + mean: $E[X] = np = 6 \cdot \frac14 = 1.5$
   + standard deviation: $\sigma = \sqrt{npq} = \sqrt{6 \cdot \frac14 \cdot \frac34} = \frac{\sqrt{18}}{4}$
 
-+ Voting
++ Example: Voting
   + for simplicity odd \# voters: $2n+1$
   + each equally likely D or R
-  + $\Pr(\text{voter makes a difference}) = \Pr(\text{pther 2n voters equally split})
+  + $\Pr(\text{voter makes a difference}) = \Pr(\text{other 2n voters equally split})$
 
     \[\begin{align*}
       b_{p, n}(k) &= \binom n k p^k q^{n-k} = \binom 2n n \frac{1}{2^n} \cdot \frac{1}{2^n} = \frac{(2n)!}{n! \cdot n! \cdot 2^n \cdot 2^n} \\\\
-      &\approx \frac{\sqrt{2\pi \cdot 2n} (\frac{2n}{e})^{2n}}{\left({\sqrt{2\pi n}(\frac n e)^n}\right)^2 2^{2n}} = \frac{1}{\pi n} \quad(\color{Magenta}{\gg \frac 1 n})
+      &\approx \frac{\sqrt{2\pi \cdot 2n} (\frac{2n}{e})^{2n}}{\left({\sqrt{2\pi n}\left(\frac n e\right)^n}\right)^2 2^{2n}} = \frac{1}{\pi n} \quad(\color{Magenta}{\gg \frac 1 n})
     \end{align*}\]
 
   + applying Stirling approximation
 
-    \[ n! \sim \sqrt{2\pi n}(\frac n e)^n \]
+    \[ n! \approx \sqrt{2\pi n}\left(\frac n e\right)^n \]
 
 + Poisson binomial
   + generalizing the binomial distribution
-    + binomial distribution
-      + $n \ge 1 \quad B_{P,n}$
+    + binomial distribution: $n \ge 1$
+      + notation: $B_{P,n}$
       + for $ 1 \le i \le n X_i \quad \sim B_p \quad {\perp \!\!\!\! \perp}$
       + $X = \sum_{i=1}^n X_i$
     + Poisson binomial
-      + $n \ge 1 \quad PB_{{p_1}, cdots,p_n}$
       + for $ 1 \le i \le n \quad X_i \sim B_{p_i} \quad {\perp \!\!\!\! \perp}$
       + $X = \sum_{i=1}^n X_i$
   + examples
@@ -453,7 +453,7 @@
         <td style="text-align: center;">$0$</td> <td style="text-align: center;">$1$</td> <td style="text-align: center;">$\frac34 \cdot \frac23 = \frac12$</td> <td rowspan="2" style="text-align: center;">$1$</td> <td rowspan="2" style="text-align: center;">$\frac{7}{12}$</td>
       </tr>
       <tr>
-        <td style="text-align: center;">$1$</td> <td style="text-align: center;">$0$</td> <td style="text-align: center;">$\frac14 \cdot \frac 13 = \frac 1 12$</td>
+        <td style="text-align: center;">$1$</td> <td style="text-align: center;">$0$</td> <td style="text-align: center;">$\frac14 \cdot \frac 13 = \frac{1}{12}$</td>
       </tr>
       <tr>
         <td style="text-align: center;">$1$</td> <td style="text-align: center;">$1$</td> <td style="text-align: center;">$\frac14 \cdot \frac23 = \frac16$</td> <td style="text-align: center;">$2$</td> <td style="text-align: center;">$\frac16$</td>
@@ -494,7 +494,7 @@
     hist(binom.rvs(n=50, p=.3, size=1000))
     ```
 
-+ Coin flips
++ Example: Coin flips
   + most basic convergence to average: $B(p)$
   + flip $n\; B(p)$ coin, average \# 1's will approach $np$
   + probability of a sequence w/ $k$ 1's and $(n-k)$ 0's is $p^k q^{n-k}$
