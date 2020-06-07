@@ -162,6 +162,122 @@
 
 ### Problem Sets
 
+0. Every random variable distributed over {0, 1} is Bernoulli.<br/>
+  a. Yes<br/>
+  b. Not necessarily<br/>
+
+  Ans: <span style="color: magenta;">a</span><br/>
+  Explanation: Every random variable over {0,1} attains the value 1 with some probability (p) and 0 with the remaining probability $(1-p)$, hence is \(B_p\). So the answer is Yes.
+
+
+1. $X \sim B_p$ with  $p>0.5$  and  $Var(X)=0.24$. Find<br/>
+  a. $p$,<br/>
+  b. $E[X]$.<br/>
+
+  Ans: a. (0.6); b. (0.6)<br/>
+  Explanation:
+    + For a Bernoulli distribution, $E[X^2]=E(X)=p$. Thus $Var(X)=E[X^2]−(E[X])^2=p−p^2=p(1−p)$. Since $0.24=Var(X)=p(1−p)$ and $p \ge 0.5$, we must have $p=0.6$.
+    + $E[X]=p=0.6$.
+
+
+2. Which of the following hold for two Bernoulli variables?<br/>
+  a. Independent implies uncorrelated,<br/>
+  b. Uncorrelated implies independent.<br/>
+
+  Ans: ab<br/>
+  Explanation
+    + True. It is trivial.
+    + True. Let  $X \sim B_p_x, Y \sim B_p_y$.
+
+      If $X$ and $Y$ are uncorrelated, $\text{Cov}(X, Y) = E(XY) - E(X)E(Y) \\ = \sum_{x = 0}^{1} \sum_{y = 0}^{1} xyP(X = x, Y = y) - p_{x}p_{y} \\ = P(X = 1, Y = 1) - p_{x}p_{y} \\ = P(X = 1 | Y = 1)P(Y = 1) - p_{x}p_{y} \\ = (P(X = 1 | Y = 1) - p_{x})p_{y} \\ = 0$.
+
+      Hence, $P(X=1 \mid Y=1)=p_x=P(X=1)$ and similarly $P(Y=1 \mid X=1)=p_y=P(Y=1)$. From that, we have $P(X = 0 | Y = 1) = \frac{P(Y = 1 | X = 0)P(X = 0)}{P(Y = 1)} =$ $1 - p_{x} = P(X = 0) \implies$ $P(Y = 1 | X = 0) = p_{y} = P(Y = 1)$, and similarly $P(X=1|Y=0)=p_x=P(X=1)$. Thus, $X$ and $Y$ are independent.
+
+
+3. Consider ten independent $B_{0.3}$ trials. Which of the following is the most probable?<br/>
+  a. 0000000000<br/>
+  b. 1111111111<br/>
+  c. 1110000000<br/>
+  d. 0001111111<br/>
+
+  Ans: a<br/>
+  Explanation: Under $B_{0.3}$, the probability of sequence with $w$ ones and $n−w$ zeros is $0.3^w \cdot 0.7^{(n−w)}=0.7^n \cdot (3/7)^w$, which decreases with $w$. Hence 0000000000 is the most likely sequence with probability $0.7^{10}$, while 1111111111 is least likely with probability $0.3^{10}$. This is also logical as under $B_{0.3}$, every bit is more likely to be a 0 than a 1.
+
+
+4. Consider ten independent $B_{0.3}$ trials. Which of the following is the most probable?
+
+  Try to reconcile with the previous question.<br/>
+  a. 10 zeros<br/>
+  b. 10 ones<br/>
+  c. 3 ones and 7 zeros<br/>
+  d. 3 zeros and 7 ones.<br/>
+
+  Ans: c<br/>
+  Explanation: First, intuitively, for $B_{0.3}$ we expect to see roughly 30% 1's.  Slightly more rigorously, while individually, a sequence with 10 zeros is the most likely among all sequences, there is only one such sequence. When you balance the probability of each sequence with the number of such sequence, you see that observing a sequence with 3 ones and 7 zeros is most likely. We will do this calculation formally when we study binomial distributions in the next section.
+
+
+5. Bernoulli modifications
+
+  Let $X \sim B_{0.2}$. Find the Bernoulli parameter for the following random variables. Write $−1$ if they are not Bernoulli.
+  a. $X^2$,
+  b. $+\sqrt{X}$,
+  c. $1 − X$,
+  d. $−X$.
+
+  Ans: a. (0.2); b. (0.2); c. (0.2); d. (-1)<br/>
+  Explanation
+    + Since $X \in \{0,1\}$, we have $X^2=X$.
+    + Since $X \in \{0,1\}$, we have $+\sqrt{X}=X$.
+    + $1−X$ takes values in {0,1}, hence is Bernoulli, and $1−X=1 \iff X=0$, which happens with probability 0.8.
+    + $−X$ takes values in $\{0,−1\}$, hence is not Bernoulli.
+
+
+6. Let $X \sim B_{0.4}$, $Y \sim B_{0.2}$, and they are independent. Find the Bernoulli parameter for the following random variables. Write $−1$ if they are not Bernoulli.<br/>
+  a. $X⋅Y$,<br/>
+  b. $XY$, recall that $0^ 0=1$,<br/>
+  c. $|X−Y|$,<br/>
+  d. $X+Y$.<br/>
+
+  Ans: a. (0.08); b. (0.88); c. (0.44); d. (-1)<br/>
+  Explanation
+    + $X \cdot Y$ takes values in $\{0,1\}$ hence is Bernoulli. It is $1 \iff X=Y=1$ which happens with probability $0.4 cdot 0.2=0.08$.
+    + $X^Y$ takes values in $\{0,1\}$, hence is Bernoulli. It is $0 \iff X=0$ and $Y=1$, which happens with probability $0.6 \cdot 0.2=0.12$, hence it is 1 with probability 0.88.
+    + $|X−Y|$ takes values in $\{0,1\}$, hence is Bernoulli. It is $1 \iff X \neq Y$, which happens with probability $0.6 \cdot 0.2+0.4 \cdot 0.8=0.44$.
+    + $X+Y$ takes values in $\{0,1,2\}$, hence is not Bernoulli.
+
+
+7. Bernoulli sum
+
+  $X=U+V$, where $U$ and $V$ are independent Bernoulli variables with different expectations but the same variance $0.21$. Find:<br/>
+  a. $E(X)$,<br/>
+  b. $V(X)$,<br/>
+  c. $\sigma_X$.<br/>
+
+  Ans: a. (1); b. (0.42); c. (0.6481)<br/>
+  Explanation
+    + Let $U \sim B_p$ and $V \sim B_q$. Since $U$ and $V$ have the same variance, $p \cdot (1−p)=q \cdot (1−q)$, and since $p \neq q$, we must have $q=1−p$. Hence  $E[X]=E[U+V]=E[U]+E[V]=p+q=p+(1−p)=1$.
+    + $Var(X)=Var(U)+Var(V)=0.42$.
+    + $\sigma_X = \sqrt{V(X)} = 0.6481$
+
+
+8. Let $X$ be the number of heads when flipping four coins with heads probabilities 0.3, 0.4, 0.7, and 0.8. Find:<br/>
+  a. $P(X=1)$,<br/>
+  b. $E(X)$,<br/>
+  c. $V(X)$.<br/>
+
+  Ans: a. (); b. (); c. ()<br/>
+  Explanation
+    + $P(X = 1) = 0.3 \cdot 0.6 \cdot 0.3 \cdot 0.2 + 0.7 \cdot 0.4 \cdot 0.3 \cdot 0.2 + 0.7 \cdot 0.6 \cdot 0.7 \cdot 0.2 + 0.7 \cdot 0.6 \cdot 0.3 \cdot 0.8 = 0.1872$
+    + $E[X] = 0.3 + 0.4 + 0.7 + 0.8 = 2.2$
+    + $Var(X) = 0.21 + 0.24 + 0.21 + 0.16 = 0.82$
+
+
+9. Light bulbs
+
+  Every light bulb is defective with 2% probability. What is the probability that a package of 8 bulbs will not suffice for a project requiring 7?
+
+  Ans: 0.01034<br/>
+  Explanation: Let $X \sim B(0.02,8)$ be the number of defective bulbs in a package. The box will not suffice if there are 2 or more defective bulbs, which happens with probability. $P(X \gt 1) = 1 - P(X = 0) - P(X = 1) =$ $1 - \binom{8}{0} \cdot (1-0.02)^8 - \binom{8}{1} \cdot (1-0.02)^7 \cdot 0.02 = 0.0103.$
 
 
 
