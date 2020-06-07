@@ -291,11 +291,224 @@
 
 ## 8.2 Binomial Distribution
 
++ The Binomial distribution
+  + $n$ independent Bernoulli experiments
+  + each "success" w/ the same probability $p$
+  + "failure" w/ probability $1 - p = \overline{p} = q$
+  + $B_{p,n}$: distribution of \# successes
+    + $n$ independent coin flips
+    + $\Pr(\text{heads}) = p$
+    + $P_{p, n}$: distribution of \# heads
+    + e.g., $B_{\frac13, 5} \quad B_{.2, 10}$
+  + $B_{n, p}$ more common: $B_{5, \frac13} \quad B_{10, .2}$
+  + no confusion: $n \in \Bbb{N}, \;0 \le p \le 1$
+  + use $B_{p, n}$ because
+    + generalized $B_p$
+    + main parameter: $p$
+    + extending to Poisson Binomial
+
++ Applications
+  + positive responses to a treatment
+  + faulty components
+  + rainy days in a month
+  + delayed flights
+
++ Small $n$
+  + $n$ independent experiments
+  + each w/ success probability $p$
+  + failure probability: $q = 1 - p$
+  + $b_{p, n}(k)$: probability of $k$ success, $0 \le k \le n$
+  + example:
+    + $n = 1$: $seq = \Lambda \quad k = 0 \quad b_{p, 0}(k) = 1$
+    + $n = 2$: 
+      + seq = 0: $k = 0 \quad b_{p, 1}(k) = q$
+      + seq = 1: $k = 1 \quad b_{p, 1}(k) = p$
+      + $p + q = 1$
+    + $n = 3$:
+      + seq = 00: $k = 1 \quad b_{p, 2}(k) =q^2$
+      + seq = 01${}^\star$, 10: $k = 1 \quad b_{p, 2}(k) = 2pq$
+      + seq = 11: $k = 2 \quad b_{p, 2}(k) = p^2$
+      + $p^2 + 2pq + q^2 = (p+q)^2 = 1^2 = 1$
+      + ${}^\star$: each sequence w/ probability $pq$
+
++ General $n$
+  + $n$ independent (${\perp \!\!\!\! \perp}$) $B_p$ experiments
+    + $k$ successes: success = 1
+    + $0 \le k \le n$: $n+1$ values
+  + $b_{p, n}(k) = p(k \text{ successes}) = \binom n k p^k q^{n-k}$
+    + $k$ successes
+    + $n-k$ failures
+    + each such sequence w/ prob. $p^k \cdot q^{n-k}$
+    + $\tbinom n k$ such sequences
+
++ Unitarity
+  + $0 \le k \le n \quad p(X = k) = b_{p, n}(k) = \binom n k p^k q^{n-k}$
+  + Binomial theorem:
+
+    \[ (a + b)^n = \sum_{k=0}^n \binom n k a^k b^{n-k} \]
+
+  + sum to 1?
+
+    \[ \sum_{k=0}^n b_{p, n} (k) = \sum_{k=0}^n p^k q^{n-k} = (p + q)^n = 1^n = 1 \]
+
++ Typical distributions
+  + $n= 20 \to b_{p, 20}(k)$
+  + coin: $\Pr(\text{heads}) = p \quad$ 20 flips $\Pr(k, \text{ heads})$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yajcj3dk" ismap target="_blank">
+      <img src="img/t08-01.png" style="margin: 0.1em;" alt="Typical distributions of head counts w/ 20 coin flips" title="Typical distributions of head counts w/ 20 coin flips" width=450>
+    </a>
+  </div>
+
++ Typical samples
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yajcj3dk" ismap target="_blank">
+      <img src="img/t08-02.png" style="margin: 0.1em;" alt="Typical samples w/ various repeated experiments" title="Typical samples w/ various repeated experiments" width=450>
+    </a>
+  </div>
+
++ Multiple choice
+  + exam w/ 6 multiple-choice questions, each w/ 4 possible answers
+  + each question, student selects one of the 4 answers randomly
+  + $X$ = \# correct answer $\sim B_{\frac14, 6}$
+  + passing: $\ge 4$ correct answers
+  + $\Pr(\text{passing}) = ?$
+
+    \[\begin{align*}
+      \Pr(4) &= \binom64 \cdot (\frac14)^4 \cdot (\frac34)^2 \approx 0.0329 \\
+      \Pr(5) &= \binom65 \cdot (\frac14)^5 \cdot (\frac34)^1 \approx 0.00439 \\
+      \Pr(6) &= \binom66 \cdot (\frac14)^6 \cdot (\frac34)^0 \approx 0.000244 \\
+      \Pr(\ge 4) &= \Pr(4) + \Pr(5) + \Pr(6) \approx 0.03759
+    \end{align*}\]
+
++ Binomial as a sum
+  + $B_{p, b}$: a sum of $n\;B_p$
+  + $X_1, \cdots, X_n \sim B_p\quad {\perp \!\!\!\! \perp}$
+  + $X \stackrel{\text{def}}{=} \sum_{i=1}^n X_i$
+  + $\Pr(X=k) = \Pr(\text{exactly } k \text{ of } X_1, \cdots, X_n \text{ are } 1) = \binom n k p^k q^{n-k} = b_{p, n}(k)$
+  + $X \sim B_{p, n}$
+  + applied to mean and variance
+
++ Mean and Variance
+  + $X \sim B_{p, n}$
+  + $X = \sum_{i=1}^n X_i \qquad X_1, \cdots, X_n \sim B_p \quad{\perp \!\!\!\! \perp}$
+
+    \[\begin{align*}
+      E[X] &= E\left[\sum_{i=1}^n X_i\right] \underbrace{=}_{\text{LE}} \sum E[X_i] \underbrace{=}_{B_p} \sum p = np \\\\
+      Var(X) &= Var \left(\sum_{i=1}^n X_i \right) \underbrace{=}_{{\perp \!\! \perp}} \sum Var(X_i) \underbrace{=}_{B_p} \sum pq = npq \\\\
+      \sigma &= \sqrt{npq}
+    \end{align*}\]
+
++ Multiple choice
+  + exam w/ 6 multiple-choice questions, each w/ 4 possible answers
+  + for each question, student selects one of the 4 answers randomly
+  + $X$ = \# correct answers $\sim B_{\frac14, 6}$
+  + mean: $E[X] = np = 6 \cdot \frac14 = 1.5$
+  + standard deviation: $\sigma = \sqrt{npq} = \sqrt{6 \cdot \frac14 \cdot \frac34} = \frac{\sqrt{18}}{4}$
+
++ Voting
+  + for simplicity odd \# voters: $2n+1$
+  + each equally likely D or R
+  + $\Pr(\text{voter makes a difference}) = \Pr(\text{pther 2n voters equally split})
+
+    \[\begin{align*}
+      b_{p, n}(k) &= \binom n k p^k q^{n-k} = \binom 2n n \frac{1}{2^n} \cdot \frac{1}{2^n} = \frac{(2n)!}{n! \cdot n! \cdot 2^n \cdot 2^n} \\\\
+      &\approx \frac{\sqrt{2\pi \cdot 2n} (\frac{2n}{e})^{2n}}{\left({\sqrt{2\pi n}(\frac n e)^n}\right)^2 2^{2n}} = \frac{1}{\pi n} \quad(\color{Magenta}{\gg \frac 1 n})
+    \end{align*}\]
+
+  + applying Stirling approximation
+
+    \[ n! \sim \sqrt{2\pi n}(\frac n e)^n \]
+
++ Poisson binomial
+  + generalizing the binomial distribution
+    + binomial distribution
+      + $n \ge 1 \quad B_{P,n}$
+      + for $ 1 \le i \le n X_i \quad \sim B_p \quad {\perp \!\!\!\! \perp}$
+      + $X = \sum_{i=1}^n X_i$
+    + Poisson binomial
+      + $n \ge 1 \quad PB_{{p_1}, cdots,p_n}$
+      + for $ 1 \le i \le n \quad X_i \sim B_{p_i} \quad {\perp \!\!\!\! \perp}$
+      + $X = \sum_{i=1}^n X_i$
+  + examples
+    + $PB_{\frac14, \frac23} \to X \sim B_{\frac14} \;\; X_2 \sim B_{\frac23} \quad {\perp \!\!\!\! \perp}$<br/><br/>
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$X_1$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$X_2$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\Pr$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$X$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$\Pr(X)$</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">$0$</td> <td style="text-align: center;">$0$</td> <td style="text-align: center;">$\frac34 \cdot \frac13 = \frac14$</td> <td style="text-align: center;">$0$</td> <td style="text-align: center;">$\frac14$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">$0$</td> <td style="text-align: center;">$1$</td> <td style="text-align: center;">$\frac34 \cdot \frac23 = \frac12$</td> <td rowspan="2" style="text-align: center;">$1$</td> <td rowspan="2" style="text-align: center;">$\frac{7}{12}$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">$1$</td> <td style="text-align: center;">$0$</td> <td style="text-align: center;">$\frac14 \cdot \frac 13 = \frac 1 12$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">$1$</td> <td style="text-align: center;">$1$</td> <td style="text-align: center;">$\frac14 \cdot \frac23 = \frac16$</td> <td style="text-align: center;">$2$</td> <td style="text-align: center;">$\frac16$</td>
+      </tr>
+      </tbody>
+    </table>
+
++ Expectation and Variance
+  + $X \sim PB_{p_1, p_2, \cdots, p_n} \qquad X = \sum_{i=1}^n X_i \qquad X_i \sim B_{p_i}$
+  
+    \[\begin{align*}
+      E[X] &= E[\sum_{i=1}^n X_i] = \sum_{i=1}^n E[X_i] = \sum_{i=1}^n p_i \\\\
+      Var(X) &= Var\left(\sum_{i=1}^n X_i\right) = \sum_{i=1}^n Var(X_i) = \sum_{i=1}^n p_i(1-p_i)
+    \end{align*}\]
+
+  + $p(k)$:
+    + no closed form
+    + computationally
+
++ Plot & Sample in Python
+  + Notebook: plot distribution, and generating data
+  + import libraries
+
+    ```python
+    from scipy.stats import binom
+    from matplot.pyplot import plot, hist
+    ```
+
+  + coin heads w/ prob .3, 50 flips: prob of k heads $\sim B_{.3, 50}$
+
+    ```python
+    plot(range(51), binom.pmf(k=range(51), n=50, p=.3))
+    ```
+
+  + repeat 1000 times $\to$ histogram
+
+    ```python
+    hist(binom.rvs(n=50, p=.3, size=1000))
+    ```
+
++ Coin flips
+  + most basic convergence to average: $B(p)$
+  + flip $n\; B(p)$ coin, average \# 1's will approach $np$
+  + probability of a sequence w/ $k$ 1's and $(n-k)$ 0's is $p^k q^{n-k}$
+  + Wolog assume $p > 0.5$, then most likely is $1^n$
+  + yet by WLLn w/ probability $\to 1$ we see roughly $pn$ 1's and $qn$ 0's
+  + why do we observe these sequences and not the most likely ones?
+  + strength in \#s: \# sequences of a given composition increasing near $\frac12$
+  + $pn$ balances \# $x$ probability
 
 
 
 
-+ [Original Slides]()
+
++ [Original Slides](https://tinyurl.com/yajcj3dk)
 
 
 ### Problem Sets
