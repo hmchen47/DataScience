@@ -1,4 +1,7 @@
-# 24 Best (and Free) Books To Understand Machine Learning
+# Machine Learning Books
+
+
+## 24 Best (and Free) Books To Understand Machine Learning
 
 Author: Reashikaa Verma
 
@@ -106,4 +109,13 @@ Author: Reashikaa Verma
 24. Causality for Machine Learning[](https://arxiv.org/abs/1911.10500)
 
   With causality making inroads into Data Science fields, Machine Learning is not free from the discussion too. While no detailed material is available around this, here is a short tutorial trying to explain key concepts of Causality for Machine Learning.
+
+
+
+## Deep Learning
+
++ J. Howard, S. Gugger, [Deep Learning for Coders with fastai and PyTorch: AI Applications Without a PhD - code](https://github.com/fastai/fastbook)
+
+
+
 
