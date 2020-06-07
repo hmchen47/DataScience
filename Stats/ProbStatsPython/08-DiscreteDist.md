@@ -71,12 +71,12 @@
 
 + Bernoulli distribution
   + two values: 0 and 1, or failure and success
-  + $B_p\; 0 \le p \le 1$
-  + $p(0) = 1-p = \overline(p) = q \quad p(1) = p$
-+ unitarity: $p(0) + p(1) = (1-p) + p = 1$
-+ $X \sim B_p$:
-  + Bernoulli
-  + random variable, coin, experiment, trial
+  + $B_p\quad 0 \le p \le 1$
+  + $p(0) = 1-p = \overline{p} = q \quad p(1) = p$
+  + unitarity: $p(0) + p(1) = (1-p) + p = 1$
+  + $X \sim B_p$:
+    + Bernoulli
+    + random variable, coin, experiment, trial
 
 + Characteristics
   + binary version of complex events
@@ -116,10 +116,9 @@
   + most common type of Bernoulli distribution: independent ${\perp \!\!\!\! \perp}$
     + $0 \le p \le 1\quad X_1, X_2, X_3 \sim B_p \to {\perp \!\!\!\! \perp}$
     + $q \stackrel{\text{def}}{=} 1-p\quad P(110) = p^2q = P(101) = P(011)$
-  + generally, $X_1, X_2, \cdot, X_n \sim B_p \to  {\perp \!\!\!\! \perp}$
+  + generally, $X_1, X_2, \cdots, X_n \sim B_p \to  {\perp \!\!\!\! \perp}$
     + $x^n = x_1, x_2, \cdots, x_n \in \{0, 1\}^n$
-    + $n_0$: number of 0's
-    + $n_1$: number of 1's
+    + $n_0$ = number of 0's; &nbsp;&nbsp;&nbsp;&nbsp;  $n_1$ = number of 1's
     + $P(x_1, \dots, x_n) = p^{n_1} q^{n_0}$
     + e.g., $P(10101) = p^{n_1} q^{n_0} = p^3 q^2$
 
@@ -150,7 +149,7 @@
   + notation: $B_p \quad 0 \le p \le 1$
   + typical values
     + 0 and 1
-    + $p(1) = p \quad p(0) = 1 -9$
+    + $p(1) = p \quad p(0) = 1 - p$
   + properties:
     + $\mu = p$
     + $Var = pq$
