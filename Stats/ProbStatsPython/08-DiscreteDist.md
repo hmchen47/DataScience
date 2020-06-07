@@ -296,8 +296,10 @@
   + each "success" w/ the same probability $p$
   + "failure" w/ probability $1 - p = \overline{p} = q$
   + $B_{p,n}$ or $B_{n, p}$: distribution of \# successes
-    + $B_{n, p}$ more common, using $B_{p, n}$ as generalized $B_p$, natural for Poisson Binomial 
-    + $n$ independent coin flips
+    + $B_{n, p}$ more common
+    + using $B_{p, n}$ as generalized $B_p$
+    + $B_{p, n}$: natural for Poisson Binomial 
+  + example: $n$ independent coin flips
     + $\Pr(\text{heads}) = p$
     + $B_{p, n}$: distribution of \# heads
     + e.g., $B_{\frac13, 5} \quad B_{.2, 10}$
@@ -325,7 +327,7 @@
       + seq = 1: $k = 1 \quad b_{p, 1}(k) = p$
       + $p + q = 1$
     + $n = 2$:
-      + seq = 00: $k = 1 \quad b_{p, 2}(k) =q^2$
+      + seq = 00: $k = 0 \quad b_{p, 2}(k) =q^2$
       + seq${}^\star$ = 01, 10: $k = 1 \quad b_{p, 2}(k) = 2pq$
       + seq = 11: $k = 2 \quad b_{p, 2}(k) = p^2$
       + $p^2 + 2pq + q^2 = (p+q)^2 = 1^2 = 1$
@@ -415,7 +417,7 @@
   + $\Pr(\text{voter makes a difference}) = \Pr(\text{other 2n voters equally split})$
 
     \[\begin{align*}
-      b_{p, n}(k) &= \binom n k p^k q^{n-k} = \binom 2n n \frac{1}{2^n} \cdot \frac{1}{2^n} = \frac{(2n)!}{n! \cdot n! \cdot 2^n \cdot 2^n} \\\\
+      b_{p, n}(k) &= \binom n k p^k q^{n-k} = \binom{2n}{n} \frac{1}{2^n} \cdot \frac{1}{2^n} = \frac{(2n)!}{n! \cdot n! \cdot 2^n \cdot 2^n} \\\\
       &\approx \frac{\sqrt{2\pi \cdot 2n} (\frac{2n}{e})^{2n}}{\left({\sqrt{2\pi n}\left(\frac n e\right)^n}\right)^2 2^{2n}} = \frac{1}{\pi n} \quad(\color{Magenta}{\gg \frac 1 n})
     \end{align*}\]
 
@@ -424,16 +426,17 @@
     \[ n! \approx \sqrt{2\pi n}\left(\frac n e\right)^n \]
 
 + Poisson binomial
-  + generalizing the binomial distribution
-    + binomial distribution: $n \ge 1$
-      + notation: $B_{P,n}$
-      + for $ 1 \le i \le n X_i \quad \sim B_p \quad {\perp \!\!\!\! \perp}$
+  + generalizing the binomial distribution $n \ge 1$
+    + binomial distribution:
+      + notation: $B_{p,n}$
+      + for $ 1 \le i \le n \quad X_i \sim B_p \quad {\perp \!\!\!\! \perp}$
       + $X = \sum_{i=1}^n X_i$
     + Poisson binomial
+      + notation: $PB_{p_1, \dots, p_n}$
       + for $ 1 \le i \le n \quad X_i \sim B_{p_i} \quad {\perp \!\!\!\! \perp}$
       + $X = \sum_{i=1}^n X_i$
   + examples
-    + $PB_{\frac14, \frac23} \to X \sim B_{\frac14} \;\; X_2 \sim B_{\frac23} \quad {\perp \!\!\!\! \perp}$<br/><br/>
+    + $PB_{\frac14, \frac23} \to X_1 \sim B_{\frac14} \;\; X_2 \sim B_{\frac23} \quad {\perp \!\!\!\! \perp}$<br/><br/>
 
     <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
       <thead>
@@ -465,7 +468,7 @@
   + $X \sim PB_{p_1, p_2, \cdots, p_n} \qquad X = \sum_{i=1}^n X_i \qquad X_i \sim B_{p_i}$
   
     \[\begin{align*}
-      E[X] &= E[\sum_{i=1}^n X_i] = \sum_{i=1}^n E[X_i] = \sum_{i=1}^n p_i \\\\
+      E[X] &= E\left[\sum_{i=1}^n X_i\right] = \sum_{i=1}^n E[X_i] = \sum_{i=1}^n p_i \\\\
       Var(X) &= Var\left(\sum_{i=1}^n X_i\right) = \sum_{i=1}^n Var(X_i) = \sum_{i=1}^n p_i(1-p_i)
     \end{align*}\]
 
@@ -499,13 +502,10 @@
   + flip $n\; B(p)$ coin, average \# 1's will approach $np$
   + probability of a sequence w/ $k$ 1's and $(n-k)$ 0's is $p^k q^{n-k}$
   + Wolog assume $p > 0.5$, then most likely is $1^n$
-  + yet by WLLn w/ probability $\to 1$ we see roughly $pn$ 1's and $qn$ 0's
+  + yet by WLLN w/ probability $\to 1$, roughly $pn$ 1's and $qn$ 0's
   + why do we observe these sequences and not the most likely ones?
   + strength in \#s: \# sequences of a given composition increasing near $\frac12$
   + $pn$ balances \# $x$ probability
-
-
-
 
 
 + [Original Slides](https://tinyurl.com/yajcj3dk)
