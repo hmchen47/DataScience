@@ -640,11 +640,150 @@
 
 ## 8.3 Poisson Distribution
 
++ The Poisson distribution
+  + parameter: $\lambda \ge 0$
+  + support: $\Bbb{N}$
+  + pmf: $P_\lambda (k) = e^{-\lambda} \frac{\lambda^k}{k!}$
+  + significance: approximating $B_{p, n}$ for large $n$ and small $p$ so that $np =\lambda$ is moderate
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.statisticshowto.com/poisson-distribution/" ismap target="_blank">
+      <img src="https://tinyurl.com/yawo34ad" style="margin: 0.1em;" alt="Poisson distributions, valid only for integers on the horizontal axis. λ (also written as μ) is the expected number of event occurrences." title="Poisson distributions, valid only for integers on the horizontal axis. λ (also written as μ) is the expected number of event occurrences." width=250>
+    </a>
+  </div>
+
++ Applications
+  + $P_\lambda$ approximating $B_{p, n}$ for small $p$, large $n$
+  + Numerous applications
+    + people clicking as
+    + daily store customers
+    + responses to spam
+    + rare-disease infection
+    + gallery purchasing customers
+    + flights no shows
+    + daily 911 calls
+    + typos in a page
+
++ Small $k$
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th rowspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$\lambda$</th>
+      <th rowspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$\Pr_{\lambda} (k)$</th>
+      <th rowspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Main Component Approx.</th>
+      <th colspan="4" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$k$</th>
+    </tr>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">0</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">1</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">2</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">3</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td style="text-align: center;">General</td> <td style="text-align: center;">$e^{-\lambda}\frac{\lambda^k}{k!}$</td>
+      <td style="text-align: center;">$\frac{\lambda^k}{k!}$</td> <td style="text-align: center;">$\frac{1}{e^\lambda}$</td>
+      <td style="text-align: center;">$\frac{\lambda}{e^\lambda}$</td> <td style="text-align: center;">$\frac{\lambda^2}{2e^\lambda}$</td>
+      <td style="text-align: center;">$\frac{\lambda^3}{6e^\lambda}$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">1</td> <td style="text-align: center;">$\frac{1}{e\cdot k!}$</td>
+      <td style="text-align: center;">$\frac{1}{e}$</td> <td style="text-align: center;">$\frac{1}{e}$</td>
+      <td style="text-align: center;">$\frac{1}{e}$</td> <td style="text-align: center;">$\frac{1}{2e}$</td>
+      <td style="text-align: center;">$\frac{1}{6e}$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">2</td> <td style="text-align: center;">$\frac{2^k}{e^2 \cdot k!}$</td>
+      <td style="text-align: center;">$\frac{2^k}{e^2}$</td> <td style="text-align: center;">$\frac{1}{e^2}$</td>
+      <td style="text-align: center;">$\frac{2}{e^2}$</td> <td style="text-align: center;">$\frac{2}{e^2}$</td>
+      <td style="text-align: center;">$\frac{4}{3e^2}$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">0</td> <td style="text-align: center;">$\frac{0^k}{k!}$</td>
+      <td style="text-align: center;">$0^k$</td> <td style="text-align: center;">1</td>
+      <td style="text-align: center;">0</td> <td style="text-align: center;">0</td>
+      <td style="text-align: center;">0</td>
+    </tr>
+    </tbody>
+  </table>
+
++ Binomial approximation
+  + $P_\lambda$ approximating $B_{p, n}$ for $\lambda = np$, when $ n \gg 1 \gg p$
+
+    \[\begin{align*}
+      B_{p, n}(k) &= \binom n k p^k q^{n-k} \qquad (q = 1 - p \;\; p = \frac{\lambda}{n})\\
+      &= \binom n k (\frac \lambda n)^k (1 - \frac \lambda n)^{n-k} = \dfrac{n_{\underline{k}}}{k!} \cdot \dfrac{\lambda^k}{n^k} \cdot \dfrac{\left(1-\frac{\lambda}{n}\right)^n}{\left(1 - \frac{\lambda}{n}\right)^k}
+    \end{align*}\]
+
+  + fix $k$ and $\lambda$, let $n \nearrow$ and $p \searrow$
+
++ Limit of Binomial
+
+  \[ B_{p, n}(k) = \dfrac{n^{\underline{k}}}{k!} \cdot \dfrac{\lambda^k}{n^k} \cdot \dfrac{\left(1-\frac{\lambda}{n}\right)^n}{\left(1 - \frac{\lambda}{n}\right)^k} \quad \xrightarrow{n \to \infty}\quad e^{\lambda} \frac{\lambda^k}{k!} \]
+
+  + $\lambda$ and $k$ fixed, $n \to \infty$
+    + $\dfrac{\lambda^k}{n^k} = \frac n n \cdot \frac{(n-1}{n} \cdots \frac{(n-k+1)}{n} \to 1$: fixed \# (k) terms, each $\to 1$
+    + $\left(1 - \frac{\lambda}{n}\right)^k \to 1$: fixed \# (k) terms, each $\to 1$
+    + $\left(1-\frac{\lambda}{n}\right)^n = \left((1 - \frac 1 n)^{\frac n \lambda} \right)^{\lambda} \to (e^{-1})^\lambda = e^{-\lambda}$: increasing \# terms, each $\to 1 \quad (1 - \frac 1 m)^m \to e^{-1}$
+
++ Axioms
+  + probability: $P_\lambda (k) = e^{-\lambda} \frac{\lambda^k}{k!} \quad k \ge 0$
+  + none-negative: $P_\lambda (k) \ge 0$
+  + Taylor expansion: $e^\lambda = \sum_{k=0}^\infty \frac{\lambda^k}{k!}$
+  + unitary: 
+
+    \[ \sum_{k=0}^\infty P_\lambda (k) = \sum_{k=0}^\infty e^{-\lambda} \frac{\lambda^k}{k!} = e^{-\lambda} \sum_{k=0}^\infty \frac{\lambda^k}{k!} = e^{-\lambda}e^\lambda = 1 \]
+
++ Mean and Variance
+  + $P_\lambda$ approximating $B_{p, n}$ for $\lambda = np$ when $n \gg 1 \gg p$
+  + expectation:
+    + $B_{p, n}$: $\mu = np$
+    + $P_\lambda$: $\mu = \lambda$
+  + variance
+    + $B_{p, n}$: npq
+    + $P_\lambda$: $\lambda$
+
++ Observation
+
+    \[\begin{array}{lcl}
+      \frac{d}{d \lambda} \lambda^k = k \lambda^{k-1} = \frac{k}{\lambda} \lambda^k &\quad& \frac{d^2}{d \lambda^2} \lambda^k = k^{\underline{2}} \lambda^{k-2} = \frac{k^{\underline{2}}}{\lambda^2} \lambda^k \\
+      \frac{d^r}{d \lambda^r} \lambda^k = k^{\underline{r}} \lambda^{k-r} = \frac{k^{\underline{r}}}{\lambda^r} \lambda^k &\quad&
+      k^{\underline{r}} \lambda^k = \lambda^r \frac{d^r}{d\lambda^r} \lambda^k
+    \end{array}\]
+
++ Falling moments
+  + $X \sim P_\lambda \qquad k^{\underline{r}} \lambda^k = \lambda^r \frac{d^r}{d\lambda^r} \lambda^k$
+
+    \[\begin{align*}
+      E[X^{\underline{r}}] &= \sum_{k=0}^\infty k^{\underline{r}} P_\lambda(k) = \sum_k k^{\underline{r}} e^{-\lambda} \frac{\lambda^k}{k!} 
+        = e^{-\lambda} \sum_k k^{\underline{r}} \frac{\lambda^k}{k!} = e^{-\lambda} \sum_k \frac{\lambda^r}{k!} \frac{d^r}{d\lambda^r} e^\lambda \\
+      &= e^{-\lambda} \lambda^r \frac{d^r}{d\lambda^r} \sum_k \frac{\lambda^k}{k!} = e^{-\lambda} \lambda^r \frac{d^r}{d\lambda^r} e^\lambda 
+        = e^{-\lambda} \lambda^r e^\lambda = \lambda^r
+    \end{align*}\]
+
+  + $E[X] = E[X^{\underline{1}}] = \lambda \qquad E[X(X-1)] = E[X^\underline{2}] = \lambda^2$
+
++ Mean and variance
+  + Expectation: $E[X] = E[X^{\underline{1}}] = \lambda$
+  + variance
+    + $E[X(X-1)] = E[X^\underline{2}] = \lambda^2$
+    + $E[X^2] = E[X(X-1) + X] = E[X(X-1)] + E[X] = \lambda^2 + \lambda$
+    + $Var(X) = E[X^2] = (E[X])^2 = \lambda^2 + \lambda - \lambda^2 = \lambda$
+  + standard deviation: $\sigma = \sqrt{\lambda} \to$ small relative to the mean
+
++ Approximation example
+  + factory producing 200 times, each defective w/ probability 1%
+  + $P(3 \text{ defective})?$
+    + Binomial (precise): $B_{0.01, 200}(3) = \binom{200}{3} (0.01)^3(0.99)^{197} \approx 0.181$
+    + Poisson (approximation): $\lambda = 200 \cdot 0.01 = 2 \quad P_2(3) = e^{-2}\frac{2^3}{3!} \approx 0.18$
+  + $P(\text{some defective})?$
+    + $B_{0.01, 200}(0) = \binom{200}{0} (0.99)^{200} \approx 0.134 \quad P_2(0) = e^{-2} \frac{2^0}{0!} = e^{-2} \approx 0.135$
+    + $B_{0.01, 200}(\ge 1) = 1 - 0.134 \approx 0.866 \quad P_2(\ge 1) = 1- 0.135 \approx 0.865$
 
 
-
-
-+ [Original Slides]()
++ [Original Slides](https://tinyurl.com/y9zxs75t)
 
 
 ### Problem Sets
