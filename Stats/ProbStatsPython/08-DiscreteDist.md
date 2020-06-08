@@ -713,7 +713,7 @@
   + $P_\lambda$ approximating $B_{p, n}$ for $\lambda = np$, when $ n \gg 1 \gg p$
 
     \[\begin{align*}
-      B_{p, n}(k) &= \binom n k p^k q^{n-k} \qquad (q = 1 - p \;\; p = \frac{\lambda}{n})\\
+      B_{p, n}(k) &= \binom n k p^k q^{n-k} \qquad (q = 1 - p \;\&\; p = \frac{\lambda}{n})\\
       &= \binom n k (\frac \lambda n)^k (1 - \frac \lambda n)^{n-k} = \dfrac{n_{\underline{k}}}{k!} \cdot \dfrac{\lambda^k}{n^k} \cdot \dfrac{\left(1-\frac{\lambda}{n}\right)^n}{\left(1 - \frac{\lambda}{n}\right)^k}
     \end{align*}\]
 
@@ -721,7 +721,7 @@
 
 + Limit of Binomial
 
-  \[ B_{p, n}(k) = \dfrac{n^{\underline{k}}}{k!} \cdot \dfrac{\lambda^k}{n^k} \cdot \dfrac{\left(1-\frac{\lambda}{n}\right)^n}{\left(1 - \frac{\lambda}{n}\right)^k} \quad \xrightarrow{n \to \infty}\quad e^{\lambda} \frac{\lambda^k}{k!} \]
+  \[ B_{p, n}(k) = \dfrac{n^{\underline{k}}}{k!} \cdot \dfrac{\lambda^k}{n^k} \cdot \dfrac{\left(1-\frac{\lambda}{n}\right)^n}{\left(1 - \frac{\lambda}{n}\right)^k} \quad \xrightarrow{n \to \infty}\quad e^{-\lambda} \frac{\lambda^k}{k!} \]
 
   + $\lambda$ and $k$ fixed, $n \to \infty$
     + $\dfrac{\lambda^k}{n^k} = \frac n n \cdot \frac{(n-1}{n} \cdots \frac{(n-k+1)}{n} \to 1$: fixed \# (k) terms, each $\to 1$
@@ -736,51 +736,60 @@
 
     \[ \sum_{k=0}^\infty P_\lambda (k) = \sum_{k=0}^\infty e^{-\lambda} \frac{\lambda^k}{k!} = e^{-\lambda} \sum_{k=0}^\infty \frac{\lambda^k}{k!} = e^{-\lambda}e^\lambda = 1 \]
 
-+ Mean and Variance
++ Comparison of Mean and Variance of Binomial and Poisson distributions
   + $P_\lambda$ approximating $B_{p, n}$ for $\lambda = np$ when $n \gg 1 \gg p$
   + expectation:
     + $B_{p, n}$: $\mu = np$
     + $P_\lambda$: $\mu = \lambda$
   + variance
-    + $B_{p, n}$: npq
-    + $P_\lambda$: $\lambda$
+    + $B_{p, n}$: $Var = npq$
+    + $P_\lambda$: $Var = \lambda$
 
-+ Observation
-
-    \[\begin{array}{lcl}
-      \frac{d}{d \lambda} \lambda^k = k \lambda^{k-1} = \frac{k}{\lambda} \lambda^k &\quad& \frac{d^2}{d \lambda^2} \lambda^k = k^{\underline{2}} \lambda^{k-2} = \frac{k^{\underline{2}}}{\lambda^2} \lambda^k \\
-      \frac{d^r}{d \lambda^r} \lambda^k = k^{\underline{r}} \lambda^{k-r} = \frac{k^{\underline{r}}}{\lambda^r} \lambda^k &\quad&
-      k^{\underline{r}} \lambda^k = \lambda^r \frac{d^r}{d\lambda^r} \lambda^k
-    \end{array}\]
-
-+ Falling moments
-  + $X \sim P_\lambda \qquad k^{\underline{r}} \lambda^k = \lambda^r \frac{d^r}{d\lambda^r} \lambda^k$
-
-    \[\begin{align*}
-      E[X^{\underline{r}}] &= \sum_{k=0}^\infty k^{\underline{r}} P_\lambda(k) = \sum_k k^{\underline{r}} e^{-\lambda} \frac{\lambda^k}{k!} 
-        = e^{-\lambda} \sum_k k^{\underline{r}} \frac{\lambda^k}{k!} = e^{-\lambda} \sum_k \frac{\lambda^r}{k!} \frac{d^r}{d\lambda^r} e^\lambda \\
-      &= e^{-\lambda} \lambda^r \frac{d^r}{d\lambda^r} \sum_k \frac{\lambda^k}{k!} = e^{-\lambda} \lambda^r \frac{d^r}{d\lambda^r} e^\lambda 
-        = e^{-\lambda} \lambda^r e^\lambda = \lambda^r
-    \end{align*}\]
-
-  + $E[X] = E[X^{\underline{1}}] = \lambda \qquad E[X(X-1)] = E[X^\underline{2}] = \lambda^2$
-
-+ Mean and variance
++ Mean and variance of Poisson distribution
   + Expectation: $E[X] = E[X^{\underline{1}}] = \lambda$
   + variance
+    + $Var(X) = E[X^2] = (E[X])^2 = \lambda^2 + \lambda - \lambda^2 = \lambda$
     + $E[X(X-1)] = E[X^\underline{2}] = \lambda^2$
     + $E[X^2] = E[X(X-1) + X] = E[X(X-1)] + E[X] = \lambda^2 + \lambda$
-    + $Var(X) = E[X^2] = (E[X])^2 = \lambda^2 + \lambda - \lambda^2 = \lambda$
   + standard deviation: $\sigma = \sqrt{\lambda} \to$ small relative to the mean
+
+  + Observation
+
+      \[\begin{array}{lcl}
+        \frac{d}{d \lambda} \lambda^k = k \lambda^{k-1} = \frac{k}{\lambda} \lambda^k &\quad& \frac{d^2}{d \lambda^2} \lambda^k = k^{\underline{2}} \lambda^{k-2} = \frac{k^{\underline{2}}}{\lambda^2} \lambda^k \\
+        \frac{d^r}{d \lambda^r} \lambda^k = k^{\underline{r}} \lambda^{k-r} = \frac{k^{\underline{r}}}{\lambda^r} \lambda^k &\quad&
+        k^{\underline{r}} \lambda^k = \lambda^r \frac{d^r}{d\lambda^r} \lambda^k
+      \end{array}\]
+
+  + Falling moments
+    + $X \sim P_\lambda \qquad k^{\underline{r}} \lambda^k = \lambda^r \frac{d^r}{d\lambda^r} \lambda^k$
+
+      \[\begin{align*}
+        E[X^{\underline{r}}] &= \sum_{k=0}^\infty k^{\underline{r}} P_\lambda(k) = \sum_k k^{\underline{r}} e^{-\lambda} \frac{\lambda^k}{k!} 
+          = e^{-\lambda} \sum_k k^{\underline{r}} \frac{\lambda^k}{k!} = e^{-\lambda} \sum_k \frac{\lambda^r}{k!} \frac{d^r}{d\lambda^r} e^\lambda \\
+        &= e^{-\lambda} \lambda^r \frac{d^r}{d\lambda^r} \sum_k \frac{\lambda^k}{k!} = e^{-\lambda} \lambda^r \frac{d^r}{d\lambda^r} e^\lambda 
+          = e^{-\lambda} \lambda^r e^\lambda = \lambda^r
+      \end{align*}\]
+
+    + $E[X] = E[X^{\underline{1}}] = \lambda \qquad E[X(X-1)] = E[X^\underline{2}] = \lambda^2$
 
 + Approximation example
   + factory producing 200 times, each defective w/ probability 1%
-  + $P(3 \text{ defective})?$
+  + $\Pr(3 \text{ defective})?$
     + Binomial (precise): $B_{0.01, 200}(3) = \binom{200}{3} (0.01)^3(0.99)^{197} \approx 0.181$
     + Poisson (approximation): $\lambda = 200 \cdot 0.01 = 2 \quad P_2(3) = e^{-2}\frac{2^3}{3!} \approx 0.18$
-  + $P(\text{some defective})?$
-    + $B_{0.01, 200}(0) = \binom{200}{0} (0.99)^{200} \approx 0.134 \quad P_2(0) = e^{-2} \frac{2^0}{0!} = e^{-2} \approx 0.135$
-    + $B_{0.01, 200}(\ge 1) = 1 - 0.134 \approx 0.866 \quad P_2(\ge 1) = 1- 0.135 \approx 0.865$
+  + $\Pr(\text{some defective})?$
+    + $B_{0.01, 200}(0) = \binom{200}{0} (0.99)^{200} \approx 0.134 \quad B_{0.01, 200}(\ge 1) = 1 - 0.134 \approx 0.866$
+    + $P_2(0) = e^{-2} \frac{2^0}{0!} = e^{-2} \approx 0.135 \quad P_2(\ge 1) = 1- 0.135 \approx 0.865$
+
++ Summary: Poisson distribution
+  + pmf: $P_\lambda (k) = e^{-\lambda} \frac{\lambda^k}{k!} \quad \lambda \ge 0 \quad k \ge 0$
+  + approximation: $B_{p,n}$ for $\lambda = np$, when $n \gg 1 \gg p$
+  + applications: \# of ad clicks, rare disease, production defects
+  + properties
+    + $\mu = \lambda$
+    + $Var = \lambda$
+    + $\sigma = \sqrt{\lambda}$
 
 
 + [Original Slides](https://tinyurl.com/y9zxs75t)
