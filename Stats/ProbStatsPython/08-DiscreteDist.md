@@ -95,7 +95,7 @@
   + $X \sim B_p \quad p(0) = 1-p \quad p(1) = p$
   + $E[X] = \sum p(x) \cdot x = (1-p) \cdot 0 + p \cdot 1$
     + e.g. $X \sim B_{.8} \to E[X] = 0.8$
-  + $E[X] = P(X=1)$
+  + $E[X] = \Pr(X=1)$
   + fraction of times expect to see 1
 
 + Variance
@@ -115,12 +115,12 @@
   + much of $B_p$ importance stems from multiple trials
   + most common type of Bernoulli distribution: independent ${\perp \!\!\!\! \perp}$
     + $0 \le p \le 1\quad X_1, X_2, X_3 \sim B_p \to {\perp \!\!\!\! \perp}$
-    + $q \stackrel{\text{def}}{=} 1-p\quad P(110) = p^2q = P(101) = P(011)$
+    + $q \stackrel{\text{def}}{=} 1-p\quad \Pr(110) = p^2q = \Pr(101) = \Pr(011)$
   + generally, $X_1, X_2, \cdots, X_n \sim B_p \to  {\perp \!\!\!\! \perp}$
     + $x^n = x_1, x_2, \cdots, x_n \in \{0, 1\}^n$
     + $n_0$ = number of 0's; &nbsp;&nbsp;&nbsp;&nbsp;  $n_1$ = number of 1's
-    + $P(x_1, \dots, x_n) = p^{n_1} q^{n_0}$
-    + e.g., $P(10101) = p^{n_1} q^{n_0} = p^3 q^2$
+    + $\Pr(x_1, \dots, x_n) = p^{n_1} q^{n_0}$
+    + e.g., $\Pr(10101) = p^{n_1} q^{n_0} = p^3 q^2$
 
 + Typical samples
 
@@ -189,9 +189,9 @@
     + True. It is trivial.
     + True. Let  $X \sim B_p_x, Y \sim B_p_y$.
 
-      If $X$ and $Y$ are uncorrelated, $\text{Cov}(X, Y) = E(XY) - E(X)E(Y) \\ = \sum_{x = 0}^{1} \sum_{y = 0}^{1} xyP(X = x, Y = y) - p_{x}p_{y} \\ = P(X = 1, Y = 1) - p_{x}p_{y} \\ = P(X = 1 | Y = 1)P(Y = 1) - p_{x}p_{y} \\ = (P(X = 1 | Y = 1) - p_{x})p_{y} \\ = 0$.
+      If $X$ and $Y$ are uncorrelated, $\text{Cov}(X, Y) = E(XY) - E(X)E(Y) \\ = \sum_{x = 0}^{1} \sum_{y = 0}^{1} xy\Pr(X = x, Y = y) - p_{x}p_{y} \\ = \Pr(X = 1, Y = 1) - p_{x}p_{y} \\ = \Pr(X = 1 | Y = 1)\Pr(Y = 1) - p_{x}p_{y} \\ = (\Pr(X = 1 | Y = 1) - p_{x})p_{y} \\ = 0$.
 
-      Hence, $P(X=1 \mid Y=1)=p_x=P(X=1)$ and similarly $P(Y=1 \mid X=1)=p_y=P(Y=1)$. From that, we have $P(X = 0 | Y = 1) = \frac{P(Y = 1 | X = 0)P(X = 0)}{P(Y = 1)} =$ $1 - p_{x} = P(X = 0) \implies$ $P(Y = 1 | X = 0) = p_{y} = P(Y = 1)$, and similarly $P(X=1|Y=0)=p_x=P(X=1)$. Thus, $X$ and $Y$ are independent.
+      Hence, $\Pr(X=1 \mid Y=1)=p_x=\Pr(X=1)$ and similarly $\Pr(Y=1 \mid X=1)=p_y=\Pr(Y=1)$. From that, we have $\Pr(X = 0 | Y = 1) = \frac{\Pr(Y = 1 | X = 0)\Pr(X = 0)}{\Pr(Y = 1)} =$ $1 - p_{x} = \Pr(X = 0) \implies$ $\Pr(Y = 1 | X = 0) = p_{y} = \Pr(Y = 1)$, and similarly $\Pr(X=1|Y=0)=p_x=\Pr(X=1)$. Thus, $X$ and $Y$ are independent.
 
 
 3. Consider ten independent $B_{0.3}$ trials. Which of the following is the most probable?<br/>
@@ -250,24 +250,24 @@
 
   $X=U+V$, where $U$ and $V$ are independent Bernoulli variables with different expectations but the same variance $0.21$. Find:<br/>
   a. $E(X)$,<br/>
-  b. $V(X)$,<br/>
+  b. $Var(X)$,<br/>
   c. $\sigma_X$.<br/>
 
   Ans: a. (1); b. (0.42); c. (0.6481)<br/>
   Explanation
     + Let $U \sim B_p$ and $V \sim B_q$. Since $U$ and $V$ have the same variance, $p \cdot (1−p)=q \cdot (1−q)$, and since $p \neq q$, we must have $q=1−p$. Hence  $E[X]=E[U+V]=E[U]+E[V]=p+q=p+(1−p)=1$.
     + $Var(X)=Var(U)+Var(V)=0.42$.
-    + $\sigma_X = \sqrt{V(X)} = 0.6481$
+    + $\sigma_X = \sqrt{Var(X)} = 0.6481$
 
 
 8. Let $X$ be the number of heads when flipping four coins with heads probabilities 0.3, 0.4, 0.7, and 0.8. Find:<br/>
-  a. $P(X=1)$,<br/>
+  a. $\Pr(X=1)$,<br/>
   b. $E(X)$,<br/>
-  c. $V(X)$.<br/>
+  c. $Var(X)$.<br/>
 
   Ans: a. (); b. (); c. ()<br/>
   Explanation
-    + $P(X = 1) = 0.3 \cdot 0.6 \cdot 0.3 \cdot 0.2 + 0.7 \cdot 0.4 \cdot 0.3 \cdot 0.2 + 0.7 \cdot 0.6 \cdot 0.7 \cdot 0.2 + 0.7 \cdot 0.6 \cdot 0.3 \cdot 0.8 = 0.1872$
+    + $\Pr(X = 1) = 0.3 \cdot 0.6 \cdot 0.3 \cdot 0.2 + 0.7 \cdot 0.4 \cdot 0.3 \cdot 0.2 + 0.7 \cdot 0.6 \cdot 0.7 \cdot 0.2 + 0.7 \cdot 0.6 \cdot 0.3 \cdot 0.8 = 0.1872$
     + $E[X] = 0.3 + 0.4 + 0.7 + 0.8 = 2.2$
     + $Var(X) = 0.21 + 0.24 + 0.21 + 0.16 = 0.82$
 
@@ -277,7 +277,7 @@
   Every light bulb is defective with 2% probability. What is the probability that a package of 8 bulbs will not suffice for a project requiring 7?
 
   Ans: 0.01034<br/>
-  Explanation: Let $X \sim B(0.02,8)$ be the number of defective bulbs in a package. The box will not suffice if there are 2 or more defective bulbs, which happens with probability. $P(X \gt 1) = 1 - P(X = 0) - P(X = 1) =$ $1 - \binom{8}{0} \cdot (1-0.02)^8 - \binom{8}{1} \cdot (1-0.02)^7 \cdot 0.02 = 0.0103.$
+  Explanation: Let $X \sim B(0.02,8)$ be the number of defective bulbs in a package. The box will not suffice if there are 2 or more defective bulbs, which happens with probability. $\Pr(X \gt 1) = 1 - \Pr(X = 0) - \Pr(X = 1) =$ $1 - \binom{8}{0} \cdot (1-0.02)^8 - \binom{8}{1} \cdot (1-0.02)^7 \cdot 0.02 = 0.0103.$
 
 
 
@@ -513,6 +513,120 @@
 
 ### Problem Sets
 
+0. If you flip a fair coin 10 times and let X be the total number of heads, then Var(X) is<br/>
+  a. 1.5<br/>
+  b. 2.5<br/>
+  c. 3.5<br/>
+  d. None of the above<br/>
+
+  Ans: b<br/>
+  Explanation: The answer is $Var(X) = np(1 - p) = 2.5.$
+
+
+1. There are 5 traffic signals between your home and work. Each is red with probability 0.35, independently of all others. Find:
+
+  1) the probability of encountering no red lights,<br/>
+  a. 2.26%<br/>
+  b. 5.2%<br/>
+  c. 11.6%<br/>
+  d. 17.5%<br/>
+
+  2) the probability of encountering only red lights,<br/>
+  a. 0.03%<br/>
+  b. 0.52%<br/>
+  c. 1.16%<br/>
+  d. 16.4%<br/>
+
+  3) the expected number of red lights you will encounter?<br/>
+  a. 0.75 <br/>
+  b. 1.42 <br/>
+  c. 1.75 <br/>
+  d. 2.25 <br/>
+
+  Ans: 1. (c); 2. (b); c. (c)<br/>
+  Explanation
+    + $(1 - 0.35)^5 = 0.116$
+    + $0.35^5=0.0052$
+    + The expectation of the sum is the sum of the expectations. $0.35+0.35+0.35+0.35+0.35=1.75$.
+
+
+2. If every student is independently late with probability 10%, find the probability that in a class of 30 students:
+
+  1) nobody is late,<br/>
+  a. 4.2%<br/>
+  b. 8.0%<br/>
+  c. 17.4%<br/>
+  d. 33.3%<br/>
+
+  2) exactly 1 student is late.<br/>
+  a. 3.33%<br/>
+  b. 5.25%<br/>
+  c. 7.75%<br/>
+  d. 14.1%<br/>
+
+  Ans: 1. (a); b. (d)<br/>
+  Explanation
+    + $(1 - 0.1)^{30} = 0.042$
+    + $(1 - 0.1)^{29} \times 0.1 \times \binom{30}{1} = 0.141$
+
+
+3. A coin with heads probability 0.6 is tossed 6 times, calculate the probability of observing:<br/>
+  a. exactly two heads,<br/>
+  b. at most one tails,<br/>
+  c. an even number of heads.<br/>
+
+  Ans: a. (0.13824); b (0.23328); c. (0.5)<br/>
+  Explanation
+    + The number of heads, $H$ is distributed as $H \sim Binomial(6,0.6)$. Thus the probability here is $\Pr(H=2)=\binom62 0.6^2 c\dot 0.44=0.13824$.
+    + The number of tails, $T$ is distributed as $T \sim Binomial(6,0.4)$. Thus the probability here is $\Pr(T=0)+\Pr(T=1) = \binom60 0.6^6+\binom61 0.4^1\cdot 0.6^5 = 0.23328$
+    + Using the distribution of $H$, the probability here is $\Pr(H=0)+\Pr(H=2)+\Pr(H=4)+\Pr(H=6)$ $=\binom60 0.4^6+\binom62 0.6^2\cdot 0.4^4+\binom64 0.6^4\cdot 0.4^2+\binom66 0.6^6=0.50032$
+
+
+4. A Binomial distribution $B_{p,n}$, where $p \neq 0$, has the same mean and standard deviation, namely $\mu=σ$.
+
+  Find the mean of $B_{p,n+1}$
+
+  Ans: 1<br/>
+  Explanation: Since $B_{p,n}$ has $\sigma= \mu$, we have $np=\sqrt{npq}$, hence $1−p=q=np$, or $p⋅(n+1)=1$.
+
+
+5. For $X \sim B_{0.7,10}$, find:<br/>
+  a. $E(X)$,<br/>
+  b. $Var(X)$,<br/>
+  c. $\sigma_X$,<br/>
+  d. The most likely outcome of $X$.<br/>
+
+  Ans: a. (7); b. (2.1); c. (1.4491); d.(7)<br/>
+  Explanation
+    + $E[X]=np=7$.
+    + $Var(X)=np(1−p)=2.1$.
+    + $\sigma_X = \sqrt{Var(X)} = 1.4491$
+    + $\Pr(X = 7) = \underset{x}{\max} \Pr(X = x)$
+
+6. Ten balls are randomly dropped into four urns. Let $X$ be the number of balls dropped into one pre-selected urn. Find:<br/>
+  a. $\Pr(X=0)$,<br/>
+  b. $\Pr(X=1)$,<br/>
+  c. $E(X)$,<br/>
+  d. $Var(X)$.<br/>
+
+  Ans: a. (0.05631); b. (0.1877); c. (2.5); d. (1.875)<br/>
+  Explanation
+    + Clearly $X$ is distributed $B_{1/4,10}$. Hence $\Pr(X=0)=\binom{10}0\cdot(1/4)^0\cdot(3/4)^{10}=(3/4)^{10}=0.056$
+    + $\Pr(X = 1) = \binom{10}1 \cdot (1/4)^1 \cdot (3/4)^9=0.188$
+    + $E(X) = np = 10\cdot\frac14=\frac52.$
+    + $Var(X)= np(1-p) = 10\cdot\frac14\frac34=\frac{30}{16}=\frac{15}{8}$
+
+
+7. Our TA owns four Porsches, each works  80%  of the time, and two Ferraris, each works  60%  of the time. What is the probability that on a given day, at least half of the Porsches and at least half of the Ferraris work?
+
+  Ans: 0.8172<br/>
+  Explanation: Let $Q$ be the number of Porshes that work and $F$ be the number of Ferraris that work.  $P(Q\ge 2)=1-P(Q=0)-P(Q=1)=$ $1-{4\choose 0}0.2^4-{4\choose 1}0.8^1\cdot 0.2^3=$ $0.9728$. $P(F\ge 1)=1-P(F=0)=$ $1-{2\choose 0}0.4^2=0.84$.  Therefore the required probability is $P(Q\ge 2)\cdot P(F\ge 1)=0.817152$.
+
+
+8. Alice solves every puzzle with probability 0.6, and Bob, with probability 0.5. They are given 7 puzzle and each chooses 5 out of the 7 puzzles randomly and solves them independently. A puzzle is considered solved if at least one of them solves it. What is the probability that all the 7 puzzles are solved?
+
+  Ans: <span style="color: magenta;">0.021</span><br/>
+  Explanation: The probability that all the 7 puzzles are chosen is the probability that Bob chooses the two puzzles Alice did not pick, namely, \(\frac{\binom{5}{3}\binom22}{\binom{7}{5}} = \frac{10}{21}\). Every puzzle they both attempt, they both fail with probability \(0.4\cdot0.5=0.2\), hence at least one solves with probability \(1-0.2=0.8\). It follows that all puzzles are solved with probability \(\frac{10}{21}\cdot 0.6^2 \cdot 0.5^2 \cdot 0.8^3 = 0.0219\).
 
 
 
