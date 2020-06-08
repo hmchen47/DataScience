@@ -655,7 +655,7 @@
 + Applications
   + $P_\lambda$ approximating $B_{p, n}$ for small $p$, large $n$
   + Numerous applications
-    + people clicking as
+    + people clicking ad
     + daily store customers
     + responses to spam
     + rare-disease infection
@@ -714,23 +714,23 @@
 
     \[\begin{align*}
       B_{p, n}(k) &= \binom n k p^k q^{n-k} \qquad (q = 1 - p \;\&\; p = \frac{\lambda}{n})\\
-      &= \binom n k (\frac \lambda n)^k (1 - \frac \lambda n)^{n-k} = \dfrac{n_{\underline{k}}}{k!} \cdot \dfrac{\lambda^k}{n^k} \cdot \dfrac{\left(1-\frac{\lambda}{n}\right)^n}{\left(1 - \frac{\lambda}{n}\right)^k}
+      &= \binom n k \left(\frac \lambda n\right)^k \left(1 - \frac \lambda n\right)^{n-k} = \dfrac{n^{\underline{k}}}{k!} \cdot \dfrac{\lambda^k}{n^k} \cdot \dfrac{\left(1-\frac{\lambda}{n}\right)^n}{\left(1 - \frac{\lambda}{n}\right)^k}
     \end{align*}\]
 
   + fix $k$ and $\lambda$, let $n \nearrow$ and $p \searrow$
 
-+ Limit of Binomial
+  + Limit of Binomial
 
-  \[ B_{p, n}(k) = \dfrac{n^{\underline{k}}}{k!} \cdot \dfrac{\lambda^k}{n^k} \cdot \dfrac{\left(1-\frac{\lambda}{n}\right)^n}{\left(1 - \frac{\lambda}{n}\right)^k} \quad \xrightarrow{n \to \infty}\quad e^{-\lambda} \frac{\lambda^k}{k!} \]
+    \[ B_{p, n}(k) = \dfrac{n^{\underline{k}}}{k!} \cdot \dfrac{\lambda^k}{n^k} \cdot \dfrac{\left(1-\frac{\lambda}{n}\right)^n}{\left(1 - \frac{\lambda}{n}\right)^k} \quad \xrightarrow{n \to \infty}\quad e^{-\lambda} \frac{\lambda^k}{k!} \]
 
-  + $\lambda$ and $k$ fixed, $n \to \infty$
-    + $\dfrac{\lambda^k}{n^k} = \frac n n \cdot \frac{(n-1}{n} \cdots \frac{(n-k+1)}{n} \to 1$: fixed \# (k) terms, each $\to 1$
-    + $\left(1 - \frac{\lambda}{n}\right)^k \to 1$: fixed \# (k) terms, each $\to 1$
-    + $\left(1-\frac{\lambda}{n}\right)^n = \left((1 - \frac 1 n)^{\frac n \lambda} \right)^{\lambda} \to (e^{-1})^\lambda = e^{-\lambda}$: increasing \# terms, each $\to 1 \quad (1 - \frac 1 m)^m \to e^{-1}$
+    + $\lambda$ and $k$ fixed, $n \to \infty$
+      + $\dfrac{\lambda^k}{n^k} = \frac n n \cdot \frac{(n-1)}{n} \cdots \frac{(n-k+1)}{n} \to 1$: fixed \# (k) terms, each $\to 1$
+      + $\left(1 - \frac{\lambda}{n}\right)^k \to 1$: fixed \# (k) terms, each $\to 1$
+      + $\left(1-\frac{\lambda}{n}\right)^n = \left((1 - \frac 1 n)^{\frac n \lambda} \right)^{\lambda} \to (e^{-1})^\lambda = e^{-\lambda}$: increasing \# terms, each $\to 1 \quad (1 - \frac 1 m)^m \to e^{-1}$
 
 + Axioms
   + probability: $P_\lambda (k) = e^{-\lambda} \frac{\lambda^k}{k!} \quad k \ge 0$
-  + none-negative: $P_\lambda (k) \ge 0$
+  + non-negative: $P_\lambda (k) \ge 0$
   + Taylor expansion: $e^\lambda = \sum_{k=0}^\infty \frac{\lambda^k}{k!}$
   + unitary: 
 
@@ -748,7 +748,7 @@
 + Mean and variance of Poisson distribution
   + Expectation: $E[X] = E[X^{\underline{1}}] = \lambda$
   + variance
-    + $Var(X) = E[X^2] = (E[X])^2 = \lambda^2 + \lambda - \lambda^2 = \lambda$
+    + $Var(X) = E[X^2] - (E[X])^2 = \lambda^2 + \lambda - \lambda^2 = \lambda$
     + $E[X(X-1)] = E[X^\underline{2}] = \lambda^2$
     + $E[X^2] = E[X(X-1) + X] = E[X(X-1)] + E[X] = \lambda^2 + \lambda$
   + standard deviation: $\sigma = \sqrt{\lambda} \to$ small relative to the mean
@@ -756,9 +756,9 @@
   + Observation
 
       \[\begin{array}{lcl}
-        \frac{d}{d \lambda} \lambda^k = k \lambda^{k-1} = \frac{k}{\lambda} \lambda^k &\quad& \frac{d^2}{d \lambda^2} \lambda^k = k^{\underline{2}} \lambda^{k-2} = \frac{k^{\underline{2}}}{\lambda^2} \lambda^k \\
-        \frac{d^r}{d \lambda^r} \lambda^k = k^{\underline{r}} \lambda^{k-r} = \frac{k^{\underline{r}}}{\lambda^r} \lambda^k &\quad&
-        k^{\underline{r}} \lambda^k = \lambda^r \frac{d^r}{d\lambda^r} \lambda^k
+        \frac{d}{d \lambda} \lambda^k = k \lambda^{k-1} = \dfrac{k}{\lambda} \lambda^k &\quad& \dfrac{d^2}{d \lambda^2} \lambda^k = k^{\underline{2}} \lambda^{k-2} = \dfrac{k^{\underline{2}}}{\lambda^2} \lambda^k \\
+        \dfrac{d^r}{d \lambda^r} \lambda^k = k^{\underline{r}} \lambda^{k-r} = \dfrac{k^{\underline{r}}}{\lambda^r} \lambda^k &\quad&
+        k^{\underline{r}} \lambda^k = \lambda^r \dfrac{d^r}{d\lambda^r} \lambda^k
       \end{array}\]
 
   + Falling moments
