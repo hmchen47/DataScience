@@ -887,11 +887,149 @@
 
 ## 8.4 Geometric Distribution
 
++ Back to basics
+  + independent $B_p$ coin flips: $p(1) = p \quad p(0) = 1 - q \stackrel{\text{def}}{=} q$
+  + two derived distributions
+    + Binomial: $B_{p, n}$ = \# 1's in flips
+    + Geometric: $G_p$ = \# flips till first 1 = time to first success
+
+<table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <thead>
+  <tr style="font-size: 1.2em;">
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Flips</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$X$</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:2%;">$\hspace{0.2em}$</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$n$</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">$X_1, \dots, X_n \sim B(p)$</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$p(n)$</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr> <td style="text-align: center;">$101011$</td> <td style="text-align: center;">1</td> <td></td> <td style="text-align: center;">1</td> <td>$X_1 = 1$</td> <td style="text-align: center;">$p$</td> </tr>
+  <tr> <td style="text-align: center;">$010111$</td> <td style="text-align: center;">2</td> <td></td> <td style="text-align: center;">2</td> <td>$X_1 = 0\;\; X_2 =1$</td> <td style="text-align: center;">$qp$</td> </tr>
+  <tr> <td style="text-align: center;">$001010$</td> <td style="text-align: center;">3</td> <td></td> <td style="text-align: center;">3</td> <td>$X_1 = X_2 = 0 \;\; X_3=1$</td> <td style="text-align: center;">$q^2p$</td> </tr>
+  <tr> <td style="text-align: center;">$\cdots$</td> <td style="text-align: center;">$\cdots$</td> <td></td> <td style="text-align: center;">$\cdots$</td> <td>$\cdots$</td> <td style="text-align: center;">$\cdots$</td> </tr>
+  <tr> <td style="text-align: center;">$\underbrace{0\dots01}_{n}0$</td> <td style="text-align: center;">n</td> <td></td> <td style="text-align: center;">n</td> <td>$X_1=\cdots=X_{n-1}=0 \;\; X_n = 1$</td> <td style="text-align: center;">$q^{n-1}p$</td> </tr>
+  </tbody>
+</table>
+
++ Geometric distribution
+  + Notation: $G_p \quad 0 <p \le 1$
+  + probability: $p(n) = q^{n-1} p \stackrel{\text{def}}{=} g_p(n) \quad n \ge 1$
+  + range: $p \neq 0$, $n$ can be arbitrary high
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/avarkvc" ismap target="_blank">
+      <img src="https://tinyurl.com/y7a8jauc" style="margin: 0.1em;" alt="Probability mass function of Geometric distribution" title="Probability mass function of Geometric distribution" width=450>
+    </a>
+  </div>
+
++ Example
+  + 30 years ago, thief trying door keys
+  + trials to hit a target
+  + attempts till success
+  + till failure
+
++ Axioms
+  + probability: $\Pr(n) = pq^{n-1} \quad n \ge 1 \quad q = 1-p$
+  + non-negative: $\Pr(n) \ge 0$
+  + unitary
+
+    \[ \sum_{n=1}^\infty p(1-p)^{n-1} = p \sum_{i=0}^\infty (1-p)^i = p \cdot \frac{1}{1 - (1-p)} = \frac p p = 1 \]
+
++ Cumulative Distribution Function (CDF)
+  
+  $n \in \Bbb{N} \quad X > n \iff X_1 = \cdots = X_n =0$
+  
+  \[ \Pr(X > n) = \Pr(X_1 = \cdots = X_n = 0) = q^m \]
+
+  \[F(n) = \Pr(X \le n) = 1 - \Pr(X > n) = 1 - q^n \]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/avarkvc" ismap target="_blank">
+      <img src="https://tinyurl.com/ybmlj5xz" style="margin: 0.1em;" alt="Cumulative distribution function of Geometric distribution" title="Cumulative distribution function of Geometric distribution" width=450>
+    </a>
+  </div>
+
++ Expectation via "Right" CDF
+  + $x \in \Bbb{N} \quad P_k = \Pr(X = k)$
+  + expectation:
+
+    \[\begin{align*}
+      E[X] &= \sum_{k=0}&\infty kP_k = P_1 + 2 P_2 + 3 P_3 + \cdots \\
+      &= \Pr(X \ge 1) + \Pr(X \ge 2) + \Pr(X \ge 3) + \cdots\\
+      &= \sum_{k=1}^\infty \Pr(X \ge k) = \sum_{i=0}^\infty \Pr(X > i) = \sum_{i=0}^\infty = \frac{1}{1-q} = \frac{1}{p}
+    \end{align*}\]
+
++ Variance
+
+  \[\begin{align*}
+    E[X(X-1)] &= \sum_{n=1}^\infty n(n-1) \cdot \Pr(X=n) = p\sum_{n=1}^\infty n(n-1)q^{n-1} \\
+    &= pq \sum_{n=2}^\infty \frac{d^2}{dq^2} q^n = pq \frac{d^2}{dq^2} \sum_{n=2}^\infty q^n \\
+    & = pq \frac{d^2}{dq^2} (\frac{1}{1-q} -1 -q) \hspace{4em}\left( \frac{1}{1-q} \right)^\prime = \frac{1}{(1-q)^2} \\
+    &= pq \frac{2}{(1-q)^3} = \frac{2q}{p^2} \hspace{6em}\left( \frac{1}{(1-q)^2} \right)^\prime = \frac{2}{(1-q)^3}\\
+  \end{align*}\]
+
+  \[ E[X^2] = E[X(X-1)] + E[X] = \frac{2q}{p^2} + \frac{1}{p} = \frac{21+p}{p^2} = \frac{1+q}{p^2} \]
+
+  \[ Var(X) = E[X^2] - (E[X])^2 = \frac{1+q}{p^2} - \frac{1}{p^2} = \frac{q}{p^2} \quad\to\quad \sigma = \frac{\sqrt{q}}{p} \]
+
++ Example: fair coin
+  + $X \sim G_{\frac12}$
+  + $\Pr(X = k) = g_{0.5}(k) = (\frac12)^{k-1} \cdot \frac12 = \frac{1}{2^k}$
+  + $E[X] = \frac1q = 2$
+  + $Var(X) = \frac{q}{p^2} = 2$
+
++ "Even" odds
+  + normally, "even ods" means that two events have equal probabilities
+  + something a bit more "odd"
+  + probability that a Geometric random variable is even
+
+    \[ \Pr(1) = p \quad \Pr(2) = p \cdot q = q \cdot \Pr(1) \]
+
++ Memoryless
+  + a distribution over $\Bbb{P} = \{1, 2, \dots\}$ is a memoryless if $\forall\, n \ge 0, m > 1$
+
+    \[ \P(X = n+m \mid X > n) = \Pr(X=m) \]
+
+    + e.g., $\Pr(X = 12 \mid X > 0) = \Pr(X=2)$
+  + after observing or any number of samples, process behaves as at the start
+
++ Geometric and Memoryless
+  + Geometric $\to$ Memoryless
+
+    \[\begin{align*}
+      \Pr(X = n+m \mid X > n) & = \frac{\Pr(X=n+m, X > n)}{\Pr(X > n)} = \frac{\Pr(X=n+m)}{\Pr(X>n)} \\
+      &= \frac{p \cdot q^{n+m-1}}{q^n} = p \cdot q^{m-1} = \Pr(X=m)
+    \end{align*}\]
+
+    + all geometric distributions are memoryless
+  + Memory $\to$ Geometric
+    + any discrete memoryless distribution over $\Bbb{P}$ is geometric
+    + $p \stackrel{\text{def}}{=} = \Pr(X=1) \quad q \stackrel{\text{def}}{=} 1 - p = \Pr(X > 1)$
+
+    \[\begin{align*}
+      \forall\, n \ge 1, \;\; \Pr(X=n+1) &= \Pr(X>1 \wedge X = n=1) \\
+      &= \Pr(X > 1) \cdot \Pr(X=n+1 \mid X > 1) = q \cdot \Pr(X=n)
+    \end{align*}\]
+
+    + Hence, $\Pr(X=2) - qp, \Pr(X=3) - q^2p, \dots$
+    + $\Pr(X=n) = q^{n-1}q \to$ Geometric
+
++ $r$ successes
+  + Geometric: $\Pr(X=n) = \Pr(\text{first success at n'th trial})$
+
+    \[\begin{align*}
+      \Pr(\text{r'th success at n'th trial}) &= \Pr(r-1 \text{ success in } n-1 \text{ trial}) \cdot \Pr(\text{n'th trial is success})\\
+      \Pr(n \ge r) &= b_{n-1, p}(r-1) \cdot p = \binom{n-1}{r-1} p^{r-1} q^{n-r} p \\
+      &= \binom{n-1}{r-1} p^r q^{n-r}
+    \end{align*}\]
+
+  + $r = 1 \to pq^{n-1} = g_p(n)$
+  + negative binomial distribution
 
 
-
-
-+ [Original Slides]()
++ [Original Slides](https://tinyurl.com/y73cv4pe)
 
 
 ### Problem Sets
