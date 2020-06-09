@@ -233,7 +233,7 @@
 
 
 6. Let $X \sim B_{0.4}$, $Y \sim B_{0.2}$, and they are independent. Find the Bernoulli parameter for the following random variables. Write $−1$ if they are not Bernoulli.<br/>
-  a. $X⋅Y$,<br/>
+  a. $X \cdot Y$,<br/>
   b. $XY$, recall that $0^ 0=1$,<br/>
   c. $|X−Y|$,<br/>
   d. $X+Y$.<br/>
@@ -587,7 +587,7 @@
   Find the mean of $B_{p,n+1}$
 
   Ans: 1<br/>
-  Explanation: Since $B_{p,n}$ has $\sigma= \mu$, we have $np=\sqrt{npq}$, hence $1−p=q=np$, or $p⋅(n+1)=1$.
+  Explanation: Since $B_{p,n}$ has $\sigma= \mu$, we have $np=\sqrt{npq}$, hence $1−p=q=np$, or $p \cdot (n+1)=1$.
 
 
 5. For $X \sim B_{0.7,10}$, find:<br/>
@@ -648,7 +648,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.statisticshowto.com/poisson-distribution/" ismap target="_blank">
-      <img src="https://tinyurl.com/yawo34ad" style="margin: 0.1em;" alt="Poisson distributions, valid only for integers on the horizontal axis. λ (also written as μ) is the expected number of event occurrences." title="Poisson distributions, valid only for integers on the horizontal axis. λ (also written as μ) is the expected number of event occurrences." width=250>
+      <img src="https://tinyurl.com/yawo34ad" style="margin: 0.1em;" alt="Poisson distributions, valid only for integers on the horizontal axis. \lambda (also written as μ) is the expected number of event occurrences." title="Poisson distributions, valid only for integers on the horizontal axis. \lambda (also written as μ) is the expected number of event occurrences." width=250>
     </a>
   </div>
 
@@ -797,7 +797,84 @@
 
 ### Problem Sets
 
+0. The mean and the variance of a Poisson distribution is the same.
 
+  Ans: True
+
+
+1. Assume a telemarketer’s successful sales per hour is a Poisson random variable with $\lambda=2$. What is the probability that the telemarketer makes no sales in 1 hour?<br/>
+  a. 13.5%<br/>
+  b. 22.5%<br/>
+  c. 27.7%<br/>
+  d. 31.2%<br/>
+
+  Ans: a<br/>
+  Explanation: $P(X = k) = \frac{\lambda^k}{k!}e^{-\lambda}$. With $\lambda = 2$, $P(X = 0) = e^{-2} = 0.135$
+
+
+2. The expectation of a Poisson random variable and its variance are (a) equal (b) not equal?
+
+  Ans: a
+
+
+3. Random variable X is distributed Poisson, and $P(X=2)=P(X=4)$. Find $P(X=3)$.
+
+  Ans: 0.2169<br/>
+  Explanation: $P(X=2)=P(X=4) \implies \lambda =2 \sqrt{3}$. Hence $P(X=3)=4\sqrt{3}\cdot e^{-2\sqrt{3}}$.
+
+
+4. Let $X$ be distributed Poisson with parameter 1. Find $P(X \ge 2 \mid X \le 4)$.
+
+  Ans: 0.2606<br/>
+  Explanation: Here $P(X=i)=e^{−1}/i!$. Therefore $P(X\ge 2 \mid X\le 4) =$ $\frac{P(X\ge 2\cap X\le 4)}{P(X\le 4)} =$ $\frac{(1/2+1/6+1/24)e^{-1}}{(1+1+1/2+1/6+1/24)e^{-1}}$, and the answer follows.
+
+
+5. Assume the number of typo errors on a single page of a book follows Poisson distribution with parameter 1/3. Calculate the probability that on one page there are<br/>
+  a. no typo,<br/>
+  b. exactly two typos,<br/>
+  c. more than one typo?<br/>
+
+  Ans: a. (0.7165); b. (0.03981); c. (0.04467)<br/>
+  Explanation
+    + Recall that for a random variable $X \sim Poisson(\lambda)$ its distribution is given by $P(X=i)=e^{-\lambda}\cdot\frac{\lambda^i}{i!}, \, \text{for} \, i>0$. $\lambda=1/3$ here. Thus probability of no typo errors is $P(X=0)=e^{-\lambda}=e^{-1/3}=0.7165313$.
+    + Similarly the probability of exactly two typo errors is $P(X=2)=e^{-\lambda}\frac{\lambda^2}{2!}=e^{-1/3}\frac{(1/3)^2}{2!}=0.039807295$
+    + Consider the compliment or the probability of at most one typo. This probability is given by $P(X=0)+P(X=1) =$ $e^{-\lambda}+e^{-\lambda}\frac{\lambda}{1!} =$ $e^{-1/3}+e^{-1/3}\frac{(1/3)}{1!}$. Thus our required probability is $1-(e^{-1/3}+e^{-1/3}\frac{(1/3)}{1!})=0.0446249$.
+
+
+6. If a random variable $X$ follows Poisson distribution with $\lambda = 2.5$, calculate<br/>
+  a. $E[X]$<br/>
+  b. $E[X^2]$<br/>
+  c. $V(X)$<br/>
+
+  Ans: a. (2.5); b. (8.75); c. (2.5)<br/>
+  Explanation:
+    + You can solve all these parts either applying the fomulas for Poisson distributions or, as we do here, directly. $E(X)=\sum_{i=0}^{\infty}i\cdot P(X=i)$ $=\sum_{i=1}^{\infty}i\cdot e^{-\lambda}\cdot\frac{\lambda^i}{i!}$ $=\lambda\sum_{i=1}^{\infty}e^{-\lambda}\cdot\frac{\lambda^{i-1}}{i-1!}$ $=\lambda\sum_{j=0}^{\infty}e^{-\lambda}\cdot\frac{\lambda^{j}}{j!}$ $=\lambda=2.5$.
+    + $E(X^2)=\sum_{i=0}^{\infty}i^2\cdot P(X=i)$ $=\sum_{i=1}^{\infty}i^2\cdot e^{-\lambda}\cdot\frac{\lambda^i}{i!}$ $=\sum_{i=1}^{\infty}(i(i-1)+i)\cdot e^{-\lambda}\cdot\frac{\lambda^i}{i!}$ $=\sum_{i=1}^{\infty}i(i-1)\cdot e^{-\lambda}\cdot\frac{\lambda^i}{i!}+\sum_{i=1}^{\infty}i\cdot e^{-\lambda}\cdot\frac{\lambda^i}{i!}$ $=\lambda^2\sum_{i=2}^{\infty}e^{-\lambda}\cdot\frac{\lambda^{i-2}}{i-2!} +\lambda\sum_{i=1}^{\infty}e^{-\lambda}\cdot\frac{\lambda^{i-1}}{i-1!}$ $=(\lambda^2+\lambda)\sum_{j=0}^{\infty} e^{-\lambda}\cdot\frac{\lambda^{j}}{j!}$ $=\lambda^2+\lambda=8.75.$
+    + We know $V(X)=E(X^2)-E(X)^2=\lambda^2+\lambda-\lambda^2=\lambda=2.5$
+
+
+7. Assume the number of tropical storms making landfall in the Philippines each year follows Poisson distribution with parameter $9$. What is the probability that there are less than $6$ tropical storms making landfall in Philippines in one year?
+
+  Ans: 0.1156
+  Explanation: Follows from summing the corresponding Poisson probabilities under $\lambda=9$.
+
+
+8. A computer manufacturing company produce chips with defect probability  0.001 . In a package of  2000  chips, denote the number of defective chips by  X . Use Poisson distribution for approximation:<br/>
+  a. The Poisson parameter for  X  is:<br/>
+  b. $P(X>1)=$?<br/>
+  c. $P(X \le 3)=$?<br/>
+
+  Ans: a. (2); b. (0.594); c. (0.8571)<br/>
+  Explanation
+    + Poisson approximation yields $\lambda=np=2000 \cdot 0.001=2$.
+    + Evaluate Poisson probability of $P(X>1)$ with $\lambda=2$.
+    + Evaluate Poisson probability of $P(X\le 3)$ with $\lambda = 2$.
+
+
+9. A vendor sells merchandise through Amazon and Ebay. On Ebay she sells an average rate of 2 items per day, while on Amazon the daily average is 3. Both sales follow a Poisson distribution and are independent of each other. What is the probability that she sells 5 items on a given day?
+
+  Ans: 0.1665<br/>
+  Explanation: You can solve this the hard way, namely $P_3(0) \cdot P_2(5)+P_3(1) \cdot P_2(4)+ \cdots +P_3(5) \cdot P_2(0)$.  Or note that the sum of independent $P_{\lambda_1}$ and a  $P_{\lambda_2}$ random variables is a $P_{\lambda_1+\lambda_2}$ random variable, the total number of items the vendor sells is a $P_{2+3}=P_5$ variable and $P_5(5)=\frac{e^{−5} \cdot 5}^5}{5!}$.
 
 
 ### Lecture Video
