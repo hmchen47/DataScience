@@ -898,7 +898,7 @@
   <tr style="font-size: 1.2em;">
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Flips</th>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$X$</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:2%;">$\hspace{0.2em}$</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:1%;">$\hspace{0.05em}$</th>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$n$</th>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">$X_1, \dots, X_n \sim B(p)$</th>
     <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$p(n)$</th>
@@ -925,10 +925,10 @@
   </div>
 
 + Example
-  + 30 years ago, thief trying door keys
+  + 30 years ago, thief trying to find a matching key
   + trials to hit a target
   + attempts till success
-  + till failure
+  + or till failure nowadays
 
 + Axioms
   + probability: $\Pr(n) = pq^{n-1} \quad n \ge 1 \quad q = 1-p$
@@ -953,13 +953,16 @@
 
 + Expectation via "Right" CDF
   + $x \in \Bbb{N} \quad P_k = \Pr(X = k)$
-  + expectation:
+  + general expectation:
 
     \[\begin{align*}
-      E[X] &= \sum_{k=0}&\infty kP_k = P_1 + 2 P_2 + 3 P_3 + \cdots \\
-      &= \Pr(X \ge 1) + \Pr(X \ge 2) + \Pr(X \ge 3) + \cdots\\
-      &= \sum_{k=1}^\infty \Pr(X \ge k) = \sum_{i=0}^\infty \Pr(X > i) = \sum_{i=0}^\infty = \frac{1}{1-q} = \frac{1}{p}
+      E[X] &= \sum_{k=0}^\infty kP_k = P_1 + 2 P_2 + 3 P_3 + \cdots \\
+      &= \Pr(X \ge 1) + \Pr(X \ge 2) + \Pr(X \ge 3) + \cdots
     \end{align*}\]
+
+  + geometric distribution
+
+    \[ E[X] = \sum_{k=1}^\infty \Pr(X \ge k) = \sum_{i=0}^\infty \Pr(X > i) = \sum_{i=0}^\infty \frac{1}{1-q} = \frac{1}{p} \]
 
 + Variance
 
@@ -970,7 +973,7 @@
     &= pq \frac{2}{(1-q)^3} = \frac{2q}{p^2} \hspace{6em}\left( \frac{1}{(1-q)^2} \right)^\prime = \frac{2}{(1-q)^3}\\
   \end{align*}\]
 
-  \[ E[X^2] = E[X(X-1)] + E[X] = \frac{2q}{p^2} + \frac{1}{p} = \frac{21+p}{p^2} = \frac{1+q}{p^2} \]
+  \[ E[X^2] = E[X(X-1)] + E[X] = \frac{2q}{p^2} + \frac{1}{p} = \frac{2q+p}{p^2} = \frac{1+q}{p^2} \]
 
   \[ Var(X) = E[X^2] - (E[X])^2 = \frac{1+q}{p^2} - \frac{1}{p^2} = \frac{q}{p^2} \quad\to\quad \sigma = \frac{\sqrt{q}}{p} \]
 
@@ -988,11 +991,11 @@
     \[ \Pr(1) = p \quad \Pr(2) = p \cdot q = q \cdot \Pr(1) \]
 
 + Memoryless
-  + a distribution over $\Bbb{P} = \{1, 2, \dots\}$ is a memoryless if $\forall\, n \ge 0, m > 1$
+  + Definition: (memoryless) a distribution over $\Bbb{P} = \{1, 2, \dots\}$ is a <span style="color: magenta; font-weight: bold;">memoryless</span> if $\forall\, n \ge 0, m > 1$
 
-    \[ \P(X = n+m \mid X > n) = \Pr(X=m) \]
+    \[ \Pr(X = n+m \mid X > n) = \Pr(X=m) \]
 
-    + e.g., $\Pr(X = 12 \mid X > 0) = \Pr(X=2)$
+  + e.g., $\Pr(X = 12 \mid X > 0) = \Pr(X=2)$
   + after observing or any number of samples, process behaves as at the start
 
 + Geometric and Memoryless
@@ -1006,27 +1009,36 @@
     + all geometric distributions are memoryless
   + Memory $\to$ Geometric
     + any discrete memoryless distribution over $\Bbb{P}$ is geometric
-    + $p \stackrel{\text{def}}{=} = \Pr(X=1) \quad q \stackrel{\text{def}}{=} 1 - p = \Pr(X > 1)$
+    + $p \stackrel{\text{def}}{=} \Pr(X=1) \quad q \stackrel{\text{def}}{=} 1 - p = \Pr(X > 1)$
 
     \[\begin{align*}
       \forall\, n \ge 1, \;\; \Pr(X=n+1) &= \Pr(X>1 \wedge X = n=1) \\
       &= \Pr(X > 1) \cdot \Pr(X=n+1 \mid X > 1) = q \cdot \Pr(X=n)
     \end{align*}\]
 
-    + Hence, $\Pr(X=2) - qp, \Pr(X=3) - q^2p, \dots$
+    + Hence, $\Pr(X=2) = qp, \;\;\Pr(X=3) - q^2p, \dots$
     + $\Pr(X=n) = q^{n-1}q \to$ Geometric
 
 + $r$ successes
   + Geometric: $\Pr(X=n) = \Pr(\text{first success at n'th trial})$
+  + generalized geometric: $n \ge r$
 
     \[\begin{align*}
       \Pr(\text{r'th success at n'th trial}) &= \Pr(r-1 \text{ success in } n-1 \text{ trial}) \cdot \Pr(\text{n'th trial is success})\\
-      \Pr(n \ge r) &= b_{n-1, p}(r-1) \cdot p = \binom{n-1}{r-1} p^{r-1} q^{n-r} p \\
+       &= b_{n-1, p}(r-1) \cdot p = \binom{n-1}{r-1} p^{r-1} q^{n-r} p \\
       &= \binom{n-1}{r-1} p^r q^{n-r}
     \end{align*}\]
 
-  + $r = 1 \to pq^{n-1} = g_p(n)$
-  + negative binomial distribution
+  + special case: $r = 1 \to pq^{n-1} = g_p(n)$
+  + a.k.a. negative binomial distribution
+
++ Summary
+  + pmf: $\Pr(n) = p q^{n-1} \quad n \ge 1 \quad q = 1 - p$
+  + memoryless
+  + mean: $E[X] = \frac 1 p$
+  + variance: $Var(X) = \frac{q}{p^2}$
+  + standard deviation: $\sigma = \frac{\sqrt{q}}{p}$
+  + $r$ successes: $\Pr(\text{r'th success at n'th trial}) = \binom{n-1}{r-1} p^r 1^{n-r}$
 
 
 + [Original Slides](https://tinyurl.com/y73cv4pe)
