@@ -1046,6 +1046,85 @@
 
 ### Problem Sets
 
+0. Which of the following distributions is memoryless?<br/>
+  a. Poisson<br/>
+  b. Geometric<br/>
+  c. Both<br/>
+  d. Neither<br/>
+
+  Ans: b<br/>
+  Explanation: Only the geometric distribution.
+
+
+Several of the following questions ask about the number of experiments performed till a certain outcome is observed. Unless otherwise stated, include the final experiment (where the outcome is observed) in the count. For example, the number of  coin tosses till observing a heads in the sequence t, t, h, is 3.
+
+
+1. A die is rolled until the number 1 turns up. The expected number of rolls is<br/>
+  a. 2,<br/>
+  b. 4,<br/>
+  c. 6,<br/>
+  d. 8.<br/>
+
+  Ans: c<br/>
+  Explanation: $E(X) = \frac{1}{p} = 6$
+
+
+2. A pair of dice are repeatedly rolled till the two sum to $\ge 10$. For example (6,3), (2,4), (5,5), stopping after three pair rolls. The expected number of times the pair is rolled is:<br/>
+  a. 2,<br/>
+  b. 4,<br/>
+  c. 6,<br/>
+  d. 8.<br/>
+
+  Ans: c<br/>
+  Explanation: There are 6 outcomes where a pair of dice sums to at least 10: (4,6), (5,5), (5,6), (6,4), (6,5), (6,6).  Hence the probability of this large sum is 6/36=1/6.  The number of times we rol the pair till we observe $\ge 10$, is distributed $G_{1/6}$.  The expected number is 6.  
+
+
+3. A $G_p$ random variable is odd with probability<br/>
+  a. $\frac{1−p}{2−p$}$,<br/>
+  b. $\frac{p}{2−p}$,<br/>
+  c. $\frac{1}{2−p}$,<br/>
+  d. $p+(1−p)^2 \cdot p$.<br/>
+
+  Ans: c<br/>
+  Explanation: There are two natural ways to find the probability that $X \sim G_p$ is odd.
+    + The first is "brute force". Recall that $1+q+q^2+ \cdots =\frac1{1-q}$. Hence, $P(X \text{ is odd})=P(X=1)+P(X=3)+\ldots=p+{\overline p}^2\cdot p+{\overline p}^4\cdot p+\ldots=\frac{p}{1-{\overline p}^2}=\frac{p}{1-(1-p)^2}=\frac{p}{2p-p^2}=\frac1{2-p}$
+    + The second method is by relating $(P(X \text{ is even})$, $P(X\text{ is even})=P(X\text{ is even}\cap X\gt 1)=P(X\gt 1)\cdot P(X \text{ is even}\mid {X \gt 1})=P(X \gt 1)\cdot P(X \text{ is odd})$. $X$  is even or odd, hence $1=P(X\text{ is odd})+(1-p)\cdot P(X\text{ is odd})=(2-p)\cdot P(X\text{ is odd})$.  Hence, $P(X\text{ is odd})=\frac1{2-p}$
+
+
+4. Find the expected number of coin tosses till the third heads appears, (e.g., for  h,t,h,t,h , five coins were tossed).
+
+  Ans: 6<br/>
+  Explanation: For $1 \le i \le 3$, let $X_i$ be the number of tosses between the $i−1$th and $i$th heads. For example, for t,h,t,t,h,h, then $X_1=2$, $X_2=3$, and $X_3=1$. Each $X_i$ is a distributed $G_{1/2}$, hence has expectation 2. The number of coin tosses till the third head appears is $X_1+X_2+X_3$, and by the linearity of expectations, $E(X_1+X_2+X_3)=E(X_1)+E(X_2)+E(X_3)=6$
+
+
+5. $X$ is the random number of times a coin with heads probability $1/4$ is tossed till the first heads appears, find:<br/>
+  a. $E(X)$,<br/>
+  b. $E(X^2)$,<br/>
+  c. $V(X)$,<br/>
+  d. $\sigma_X$,<br/>
+  e. $P(X \le 10)$,<br/>
+  f. $P(X > 5)$.<br/>
+
+  Ans: a. (4); b. (28); c. (12); d. (3.4641); e. (0.9437); f. (0.2373)<br/>
+  Explanation
+    + $E(X) = \frac{1}{p} = 4$
+    + $E(X^2) = V(X) + E^2(X) = 28$
+    + $V(X) = \frac{1-p}{p^2} = 12$
+    + $\sigma_X = \sqrt{V(X)} = 3.4614$
+    + $P(X\le 10) = \sum_{i = 0}^{9} pq^i = 0.9437$
+    + $P(X \gt 5) = \sum_{i = 6}^{\infty} pq^i = 1 - \sum_{i = 0}^{4} qp^i = 0.2373$
+
+
+6. Two coins with heads probabilities $1/3$ and $1/4$ are alternately tossed, starting with the $1/3$ coin, until one of them turns up heads. Let $X$ denote the total number of tosses, including the last. Find:<br/>
+  a. $P(X=5)$,<br/>
+  b. $P(X \text{ is odd})$,<br/>
+  c. $E(X)$.<br/>
+
+  Ans: a. (1/12); b. (2/3); c. (10/3)<br/>
+  Explanation
+    + $P(X=5)=\frac23\cdot\frac34\cdot\frac23\cdot\frac34\cdot\frac13=\frac1{12}$
+    + Similar to Problem 3, this can be done in two ways. Brute force or relating two probabilities. For the brute force, $P(X\text{ is odd})=P(X=1)+P(X=3)+\ldots=$ $\frac13+\frac23\cdot\frac34\cdot\frac13+\cdots$ $=\frac13+\frac12\cdot\frac13+(\frac12)^2\cdot\frac13+\ldots=\frac13\cdot(1+(\frac12)^2+(\frac12)^3+\ldots)$ $=\frac13\cdot\frac{1}{1-\frac12}=\frac23$. Alternatively, $P(X\text{ is odd})=P(X=1)+P(X\text{ is odd}\cap X\ge 3)$ $=P(X=1)+P(X\ge 3)\cdot P(X\text{ is odd}\mid X\ge 3)$ $=P(X=1)+P(X\ge 3)\cdot P(X\text{ is odd})$ $=\frac13+\frac23\cdot\frac34\cdot P(X\text{ is odd})$.  Hence $12⋅P(X \text{ is odd})=\frac13$, or $P(X \text{ is odd})=\frac23$,
+    + $E(X) = \frac13\cdot1 + \frac23 \cdot \frac14 \cdot2+ \sum^{\infty}_{i=3} i \cdot P(X = i)$ $= \frac13\cdot1 + \frac23 \cdot \frac14 \cdot2+ \sum^{\infty}_{i=1} (i + 2) \cdot P(X = i + 2, X > 2)$ $= \frac13\cdot1 + \frac23 \cdot \frac14 \cdot2+ \sum^{\infty}_{i=1} (i + 2) \cdot P(X = i + 2 | X > 2) \cdot P(X > 2)$ $= \frac13\cdot1 + \frac23 \cdot \frac14 \cdot2+ \frac23 \cdot\ \frac34 \cdot \sum^{\infty}_{i=1} (i + 2) \cdot P(X = i)$ $= \frac13\cdot1 + \frac23 \cdot \frac14 \cdot2+ \frac23 \cdot\ \frac34 \cdot(E(X)+2)$. Hence $E[X]⋅(1−\frac12)= \frac13 + \frac13 + 1= \frac53$. And therefore $E[X]=\frac{10}{3}$.
 
 
 
