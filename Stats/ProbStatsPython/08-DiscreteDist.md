@@ -888,7 +888,7 @@
 ## 8.4 Geometric Distribution
 
 + Back to basics
-  + independent $B_p$ coin flips: $p(1) = p \quad p(0) = 1 - q \stackrel{\text{def}}{=} q$
+  + independent $B_p$ coin flips: $p(1) = p \quad p(0) = 1 - p \stackrel{\text{def}}{=} q$
   + two derived distributions
     + Binomial: $B_{p, n}$ = \# 1's in flips
     + Geometric: $G_p$ = \# flips till first 1 = time to first success
@@ -941,7 +941,7 @@
   
   $n \in \Bbb{N} \quad X > n \iff X_1 = \cdots = X_n =0$
   
-  \[ \Pr(X > n) = \Pr(X_1 = \cdots = X_n = 0) = q^m \]
+  \[ \Pr(X > n) = \Pr(X_1 = \cdots = X_n = 0) = q^n \]
 
   \[F(n) = \Pr(X \le n) = 1 - \Pr(X > n) = 1 - q^n \]
 
@@ -995,7 +995,7 @@
 
     \[ \Pr(X = n+m \mid X > n) = \Pr(X=m) \]
 
-  + e.g., $\Pr(X = 12 \mid X > 0) = \Pr(X=2)$
+  + e.g., $\Pr(X = 12 \mid X > 10) = \Pr(X=2)$
   + after observing or any number of samples, process behaves as at the start
 
 + Geometric and Memoryless
@@ -1012,11 +1012,11 @@
     + $p \stackrel{\text{def}}{=} \Pr(X=1) \quad q \stackrel{\text{def}}{=} 1 - p = \Pr(X > 1)$
 
     \[\begin{align*}
-      \forall\, n \ge 1, \;\; \Pr(X=n+1) &= \Pr(X>1 \wedge X = n=1) \\
+      \forall\, n \ge 1, \;\; \Pr(X=n+1) &= \Pr(X>1 \wedge X = n+1) \\
       &= \Pr(X > 1) \cdot \Pr(X=n+1 \mid X > 1) = q \cdot \Pr(X=n)
     \end{align*}\]
 
-    + Hence, $\Pr(X=2) = qp, \;\;\Pr(X=3) - q^2p, \dots$
+    + Hence, $\Pr(X=2) = qp, \;\;\Pr(X=3) = q^2p, \dots$
     + $\Pr(X=n) = q^{n-1}q \to$ Geometric
 
 + $r$ successes
@@ -1024,7 +1024,7 @@
   + generalized geometric: $n \ge r$
 
     \[\begin{align*}
-      \Pr(\text{r'th success at n'th trial}) &= \Pr(r-1 \text{ success in } n-1 \text{ trial}) \cdot \Pr(\text{n'th trial is success})\\
+      \Pr(\text{r'th success at n'th trial}) &= \Pr(r-1 \text{ successes in } n-1 \text{ trial}) \cdot \Pr(\text{n'th trial is success})\\
        &= b_{n-1, p}(r-1) \cdot p = \binom{n-1}{r-1} p^{r-1} q^{n-r} p \\
       &= \binom{n-1}{r-1} p^r q^{n-r}
     \end{align*}\]
@@ -1038,7 +1038,7 @@
   + mean: $E[X] = \frac 1 p$
   + variance: $Var(X) = \frac{q}{p^2}$
   + standard deviation: $\sigma = \frac{\sqrt{q}}{p}$
-  + $r$ successes: $\Pr(\text{r'th success at n'th trial}) = \binom{n-1}{r-1} p^r 1^{n-r}$
+  + $r$ successes: $\Pr(\text{r'th success at n'th trial}) = \binom{n-1}{r-1} p^r q^{n-r}$
 
 
 + [Original Slides](https://tinyurl.com/y73cv4pe)
