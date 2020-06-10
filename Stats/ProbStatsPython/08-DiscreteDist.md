@@ -1233,6 +1233,45 @@ Several of the following questions ask about the number of experiments performed
 
 ### Problem Sets
 
+0. If X and Y are two independent geometric random variables, then X+Y also is also geometric.
+
+  Ans: False<br/>
+  Explanation: False. For example, if (X) and (Y) have the same success probability, (X+Y) will follow a negative-binomial distribution.
+
+
+1. In a basketball shooting workout, a player keeps shooting until she makes 10 baskets. Suppose the probability that she makes any given shot is 0.7, and let $X$ be the total number of shots she takes. Calculate:<br/>
+  a. $E[X]$,<br/>
+  b. $V(X)$.<br/>
+
+  Ans: a. (100/7); b. (300/49)<br/>
+  Explanation
+    + Let $X_i$ be the random variable indicating the number of shots between the $(i−1)^{th}$ and  ith  shots $(i \in \{1,...,10\})$. Then, the total number of shots, $T = \sum^{10}_{i=1} X_i$. Using the fact that here each of the random variables $X_i \sim Geometric(0.7)$, and that for a geometric distribution with parameter $p, E[Xi]=1/p, E[X_i]=1/0.7=10/7$. Further, by linearity of expectation $E[T]= \sum^{10}_{i=1} E[X_i]=100/7$.
+    + Using that $X_i \sim Geometric(0.7)$, and that for a geometric distribution with parameter $p, V(X_i)=(1−p)/p2, V(X_i)=0.3/0.49=30/49$. Here, each of the $X_i$, $(i \in \{1,...,10\})$, are also independent. Thus $V(T)= \sum^{10}_{i=1} V(X_i)=300/49$.
+
+
+2. A production line has a 5% defective rate, and its products are inspected one-by-one until the first defect is found. Given that the first 10 inspections do not find any defect, what is the probability that the number of inspections is at most 20?
+
+  Ans: $1 - 0.9{10} = 04013$<br/>
+  Explanation: Let $D$ be the event of interest here. Further let  E  denote the event that any 10 consecutive inspections find a defect. Since the inspections here are independent, the required probability $P(D)=P(E)$.  Now if $\overline{E}$ denotes the compliment of event $E$, $\Pr(\overline{E})=1−P(E)=(1−0.05)^{10}$ since in $\overline{E}$ we require that no defective item be discovered in each of the 10 inspections. Thus $P(D)=P(E)=1−0.9510$.
+
+
+3. A bag contains $K$ blue balls and $N−K$ red balls. Find the expected number of blue balls observed when $n$ balls are randomly drawn. Does the answer depend on whether the selection is with or without replacement?<br/>
+  a. $n\frac{K}{N}$<br/>
+  b. $(n-1)\frac{K}{N}$<br/>
+  c. $(n-1)\frac{K-1}{N-1}$<br/>
+  d. $(n)\frac{K-1}{N-1}$<br/>
+
+  Ans: <span style="color: magenta;">a</span><br/>
+  Explanation: 
+    + Without replacement, the expectation is $\sum_{k=0}^n k\frac{\binom{K}{k} \binom{N-K}{n-k}}{\binom{N}{n}} = \frac{K}{\binom{N}{n}} \sum_{k=1}^{n} \binom{K-1}{k-1}\binom{N-K}{n-k} = \frac{K}{\binom{N}{n}} \underbrace{\sum_{k=0}^{n-1} \binom{K-1}{k}\binom{N-K}{n-1-k}}_{\substack{\text{# of ways to choose } n - 1 \\ \text{ balls} \text{out of } N - 1 \text{ balls}}} = \frac{K}{\binom{N}{n}} \binom{N-1}{n-1} = n\frac{K}{N}$
+    + With replacement, the expectation is trivial, which is $n\frac K N$.
+    + Hence, the answer does not depend on whether the selection is with or without replacement.
+
+
+4. A bag contains $6$ blue balls and $9$ red balls, if $5$ balls are randomly picked from the bag with replacement, what is the most likely number of blue balls that will be picked?
+
+  Ans: 2<br/>
+  Explanation: Intuitively, it is most likely to get 2 blue balls and 3 red balls. Let $X$ be the number of blue balls. $P(X = k) = \frac{\binom{6}{k} \binom{9}{5 - k}}{\binom{15}{5}}$, and we can show that it reaches its maximum when $k=2$.
 
 
 
@@ -1241,7 +1280,6 @@ Several of the following questions ask about the number of experiments performed
 <a href="url" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
 </a><br/>
-
 
 
 ## Lecture Notebook 8
