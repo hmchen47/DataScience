@@ -1293,10 +1293,11 @@ Several of the following questions ask about the number of experiments performed
 + `scipy.stats.bernoulli` class<br/><br/>
 
   <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y8y8f9cb">Bernoulli Distribution</a></caption>
     <thead>
     <tr style="font-size: 1.2em;">
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Return Value(s)</th>
     </tr>
     </thead>
     <tbody>
@@ -1372,6 +1373,87 @@ Several of the following questions ask about the number of experiments performed
   </table>
 
 
++ `scipy.stats.binom` class<br/><br/>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y8y8f9cb">Bernoulli Distribution</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Reurn Value(s)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td style="font-weight: bold;">rvs(n, p, loc=0, size=1, random_state=None)</td>
+      <td>Random variates.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">pmf(k, n, p, loc=0)</td>
+      <td>Probability mass function.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">logpmf(k, n, p, loc=0)</td>
+      <td>Log of the probability mass function.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">cdf(k, n, p, loc=0)</td>
+      <td>Cumulative distribution function.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">logcdf(k, n, p, loc=0)</td>
+      <td>Log of the cumulative distribution function.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">sf(k, n, p, loc=0)</td>
+      <td>Survival function (also defined as <code>1 - cdf</code>, but <i>sf</i> is sometimes more accurate).</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">logsf(k, n, p, loc=0)</td>
+      <td>Log of the survival function.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">ppf(q, n, p, loc=0)</td>
+      <td>Percent point function (inverse of <code>cdf</code> — percentiles).</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">isf(q, n, p, loc=0)</td>
+      <td>Inverse survival function (inverse of <code>sf</code>).</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">stats(n, p, loc=0, moments=’mv’)</td>
+      <td>Mean(‘m’), variance(‘v’), skew(‘s’), and/or kurtosis(‘k’).</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">entropy(n, p, loc=0)</td>
+      <td>(Differential) entropy of the RV.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">expect(func, args=(n, p,), loc=0, lb=None, ub=None, conditional=False)</td>
+      <td>Expected value of a function (of one argument) with respect to the distribution.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">median(n, p, loc=0)</td>
+      <td>Median of the distribution.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">mean(n, p, loc=0)</td>
+      <td>Mean of the distribution.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">var(n, p, loc=0)</td>
+      <td>Variance of the distribution.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">std(n, p, loc=0)</td>
+      <td>Standard deviation of the distribution.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">interval(alpha, n, p, loc=0)</td>
+      <td>Endpoints of the range that contains alpha percent of the distribution</td>
+    </tr>
+    </tbody>
+  </table>
 
 
 
