@@ -1139,7 +1139,7 @@ Several of the following questions ask about the number of experiments performed
 ## 8.5 Geometric Distribution Example
 
 + Startup statistics
-  + P(startup success) = 20%, independent of previous attemps
+  + P(startup success) = 20%, independent of previous attempts
   + Expected \# startups till first success
 
     \[ X \sim G_{0.2} \qquad E[X] = \frac{1}{.2} = 5 \]
@@ -1151,7 +1151,7 @@ Several of the following questions ask about the number of experiments performed
 
   + Cry uncle
     + even wealthier uncle funds next three startups (4, 5, 6)
-    + $\Pr(\text{success w/ uncle if dad'd help did not suffice})?$
+    + $\Pr(\text{success w/ uncle if dad's help did not suffice})?$
 
       \[\begin{align*}
         \Pr(C \in \{4, 5, 6\} \mid X > 3) &= \Pr(4 \mid X > 3) + \Pr(5 \mid X > 3) + \Pr(6 \mid X > 3) \\
@@ -1162,8 +1162,8 @@ Several of the following questions ask about the number of experiments performed
       + 1, 2 ,3 failed but one of 4, 5, 6 succeeded
 
       \[\begin{align*}
-        \Pr(3 < X \le 6) &= \Pr(X > 3 \cap X  \le 6) = \Pr(X > 3) \cdot \Pr(x \le 6 \mid x > 3) \\
-          &= (0.8)^3 \cdot 0.49 \approx 25\% \hspace{4em} \left(\Pr(X_1, X-2, X-3 \text{ failed}) = q^3\right)\\
+        \Pr(3 < X \le 6) &= \Pr(X > 3 \cap X  \le 6) = \Pr(X > 3) \cdot \Pr(X \le 6 \mid X > 3) \\
+          &= (0.8)^3 \cdot 0.49 \approx 25\% \hspace{4em} \left(\Pr(X_1, X_2, X_3 \text{ failed}) = q^3\right)\\
         \Pr(3 < X \le 6) &= F(6) - F(3) = (1-0.8^6) - (1 - 0.8^3)\\
           &= 0.8^3 - 0.8^6 \approx 25\%
       \end{align*}\]
@@ -1200,7 +1200,7 @@ Several of the following questions ask about the number of experiments performed
   + expected of collected sum:
 
     \[\begin{align*}
-      E[X] &= \sum_{i=1}^n E[X_i] = \sum_{i=1}^n \frac{n}{n+i-1} = \frac n n + \frac{n}{n-1} + \frac{n}{n-2} + \cdots + \frac n 1 \\
+      E[X] &= \sum_{i=1}^n E[X_i] = \sum_{i=1}^n \frac{n}{n-i+1} = \frac n n + \frac{n}{n-1} + \frac{n}{n-2} + \cdots + \frac n 1 \\
         &= n(\frac11 + \frac12 + \cdots + \frac 1 n) = nH_n \approx n \ln n + 0.577n
     \end{align*}\]
 
