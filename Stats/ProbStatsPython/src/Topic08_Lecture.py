@@ -25,6 +25,45 @@ def gen_plot_bernoulli():
     plt.hist(bernoulli.rvs(size=10, p=.3), density=True)
     plt.show()
 
+
+    return None
+
+def plot_binom_pmf(n, p, samples=200, histogram=False):
+    """plot pmf of Binomial distribution, Binom(n, p)
+
+    Args:
+        n (int): size of Binomial dist
+        p (float): probability of success
+        samples (int, optional): number of samples. Defaults to 100.
+        histogram (bool, optional): plot historgram. Defaults to False.
+    """
+    k = np.arange(0, n+1)
+    prob_binom = binom.pmf(k, n, p)
+
+    plt.plot(k, prob_binom, '-o', color='b')
+
+    if histogram:
+        height, y = np.histogram(binom.rvs(size=samples, n=n, p=p), \
+            range=(0, n), bins=n+1, normed=True)
+        plt.bar(k, height, color='r')
+
+    plt.title('PMF of Bin({:d}, {:.2f})'.format(n, p))
+    plt.xlabel('k')
+    plt.ylabel('$B_{20, 0.3}(k)')
+    plt.show()
+
+    return None
+
+
+def gen_plot_binomial():
+
+    # generate Binomial samples
+    print("\Binomial samples w/ scipy.stats.binom.rvs(size=50, n=20, p=.4):\n  {}".format(binom.rvs(size=50, n=20, p=.4)))
+
+    n, p, smp, hist = 100, 0.4, 200, True
+    plot_binom_pmf(n, p, samples=smp, histogram=hist)
+
+
     input("\nPress Enter to continue ....................................")
 
     return None
@@ -45,8 +84,10 @@ def main():
     }, 'seaborn-poster'])
 
     # Bernoulli
-    gen_plot_bernoulli()
+    # gen_plot_bernoulli()
 
+    # Binomial distribution
+    gen_plot_binomial()
 
 
     return None
