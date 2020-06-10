@@ -1142,35 +1142,35 @@ Several of the following questions ask about the number of experiments performed
   + P(startup success) = 20%, independent of previous attemps
   + Expected \# startups till first success
 
-    \[ X \sim G_{0.5} \qquad E[X] = \frac{1}{.2} = 5 \]
+    \[ X \sim G_{0.2} \qquad E[X] = \frac{1}{.2} = 5 \]
 
   + Home grown entrepreneur
   + dad will fund up to three startups $\Pr(\text{success})?$
     + one of first three startups succeeds
     + $\Pr(X \le 3) = F(3) = 1 - (0.8)^3 \approx 0.49$
 
-+ Cry uncle
-  + even wealthier uncle funds next three startups (4, 5, 6)
-  + $\Pr(\text{success w/ uncle if dad'd help did not suffice})?$
+  + Cry uncle
+    + even wealthier uncle funds next three startups (4, 5, 6)
+    + $\Pr(\text{success w/ uncle if dad'd help did not suffice})?$
 
-    \[\begin{align*}
-      \Pr(C \in \{4, 5, 6\} \mid X > 3) &= \Pr(4 \mid X > 3) + \Pr(5 \mid X > 3) + \Pr(6 \mid X > 3) \\
-      &= \Pr(1) + \Pr(2) + \Pr(3) = \Pr(X \le 3) \approx 49\%
-    \end{align*}\]
+      \[\begin{align*}
+        \Pr(C \in \{4, 5, 6\} \mid X > 3) &= \Pr(4 \mid X > 3) + \Pr(5 \mid X > 3) + \Pr(6 \mid X > 3) \\
+        &= \Pr(1) + \Pr(2) + \Pr(3) = \Pr(X \le 3) \approx 49\%
+      \end{align*}\]
 
-  + $\Pr(\text{success w/ uncle})?$
-    + 1, 2 ,3 failed but one of 4, 5, 6 succeeded
+    + $\Pr(\text{success w/ uncle})?$
+      + 1, 2 ,3 failed but one of 4, 5, 6 succeeded
 
-    \[\begin{align*}
-      \Pr(3 < X < 6) &= \Pr(X > 3 \cap X  \le 6) = \Pr(X > 3) \cdot \Pr(x \le 6 \mid x > 3) \\
-        &= (0.8)^3 \cdot 0.49 \approx 25\% \hspace{4em} (\Pr(X_1, X-2, X-3 \text{ failed}) = q^3)\\
-      \Pr(3 < X \le 6) &= F(6) - F(3) = (1-0.8^6) - (1 - 0.8^3)\\
-        &= 0.8^3 - 0.8^6 \approx 25\%
-    \end{align*}\]
+      \[\begin{align*}
+        \Pr(3 < X \le 6) &= \Pr(X > 3 \cap X  \le 6) = \Pr(X > 3) \cdot \Pr(x \le 6 \mid x > 3) \\
+          &= (0.8)^3 \cdot 0.49 \approx 25\% \hspace{4em} \left(\Pr(X_1, X-2, X-3 \text{ failed}) = q^3\right)\\
+        \Pr(3 < X \le 6) &= F(6) - F(3) = (1-0.8^6) - (1 - 0.8^3)\\
+          &= 0.8^3 - 0.8^6 \approx 25\%
+      \end{align*}\]
 
 + Foreign-born entrepreneur
   + $X$: time to first success w/ $p = 0.2$
-  + $r^X$: fraction of company yoou keep w/ $r = 0.5$
+  + $r^X$: fraction of company you keep w/ $r = 0.5$
 
     \[\begin{align*}
       E[r^X] &= \sum_{k=1}^\infty r^k \Pr(X=k) = \sum_{k=1}^\infty p q^{k-1} r^k = pr \sum_{i=0}^\infty (qr)^i \\
@@ -1181,34 +1181,34 @@ Several of the following questions ask about the number of experiments performed
   + pre-coupon
     + $n$ coupons
     + each item containing one coupon selected uniformly
-    + collecting all coupons, get a prixe
+    + collecting all coupons, get a prize
     + how many items need to buy to collect all?
   + expectation
-    + $X$: \# items to collect all coupons
-    + $n = 3 \quad$ items: 1 2 3 4 5 6 7 $X=7 \quad E[X]?$
+    + $X$: \# items to collect all coupons (coupon 1, 2, 3)
+    + $n = 3 \quad$ items: 1 2 3 4 5 6 7 $\hspace{1em}X=7 \quad E[X]?$
 
       \[ \text{Coupon }\hspace{1em} \underbrace{2}_{X_1 = 1}\hspace{1em} \hspace{1em}\underbrace{2\; 3}_{X_2 = 3-1=2}\hspace{1em} \hspace{1em}\underbrace{2\; 3\; 3\; 1}_{X_3 = 7-3=4} \] 
 
     + $X_i$: \# items to get $i^{th}$ coupon after getting $i - 1$ coupons
-    + $X = X_1 + X_2 + X_3 \qquad X_1 = 1, X_2 \sim G_{2/3}, X_3 \sim G_{1/3} \;\;{\perp \!\!\!\! \perp}$
+    + $X = X_1 + X_2 + X_3 \to X_1 = 1, X_2 \sim G_{2/3}, X_3 \sim G_{1/3} \;\;{\perp \!\!\!\! \perp}$
     + $X_1 = 1, X_2 = 2, X_3 = 4$
 
 + General $n$
-  + $X_i \sim G\left(\frac{n - (i-1)}{n}\right) = G\left( \frac{n-i+1}{n} \right)
+  + $X_i \sim G\left(\frac{n - (i-1)}{n}\right) = G\left( \frac{n-i+1}{n} \right)$
   + mean: $E[X_i] = \frac{n}{n-i+1}$
   + collected sum: $X = \sum_{i=1}^n X_i$
   + expected of collected sum:
 
     \[\begin{align*}
       E[X] &= \sum_{i=1}^n E[X_i] = \sum_{i=1}^n \frac{n}{n+i-1} = \frac n n + \frac{n}{n-1} + \frac{n}{n-2} + \cdots + \frac n 1 \\
-        &= n(\frac11 + frac12 + \cdots + frac 1 n) = nH_n \approx n \ln n + 0.577n
+        &= n(\frac11 + \frac12 + \cdots + \frac 1 n) = nH_n \approx n \ln n + 0.577n
     \end{align*}\]
 
   + Harmonic sum: $H_n = \frac11 + \frac12 + \cdots + \frac 1 n \to \ln n + 0.577$
 
     \[\begin{align*}
       H_n &> \int_1^{n+1} \frac 1 x dx = \left. \ln x \right|_1^{n+1} = \ln(n+1) \\
-      H_n &\le 1 + \int_1^n \frac 1 x dx = 1 + \left. \ln x \right_1^n = 1 + \ln n \\
+      H_n &\le 1 + \int_1^n \frac 1 x dx = 1 + \left. \ln x \right|_1^n = 1 + \ln n \\
       H_n &\to \ln n + 0.577
     \end{align*}\]
 
