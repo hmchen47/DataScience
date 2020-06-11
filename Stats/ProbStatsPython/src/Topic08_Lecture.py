@@ -132,6 +132,44 @@ def gen_plot_poisson():
     return None
 
 
+def plot_geometric(n, p, CDF=False):
+    """plot Geometric distribution
+
+    Args:
+        n (int): size of Geometric distribution
+        p (float): probability of success
+        CDF (bool, optional): CDF or PMF. Defaults to False.
+    """
+    x = np.arange(1, n+1)
+    y = [((1-p)**(z-1)) * p for z in x]
+    z = [(1 - (1 - p)**zz) for zz in x]
+    plt.plot(x, y, 'o-', label='PDF')
+
+    if CDF:
+        plt.plot(x, z, 'ro-', label='CDF')
+
+    if n==1:
+        plt.plot([0, 1], [p, p], 'b')
+        plt.xtick([1])
+
+    plt.xlabel('n')
+    plt.ylabel('y')
+    plt.title('PMF of Geometric({:0.2f})'.format(p), fontsize=20)
+    plt.legend()
+    plt.show()
+
+    return None
+
+
+def gen_plot_geometric():
+
+    # n= (1, 200), p = (0.0, 1.0)
+    n, p, cdf = 15, 0.5, True
+    plot_geometric(n, p, CDF=cdf)
+
+    return None
+
+
 def main():
 
     # properties for plots
@@ -155,6 +193,8 @@ def main():
     # Poisson distribution
     gen_plot_poisson()
 
+    # Geometric distribution
+    gen_plot_geometric()
 
     return None
 
