@@ -1087,8 +1087,8 @@ Several of the following questions ask about the number of experiments performed
 
   Ans: c<br/>
   Explanation: There are two natural ways to find the probability that $X \sim G_p$ is odd.
-    + The first is "brute force". Recall that $1+q+q^2+ \cdots =\frac1{1-q}$. Hence, $P(X \text{ is odd})=P(X=1)+P(X=3)+\ldots=p+{\overline p}^2\cdot p+{\overline p}^4\cdot p+\ldots=\frac{p}{1-{\overline p}^2}=\frac{p}{1-(1-p)^2}=\frac{p}{2p-p^2}=\frac1{2-p}$
-    + The second method is by relating $(P(X \text{ is even})$, $P(X\text{ is even})=P(X\text{ is even}\cap X\gt 1)=P(X\gt 1)\cdot P(X \text{ is even}\mid {X \gt 1})=P(X \gt 1)\cdot P(X \text{ is odd})$. $X$  is even or odd, hence $1=P(X\text{ is odd})+(1-p)\cdot P(X\text{ is odd})=(2-p)\cdot P(X\text{ is odd})$.  Hence, $P(X\text{ is odd})=\frac1{2-p}$
+    + The first is "brute force". Recall that $1+q+q^2+ \cdots =$ $\frac1{1-q}$. Hence, $P(X \text{ is odd})=P(X=1)+P(X=3)+\ldots=$ $p+{\overline p}^2\cdot p+{\overline p}^4\cdot p+\ldots=$ $\frac{p}{1-{\overline p}^2}=$ $\frac{p}{1-(1-p)^2}=$ $\frac{p}{2p-p^2}=\frac1{2-p}$
+    + The second method is by relating $(P(X \text{ is even})$, $P(X\text{ is even})=$ $P(X\text{ is even}\cap X\gt 1)=$ $P(X\gt 1)\cdot P(X \text{ is even}\mid {X \gt 1})=$ $P(X \gt 1)\cdot P(X \text{ is odd})$. $X$  is even or odd, hence $1=P(X\text{ is odd})+(1-p)\cdot P(X\text{ is odd})=$ $(2-p)\cdot P(X\text{ is odd})$.  Hence, $P(X\text{ is odd})=\frac1{2-p}$
 
 
 4. Find the expected number of coin tosses till the third heads appears, (e.g., for  h,t,h,t,h , five coins were tossed).
@@ -1290,10 +1290,9 @@ Several of the following questions ask about the number of experiments performed
 
 + [Local Lecture Python code](img/Topic08_Lecture.py)
 
-+ `scipy.stats.bernoulli` class<br/><br/>
++ `scipy.stats.xxx` class: xxx = bernoulli, binom, poisson<br/><br/>
 
   <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y8y8f9cb">Bernoulli Distribution</a></caption>
     <thead>
     <tr style="font-size: 1.2em;">
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
@@ -1302,155 +1301,79 @@ Several of the following questions ask about the number of experiments performed
     </thead>
     <tbody>
     <tr>
-      <td style="font-weight: bold;">rvs(p, loc=0, size=1, random_state=None)</td>
+      <td style="font-weight: bold;">rvs(<code>args1</code>, loc=0, size=1, random_state=None)</td>
       <td>Random variates.</td>
     </tr>
     <tr>
-      <td style="font-weight: bold;">pmf(k, p, loc=0)</td>
+      <td style="font-weight: bold;">pmf(<code>args2</code>, loc=0)</td>
       <td>Probability mass function.</td>
     </tr>
     <tr>
-      <td style="font-weight: bold;">logpmf(k, p, loc=0)</td>
+      <td style="font-weight: bold;">logpmf(<code>args2</code>, loc=0)</td>
       <td>Log of the probability mass function.</td>
     </tr>
     <tr>
-      <td style="font-weight: bold;">cdf(k, p, loc=0)</td>
+      <td style="font-weight: bold;">cdf(<code>args2</code>, loc=0)</td>
       <td>Cumulative distribution function.</td>
     </tr>
     <tr>
-      <td style="font-weight: bold;">logcdf(k, p, loc=0)</td>
+      <td style="font-weight: bold;">logcdf(<code>args2</code>, loc=0)</td>
       <td>Log of the cumulative distribution function.</td>
     </tr>
     <tr>
-      <td style="font-weight: bold;">sf(k, p, loc=0)</td>
+      <td style="font-weight: bold;">sf(<code>args2</code>, loc=0)</td>
       <td>Survival function (also defined as <code>1 - cdf</code>, but <i>sf</i> is sometimes more accurate).</td>
     </tr>
     <tr>
-      <td style="font-weight: bold;">logsf(k, p, loc=0)</td>
+      <td style="font-weight: bold;">logsf(<code>args2</code>, loc=0)</td>
       <td>Log of the survival function.</td>
     </tr>
     <tr>
-      <td style="font-weight: bold;">ppf(q, p, loc=0)</td>
+      <td style="font-weight: bold;">ppf(<code>args3</code>, loc=0)</td>
       <td>Percent point function (inverse of <code>cdf</code> — percentiles).</td>
     </tr>
     <tr>
-      <td style="font-weight: bold;">isf(q, p, loc=0)</td>
+      <td style="font-weight: bold;">isf(<code>args3</code>, loc=0)</td>
       <td>Inverse survival function (inverse of <code>sf</code>).</td>
     </tr>
     <tr>
-      <td style="font-weight: bold;">stats(p, loc=0, moments=’mv’)</td>
+      <td style="font-weight: bold;">stats(<code>args1</code>, loc=0, moments=’mv’)</td>
       <td>Mean(‘m’), variance(‘v’), skew(‘s’), and/or kurtosis(‘k’).</td>
     </tr>
     <tr>
-      <td style="font-weight: bold;">entropy(p, loc=0)</td>
+      <td style="font-weight: bold;">entropy(<code>args1</code>, loc=0)</td>
       <td>(Differential) entropy of the RV.</td>
     </tr>
     <tr>
-      <td style="font-weight: bold;">expect(func, args=(p,), loc=0, lb=None, ub=None, conditional=False)</td>
+      <td style="font-weight: bold;">expect(func, args=(<code>args1</code>,), loc=0, lb=None, ub=None, conditional=False)</td>
       <td>Expected value of a function (of one argument) with respect to the distribution.</td>
     </tr>
     <tr>
-      <td style="font-weight: bold;">median(p, loc=0)</td>
+      <td style="font-weight: bold;">median(<code>args1</code>, loc=0)</td>
       <td>Median of the distribution.</td>
     </tr>
     <tr>
-      <td style="font-weight: bold;">mean(p, loc=0)</td>
+      <td style="font-weight: bold;">mean(<code>args1</code>, loc=0)</td>
       <td>Mean of the distribution.</td>
     </tr>
     <tr>
-      <td style="font-weight: bold;">var(p, loc=0)</td>
+      <td style="font-weight: bold;">var(<code>args1</code>, loc=0)</td>
       <td>Variance of the distribution.</td>
     </tr>
     <tr>
-      <td style="font-weight: bold;">std(p, loc=0)</td>
+      <td style="font-weight: bold;">std(<code>args1</code>, loc=0)</td>
       <td>Standard deviation of the distribution.</td>
     </tr>
     <tr>
-      <td style="font-weight: bold;">interval(alpha, p, loc=0)</td>
+      <td style="font-weight: bold;">interval(alpha, <code>args1</code>, loc=0)</td>
       <td>Endpoints of the range that contains alpha percent of the distribution</td>
     </tr>
-    </tbody>
-  </table>
-
-
-+ `scipy.stats.binom` class<br/><br/>
-
-  <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y8y8f9cb">Bernoulli Distribution</a></caption>
-    <thead>
-    <tr style="font-size: 1.2em;">
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Reurn Value(s)</th>
-    </tr>
-    </thead>
-    <tbody>
     <tr>
-      <td style="font-weight: bold;">rvs(n, p, loc=0, size=1, random_state=None)</td>
-      <td>Random variates.</td>
-    </tr>
-    <tr>
-      <td style="font-weight: bold;">pmf(k, n, p, loc=0)</td>
-      <td>Probability mass function.</td>
-    </tr>
-    <tr>
-      <td style="font-weight: bold;">logpmf(k, n, p, loc=0)</td>
-      <td>Log of the probability mass function.</td>
-    </tr>
-    <tr>
-      <td style="font-weight: bold;">cdf(k, n, p, loc=0)</td>
-      <td>Cumulative distribution function.</td>
-    </tr>
-    <tr>
-      <td style="font-weight: bold;">logcdf(k, n, p, loc=0)</td>
-      <td>Log of the cumulative distribution function.</td>
-    </tr>
-    <tr>
-      <td style="font-weight: bold;">sf(k, n, p, loc=0)</td>
-      <td>Survival function (also defined as <code>1 - cdf</code>, but <i>sf</i> is sometimes more accurate).</td>
-    </tr>
-    <tr>
-      <td style="font-weight: bold;">logsf(k, n, p, loc=0)</td>
-      <td>Log of the survival function.</td>
-    </tr>
-    <tr>
-      <td style="font-weight: bold;">ppf(q, n, p, loc=0)</td>
-      <td>Percent point function (inverse of <code>cdf</code> — percentiles).</td>
-    </tr>
-    <tr>
-      <td style="font-weight: bold;">isf(q, n, p, loc=0)</td>
-      <td>Inverse survival function (inverse of <code>sf</code>).</td>
-    </tr>
-    <tr>
-      <td style="font-weight: bold;">stats(n, p, loc=0, moments=’mv’)</td>
-      <td>Mean(‘m’), variance(‘v’), skew(‘s’), and/or kurtosis(‘k’).</td>
-    </tr>
-    <tr>
-      <td style="font-weight: bold;">entropy(n, p, loc=0)</td>
-      <td>(Differential) entropy of the RV.</td>
-    </tr>
-    <tr>
-      <td style="font-weight: bold;">expect(func, args=(n, p,), loc=0, lb=None, ub=None, conditional=False)</td>
-      <td>Expected value of a function (of one argument) with respect to the distribution.</td>
-    </tr>
-    <tr>
-      <td style="font-weight: bold;">median(n, p, loc=0)</td>
-      <td>Median of the distribution.</td>
-    </tr>
-    <tr>
-      <td style="font-weight: bold;">mean(n, p, loc=0)</td>
-      <td>Mean of the distribution.</td>
-    </tr>
-    <tr>
-      <td style="font-weight: bold;">var(n, p, loc=0)</td>
-      <td>Variance of the distribution.</td>
-    </tr>
-    <tr>
-      <td style="font-weight: bold;">std(n, p, loc=0)</td>
-      <td>Standard deviation of the distribution.</td>
-    </tr>
-    <tr>
-      <td style="font-weight: bold;">interval(alpha, n, p, loc=0)</td>
-      <td>Endpoints of the range that contains alpha percent of the distribution</td>
+      <td colspan="2">
+        <a href="https://tinyurl.com/y72ffzu9">bernoulli</a>: <code>args1</code> = <code>p</code>, <code>args2</code> = <code>k, p</code>, <code>args3</code> = <code>q, p</code><br/><br/>
+        <a href="https://tinyurl.com/y8fdjfpy">binom</a>: <code>args1</code> = <code>n, p</code>, <code>args2</code> = <code>k, n, p</code>, <code>args3</code> = <code>q, n, p</code><br/><br/>
+        <a href="https://tinyurl.com/ybx8l3ot">poisson</a>: <code>args1</code> = <code>mu</code>, <code>args2</code> = <code>k, mu</code>, <code>args3</code> = <code>q, mu</code><br/><br/>
+      </td>
     </tr>
     </tbody>
   </table>
