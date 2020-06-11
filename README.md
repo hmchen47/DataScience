@@ -1007,88 +1007,88 @@
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Probability &amp; Statistics </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#sets"> Sets </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#sets"> Sets </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> Random Number Generator </th>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/Python-ProbStat.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#">  </a> </td>
   </tr>
 
   <!-- Data Science -->
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Data Science </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="./RefCards/PythonDS.md#general"> General </a></th>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/PythonDS.md#open-cvs-file"> Open CSV File </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/PythonDS.md#methods"> Methods </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/PythonDS.md#open-cvs-file"> Open CSV File </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/PythonDS.md#methods"> Methods </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#date-and-times"> Date & Time </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#import-files"> Import Files </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#attributes"> Attributes </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#methods-1"> Methods </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#import-files"> Import Files </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#attributes"> Attributes </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#methods-1"> Methods </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#scipy"> SciPy </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#import-files-1"> Import Files </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#statistical-module"> Statistical Module </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#import-files-1"> Import Files </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#statistical-module"> Statistical Module </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="rowspan: 2; padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#numpy"> Numpy </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#import-file"> Import Files </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#general-1"> General </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#array-creation"> Array Creation </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#combining-array"> Combining Array </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#import-file"> Import Files </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#general-1"> General </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#array-creation"> Array Creation </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#combining-array"> Combining Array </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#array-operations"> Array Operations </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#math-functions"> Math Functions </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#indexingslicing"> Indexing/Slicing </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#random-number-generator"> Random Number Generator </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#array-operations"> Array Operations </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#math-functions"> Math Functions </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#indexingslicing"> Indexing/Slicing </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#random-number-generator"> Random Number Generator </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#date-and-times"> Pandas </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#import-file-1"> Import File </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#general-2"> General </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#timestamp"> Timestamp </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#import-file-1"> Import File </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#general-2"> General </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#timestamp"> Timestamp </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#matplotlib"> DataFrame </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#class"> Class </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#load-file"> Loading File </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#attributes-1"> Attributes </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#indexing--slicing"> Indexing/Slicing </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#class"> Class </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#load-file"> Loading File </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#attributes-1"> Attributes </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#indexing--slicing"> Indexing/Slicing </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#methods-3"> Methods </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#">  </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#methods-3"> Methods </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#">  </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#">  </a> </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
   </tr>
   </tbody>
 </table>
