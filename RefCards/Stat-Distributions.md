@@ -88,7 +88,6 @@
 
 
 
-
 ## Beta Distribution
 
 + [Beta distribution](../Notes/p01-Bayesian.md#31-subjectivity-and-context)
@@ -129,4 +128,38 @@
         = \begin{pmatrix} n \\ k \end{pmatrix} \frac{B(k+a, n-k+b)}{B(a, b)} \\\\
         &= \frac{\Gamma(n+1)}{\Gamma(k+1)\Gamma(n-k+1)} \frac{\Gamma(k+a)\Gamma(n-k+b)}{\Gamma(n+a+b)} \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}
     \end{align*}\]
+
+
+
+## Poisson Distribution
+
++ Binomial approximation
+  + $P_\lambda$ approximating $B_{p, n}$ for $\lambda = np$, when $ n \gg 1 \gg p$
+
+    \[ B_{p, n}(k) &= \binom n k p^k q^{n-k} = \dfrac{n^{\underline{k}}}{k!} \cdot \dfrac{\lambda^k}{n^k} \cdot \dfrac{\left(1-\frac{\lambda}{n}\right)^n}{\left(1 - \frac{\lambda}{n}\right)^k} \]
+
++ Axioms
+  + probability: $P_\lambda (k) = e^{-\lambda} \frac{\lambda^k}{k!} \quad k \ge 0$
+  + non-negative: $P_\lambda (k) \ge 0$
+  + Taylor expansion: $e^\lambda = \sum_{k=0}^\infty \frac{\lambda^k}{k!}$
+  + unitary:
+
+    \[ \sum_{k=0}^\infty P_\lambda (k) = \sum_{k=0}^\infty e^{-\lambda} \frac{\lambda^k}{k!} = e^{-\lambda} \sum_{k=0}^\infty \frac{\lambda^k}{k!} = e^{-\lambda}e^\lambda = 1 \]
+
++ Mean and variance of Poisson distribution
+  + Expectation: $E[X] = E[X^{\underline{1}}] = \lambda$
+  + variance: $Var(X) = E[X^2] - (E[X])^2 = \lambda^2 + \lambda - \lambda^2 = \lambda$
+  + standard deviation: $\sigma = \sqrt{\lambda} \to$ small relative to the mean
+
++ Summary: Poisson distribution
+  + pmf: $P_\lambda (k) = e^{-\lambda} \frac{\lambda^k}{k!} \quad \lambda \ge 0 \quad k \ge 0$
+  + approximation: $B_{p,n}$ for $\lambda = np$, when $n \gg 1 \gg p$
+  + applications: \# of ad clicks, rare disease, production defects
+  + properties
+    + $\mu = \lambda$
+    + $Var = \lambda$
+    + $\sigma = \sqrt{\lambda}$
+
+
+
 
