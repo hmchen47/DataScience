@@ -71,8 +71,8 @@
 
 + Bernoulli distribution
   + two values: 0 and 1, or failure and success
-  + $B_p\quad 0 \le p \le 1$
-  + $p(0) = 1-p = \overline{p} = q \quad p(1) = p$
+  + notation: $B_p\quad 0 \le p \le 1$
+  + pmf: $p(0) = 1-p = \overline{p} = q \quad p(1) = p$
   + unitary: $p(0) + p(1) = (1-p) + p = 1$
   + $X \sim B_p$:
     + Bernoulli
@@ -337,7 +337,7 @@
   + $n$ ${\perp \!\!\!\! \perp}$ $B_p$ experiments
     + $k$ successes: success = 1
     + $0 \le k \le n$
-  + $b_{p, n}(k) = p(k \text{ successes}) = \binom n k p^k q^{n-k}$
+  + pmf: $b_{p, n}(k) = p(k \text{ successes}) = \binom n k p^k q^{n-k}$
     + every $k$ successes sequence
       + $n-k$ failures
       + prob. $p^k \cdot q^{n-k}$
