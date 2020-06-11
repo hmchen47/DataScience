@@ -54,6 +54,40 @@
 
   + $Y \sim Bern(\theta)$: a Bernoulli distribution, a binomial w/ $n=1$
 
++ [The Binomial distribution](../Stats/ProbStatsPython/08-DiscreteDist.md#82-binomial-distribution)
+  + "failure" w/ probability $1 - p = \overline{p} = q$
+  + notation: $B_{p,n}$ or $B_{n, p}$: distribution of \# successes
+    + $B_{n, p}$ more common
+    + using $B_{p, n}$ as generalized $B_p$
+    + $B_{p, n}$: natural for Poisson Binomial
+  + use $B_{p, n}$ because
+    + generalized $B_p$
+    + main parameter: $p$
+    + extending to Poisson Binomial
+
++ [General $n$ and $k$](../Stats/ProbStatsPython/08-DiscreteDist.md#82-binomial-distribution)
+  + $n$ ${\perp \!\!\!\! \perp}$ $B_p$ experiments
+  + $b_{p, n}(k) = p(k \text{ successes}) = \binom n k p^k q^{n-k}$
+
++ [Unitary](../Stats/ProbStatsPython/08-DiscreteDist.md#82-binomial-distribution)
+
+    \[ \sum_{k=0}^n b_{p, n} (k) = \sum_{k=0}^n p^k q^{n-k} = (p + q)^n = 1^n = 1 \]
+
++ [Interpretation as a Sum](../Stats/ProbStatsPython/08-DiscreteDist.md#82-binomial-distribution)
+  + $X_1, \cdots, X_n \sim B_p\quad {\perp \!\!\!\! \perp}$
+  + $X \stackrel{\text{def}}{=} \sum_{i=1}^n X_i$
+  + $\Pr(X=k) = \Pr(\text{exactly } k \text{ of } X_1, \cdots, X_n \text{ are } 1) = \binom n k p^k q^{n-k} = b_{p, n}(k)$
+
++ [Mean and Variance](../Stats/ProbStatsPython/08-DiscreteDist.md#82-binomial-distribution)
+
+    \[\begin{align*}
+      E[X] &= E\left[\sum_{i=1}^n X_i\right] \underbrace{=}_{\text{LE}} \sum E[X_i] \underbrace{=}_{B_p} \sum p = np \\\\
+      Var(X) &= Var \left(\sum_{i=1}^n X_i \right) \underbrace{=}_{{\perp \!\! \perp}} \sum Var(X_i) \underbrace{=}_{B_p} \sum pq = npq \\\\
+      \sigma &= \sqrt{npq}
+    \end{align*}\]
+
+
+
 
 ## Beta Distribution
 
