@@ -9,6 +9,34 @@
     p(y | \theta_j) = \begin{cases} \theta_j & \text{ if } y = 1 \\ 1 - \theta_j & \text{ if } y = 0 \end{cases}
   \]
 
++ [Bernoulli distribution](../Stats/ProbStatsPython/08-DiscreteDist.md#81-bernoulli-distribution)
+  + notation: $B_p\quad 0 \le p \le 1$
+  + pmf: $p(0) = 1-p = \overline{p} = q \quad p(1) = p$
+  + unitary: $p(0) + p(1) = (1-p) + p = 1$
+  + $X \sim B_p$
+
++ [Characteristics](../Stats/ProbStatsPython/08-DiscreteDist.md#81-bernoulli-distribution)
+  + binary version of complex events
+  + repeated trials yield \# successes
+  
++ [Mean and Variance](../Stats/ProbStatsPython/08-DiscreteDist.md#81-bernoulli-distribution)
+  + mean: $E[X] = \sum p(x) \cdot x = (1-p) \cdot 0 + p \cdot 1$
+  + variance: $Var(X) = E[X^2] - (E[X])^2 = p - p^2 = p(1-p) = pq$
+  + standard deviation: $\sigma = \sqrt{pq}$
+  + various $p$
+    + $p = 0 \to E[X] = 0, \;Var(X) = 0, \;\sigma = 0$
+    + $p = 1 \to E[X] = 1, \;Var(1) = 0, \;\sigma = 0$
+    + $p = \tfrac12 \to E[X] = \tfrac12, \;Var(X) = \frac14, \;\sigma = \frac12$
+    + $B_p$ varying most when $p = \frac12$
+
++ [Independent trials](../Stats/ProbStatsPython/08-DiscreteDist.md#81-bernoulli-distribution)
+  + most common type of Bernoulli distribution: independent ${\perp \!\!\!\! \perp}$
+  + generally, $X_1, X_2, \cdots, X_n \sim B_p \to  {\perp \!\!\!\! \perp}$
+    + $x^n = x_1, x_2, \cdots, x_n \in \{0, 1\}^n$
+    + $n_0$ = number of 0's; &nbsp;&nbsp;&nbsp;&nbsp;  $n_1$ = number of 1's
+    + $\Pr(x_1, \dots, x_n) = p^{n_1} q^{n_0}$
+
+
 
 ## Binomial Distribution
 
