@@ -1475,6 +1475,76 @@ Several of the following questions ask about the number of experiments performed
 
 ## Programming Assignment 8
 
+### Introduction
+
+In this assignment you will learn to use functions to access, query, and gain simple insights from datasets.
+
+
+### Dataset
+
+The Titanic was a British passenger liner that collided with an iceberg and sank in its maiden voyage. Tragically, of the 2,200 passengers onboard, only 800 survived. We will use the [Titanic:Machine Learning from disaster](https://www.kaggle.com/c/titanic/data) dataset to estimate survival probabilies associated with various passengers. We will use only the train.csv file.
+
+
+### Some useful functions
+
+The following functions outlined in pandas library may prove helpful.
+
++ `pandas.read_csv()` $\to$ Reads the .csv file
++ `pandas.value_counts()` $\to$ Returns count of unique values
+
+
+### Questions
+
+Using the dataset, estimate the following.
+
+1. Survival probability for a passenger.
+
+  Ans: 0.3838<br/>
+  
+  ```python
+  import pandas as pd
+  import numpy as np
+
+  data = pd.read_csv('./Titanic/train.csv')
+
+  print(data['Survived'].value_counts(normalize=True))
+  ```
+
+
+2. Survival probability for a female passenger.
+
+  Ans: 0.742038<br/>
+
+  ```python
+  import pandas as pd
+  import numpy as np
+
+  data = pd.read_csv('./Titanic/train.csv')
+
+  print(data[data['Sex'] == 'female'].groupby(['Sex'])['Survived'].value_counts()\
+      / data[data['Sex'] == 'female']['Survived'].count())
+  ```
+
+
+3. Probability that a person is a female and survives.
+
+  Ans: 0.2615<br/>
+
+  ```python
+  import pandas as pd
+  import numpy as np
+
+  data = pd.read_csv('./Titanic/train.csv')
+
+  print(data.groupby(['Sex'])['Survived'].value_counts() / data['Survived'].count())
+  ```
+
+
+4. It is more probable for a person from the first class to survive as compared to the second or third class. (True/False)
+
+  Ans: True
+
+
 
 
 
