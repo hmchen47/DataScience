@@ -1453,33 +1453,27 @@ Several of the following questions ask about the number of experiments performed
     + bin_edges: array of dtype float<br/>
       The edges to pass into histogram
 
++ `Series.value_counts`
+  + `Series.value_counts(self, normalize=False, sort=True, ascending=False, bins=None, dropna=True)`
+  + Docstring
+    + Return a Series containing counts of unique values.
+    + The resulting object will be in descending order so that the first element is the most frequently-occurring element. Excludes NA values by default.
+  + Parameteers
+    + `normalize`: bool, default False<br/>
+      If True then the object returned will contain the relative frequencies of the unique values.
+    + `sort`: bool, default True<br/>
+      Sort by frequencies.
+    + `ascending`: bool, default False<br/>
+      Sort in ascending order.
+    + `bins`: int, optional<br/>
+      Rather than count values, group them into half-open bins, a convenience for pd.cut, only works with numeric data.
+    + `dropna`: bool, default True<br/>
+      Don’t include counts of NaN.
+  + Return: Series
+
 
 
 ## Programming Assignment 8
-
-### Introduction
-
-In this assignment you will learn to use functions to access, query, and gain simple insights from datasets.
-
-
-### Dataset
-
-The Titanic was a British passenger liner that collided with an iceberg and sank in its maiden voyage. Tragically, of the 2,200 passengers onboard, only 800 survived. We will use the [Titanic:Machine Learning from disaster](https://www.kaggle.com/c/titanic/data) dataset to estimate survival probabilies associated with various passengers. We will use only the train.csv file.
-
-
-### Some useful functions
-
-The following functions outlined in pandas library may prove helpful.
-
-+ `pandas.read_csv()` $\to$ Reads the .csv file
-+ `pandas.value_counts()` $\to$ Returns count of unique values
-
-
-### Questions
-
-Using the dataset, estimate the following.
-
-
 
 
 
