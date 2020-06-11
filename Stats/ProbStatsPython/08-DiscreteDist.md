@@ -267,7 +267,7 @@
 
   Ans: a. (); b. (); c. ()<br/>
   Explanation
-    + $\Pr(X = 1) = 0.3 \cdot 0.6 \cdot 0.3 \cdot 0.2 + 0.7 \cdot 0.4 \cdot 0.3 \cdot 0.2 + 0.7 \cdot 0.6 \cdot 0.7 \cdot 0.2 + 0.7 \cdot 0.6 \cdot 0.3 \cdot 0.8 = 0.1872$
+    + $\Pr(X = 1) = 0.3 \cdot 0.6 \cdot 0.3 \cdot 0.2 + 0.7 \cdot 0.4 \cdot 0.3 \cdot 0.2 +$ $0.7 \cdot 0.6 \cdot 0.7 \cdot 0.2 +$ $0.7 \cdot 0.6 \cdot 0.3 \cdot 0.8 =$ $0.1872$
     + $E[X] = 0.3 + 0.4 + 0.7 + 0.8 = 2.2$
     + $Var(X) = 0.21 + 0.24 + 0.21 + 0.16 = 0.82$
 
