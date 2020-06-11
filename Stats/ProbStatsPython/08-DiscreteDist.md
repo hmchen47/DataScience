@@ -1290,7 +1290,7 @@ Several of the following questions ask about the number of experiments performed
 
 + [Local Lecture Python code](img/Topic08_Lecture.py)
 
-+ `scipy.stats.xxx` class: xxx = bernoulli, binom, poisson<br/><br/>
++ `scipy.stats.xxx` class: xxx = bernoulli, binom, poisson, geom<br/><br/>
 
   <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <thead>
@@ -1373,6 +1373,7 @@ Several of the following questions ask about the number of experiments performed
         <a href="https://tinyurl.com/y72ffzu9">bernoulli</a>: <code>args1</code> = <code>p</code>, <code>args2</code> = <code>k, p</code>, <code>args3</code> = <code>q, p</code><br/><br/>
         <a href="https://tinyurl.com/y8fdjfpy">binom</a>: <code>args1</code> = <code>n, p</code>, <code>args2</code> = <code>k, n, p</code>, <code>args3</code> = <code>q, n, p</code><br/><br/>
         <a href="https://tinyurl.com/ybx8l3ot">poisson</a>: <code>args1</code> = <code>mu</code>, <code>args2</code> = <code>k, mu</code>, <code>args3</code> = <code>q, mu</code><br/><br/>
+        <a href="https://tinyurl.com/y9bbkpnt">geom</a>: <code>args1</code> = <code>p</code>, <code>args2</code> = <code>k, p</code>, <code>args3</code> = <code>q, p</code>
       </td>
     </tr>
     </tbody>
