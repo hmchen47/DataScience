@@ -163,3 +163,113 @@
 
 
 
+
+## Geometric Distribution
+
++ [Back to basics](../Stats/ProbStatsPython/08-DiscreteDist.md#84-geometric-distribution)
+  + independent $B_p$ coin flips: $p(1) = p \quad p(0) = 1 - p \stackrel{\text{def}}{=} q$
+  + two derived distributions
+    + Binomial: $B_{p, n}$ = \# 1's in flips
+    + Geometric: $G_p$ = \# flips till first 1 = time to first success
+
++ [Geometric distribution](../Stats/ProbStatsPython/08-DiscreteDist.md#84-geometric-distribution)
+  + Notation: $G_p \quad 0 < p \le 1$
+  + probability: $p(n) = q^{n-1} p \stackrel{\text{def}}{=} g_p(n) \quad n \ge 1$
+  + range: $p \neq 0$, $n$ can be arbitrary high
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/avarkvc" ismap target="_blank">
+      <img src="https://tinyurl.com/y7a8jauc" style="margin: 0.1em;" alt="Probability mass function of Geometric distribution" title="Probability mass function of Geometric distribution" width=450>
+    </a>
+  </div>
+
++ [Axioms](../Stats/ProbStatsPython/08-DiscreteDist.md#84-geometric-distribution)
+  + probability: $\Pr(n) = pq^{n-1} \quad n \ge 1 \quad q = 1-p$
+  + non-negative: $\Pr(n) \ge 0$
+  + unitary
+
+    \[ \sum_{n=1}^\infty p(1-p)^{n-1} = p \sum_{i=0}^\infty (1-p)^i = p \cdot \frac{1}{1 - (1-p)} = \frac p p = 1 \]
+
++ [Cumulative Distribution Function (CDF)](../Stats/ProbStatsPython/08-DiscreteDist.md#84-geometric-distribution)
+  
+  $n \in \Bbb{N} \quad X > n \iff X_1 = \cdots = X_n =0$
+  
+  \[ \Pr(X > n) = \Pr(X_1 = \cdots = X_n = 0) = q^n \]
+
+  \[F(n) = \Pr(X \le n) = 1 - \Pr(X > n) = 1 - q^n \]
+
++ [Expectation via "Right" CDF](../Stats/ProbStatsPython/08-DiscreteDist.md#84-geometric-distribution)
+  + geometric distribution
+
+    \[ E[X] = \sum_{k=1}^\infty \Pr(X \ge k) = \sum_{i=0}^\infty \Pr(X > i) = \sum_{i=0}^\infty \frac{1}{1-q} = \frac{1}{p} \]
+
++ [Variance](../Stats/ProbStatsPython/08-DiscreteDist.md#84-geometric-distribution)
+
+  \[ E[X^2] = E[X(X-1)] + E[X] = \frac{2q}{p^2} + \frac{1}{p} = \frac{2q+p}{p^2} = \frac{1+q}{p^2} \]
+
+  \[ Var(X) = E[X^2] - (E[X])^2 = \frac{1+q}{p^2} - \frac{1}{p^2} = \frac{q}{p^2} \quad\to\quad \sigma = \frac{\sqrt{q}}{p} \]
+
++ ["Even" odds](../Stats/ProbStatsPython/08-DiscreteDist.md#84-geometric-distribution)
+  + normally, "even ods" means that two events have equal probabilities
+  + something a bit more "odd"
+  + probability that a Geometric random variable is even
+
+    \[ \Pr(1) = p \quad \Pr(2) = p \cdot q = q \cdot \Pr(1) \]
+
++ [Memoryless](../Stats/ProbStatsPython/08-DiscreteDist.md#84-geometric-distribution)
+  + Definition: (memoryless) a distribution over $\Bbb{P} = \{1, 2, \dots\}$ is a <span style="color: magenta; font-weight: bold;">memoryless</span> if $\forall\, n \ge 0, m > 1$
+
+    \[ \Pr(X = n+m \mid X > n) = \Pr(X=m) \]
+
+  + after observing or any number of samples, process behaves as at the start
+
++ [Geometric and Memoryless](../Stats/ProbStatsPython/08-DiscreteDist.md#84-geometric-distribution)
+  + Geometric $\to$ Memoryless
+    + all geometric distributions are memoryless
+  + Memory $\to$ Geometric
+    + any discrete memoryless distribution over $\Bbb{P}$ is geometric
+
++ [$r$ successes](../Stats/ProbStatsPython/08-DiscreteDist.md#84-geometric-distribution)
+  + generalized geometric: $n \ge r$
+
+    \[ \Pr(\text{r'th success at n'th trial}) = \binom{n-1}{r-1} p^r q^{n-r} \]
+
+  + special case: $r = 1 \to pq^{n-1} = g_p(n)$
+  + a.k.a. negative binomial distribution
+
++ [Summary](../Stats/ProbStatsPython/08-DiscreteDist.md#84-geometric-distribution)
+  + pmf: $\Pr(n) = p q^{n-1} \quad n \ge 1 \quad q = 1 - p$
+  + memoryless
+  + mean: $E[X] = \frac 1 p$
+  + variance: $Var(X) = \frac{q}{p^2}$
+  + standard deviation: $\sigma = \frac{\sqrt{q}}{p}$
+  + $r$ successes: $\Pr(\text{r'th success at n'th trial}) = \binom{n-1}{r-1} p^r q^{n-r}$
+
++ [Coupon collector problem](../Stats/ProbStatsPython/08-DiscreteDist.md#85-geometric-distribution-example)
+  + expectation
+    + $X_i$: \# items to get $i^{th}$ coupon after getting $i - 1$ coupons
+    + $X = X_1 + X_2 + X_3 \to X_1 = 1, X_2 \sim G_{2/3}, X_3 \sim G_{1/3} \;\;{\perp \!\!\!\! \perp}$
+    + $X_1 = 1, X_2 = 2, X_3 = 4$
+
+  + General $n$
+    + $X_i \sim G\left(\frac{n - (i-1)}{n}\right) = G\left( \frac{n-i+1}{n} \right)$
+    + mean: $E[X_i] = \frac{n}{n-i+1}$
+    + collected sum: $X = \sum_{i=1}^n X_i$
+    + expected of collected sum:
+
+      \[ E[X] = \sum_{i=1}^n E[X_i] =  n(\frac11 + \frac12 + \cdots + \frac 1 n) = nH_n \approx n \ln n + 0.577n \]
+
+    + Harmonic sum: $H_n = \frac11 + \frac12 + \cdots + \frac 1 n \to \ln n + 0.577$
+
+  + Variance
+    + $X \sim G(P) \quad Var(X) = \frac{1 - p}{p^2} \le \frac{1}{p^2}$
+
+    \[\begin{align*}
+      Var(X) &= n^2 \left( \frac{1}{n^2} + \frac{1}{(n-1)^2} + \cdots + \frac{1}{1^2} \right) \le \frac{\pi^2}{6} n^2 \\\\
+      \sigma &\le \frac{\pi}{\sqrt{6}} n
+    \end{align*}\]
+
+
+
+
+
