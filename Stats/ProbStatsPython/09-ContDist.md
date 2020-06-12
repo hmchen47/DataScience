@@ -17,7 +17,7 @@
     + cost; stock, house, pork bellies
     + rates: interest, exchange, unemployment
 
-+ Probability density function (pdf)
++ Probability density function (PDF)
   + replacing the discrete pmf
   + relative likelihood of $x$: $f(x) \ge 0$
   + area under curve (area): $\int_{-\infty}^\infty f(x)\,dx$
@@ -34,18 +34,18 @@
     <tr style="font-size: 1.2em;">
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Prob. Func.</th>
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">mass (pmf)</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">density (pdf)</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">density (PDF)</th>
     </tr>
     </thead>
     <tbody>
     <tr> <td style="text-align: center;">$\ge 0$</td> <td style="text-align: center;">$p(x) \ge 0$</td> <td style="text-align: center;">$f(x) \ge 0$</td>  </tr>
-    <tr> <td style="text-align: center;">$\sum = 1$</td> <td style="text-align: center;">$\sum_x p(x) = 1$</td> <td style="text-align: center;">$\int_{-\infty}^\infty f(x) dx = 1$$</td> </tr>
+    <tr> <td style="text-align: center;">$\sum = 1$</td> <td style="text-align: center;">$\sum_x p(x) = 1$</td> <td style="text-align: center;">$\int_{-\infty}^\infty f(x) dx = 1$</td> </tr>
     </tbody>
   </table>
 
 + Event probability
-  + discrete: $P(A) = \sum_{x\in A} p(x)$
-  + continuous: $P(A) = \int_{x \in A} f(x) dx$
+  + discrete: $\Pr(A) = \sum_{x\in A} p(x)$
+  + continuous: $\Pr(A) = \int_{x \in A} f(x) dx$
   + typically interested in interval probability: $\Pr(a \le X \le b)$
   + AuC (area under curve) btw a and b
   + cumulative distribution function: $\Pr(X \le b) - \Pr(X \le a)$
@@ -71,24 +71,23 @@
   + properties
     + $F(x) = $ integral
     + nondecreasing
-    + $F(-\infty) = 0$
-    + $F(\infty) = 1$
+    + $F(-\infty) = 0 \quad F(\infty) = 1$
     + continuous
 
 + Example: uniform distribution
-  + pdf
+  + PDF
 
     \[ f(x) = \begin{cases} 1 & 0 \le x \le 1 \\ 0 & \text{otherwise} \end{cases} \]
 
   + unitary: will it $\sum? \qquad \text{A.U.C. } = 1 \cdot 1 = 1$
 
-    \[ \int_{-\infty}^\infty f(x) dx = \int^1_0 1 dx = \left. x\right|^1_0 = 1 \]
+    \[ \int_{-\infty}^\infty f(x) \,dx = \int^1_0 1\, dx = \left. x\right|^1_0 = 1 \]
 
   + CDF
 
-    \[ F(x) = \int_{-\infty}^\infty  f(u) du = \begin{cases} 0 & x \le 0 \\ \int_0^x 1\,du = \left. u\right|_0^x = x & 0 \le x \le 1 \\ 1 & 1 \le x \end{cases} \]
+    \[ F(x) = \int_{-\infty}^\infty  f(u) du = \begin{cases} 0 & x \le 0 \\ \int_0^x 1\,du = \left. u\right|_0^x = x & 0 < x \le 1 \\ 1 & 1 < x \end{cases} \]
 
-    \[ F^\prime = \begin{cases} (0)^\prime = 0 & 0 \le x \\ (x)^\prime = 1 & 0 < x < 1 \\ (1)^\prime = 0 & 1 < x \end{cases} \]
+    \[ F^\prime = \begin{cases} (0)^\prime = 0 & 0 \le x \\ (x)^\prime = 1 & 0 < x \le 1 \\ (1)^\prime = 0 & 1 < x \end{cases} \]
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/yb4obz4o" ismap target="_blank">
@@ -98,7 +97,7 @@
     </div>
 
 + Example: triangle
-  + pdf
+  + PDF
 
   \[ f(x) = \begin{cases} 2x & 0 \le x \le 1 \\ 0 & \text{otherwise} \end{cases} \]
 
@@ -120,7 +119,7 @@
 
 
 + Infinite support
-  + power paw distribution: pdf
+  + power paw distribution: PDF
 
     \[ f(x) = \begin{cases} \frac{1}{x^2} & x \ge 1 \\ 0 & x < 1 \end{cases} \]
 
@@ -174,7 +173,7 @@
   </table>
 
 + Expectation
-  + discrete: $E[X] = \sum x \cdot p(x0)$
+  + discrete: $E[X] = \sum x \cdot p(x)$
   + continuous: $E[X] = \int_{-\infty}^\infty xf(x)\, dx$
   + as discrete: average of many samples
   + properties
@@ -208,7 +207,7 @@
   
 + Examples
   + uniform:
-    + mean: $[X] = \frac12$
+    + mean: $E[X] = \frac12$
     + $E[X^2] = \int_0^1 x^2 \,1\, dx = \left.\frac{x^3}{3}\right|_0^1 = \frac13$
     + variance: $Var(X) = E[X^2] - (E[X])^2 = \frac13 - \frac14 = \frac{1}{12}$
     + standard deviation: $\sigma = \frac{1}{\sqrt{12}} = \frac{1}{2\sqrt{3}}$
@@ -229,9 +228,9 @@
     </tr>
     </thead>
     <tbody>
-    <tr> <th>Prob. Fun.</th> <td style="text-align: center;">pmf: p</td> <td style="text-align: center;">pdf: f</td> </tr>
+    <tr> <th>Prob. Fun.</th> <td style="text-align: center;">pmf: p</td> <td style="text-align: center;">PDF: f</td> </tr>
     <tr> <th>$\ge 0$</th> <td style="text-align: center;">$p(x) \ge 0$</td> <td style="text-align: center;">$f(x) \ge 0$</td> </tr>
-    <tr> <th>unitary</th> <td style="text-align: center;">$\sum p(x0 = 1$</td> <td style="text-align: center;">$\int f(x)\,dx = 1$</td> </tr>
+    <tr> <th>unitary</th> <td style="text-align: center;">$\sum p(x) = 1$</td> <td style="text-align: center;">$\int f(x)\,dx = 1$</td> </tr>
     <tr> <th>$\Pr(A)$</th> <td style="text-align: center;">$\sum_{x \in A} p(x)$</td> <td style="text-align: center;">$\int_{x \in A} f(x)\,dx$</td> </tr>
     <tr> <th>$F(X)$</th> <td style="text-align: center;">$\sum_{u \le x} p(u)$</td> <td style="text-align: center;">$\int_{-\infty}^x f(u)\, dx$</td> </tr>
     <tr> <th>$\mu = E[X]$</th> <td style="text-align: center;">$\sum x p(x)$</td> <td style="text-align: center;">$\int xf(x)\, dx$</td> </tr>
