@@ -245,8 +245,51 @@
 
 ### Problem Sets
 
+0. Which of the following is true about a continuous random variable on $\Bbb{R}$?<br/>
+  a. Its pdf must integrate to 1 on $\Bbb{R}$<br/>
+  b. Its cdf must integrate to 1 on $\Bbb{R}$<br/>
+  c. None of the above<br/>
+
+  Ans: a<br/>
+  Explanation: Its pdf must integrate to 1 on $\Bbb{R}$.
 
 
+1. \(F\) is the cumulative distribution function for a continuous random variable. If \(F(b) - F(a) = 0.20\), then<br/>
+  a. \([a,b]\) has length \(0.20\)<br/>
+  b. \(P(X = b) - P(X = a) = 20\%\)<br/>
+  c. \(P(X\in(a,b])=20\%\)<br/>
+  
+  Ans: c<br/>
+  Explanation: Recall that $F(b)=P(X \le b)$, $F(a)=P(X \le a)$. Hence $P(a < X \le b)=F(b)−F(a)=0.2$.
+
+
+2. Which of the following holds for all continuous probability distribution function \(f(x)\) having support set \(\mathbb{R}\)?<br/>
+  a. \(\forall x\in\mathbb{R},\quad f(x)\ge 0\)<br/>
+  b. \(\forall x\in\mathbb{R},\quad f(x)\le 1\)<br/>
+  c. \(\exists x\in\mathbb{R},\quad f(x)\le 1\)<br/>
+  d. If the limits of \(f(x)\) at positive and negative infinity exist, then \(\lim_{x\rightarrow\infty}f(x)=\lim_{x\rightarrow -\infty}f(x)=0\)<br/>
+
+  Ans: <span style="color: magenta;">ad</span><br/>
+  Explanation
+  + By definition, $f(x) \ge 0$.
+  + Consider Gaussian $N(0,1/(8\pi))$. For this probability density function, $f(0)=2>1$.
+  + If $f>1, \forall x \in \Bbb{R}$, $\int_{\Bbb{R}} f(z)dz= \infty$, but we require $\int_{\Bbb{R}} f(z)dz=1$.
+  + Suppose $\exists \epsilon, x_0>0$ such that $\forall\, x \ge x_0,f(x)> \epsilon$, then $\int_{\Bbb{R}} f(z)dz= \infty$. Thus there cannot exist such an $\epsilon, x_0>0$ and hence $\lim_{x \to \infty} f(x)=0$. Similarly $\lim_{x \to −\infty} f(x)=0$.
+
+
+3. Power Law
+
+  Let  X  be a random variable with pdf $f_X(x) = C x^{−\alpha}, x \ge 1$.
+
+  a. If $\alpha = 2$, $C=$?<br/>
+  b. If $\alpha = 3$, $C=$?<br/>
+  c. $E(X)=$?<br/>
+
+  Ans: a. (1); b(12; c(2)<br/>
+  Explanation: 
+    + $\int_{-\infty}^{\infty} f_X(x) dx = \int_{1}^{\infty} Cx^{-2} dx = C = 1$
+    + $\int_{-\infty}^{\infty} f_X(x) dx = \int_{1}^{\infty} Cx^{-3} dx = \frac{C}{2} = 1$
+    + $E(X) = \int_{-\infty}^{\infty} x \cdot f_X(x) dx = \int_{1}^{\infty} 2x^{-2} dx = 2$
 
 
 
