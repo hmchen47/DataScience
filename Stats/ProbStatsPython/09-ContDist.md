@@ -361,14 +361,14 @@
       \end{align*}\]
 
     + example: $f_X(x) = 3x^2 \quad F_X(x) = x^3 \quad g(x) = x^{\frac32} \quad h(y) = y^{\frac23} \quad f_Y(y) = 2y$
-      + $F_Y(y) = \Pr(Y \le y) = \Pr(X^{\frac32} \le y) = \Pr(X \le y^{\frac23} = F_X(y^{\frac23})$
+      + $F_Y(y) = \Pr(Y \le y) = \Pr(X^{\frac32} \le y) = \Pr(X \le y^{\frac23}) = F_X(y^{\frac23})$
       + $f_Y(y) = F^\prime(y) = [(y^{\frac23})]^\prime = 3(y^{\frac23})^2 \cdot \frac23 y^{-\frac13} = 2y$
 
   + $Y = g(X)$ w/ $g \searrow$
     + $F_Y \to F_X$
 
       \[\begin{align*}
-        F_Y(y) &\triangleq  = \Pr(g(X) \le y) = \Pr(X \ge g^{-1}(y)) \\
+        F_Y(y) &\triangleq \Pr(g(X) \le y) = \Pr(X \ge g^{-1}(y)) \\
         &= 1 - \Pr(X \le g^{-1}(y)) = 1 - F_X(g^{-1}(y)) \\
         &= 1 - F_X(h(y))
       \end{align*}\]
@@ -376,7 +376,7 @@
     + $f_Y \to f_X$
 
       \[\begin{align*}
-        f_Y(y) &= F_Y^\prime(y) = 1 - [F_X(h(y))]^\prime = -F_X^\prime(h(y)) \cdot h^\prime(y) \\
+        f_Y(y) &= F_Y^\prime(y) = [1 - F_X(h(y))]^\prime = -F_X^\prime(h(y)) \cdot h^\prime(y) \\
         &= - f_X(h(y)) \cdot h^\prime(y)
       \end{align*}\]
 
