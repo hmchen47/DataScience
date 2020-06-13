@@ -437,7 +437,7 @@
 
 ### Video Links
 
-<a href="url" target="_BLANK">
+<a href="https://youtu.be/EfOOhlwDfDU" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
 </a><br/>
 
