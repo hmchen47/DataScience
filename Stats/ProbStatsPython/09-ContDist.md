@@ -394,9 +394,45 @@
 
 ### Problem Sets
 
+0. Let X be a continuous random variable. What type of function g will make the random variable g(X) discrete?<br/>
+  a. increasing<br/>
+  b. decreasing<br/>
+  c. linear<br/>
+  d. step<br/>
+
+  Ans: d<br/>
+  Explanation: A step function will make g(X) discrete, as it will take only the y-values that correspond to the steps.
 
 
+1. Let $(X,Y)$ be distributed over $[0,1]×[0,1]$ according to $f(x,y)=6xy^2$. Find $P(XY^3 \le 1/2)$.
 
+  Ans: 3/4<br/>
+  Explanation: Let $Z=XY^3$. For any $z \in (0, 1)$, $Z=XY^3 \le z \iff Y \le \min{(z/X)^{1/3}, 1}$. Therefore $P(Z\le z)=$ $P(XY^3\le z)=$ $\int_0^z\int_0^1f(x,y)dydx+\int_z^1\int_0^{(z/x)^{1/3}}f(x,y)dydx=$ $\int_0^z\int_0^1 6xy^2dydx+\int_z^1\int_0^{(z/x)^{1/3}}6xy^2 dydx=$ $z^2+2z(1-z)$. Plugging in $z=1/2$ gives the answer. [StackExchange](https://tinyurl.com/y8e48pv6)
+
+
+2. A random variable  X  follows the distribution
+
+  \[ f_X(x)=\begin{cases} Cx^2 & -1\le x\le 2,\\  0 & \text{otherwise},  \end{cases} \]
+
+  and $Y=X^2$. Calculate
+
+  a. $C$<br/>
+  b. $P(X≥0)$<br/>
+  c. $E[Y]$<br/>
+  d. $Var(Y)$<br/>
+
+  Ans: a. (1/3); b. (8/9); c. ($\frac{43}{7} - (\frac{11}{5})^2$)<br/>
+  Explanation:
+    + Since $1=\int_{-1}^2f_X(x)dx=\int_{-1}^2Cx^2dx=3C$, we must have $C=1/3$
+    + $P(X\ge 0)=\int_{0}^2f_X(x)dx=\int_{0}^2\frac13x^2dx=\frac19\cdot\left.x^3\right|^2_0=\frac89$
+    + $E(Y)=E(X^2)=\int_{-1}^2 x^2 f_X(x)dx=\int_{-1}^2\frac13\cdot x^4dx=33/15=11/5$
+    + First, $E(Y^2)=E(X^4)=\int_{-1}^2 x^4 f_X(x)dx=\int_{-1}^2\frac13\cdot x^6dx=\frac{129}{21}$. Hence, $V(Y)=E(Y^2)-E(Y)^2=$ $\frac{129}{21}-\left(\frac{11}5\right)^2=\frac{228}{175}$
+    + [Example 3, Distributions of Functions of Random variables - Stat. Dept. UW](../../Notes/p04.5-FuncRV.md)
+
+3. Let $X$ be distributed according to $f(x)=ce^{−2x}$ over $x>0$. Find $P(X>2)$.
+
+  Ans: $e^{-4}$<br/>
+  Explanation: Since $\int_0^\infty f(x)dx=1$, we have $c=2$. $P(X > 2) = \int_{2}^{\infty} f(x) dx = \int_{2}^{\infty} 2e^{-2x} dx = e^{-4}$
 
 
 ### Video Links
