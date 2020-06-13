@@ -302,12 +302,90 @@
 
 ## 9.2 Functions of Random Variables
 
++ Functions of random variable
+  + examples
+    + $X$: income; $Y = 0.3X$: income tax
+    + $X$: driving speed, $Y=2^x$: speeding ticket
+  + $X \sim f_x$: $f_X$ known distribution
+  + $Y = g(X)$: $g$ known deterministic function
+  + what is the distribution of $Y$: $f_Y$?
+
++ Power law
+  + $a > -1$
+
+    \[ \int_0^1 \underbrace{(a+1) x^a}_{\ge 0} dx = \left. a^{a+1} \right|_0^1 = 1 \]
+
+  + pdf
+
+    \[ f(x) = \begin{cases} (a+1) x^a & 0 \le x \le 1 \\ 0 & \text{otherwise} \end{cases} \]
+
+  + CDF: $a \le x \le 1$
+
+    \[ F(x) = \int_0^x (a+1) u^a du = \left. u^{a+1} \right|_0^x = x^{a+1} \]
+
+  + example
+    + $X \sim f(x) = 3x^2 \quad F(x) = x^3 \quad 0 \le x \le 1$
+    + $g \nearrow \to Y = g(X) \triangleq X^{\frac32}$
+      + $0 \le y \le 1$
+
+        \[ F_Y(y) &= \Pr(Y \le y) = \Pr(X^{\frac32} \le y) = \Pr(X \le y^{\frac23}) = F_X(y^{\frac23}) = y^2 \]
+
+      + $F_Y(0) = 0 \quad F_Y(1) = 1$
+      + $f_Y(y) = F_Y^\prime(y) = 2y$
+    + $g \searrow \to Y = g(X) \triangleq X^{-3}$
+      + $y \ge 1$
+
+        \[ F_Y(y) = \Pr(X \le y) = \Pr(X^{-3} \le y) = \Pr(X \ge y^{\frac{-1}{3}}) = 1 - \Pr(X \le y^{\frac{-1}{3}}) = 1 - F_X(y^{\frac{-1}{3}}) = 1 - y^{-1} \]
+
+      + $F_Y(1) = 0 \quad F_Y(\infty) = 1$
+      + $f_Y(y) = F_Y^\prime(y) = y^{-2}$
+
++ $Y = g(X)$ w/ $g \nearrow$
+  + $F_Y \to F_X$
+
+    \[\begin{align*}
+      F_Y (y) &\triangleq \Pr(Y \le y) = \Pr(g(X) \le y) \\
+      &= \Pr(X \le^{-1}(y)) = F_X(g^{-1}(y)) (h(y) \triangleq r^{-1}(y)) \\
+      &= F_X(h(y))
+    \end{align*}\]
+
+  + $f_Y \to f_X$
+
+    \[\begin{align*}
+      f_Y(y) &= F^\prime_Y (y) = [F_X(h(y))]^\prime \\
+      &= F_X^\prime(h(y)) \cdot h^\prime(y) = f_X(h(y)) \cdot h^\prime(y)
+    \end{align*}\]
+
+  + example: $f_x(x) = 3x^2 \quad F_X(x) = x^3 \quad g(x) = x^{\frac32} \quad h(y) = y^{\frac23} \quad f_Y(y) = 2y$
+    + $F_Y(y) = \Pr(Y \le y) = \Pr(X^{\frac32} \le y) = \Pr(X \le y^{\frac23} = F_X(y^{\frac23})$
+    + $f_Y(y) = F^\prime(y) = [(y^{\frac23})]^\prime = 3(y^{\frac23})^2 \cdot \frac23 y^{-\frac13}$
+
++ $Y = g(X)$ w/ $g \searrow$
+  + $F_Y \to F_X$
+  
+    \[\begin{align*}
+      F_Y(y) &\triangleq  = \Pr(g(X) \le y) = \Pr(X \ge g^{-1}(y)) \\
+      &= 1 - \Pr(X \le g^{-1}(y)) = 1 - F_X(g^{-1}(y)) \\
+      &= 1 - F_X(h(y))
+    \end{align*}\]
+
+  + $f_Y \to f_X$
+  
+    \[\begin{align*}
+      f_Y(y) &= F_Y^\prime(y) = 1 - [F_X(h(y))]^\prime = -F_X^\prime(h(y)) \cdot h^\prime(y) \\
+      &= - f_X(h(y)) \cdot h^\prime(y)
+    \end{align*}\]
+
++ Combining $g \nearroe$ and $g \searrow$
+  + $g \nearrow \qquad f_Y(y) = f_X(h(y)) \cdot h^\prime(y)$
+  + $g \searrow \qquad f_Y(y) = -f_Y(h(y)) \cdot h^\prime(y)$
+  + both: $f_Y(y) = f_X(h(y)) \cdot |h^\prime(y)|$
+  + alternative formulation:
+
+    \[ f_Y(y) = \left. \frac{1}{|g^\prime(x)} f_X(x) \right|_{y=g(x)} \]
 
 
-
-
-
-+ [Original Slides]()
++ [Original Slides](https://tinyurl.com/y8dosmt4)
 
 
 ### Problem Sets
