@@ -450,13 +450,13 @@
     \[ f(x) = \begin{cases} c & x \in [a, b] \quad \text{equally likely} \\ 0 & x \notin [a, b] \quad \text{never happen} \end{cases} \]
 
   + properties:  for $(\alpha, \beta) \subseteq [a, b]$
-    + probability determined by, and is $\prop$ to, length $\beta - \alpha$
+    + probability determined by, and is $\propto$ to, length $\beta - \alpha$
     + area under curve: always a rectangle
     + integrals: just height $x$ width
-
   + unitary:
     + $1 = \int_{-\infty}^\infty f(x)\, dx = c(b-a)$
     + $c = \frac{1}{b-a}$
+  + non-negative: $f(x) \ge 0$
 
 + Applications
   + departure times
@@ -468,13 +468,13 @@
 
 + Cumulative distribution function
 
-  \[F(x) = \int_{-\infty}^x f(u) du = \begin{align*}
-    \int_{-\infty}^x 0 du = 0 & x \le a \\ F(a) + \int_a^x \frac{1}{b-a} \,du = \frac{x-a}{b-a} & a \le x \le b \\ F(b) + \int_b^x 0\, du & x \ge b
+  \[ F(x) = \int_{-\infty}^x f(u) du = \begin{cases}
+    \int_{-\infty}^x 0\, du = 0 & x \le a \\\\ F(a) + \int_a^x \frac{1}{b-a} \,du = \frac{x-a}{b-a} & a \le x \le b \\\\ F(b) + \int_b^x 0\, du & x \ge b = 1
   \end{cases}\]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/yata7tbx" ismap target="_blank">
-      <img src="img/t09-04.png" style="margin: 0.1em;" alt="PDF and CDF of Uniform Distribution" title="PDF and CDF of Uniform Distribution" width=350>
+      <img src="img/t09-04.png" style="margin: 0.1em;" alt="PDF and CDF of Uniform Distribution" title="PDF and CDF of Uniform Distribution" width=250>
     </a>
   </div>
 
@@ -496,21 +496,21 @@
       </tr>
       <tr>
         <td>$[\beta, \infty)$</td>
-        <td>$F(\infty) - F(\beta) = 1 - \frac{\beta - a}{b-a} = $</td>
+        <td>$F(\infty) - F(\beta) = 1 - \frac{\beta - a}{b-a} = \frac{b - \beta}{b - a}$</td>
       </tr>
       <tr>
-        <td>$$</td>
-        <td>$$</td>
+        <td>$\{\alpha\}$</td>
+        <td>$F(\alpha) - F(\alpha) = 0$</td>
       </tr>
       </tbody>
     </table>
 
-+ Expectation and \sigma
-  + pdf: $X \si U_{[0, 1]}$ first, $F9(x) =1, 0 \le c ]le1$
++ Expectation and variance
+  + pdf: $X \sim U_{[0, 1]}$ first, $F9(x) =1, 0 \le c ]le1$
   + mean: $E[X] = \int_0^1 x\,dx = \left.\frac{x^2}{2}\right_0^1 = \frac12$ by symmetry
   + $E[X^2] = \int_0^1 x^2 \,dx = \left.\frac{x^3}{3}\right|_0^1 = \frac13$
   + variance: $Var(X) = E[X^2] - (E[X])^2 = \frac13 - \frac14 = \frac{1}{12}$
-  + standard deviation: $\sigma = \sqrt{frac{1}{12}} \approx 0.99$
+  + standard deviation: $\sigma = \sqrt{\frac{1}{12}} \approx 0.99$
 
 + Translation and scaling
   + uniformity preserved under translation and scaling
@@ -527,7 +527,7 @@
 + General $\mu$ and $\sigma$
   + notation: $Y \sim U_{[a, b]}$
   + pdf: $Y = (b-a)X + a$
-  + mean: E[Y] = (b-a) E[X] + a = \farc{b-a}{2} + a = \frac{a+b}{2}$
+  + mean: $E[Y] = (b-a) E[X] + a = \frac{b-a}{2} + a = \frac{a+b}{2}$
   + variance: $Var(Y) = Var((b+a)X + a) = (b-a)^2 Var(X) = \frac{(b-a)^2}{12}$
   + standard deviation: $\sigma = \frac{b-a}{2\sqrt{3}} \approx 0.29(b-a)$
 
@@ -540,6 +540,11 @@
   + CDF
 
     \[ F(X) = \begin{cases} 0 & x \le a \\ \frac{x-a}{b-a} & a \le x \le b \\ 1 & x \ge b \end{cases} \]
+
+  + parameters
+    + $\mu = \frac{a+b}{2}$
+    + $Var = \frac{(b-a)^2}{12}$
+    + $\sigma = \frac{b-a}{2\sqrt{3}}$
 
 
 
