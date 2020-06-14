@@ -621,7 +621,7 @@
 
     \[ f_\lambda(x) = \begin{cases} \lambda e^{-\lambda x} & x \ge 0 \\ 0 & x < 0 \end{cases} \]
 
-  + non-negative: %f_\lambda(x) \ge 0$
+  + non-negative: $f_\lambda(x) \ge 0$
   + unitary:
 
     \[ \int f(x) \,dx = \int_0^\infty \lambda e^{-\lambda x} dx = \left.-e^{-\lambda x}\right|_0^\infty = 0 - (-1) = 1 \]
@@ -629,8 +629,8 @@
   + cdf:
 
     \[\begin{align*}
-      \Pr(X > x) &= \begin{cases} \int_x&\infty \lambda e^{-\lambda u}\,du = \left. -e^{-\mabdau \right|_x^\infty = e^{-\lambda x} & x \ge 0 \\ 1 & x \le 0 \end{cases} \\
-      F(x) = \Pr(X \le x) &= \begin{cases} 1 - \Pr(X > x) = 1 - e^{-\lambda x} & x \gr 0 \\ 0 x \le 0 \end{cases}
+      \Pr(X > x) &= \begin{cases} \int_x&\infty \lambda e^{-\lambda u}\,du = \left. -e^{-\lambda u} \right|_x^\infty = e^{-\lambda x} & x \ge 0 \\ 1 & x \le 0 \end{cases} \\
+      F(x) = \Pr(X \le x) &= \begin{cases} 1 - \Pr(X > x) = 1 - e^{-\lambda x} & x \ge 0 \\ 0 & x \le 0 \end{cases}
     \end{align*}\]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -688,7 +688,7 @@
 
     \[\begin{align*}
       \Pr(X \ge a + b \mid X \ge a) &= \frac{\Pr(X \ge a +b, X \ge a)}{\Pr(X \ge a)}\\
-      &= \frac{\Pr(X \ge a+b)}{\Pr(X \ge a)} = \frac{e^{-\lambda (a+b)}}{{e^{-\lambda a}} = e^{-\lambda b} \\
+      &= \frac{\Pr(X \ge a+b)}{\Pr(X \ge a)} = \frac{e^{-\lambda (a+b)}}{e^{-\lambda a}} = e^{-\lambda b} \\
       &= \Pr(X \ge b)
     \end{align*}\]
 
@@ -702,7 +702,7 @@
     \[f(X = a + b \mid X \ge a) = f(X = b) \]
 
 + Example: waiting time in line
-  + DMV w/ 2 clerks, each w/ exponential service time
+  + DMV w/ 2 clerks, each w/ exponential service time $f_\lambda$
   + when arrived, one person in line
   + while waiting, someone custs in front of you
   + at some point a clerk becomes available and starts serving the fist person
@@ -717,27 +717,27 @@
       + fixed: 1
       + exponential: ?
 
-    <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-      <thead>
-      <tr style="font-size: 1.2em;">
-        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Heading1</th>
-        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Heading2</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr> <td style="text-align: center;">A < B < C</td> <td style="text-align: center;">$tfrac14$</td> </tr>
-      <tr> <td style="text-align: center;">A < C < B</td> <td style="text-align: center;">$tfrac14$</td> </tr>
-      <tr> <td style="text-align: center;">B < A < C</td> <td style="text-align: center;">$tfrac14$</td> </tr>
-      <tr> <td style="text-align: center;">B < C < A</td> <td style="text-align: center;">$tfrac14$</td> </tr>
-      <tr> <td style="text-align: center;">C < A < B</td> <td style="text-align: center;">0</td> </tr>
-      <tr> <td style="text-align: center;">C < B < A</td> <td style="text-align: center;">0</td> </tr>
-      </tbody>
-    </table>
-
     \[\begin{align*}
       \Pr(A < B < C) &= \underbrace{\Pr(A < B)}_{\tfrac12} \cdot \underbrace{\Pr(B < C \mid A < B)}_{\tfrac12} = \frac14\\
       \Pr(B < C < A) &= \overbrace{\Pr({B < A})}_{} \cdot \overbrace{\Pr(C < A \mid B < A)}_{} = \frac14
     \end{align*}\]
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Orders</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Probability</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr> <td style="text-align: center;">A < B < C</td> <td style="text-align: center;">$\tfrac14$</td> </tr>
+      <tr> <td style="text-align: center;">A < C < B</td> <td style="text-align: center;">$\tfrac14$</td> </tr>
+      <tr> <td style="text-align: center;">B < A < C</td> <td style="text-align: center;">$\tfrac14$</td> </tr>
+      <tr> <td style="text-align: center;">B < C < A</td> <td style="text-align: center;">$\tfrac14$</td> </tr>
+      <tr> <td style="text-align: center;">C < A < B</td> <td style="text-align: center;">0</td> </tr>
+      <tr> <td style="text-align: center;">C < B < A</td> <td style="text-align: center;">0</td> </tr>
+      </tbody>
+    </table>
 
   + conclusion
     + all 3 of you served randomly, $\Pr(\text{you finish last}) = \frac13$
@@ -745,7 +745,7 @@
     + exponential (memoryless) service time
       + you won't finish first
       + all 4 others equally likely
-      + \$Pr(\text{you finish last}) = \frac14 + \frac14 = \frac12$
+      + \$Pr(\text{you finish last}) = \Pr(A < B < C) + \Pr(B < A< C) = \frac14 + \frac14 = \frac12$
       + only slightly larger than $\frac13$
 
 + Intervals, multiples of exponential in Python
@@ -767,7 +767,7 @@
   + Summary: exponential
     + pdf
 
-      \[ f_\lambda(x) = \begin{cases} \lamda e^{-\lambda x} & x \ge 0 \\ 0 & x \le 0 \end{cases} \]
+      \[ f_\lambda(x) = \begin{cases} \lambda e^{-\lambda x} & x \ge 0 \\ 0 & x \le 0 \end{cases} \]
 
     + cdf
 
