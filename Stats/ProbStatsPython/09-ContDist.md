@@ -615,12 +615,172 @@
 
 ## 9.4 Exponential Distribution
 
++ Exponential distribution
+  + extending geometric distribution to continuous values
+  + pdf: $\lambda > 0$
+
+    \[ f_\lambda(x) = \begin{cases} \lambda e^{-\lambda x} & x \ge 0 \\ 0 & x < 0 \end{cases} \]
+
+  + non-negative: %f_\lambda(x) \ge 0$
+  + unitary:
+
+    \[ \int f(x) \,dx = \int_0^\infty \lambda e^{-\lambda x} dx = \left.-e^{-\lambda x}\right|_0^\infty = 0 - (-1) = 1 \]
+
+  + cdf:
+
+    \[\begin{align*}
+      \Pr(X > x) &= \begin{cases} \int_x&\infty \lambda e^{-\lambda u}\,du = \left. -e^{-\mabdau \right|_x^\infty = e^{-\lambda x} & x \ge 0 \\ 1 & x \le 0 \end{cases} \\
+      F(x) = \Pr(X \le x) &= \begin{cases} 1 - \Pr(X > x) = 1 - e^{-\lambda x} & x \gr 0 \\ 0 x \le 0 \end{cases}
+    \end{align*}\]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/prvqe7v" ismap target="_blank">
+      <img src="https://tinyurl.com/y7r73983" style="margin: 0.1em;" alt="Probability density function of Exponential Distribution" title="Probability density function of Exponential Distribution" height=200>
+      <img src="https://tinyurl.com/y7k86vh7" style="margin: 0.1em;" alt="Cumulative distribution function of Exponential Distribution" title="Cumulative distribution function of Exponential Distribution" height=200>
+    </a>
+  </div>
+
++ Applications
+  + duration of a phone call
+  + wait time when you call an airline
+  + lifetime of a car
+  + time between accidents
+
++ Example: $0 \le as \le b$
+
+  \[\begin{align*}
+    \Pr(a \le X \le b) &= \Pr(a < X < b) = F(b) - F(a) \\
+    &= (1 - e^{-\lambda b}) - (1 - e^{-\lambda a}) = e^{-\lambda a} - e^{-\lambda b} 
+  \end{align*}\]
+
++ Expectation and variance
+  + mean
+
+    \[\begin{align*}
+      E[X] &= \int_0^\infty x \lambda e^{-\lambda x}\,dx = \left.-x e^{-\lambda x} \right|_0^\infty + \int_0^\infty e^{-\lambda x}\,dx \\
+      &= 0 - \left.\frac{1}{\lambda} e^{-\lambda x} \right|_0^\infty = \frac{1}{\lambda}
+    \end{align*}\]
+
+    \[\begin{align*}
+      u = x &\to \quad dv = \lambda e^{-\lambda x} dx \\
+      du =1 &\to \quad v = -e^{-\lambda x} \\
+      \implies &\int u\, dv = uv - \int v\,du
+    \end{align*}\]
+
+  + variance
+
+    \[\begin{align*}
+      E[X^2] &= \int_0^\infty x^2 \lambda e^{-\lambda x} dx \\
+      & = \left.-x^2 e^{-\lambda x} \right|_0^\infty + \int_0^\infty 2x e^{-\lambda x} dx \hspace{2em} \left(E[X] = \int_0^\infty x \lambda e^{-\lambda x} dx = \frac{1}{\lambda}\right) \\
+      &= 0 + \frac{2}{\lambda} E[X] = \frac{2}{\lambda^2}
+    \end{align*}\]
+
+    \[\begin{align*}
+      u = x^2 &\to \quad dv = \lambda e^{-\lambda x}dx \\
+      du = ex\,dx &\to \quad v = -e^{-\lambda x} \\
+      \implies &\int u\, dv = uv - \int v\,du
+    \end{align*}\]
+
+    \[ Var(X) = E[X^2] - (E[X])^2 = \frac{2}{\lambda^2} - \frac{1}{\lambda^2} = \frac{1}{\lambda^2} \]
+
++ Memoryless
+  + Exponential distribution: $X \sim f_\lambda \quad a, b \ge 0$
+
+    \[\begin{align*}
+      \Pr(X \ge a + b \mid X \ge a) &= \frac{\Pr(X \ge a +b, X \ge a)}{\Pr(X \ge a)}\\
+      &= \frac{\Pr(X \ge a+b)}{\Pr(X \ge a)} = \frac{e^{-\lambda (a+b)}}{{e^{-\lambda a}} = e^{-\lambda b} \\
+      &= \Pr(X \ge b)
+    \end{align*}\]
+
+    \[\begin{align*}
+      \Pr(X < a + b \mid x \ge a) &= 1 - \Pr(X \ge a +b \mid X \ge a) = 1 -\Pr(X \ge b) \\
+      &= \Pr(X < b)
+    \end{align*}\]
+
+  + pdf
+
+    \[f(X = a + b \mid X \ge a) = f(X = b) \]
+
++ Example: waiting time in line
+  + DMV w/ 2 clerks, each w/ exponential service time
+  + when arrived, one person in line
+  + while waiting, someone custs in front of you
+  + at some point a clerk becomes available and starts serving the fist person
+  + before 1st person finished, other clerk starts sercing 2nd person
+  + if all 3 person served randomly, $\Pr(\text{you finish last}) = 1/3$
+  + $\Pr(\text{you finish last now})?$
+  + evaluation
+    + A: time 1st person finished
+    + B: time 2nd person finishes
+    + C: time you finish
+    + Service: $\Pr(A < B < C)$
+      + fixed: 1
+      + exponential: ?
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Heading1</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Heading2</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr> <td style="text-align: center;">A < B < C</td> <td style="text-align: center;">$tfrac14$</td> </tr>
+      <tr> <td style="text-align: center;">A < C < B</td> <td style="text-align: center;">$tfrac14$</td> </tr>
+      <tr> <td style="text-align: center;">B < A < C</td> <td style="text-align: center;">$tfrac14$</td> </tr>
+      <tr> <td style="text-align: center;">B < C < A</td> <td style="text-align: center;">$tfrac14$</td> </tr>
+      <tr> <td style="text-align: center;">C < A < B</td> <td style="text-align: center;">0</td> </tr>
+      <tr> <td style="text-align: center;">C < B < A</td> <td style="text-align: center;">0</td> </tr>
+      </tbody>
+    </table>
+
+    \[\begin{align*}
+      \Pr(A < B < C) &= \underbrace{\Pr(A < B)}_{\tfrac12} \cdot \underbrace{\Pr(B < C \mid A < B)}_{\tfrac12} = \frac14\\
+      \Pr(B < C < A) &= \overbrace{\Pr({B < A})}_{} \cdot \overbrace{\Pr(C < A \mid B < A)}_{} = \frac14
+    \end{align*}\]
+
+  + conclusion
+    + all 3 of you served randomly, $\Pr(\text{you finish last}) = \frac13$
+    + fixed service time, $\Pr(\text{you finish last}) = 1$
+    + exponential (memoryless) service time
+      + you won't finish first
+      + all 4 others equally likely
+      + \$Pr(\text{you finish last}) = \frac14 + \frac14 = \frac12$
+      + only slightly larger than $\frac13$
+
++ Intervals, multiples of exponential in Python
+  + pdf:
+    + `expon.pdf(n)` w/ note: [n] = {1 ... n}
+
+      ```python
+      from scipy.stats import expon
+      print(expon.pdf(x=3, scale=2))  # 0.111565...
+      ```
+
+    + `range(m, n)` or `range(m, n, d)` -> {m, m+d, m+2d, ...} < n-1
+
+      ```python
+      print(set(range(2, 5)))       # {2, 3, 4}
+      print(set(range(2, 12, 3)))   # {8, 2, 11, 5}
+      ```
+
+  + Summary: exponential
+    + pdf
+
+      \[ f_\lambda(x) = \begin{cases} \lamda e^{-\lambda x} & x \ge 0 \\ 0 & x \le 0 \end{cases} \]
+
+    + cdf
+
+      \[ F(x) = \begin{cases} 1 - e^{-\lambda x} & x \ge 0 \\ 0 & x \le 0 \end{cases} \]
+
+    + properties
+      + mena: $E[X] = \frac{1}{\lambda}$
+      + vatinace: $Var(X) = \frac{1}{\lambda^2}$
+      + \sigma: $\sigma = \frac{1}{\lambda}$
+      + memoryless
 
 
-
-
-
-+ [Original Slides]()
++ [Original Slides](https://tinyurl.com/ycojutex)
 
 
 ### Problem Sets
