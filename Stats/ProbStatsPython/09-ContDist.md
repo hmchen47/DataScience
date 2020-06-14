@@ -559,8 +559,50 @@
 
 ### Problem Sets
 
+0. Let X be a uniformly distributed continuous random variable, then which of the following is also uniform?<br/>
+  a. 2X<br/>
+  b. X+2<br/>
+  c. Both<br/>
+  d. Neither<br/>
+
+  Ans: c <br/>
+  Explanation: Both 2X and X+2 are also uniform.
 
 
+1. The height of the probability density function of a uniformly distributed random variable is inversely proportional to the width of the interval it is distributed over. (True/False)
+
+  Ans: True<br/>
+  Explanation: Recall that $\int_{-\infty}^\infty f_X(x)dx=1$, which means the area under the pdf is one. For uniform distribution, it becomes the area of a rectangle, which is 1. Hence the height is inversely proportional to the width.
+
+
+2. The variance of a uniformly distributed random variable on  [a,b]  is<br/>
+  a. $(b−a)/2$<br/>
+  b. $(b−a)/6$<br/>
+  c. $(b−a)^2/6$<br/>
+  d. $(b−a)^2/12$<br/>
+
+  Ans: d<br/>
+  Explanation: The expectation of a uniformly distributed random variable $X$ on $[a,b]$ is $E(X)=\frac{a+b}{2}$.  Its variance is $V(X) = \int_{a}^{b} (x - \frac{a + b}{2})^2 \frac{1}{b - a} dx = (b-a)^2/12$
+
+
+3. Let $X,Y \sim U_{[0,1]}$ independently. Find $\Pr(\max(X,Y) \ge 0.8 \mid \min(X,Y)=0.5)$.
+
+  Ans: <span style="color: magenta;">2/5</span><br/>
+  Explanation: Red area is the region that $\max(X,Y) \ge 0.8$. Blue line (both solid and dash) is the region that $\min(X,Y)=0.5$.  Blue dash line is the region that $\max(X,Y) \ge 0.8$ and $\min(X,Y)=0.5$.  Notice that $P(\max(X,Y)\ge 0.8 \mid \min(X,Y)=0.5) = \frac{P(\max(X,Y)\ge 0.8, \min(X,Y)=0.5)}{P(\min(X,Y)=0.5)}$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ybblggz3" ismap target="_blank">
+      <img src="img/t09-06.png" style="margin: 0.1em;" alt="Diagram of 9.3 Q3" title="Diagram of 9.3 Q3" width=200>
+    </a>
+  </div>
+
+  Conditioning on $\min(X,Y)=0.5)$ restricts our focus to the L-shaped line from $(1,0.5)$ to $(0.5,0.5)$ to $(0.5,1)$ whose total length is $0.5+0.5=1$, and the distribution over that line is uniform. Within this line, $\max(X,Y) \ge 0.8$ forms the segments from $(0.8,0.5)$ to $(1,0.5)$ and from $(0.5,0.8)$ to $(0.5,1)$ whose total length is $0.2+0.2=0.4$. The probability of falling within these segments given the L-shaped line is $0.4/1=0.4$. [Stack Exchange](https://tinyurl.com/y8622gka)
+
+
+4. Given $X \sim _{U[a,b]}$ with $E[X]=2$ and $Var(X)=3$, find $a$ and $b$.
+
+  Ans: a. (-1); b. (5)<br/>
+  Explanation: The mean and variance of $X \sim U_{[a,b]}$ are given by $E[X]=(a+b)/2$, $Var(X)=(b−a)^2/12$ respectively. Thus $(a+b)/2=2$ or $a=4−b$. Further $(b−a)^2/12=3$, and substituting $a=4−b$, we have $(b−2)^2=9$. Solving this and keeping the solution with $b \ge a$ gives $b=5,a=−1$.
 
 
 
