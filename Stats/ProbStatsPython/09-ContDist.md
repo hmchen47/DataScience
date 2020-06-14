@@ -445,14 +445,14 @@
 ## 9.3 Uniform Distribution
 
 + Uniform distribution
-  + Definition: (uniform) for $a < b$, the <span style="color: uniform;">uniform</span> distribution, $U_{[a, b]}, is constant inside $[a. b]$ and 0 outside
+  + __Definition__: (uniform) for $a < b$, the <span style="color: cyan; font-weight: bold;">uniform</span> distribution, $U_{[a, b]}$, is constant inside $[a. b]$ and 0 outside
 
     \[ f(x) = \begin{cases} c & x \in [a, b] \quad \text{equally likely} \\ 0 & x \notin [a, b] \quad \text{never happen} \end{cases} \]
 
   + properties:  for $(\alpha, \beta) \subseteq [a, b]$
     + probability determined by, and is $\propto$ to, length $\beta - \alpha$
     + area under curve: always a rectangle
-    + integrals: just height $x$ width
+    + integrals: just height $\times$ width
   + unitary:
     + $1 = \int_{-\infty}^\infty f(x)\, dx = c(b-a)$
     + $c = \frac{1}{b-a}$
@@ -469,7 +469,7 @@
 + Cumulative distribution function
 
   \[ F(x) = \int_{-\infty}^x f(u) du = \begin{cases}
-    \int_{-\infty}^x 0\, du = 0 & x \le a \\\\ F(a) + \int_a^x \frac{1}{b-a} \,du = \frac{x-a}{b-a} & a \le x \le b \\\\ F(b) + \int_b^x 0\, du & x \ge b = 1
+    \int_{-\infty}^x 0\, du = 0 & x \le a \\\\ F(a) + \int_a^x \frac{1}{b-a} \,du = \frac{x-a}{b-a} & a \le x \le b \\\\ F(b) + \int_b^x 0\, du = 1 & x \ge b
   \end{cases}\]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -492,7 +492,7 @@
       <tbody>
       <tr>
         <td>$(\alpha, \beta]$</td>
-        <td>$F(\beta) - F(\alpha) = \frac{\beta - \alpha}{b-a} - \frac{\alpha - a}{b - a} = \frac{\beta - \alpha}{b - a}$</td>
+        <td>$F(\beta) - F(\alpha) = \frac{\beta - a}{b-a} - \frac{\alpha - a}{b - a} = \frac{\beta - \alpha}{b - a}$</td>
       </tr>
       <tr>
         <td>$[\beta, \infty)$</td>
@@ -505,18 +505,24 @@
       </tbody>
     </table>
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yata7tbx" ismap target="_blank">
+      <img src="img/t09-05.png" style="margin: 0.1em;" alt="Illustration of interval probabilities" title="Illustration of interval probabilities" width=200>
+    </a>
+  </div>
+
 + Expectation and variance
-  + pdf: $X \sim U_{[0, 1]}$ first, $F9(x) =1, 0 \le c ]le1$
-  + mean: $E[X] = \int_0^1 x\,dx = \left.\frac{x^2}{2}\right_0^1 = \frac12$ by symmetry
+  + pdf: $X \sim U_{[0, 1]}$ first, $f(x) =1,\; 0 \le x \le 1$
+  + mean: $E[X] = \int_0^1 x\,dx = \left.\frac{x^2}{2}\right|_0^1 = \frac12$ by symmetry
   + $E[X^2] = \int_0^1 x^2 \,dx = \left.\frac{x^3}{3}\right|_0^1 = \frac13$
   + variance: $Var(X) = E[X^2] - (E[X])^2 = \frac13 - \frac14 = \frac{1}{12}$
-  + standard deviation: $\sigma = \sqrt{\frac{1}{12}} \approx 0.99$
+  + standard deviation: $\sigma = \sqrt{\frac{1}{12}} = \frac{1}{2\sqrt{3}} \approx 0.29$
 
 + Translation and scaling
   + uniformity preserved under translation and scaling
   + wolog
-    + $X ]sim U_{[0, 1]} \quad (a \neq 0)$
-    + $for any constants $a > 0$ and $b$, $Y \stackrel{\text{def}}{=} aX + b \sim U_{[b, a+b]}$
+    + $X \sim U_{[0, 1]} \quad (a \neq 0)$
+    + for any constants $a > 0$ and $b$, $Y \stackrel{\text{def}}{=} aX + b \sim U_{[b, a+b]}$
   + range: $0 \to b \quad 1 \to a+b$
   + pdf: $Y = aX + b \stackrel{\text{def}}{=} g(X)$
 
@@ -528,7 +534,7 @@
   + notation: $Y \sim U_{[a, b]}$
   + pdf: $Y = (b-a)X + a$
   + mean: $E[Y] = (b-a) E[X] + a = \frac{b-a}{2} + a = \frac{a+b}{2}$
-  + variance: $Var(Y) = Var((b+a)X + a) = (b-a)^2 Var(X) = \frac{(b-a)^2}{12}$
+  + variance: $Var(Y) = Var((b-a)X + a) = (b-a)^2 Var(X) = \frac{(b-a)^2}{12}$
   + standard deviation: $\sigma = \frac{b-a}{2\sqrt{3}} \approx 0.29(b-a)$
 
 + Uniform Distributions
