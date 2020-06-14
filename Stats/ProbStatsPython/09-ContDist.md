@@ -444,12 +444,106 @@
 
 ## 9.3 Uniform Distribution
 
++ Uniform distribution
+  + Definition: (uniform) for $a < b$, the <span style="color: uniform;">uniform</span> distribution, $U_{[a, b]}, is constant inside $[a. b]$ and 0 outside
+
+    \[ f(x) = \begin{cases} c & x \in [a, b] \quad \text{equally likely} \\ 0 & x \notin [a, b] \quad \text{never happen} \end{cases} \]
+
+  + properties:  for $(\alpha, \beta) \subseteq [a, b]$
+    + probability determined by, and is $\prop$ to, length $\beta - \alpha$
+    + area under curve: always a rectangle
+    + integrals: just height $x$ width
+
+  + unitary:
+    + $1 = \int_{-\infty}^\infty f(x)\, dx = c(b-a)$
+    + $c = \frac{1}{b-a}$
+
++ Applications
+  + departure times
+  + wait time for a bus
+  + location of chip defect
+  + location of a molecule in space
+  + considering a small area in time or space
+  + not so many ...
+
++ Cumulative distribution function
+
+  \[F(x) = \int_{-\infty}^x f(u) du = \begin{align*}
+    \int_{-\infty}^x 0 du = 0 & x \le a \\ F(a) + \int_a^x \frac{1}{b-a} \,du = \frac{x-a}{b-a} & a \le x \le b \\ F(b) + \int_b^x 0\, du & x \ge b
+  \end{cases}\]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yata7tbx" ismap target="_blank">
+      <img src="img/t09-04.png" style="margin: 0.1em;" alt="PDF and CDF of Uniform Distribution" title="PDF and CDF of Uniform Distribution" width=350>
+    </a>
+  </div>
+
++ Interval probabilities
+  
+  for $a \le \alpha \le \beta \le b$
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Interval</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Probability</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>$(\alpha, \beta]$</td>
+        <td>$F(\beta) - F(\alpha) = \frac{\beta - \alpha}{b-a} - \frac{\alpha - a}{b - a} = \frac{\beta - \alpha}{b - a}$</td>
+      </tr>
+      <tr>
+        <td>$[\beta, \infty)$</td>
+        <td>$F(\infty) - F(\beta) = 1 - \frac{\beta - a}{b-a} = $</td>
+      </tr>
+      <tr>
+        <td>$$</td>
+        <td>$$</td>
+      </tr>
+      </tbody>
+    </table>
+
++ Expectation and \sigma
+  + pdf: $X \si U_{[0, 1]}$ first, $F9(x) =1, 0 \le c ]le1$
+  + mean: $E[X] = \int_0^1 x\,dx = \left.\frac{x^2}{2}\right_0^1 = \frac12$ by symmetry
+  + $E[X^2] = \int_0^1 x^2 \,dx = \left.\frac{x^3}{3}\right|_0^1 = \frac13$
+  + variance: $Var(X) = E[X^2] - (E[X])^2 = \frac13 - \frac14 = \frac{1}{12}$
+  + standard deviation: $\sigma = \sqrt{frac{1}{12}} \approx 0.99$
+
++ Translation and scaling
+  + uniformity preserved under translation and scaling
+  + wolog
+    + $X ]sim U_{[0, 1]} \quad (a \neq 0)$
+    + $for any constants $a > 0$ and $b$, $Y \stackrel{\text{def}}{=} aX + b \sim U_{[b, a+b]}$
+  + range: $0 \to b \quad 1 \to a+b$
+  + pdf: $Y = aX + b \stackrel{\text{def}}{=} g(X)$
+
+    \[ f_Y(y) = \left.\frac{f_X(x)}{|g^\prime(x)|}\right|_{x = g^{-1}(y)} = \frac 1 a \]
+
+    + or: equal-length interval map to equal-length intervals
+
++ General $\mu$ and $\sigma$
+  + notation: $Y \sim U_{[a, b]}$
+  + pdf: $Y = (b-a)X + a$
+  + mean: E[Y] = (b-a) E[X] + a = \farc{b-a}{2} + a = \frac{a+b}{2}$
+  + variance: $Var(Y) = Var((b+a)X + a) = (b-a)^2 Var(X) = \frac{(b-a)^2}{12}$
+  + standard deviation: $\sigma = \frac{b-a}{2\sqrt{3}} \approx 0.29(b-a)$
+
++ Uniform Distributions
+  + notation: $U_{[a, b]} \quad a < b$
+  + pdf:
+
+    \[ f(x) = \begin{cases} \frac{1}{b-a} & X \in [a, b] \\ 0 & x \notin [a, b] \end{cases} \]
+
+  + CDF
+
+    \[ F(X) = \begin{cases} 0 & x \le a \\ \frac{x-a}{b-a} & a \le x \le b \\ 1 & x \ge b \end{cases} \]
 
 
 
-
-
-+ [Original Slides]()
++ [Original Slides](https://tinyurl.com/yata7tbx)
 
 
 ### Problem Sets
