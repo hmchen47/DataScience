@@ -980,13 +980,13 @@
 7. Let $X \sim N(0,9)$ have mean 0 and variance 9. Find the expected value of $X^2(X+1)$.
 
   Ans: 9<br/>
-  Explanation: Notice that since the Guassian distribution is symmetric around its mean $0$, $E[X^3]=0$. Further since $E[X^2]=Var(X)+E[X]^2=9$, the answer follows.
+  Explanation: Notice that since the Guassian distribution is symmetric around its mean $0$, $E[X^3]=0$. Further since $E[X^2]=Var(X)+E[X]^2=9$, the answer follows. [StackExchange](https://tinyurl.com/ycnb77hj)
 
 
 
 ### Video Links
 
-<a href="url" target="_BLANK">
+<a href="https://youtu.be/9anq5ZssVfA" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
 </a><br/>
 
