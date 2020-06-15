@@ -927,8 +927,60 @@
 
 ### Problem Sets
 
+0. If you fix the mean but increase the variance of a normal distribution, its pdf will<br/>
+  a. move to the left<br/>
+  b. move to the right<br/>
+  c. become taller and narrower<br/>
+  d. become shorter and flatter<br/>
+
+  Ans: d
 
 
+1. Let \(X\sim\mathcal{N}(\mu,\sigma^2)\) be a normal random variable, then the maximum value of its pdf is<br/>
+  a. \(1\)<br/>
+  b. \(\frac{1}{\sqrt{2\pi}}\)<br/>
+  c. \(\frac{1}{\sqrt{2\pi\sigma}}\)<br/>
+  d. \(\frac{1}{\sqrt{2\pi\sigma^2}}\)<br/>
+
+  Ans: d<br/>
+  Explanation: A Gaussian pdf achieves its maximum value at its mean $f_X(μ)=\frac{1}{\sqrt{2\pi\sigma^2}}$.
+
+
+2. Linear transformations
+
+  The linear transformation of a normal random variable is also a normal random variable. (True/False)
+
+  Ans: True<br/>
+  Explanation: For any $X \sim N(\mu, \sigma^2)$, we have $aX+b \sim N(a\mu+b, a^2 \sigma^2)$
+
+
+3. If $X,Y$ are two independent random variable with $X \sim N(1,16)$ and $Y \sim N(1,9)$, then find $Var(XY)$.
+
+  Ans: <span style="color: magenta;">169</span><br/>
+  Explanation: Noted that $E[X^2]=Var(X)+E^2[X]=17, E[Y^2]=Var(Y)+E^2[Y]=10$, we have $Var(XY) = E[X^2Y^2] - E^2[XY] = E[X^2]E[Y^2] - E^2[X]E^2[Y] = 170 - 1 = 169$ [StackExchange](https://tinyurl.com/yavkx3ez)
+
+
+4. Suppose $X$ is a Gaussian random variable with mean $2$ and variance $4$. Find $E\left(e^{\frac{X}{2}}\right)$.
+
+  Ans: $\exp(\frac32)$<br/>
+  Explanation: $E(e^{\frac{x}{2}})$ $= \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi 2^2}} e^{-\frac{(x - 2)^2}{2\cdot 2^2}} e^{\frac{x}{2}} dx$ $= \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi 2^2}} e^{-\frac{x^2 - 8x + 4}{2\cdot 2^2}} dx$ $= \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi 2^2}} e^{-\frac{(x - 4)^2}{2\cdot 2^2}} e^{\frac{3}{2}} dx$ $= e^{\frac{3}{2}} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi 2^2}} e^{-\frac{(x - 4)^2}{2\cdot 2^2} } dx$ $= e^{\frac{3}{2}}$. Or using the MGF (taught in Topic 10), which is $e^{\mu t+\sigma^2 t^2/2}$, and plugging in $t=1/2$, we get $e^{3/2}$.
+
+
+5. If $x\sim \mathcal{N}(0,1)$, find $E\left[e^{-X^2}\right]$.
+
+  Ans: $3^{-1/2}$<br/>
+  Explanation: $E\left(e^{-X^2}\right) = \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} e^{-x^2} dx = \frac{1}{\sqrt{3}} \int_{-\infty}^{\infty} \underbrace{\frac{1}{\sqrt{2\pi \frac{1}{3}}} e^{-\frac{x^2}{2 \cdot \frac{1}{3}}}}_{\mathcal{N}(0, \frac{1}{3})} dx = 1/\sqrt{3}$
+
+
+6. Let $$ be distributed according to the pdf $ke^{−x^2−7x}$. Find $E[X^2]$.
+
+  Ans: Notice that $f_X(x)=k e^{-x^2-7x}= (ke^{49/4})\cdot e^{-\frac{(x+7/2)^2}{2\times 0.5}} = c \cdot e^{-\frac{(x+7/2)^2}{2\times 0.5}}$,  where $c$ is a constant. Therefore $X$ is normally distributed with $μ=−7/2$ and $\sigma^2=0.5$ and thus $E(X^2)$ $=V(X)+E(X)^2$ $=1/2+49/4$ $=51/4.$.
+
+
+7. Let $X \sim N(0,9)$ have mean 0 and variance 9. Find the expected value of $X^2(X+1)$.
+
+  Ans: 9<br/>
+  Explanation: Notice that since the Guassian distribution is symmetric around its mean $0$, $E[X^3]=0$. Further since $E[X^2]=Var(X)+E[X]^2=9$, the answer follows.
 
 
 
