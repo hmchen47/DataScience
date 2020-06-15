@@ -785,9 +785,46 @@
 
 ### Problem Sets
 
+0. In terms of memorylessness, the exponential distribution is analogous to which discrete random variable distribution?<br/>
+  a. Bernoulli distribution<br/>
+  b. Binomial distribution<br/>
+  c. Poisson distribution<br/>
+  d. Geometric distribution<br/>
+
+  Ans: d<br/>
+  Explanation: Geometric distributions are also memoryless.
 
 
+1. The y-intercept of the pdf of an exponentially distribution with $\lambda = 2$ is<br/>
+  a. 0 <br/>
+  b. 0.5 <br/>
+  c. 1 <br/>
+  d. 2 <br/>
+  
+  Ans: <span style="color: magenta;">d</span>
+  Explanation: The y-intercept of a pdf is $f_X(0)$. For an exponential distribution that has pdf $f_X(x)=2e^{−2x}$, the y-intercept is $f_X(0)=2$.
 
+
+2. Assume the lifetimes of some kind of batteries follow exponential distribution with mean 1 year.<br/>
+  a. What is the probability that one such batteries can be used for more than 1.5 years?<br/>
+  b. What is the probability that one such batteries can be used for more than 1.5 years  in total  if it has already been used for 0.5 year?<br/>
+
+  Ans: a. (e^{-1..5}); b. (1/e)<br/>
+  Explanation:
+    + Let $X \sim Exponential(\lambda)$ denote the age of the battery. Since $1=E(X)=1/\lambda$, we have $\lambda=1$. Further, for an exponential distribution, the CDF is given by $F_X(x)=P(X \le x)=1−e^{−λ \cdot x}, x \ge 0$. Thus $P(X> 1.5)=1-P(X\le 1.5)=1-F_X(1.5)=e^{-1.5}=0.22313$
+    + By the memoryless property of expoential distribution, $P(X>1.5 \mid X>0.5)=P(X>1)$. Following the same steps as the previous part above, $P(X>1)=e^{-1}=0.367879$
+
+
+3. Let $X,Y$ be two independent exponential random variables with means $1$ and $3$, respectively. Find $P(X>Y)$.
+
+  Ans: <span style="color: magenta;">0.25</span><br/>
+  Explanation: From the description we have $f_X(x)=e^{−x}, f_Y(y)=\frac13 e^{\frac{−y}{3}}$.  Hence, $P(Y \lt y) = F_Y(y)$ $= \int_{-\infty}^{y} f_Y(y^\prime) dy^\prime$ $= \int_{0}^{y} \frac{1}{3}e^{-\frac{y^\prime}{3}} dy\prime$ $= 1 - e^{\frac{y}{3}}$.  $P(X>Y) = \int_{0}^{\infty} \int_{0}^{t} f_X(t) f_Y(y) dydt$ $=\int_{0}^{\infty}f_X(t)P(Y \lt t)dt$ $= \int_{0}^{\infty}e^{-t}(1-e^{-t/3})dt$ $= \int_{0}^{\infty}e^{-t}-e^{-4t/3}dt=1/4$ [Stack Exchange](https://tinyurl.com/yarpua5l)
+
+
+4. In order to attend an important $8$ A.M. lecture, you arrive at the shuttle stop at a time distributed uniformly between $7:20$ A.M. and $7:30$ A.M. The time between consecutive shuttle arrivals is known to be exponentially distributed with mean $15$ minutes. If the journey takes $30$ minutes, what is the probability that you arrive late to the lecture?
+
+  Ans: <span style="color: magenta;">0.7298</span><br/>
+  Explanation: Let $Y$ be the time in minutes between $7:20$ A.M. and $7:30$ A.M. that you arrive at the shuttle stop. Let $Z$ be the time you have to wait until the next shuttle arrives. Then $Y \sim Unif(0,10)$ and by the memoryless property of the exponential, $Z \sim Exp(1/15)$. Note also that in this case $Y$ is independent of $Z$.  Now you arrive late to class iff $Y+Z>10$. Therefore the required probability is $P(Y+Z > 10)$ $=\int_{0}^{10}f_Y(t)P(Z> 10-t)dt$ $=\int_{0}^{10}1/10\cdot e^{-(10-t)/15}dt$ $=3/2\cdot (1-e^{-2/3})=0.730$ [HomeworkLib](https://tinyurl.com/ybthhuk4)
 
 
 ### Video Links
