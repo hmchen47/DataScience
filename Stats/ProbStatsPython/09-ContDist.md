@@ -629,7 +629,7 @@
   + cdf:
 
     \[\begin{align*}
-      \Pr(X > x) &= \begin{cases} \int_x&\infty \lambda e^{-\lambda u}\,du = \left. -e^{-\lambda u} \right|_x^\infty = e^{-\lambda x} & x \ge 0 \\ 1 & x \le 0 \end{cases} \\
+      \Pr(X > x) &= \begin{cases} \int_x^\infty \lambda e^{-\lambda u}\,du = \left. -e^{-\lambda u} \right|_x^\infty = e^{-\lambda x} & x \ge 0 \\ 1 & x \le 0 \end{cases} \\\\
       F(x) = \Pr(X \le x) &= \begin{cases} 1 - \Pr(X > x) = 1 - e^{-\lambda x} & x \ge 0 \\ 0 & x \le 0 \end{cases}
     \end{align*}\]
 
@@ -646,7 +646,7 @@
   + lifetime of a car
   + time between accidents
 
-+ Example: $0 \le as \le b$
++ Example: $0 \le a \le b$
 
   \[\begin{align*}
     \Pr(a \le X \le b) &= \Pr(a < X < b) = F(b) - F(a) \\
@@ -662,8 +662,8 @@
     \end{align*}\]
 
     \[\begin{align*}
-      u = x &\to \quad dv = \lambda e^{-\lambda x} dx \\
-      du =1 &\to \quad v = -e^{-\lambda x} \\
+      u = x &\to \quad du =1 \\
+      dv = \lambda e^{-\lambda x} dx &\to \quad v = -e^{-\lambda x} \\
       \implies &\int u\, dv = uv - \int v\,du
     \end{align*}\]
 
@@ -676,8 +676,8 @@
     \end{align*}\]
 
     \[\begin{align*}
-      u = x^2 &\to \quad dv = \lambda e^{-\lambda x}dx \\
-      du = ex\,dx &\to \quad v = -e^{-\lambda x} \\
+      u = x^2 &\to \quad du = e^x\,dx \\
+      dv = \lambda e^{-\lambda x}dx &\to \quad v = -e^{-\lambda x} \\
       \implies &\int u\, dv = uv - \int v\,du
     \end{align*}\]
 
@@ -706,7 +706,7 @@
   + when arrived, one person in line
   + while waiting, someone custs in front of you
   + at some point a clerk becomes available and starts serving the fist person
-  + before 1st person finished, other clerk starts sercing 2nd person
+  + before 1st person finished, other clerk starts serving 2nd person
   + if all 3 person served randomly, $\Pr(\text{you finish last}) = 1/3$
   + $\Pr(\text{you finish last now})?$
   + evaluation
@@ -776,7 +776,7 @@
     + properties
       + mena: $E[X] = \frac{1}{\lambda}$
       + vatinace: $Var(X) = \frac{1}{\lambda^2}$
-      + \sigma: $\sigma = \frac{1}{\lambda}$
+      + standard deviation: $\sigma = \frac{1}{\lambda}$
       + memoryless
 
 
