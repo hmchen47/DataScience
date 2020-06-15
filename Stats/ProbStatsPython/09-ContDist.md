@@ -858,7 +858,7 @@
 
 + Linear transformations
   + linear transformation of normal distributions are normal
-    + $N \sim N(\mu, \sigma^2)$
+    + $X \sim N(\mu, \sigma^2)$
     + pdf: $f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
     + affine: $Y = aX +b$
     + $\forall\,$ r.v.: $\mu_Y = a \mu_X + b \quad \sigma_Y = a \sigma_X$
@@ -867,7 +867,7 @@
     \[\begin{align*}
       f_Y(y) &= \left.\frac{1}{(ax+b)^\prime} f_X(x) \right|_{y=ax+b} \qquad \left( x = \frac{y - b}{a} \right) \\
       &= \frac 1 a \frac{1}{\sqrt{2\pi \sigma^2}} e^{-\frac{\left(\frac{y-b}{a} - \mu\right)^2}{2\sigma^2}} = \frac{1}{\sqrt{2\pi(a\sigma)^2}} e^{- \frac{(y - (a\mu +b))^2}{2(a\sigma)^2}}\\\\
-      Y &\sim N\left(a\mu+b, (s\sigma)^2\right)
+      Y &\sim N\left(a\mu+b, (a\sigma)^2\right)
     \end{align*}\]
 
 + Standard Normal distribution
@@ -881,8 +881,8 @@
     \[\begin{align*}
       I &= \int_{-\infty}^\infty e^{-\frac{x^2}{2}} \,dx \\\\
       I^2 &= \left( \int_{-\infty}^\infty e^{-\frac{x^2}{2}} \,dx \right) \left( \int_{-\infty}^\infty e^{-\frac{y^2}{2}}\, dy \right) = \int_{-\infty}^\infty\int_{-\infty}^\infty e^{\frac{-(x^2+y^2)}{2}} \,dx\,dy \\
-      &= \int_{-\infty}^\infty \int_0^{2\pi} e^{\frac{-r^2}{2}} r \,d\theta\,dr \qquad \left( x = r\cos\theta, y = r\sin\theta \to dx\,dy = r dr\,d\theta \right) \\
-      &= \int_0^\infty r e^{\frac{r^2}{2}} \int_0^{2\pi} d\theta \, dr = 2\pi \int_0^\infty r e^{\frac{-r^2}{2}} dr \qquad \left( \int r e^{\frac{-r^2}{2}} dr = -e^{\frac{-r^2}{2}}  \right) \\
+      &= \int_0^\infty \int_0^{2\pi} e^{\frac{-r^2}{2}} r \,d\theta\,dr \qquad \left( x = r\cos\theta, y = r\sin\theta \to dx\,dy = r dr\,d\theta \right) \\
+      &= \int_0^\infty r e^{\frac{-r^2}{2}} \int_0^{2\pi} d\theta \, dr = 2\pi \int_0^\infty r e^{\frac{-r^2}{2}} dr \qquad \left( \int r e^{\frac{-r^2}{2}} dr = -e^{\frac{-r^2}{2}}  \right) \\
       &= \left. -2\pi e^{\frac{-r^2}{2}} \right|_0^\infty = 2 \pi\\\\
       \therefore\, I &= \sqrt{2\pi} \to \int \frac{1}{\sqrt{2\pi}} e^{\frac{-x^2}{2}} dx = 1
     \end{align*}\]
@@ -902,9 +902,9 @@
   + variance
 
     \[\begin{align*}
-      E[X^2] &= \frac{1}{2\pi} \int x^2 e^{\frac{-x^2}{2}}\,dx = \left. \frac{-1}{\sqrt{2\pi}} x e^{\frac{-x^2}{2}} \right|_{-\infty}^\infty + \frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty e^{\frac{-x^2}{2}}\,dx \\
+      E[X^2] &= \frac{1}{\sqrt{2\pi}} \int x^2 e^{\frac{-x^2}{2}}\,dx = \left. \frac{-1}{\sqrt{2\pi}} x e^{\frac{-x^2}{2}} \right|_{-\infty}^\infty + \frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty e^{\frac{-x^2}{2}}\,dx \\
       &= 0 + 1 = 1 \\\\
-      Var(x) &= E[X^2] - (E[X])^2 = 1 =- 0 = 1
+      Var(x) &= E[X^2] - (E[X])^2 = 1 - 0 = 1
     \end{align*}\]
 
     \[\begin{align*}
@@ -914,7 +914,7 @@
     \end{align*}\]
 
 + Summary
-  + notation: $N(\mu, \sigma)$
+  + notation: $X \sim N(\mu, \sigma)$
   + pdf: $f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{\frac{-(x-\mu)^2}{2\sigma^2}} \quad -\infty < x < \infty$
   + mean: $E[X] = \mu$
   + variance: $Var = \sigma^2$
