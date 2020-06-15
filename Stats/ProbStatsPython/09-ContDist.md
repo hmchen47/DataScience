@@ -836,12 +836,87 @@
 
 ## 9.5 Gaussian Distribution
 
++ Normal distribution
+  + notation: $X \sim N(\mu, \sigma^2)$
+  + pdf: $f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
+  + a.k.a. Bell curve
+  + very common
+  + occurs whenever adding many independent factors, e.g., height, weight, rainfall, salaries, ...
+  + approximating binomial distribution
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/muts22v" ismap target="_blank">
+      <img src="https://tinyurl.com/y7lytpqj" style="margin: 0.1em;" alt="Probability density function of Normal distribution" title="" height=200>
+      <img src="https://tinyurl.com/yarxuzpz" style="margin: 0.1em;" alt="Cumulative distribution function of Normal distribution" title="Cumulative distribution function of Normal distribution" height=200>
+    </a>
+  </div>
+
++ Observations
+  + symmetric around mean $\mu$
+  + $\mu$ most likely: $f(\mu) = \frac{1}{2\pi \sigma^2}$
+  + as $\sigma$ grows, distribution gets more flat
+
++ Linear transformations
+  + linear transformation of normal distributions are normal
+    + $ $N \sim N(\mu, \sigma^2)$
+    + pdf: $f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
+    + affine: $Y = aX +b$
+    + $\forall\,$ r.v.: $\mu_Y = a \mu_X + b \quad \sigma_Y = a \sigma_X$
+  + variable transformation: show normal
+
+    \[\begin{align*}
+      f_Y(y) &= \left.\frac{1}{(ax+b)^\prime} f_X(x) \right|_{y=ax+b} \qquad \left( x = \frac{y - b}{a} \right) \\
+      &= \frac 1 a \frac{1}{\sqrt{2\pi \sigma^2}} e^{-(\frac{\frac{y-b}{a} - \mu)^2}{2\sigma^2}} = \frac{1}{\sqrt{2\pi(a\sigma)^2}} e^{- \frac{(y - (a\mu +b))^2}{2(a\sigma)^2}}
+    \end{align*}\]
+
++ Standard Normal distribution
+  + w/o loss of generality considering $X \sim N(0, 1)$
+
+    \[ f(x) = \frac{1}{2\pi} e^{-\frac{x^2}{2}} \]
+
+  + helpful integral: $\int xe^{-\frac{x^2}{2} \,dx = - e^{-\frac{x^2}{2}}}
+  + unitary
+
+    \[\begin{align*}
+      I &= \int_{-\infty}^\infty e^{-\frac{x^2}{2}} \,dx \\\\
+      I^2 &= \left( \int_{-\infty}^\infty e^{-\frac{x^2}{2}} \,dx \right) \left( \int_{-\infty}^\infty e^{-\frac{y^2}{2}}\, dy \right) = \int_{-\infty}^\infty\int_{-\infty}^\infty e^{\frac{-(x^2+y^2)}{2}} \,dx\,dy \\
+      &= \int_{-\infty}^\infty \int_0^{2\pi} e^{\frac{-r^2}{2}} r \,d\theta\,dr \qquad \left( x = r\cos\theta, y = r\sin\theta \to dx\,dy = r dr\,d\theta \right) \\
+      &= \int_0^\infty r e^{\frac{1r^2}{2}} \int_0^{2\pi} d\theta \, dr = 2\pi \int_0^\infty r e^{\frac{-r^2}{2}} dr \qquad \left( \int r e^{\frac{-r^2}{2}} dr = -e^{\frac{-r^2}{2}}  \right) \\
+      &= \left. -2\pi e^{\frac{-r^2}{2}} \right|_0^\infty = 2 \pi\\\\
+      \therefore\, I &= \sqrt{2\pi} \to \int \frac{1}{\sqrt{2\pi}} e^{\frac{-x^2}{2}} dx = 1
+    \end{align*}\]
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="url" ismap target="_blank">
+        <img src="img/t09-07.png" style="margin: 0.1em;" alt="text" title="caption" width=200>
+      </a>
+    </div>
+
++ Expectation and variance
+  + mean
+    + symmetry: $E[X] = 0$
+    + calculation
+
+      \[ E[X] = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty x e^{\frac{-x^2}{2}} \,dx = \frac{1}{\sqrt{2\pi}} \left.-e^{\frac{-x^2}{2}} \right|_{-\infty}^\infty = 0 \]
+
+  + variance
+
+    \[\begin{align*}
+      E[X^2] &= \frac{1}{2\pi} \int x^2 e^{\frac{-x^2}{2}}\,dx \\
+      &= \left. \frac{-1}{\sqrt{2\pi}} x e^{\frac{-x^2}{2}} \right|_{-\infty}^\infty + \frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty e^{\frac{-x^2}{2}}\,dx = 0 + 1 = 1 \\\\
+      Var(x) &= E[X^2] - (E[X])^2 = 1 =- 0 = 1
+    \end{align*}\]
+
++ Summary
+  + notation: $N(\mu, \sigma)$
+  + pdf: $f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{\frac{-(x-\mu)^2}{2\sigma^2}} \quad -\infty < x < \infty$
+  + mean: $E[X] = \mu$
+  + variance: $Var = \sigma^2$
+  + standard deviation: $\sigma = \sigma$
+  + very common in nature
 
 
-
-
-
-+ [Original Slides]()
++ [Original Slides](https://tinyurl.com/yc6hpw5v)
 
 
 ### Problem Sets
