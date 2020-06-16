@@ -996,7 +996,7 @@
 + Cumulative distribution function
   + distribution: $X \sim N(0, 1)$
   + cdf: 
-    + $\Phi(x) \triangleq F(x) = \frac{1}{2\pi} \int_{-\infty}^x \exp(-\frac{x^2}{2})\, dy$
+    + $\Phi(x) \triangleq F(x) = \frac{1}{2\pi} \int_{-\infty}^x \exp(-\frac{x^2}{2})\, dx$
     + no known formula
     + instead use table or computer
   + table for each $\mu, \sigma$?
@@ -1005,14 +1005,14 @@
 
 + Using the z table
   + distribution: $X \sim N(0, 1)$
-    
+
     \[\begin{align*}
       \Pr(X \le a) &= \Phi(a) \\
       \Pr(X \ge a) &= 1 - \Phi(a) \\
       \Pr(a \le X \le b) &= \Phi(b) - \Phi(a)
     \end{align*}\]
 
-  + Negative values
+  + negative values
     + $a > 0$
     + $\Phi(-a) = \Pr(X \le -a) = \Pr(X \ge a) = 1 - \Pr(X \le a) = 1 - \Phi(a)$
 
@@ -1022,7 +1022,7 @@
         </a>
       </div>
 
-    + $\Pr(x \le -a) - \Phi(-a) = 1 - \Phi(a)$
+    + $\Pr(x \le -a) = \Phi(-a) = 1 - \Phi(a)$
     + $\Pr(X \ge -a) = 1 - \Phi(-a) = \Phi(a)$
     + $\Pr(-a \le X \le b) = \Phi(b) - \Phi(-a) = \Phi(b) - (1 - \Phi(a)) = \Phi(a) + \Phi(b) - 1$
 
@@ -1036,7 +1036,7 @@
 
     \[\begin{align*}
       \Pr(11 \le X \le 17) &= \Pr(\frac{11-15}{2} \le Z \le \frac{17-15}{2}) \\
-      &= \Pr(-2 \le Z \le 1) = \Phi(1) - \Phi(2) - 1 \\
+      &= \Pr(-2 \le Z \le 1) = \Phi(1) + \Phi(2) - 1 \\
       &\approx 0.8413 + 0.9772 - 1 = 0.8185
     \end{align*}\]
 
@@ -1080,12 +1080,12 @@
 
 + Rare events
 
-  <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+  <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <thead>
     <tr style="font-size: 1.2em;">
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 5%;">$\alpha$</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\Pr(\left| X - \mu\right| \le \alpha \sigma$</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\Pr(\left| X - \mu\right| > \alpha \sigma$</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\Pr(\left| X - \mu\right| \le \alpha \sigma)$</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\Pr(\left| X - \mu\right| > \alpha \sigma$)</th>
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Daily event ~</th>
     </tr>
     </thead>
@@ -1095,7 +1095,7 @@
     <tr> <td style="text-align: center;">3</td> <td style="text-align: center;">99.7%</td> <td style="text-align: center;">0.3%</td> <td style="text-align: center;">year</td> </tr>
     <tr> <td style="text-align: center;">4</td> <td style="text-align: center;">99.99%</td> <td style="text-align: center;">0.01%</td> <td style="text-align: center;">43 years</td> </tr>
     <tr> <td style="text-align: center;">5</td> <td style="text-align: center;">99.9999%</td> <td style="text-align: center;">$10^{-6}$</td> <td style="text-align: center;">4776 years</td> </tr>
-    <tr> <td style="text-align: center;">6</td> <td style="text-align: center;">99.99999998%</td> <td style="text-align: center;">$2\cdot 10^{-9}$</td> <td style="text-align: center;">1.3 millions years</td> </tr>
+    <tr> <td style="text-align: center;">6</td> <td style="text-align: center;">99.9999998%</td> <td style="text-align: center;">$2\cdot 10^{-9}$</td> <td style="text-align: center;">1.3 millions years</td> </tr>
     </tbody>
   </table>
 
@@ -1103,9 +1103,9 @@
 
 + Normal approximation of Binomial distribution
   + Binomial: $X \sim B_{n, p} \qquad \mu = np \quad \sigma = \sqrt{npq}$
-  + Normal: $Y \sim N(np, npq) \qquad \Pr(X = k) \approx \Pr(k - \frac12 \le Y \le k + \frac12)$
+  + Normal approximation: $Y \sim N(np, npq) \qquad \Pr(X = k) \approx \Pr(k - \frac12 \le Y \le k + \frac12)$
   + example:
-    + $X \sim B_{100, 0.5} \qquad np = 50 \quad \sqrt{npq} = 5$
+    + $X \sim B_{100, 0.5} \qquad \mu = np = 50 \quad \sigma = \sqrt{npq} = 5$
     + $Y \sim N(50, 25)$
 
       \[\begin{align*}
@@ -1117,7 +1117,7 @@
 
   + example: interval probabilities
     + Binomial: $X \sim B_{100, 0.5} \qquad np = 50 \quad \sqrt{npq} = 5$
-    + Normal: $Y \sim N(50, 25)$
+    + Normal approximation: $Y \sim N(50, 25)$
 
       \[\begin{align*}
         \Pr(42 \le X \le 53) &\approx \Pr(41.5 \le Y \le 53.3) \\
