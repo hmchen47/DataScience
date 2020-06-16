@@ -256,11 +256,11 @@
 
 1. \(F\) is the cumulative distribution function for a continuous random variable. If \(F(b) - F(a) = 0.20\), then<br/>
   a. \([a,b]\) has length \(0.20\)<br/>
-  b. \(P(X = b) - P(X = a) = 20\%\)<br/>
-  c. \(P(X\in(a,b])=20\%\)<br/>
+  b. \(\Pr(X = b) - \Pr(X = a) = 20\%\)<br/>
+  c. \(\Pr(X\in(a,b])=20\%\)<br/>
   
   Ans: c<br/>
-  Explanation: Recall that $F(b)=P(X \le b)$, $F(a)=P(X \le a)$. Hence $P(a < X \le b)=F(b)−F(a)=0.2$.
+  Explanation: Recall that $F(b)=\Pr(X \le b)$, $F(a)=\Pr(X \le a)$. Hence $\Pr(a < X \le b)=F(b)−F(a)=0.2$.
 
 
 2. Which of the following holds for all continuous probability distribution function \(f(x)\) having support set \(\mathbb{R}\)?<br/>
@@ -404,10 +404,10 @@
   Explanation: A step function will make g(X) discrete, as it will take only the y-values that correspond to the steps.
 
 
-1. Let $(X,Y)$ be distributed over $[0,1]×[0,1]$ according to $f(x,y)=6xy^2$. Find $P(XY^3 \le 1/2)$.
+1. Let $(X,Y)$ be distributed over $[0,1]×[0,1]$ according to $f(x,y)=6xy^2$. Find $\Pr(XY^3 \le 1/2)$.
 
   Ans: 3/4<br/>
-  Explanation: Let $Z=XY^3$. For any $z \in (0, 1)$, $Z=XY^3 \le z \iff Y \le \min{(z/X)^{1/3}, 1}$. Therefore $P(Z\le z)=$ $P(XY^3\le z)=$ $\int_0^z\int_0^1f(x,y)dydx+\int_z^1\int_0^{(z/x)^{1/3}}f(x,y)dydx=$ $\int_0^z\int_0^1 6xy^2dydx+\int_z^1\int_0^{(z/x)^{1/3}}6xy^2 dydx=$ $z^2+2z(1-z)$. Plugging in $z=1/2$ gives the answer. [StackExchange](https://tinyurl.com/y8e48pv6)
+  Explanation: Let $Z=XY^3$. For any $z \in (0, 1)$, $Z=XY^3 \le z \iff Y \le \min{(z/X)^{1/3}, 1}$. Therefore $\Pr(Z\le z)=$ $\Pr(XY^3\le z)=$ $\int_0^z\int_0^1f(x,y)dydx+\int_z^1\int_0^{(z/x)^{1/3}}f(x,y)dydx=$ $\int_0^z\int_0^1 6xy^2dydx+\int_z^1\int_0^{(z/x)^{1/3}}6xy^2 dydx=$ $z^2+2z(1-z)$. Plugging in $z=1/2$ gives the answer. [StackExchange](https://tinyurl.com/y8e48pv6)
 
 
 2. A random variable  X  follows the distribution
@@ -417,22 +417,22 @@
   and $Y=X^2$. Calculate
 
   a. $C$<br/>
-  b. $P(X≥0)$<br/>
+  b. $\Pr(X≥0)$<br/>
   c. $E[Y]$<br/>
   d. $Var(Y)$<br/>
 
   Ans: a. (1/3); b. (8/9); c. ($\frac{43}{7} - (\frac{11}{5})^2$)<br/>
   Explanation:
     + Since $1=\int_{-1}^2f_X(x)dx=\int_{-1}^2Cx^2dx=3C$, we must have $C=1/3$
-    + $P(X\ge 0)=\int_{0}^2f_X(x)dx=\int_{0}^2\frac13x^2dx=\frac19\cdot\left.x^3\right|^2_0=\frac89$
+    + $\Pr(X\ge 0)=\int_{0}^2f_X(x)dx=\int_{0}^2\frac13x^2dx=\frac19\cdot\left.x^3\right|^2_0=\frac89$
     + $E(Y)=E(X^2)=\int_{-1}^2 x^2 f_X(x)dx=\int_{-1}^2\frac13\cdot x^4dx=33/15=11/5$
     + First, $E(Y^2)=E(X^4)=\int_{-1}^2 x^4 f_X(x)dx=\int_{-1}^2\frac13\cdot x^6dx=\frac{129}{21}$. Hence, $V(Y)=E(Y^2)-E(Y)^2=$ $\frac{129}{21}-\left(\frac{11}5\right)^2=\frac{228}{175}$
     + [Example 3, Distributions of Functions of Random variables - Stat. Dept. UW](../../Notes/p04.5-FuncRV.md)
 
-3. Let $X$ be distributed according to $f(x)=ce^{−2x}$ over $x>0$. Find $P(X>2)$.
+3. Let $X$ be distributed according to $f(x)=ce^{−2x}$ over $x>0$. Find $\Pr(X>2)$.
 
   Ans: $e^{-4}$<br/>
-  Explanation: Since $\int_0^\infty f(x)dx=1$, we have $c=2$. $P(X > 2) = \int_{2}^{\infty} f(x) dx = \int_{2}^{\infty} 2e^{-2x} dx = e^{-4}$
+  Explanation: Since $\int_0^\infty f(x)dx=1$, we have $c=2$. $\Pr(X > 2) = \int_{2}^{\infty} f(x) dx = \int_{2}^{\infty} 2e^{-2x} dx = e^{-4}$
 
 
 ### Video Links
@@ -588,7 +588,7 @@
 3. Let $X,Y \sim U_{[0,1]}$ independently. Find $\Pr(\max(X,Y) \ge 0.8 \mid \min(X,Y)=0.5)$.
 
   Ans: <span style="color: magenta;">2/5</span><br/>
-  Explanation: Red area is the region that $\max(X,Y) \ge 0.8$. Blue line (both solid and dash) is the region that $\min(X,Y)=0.5$.  Blue dash line is the region that $\max(X,Y) \ge 0.8$ and $\min(X,Y)=0.5$.  Notice that $P(\max(X,Y)\ge 0.8 \mid \min(X,Y)=0.5) = \frac{P(\max(X,Y)\ge 0.8, \min(X,Y)=0.5)}{P(\min(X,Y)=0.5)}$
+  Explanation: Red area is the region that $\max(X,Y) \ge 0.8$. Blue line (both solid and dash) is the region that $\min(X,Y)=0.5$.  Blue dash line is the region that $\max(X,Y) \ge 0.8$ and $\min(X,Y)=0.5$.  Notice that $\Pr(\max(X,Y)\ge 0.8 \mid \min(X,Y)=0.5) = \frac{\Pr(\max(X,Y)\ge 0.8, \min(X,Y)=0.5)}{\Pr(\min(X,Y)=0.5)}$
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/ybblggz3" ismap target="_blank">
@@ -811,20 +811,20 @@
 
   Ans: a. (e^{-1..5}); b. (1/e)<br/>
   Explanation:
-    + Let $X \sim Exponential(\lambda)$ denote the age of the battery. Since $1=E(X)=1/\lambda$, we have $\lambda=1$. Further, for an exponential distribution, the CDF is given by $F_X(x)=P(X \le x)=1−e^{−λ \cdot x}, x \ge 0$. Thus $P(X> 1.5)=1-P(X\le 1.5)=1-F_X(1.5)=e^{-1.5}=0.22313$
-    + By the memoryless property of expoential distribution, $P(X>1.5 \mid X>0.5)=P(X>1)$. Following the same steps as the previous part above, $P(X>1)=e^{-1}=0.367879$
+    + Let $X \sim Exponential(\lambda)$ denote the age of the battery. Since $1=E(X)=1/\lambda$, we have $\lambda=1$. Further, for an exponential distribution, the CDF is given by $F_X(x)=\Pr(X \le x)=1−e^{−λ \cdot x}, x \ge 0$. Thus $\Pr(X> 1.5)=1-\Pr(X\le 1.5)=1-F_X(1.5)=e^{-1.5}=0.22313$
+    + By the memoryless property of expoential distribution, $\Pr(X>1.5 \mid X>0.5)=\Pr(X>1)$. Following the same steps as the previous part above, $\Pr(X>1)=e^{-1}=0.367879$
 
 
-3. Let $X,Y$ be two independent exponential random variables with means $1$ and $3$, respectively. Find $P(X>Y)$.
+3. Let $X,Y$ be two independent exponential random variables with means $1$ and $3$, respectively. Find $\Pr(X>Y)$.
 
   Ans: <span style="color: magenta;">0.25</span><br/>
-  Explanation: From the description we have $f_X(x)=e^{−x}, f_Y(y)=\frac13 e^{\frac{−y}{3}}$.  Hence, $P(Y \lt y) = F_Y(y)$ $= \int_{-\infty}^{y} f_Y(y^\prime) dy^\prime$ $= \int_{0}^{y} \frac{1}{3}e^{-\frac{y^\prime}{3}} dy\prime$ $= 1 - e^{\frac{y}{3}}$.  $P(X>Y) = \int_{0}^{\infty} \int_{0}^{t} f_X(t) f_Y(y) dydt$ $=\int_{0}^{\infty}f_X(t)P(Y \lt t)dt$ $= \int_{0}^{\infty}e^{-t}(1-e^{-t/3})dt$ $= \int_{0}^{\infty}e^{-t}-e^{-4t/3}dt=1/4$ [Stack Exchange](https://tinyurl.com/yarpua5l)
+  Explanation: From the description we have $f_X(x)=e^{−x}, f_Y(y)=\frac13 e^{\frac{−y}{3}}$.  Hence, $\Pr(Y \lt y) = F_Y(y)$ $= \int_{-\infty}^{y} f_Y(y^\prime) dy^\prime$ $= \int_{0}^{y} \frac{1}{3}e^{-\frac{y^\prime}{3}} dy\prime$ $= 1 - e^{\frac{y}{3}}$.  $\Pr(X>Y) = \int_{0}^{\infty} \int_{0}^{t} f_X(t) f_Y(y) dydt$ $=\int_{0}^{\infty}f_X(t)\Pr(Y \lt t)dt$ $= \int_{0}^{\infty}e^{-t}(1-e^{-t/3})dt$ $= \int_{0}^{\infty}e^{-t}-e^{-4t/3}dt=1/4$ [Stack Exchange](https://tinyurl.com/yarpua5l)
 
 
 4. In order to attend an important $8$ A.M. lecture, you arrive at the shuttle stop at a time distributed uniformly between $7:20$ A.M. and $7:30$ A.M. The time between consecutive shuttle arrivals is known to be exponentially distributed with mean $15$ minutes. If the journey takes $30$ minutes, what is the probability that you arrive late to the lecture?
 
   Ans: <span style="color: magenta;">0.7298</span><br/>
-  Explanation: Let $Y$ be the time in minutes between $7:20$ A.M. and $7:30$ A.M. that you arrive at the shuttle stop. Let $Z$ be the time you have to wait until the next shuttle arrives. Then $Y \sim Unif(0,10)$ and by the memoryless property of the exponential, $Z \sim Exp(1/15)$. Note also that in this case $Y$ is independent of $Z$.  Now you arrive late to class iff $Y+Z>10$. Therefore the required probability is $P(Y+Z > 10)$ $=\int_{0}^{10}f_Y(t)P(Z> 10-t)dt$ $=\int_{0}^{10}1/10\cdot e^{-(10-t)/15}dt$ $=3/2\cdot (1-e^{-2/3})=0.730$ [HomeworkLib](https://tinyurl.com/ybthhuk4)
+  Explanation: Let $Y$ be the time in minutes between $7:20$ A.M. and $7:30$ A.M. that you arrive at the shuttle stop. Let $Z$ be the time you have to wait until the next shuttle arrives. Then $Y \sim Unif(0,10)$ and by the memoryless property of the exponential, $Z \sim Exp(1/15)$. Note also that in this case $Y$ is independent of $Z$.  Now you arrive late to class iff $Y+Z>10$. Therefore the required probability is $\Pr(Y+Z > 10)$ $=\int_{0}^{10}f_Y(t)\Pr(Z> 10-t)dt$ $=\int_{0}^{10}1/10\cdot e^{-(10-t)/15}dt$ $=3/2\cdot (1-e^{-2/3})=0.730$ [HomeworkLib](https://tinyurl.com/ybthhuk4)
 
 
 ### Video Links
@@ -1132,9 +1132,49 @@
 
 ### Problem Sets
 
+0. Why z table only cover one half of the normal curve?<br/>
+  a. The positive half is most frequently used.<br/>
+  b. The table will be too large to include the negative half.<br/>
+  c. The values of the negative half can be deduced from symmetry.<br/>
+
+  Ans: c<br/>
+  Explanation: The values of the negative half can be deduced from symmetry.
 
 
+1. If $X$ is a normal random variable with $\mu=−2$ and $\sigma=3$, and has probability density function and cumulative density function $f_X(x)$, $F_X(x)$, calculate<br/>
+  a. $\Pr(−3 < X < 0)$<br/>
+  b. $F(1/4)$<br/>
+  c. $F^{−1}(1/4)$<br/>
 
+  Ans: a. (0.3779); b. (0.7734); c. (-4.01)<br/>
+  Explanation:
+    + We may rewrite $\Pr(−3 < X < 0)=\Pr(−1/3 < (X+2)/3 < 2/3) . Define $Z=(X+2)/3$. Now $Z=(X+2)/3 \sim Normal(0,1)$. Thus $\Pr(−1/3 < (X+2)/3 < 2/3)=\Pr(−1/3 < Z < 2/3)= \Phi(2/3)− \Phi(−1/3)=0.378066$, where the latter is obtained from a standard Guassian table.
+    + $F(1/4) = \Pr(X \le 1/4) = \Pr((X+2)/3 \le 3/4) = \Pr(Z \le 3/4)$. Similar to the above part, we evaluate the latter as $\Pr(Z \le 3/4)= \Phi(3/4)=0.773373$.
+    + Using the same transformation as above: $Z=(X+2)/3$, $F−1(1/4)=3 \cdot F^{−1}_Z (1/4)−2 . Now $F^{−1}_Z(1/4)=−0.67449$. Thus $F^{−1}(1/4)=3 \cdot −0.67449−2=−4.02347$.
+
+
+2. Suppose $X,Y$ are independent and $X \sim N(1,4)$ and $Y \sim N(1,9)$. If $\Pr(2X+Y \le a)$ $=\Pr(4X−2Y \ge 4a)$, then find $a$.
+
+  And: 4/3<br/>
+  Explanation: Notice that $2X+Y \sim N(3,25), 4X−2Y \sim N(2,100)$. Then $\Pr(2X+Y \le a)= \Phi(\frac{a−3}{5})$, and $\Pr(4X−2Y \ge 4a)=1− \Phi(\frac{4a−2}{10})= \Phi(\frac{2−4a}{10})$. By solving the equation $\frac{a−3}{5}=\frac{2−4a}{10}$, we have $a=\frac43$. [Stack Ecxchange](https://tinyurl.com/yavpnhnv)
+
+
+3. Let $X \sim B_{.36,1600}$. Approximate $\Pr(552 \le X \\le 600)$.
+
+  Ans: 0.798<br/>
+  Explanation: First note that $\Pr(X > 600)=\Pr(X−576 > 24)=\Pr(X−0.36∗1600 > 24)=\Pr((X−0.36∗1600)/19.2>24/19.2)$. From the Gaussian approximation, noting that $(X−0.36∗1600)/19.2$ has zero mean and unit variance, $\Pr((X−0.36∗1600)/19.2 > 24/19.2)≈\Pr(Z > 24/19.2)$, where $Z \sim N(0,1)$. Repeating the same for $\Pr(X < 552)$, we have our desired answer.
+
+
+4. Suppose a binary message is transmitted through a noisy channel. The transmitted signal $S$ is equally likely to be $1$ or $−1$, the noise $N$ follows a normal distribution $N(0,4)$, and the received signal is $R=S+N$. $S$ and $N$ are independent. The receiver concludes that the signal is $1$ when $R \ge 0$ and $−1$ when $R < 0$.<br/>
+  a. What is the error probability when one signal is transmitted?<br/>
+  b. What is the error probability when one signal is transmitted if we triple the amplitude of the transmitted signal, namely, $S=3$ or $−3$ with equal probability.<br/>
+  c. What is the error probability if we send the original signal (with amplitude $1$) three times, and take majority for conclusion? For example, if three received signal was concluded $1$, $−1$, $1$ by receiver, we determine the transmitted signal to be $1$.<br/>
+
+  Ans: a. (0.3085); b. (0.0668); c. (0.2268)<br/>
+  Explanation:
+    + An error occurs under either of these two events, $S=1,Z<0$ or if $S=−1,Z \ge0$. Now $\Pr(S=1,Z<0)& 7=\Pr(S=1)\Pr(Z<0|S=1)& &=1/2 \cdot \Pr(N<−1)$. Since $N/2∼N(0,1)$, $\Pr(N < −1)& &=\Pr(N/2 < −1/2)= \Phi(−1/2)=0.308538$. Thus $\Pr(S=1,Z<0)& &=1/2 \cdot 0.308538$. Similarly, by symmetry it follows that $\Pr(S=−1,Z \ge 0)=1/2 \cdot 0.308538$. The probability of error thus is $2 \cdot 1/2 \cdot 0.308538=0.308538$.
+    + Following the same analysis as above, the first error event $\Pr(S=3,Z<0)& &=\Pr(S=3)\Pr(Z<0|S=3)& &=1/2 \cdot \Pr(N<−3)$. Since $N/2∼N(0,1)$, $\Pr(N<−3)& &=\Pr(N/2<−3/2)& &=\Phi (−3/2)=0.0668072$. Thus $\Pr(S=3,Z<0)& &=1/2 \cdot 0.0668072$. Similarly, by symmetry it follows that $\Pr(S=−3,Z \ge 0)& &=1/2 \cdot 0.0668072$. Thus the probability of error is $2 \cdot 1/2 \cdot 0.0668072& &=0.0668072$ and is drastically smaller than the previous scenario.
+    + If we denote the error probability in the first part by $p(=0.308538)$, on repeated transmission, an error occurs if and only if the incorrect signal is concluded in least 2 of the 3 transmissions. Since the transmission are independent, the probability of error is thus $\binom32 p^2 \cdot (1−p)+\binom33 p^3=0.226844$.
 
 
 ### Video Links
