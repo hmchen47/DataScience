@@ -993,12 +993,141 @@
 
 ## 9.6 Gaussian Distribution - Probabilities
 
++ Cumulative distribution function
+  + notation: $X \sim N(0, 1)$
+  + cdf: 
+    + $\Phi(x) \triangleq F(x) = \frac{1}{2\pi} \int_{-\infty}^x \exp(-\frac{x^2}{2})\, dy$
+    + no known formula
+    + instead use table or computer
+  + table for each $\mu, \sigma$?
+    + standard normal table
+    + z table
+
++ Using the Z table <br/>
+  distribution: $X \sim N(0, 1)$
+  
+  \[\begin{align*}
+    \Pr(X \le a) &= \Phi(a) \\
+    \Pr(X \ge a) &= 1 - \Phi(a) \\
+    \Pr(a \le X \le) &= \Phi(b) - \Phi(a)
+  \end{align*}\]
+
++ Negative values
+  + $a > 0$
+  + $\Phi(-a) = \Pr(X \le -a) = \Pr(X \ge a) = 1 - \Pr(X \le a) = 1 - \Phi(a)$
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/yaef2n9n" ismap target="_blank">
+        <img src="img/t09-08.png" style="margin: 0.1em;" alt="Diagrams of various interpretations w/ negative values" title="Diagrams of various interpretations w/ negative values" width=550>
+      </a>
+    </div>
+
+  + $\Pr(x \le -a) - \Phi(-a) = 1 - \Phi(a)$
+  + $\Pr(X \ge -a) = 1 - \Phi(-a) = \Phi(a)$
+  + $\Pr(-a \le X \le b) = \Phi(b) - \Phi(-a) = \Phi(b) - (1 - \Phi(a)) = \Phi(a) + \Phi(b) - 1$
+
++ General normal distribution
+  + notation: $X \sim N(\mu, \sigma^2)$
+  + $\Pr(a \le X \le b) = \Pr\left( \frac{a - \mu}{\sigma} \le \frac{X - \mu}{\sigma} \le \frac{b - \mu}{\sigma} \right) = \Pr\left.(\frac{a - \mu}{\sigma} \le Z \le \frac{b - \mu}{\sigma}\right)$
+  + standardized version of $X$ = Z score: $Z = \frac{X- \mu}{\sigma} \sim N(0, 1)$
+  + example:
+    + $X \sim N(15, 4) \quad \mu = 15 \quad \sigma=2$
+    + Z score: $Z = \frac{X - 15}{2}$
+
+    \[\begin{align*}
+      \Pr(11 \le X \le 17) &= \Pr(\frac{11-15}{2} \le Z \le \frac{17-15}{2}) \\
+      &= \Pr(-2 \le Z \le 1) = \Phi(1) - \Phi(2) - 1 \\
+      $\approx 0.8413 + 0.9772 - 1 = 0.8185
+    \end{align*}\]
+
++ Probability within $\sigma$
+  + $\Pr(|X - \mu| \le \sigma)?$
+  + standard normal: $f(x) = \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{x^2}{2}\right)$
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/yaef2n9n" ismap target="_blank">
+        <img src="img/t09-09a.png" style="margin: 0.1em;" alt="Probability of Normal distribution within a given area" title="Probability of Normal distribution within a given area" height=120>
+        <img src="img/t09-09b.png" style="margin: 0.1em;" alt="Area calculating" title="Area calculating" height=120>
+      </a>
+    </div>
+
+  + area of th house: $ab + \frac{a(c-b)}{2} = \frac{ab + ac}{2}$
+  + $0.48 \approx \sqrt{\frac{2}{\pi e}} \le \Pr(|X - \mu| \le \sigma) \le \sqrt{\frac{2}{\pi}} \approx 0.8$
+  + $\frac{\sqrt{\frac{2}{\pi e}} + \sqrt{\frac{2}{\pi}}}{2} \approx 0.64$
+
++ 68 - 95 - 99.7 Rule
+
+  \[ \Pr(\mu - \alpha \sigma \le X \le \mu + \alpha \sigma) = \Pr(-\alpha \le Z \le \alpha) = 2\Phi(\alpha) - 1 \]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yba6p7dj" ismap target="_blank">
+      <img src="https://tinyurl.com/ycg35sgg" style="margin: 0.1em;" alt="Probabilities and standard deviations" title="Probabilities and standard deviations" height=200>
+    </a>
+  </div>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">$\alpha$</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\Pr(|X - \mu| \le \alpha \sigma)$</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr> <td style="text-align: center;">1</td> <td style="text-align: center;">2(0.8413) -1 = 0.682</td> </tr>
+    <tr> <td style="text-align: center;">2</td> <td style="text-align: center;">2(0.9772) - 1 = 0.9544</td> </tr>
+    <tr> <td style="text-align: center;">3</td> <td style="text-align: center;">2(0.9987) - 1 = 0.9974</td> </tr>
+    </tbody>
+  </table>
+
++ Rare events
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 5%;">$\alpha$</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\Pr(\left| X - \mu\right| \le \alpha \sigma$</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\Pr(\left| X - \mu\right| > \alpha \sigma$</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Daily event ~</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr> <td style="text-align: center;">1</td> <td style="text-align: center;">68.2%</td> <td style="text-align: center;">31.8%</td> <td style="text-align: center;">3 days</td> </tr>
+    <tr> <td style="text-align: center;">2</td> <td style="text-align: center;">95.4%</td> <td style="text-align: center;">4.6%</td> <td style="text-align: center;">3 weeks</td> </tr>
+    <tr> <td style="text-align: center;">3</td> <td style="text-align: center;">99.7%</td> <td style="text-align: center;">0.3%</td> <td style="text-align: center;">year</td> </tr>
+    <tr> <td style="text-align: center;">4</td> <td style="text-align: center;">99.99%</td> <td style="text-align: center;">0.01%</td> <td style="text-align: center;">43 years</td> </tr>
+    <tr> <td style="text-align: center;">5</td> <td style="text-align: center;">99.9999%</td> <td style="text-align: center;">$10^{-6}$</td> <td style="text-align: center;">4776 years</td> </tr>
+    <tr> <td style="text-align: center;">6</td> <td style="text-align: center;">99.99999998%</td> <td style="text-align: center;">$2\cdot 10^{-9}$</td> <td style="text-align: center;">1.3 millions years</td> </tr>
+    </tbody>
+  </table>
+
+  + $6 \cdot \sigma$ philosophy: life is abnormal
+
++ Normal approximation of Binomial
+  + Binomial: $X \sim B_{n, p} \qquad \mu = np \quad \sigma = \sqrt{npq}$
+  + Normal: $Y \sim N(np, npq) \qquad \Pr(X = k) \approx \Pr(k - \frac12 \le Y \le k + \frac12)$
+  + example:
+    + $X \sim B_{100, 0.5} \qquad np = 50 \quad \sqrt{npq} = 5$
+    + $Y \sim N(50, 25)$
+
+      \[\begin{align*}
+        \Pr(X = 60) &\approx \Pr(59.5 \le Y \le 60.5) \\
+        &= \Pr(1.9 = \frac{59.5 - 50}{5} \le Z = \frac{Y - 50}{5} \le \frac{60.5 - 50}{5} = 2.1)\\
+        &= \Phi(2.1) - \Phi(1.9) \approx 0.9821 - 0.9713 = 0.0108 \\
+        \Pr(X = 60) &= \binom{100}{60} 0.5^{100} \approx 0.0108
+      \end{align*}\]
+
++ Interval probabilities
+  + Binomial: $X \sim B_{100, 0.5} \qquad np = 50 \quad \sqrt{npq} = 5$
+  + Normal: $Y \sim N(50, 25)$
+
+    \[\begin{align*}
+      \Pr(42 \le X \le 53) &\approx \Pr(41.5 \le Y \le 53.3) = \Pr(-1.7 = \frac{41.5 - 50}{5} \le Z \le \frac{53.5 - 50}{5} \le 0.7) \\
+      &= \Phi(0.7) + \Phi(1.7) - 1 \approx 0.7580 + 0.9554 - 1 = 0.7134 \\\\
+      \text{Actual } &= \sum_{k=42}^{53} \binom{100}{k} (\frac12)^{100} \approx 0.7136
+    \end{align*}\]
 
 
-
-
-
-+ [Original Slides]()
++ [Original Slides](https://tinyurl.com/yaef2n9n)
 
 
 ### Problem Sets
