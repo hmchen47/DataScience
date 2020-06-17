@@ -177,6 +177,35 @@ def plot_normal(mu, var, CDF=False):
     return None
 
 
+def norm_approx(n, p):
+    """Normal approximation of Binomial distribution
+
+    Args:
+        n (int): number of binary flips
+        p (float): probability of each binary flip w/ success
+    """
+    x = np.arange(0, n+1)
+    x_in = np.linspace(0, n+1, 1001)
+    prob_binom = stat.binom.pmf(x, n, p)
+    stddev = (n * p * (1 - p))**0.5
+    prob_norm = stat.norm.pdf(x_in, n*p, stddev)
+
+    plt.plot(x_in, prob_norm, 'r', linewidth=2.0, label="N({:0.2f}, {:0.2f})"\
+        .format(n*p, stddev))
+    plt.plot(x, prob_binom, '-', linewidth=2.0, label="Bin({:d}, {:0.2f})"\
+        .format(n, p))
+    
+    plt.title('Normal Approximation of Binomial')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.legend()
+    plt.show()
+
+    prob_norm = stat.norm.pdf(x, n*p, stddev)
+    print("\n|| Prob_Normal - Prob_Binomail ||\u2081 = \n{}".format(abs(prob_norm - prob_binom)))
+
+    return None
+
 
 def main():
 
@@ -206,12 +235,20 @@ def main():
     # exponential distribution
     # lam =[0.01, 10.0] x_max=(10, 100), sampleSize=(1, 1000)
     lam, x_max, cdf, size, hist = 1.0, 10, True, 1000, True
-    plot_expon(lam, x_max, CDF=cdf, sampleSize=size, hist=hist)
+    # plot_expon(lam, x_max, CDF=cdf, sampleSize=size, hist=hist)
 
     # n = (2, 100), p=(0.0, 1.0)
     n, p = 10, 0.5
-    expon_approx(n, p)
+    # expon_approx(n, p)
 
+    # Normal distribution
+    # mu = (-25, 25)  var = (0.3, 30)
+    mu, var, cdf = 0, 25, False
+    plot_normal(mu, var, CDF=cdf)
+
+    # n = (1, 200)  p = (0.0, 1.0)
+    n, p = 50, 0.30
+    norm_approx(n, p)
 
     return None
 
