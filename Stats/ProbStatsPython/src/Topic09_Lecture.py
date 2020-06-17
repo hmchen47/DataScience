@@ -144,6 +144,40 @@ def expon_approx(n, p):
     return None
 
 
+def plot_normal(mu, var, CDF=False):
+    """plot Normal distribution
+
+    Args:
+        mu (float): mean of Gaussian distribution
+        var (float): variance of Gaussian distribution
+        CFD (bool, optional): plot CDF or not. Defaults to False
+    """
+    x = np.linspace(-50, 50, 1001)
+    sig = var**0.5
+    pdf_norm = stat.norm.pdf(x, mu, sig)
+
+    plt.plot(x, pdf_norm, 'b', linewidth=3.0, label="CDF")
+    if CDF:
+        cdf_norm = stat.norm.cdf(x, mu, sig)
+        plt.plot(x, cdf_norm, 'r', linewidth=3.0, label='CDF')
+    
+    y0 = (1/(sig*np.sqrt(2*pi)))*np.exp(-0.5)
+    ym = 1/(sig*np.sqrt(2*pi))
+
+    plt.plot([mu-sig, mu-sig], [0, y0], 'm--', linewidth=2.0)
+    plt.plot([mu+sig, mu+sig], [0, y0], 'm--', linewidth=2.0, label='$\mu\pm\sigma$')
+    plt.plot([mu, mu], [0, ym], 'g--', linewidth=2.0, label=r'$\mu$')
+
+    plt.title('PDF of N({}, {})'.format(mu, var))
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.legend()
+    plt.show()
+
+    return None
+
+
+
 def main():
 
     # set the size and properties o the plots when using matplotlib.pyplot
@@ -177,6 +211,7 @@ def main():
     # n = (2, 100), p=(0.0, 1.0)
     n, p = 10, 0.5
     expon_approx(n, p)
+
 
     return None
 
