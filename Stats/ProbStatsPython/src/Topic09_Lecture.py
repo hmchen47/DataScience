@@ -206,6 +206,46 @@ def norm_approx(n, p):
 
     return None
 
+# construct_line = lambda x,y,theta: [[x-0.5*np.cos(theta), x+0.5*np.cos(theta)], [y-0.5*np.sin(theta), y+0.5*np.sin(theta)]]
+construct_line = lambda x,y,theta: [[x-0.5*np.cos(theta), x+0.5*np.cos(theta)], [y-0.5*np.sin(theta), y+0.5*np.sin(theta)]]
+def buffon_pi(size, k, c_update=False):
+    """two parallel lines on a plane w/ distance 1 unit. w/o loss of generality, one line as y=0
+    and other line as y=1.  throwing a unit-length needle onto the floor in such a way that the
+    y-coordinate of its midpoint is uniform over [0, 1] and the angle made by the needle w/ the
+    positive x-axis is uniform over [0, pi]. it can be shown that the probability that the needle
+    intersects any of the parallel lines is 2/pi.  compute the probability empirically in order
+    to estimate the value of pi
+
+    Args:
+        size (int): number of throw
+        k (int): [description]
+        c_update (bool, optional): continuous updated or not. Defaults to False.
+    """
+    cnt = 0     # to count the number of needle intersecting one or both of the parallel lines
+    y_center = (np.random.uniform(0, 1) for _ in range(size+k))
+    x_center = (np.random.uniform(0, 1) for _ in range(size+k))
+    theta_sample = (np.random.uniform(0, np.pi) for _ in range(size+k))
+
+    for x, y, theta, _ in zip(x_center, y_center, theta_sample, range(size)):
+        X, Y = construct_line(x, y, theta)
+        if Y[0]<0 or Y[1]>1:
+            cnt += 1
+    print("\nThe estimate of pi based on {} samples is: {}"\
+        .format(size, 2*size/cnt))
+    
+    plt.plot([-0.3, 1.3], [0, 0], 'k', [-0.3, 1.3], [1, 1], 'k', linewidth=5)
+    for x,y,theta in zip(x_center, y_center, theta_sample):
+        X, Y = construct_line(x, y, theta)
+        plt.plot(X, Y)
+        plt.xlim([-0.3, 1.3])
+        plt.ylim([-0.3, 1.3])
+
+    plt.show()
+
+    return None
+
+
+
 
 def main():
 
@@ -244,11 +284,21 @@ def main():
     # Normal distribution
     # mu = (-25, 25)  var = (0.3, 30)
     mu, var, cdf = 0, 25, False
-    plot_normal(mu, var, CDF=cdf)
+    # plot_normal(mu, var, CDF=cdf)
 
     # n = (1, 200)  p = (0.0, 1.0)
     n, p = 50, 0.30
-    norm_approx(n, p)
+    # norm_approx(n, p)
+
+    # Buffon's needle
+    # size = (100, 10000)  k = (10, 100)
+    size, k = 10000, 50
+    updating = True
+    buffon_pi(size, k, c_update=updating)
+
+    # estimate pi w/ circle within a square
+    # sample = (10, 1000)
+    square_pi(sample)
 
     return None
 
