@@ -119,6 +119,29 @@ def plot_expon(lam, x_max, CDF=False, sampleSize=100, hist=True):
 
     return None
 
+def expon_approx(n, p):
+    """Plot geomentic distribution and its exponential distribution approximation   
+
+    Args:
+        n (int): number of failed flip w/ last success
+        p (float): probability of success flip
+    """
+    x = np.arange(n+1)
+    x2 = np.linspace(0, n, num=10*n)
+    y = [((1-p)**(z))*p for z in x]
+
+    lam = p
+    y0 = lam*np.exp(-lam*x2)
+    plt.plot(x2, y0, label='Exponential({})'.format(lam))
+    plt.plot(x, y, 'r', label='Geometric({})'.format(p))
+
+    plt.title("Exponential Approximation of Geometric({:.2f})".format(p), fontsize=20)
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.legend()
+    plt.show()
+
+    return None
 
 
 def main():
@@ -150,6 +173,10 @@ def main():
     # lam =[0.01, 10.0] x_max=(10, 100), sampleSize=(1, 1000)
     lam, x_max, cdf, size, hist = 1.0, 10, True, 1000, True
     plot_expon(lam, x_max, CDF=cdf, sampleSize=size, hist=hist)
+
+    # n = (2, 100), p=(0.0, 1.0)
+    n, p = 10, 0.5
+    expon_approx(n, p)
 
     return None
 
