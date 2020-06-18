@@ -244,7 +244,37 @@ def buffon_pi(size, k, c_update=False):
 
     return None
 
+def square_pi(samples):
+    """a square w/ aide-length 2a and a inscribed circle w/ radius a.  Pick a point uniformally
+    at random from the square, the probability that the selected point also belongs to the 
+    inscribed circle is clearly the ratio of the areas of the circle and the square, which
+    is given by $\pi a^2 / (2a)^2$. This evaluates to $\pi/4$. estimate the value of pi by 
+    determining this probability empirically.  
 
+    Args:
+        samples (int): number of samples
+    """
+
+    plt.figure(figsize=(12, 12))
+    plt.plot([-1, 1], [1, 1], 'k', [-1, 1], [-1, -1], 'k', [-1, -1], [-1, 1], 'k', \
+        [1, 1], [-1, 1], 'k', linewidth=5.0)
+    x = np.linspace(-1, 1, 101)
+    y = (1 - x*x)**0.5
+    plt.plot(x, y, 'b', x, -y, 'b', linewidth=5.0)
+    samples = zip((np.random.uniform(-1, 1) for _ in range(samples)), \
+        (np.random.uniform(-1, 1) for _ in range(samples)))
+    cnt = 0
+    for x, y in samples:
+        if x**2+y**2 <= 1:
+            plt.scatter(x, y, c='r', s=12)
+            cnt += 1
+        else:
+            plt.scatter(x, y, c='g', s=12)
+    plt.show()
+    print("\nEstimated value of pi: {}".format(4*cnt/samples))
+
+    return None
+        
 
 
 def main():
@@ -298,6 +328,7 @@ def main():
 
     # estimate pi w/ circle within a square
     # sample = (10, 1000)
+    sample = 500
     square_pi(sample)
 
     return None
