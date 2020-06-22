@@ -1428,7 +1428,75 @@
 
 ## Programming Assignment 9
 
+### Introduction
+
+A continuous random variable is a random variable that represents an infinite number of outcomes.If we sample a continuous random variable $X$, the obtained samples may not cover the whole sample space. Since the sample space of a continuous distribution has infinite number of observations, to estimate the exact distribution of the random variable we need infinite number of samples. Since this is not practically possible, we can use parameterized continuous distributions to approximate the observed distribution.
+
+In this assignment we will use the [hourly weather](https://tinyurl.com/yajzg88h) dataset and look at the temperature recording for the city of Detroit. We will use continuous distributions we have studied to approximate the observed distributions.
 
 
+### Useful functions
+
+The module [scipy.stats](https://tinyurl.com/glrgcp6) has an extensive number of probability distributions and useful statistical function definitions.
+
+For plotting the probability density of the data use the `hist` function in the library `matplotlib.pyplot` and set the argument `density=True`. How this function estimates the probability is outlined in [matplotlib library](https://tinyurl.com/y7zydvp4) documentation.
+
+1. If you plot a histogram with 100 bins using all the samples, which one would represesnt Detroit
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="url" ismap target="_blank">
+      <img src="img/t09-10a.png" style="margin: 0.1em;" alt="Portland" title="a. Portland" height=200>
+      <img src="img/t09-10b.png" style="margin: 0.1em;" alt="San_Antonio" title="b. San_Antonio" height=200>
+      <img src="img/t09-10c.png" style="margin: 0.1em;" alt="San_Diego" title="c. San_Diego" height=200>
+      <img src="img/t09-10d.png" style="margin: 0.1em;" alt="Detroit" title="d. Detroit" height=200>
+    </a>
+  </div>
+
+  Ans: d
+
+
+2. Which of the following PDF's approximate the distribution of the data in Question1 as closely as possible? You can overlay the different distributions below over the histogram<br/>
+  a. $P_X(x) = \frac{1}{\sqrt{2\pi \sigma^2}}e^{\frac{-(x-\mu)^2}{2\sigma^2}},\ \mu=283K,\sigma=11K$<br/>
+  b. $P_X(x) = \frac{1}{\sqrt{2\pi \sigma_1^2}}e^{\frac{-(x-\mu_1)^2}{2\sigma_1^2}}*0.5 + \frac{1}{\sqrt{2\pi \sigma_2^2}}e^{\frac{-(x-\mu_2)^2}{2\sigma_2^2}}*0.5\ ,$ $\mu_1=276K,$ $\sigma_1=6K,$ $\mu_2=293K\sigma_2=6.5K$<br/>
+  c. $P_X(x) = \frac{1}{\sqrt{2\pi \sigma_1^2}}e^{\frac{-(x-\mu_1)^2}{2\sigma_1^2}}*0.5 + \frac{1}{\sqrt{2\pi \sigma_2^2}}e^{\frac{-(x-\mu_2)^2}{2\sigma_2^2}}*0.5\ ,$ $\mu_1=276K,$ $\sigma_1=6.5K,$ $\mu_2=293K,$ $\sigma_2=6K$<br/>
+
+  Ans: c<br/>
+
+  ```python
+  import numpy as np
+  import pandas as pd
+  import matplotlib.pyplot as plt
+  import scipy.stats
+
+  # Plot histogram
+  temperature = pd.read_csv('./data/temperature.csv', delimiter = ',')
+  Detroit = temperature['Detroit'][1:].values
+  plt.hist(Detroit, bins = 100, density = True)
+
+  # Plot pdf
+  mu1 = 276
+  sigma1 = 6.5
+  mu2 = 293
+  sigma2 = 6
+  x = np.arange(240, 320, 0.5)
+  plt.plot(x, 0.5 * scipy.stats.norm.pdf(x, loc = mu1, scale = sigma1) + 0.5 * scipy.stats.norm.pdf(x, loc = mu2, scale = sigma2))
+  plt.xlabel('Temperature (Kelvin)')
+  plt.ylabel('Probability')
+
+  plt.show()
+  ```
+
+
+3. Using the PDF in question 2, find the probability of the temperature lying in between 281K and 291K for the city of Detroit.
+
+  Ans: 0.2772
+
+  ```python
+  import scipy.stats
+
+  p = 0.5 * (scipy.stats.norm.cdf(291, mu1, sigma1) - scipy.stats.norm.cdf(281, mu1, sigma1) \
+            + scipy.stats.norm.cdf(291, mu2, sigma2) - scipy.stats.norm.cdf(281, mu2, sigma2))
+  print('The probability of the temperature lying inbetween 281K and 291K for the city of Detroit is {}'.format(p))
+  ```
 
 
