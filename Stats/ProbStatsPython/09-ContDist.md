@@ -774,8 +774,8 @@
       \[ F(x) = \begin{cases} 1 - e^{-\lambda x} & x \ge 0 \\ 0 & x \le 0 \end{cases} \]
 
     + properties
-      + mena: $E[X] = \frac{1}{\lambda}$
-      + vatinace: $Var(X) = \frac{1}{\lambda^2}$
+      + mean: $E[X] = \frac{1}{\lambda}$
+      + varianace: $Var(X) = \frac{1}{\lambda^2}$
       + standard deviation: $\sigma = \frac{1}{\lambda}$
       + memoryless
 
@@ -1479,7 +1479,8 @@ For plotting the probability density of the data use the `hist` function in the 
   mu2 = 293
   sigma2 = 6
   x = np.arange(240, 320, 0.5)
-  plt.plot(x, 0.5 * scipy.stats.norm.pdf(x, loc = mu1, scale = sigma1) + 0.5 * scipy.stats.norm.pdf(x, loc = mu2, scale = sigma2))
+  plt.plot(x, 0.5 * scipy.stats.norm.pdf(x, loc = mu1, scale = sigma1) \
+    + 0.5 * scipy.stats.norm.pdf(x, loc = mu2, scale = sigma2))
   plt.xlabel('Temperature (Kelvin)')
   plt.ylabel('Probability')
 
@@ -1496,7 +1497,8 @@ For plotting the probability density of the data use the `hist` function in the 
 
   p = 0.5 * (scipy.stats.norm.cdf(291, mu1, sigma1) - scipy.stats.norm.cdf(281, mu1, sigma1) \
             + scipy.stats.norm.cdf(291, mu2, sigma2) - scipy.stats.norm.cdf(281, mu2, sigma2))
-  print('The probability of the temperature lying inbetween 281K and 291K for the city of Detroit is {}'.format(p))
+  print('The probability of the temperature lying in between 281K and 291K for the\
+     city of Detroit is {}'.format(p))
   ```
 
 
