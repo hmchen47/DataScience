@@ -1075,6 +1075,42 @@
 
 
 
+## Function of Random variables
+
++ [Functions of random variable](../Stats/ProbStatsPython/09-ContDist.md#92-functions-of-random-variables)
+  + $X \sim f_X$: $f_X$ known distribution
+  + $Y = g(X)$: $g$ known deterministic function
+  + what is the distribution of $Y$: $f_Y$?
+
++ [General power law function](../Stats/ProbStatsPython/09-ContDist.md#92-functions-of-random-variables)
+  + $Y = g(X)$ w/ $g \nearrow$
+    + $F_Y \to F_X$
+
+      \[ F_Y (y) &\triangleq \Pr(Y \le y) = F_X(h(y)) \]
+
+    + $f_Y \to f_X$
+
+      \[ f_Y(y) &= F^\prime_Y (y) = f_X(h(y)) \cdot h^\prime(y) \]
+
+  + $Y = g(X)$ w/ $g \searrow$
+    + $F_Y \to F_X$
+
+      \[ F_Y(y) &\triangleq \Pr(g(X) \le y) = 1 - F_X(h(y)) \]
+
+    + $f_Y \to f_X$
+
+      \[ f_Y(y) &= F_Y^\prime(y) = - f_X(h(y)) \cdot h^\prime(y) \]
+
+  + Combining $g \nearrow$ and $g \searrow$
+    + $g \nearrow \qquad f_Y(y) = f_X(h(y)) \cdot h^\prime(y)$
+    + $g \searrow \qquad f_Y(y) = -f_Y(h(y)) \cdot h^\prime(y)$
+    + both: $f_Y(y) = f_X(h(y)) \cdot |h^\prime(y)|$
+    + alternative formulation:
+
+      \[ f_Y(y) = \left. \frac{1}{|g^\prime(x)|} f_X(x) \right|_{y=g(x)} \]
+
+
+
 
 
 
