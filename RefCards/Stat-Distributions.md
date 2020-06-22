@@ -165,5 +165,62 @@
 
 
 
+## Exponential Distribution
+
++ Exponential distribution
+  + pdf: $\lambda > 0$
+
+    \[ f_\lambda(x) = \begin{cases} \lambda e^{-\lambda x} & x \ge 0 \\ 0 & x < 0 \end{cases} \]
+
+  + cdf:
+
+    \[\begin{align*}
+      \Pr(X > x) &= \begin{cases} \int_x^\infty \lambda e^{-\lambda u}\,du = \left. -e^{-\lambda u} \right|_x^\infty = e^{-\lambda x} & x \ge 0 \\ 1 & x \le 0 \end{cases} \\\\
+      F(x) = \Pr(X \le x) &= \begin{cases} 1 - \Pr(X > x) = 1 - e^{-\lambda x} & x \ge 0 \\ 0 & x \le 0 \end{cases}
+    \end{align*}\]
+
++ Expectation and variance
+  + mean
+
+    \[ E[X] = \int_0^\infty x \lambda e^{-\lambda x}\,dx  = \frac{1}{\lambda} \]
+
+  + variance
+
+    \[\begin{align*}
+      E[X^2] &= \frac{2}{\lambda^2} \\
+      Var(X) &=  \frac{1}{\lambda^2} 
+    \end{align*}\]
+
++ Memoryless
+  + Exponential distribution: $X \sim f_\lambda \quad a, b \ge 0$
+
+    \[\begin{align*}
+      \Pr(X \ge a + b \mid X \ge a) &= \Pr(X \ge b) \\
+      \Pr(X < a + b \mid x \ge a) &= \Pr(X < b)
+    \end{align*}\]
+
+  + pdf
+
+    \[f(X = a + b \mid X \ge a) = f(X = b) \]
+
+  + Summary: exponential
+    + pdf
+
+      \[ f_\lambda(x) = \begin{cases} \lambda e^{-\lambda x} & x \ge 0 \\ 0 & x \le 0 \end{cases} \]
+
+    + cdf
+
+      \[ F(x) = \begin{cases} 1 - e^{-\lambda x} & x \ge 0 \\ 0 & x \le 0 \end{cases} \]
+
+    + properties
+      + mean: $E[X] = \frac{1}{\lambda}$
+      + variance: $Var(X) = \frac{1}{\lambda^2}$
+      + standard deviation: $\sigma = \frac{1}{\lambda}$
+      + memoryless
+
+
+
+
+
 
 
