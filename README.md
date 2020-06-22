@@ -131,21 +131,21 @@
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Random Variables </th>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#random-variables"> Basics </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#cumulative-distribution-function"> Cumulative Distribution Function </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#discrete-random-variables"> Discrete R.V. </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#continuous-random-variables"> Continuous R.V. </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#function-of-random-variables"> Functions of R.V. </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#cumulative-distribution-function"> CDF </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#expectation"> Expectation </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#variance"> Variance </a></td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#modification"> Modification </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#expectation-of-functions-of-random-variables"> Expectation of Functions of R.V. </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#multivariate"> Multivariate </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#linearity-of-expectation"> Linearity </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#multivariate"> Multivariate </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#linearity-of-expectation"> Linearity </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#covariance"> Covariance </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
@@ -178,11 +178,17 @@
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Distributions </th>
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Distributions </th>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#bernoulli-distribution"> Bernoulli </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#binomial-distribution"> Binomial </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#beta-distribution"> Beta </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#beta-binomial-distribution"> Beta-Binomial </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#uniform-distribution"> Uniform </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#exponential-distribution"> Exponential </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#gaussian-distribution"> Gaussian </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#">  </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Study Design </th>
