@@ -221,6 +221,97 @@
 
 
 
+## Gaussian Distribution
+
++ [Normal distribution](../Stats/ProbStatsPython/09-ContDist.md#95-gaussian-distribution)
+  + notation: $X \sim N(\mu, \sigma^2)$
+  + pdf: $f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
+  + cdf:
+    + $\Phi(x) \triangleq F(x) = \frac{1}{2\pi} \int_{-\infty}^x \exp(-\frac{x^2}{2})\, dx$
+    + no known formula
+    + instead use table or computer
+
++ [Linear transformations](../Stats/ProbStatsPython/09-ContDist.md#95-gaussian-distribution)
+  + linear transformation of normal distributions are normal
+    + $X \sim N(\mu, \sigma^2)$
+    + pdf: $f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
+    + affine: $Y = aX +b$
+    + $\forall\,$ r.v.: $\mu_Y = a \mu_X + b \quad \sigma_Y = a \sigma_X$
+  + variable transformation: show normal $Y \sim N\left(a\mu+b, (a\sigma)^2\right)$
+
++ [Standard Normal distribution](../Stats/ProbStatsPython/09-ContDist.md#95-gaussian-distribution)
+  + w/o loss of generality considering $X \sim N(0, 1)$
+
+    \[ f(x) = \frac{1}{2\pi} e^{-\frac{x^2}{2}} \]
+  + mean: symmetry at $E[X] = 0$
+
+  + variance
+
+    \[ Var(x) = E[X^2] - (E[X])^2 = 1 - 0 = 1 \]
+
++ [The z table](../Stats/ProbStatsPython/09-ContDist.md#96-gaussian-distribution---probabilities)
+  + distribution: $X \sim N(0, 1)$
+
+    \[\begin{align*}
+      \Pr(X \le a) &= \Phi(a) \\
+      \Pr(X \ge a) &= 1 - \Phi(a) \\
+      \Pr(a \le X \le b) &= \Phi(b) - \Phi(a)
+    \end{align*}\]
+
+  + negative values
+    + $a > 0$
+    + $\Phi(-a) = \Pr(X \le -a) = \Pr(X \ge a) = 1 - \Pr(X \le a) = 1 - \Phi(a)$
+
+      <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+        <a href="https://tinyurl.com/yaef2n9n" ismap target="_blank">
+          <img src="../Stats/ProbStatsPython/img/t09-08.png" style="margin: 0.1em;" alt="Diagrams of various interpretations w/ negative values" title="Diagrams of various interpretations w/ negative values" width=550>
+        </a>
+      </div>
+
+    + $\Pr(x \le -a) = \Phi(-a) = 1 - \Phi(a)$
+    + $\Pr(X \ge -a) = 1 - \Phi(-a) = \Phi(a)$
+    + $\Pr(-a \le X \le b) = \Phi(b) - \Phi(-a) = \Phi(b) - (1 - \Phi(a)) = \Phi(a) + \Phi(b) - 1$
+
++ [General normal distribution](../Stats/ProbStatsPython/09-ContDist.md#96-gaussian-distribution---probabilities)
+  + distribution: $X \sim N(\mu, \sigma^2)$
+  + $\Pr(a \le X \le b) = \Pr\left.(\frac{a - \mu}{\sigma} \le Z \le \frac{b - \mu}{\sigma}\right)$
+  + standardized version of $X$ = Z score: $Z = \frac{X- \mu}{\sigma} \sim N(0, 1)$
+
++ [68 - 95 - 99.7 Rule](../Stats/ProbStatsPython/09-ContDist.md#96-gaussian-distribution---probabilities)
+
+  \[ \Pr(\mu - \alpha \sigma \le X \le \mu + \alpha \sigma) = \Pr(-\alpha \le Z \le \alpha) = 2\Phi(\alpha) - 1 \]
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">$\alpha$</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\Pr(|X - \mu| \le \alpha \sigma)$</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr> <td style="text-align: center;">1</td> <td style="text-align: center;">2(0.8413) -1 = 0.682</td> </tr>
+    <tr> <td style="text-align: center;">2</td> <td style="text-align: center;">2(0.9772) - 1 = 0.9544</td> </tr>
+    <tr> <td style="text-align: center;">3</td> <td style="text-align: center;">2(0.9987) - 1 = 0.9974</td> </tr>
+    </tbody>
+  </table>
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yba6p7dj" ismap target="_blank">
+      <img src="https://tinyurl.com/ycg35sgg" style="margin: 0.1em;" alt="Probabilities and standard deviations" title="Probabilities and standard deviations" height=200>
+    </a>
+  </div>
+
++ [Normal approximation of Binomial distribution](../Stats/ProbStatsPython/09-ContDist.md#96-gaussian-distribution---probabilities)
+  + Binomial: $X \sim B_{n, p} \qquad \mu = np \quad \sigma = \sqrt{npq}$
+  + Normal approximation: $Y \sim N(np, npq) \qquad \Pr(X = k) \approx \Pr(k - \frac12 \le Y \le k + \frac12)$
 
 
++ [Summary](../Stats/ProbStatsPython/09-ContDist.md#95-gaussian-distribution)
+  + notation: $X \sim N(\mu, \sigma)$
+  + pdf: $f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{\frac{-(x-\mu)^2}{2\sigma^2}} \quad -\infty < x < \infty$
+  + cdf: $\Phi(x) \triangleq F(x) = \frac{1}{2\pi} \int_{-\infty}^x \exp(-\frac{x^2}{2})\, dx$
+  + mean: $E[X] = \mu$
+  + variance: $Var = \sigma^2$
+  + standard deviation: $\sigma = \sigma$
+  + very common in nature
 
