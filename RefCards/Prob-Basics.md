@@ -941,7 +941,7 @@
 
 
 
-## Random variables
+## Discrete Random Variables
 
 + [Types of random variables](../Stats/ProbStatsPython/07-RvMeanVar.md#71-random-variables)
   + discrete
@@ -994,6 +994,89 @@
 
 
 
+## Continuous Random Variables
+
++ [Probability density function (PDF)](../Stats/ProbStatsPython/09-ContDist.md#91-continuous-distributions)
+  + replacing the discrete pmf
+  + relative likelihood of $x$: $f(x) \ge 0$
+  + area under curve (area): $\int_{-\infty}^\infty f(x)\,dx$
+
++ [Comparison](../Stats/ProbStatsPython/09-ContDist.md#91-continuous-distributions)
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;"></th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Discrete</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Continuous</th>
+    </tr>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Prob. Func.</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">mass (pmf)</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">density (PDF)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr> <td style="text-align: center;">$\ge 0$</td> <td style="text-align: center;">$p(x) \ge 0$</td> <td style="text-align: center;">$f(x) \ge 0$</td>  </tr>
+    <tr> <td style="text-align: center;">$\sum = 1$</td> <td style="text-align: center;">$\sum_x p(x) = 1$</td> <td style="text-align: center;">$\int_{-\infty}^\infty f(x) dx = 1$</td> </tr>
+    </tbody>
+  </table>
+
++ [Event probability](../Stats/ProbStatsPython/09-ContDist.md#91-continuous-distributions)
+  + discrete: $\Pr(A) = \sum_{x\in A} p(x)$
+  + continuous: $\Pr(A) = \int_{x \in A} f(x) dx$
+  + typically interested in interval probability: $\Pr(a \le X \le b)$
+  + AuC (area under curve) btw a and b
+  + cumulative distribution function: $\Pr(X \le b) - \Pr(X \le a)$
+
++ [Interval probability](../Stats/ProbStatsPython/09-ContDist.md#91-continuous-distributions)
+
+  \[ \Pr(a, b) = \Pr([a, b)) = \Pr((a, b]) = F(b) - F(a) \]
+
++ [Differences between discrete and continuous](../Stats/ProbStatsPython/09-ContDist.md#91-continuous-distributions)
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Discrete</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Continuous</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr> <td style="text-align: center;">$p(x) \le 1$</td> <td style="text-align: center;">$f(x)$ can be $> 1$</td> </tr>
+    <tr> <td style="text-align: center;">Generally $p(x) \neq 0$</td> <td style="text-align: center;">$p(x) = 0$</td> </tr>
+    <tr> <td rowspan="3" style="text-align: center;">Generally $\Pr(X \le a) \neq \Pr(X < a)$</td> <td style="text-align: center;">$\Pr(X \le a) = \Pr(X < a) = F(a)$</td> </tr>
+    <tr> <td style="text-align: center;">$\Pr(X \ge a) = \Pr(X > a) = 1 -F(a)$</td></tr>
+    <tr> <td style="text-align: center;">$\Pr(a \le X \le b) = \Pr(a < X < b) = F(b) - F(a)$</td> </tr>
+    </tbody>
+  </table>
+
++ [Discrete vs. Continuous](../Stats/ProbStatsPython/09-ContDist.md#91-continuous-distributions)
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"></th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Discrete</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Continuous</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr> <th>Prob. Fun.</th> <td style="text-align: center;">pmf: p</td> <td style="text-align: center;">PDF: f</td> </tr>
+    <tr> <th>$\ge 0$</th> <td style="text-align: center;">$p(x) \ge 0$</td> <td style="text-align: center;">$f(x) \ge 0$</td> </tr>
+    <tr> <th>unitary</th> <td style="text-align: center;">$\sum p(x) = 1$</td> <td style="text-align: center;">$\int f(x)\,dx = 1$</td> </tr>
+    <tr> <th>$\Pr(A)$</th> <td style="text-align: center;">$\sum_{x \in A} p(x)$</td> <td style="text-align: center;">$\int_{x \in A} f(x)\,dx$</td> </tr>
+    <tr> <th>$F(X)$</th> <td style="text-align: center;">$\sum_{u \le x} p(u)$</td> <td style="text-align: center;">$\int_{-\infty}^x f(u)\, dx$</td> </tr>
+    <tr> <th>$\mu = E[X]$</th> <td style="text-align: center;">$\sum x p(x)$</td> <td style="text-align: center;">$\int xf(x)\, dx$</td> </tr>
+    <tr> <th>$Var(X)$</th> <td style="text-align: center;">$\sum (x-\mu)^2 p(x)$</td> <td style="text-align: center;">$\int (x-\mu)^2 f(x)\,dx$</td> </tr>
+    </tbody>
+  </table>
+
+
+
+
+
+
 
 ## Cumulative Distribution Function
 
@@ -1015,6 +1098,30 @@
   + by definition: $\Pr(X \leq a) = F(a)$
   + $\Pr(X > a) = 1 - \Pr(X \leq a) = 1 - F(a)$
   + $\Pr(a < X \leq b) = \Pr((X \leq b) - (X \leq a)) = \Pr(X \leq b) - \Pr(X \leq a) = F(b) - F(a)$
+
++ [Cumulative distribution function (CDF) for Continuous Distribution](../Stats/ProbStatsPython/09-ContDist.md#91-continuous-distributions)
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.0em; margin: 0.2em;">$F(X) \triangleq \Pr(X \le x)$</caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;"></th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Discrete</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Continuous</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr> <td style="text-align: center;">PF $\to$ CDF</td> <td style="text-align: center;">$\displaystyle\sum_{u \le x} p(u)$</td> <td style="text-align: center;">$\int_{-\infty}^x f(u) du$</td> </tr>
+    <tr> <td style="text-align: center;">CDF $\to$ PF</td> <td style="text-align: center;">$p(x) = F(x) - F(x^\ast)$</td> <td style="text-align: center;">$f(x) = F^\prime(x)$</td> </tr>
+    <tr><td colspan="3">$x^\ast$: element preceding $x$</td></tr>
+    </tbody>
+  </table>
+
+  + properties
+    + $F(x) = $ integral
+    + nondecreasing
+    + $F(-\infty) = 0 \quad F(\infty) = 1$
+    + continuous
 
 
 
@@ -1054,6 +1161,20 @@
 + [Infinite expectation](../Stats/ProbStatsPython/07-RvMeanVar.md#73-expectation)
   + $E(X) = \sum_{i=1}^\infty i \cdot p_i = \frac{6}{\pi^2} \sum_{i=1}^\infty \frac{1}{i} = \infty$
   + many samples: average will go to $\infty$
+
++ [Expectation](../Stats/ProbStatsPython/09-ContDist.md#91-continuous-distributions)
+  + discrete: $E[X] = \sum x \cdot p(x)$
+  + continuous: $E[X] = \int_{-\infty}^\infty xf(x)\, dx$
+  + as discrete: average of many samples
+  + properties
+    + support set = [a, b]: $a \le E[X] \le b$
+    + symmetry: $\exists\, \alpha, f(\alpha + x) = f(\alpha -x) \;\forall\, x \implies E[X] = \alpha$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yb4obz4o" ismap target="_blank">
+      <img src="img/t09-03.png" style="margin: 0.1em;" alt="Example of symmetry property" title="Example of symmetry property" width=250>
+    </a>
+  </div>
 
 
 
@@ -1114,6 +1235,11 @@
 + [Affine transformation](../Stats/ProbStatsPython/07-RvMeanVar.md#76-variance)
   + $Var(aX + b) = Var(aX) = a^2 Var(X)$
   + $\sigma_{ax+b} = |a| \sigma_x$
+
++ [Variance for continuous distribution](../Stats/ProbStatsPython/09-ContDist.md#91-continuous-distributions)
+  + definition: $Var(X) \triangleq E[(X - \mu)^2]$
+  + as for discrete: $Var(X) = E[X^2] - (E[X])^2 = E[X^2] - \mu^2$
+  + standard deviation: $\sigma = \sqrt{Var(X)}$
 
 
 
