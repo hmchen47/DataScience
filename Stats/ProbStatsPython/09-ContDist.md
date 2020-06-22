@@ -1156,13 +1156,13 @@
 2. Suppose $X,Y$ are independent and $X \sim N(1,4)$ and $Y \sim N(1,9)$. If $\Pr(2X+Y \le a)$ $=\Pr(4X−2Y \ge 4a)$, then find $a$.
 
   And: 4/3<br/>
-  Explanation: Notice that $2X+Y \sim N(3,25), 4X−2Y \sim N(2,100)$. Then $\Pr(2X+Y \le a)= \Phi(\frac{a−3}{5})$, and $\Pr(4X−2Y \ge 4a)=1− \Phi(\frac{4a−2}{10})= \Phi(\frac{2−4a}{10})$. By solving the equation $\frac{a−3}{5}=\frac{2−4a}{10}$, we have $a=\frac43$. [Stack Ecxchange](https://tinyurl.com/yavpnhnv)
+  Explanation: Notice that $2X+Y \sim N(3,25), 4X−2Y \sim N(2,100)$. Then $\Pr(2X+Y \le a)$ $= \Phi(\frac{a−3}{5})$, and $\Pr(4X−2Y \ge 4a)$ $=1− \Phi(\frac{4a−2}{10})$ $= \Phi(\frac{2−4a}{10})$. By solving the equation $\frac{a−3}{5}=\frac{2−4a}{10}$, we have $a=\frac43$. [Stack Exchange](https://tinyurl.com/yavpnhnv)
 
 
-3. Let $X \sim B_{.36,1600}$. Approximate $\Pr(552 \le X \\le 600)$.
+3. Let $X \sim B_{.36,1600}$. Approximate $\Pr(552 \le X \le 600)$.
 
   Ans: 0.798<br/>
-  Explanation: First note that $\Pr(X > 600)=\Pr(X−576 > 24)=\Pr(X−0.36∗1600 > 24)=\Pr((X−0.36∗1600)/19.2>24/19.2)$. From the Gaussian approximation, noting that $(X−0.36∗1600)/19.2$ has zero mean and unit variance, $\Pr((X−0.36∗1600)/19.2 > 24/19.2)≈\Pr(Z > 24/19.2)$, where $Z \sim N(0,1)$. Repeating the same for $\Pr(X < 552)$, we have our desired answer.
+  Explanation: First note that $\Pr(X > 600)=\Pr(X−576 > 24)$ $=\Pr(X−0.36∗1600 > 24)$ $=\Pr((X−0.36∗1600)/19.2>24/19.2)$. From the Gaussian approximation, noting that $(X−0.36∗1600)/19.2$ has zero mean and unit variance, $\Pr((X−0.36∗1600)/19.2 > 24/19.2)≈\Pr(Z > 24/19.2)$, where $Z \sim N(0,1)$. Repeating the same for $\Pr(X < 552)$, we have our desired answer.
 
 
 4. Suppose a binary message is transmitted through a noisy channel. The transmitted signal $S$ is equally likely to be $1$ or $−1$, the noise $N$ follows a normal distribution $N(0,4)$, and the received signal is $R=S+N$. $S$ and $N$ are independent. The receiver concludes that the signal is $1$ when $R \ge 0$ and $−1$ when $R < 0$.<br/>
@@ -1172,8 +1172,8 @@
 
   Ans: a. (0.3085); b. (0.0668); c. (0.2268)<br/>
   Explanation:
-    + An error occurs under either of these two events, $S=1,Z<0$ or if $S=−1,Z \ge0$. Now $\Pr(S=1,Z<0)& 7=\Pr(S=1)\Pr(Z<0|S=1)& &=1/2 \cdot \Pr(N<−1)$. Since $N/2∼N(0,1)$, $\Pr(N < −1)& &=\Pr(N/2 < −1/2)= \Phi(−1/2)=0.308538$. Thus $\Pr(S=1,Z<0)& &=1/2 \cdot 0.308538$. Similarly, by symmetry it follows that $\Pr(S=−1,Z \ge 0)=1/2 \cdot 0.308538$. The probability of error thus is $2 \cdot 1/2 \cdot 0.308538=0.308538$.
-    + Following the same analysis as above, the first error event $\Pr(S=3,Z<0)& &=\Pr(S=3)\Pr(Z<0|S=3)& &=1/2 \cdot \Pr(N<−3)$. Since $N/2∼N(0,1)$, $\Pr(N<−3)& &=\Pr(N/2<−3/2)& &=\Phi (−3/2)=0.0668072$. Thus $\Pr(S=3,Z<0)& &=1/2 \cdot 0.0668072$. Similarly, by symmetry it follows that $\Pr(S=−3,Z \ge 0)& &=1/2 \cdot 0.0668072$. Thus the probability of error is $2 \cdot 1/2 \cdot 0.0668072& &=0.0668072$ and is drastically smaller than the previous scenario.
+    + An error occurs under either of these two events, $S=1,Z<0$ or if $S=−1,Z \ge0$. Now $\Pr(S=1,Z<0)$ $7=\Pr(S=1)\Pr(Z<0|S=1)$ $=1/2 \cdot \Pr(N<−1)$. Since $N/2∼N(0,1)$, $\Pr(N < −1)$ $=\Pr(N/2 < −1/2)= \Phi(−1/2)=0.308538$. Thus $\Pr(S=1,Z<0)$ $=1/2 \cdot 0.308538$. Similarly, by symmetry it follows that $\Pr(S=−1,Z \ge 0)=1/2 \cdot 0.308538$. The probability of error thus is $2 \cdot 1/2 \cdot 0.308538=0.308538$.
+    + Following the same analysis as above, the first error event $\Pr(S=3,Z<0)$ $=\Pr(S=3)\Pr(Z<0|S=3)$ $=1/2 \cdot \Pr(N<−3)$. Since $N/2∼N(0,1)$, $\Pr(N<−3)$ $=\Pr(N/2<−3/2)$ $=\Phi (−3/2)=0.0668072$. Thus $\Pr(S=3,Z<0)$ $=1/2 \cdot 0.0668072$. Similarly, by symmetry it follows that $\Pr(S=−3,Z \ge 0)$ $=1/2 \cdot 0.0668072$. Thus the probability of error is $2 \cdot 1/2 \cdot 0.0668072$ $=0.0668072$ and is drastically smaller than the previous scenario.
     + If we denote the error probability in the first part by $p(=0.308538)$, on repeated transmission, an error occurs if and only if the incorrect signal is concluded in least 2 of the 3 transmissions. Since the transmission are independent, the probability of error is thus $\binom32 p^2 \cdot (1−p)+\binom33 p^3=0.226844$.
 
 
@@ -1186,16 +1186,247 @@
 
 ## Lecture Notebook 9
 
++ [Original Lecture NB](https://tinyurl.com/y72sut2u)
+
++ [Local Lecture NB](src/Topic09_Lecture.ipynb)
+
++ [Local Lecture Python code](src/Topic09_Lecture.py)
+
++ `scipy.stats.xxx` classes: Uniform, Exponential, Gaussian<br/><br/>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Return Value(s)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td style="font-weight: bold;">rvs(loc=0, size=1, random_state=None)</td>
+      <td>Random variates.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">pdf(x, loc=0, scale=1)</td>
+      <td>Probability mass function.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">logpdf(x, loc=0, scale=1)</td>
+      <td>Log of the probability mass function.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">cdf(x, loc=0, scale=1)</td>
+      <td>Cumulative distribution function.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">logcdf(x, loc=0, scale=1)</td>
+      <td>Log of the cumulative distribution function.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">sf(x, loc=0, scale=1)</td>
+      <td>Survival function (also defined as <code>1 - cdf</code>, but <i>sf</i> is sometimes more accurate).</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">logsf(x, loc=0, scale=1)</td>
+      <td>Log of the survival function.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">ppf(<code>args3</code>, loc=0, scale=1)</td>
+      <td>Percent point function (inverse of <code>cdf</code> — percentiles).</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">isf(<code>args3</code>, loc=0, scale=1)</td>
+      <td>Inverse survival function (inverse of <code>sf</code>).</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">moment(n, loc=0, scale=1)</td>
+      <td>Non-central moment of order <code>n</code></td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">stats(loc=0, moments='mv')</td>
+      <td>Mean('m'), variance('v'), skew('s'), and/or kurtosis('k').</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">entropy(loc=0, scale=1)</td>
+      <td>(Differential) entropy of the RV.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">expect(func, args=(), loc=0, lb=None, ub=None, conditional=False, **kwds)</td>
+      <td>Expected value of a function (of one argument) with respect to the distribution.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">median(loc=0, scale=1)</td>
+      <td>Median of the distribution.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">mean(loc=0, scale=1)</td>
+      <td>Mean of the distribution.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">var(loc=0, scale=1)</td>
+      <td>Variance of the distribution.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">std(loc=0, scale=1)</td>
+      <td>Standard deviation of the distribution.</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;">interval(alpha, loc=0, scale=1)</td>
+      <td>Endpoints of the range that contains alpha percent of the distribution</td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <a href="https://tinyurl.com/glrgcp6">Statistical functions (scipy.stats)</a>: &nbsp&nbsp; loc = translation, &nbsp&nbsp; scale = scaling<br/>
+        <a href="https://tinyurl.com/ydxsxxe9">Uniform</a>: &nbsp&nbsp; [loc, loc + scale]<br/>
+        <a href="https://tinyurl.com/ybxfwap3">Exponential</a>: &nbsp&nbsp; scale = 1/ &lambda;<br/>
+        <a href="https://tinyurl.com/yd9z99fq">Normal</a>: &nbsp&nbsp; local = mean = &mu;, &nbsp&nbsp; scale = standard deviation = &sigma;
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
++ Numpy Random Generator<br/><br/>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/yb2ekh9n">Random Generator w/ Distributions</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Distributions</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:90%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.beta.html#numpy.random.Generator.beta" title="numpy.random.Generator.beta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">beta</span></code></a>(a,&nbsp;b[,&nbsp;size])</p></td>
+      <td><p>Draw samples from a Beta distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.binomial.html#numpy.random.Generator.binomial" title="numpy.random.Generator.binomial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">binomial</span></code></a>(n,&nbsp;p[,&nbsp;size])</p></td>
+      <td><p>Draw samples from a binomial distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.chisquare.html#numpy.random.Generator.chisquare" title="numpy.random.Generator.chisquare"><code class="xref py py-obj docutils literal notranslate"><span class="pre">chisquare</span></code></a>(df[,&nbsp;size])</p></td>
+      <td><p>Draw samples from a chi-square distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.dirichlet.html#numpy.random.Generator.dirichlet" title="numpy.random.Generator.dirichlet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dirichlet</span></code></a>(alpha[,&nbsp;size])</p></td>
+      <td><p>Draw samples from the Dirichlet distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.exponential.html#numpy.random.Generator.exponential" title="numpy.random.Generator.exponential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exponential</span></code></a>([scale,&nbsp;size])</p></td>
+      <td><p>Draw samples from an exponential distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.f.html#numpy.random.Generator.f" title="numpy.random.Generator.f"><code class="xref py py-obj docutils literal notranslate"><span class="pre">f</span></code></a>(dfnum,&nbsp;dfden[,&nbsp;size])</p></td>
+      <td><p>Draw samples from an F distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.gamma.html#numpy.random.Generator.gamma" title="numpy.random.Generator.gamma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gamma</span></code></a>(shape[,&nbsp;scale,&nbsp;size])</p></td>
+      <td><p>Draw samples from a Gamma distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.geometric.html#numpy.random.Generator.geometric" title="numpy.random.Generator.geometric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">geometric</span></code></a>(p[,&nbsp;size])</p></td>
+      <td><p>Draw samples from the geometric distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.gumbel.html#numpy.random.Generator.gumbel" title="numpy.random.Generator.gumbel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gumbel</span></code></a>([loc,&nbsp;scale,&nbsp;size])</p></td>
+      <td><p>Draw samples from a Gumbel distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.hypergeometric.html#numpy.random.Generator.hypergeometric" title="numpy.random.Generator.hypergeometric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hypergeometric</span></code></a>(ngood,&nbsp;nbad,&nbsp;nsample[,&nbsp;size])</p></td>
+      <td><p>Draw samples from a Hypergeometric distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.laplace.html#numpy.random.Generator.laplace" title="numpy.random.Generator.laplace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">laplace</span></code></a>([loc,&nbsp;scale,&nbsp;size])</p></td>
+      <td><p>Draw samples from the Laplace or double exponential distribution with specified location (or mean) and scale (decay).</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.logistic.html#numpy.random.Generator.logistic" title="numpy.random.Generator.logistic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logistic</span></code></a>([loc,&nbsp;scale,&nbsp;size])</p></td>
+      <td><p>Draw samples from a logistic distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.lognormal.html#numpy.random.Generator.lognormal" title="numpy.random.Generator.lognormal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lognormal</span></code></a>([mean,&nbsp;sigma,&nbsp;size])</p></td>
+      <td><p>Draw samples from a log-normal distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.logseries.html#numpy.random.Generator.logseries" title="numpy.random.Generator.logseries"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logseries</span></code></a>(p[,&nbsp;size])</p></td>
+      <td><p>Draw samples from a logarithmic series distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.multinomial.html#numpy.random.Generator.multinomial" title="numpy.random.Generator.multinomial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multinomial</span></code></a>(n,&nbsp;pvals[,&nbsp;size])</p></td>
+      <td><p>Draw samples from a multinomial distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.multivariate_hypergeometric.html#numpy.random.Generator.multivariate_hypergeometric" title="numpy.random.Generator.multivariate_hypergeometric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multivariate_hypergeometric</span></code></a>(colors,&nbsp;nsample)</p></td>
+      <td><p>Generate variates from a multivariate hypergeometric distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.multivariate_normal.html#numpy.random.Generator.multivariate_normal" title="numpy.random.Generator.multivariate_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multivariate_normal</span></code></a>(mean,&nbsp;cov[,&nbsp;size,&nbsp;…])</p></td>
+      <td><p>Draw random samples from a multivariate normal distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.negative_binomial.html#numpy.random.Generator.negative_binomial" title="numpy.random.Generator.negative_binomial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">negative_binomial</span></code></a>(n,&nbsp;p[,&nbsp;size])</p></td>
+      <td><p>Draw samples from a negative binomial distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.noncentral_chisquare.html#numpy.random.Generator.noncentral_chisquare" title="numpy.random.Generator.noncentral_chisquare"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noncentral_chisquare</span></code></a>(df,&nbsp;nonc[,&nbsp;size])</p></td>
+      <td><p>Draw samples from a noncentral chi-square distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.noncentral_f.html#numpy.random.Generator.noncentral_f" title="numpy.random.Generator.noncentral_f"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noncentral_f</span></code></a>(dfnum,&nbsp;dfden,&nbsp;nonc[,&nbsp;size])</p></td>
+      <td><p>Draw samples from the noncentral F distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.normal.html#numpy.random.Generator.normal" title="numpy.random.Generator.normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normal</span></code></a>([loc,&nbsp;scale,&nbsp;size])</p></td>
+      <td><p>Draw random samples from a normal (Gaussian) distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.pareto.html#numpy.random.Generator.pareto" title="numpy.random.Generator.pareto"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pareto</span></code></a>(a[,&nbsp;size])</p></td>
+      <td><p>Draw samples from a Pareto II or Lomax distribution with specified shape.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.poisson.html#numpy.random.Generator.poisson" title="numpy.random.Generator.poisson"><code class="xref py py-obj docutils literal notranslate"><span class="pre">poisson</span></code></a>([lam,&nbsp;size])</p></td>
+      <td><p>Draw samples from a Poisson distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.power.html#numpy.random.Generator.power" title="numpy.random.Generator.power"><code class="xref py py-obj docutils literal notranslate"><span class="pre">power</span></code></a>(a[,&nbsp;size])</p></td>
+      <td><p>Draws samples in [0, 1] from a power distribution with positive exponent a - 1.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.rayleigh.html#numpy.random.Generator.rayleigh" title="numpy.random.Generator.rayleigh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rayleigh</span></code></a>([scale,&nbsp;size])</p></td>
+      <td><p>Draw samples from a Rayleigh distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.standard_cauchy.html#numpy.random.Generator.standard_cauchy" title="numpy.random.Generator.standard_cauchy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">standard_cauchy</span></code></a>([size])</p></td>
+      <td><p>Draw samples from a standard Cauchy distribution with mode = 0.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.standard_exponential.html#numpy.random.Generator.standard_exponential" title="numpy.random.Generator.standard_exponential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">standard_exponential</span></code></a>([size,&nbsp;dtype,&nbsp;method,&nbsp;out])</p></td>
+      <td><p>Draw samples from the standard exponential distribution.</p></td>
+    </tr>
+      <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.standard_gamma.html#numpy.random.Generator.standard_gamma" title="numpy.random.Generator.standard_gamma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">standard_gamma</span></code></a>(shape[,&nbsp;size,&nbsp;dtype,&nbsp;out])</p></td>
+      <td><p>Draw samples from a standard Gamma distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.standard_normal.html#numpy.random.Generator.standard_normal" title="numpy.random.Generator.standard_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">standard_normal</span></code></a>([size,&nbsp;dtype,&nbsp;out])</p></td>
+      <td><p>Draw samples from a standard Normal distribution (mean=0, stdev=1).</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.standard_t.html#numpy.random.Generator.standard_t" title="numpy.random.Generator.standard_t"><code class="xref py py-obj docutils literal notranslate"><span class="pre">standard_t</span></code></a>(df[,&nbsp;size])</p></td>
+      <td><p>Draw samples from a standard Student’s t distribution with <em">df</em> degrees of freedom.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.triangular.html#numpy.random.Generator.triangular" title="numpy.random.Generator.triangular"><code class="xref py py-obj docutils literal notranslate"><span class="pre">triangular</span></code></a>(left,&nbsp;mode,&nbsp;right[,&nbsp;size])</p></td>
+      <td><p>Draw samples from the triangular distribution over the interval <code>[left, right]</code>.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.uniform.html#numpy.random.Generator.uniform" title="numpy.random.Generator.uniform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">uniform</span></code></a>([low,&nbsp;high,&nbsp;size])</p></td>
+      <td><p>Draw samples from a uniform distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.vonmises.html#numpy.random.Generator.vonmises" title="numpy.random.Generator.vonmises"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vonmises</span></code></a>(mu,&nbsp;kappa[,&nbsp;size])</p></td>
+      <td><p>Draw samples from a von Mises distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.wald.html#numpy.random.Generator.wald" title="numpy.random.Generator.wald"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wald</span></code></a>(mean,&nbsp;scale[,&nbsp;size])</p></td>
+      <td><p>Draw samples from a Wald, or inverse Gaussian, distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.weibull.html#numpy.random.Generator.weibull" title="numpy.random.Generator.weibull"><code class="xref py py-obj docutils literal notranslate"><span class="pre">weibull</span></code></a>(a[,&nbsp;size])</p></td>
+      <td><p>Draw samples from a Weibull distribution.</p></td>
+    </tr>
+    <tr><td><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.zipf.html#numpy.random.Generator.zipf" title="numpy.random.Generator.zipf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zipf</span></code></a>(a[,&nbsp;size])</p></td>
+      <td><p>Draw samples from a Zipf distribution.</p></td>
+    </tr>
+    </tbody>
+  </table>
 
 
-
++ `numpy.exp` function
+  + Syntax: `numpy.exp(x, /, out=None, *, where=True, casting='same_kind', order='K', dtype=None, subok=True[, signature, extobj]) = <ufunc 'exp'>`
+  + Docstring: Calculate the exponential of all elements in the input array.
+  + Parameters
+    + `x`: array_like<br/>
+      Input values.
+    + `out`: ndarray, None, or tuple of ndarray and None, optional<br/>
+      A location into which the result is stored. If provided, it must have a shape that the inputs broadcast to. If not provided or None, a freshly-allocated array is returned. A tuple (possible only as a keyword argument) must have length equal to the number of outputs.
+    + `where`: array_like, optional<br/>
+      This condition is broadcast over the input. At locations where the condition is True, the out array will be set to the ufunc result. Elsewhere, the out array will retain its original value. Note that if an uninitialized out array is created via the default out=None, locations within it where the condition is False will remain uninitialized.
+    + `**kwargs` <br/>
+      For other keyword-only arguments, see the ufunc docs.
+  + Returns
+    + `out`: ndarray or scalar<br/>
+      Output array, element-wise exponential of x. This is a scalar if x is a scalar.
 
 
 
 ## Programming Assignment 9
-
-
-
 
 
 
