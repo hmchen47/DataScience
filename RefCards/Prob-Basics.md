@@ -557,7 +557,7 @@
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/y8z9zxet" ismap target="_blank">
-        <img src="img/t04-07.png" style="margin: 0.1em;" alt="Example of any sum to n" title="Example of any sum to n" width=350>
+        <img src="../Stats/ProbStatsPython/img/t04-07.png" style="margin: 0.1em;" alt="Example of any sum to n" title="Example of any sum to n" width=350>
       </a>
     </div>
 
@@ -1086,20 +1086,20 @@
   + $Y = g(X)$ w/ $g \nearrow$
     + $F_Y \to F_X$
 
-      \[ F_Y (y) &\triangleq \Pr(Y \le y) = F_X(h(y)) \]
+      \[ F_Y (y) \triangleq \Pr(Y \le y) = F_X(h(y)) \]
 
     + $f_Y \to f_X$
 
-      \[ f_Y(y) &= F^\prime_Y (y) = f_X(h(y)) \cdot h^\prime(y) \]
+      \[ f_Y(y) = F^\prime_Y (y) = f_X(h(y)) \cdot h^\prime(y) \]
 
   + $Y = g(X)$ w/ $g \searrow$
     + $F_Y \to F_X$
 
-      \[ F_Y(y) &\triangleq \Pr(g(X) \le y) = 1 - F_X(h(y)) \]
+      \[ F_Y(y) \triangleq \Pr(g(X) \le y) = 1 - F_X(h(y)) \]
 
     + $f_Y \to f_X$
 
-      \[ f_Y(y) &= F_Y^\prime(y) = - f_X(h(y)) \cdot h^\prime(y) \]
+      \[ f_Y(y) = F_Y^\prime(y) = - f_X(h(y)) \cdot h^\prime(y) \]
 
   + Combining $g \nearrow$ and $g \searrow$
     + $g \nearrow \qquad f_Y(y) = f_X(h(y)) \cdot h^\prime(y)$
@@ -1208,7 +1208,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/yb4obz4o" ismap target="_blank">
-      <img src="img/t09-03.png" style="margin: 0.1em;" alt="Example of symmetry property" title="Example of symmetry property" width=250>
+      <img src="../Stats/ProbStatsPython/img/t09-03.png" style="margin: 0.1em;" alt="Example of symmetry property" title="Example of symmetry property" width=250>
     </a>
   </div>
 
