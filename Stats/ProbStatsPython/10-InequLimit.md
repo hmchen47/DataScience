@@ -155,11 +155,13 @@
     + Lyapunov
 
 + Markov Inequality to Chebychev Inequality
-  + Markov inequality
+  + Markov inequality<br/>
+    Probability that non-negative $X$ is $\alpha$ times larger than its mean is $\le \frac{1}{\alpha}$
 
     \[ \Pr(\text{non-negative } X \ge \alpha \mu) \le \frac{1}{\alpha} \]
 
-  + Chebyshev inequality
+  + Chebyshev inequality<br/>
+    Probability that any $X$ is $\alpha$ times further from $\mu$ than $\sigma$ is $\le \frac{1}{\alpha^2}$
 
     \[ \Pr(\text{any } X \ge \alpha \sigma \text{ away from } \mu) \le \frac{1}{\alpha^2} \]
 
@@ -172,12 +174,17 @@
 
     \[ \forall\; \alpha \ge 1 \quad \Pr(|X - \mu| \ge \alpha \sigma) \le \frac{1}{\alpha^2} \]
 
-  + 2nd formulation: $a = \alpha \sigma$
+  + 2nd formulation: $a = \alpha \sigma$, $a$ a value of interest
 
     \[ \forall\; a \ge \sigma \quad \Pr(|X - \mu| \ge a) \le \frac{\sigma^2}{a^2} \]
 
-    + $a$ a value of interest
-  + reducing to Markov
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y9yygxbq" ismap target="_blank">
+        <img src="img/t10-02.png" style="margin: 0.1em;" alt="Example distribution for Chebyshev's inequality" title="Example distribution for Chebyshev's inequality" width=450>
+      </a>
+    </div>
+
+  + toward a proof
     + Markov inequality
 
       \[ \forall\; a \ge \mu \quad \Pr(X \ge a) \le \frac{\mu}{a} \]
@@ -196,7 +203,7 @@
 
       \[ \Pr(|X - \mu_X| \ge a) \le \frac{\sigma_X^2}{a^2} \]
 
-    + $Y = (X - \mu_X)^2 \quad Y \ge 0 \quad \mu_Y = E[(X - \mu_X)^2] = \sigma^2_X$
+    + $Y = (X - \mu_X)^2 \to Y \ge 0 \to \mu_Y = E[(X - \mu_X)^2] = \sigma^2_X$
 
       \[\begin{align*}
         \Pr(|X - \mu_X| \ge a) &= \Pr((X - \mu_X)^2 \ge a^2) = \Pr(Y \ge a^2) \\
@@ -248,7 +255,7 @@
       <th style="text-align:center;">Chebyshev</th>
       <td style="text-align:center;">$\Pr(|X - \mu| \ge a) \le \frac{\sigma^2}{a^2}$</td>
       <td style="text-align:center;">Any $X$</td>
-      <td style="text-align:center;">$\mu$ and $\sigma$</td>
+      <td style="text-align:center;">$\mu$ &amp; $\sigma$</td>
       <td style="text-align:center;">$a \ge \sigma$</td>
       <td style="text-align:center;">Quadratically</td>
     </tr>
@@ -270,6 +277,9 @@
     + treating $\frac{\sigma^2+b^2}{(a+b)^2}$ as a function of $b$, the minimum occurs at $b = \sigma^2/a$, so 
 
       \[ \Pr(X \ge a) \le \frac{\sigma^2 + (\sigma^2/a)^2}{(a+\sigma^2/a)^2} = \frac{\sigma^2(a+\sigma^2)}{(a^2 + \sigma^2)^2} = \frac{\sigma^2}{\sigma^2 + a^2} \]
+
+
++ [Original Slides](https://tinyurl.com/y9yygxbq)
 
 
 ### Problem Sets
