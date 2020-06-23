@@ -284,6 +284,62 @@
 
 ### Problem Sets
 
+0. Which of the following is correct about Chebyshev's inequality?<br/>
+  a. It only applys to non-negative distribution<br/>
+  b. It only applys to discrete distribution<br/>
+  c. It only applys to continuous distribution<br/>
+  d. None of the above<br/>
+
+  Ans: <span style="color: cyan;">d</span><br/>
+  Explanation: Chebyshev's inequality applies to all of those distributions.
+
+
+1. Apply Chebyshev's Inequality to lower bound $P(0 < X < 4)$ when $E[X]=2$ and $E[X^2]=5$.
+
+  Ans: 3/4<br/>
+  Explanation: Note that $P(0 < X < 4)=P(|X−2| < 2)= 1 − P(|X−2| \ge 2)$. Also, $Var(X)=E[X^2]−E^2[X]=5−2^2=1$.  By Chebyshev's inequality, $P(|X−2| \ge 2)=P(|X−E[X]| \ge 2) \le \frac{Var(X)}{2^2}=\frac14$.  Hence, $\Pr(0 < X < 4)=1−P(|X−2| \ge 2) \ge 1−\frac14= \frac34$.
+
+
+2. The average number of spelling errors on a page is  5  and the standard deviation is  2 . What is the probability of more than  20  mistakes on a page?<br/>
+  a. no greater than  1% <br/>
+  b. no greater than  2% <br/>
+  c. no greater than  5% <br/>
+  d. no greater than  10%<br/>
+
+  Ans: b<br/>
+  Explanation: Using Chebyshev's inequality, we have $P(X > 20) < P(X \ge 20)=P(X−5 \ge 15)=P(|X−5| \ge 15) \le (\frac{2}{15})^2 \le \frac{1}{50}=2\%$. P.S. Since we cannot get negative number of mistakes, $P(X−5 \le −15)=0$. Hence, $P(|X−5| \ge 15) = P(X−5 \ge 15)+P(X−5 \le −15)=P(X−5 \ge 15)$
+
+
+3. Let $X\sim \text{Exponential}(1)$. For $\Pr(X \ge 4)$, evaluate:<br/>
+  a. Markov's inequality,<br/>
+  b. Chebyshev's inequality,<br/>
+  c. the exact value.<br/>
+
+  Ans: a. (1/4); b. (1/9); c. ($e^{-4}$)<br/>
+  Explanation
+    + $E[X]=\frac{1}{\lambda}=1$. $P(X \ge 4) \le \frac{E[X]}{4}=\frac14$.
+    + $E[X]=\frac{1}{\lambda}=1, Var(X)=\frac{1}{\lambda^2}=1$. $P(X \ge 4)=P(|X−1| \ge 3) \le \frac{Var(X)}{9}=\frac19$.
+    + $P(X \ge 4)=\int_4^\infty e^{−x}\,dx= e^{−4}=0.0183$.
+
+
+4. A gardener has new tomato plants sprouting up in her garden. Their expected height is 8”, with standard deviation of 1". Which of the following lower bounds the probability that a plant will be between 6" and 10" tall?<br/>
+  a. 10%<br/>
+  b. 25%<br/>
+  c. 50%<br/>
+  d. 75%<br/>
+  
+  Ans: <span style="color: cyan;">abcd</span><br/>
+  Explanation: By Chebyshev's Inequality, $P(|X−8| \ge 2) \le \frac{Var(X)}{4}=\frac14$. Hence $P(6 \le X \le 10)=1−P(|X−8| \ge 2) \ge 1−\frac14=\frac34=75%$.  Since the probability is at least 75\%, it is also at least 50\%, etc.
+
+
+5. If $E[X]=15$, $P(X \le 11)=0.2$, and $P(X \ge 19)=0.3$, which of the following is _impossible_?<br/>
+  a. $Var(X) \le 7$<br/>
+  b. $Var(X) \le 8$<br/>
+  c. $Var(X) > 8$<br/>
+  d. $Var(X) > 7$<br/>
+
+  Ans: a<br/>
+  Explanation: According to Chebyshev's inequality, $P(|X−15| \ge 4) \le \frac{Var(X)}{16}$. As $P(|X−15| \ge 4)=P(X \le 11)+P(X \ge 19)=0.5$, we have $Var(X) \ge 8$.
 
 
 
