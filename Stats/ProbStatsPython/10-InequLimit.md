@@ -149,7 +149,7 @@
     + Punctual
     + advocated applied math
     + flowery language
-  + to isolate mathematics from practical sciences is to to shut the cow away from the bulls
+  + to isolate mathematics from practical sciences is to shut the cow away from the bulls
   + famous students
     + Markov
     + Lyapunov
@@ -220,7 +220,7 @@
   + Chebyshev
     + $\Pr(|X - \mu| \ge a) \le \frac{\sigma^2}{a^2}$
     + $\Pr(X \ge 28) = \Pr(X - \mu \ge 20) \le \Pr(|X - \mu| \ge 20) \le (\frac{\sigma}{20})^2 = (\frac{5}{20})^2 = \frac{1}{16} \approx 6.3\%$
-    + $\Pr(X \ge 40,000) = \Pr(X -\mu \ge 39,992)$ $= \le \Pr(|X - \mu| \ge 39,992 \le \left( \frac{\sigma}{39,992} \right)^2$ $= \left( \frac{5}{39,992} \right)^2$ $= 1.6 \times 10^{-6} \%$
+    + $\Pr(X \ge 40,000) = \Pr(X -\mu \ge 39,992)$ $\le \Pr(|X - \mu| \ge 39,992)$ $\le \left( \frac{\sigma}{39,992} \right)^2$ $= \left( \frac{5}{39,992} \right)^2$ $= 1.6 \times 10^{-6} \%$
 
 + Example: survey responses
   + survey expected to result in $\mu =$ 1M responses w/ $\sigma = 50K$
@@ -272,11 +272,11 @@
     + one of these, loosely based on _Probability and Random Process_ by Grimmett and Stirzaker
     + w/ $a > 0, \forall\, b \ge 0$ 
 
-      \[ \Pr(X \ge a) = \Pr(X+b \ge a + b) \le E\left[ \frac{(X+b)^2}{(a+b)^2} \right] = \frac{a^2+b^2}{(a+b)^2} \]
+      \[ \Pr(X \ge a) = \Pr(X+b \ge a + b) \le E\left[ \frac{(X+b)^2}{(a+b)^2} \right] = \frac{\alpha^2+b^2}{(a+b)^2} \]
 
     + treating $\frac{\sigma^2+b^2}{(a+b)^2}$ as a function of $b$, the minimum occurs at $b = \sigma^2/a$, so 
 
-      \[ \Pr(X \ge a) \le \frac{\sigma^2 + (\sigma^2/a)^2}{(a+\sigma^2/a)^2} = \frac{\sigma^2(a+\sigma^2)}{(a^2 + \sigma^2)^2} = \frac{\sigma^2}{\sigma^2 + a^2} \]
+      \[ \Pr(X \ge a) \le \frac{\sigma^2 + (\sigma^2/a)^2}{(a+\sigma^2/a)^2} = \frac{\sigma^2(a^2+\sigma^2)}{(a^2 + \sigma^2)^2} = \frac{\sigma^2}{\sigma^2 + a^2} \]
 
 
 + [Original Slides](https://tinyurl.com/y9yygxbq)
