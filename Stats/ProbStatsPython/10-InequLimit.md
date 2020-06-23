@@ -28,14 +28,14 @@
     + a nonnegative r.v. is at least $\alpha$ times $\le$ its mean w/ probability $\le \frac{1}{\alpha}$
   + direct proof, easier to apply, more common
 
-    \[ a = \alpha \mu \quad \forall\; \alpha \ge \mu \quad \Pr(X \ge \alpha) \le \frac{\mu}{\alpha} \]
+    \[ a = \alpha \mu \quad \forall\; \alpha \ge \mu \quad \Pr(X \ge a) \le \frac{\mu}{a} \]
 
   + proof
     + proof for discrete r.v.'s, same proof works for continuous, just $\sum \to \int$
-    + $\Pr(X \ge \alpha) \le \frac{\mu}{\alpha}$
-    + $\mu = \int_x x \cdot p(x) \,dx \ge \int_{x \ge \alpha} x \cdot p(x) \, dx$
+    + $\Pr(X \ge \alpha) \le \frac{\mu}{a}$
+    + $\mu = \int_x x \cdot p(x) \,dx \ge \int_{x \ge a} x \cdot p(x) \, dx$
 
-        \[ \mu = \sum_x x \cdot p(x) \ge \sum_{x \ge \alpha} x \cdot p(x) \ge \sum_{x \ge \alpha} a \cdot p(x) = \alpha \cdot \Pr(X \ge \alpha) \]
+        \[ \mu = \sum_x x \cdot p(x) \ge \sum_{x \ge a} x \cdot p(x) \ge \sum_{x \ge a} a \cdot p(x) = a \cdot \Pr(X \ge a) \]
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/yac6dd37" ismap target="_blank">
@@ -124,7 +124,7 @@
 
   Ans: a. (24); b. (<span style="color: cyan;">15</span>)>br/>
     + This question can be answered using the Meerkat paradigm, or we can convert it to a probability question and use Markov's Inequality. Imagine that you pick one of the 30 families uniformly at random. The expected income is the average over all families, $80,000. The probability that the random family has income at least $100,000 is the number of families with such income, normalized by 30. By Markov's Inequality, this probability is at most  80000/100000=0.8 . Hence the number of families with such income is at most  30⋅0.8=24 .
-    + Let $X$ be the size of a family picked uniformly at random. Then $X \ge 1$  and $E[X]=2.5$. Define $Y=X−1$. Then $Y \ge 0$ and $E[Y)\]=E[X]−1=1.5$. By Markov's Inequality $P(X \ge 4)=P(Y \ge 3) \le \frac{1.5}{3}=\frac12$. Hence the fraction of families with at least 4 members is at most $\frac12⋅30=15$.
+    + Let $X$ be the size of a family picked uniformly at random. Then $X \ge 1$  and $E[X]=2.5$. Define $Y=X−1$. Then $Y \ge 0$ and $E[Y]=E[X]−1=1.5$. By Markov's Inequality $P(X \ge 4)=P(Y \ge 3) \le \frac{1.5}{3}=\frac12$. Hence the fraction of families with at least 4 members is at most $\frac12⋅30=15$.
 
 
 
@@ -137,9 +137,139 @@
 
 ## 10.2 Chebyshev Inequalities
 
++ Motivation
+  + Pafunty Chebyshev, 1821~1894
+    + &gt; 12K "descendents"
+    + "Father" of modern Russian mathematics
+    + most famous for spelling: Chebychev, Chebysheff, Chebychov, Chebyshow, Tchebychev, Tchebycheff, Tschebyschev, Tschebychef, Tschebyscheff, ...
+  + many contributions
+    + $\forall\; n < \;\;\; \exists\; \text{ prime } < 2n$
+    + probability theory
+  + legendary teacher
+    + Punctual
+    + advocated applied math
+    + flowery language
+  + to isolate mathematics from practical sciences is to to shut the cow away from the bulls
+  + famous students
+    + Markov
+    + Lyapunov
 
++ Markov Inequality to Chebychev Inequality
+  + Markov inequality
 
+    \[ \Pr(\text{non-negative } X \ge \alpha \mu) \le \frac{1}{\alpha} \]
 
+  + Chebyshev inequality
+
+    \[ \Pr(\text{any } X \ge \alpha \sigma \text{ away from } \mu) \le \frac{1}{\alpha^2} \]
+
++ Chebyshev's inequality
+  + two forms
+    + easier to illustrate, understand, remember
+    + easier to prove, use
+  + $X$: any r.v. (discrete or continuous) w/ finite <span style="color: magenta;"> mean $\mu$</span> and <span style="color: magenta;"> std $\sigma$</span>
+  + 1st formulation
+
+    \[ \forall\; \alpha \ge 1 \quad \Pr(|X - \mu| \ge \alpha \sigma) \le \frac{1}{\alpha^2} \]
+
+  + 2nd formulation: $a = \alpha \sigma$
+
+    \[ \forall\; a \ge \sigma \quad \Pr(|X - \mu| \ge a) \le \frac{\sigma^2}{a^2} \]
+
+    + $a$ a value of interest
+  + reducing to Markov
+    + Markov inequality
+
+      \[ \forall\; a \ge \mu \quad \Pr(X \ge a) \le \frac{\mu}{a} \]
+
+    + Chebyshev inequality
+
+      \[\begin{align*}
+        \forall\; a \ge \sigma \quad &\Pr(|X - \mu| \ge a) \le \frac{\sigma^2}{a^2} \qquad\quad\qquad\; |X - \mu| \ge a\\
+        & \Pr \left((X - \mu)^2 \ge a^2\right) \le \frac{\sigma^2}{a^2} \qquad\qquad (X - \mu)^2 \ge  a^2
+      \end{align*}\]
+
+    + applying Markov to $(X - \mu)^2$
+  + proof
+    + $X$: any random variable
+    + $\mu_X = E[X] \quad \sigma_X^2 = Var(X) = E[(X - \mu_X)^2]$
+
+      \[ \Pr(|X - \mu_X| \ge a) \le \frac{\sigma_X^2}{a^2} \]
+
+    + $Y = (X - \mu_X)^2 \quad Y \ge 0 \quad \mu_Y = E[(X - \mu_X)^2] = \sigma^2_X$
+
+      \[\begin{align*}
+        \Pr(|X - \mu_X| \ge a) &= \Pr((X - \mu_X)^2 \ge a^2) = \Pr(Y \ge a^2) \\
+        &\le \frac{\mu_Y}{a^2} = \frac{\sigma_X^2}{a^2} \quad (\text{Markov})
+      \end{align*}\]
+
++ Example: citations
+  + $X$: \# paper citations
+  + $\mu = 8, \text{suppose } \sigma = 5$
+  + $\Pr(X \ge 28)?$
+  + Markov
+    + $\Pr(X \ge a) \le \frac{\mu}{a}$
+    + $\Pr(X \ge 28) \le 8/28 \approx 29\%$
+  + Chebyshev
+    + $\Pr(|X - \mu| \ge a) \le \frac{\sigma^2}{a^2}$
+    + $\Pr(X \ge 28) = \Pr(X - \mu \ge 20) \le \Pr(|X - \mu| \ge 20) \le (\frac{\sigma}{20})^2 = (\frac{5}{20})^2 = \frac{1}{16} \approx 6.3\%$
+    + $\Pr(X \ge 40,000) = \Pr(X -\mu \ge 39,992)$ $= \le \Pr(|X - \mu| \ge 39,992 \le \left( \frac{\sigma}{39,992} \right)^2$ $= \left( \frac{5}{39,992} \right)^2$ $= 1.6 \times 10^{-6} \%$
+
++ Example: survey responses
+  + survey expected to result in $\mu =$ 1M responses w/ $\sigma = 50K$
+  + bound $\Pr(0.8M < \# \text{ responses } < 1.2M)$
+    + 0.8M = $\mu - 4\sigma$
+    + 1.2M = $\mu + 4\sigma$
+  + $\Pr( \mu - 4\sigma < X < \mu + 4\sigma) = \Pr(|X - \mu| < 4\sigma) = 1 - \Pr(|X - \mu| \ge 4\sigma) \ge 1 - \frac{1}{16} = \frac{15}{16}$
+
++ Markov vs. Chebyshev inequalities
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"></th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Formula</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Applies</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Input</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Range</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Deceases</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th style="text-align:center;">Markov</th>
+      <td style="text-align:center;">$\Pr(X \ge a) \le \frac{\mu}{a}$</td>
+      <td style="text-align:center;">$X \ge 0$</td>
+      <td style="text-align:center;">$\mu$</td>
+      <td style="text-align:center;">$a \ge \mu$</td>
+      <td style="text-align:center;">Linearity</td>
+    </tr>
+    <tr>
+      <th style="text-align:center;">Chebyshev</th>
+      <td style="text-align:center;">$\Pr(|X - \mu| \ge a) \le \frac{\sigma^2}{a^2}$</td>
+      <td style="text-align:center;">Any $X$</td>
+      <td style="text-align:center;">$\mu$ and $\sigma$</td>
+      <td style="text-align:center;">$a \ge \sigma$</td>
+      <td style="text-align:center;">Quadratically</td>
+    </tr>
+    </tbody>
+  </table>
+
++ One-sided Chebyshev inequality
+  + [Henry Bottomley](http://www.se16.info/hgb/cheb.htm)
+  + Theorem: (Chebyshev inequality - one-sided version) for $t > 0$
+
+    \[ \Pr(X - \mu \ge t) \le \frac{1}{1 + t^2/Var(X)} = \frac{Var{X}}{Var(X) + t^2} \]
+
+  + Proof: [Ref1](http://www.se16.info/hgb/cheb.htm#OTProof) and [Ref2](http://www.se16.info/hgb/cheb2.htm)
+    + one of these, loosely based on _Probability and Random Process_ by Grimmett and Stirzaker
+    + w/ $a > 0, \forall\, b \ge 0$ 
+
+      \[ \Pr(X \ge a) = \Pr(X+b \ge a + b) \le E\left[ \frac{(X+b)^2}{(a+b)^2} \right] = \frac{a^2+b^2}{(a+b)^2} \]
+
+    + treating $\frac{\sigma^2+b^2}{(a+b)^2}$ as a function of $b$, the minimum occurs at $b = \sigma^2/a$, so 
+
+      \[ \Pr(X \ge a) \le \frac{\sigma^2 + (\sigma^2/a)^2}{(a+\sigma^2/a)^2} = \frac{\sigma^2(a+\sigma^2)}{(a^2 + \sigma^2)^2} = \frac{\sigma^2}{\sigma^2 + a^2} \]
 
 
 ### Problem Sets
