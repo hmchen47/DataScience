@@ -28,14 +28,14 @@
     + a nonnegative r.v. is at least $\alpha$ times $\le$ its mean w/ probability $\le \frac{1}{\alpha}$
   + direct proof, easier to apply, more common
 
-    \[ a = \alpha \mu \quad \forall\; \alpha \ge \mu \quad \Pr(X \ge a) \le \frac{\mu}{\alpha} \]
+    \[ a = \alpha \mu \quad \forall\; \alpha \ge \mu \quad \Pr(X \ge \alpha) \le \frac{\mu}{\alpha} \]
 
   + proof
-    + proof for discrete r.v.'s, same proof works for continuous, jusr $\sum \to \int$
-    + $\Pr(X \ge a) \le \frac{\mu}{\alpha}$
-    + $\mu = \int_x x \cdot p(x) \,dx \ge \int_{x \ge a} x \cdot p(x) \, dx$
+    + proof for discrete r.v.'s, same proof works for continuous, just $\sum \to \int$
+    + $\Pr(X \ge \alpha) \le \frac{\mu}{\alpha}$
+    + $\mu = \int_x x \cdot p(x) \,dx \ge \int_{x \ge \alpha} x \cdot p(x) \, dx$
 
-        \[ \mu = \sum_x x \cdot p(x) \ge \sum_{x \ge a} x \cdot p(x) \ge \sum_{x \ge a} a \cdot p(x) = a \cdot \Pr(X \ge a) \]
+        \[ \mu = \sum_x x \cdot p(x) \ge \sum_{x \ge \alpha} x \cdot p(x) \ge \sum_{x \ge \alpha} a \cdot p(x) = \alpha \cdot \Pr(X \ge \alpha) \]
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/yac6dd37" ismap target="_blank">
@@ -77,7 +77,7 @@
   + applied to all non-negative random variables
   + can always be used
   + used to derive other inequalities: Chebyshev, Chernoff
-  + applied to all non-negative random variables
+  + limited to inequalities that hold for all distributions
 
 + Different views
   + from outside: $[0, a)$
@@ -93,6 +93,38 @@
 
 ### Problem Sets
 
+0. A mob of 30 meerkats has an average height of 10”, and 10 of them are 30” tall. According to Markov's Inequality this is:<br/>
+  a. Possible<br/>
+  b. Impossible<br/>
+
+  Ans: <span style="color: magenta;">b</span>
+  Explanation: Impossible. For the average to be 10, the remaining 20 meerkats would need to have height zero.
+
+
+1. Which of the following are correct versions of Markov’s Inequality for a nonnegative random variable  X :<br/>
+  a. $\Pr(X \ge \alpha \mu) \le \frac{1}{\alpha}$<br/>
+  b. $\Pr(X \ge \alpha \mu ) \le \mu \alpha$<br/>
+  c. $\Pr(X \ge \mu) \le frac{1}{\alpha}$<br/>
+  d. $\Pr(X \ge \alpha) \le \frac{\mu}{\alpha}$<br/>
+
+  Ans: ad
+
+
+2. Markov variations
+
+  Upper bound $P(X \ge 3)$ when $X \ge 2$ and $E[X]=2.5$.
+
+  Ans: <span style="color: magenta;">0.5</span><br/>
+  Explanation: Let $Y=X−2$. Then $Y \ge 0$ and $E[Y]=E[X]−2=0.5$. By Markov's inequality, $P(X \ge 3) = P(Y \ge 1) \le \frac{E[Y]}{1}=0.5$. [StackExchange](https://tinyurl.com/yc6qj6vs)
+
+
+3. a. In a town of 30 families, the average annual family income is \$80,000. What is the largest number of families that can have income at least \$100,000 according to Markov’s Inequality? (Note: The annual family income can be any non-negative number.)
+
+  b. In the same town of 30 families, the average household size is 2.5. What is the largest number of families that can have at least 4 members according to Markov’s Inequality? (Note the household size can be any postive integer.)
+
+  Ans: a. (24); b. (<span style="color: cyan;">15</span>)>br/>
+    + This question can be answered using the Meerkat paradigm, or we can convert it to a probability question and use Markov's Inequality. Imagine that you pick one of the 30 families uniformly at random. The expected income is the average over all families, $80,000. The probability that the random family has income at least $100,000 is the number of families with such income, normalized by 30. By Markov's Inequality, this probability is at most  80000/100000=0.8 . Hence the number of families with such income is at most  30⋅0.8=24 .
+    + Let $X$ be the size of a family picked uniformly at random. Then $X \ge 1$  and $E[X]=2.5$. Define $Y=X−1$. Then $Y \ge 0$ and $E[Y)\]=E[X]−1=1.5$. By Markov's Inequality $P(X \ge 4)=P(Y \ge 3) \le \frac{1.5}{3}=\frac12$. Hence the fraction of families with at least 4 members is at most $\frac12⋅30=15$.
 
 
 
