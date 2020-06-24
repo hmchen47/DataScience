@@ -356,8 +356,8 @@
   + probability theory based on sample averages converging to expectation
     + flip many coins, fraction of heads converges to $\frac12$
     + rolling many fair dice, average value converges to 3.5
-  + $\gets$: intuition
-  + $\to$: rigorous
+  + previous lectures: intuition
+  + current lecture: rigorous
 
 + Sample mean
   + sequence abbreviation: $x^n \stackrel{\text{def}}{=} x_1, x_2, \dots, x_n$
@@ -380,9 +380,9 @@
   + as \# samples increases, the sample mean $\to$ distribution mean
   + $X^n = X_1, \dots, X_n$ iid samples from distribution w/ finite mean $\mu$ and finite std $\sigma$
   + $n \to \infty \implies \overline{X^n} \to \mu$
-  + $\Pr(\text{sample mean differs from $\mu$ by any given amount}) \searrow 0 \text{ with } n$
+  + $\Pr(\text{sample mean differs from $\mu$ by any given amount}) \searrow 0 \text{ with } n \nearrow$
 
-    \[ \Pr\left( |\overline{X^n} - \mu | \ge \epsilon \right) \le \frac{\sigma^2}{\epsilon^2} \cdot \frac{1}{n} \]
+    \[ \Pr\left( \left|\overline{X^n} - \mu \right| \ge \epsilon \right) \le \frac{\sigma^2}{\epsilon^2} \cdot \frac{1}{n} \]
 
   + $\overline{X^n}$ converges in probability to $\mu$
 
@@ -394,18 +394,18 @@
   + weak law of large number (WLLN)
 
     \[\begin{align*}
-      \Pr\left(|\overline{X^n} - \mu| \ge \epsilon\right) &\le \frac{\sigma^2}{\epsilon^2} \cdot \frac{1}{n} \\
+      \Pr\left(\left|\overline{X^n} - \mu\right| \ge \epsilon\right) &\le \frac{\sigma^2}{\epsilon^2} \cdot \frac{1}{n} \\
       \sigma^2 = p(1-p) &\le \frac14\\\\
-      \Pr(|\overline{X^{100,000}} - p| \ge 0.01) &\le \frac{1/4}{0.01^2 \cdot 100,000} = 2.5\%
+      \Pr\left(\left|\overline{X^{100,000}} - p\right| \ge 0.01\right) &\le \frac{1/4}{0.01^2 \cdot 100,000} = 2.5\%
     \end{align*}\]
 
 + Proof of WLLN
-  + theorem: $\Pr\left(|\overline{X^n} - \mu| \ge \epsilon\right) \le \frac{\sigma^2}{n \cdot \epsilon^2}$
+  + theorem: $\Pr\left(\left|\overline{X^n} - \mu\right| \ge \epsilon\right) \le \frac{\sigma^2}{n \cdot \epsilon^2}$
   + $X_1, X_2, \dots$, iid w/ finite $\mu$ and $\sigma$
   + sample mean $\overline{X^n} \stackrel{\text{def}}{=}  \frac{1}{n} \sum_{i=1}^n X_i$
   + expectation
 
-    \[ E[\overline{X^n}] = E[\frac{1}{n} \sum X_i] = \frac{1}{n} \sum E[X_i] = \frac{1}{n} \sum \mu = \mu \]
+    \[ E\left[\overline{X^n}\right] = E\left[\frac{1}{n} \sum X_i\right] = \frac{1}{n} \sum E[X_i] = \frac{1}{n} \sum \mu = \mu \]
 
   + variance
 
@@ -413,7 +413,7 @@
 
   + Chebyshev inequality
 
-    \[ \forall\, \epsilon > 0 \quad \Pr(|\overline{X^n} - \mu | \ge \epsilon) \le \frac{\sigma^2}{n\cdot \epsilon^2} \;\searrow\; 0 \text{ as } n \to \infty \]
+    \[ \forall\, \epsilon > 0 \quad \Pr\left(\left|\overline{X^n} - \mu \right| \ge \epsilon\right) \le \frac{\sigma^2}{n\cdot \epsilon^2} \;\searrow\; 0 \text{ as } n \to \infty \]
 
 + Example: sensors
   + $n$ sensors measure temperature $t$
@@ -422,23 +422,23 @@
   + how many sensors needed to estimate $t$ to $\pm \frac12$ w/ probability $\ge 95\%$
   + WLLN
 
-    \[ \Pr\left(|\overline{X^n} \ge \epsilon) \le \frac{\sigma^2}{\epsilon} \cdot \frac{1}{n} \]
+    \[ \Pr\left(\overline{X^n} \ge \epsilon\right) \le \frac{\sigma^2}{\epsilon} \cdot \frac{1}{n} \]
 
-  + $\Pr(|\overline{T^n} - t| \ge 0.5 ) \le \frac{2}{\frac14 n} \le 0.05 \to n \ge \frca{2}{\frac14 \cdot 0.05} = 2 \cdot 4 \cdot 20 = 160$
+  + $\Pr\left(\left|\overline{T^n} - t\right| \ge 0.5 \right) \le \frac{2}{\frac14 n} \le 0.05 \to n \ge \frac{2}{\frac14 \cdot 0.05} = 2 \cdot 4 \cdot 20 = 160$
 
 + Generalization <br/>
-  let $\mu \stackrel{\text{def}}{=} \frac{1}{n} \sum \mu_i \quad$ and $\quad \sigma^2 = \stackrel{\text{def}}{=} \frac 1 n \sum \sigma^2_i$
+  let $\mu \stackrel{\text{def}}{=} \frac{1}{n} \sum \mu_i \quad$ and $\quad \sigma^2   \stackrel{\text{def}}{=} \frac 1 n \sum \sigma^2_i$
 
-  \[ \Pr\left( |\overline{X^n} - \mu| \ge \epsilon \right) \le \frac{\sigma^2}{\epsilon^2} \cdot \frac{1}{n} \]
+  \[ \Pr\left( \left|\overline{X^n} - \mu\right| \ge \epsilon \right) \le \frac{\sigma^2}{\epsilon^2} \cdot \frac{1}{n} \]
 
 + Convergence in probability
-  + $X_1, X_2, dots$ infinite sequence of random variances
+  + $X_1, X_2, \dots$ infinite sequence of random variances
   + $X_n$ <span style="color: magenta;"> converges in probability</span> to a random variable $Y$: $X_n \xrightarrow{p} Y$
   + Pr($X_n$ differs from $Y$ by any given fixed amount) $\,\searrow\, 0$ with $n$
-  + for every $\delta > 0 \quad \Pr(|X_n - Y| \ge \delta) \searrow 0 \text{ with } n$
-  + for every $\delta > 0$ and $\epsilon > 0$ there is an $N$ s.t. $\forall\, n \ge N$
+  + for every $\delta > 0 \quad \Pr\left(\left|X_n - Y\right| \ge \delta\right) \searrow 0 \text{ with } n$
+  + for every $\delta > 0$ and $\epsilon > 0, \;\exists\; N \text{ s.t. } \forall\, n \ge N$
 
-    \[ \Pr(|X_n - Y| \ge \delta) < \epsilon \]
+    \[ \Pr\left(\left|X_n - Y\right| \ge \delta\right) < \epsilon \]
 
   + WLLN: $\overline{X^n}$ converges in probability to $\mu \quad \overline{X^n} \xrightarrow{p} \mu$
 
