@@ -458,6 +458,61 @@
 
 ### Problem Sets
 
+0. You have two fair coins, and you toss the pair 10,000 times (so you get 10,000 outcome pairs). Roughly how many pairs will not show any tails?<br/>
+  a. 0<br/>
+  b. 1250<br/>
+  c. 2500<br/>
+  d. 5000<br/>
+
+  Ans: c<br/>
+  Explanation: The probability of not getting any tails is 1/4. According to the weak law of large number, when the number of experiments grows, the sample mean gets closer to the true mean, which is 1/4 in this case. Hence, the answer is 10000 * 1/4 = 2500.
+
+
+1. In plain terms, the Weak Law of Large Numbers states that as the number of experiments approaches infinity, the difference between the sample mean and the distribution mean can be as small as possible. (True/False)
+
+  Ans: True
+
+
+2. Given n iid random varibles $X_1,X_2, \dots ,X_n$ with mean $\mu$, standard deviation $\alpha < \infty$ , and the sample mean $S_n = \frac{1}{n} \sum_{i=1}^n X_i$, is it true that $\lim_{n\to\infty} E[(S_n−\mu)^2]=0$? (True/False)
+
+  Ans: <span style="color: cyan;">True</span><br/>
+  Explanation: $\lim_{n\to\infty} E[(S_n−μ)^2) = \lim_{n\to\infty} Var(S_n)= \lim_{n\to\infty} \sigma^2=0$. This means $S_n$ converges to the true mean $\mu$ in mean square sense.
+
+
+3. The height of a person is a random variable with variance $\le 5 \text{ inches }^2$. According to Mr. Chebyshev, how many people do we need to sample to ensure that the sample mean is at most 1 inch away from the distribution mean with probability $\ge 95\%$?
+
+  Ans: 100<br/>
+  Explanation: Recall from the proof of the weak law of large numbers that if $X_1, \dots X_n$ are iid samples each with variance $\sigma^2$, then the variance of the sample mean  $\overline{X^n}$ is $\sigma^2/n$. Therefore, if we sample $n$ people, the sample mean of their heights will have a variance $\le 5/n \text{ inches }^2$.  By Chebyshev's Inequality, the probability that the sample mean will be at least 1 inch away from the mean is at most $\frac{5/n}{1^2}=\frac{5}{n}$, hence the probability that the sample mean will be at most 1 inch away is at least $1−\frac{5}{n}$. We would like to have $1−\frac 5 n  \ge 0.95$, hence $\frac 5 n \le 0.05$, or $n \ge 100$.
+
+
+4. For $i=1,2,\dots ,n$, let $X_i \sim U(0,4)$, $Y_i \sim N(2,4)$, and they are independent. Calculate,<br/>
+  a. $E(X_i)$<br/>
+  b. $V(X_i)$<br/>
+  c. $E(Y_i)$<br/>
+  d. $V(Y_i)$<br/>
+
+  Find the limit in probability of when $n \to \infty$<br/>
+  e. $\frac 1 n \sum_{i=1}^n (X_i+Y_i)$<br/>
+  f. $\frac 1 n \sum_{i=1}^n (X_iY_i)$<br/>
+
+  Ans: a. (2); b. (4/3); c. (2); d. (4); e. (4); f. (4)<br/>
+  Explanation:
+    + For $X_i \sim U(a,b)$, $E(X_i)=\frac{a+b}{2}=2$.
+    + For $X_i \sim U(a,b)$, $Var(X_i)=\frac{(b−a)^2}{12}=\frac43$.
+    + For $Y_i \sim N(\mu, \sigma^2)$, $E(Y_i)=\mu$.
+    + For $Y_i \sim N\mu, \sigma^2)$, $E(Y_i)= \sigma^2$.
+    + According to WLLN, when $n \to \infty$, $\frac 1 n \sum^n_{i=0} (X_i+Y_i) \to E(X_i+Y_i)=E(X_i)+E(Y_i)=4$.
+    + According to WLLN, when $n \to \infty$, $\frac 1 n \sum^n_{i=0} (X_iY_i) \to E(X_iY_i)=E(X_i)E(Y_i)=4$.
+
+
+5. a. Flip a fair coin $n$ times and let $X_n$ be the number of heads. Is it true that $P(|X_n − \frac n 2|>1000)<0.99$? (True/False)
+
+   b. Does the result above contradict with the WLLW? (Yes/No)
+
+  Ans: a. (False); b. (No)<br/>
+  Explanation:
+    + Very roughly, $|X_n− \\frac n 2| \approx \frac{\sqrt{n}{2}$, which grows as $n$ grows. We cannont guarantee $P(|X_n− \\frac n 2|>1000)<0.99$.
+    + The WLLN shows that $\lim_{n \to \infty} P(|\\frac{X}n}{n}−\\frac12|> \epsilon)=0 \to \Pr(|X_n−\\frac n 2|> \epsilonn)=0$. $\epsilon n$ increases when $n$ increases, but 1000 is not changed.
 
 
 
