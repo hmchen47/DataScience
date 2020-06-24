@@ -525,9 +525,127 @@
 
 ## 10.4 Moment Generating Functions
 
++ The mathematician's revenge
+  + engineers have machines they can sell
+  + computer scientists have software
+  + food makers have production lines (McDonalds)
+  + even service providers franchise (massage Envy)
+  + mathematicians need to think about every problem
+  + many envy
+
++ Moments
+  + expectations of powers of $X$ are call <span style="color: magenta;">moments</span>
+    + e.g., $E(X), E(X^2), E(X^3)$
+  + sometimes call <span style="color: magenta;">raw moments</span> to distinguish from <span style="color: magenta;">central moments</span>
+    + e.g., $E[(X - \mu)^n]$
+  + determine
+    + mean, variance, ... 
+    + all together $\to$ distribution itself
+  + general method to find all moments
+
++ Moment generating function (MGF)
+  + maps a random variable $X$ to a real function $M \quad M:\Bbb{R} \to \Bbb{R}$
+
+    \[ M(t) \stackrel{\text{def}}{=} M_X(t) \stackrel{\text{def}}{=} E[e^{tX}] = begin{cases} \sum p(x) \exp(tX) & text{discrete} \\ \int f(x) \exp(tx) & \text{continuous} \end{cases} \]
+
+  + determined by distribution $p$ or $f$
+  + $X$ more convenient
+  + constant R.V.
+    + r.v.: $X = c$
+
+      \[ M_c(t) = E\left(e^{tX}\right) = \sum_x p(x) \cdot \exp(tx) = p(c) \cdot \exp(ct) = \exp(ct) \]
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/ybwlhoup" ismap target="_blank">
+        <img src="img/t10-03a.png" style="margin: 0.1em;" alt="Illustration of exponential w/ positive vlue" title="Illustration of exponential w/ positive vlue" height=200>
+        <img src="img/t10-03b.png" style="margin: 0.1em;" alt="Illustration of exponential w/ negative vlue" title="Illustration of exponential w/ negative vlue" height=200>
+      </a>
+    </div>
+
+  + two constant r.v.s
+    + arbitrary values: $p(c_1) = p_1 \quad p(c_2) = p_2$
+    + moment generating fucntion
+
+      \[ M(t) = E(e^{tX}) = p1 e^{c_1 t} + p_2 e^{c_2 t} \]
+
+  + Bernoulli
+    + values: 0, 1
+    + $X \sim B_p \quad p_0 = 1- p \quad p_1 =p$
+    + moment generating function
+
+      \[ M(t) = (1-p) \exp(t \cdot 0) + p \exp(t \cdot 1) = (1-p) + p \exp(t) \]
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/ybwlhoup" ismap target="_blank">
+        <img src="img/t10-04a.png" style="margin: 0.1em;" alt="MGF of two constant r.v.s" title="MGF of two constant r.v.s" height=200>
+        <img src="img/t10-03b.png" style="margin: 0.1em;" alt="MGF of Bernoulli" title="MGF of Bernoulli" height=200>
+      </a>
+    </div>
+
++ Basic properties
+  + non-negative: $M(t) = E(e^{tX}) > 0$
+  + unitary: $M(0) = E(e^{0X}) = E(e^0) = 1$
+  + finite support $X$: $t \to \infty$
+
+    \[ M(t) \sim p(x_{\max}) \cdot e^{t \cdot x_{\max}} \]
+
++ Translation and scaling
+  + translation: $X \to X + b$
+
+    \[ M_{X+b}(t) = E\left(\exp(t(X+b))\right) = E(\exp(tX) \cdot \exp(tb)) = e^{tb} \cdot E(\exp(tX)) = e^{tb} M_X(t) \]
+
+  + Scaling: $X \to aX$
+
+    \[ M_{aX}(t) = E(\exp(t(aX))) = E(\exp(atX)) = M_X(at) \]
+
+  + translation and scaling: $X \to aX + b$
+
+    \[ M_{aX+b}(t) = e^{bt} \cdot M_{aX}(t) = e^{bt} \cdot M_X(at) \]
+
+  \[ M_x(t) = e^{ct} \to M_{a\cdot c+b} = e^{bt} \cdot M_c(at) = e^{bt} \cdot e^{cat} = e^{(ac+b)\cdot t} \]
+
++ Independent addition
+  + independent variable: MGF of sum as product of MGF's
+  + two cariables:
+    + $X {\perp \!\!\!\! \perp} \quad M_{X+Y}(t) = M_X(t) \cdot M_Y(t)$
+    + $M_{X+Y}(t) = E[e^{t(X+Y)}] = E[e^{tX} \cdot e^{tY}] = E[e^{tX}] \cdot E[e^{tY}] = M_X(t) \cdot M_y(t)$
+  + n variables
+    + $X_1, X_2, \dots, X_n \;\; {\perp \!\!\!\! \perp}$
+    + $X \stackrel{\text{def}} X_1 + X_2 + \cdots + X_n$
+    + $M_X(t) = \prod_{i=1}^n M_{X_i}(t)$
+  + mean
+    + $X_1, X_2, \dots, X_n \;\; {\perp \!\!\!\! \perp}$
+    + $\overline{X} \stackrel{\text{def}}{=} \frac{X_1 + X_2 + \cdots + X_n}{n}$
+    + $M_{\overline{X}}(t) = \prod_{i=1}^n M_{X_i}\left(\dfrac{t}{n}\right)$
+
++ Moment generating function and raw moment
+  + $M_X(t)$: moment generating function of $X$
+  + $E(X^n)$: nth "raw" moment of $X$
+  + $M_X(t) \xrightarrow{\text{determines ("generates") all moments}} E(X^n)$
+
++ Moment generation
+  + Taylor series
+  
+    \[ e^y = 1 + \frac{y}{1!} + \frac{y^2}{2!} + \frac{y^3}{3!} + cdots \]
+
+  + Derivation of MGF
+
+    \[\begin{align*}
+      M_X(t) &= E(e^{tX}) = E[1 + \frac{y}{1!} + \frac{y^2}{2!} + \frac{y^3}{3!} + \cdots] \\
+      &= 1 + \frac{t}{1!} E[X] + \frac{t^2}{2!} E[X^2] + \frac{t^3}{3!} E[X^3] +\cdots \\
+      M_X^\prime(t) &= \hspace{2.9em} E[X] + \frac{t}{1!} E[X^2] + \frac{t^2}{2!} E[X^3] + \cdots \\
+      M_X^{\prime\prime} &= \hspace{7.5em} E[X^2] + \frac{t}{1!} E[X^3] + \cdots
+    \end{align*}\]
+
+  + raw moment
+    + 0th: $M_X(0) = 1 = E[X^0]$
+    + 1st: $M_X^\prime(0) = E[X]$
+    + 2nd: $M_X^{\prime\prime}(0) = E[X^2]$
+    + ...
+    + nth: $M_X^{(n)}(0) = E[X^n]$
 
 
-
++ [Original Slides](https://tinyurl.com/ybwlhoup)
 
 
 ### Problem Sets
