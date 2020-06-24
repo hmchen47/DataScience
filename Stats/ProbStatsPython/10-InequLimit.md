@@ -387,7 +387,7 @@
   + $\overline{X^n}$ converges in probability to $\mu$
 
 + Example: polling error
-  + 2016 Presidential electons
+  + 2016 Presidential elections
   + poll 100,000 people
   + assuming every person voted for Trump independently w/ probability $p$
   + bound the probability that off by more than 1%
@@ -399,7 +399,7 @@
       \Pr\left(\left|\overline{X^{100,000}} - p\right| \ge 0.01\right) &\le \frac{1/4}{0.01^2 \cdot 100,000} = 2.5\%
     \end{align*}\]
 
-+ Proof of WLLN
++ Properties of WLLN
   + theorem: $\Pr\left(\left|\overline{X^n} - \mu\right| \ge \epsilon\right) \le \frac{\sigma^2}{n \cdot \epsilon^2}$
   + $X_1, X_2, \dots$, iid w/ finite $\mu$ and $\sigma$
   + sample mean $\overline{X^n} \stackrel{\text{def}}{=}  \frac{1}{n} \sum_{i=1}^n X_i$
@@ -409,7 +409,7 @@
 
   + variance
 
-    \[ Var(\overline{X^n}) = Var(\frac{1}{n} \sum X_i) = \frac{1}{n^2} Var(\sum X_i) = \frac{1}{n^2} \sum Var(X_i) = \frac{1}{n^2} \sum \sigma^2 = \frac{\sigma^2}{n} \]
+    \[ Var\left(\overline{X^n}\right) = Var\left(\frac{1}{n} \sum X_i\right) = \frac{1}{n^2} Var\left(\sum X_i\right) = \frac{1}{n^2} \sum Var(X_i) = \frac{1}{n^2} \sum \sigma^2 = \frac{\sigma^2}{n} \]
 
   + Chebyshev inequality
 
@@ -432,7 +432,7 @@
   \[ \Pr\left( \left|\overline{X^n} - \mu\right| \ge \epsilon \right) \le \frac{\sigma^2}{\epsilon^2} \cdot \frac{1}{n} \]
 
 + Convergence in probability
-  + $X_1, X_2, \dots$ infinite sequence of random variances
+  + $X_1, X_2, \dots$ infinite sequence of random variables
   + $X_n$ <span style="color: magenta;"> converges in probability</span> to a random variable $Y$: $X_n \xrightarrow{p} Y$
   + Pr($X_n$ differs from $Y$ by any given fixed amount) $\,\searrow\, 0$ with $n$
   + for every $\delta > 0 \quad \Pr\left(\left|X_n - Y\right| \ge \delta\right) \searrow 0 \text{ with } n$
