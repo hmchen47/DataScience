@@ -534,11 +534,8 @@
   + many envy
 
 + Moments
-  + <span style="color: magenta;">moments</span>
-    + expectations of powers of $X$
-    + e.g., $E[X], E[X^2], E[X^3]$
-  + sometimes called <span style="color: magenta;">raw moments</span> to distinguish from <span style="color: magenta;">central moments</span>
-    + e.g., $E[(X - \mu)^n]$
+  + <span style="color: magenta;">moments</span>: expectations of powers of $X$, e.g., $E[X], E[X^2], E[X^3]$
+  + sometimes called <span style="color: magenta;">raw moments</span> to distinguish from <span style="color: magenta;">central moments</span>, e.g., $E[(X - \mu)^n]$
   + determining
     + mean, variance, ...
     + all together $\to$ distribution itself
@@ -547,7 +544,7 @@
 + Moment generating function (MGF)
   + maps a random variable $X$ to a real function $M \quad M:\Bbb{R} \to \Bbb{R}$
 
-    \[ M(t) \stackrel{\text{def}}{=} M_X(t) \stackrel{\text{def}}{=} E[e^{tX}] = \begin{cases} \sum p(x) \;e^{tx} & \text{discrete} \\\\ \int f(x) \;e^{tx} & \text{continuous} \end{cases} \]
+    \[ M(t) \stackrel{\text{def}}{=} M_X(t) \stackrel{\text{def}}{=} E[e^{tX}] = \begin{cases} \sum p(x) \;e^{tx} & \text{discrete} \\\\ \int f(x) \;e^{tx}\,dx & \text{continuous} \end{cases} \]
 
   + determined by distribution $p(X)$ or $f(X)$
   + $X$ more convenient
@@ -556,7 +553,7 @@
   + one value (constant).
     + r.v.: $X = c$
 
-      \[ M_c(t) = E\left(e^{tX}\right) = \sum_x p(x) \cdot e^{tx} = p(c) \cdot e^{ct} = e^{ct} \]
+      \[ M_c(t) = E\left[e^{tX}\right] = \sum_x p(x) \cdot e^{tx} = p(c) \cdot e^{ct} = e^{ct} \]
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/ybwlhoup" ismap target="_blank">
@@ -570,9 +567,8 @@
 
       \[ M(t) = E[e^{tX}] = p_1 e^{c_1 t} + p_2 e^{c_2 t} \]
 
-+ Example: Bernoulli
-  + values: 0, 1
-  + $X \sim B_p \quad p_0 = 1- p \quad p_1 =p$
++ Example: Bernoulli w/ values 0, 1
+  + distribution: $X \sim B_p \quad p_0 = 1- p \quad p_1 =p$
   + moment generating function
 
     \[ M(t) = (1-p) \;e^{t \cdot 0} + p \;e^{t \cdot 1} = (1-p) + p \;e^{t} \]
@@ -594,7 +590,7 @@
 + Translation and scaling
   + translation: $X \to X + b$
 
-    \[ M_{X+b}(t) = E\left(e^{t(X+b)}\right) = E[e^{tX} \cdot e^{tb}] = e^{tb} \cdot E[e^{tX}] = e^{tb} M_X(t) \]
+    \[ M_{X+b}(t) = E\left[e^{t(X+b)}\right] = E[e^{tX} \cdot e^{tb}] = e^{tb} \cdot E[e^{tX}] = e^{tb} M_X(t) \]
 
   + Scaling: $X \to aX$
 
@@ -606,16 +602,16 @@
 
   + constant MGF
 
-    \[ M_c(t) = e^{ct} \to M_{a\cdot c+b} = e^{bt} \cdot M_c(at) = e^{bt} \cdot e^{cat} = e^{(ac+b)\cdot t} \]
+    \[ M_c(t) = e^{ct} \to M_{a\cdot c+b}(t) = e^{bt} \cdot M_c(at) = e^{bt} \cdot e^{cat} = e^{(ac+b)\cdot t} \]
 
 + Independent addition
   + independent variable: MGF of sum as product of MGF's
   + two variables:
     + $X {\perp \!\!\!\! \perp} Y \quad M_{X+Y}(t) = M_X(t) \cdot M_Y(t)$
-    + proof: $M_{X+Y}(t) = E[e^{t(X+Y)}] = E[e^{tX} \cdot e^{tY}] = E[e^{tX}] \cdot E[e^{tY}] = M_X(t) \cdot M_y(t)$
+    + proof: $M_{X+Y}(t) = E[e^{t(X+Y)}] = E[e^{tX} \cdot e^{tY}] = E[e^{tX}] \cdot E[e^{tY}] = M_X(t) \cdot M_Y(t)$
   + n variables
     + $X_1, X_2, \dots, X_n \;\; {\perp \!\!\!\! \perp}$
-    + $X \stackrel{\text{def}} X_1 + X_2 + \cdots + X_n$
+    + $X \stackrel{\text{def}}{=} X_1 + X_2 + \cdots + X_n$
     + $M_X(t) = \prod_{i=1}^n M_{X_i}(t)$
   + mean
     + $X_1, X_2, \dots, X_n \;\; {\perp \!\!\!\! \perp}$
@@ -625,7 +621,7 @@
 + Moment generation
   + $E[X^n]$: nth "raw" moment of $X$
   + $M_X(t)$: moment generating function of $X$
-  + $M_X(t)$ determineing ("generating") all moments of $X$
+  + $M_X(t)$ determining ("generating") all moments of $X$
   + Taylor series
   
     \[ e^y = 1 + \frac{y}{1!} + \frac{y^2}{2!} + \frac{y^3}{3!} + \cdots \]
@@ -633,31 +629,31 @@
   + Derivation of MGF
 
     \[\begin{align*}
-      M_X(t) &= E(e^{tX}) = E[1 + \frac{y}{1!} + \frac{y^2}{2!} + \frac{y^3}{3!} + \cdots] \\
+      M_X(t) &= E\left[e^{tX}\right] = E\left[1 + \frac{tX}{1!} + \frac{(tX)^2}{2!} + \frac{(tX)^3}{3!} + \cdots\right] \\
       &= 1 + \frac{t}{1!} E[X] + \frac{t^2}{2!} E[X^2] + \frac{t^3}{3!} E[X^3] +\cdots \\\\
       M_X^\prime(t) &= \hspace{2.9em} E[X] + \frac{t}{1!} E[X^2] + \frac{t^2}{2!} E[X^3] + \cdots \\
       M_X^{\prime\prime}(t) &= \hspace{7.5em} E[X^2] + \frac{t}{1!} E[X^3] + \cdots 
     \end{align*}\]
 
-  + derivatines of MGF
+  + derivatives of MGF
     + 1st moment
 
       \[\begin{align*}
-        M\prime(t) &= \frac{d}{dt} E[e^{tX}] = \frac{d}{dt}[\sum_x p(x)\,e^{tx}] \\
-        &= \sum_x\frac{d}{dt} p(x)\,e^{tx} = E[\frac{d}{dt} e^{tX}] = E[X\,e^{tX}] \\\\
+        M^\prime(t) &= \frac{d}{dt} E[e^{tX}] = \frac{d}{dt}[\sum_x p(x)\,e^{tx}] \\
+        &= \sum_x\frac{d}{dt} p(x)\,e^{tx} = E\left[\frac{d}{dt} e^{tX}\right] = E[X\,e^{tX}] \\\\
         M^\prime(0) &= E[X\,e^0] = E[X]
       \end{align*}\]
 
     + 2nd moment
 
       \[\begin{align*}
-        M^{\prime\prime}(t) &= \frac{d}{dt} M^\prime(t) = \frac{d}{dt} E[X\,e^{tX}] = E[\frac{d}{dt} X\,e^{tX}] = E[X^2\,e^{tX}] \\\\
+        M^{\prime\prime}(t) &= \frac{d}{dt} M^\prime(t) = \frac{d}{dt} E\left[X\,e^{tX}\right] = E\left[\frac{d}{dt} X\,e^{tX}\right] = E[X^2\,e^{tX}] \\\\
         M^{\prime\prime}(0) &= E[X^2\,e^0] = E[X^2]
       \end{align*}\]
 
     + general: $n > 0$
 
-      \ M^{(n)}(t) = E[X^n \,e^{Xt}] \to M^{(n)}(0) = E[X^n] \]
+      \[ M^{(n)}(t) = E[X^n \,e^{Xt}] \to M^{(n)}(0) = E[X^n] \]
 
 + Example: Binomial
   + distribution: $B_{p, n} \quad 0 \le p \le 1, n \ge 0$
@@ -672,7 +668,7 @@
 
   + 1st moment: mean $E[X]$
 
-    \[ M^\prime(t) = n(pe^t + 1 - p)^{n-1} \cdot pe^t) \to M^\prime(0) = n(pe^0 + 1 - pe^0)^{n-1} \cdot pe^0 = np \]
+    \[ M^\prime(t) = n(pe^t + 1 - p)^{n-1} \cdot pe^t \to M^\prime(0) = n(pe^0 + 1 - pe^0)^{n-1} \cdot pe^0 = np \]
 
 + Example: Poisson
   + distribution: $P_\lambda, \lambda > 0$
@@ -687,12 +683,12 @@
 
 + Example: standard normal
   + distribution: $Z \sim N(0, 1)$
-  + pdf: $f(x) = \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}$
+  + pdf: $f(x) = \frac{1}{\sqrt{2\pi}} \exp(-\frac{x^2}{2})$
   + MGF: $M_Z(t) = \exp\left({\frac{t^2}{2}}\right)$
 
     \[\begin{align*}
       M(t) &= E[e^{tX}] = \int_{-\infty}^\infty e^{tx}f(x)\,dx = \int_{-\infty}^\infty e^{tx} \cdot \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}\,dx \\\\
-      &= \frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty \exp\left[-\frac{x^2 - 2tx}{2}\right]\, dx = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty \exp]\left[-\frac{(x-t)^2}{2}+ \frac{t^2}{2}\right] \,dx \\\\
+      &= \frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty \exp\left[-\frac{x^2 - 2tx}{2}\right]\, dx = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty \exp\left[-\frac{(x-t)^2}{2} + \frac{t^2}{2}\right] \,dx \\\\
       &= e^{\frac{t^2}{2}} \frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty \exp\left[ -\frac{(x-t)^2}{2} \right]\,dx = \exp\left(\frac{t^2}{2}\right)
     \end{align*}\]
 
@@ -701,7 +697,7 @@
   + function: $X = \sigma Z + \mu$
   + moment generating function: $M_X(t) = \exp(\mu t + \frac{\sigma^2 t^2}{2})$
 
-    \[ M_X(t) = M_{aZ+b}(t) = e^{bt} M_Z(at) = e^{\mu t} \cdot \exp\left(\frac{\sigma^2 t^2}{2}\right) = \exp\left(\mu t+\frac{\sigma^2 t^2}{2}\right) \]
+    \[ M_X(t) = M_{\sigma Z+\mu}(t) = e^{\mu t} M_Z(\sigma t) = e^{\mu t} \cdot \exp\left(\frac{\sigma^2 t^2}{2}\right) = \exp\left(\mu t+\frac{\sigma^2 t^2}{2}\right) \]
 
 + Properties (informally)
   + $M_X(t) = M_Y(y) \implies X \text{ and } Y$ w/ the same distribution
@@ -713,7 +709,7 @@
     + pdf: $B_{p,n}(k) = \binom{n}{k} p^k (1-p)^{n-k}$
     + MGF: $M_{p, n} = \left(1 + p(e^t - 1)\right)^n$
   + Poisson
-    + pdf: P_\lambda(k) = e^{-\lambda} \frac{\lambda^k}{k!}$
+    + pdf: $P_\lambda(k) = e^{-\lambda} \frac{\lambda^k}{k!}$
     + MGF: $M_\lambda(t) = e^{\lambda(e^t -1)}$
   + convergence
     + pdf: $B_{\frac{\lambda}{n}, n} \to P_\lambda$
@@ -721,12 +717,24 @@
   + derivative
     + $(1+\frac 1 n)^n \to e$
     + $(1+\frac a n)^n = \left((1 + \frac a n)^{\frac a n}\right)^a \to e^a$
-    + $M_{\frac{\lambda}{n}, n}(t) = \left(1 + \frac{\lambda}{n} (e^t - 1)\right)^n \to \exp\left(\lambda(e^t - 1)\right) - M_\lambda(t)$
+    + $M_{\frac{\lambda}{n}, n}(t) = \left(1 + \frac{\lambda}{n} (e^t - 1)\right)^n \to \exp\left(\lambda(e^t - 1)\right) = M_\lambda(t)$
   
++ Sum of ${\perp \!\!\!\! \perp}$ Gaussians
+  + alternative proof: sum of ${\perp \!\!\!\! \perp}$ normals is normal
+  + $X_1 \sim N(\mu_1, \sigma_1^2) \to M_{X_1}(t) = \exp(\mu_1 t+ \frac{\sigma_1^2 t^2}{2})$
+  + $X_2 \sim N(\mu_2, \sigma_2^2) \to M_{X_2}(t) = \exp(\mu_2 t+ \frac{\sigma_2^2 t^2}{2})$
+  
+    \[\begin{align*}
+      M_{X_1 + X_2}(t) &= M_{X_1}(t) \cdot M_{X_2}(t) \\
+      &= \exp\left(\mu_1 + \frac{\sigma^2_1 t^2}{2}\right) \cdot \exp\left(\mu_2 + \frac{\sigma^2_2 t^2}{2}\right)\\
+      &= \exp\left( (\mu_1 + \mu_2)t + \frac{(\sigma_1^2 + \sigma_2^2) t^2}{2} \right)
+    \end{align*}\]
 
-
+  + $X_1 + X_2 \sim N\left( \mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2 \right)$
 
 + [Original Slides](https://tinyurl.com/ybwlhoup)
+
++ [Original Slides - Examples](https://tinyurl.com/yaz9mkkt)
 
 
 ### Problem Sets
