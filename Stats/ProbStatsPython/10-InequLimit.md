@@ -895,10 +895,16 @@
   + UIUC, Standford, MIT, Harvard
   + broadd view of statistics
   + Chernoff bouns: Markov $\to$ Chebyshev $\to$ Chernoff
-  + Chernoff faces: displaying multivariate data in the shape of a human face to handle each variable differently
+  + > Years ago a statistician might have claimed thst statisticians deals w/ the processing of data ... to-days statistician will be more likely to say thst statistics is concerned w/ decision making in the cade of uncertainty. -- Herman Chernoff
+  + Chernoff faces
+    + displaying multivariate data in the shape of a human face to handle each variable differently
+    + display high-dimensional data
+    + impossible to display  in one way
+    + representing as feature of a face
+    + easier to understand the different dimensions
 
 + Motivation
-  + distribution: $X \sim B_{p, n} \quad \mu=pn \quad \sigma=\sqrt{pqn}$
+  + r.v.: $X \sim B_{p, n} \quad \mu=pn \quad \sigma=\sqrt{pqn}$
   + probability inequalities
     + decreaing w/ $n$: $P(X \ge \text{ constant times its mean}) \to P(X \ge \left(1+\delta) \mu\right)$
     + Markov (constant): $P\left(X \ge (1=\delta)\mu\right) \le \frac{1}{1+ \delta}$
@@ -912,8 +918,12 @@
     + Chernoff (exponential): ?
 
 + Chernoff bound
-  + distributoion: $X \sim B_{p, n} \quad \mu=pn$
+  + r.v.: $X \sim B_{p, n} \quad \mu=pn$
   + probability: $P(X \ge (q+ \delta)\mu)$
+  + decreasing bound
+    + Markov - constant
+    + Chebyshev - linear
+    + Chernoff - exponential
   + using Markov to derive exponential bound
 
     \[
@@ -921,56 +931,56 @@
       \hspace{3em} P(X \ge a) = P(e^{tX} \ge e^{ta}) \le \frac{E[e^tX]}{e^{ta}} \hspace{2em} \text{(Markov ineq})
     \]
 
-  + $E[e^tX]$
-    + evaluate: $E\left[e^{tX}\right] = \left((1-p) + p e^t \right)^n$
-      + exactly moment generating function
-      + self-containing
-      + $X\sim B_{p, n} \quad X = \sum_{i=1}^n X_i \quad X_i \sim B_p \; {\perp \!\!\!\! \perp}$
-
-        \[\begin{align*}
-          E[e^tX] &= E[e^{t\sum X_i}] = E\left[e^{\sum tX_i}\right] \\
-          &= E\left[ \prod_{i=1}^n e^{tX_i}\right] = \prod_{i=1}^n E\left[e^{tX_i}\right] = \left((1-p)+pe^t\right)^n\\\\
-          E\left[e^{tX_i}\right] &= P(X_i = 0) \cdot e^{t \cdot 0} + P(X_i = 1) \cdot e^{t \cdot 1} = (1 -p) + pe^t
-        \end{align*}\]
-
-    + bound: $E\left[e^{tX}\right] \le \exp\left(\mu(e^t -1 )\right)$
++ $E[e^tX]$
+  + evaluate: $E\left[e^{tX}\right] = \left((1-p) + p e^t \right)^n$
+    + exactly moment generating functions
+    + self-containing
+    + $X\sim B_{p, n} \quad X = \sum_{i=1}^n X_i \quad X_i \sim B_p \; {\perp \!\!\!\! \perp}$
 
       \[\begin{align*}
-        E[e^{tX}] &= \left( (1-p) + pe^t \right) \le \left(\exp(p(e^t - 1))\right) \\
-        &= \exp\left( np(e^t - 1) \right) = \exp\left( \mu(e^t - 1) \right) \\\\
-        (1-p) + p e^t &= 1 + p(e^t -1) \le \exp\left( p(e^t - 1) \right) \\
-        1+ x \le e^x \quad & \quad e^x = 1 + x + \frac{x^2}{2} + \cdots \ge 1 + x
+        E[e^tX] &= E[e^{t\sum X_i}] = E\left[e^{\sum tX_i}\right] \\
+        &= E\left[ \prod_{i=1}^n e^{tX_i}\right] = \prod_{i=1}^n E\left[e^{tX_i}\right] = \left((1-p)+pe^t\right)^n\\\\
+        E\left[e^{tX_i}\right] &= P(X_i = 0) \cdot e^{t \cdot 0} + P(X_i = 1) \cdot e^{t \cdot 1} = (1 -p) + pe^t
       \end{align*}\]
 
-    + incorporate in Markov ($\le$): $P(X \ge a) \le \frac{\exp\left( \mu(e^t - 1) \right)}{e^ta}$ & $P(X \ge (1_\delta)\mu) \le \exp^{\mu((e^t -1) - t(1+\delta))}$
-      + $X \sim B_{p, n}\quad \forall\, a \;\; \forall\,t \ge 0$
+  + bound: $E\left[e^{tX}\right] \le \exp\left(\mu(e^t -1 )\right)$
 
-        \[\begin{align*}
-          P(X \ge a) &= P\left(e^{tX} \ge e^ta\right) \le \frac{E[e^{tX}]}{e^{ta}} \\
-          E\left[e^{tX}\right] &\le \exp\left( \mu(e^t - 1) \right) \\
-          \to & P(X \ge a) \le \frac{\exp(\mu(e^t - 1))}{\exp(ta)}
-        \end{align*}\]
+    \[\begin{align*}
+      E[e^{tX}] &= \left( (1-p) + pe^t \right)^n \le \left(\exp(p(e^t - 1))\right) \\
+      &= \exp\left( np(e^t - 1) \right) = \exp\left( \mu(e^t - 1) \right) \\\\
+      (1-p) + p e^t &= 1 + p(e^t -1) \le \exp\left( p(e^t - 1) \right) \\
+      1+ x \le e^x \quad & \xrightarrow{\text{tangent line}} e^x = 1 + x + \frac{x^2}{2} + \cdots \ge 1 + x
+    \end{align*}\]
 
-      + $a = (1 + \delta) \mu \quad \delta \ge 0 \quad \forall\, \ge 0$
-
-        \[ P(X \ge (1+\delta)\mu) \le \frac{\exp\left( \mu(e^t - 1) \right)}{\exp\left( \mu (1+ \delta)t \right)} \]
-
-    + optimization: $\forall\, t \ge 0 \;\; P(X \ge (1+\delta)\mu) \le \exp\left( \mu(\delta - (1+\delta) \ln(1+\delta)) \right)$
+  + incorporate in Markov ($\le$): $P(X \ge a) \le \frac{\exp\left( \mu(e^t - 1) \right)}{e^ta}$ & $P(X \ge (1 +\delta)\mu) \le \exp^{\mu((e^t -1) - t(1+\delta))}$
+    + $X \sim B_{p, n}\quad \forall\, a \;\; \forall\,t \ge 0$
 
       \[\begin{align*}
-        \text{objective: minimizing } \quad&P(X \ge (1 + \delta) \mu) \le \exp\left( \mu((e^t - 1) - t(1+\delta)) \right)\\
-        \text{find t minimizing } \quad& f(t) \stackrel{\text{def}}{=} (e^t - 1) - t(1+\delta) \\
-        & f^\prime(t) = e^t - (1+\delta) = 0 \\
-        & \hspace{2em} e^t = 1 + \delta \to t = \ln(1+\delta) \\
-        & f^{\prime\prime}(t) = e^t \ge 0 \\\\
-        P(X \ge (1+\delta) \mu) &\le \exp\left( \mu ((e^t -1) - t (1+ \delta)) \right) \\
-        &= \exp\left( \mu(\delta - (1+\delta) \ln(1+\delta)) \right)
+        P(X \ge a) &= P\left(e^{tX} \ge e^ta\right) \le \frac{E[e^{tX}]}{e^{ta}} \\
+        E\left[e^{tX}\right] &\le \exp\left( \mu(e^t - 1) \right) \\
+        \to & P(X \ge a) \le \frac{\exp\left( \mu(e^t - 1) \right)}{\exp(ta)}
       \end{align*}\]
+
+    + $a = (1 + \delta) \mu \quad \delta \ge 0 \quad \forall\, \ge 0$
+
+      \[ P(X \ge (1+\delta)\mu) \le \frac{\exp\left( \mu(e^t - 1) \right)}{\exp\left( \mu (1 + \delta)t \right)} \]
+
+  + optimization: $\forall\, t \ge 0 \;\; P(X \ge (1+\delta)\mu) \le \exp\left[\mu(\delta - (1+\delta) \ln(1+\delta)) \right]$
+
+    \[\begin{align*}
+      \text{objective: minimizing } \quad&P(X \ge (1 + \delta) \mu) \le \exp\left( \mu((e^t - 1) - t(1+\delta)) \right)\\
+      \text{find t minimizing } \quad& f(t) \stackrel{\text{def}}{=} (e^t - 1) - t(1+\delta) \\
+      & f^\prime(t) = e^t - (1+\delta) = 0 \\
+      & \hspace{2em} e^t = 1 + \delta \to t = \ln(1+\delta) \\
+      & f^{\prime\prime}(t) = e^t \ge 0 \\\\
+      P(X \ge (1+\delta) \mu) &\le \exp\left[\mu ((e^t -1) - t (1+ \delta)) \right] \\
+      &= \exp\left[ \mu(\delta - (1+\delta) \ln(1+\delta)) \right]
+    \end{align*}\]
 
   + final specification:
-  
+
     \[\begin{align*}
-      P(X \ge (1 + \delta) \mu) &\le \exp\left(\mu(\delta - (1+\delta) \ln(1+\delta))\right) \le \exp\left( -\frac{\delta^2}{2+\delta} \mu \right) \\\\
+      P(X \ge (1 + \delta) \mu) &\le \exp\left[\mu(\delta - (1+\delta) \ln(1+\delta))\right) \le \exp\left( -\frac{\delta^2}{2+\delta} \mu \right) \\\\
       \text{inequality }\quad& \ln(1+x) \ge \frac{x}{1 + \frac{x}{2}} \quad \forall\, x \ge 0\\
       \text{define } \quad& f(x) = \ln(1+x) - \frac{x}{1 + \frac{x}{2}} \\
       \text{show } \quad& f(x) \ge 0 \quad \forall\, x \ge 0 \\
@@ -982,16 +992,24 @@
       &= \delta\left(\frac{2+\delta-2-2\delta}{2+\delta} \right) = \frac{-\delta^2}{2+\delta}
     \end{align*}\]
 
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/yc8qqe73" ismap target="_blank">
+        <img src="img/t10-05a.png" style="margin: 0.1em;" alt="MGF evaluation for Chernoff Inequality: e^x and tangent line" title="MGF evaluation for Chernoff Inequality: e^x and tangent line" height=150>
+        <img src="img/t10-05b.png" style="margin: 0.1em;" alt="MGF evaluation for Chernoff Inequality: optimization" title="MGF evaluation for Chernoff Inequality: optimization" height=150>
+        <img src="img/t10-05c.png" style="margin: 0.1em;" alt="MGF evaluation for Chernoff Inequality: ln(1+x)" title="MGF evaluation for Chernoff Inequality: optimization" height=150>
+      </a>
+    </div>
+
 + Summary: Chernoff bound
   + r.v.: $X \sim B_{p, n} \quad \delta \ge 0$
-  + showed: $P(X \ge (1+\delta) \mu) \le \exp(-\frac{\delta^2}{2+\delta}\mu)$
-  + similarly: $P(X \le (1-\delta) \mu) \le \exp(-\frac{\delta^2}{2}\mu)$
+  + showed: $P(X \ge (1+\delta) \mu) \le \exp\left(-\frac{\delta^2}{2+\delta}\mu\right)$
+  + similarly: $P(X \le (1-\delta) \mu) \le \exp\left(-\frac{\delta^2}{2}\mu\right)$
   + $\searrow$ exponentially in $n$
 
 + Example: poll
   + data: 47% vote D w/ 6000 samples
   + r.v.: $X$ - \# vote D, $X \sim B_{0.47, 6000}$
-  + poll wrong: $X \ge 0.5 \cdots 6000 = 3000$
+  + poll wrong: $X \ge 0.5 \cdot 6000 = 3000$
 
     \[\begin{align*}
       \mu &= np = 6000 \cdot 0.47 = 2820 \\
@@ -1005,6 +1023,7 @@
     \[ P(X \ge 3000) = P(X \ge (1 + \delta)\mu) \le \exp\left( \frac{\delta^2}{2+\delta} \mu \right) \approx 0.38\% \]
 
 
++ [Original Slides](https://tinyurl.com/yc8qqe73)
 
 ### Problem Sets
 
