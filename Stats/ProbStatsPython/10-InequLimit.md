@@ -639,7 +639,7 @@
     + 1st moment
 
       \[\begin{align*}
-        M^\prime(t) &= \frac{d}{dt} E[e^{tX}] = \frac{d}{dt}[\sum_x p(x)\,e^{tx}] \\
+        M^\prime(t) &= \frac{d}{dt} E[e^{tX}] = \frac{d}{dt}\sum_x p(x)\,e^{tx} \\
         &= \sum_x\frac{d}{dt} p(x)\,e^{tx} = E\left[\frac{d}{dt} e^{tX}\right] = E[X\,e^{tX}] \\\\
         M^\prime(0) &= E[X\,e^0] = E[X]
       \end{align*}\]
@@ -732,6 +732,52 @@
 
   + $X_1 + X_2 \sim N\left( \mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2 \right)$
 
++ Summary of Common Distribution w/ MGF<br/><br/>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/ycbw3koq">Common MGF of Distribution</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Random Variable</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">PMF/PDF</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$M(t)$</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td style="text-align: center;">$\text{Bern}(p) = B_p$</td>
+      <td style="text-align: center;">$p_x(1) =p, \;\;p_X(0) = 1 - p$</td>
+      <td style="text-align: center;">$pe^t + (1-p)$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$\text{Genom}(p) = G_p$</td>
+      <td style="text-align: center;">$p_X(k) = p(1-p)^{k-1}, \;\; k=1, 2, \dots$</td>
+      <td style="text-align: center;">$\dfrac{pe^t}{1 - (1-p)e^t}$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$\text{B}(n, p) = B_{n, p}$</td>
+      <td style="text-align: center;">$p_X(k) = \binom{n}{k} p^k (1-p)^{n-k}, \;\; k=0, 1, 2, \dots, n$</td>
+      <td style="text-align: center;">$\left(pe^t + (1-p)\right)^n$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$\text{Poisson}(\lambda) = P_\lambda$</td>
+      <td style="text-align: center;">$p_X(k) = \frac{\lambda^k}{k!} e^{-\lambda}, \;\;k=0, 1, \dots$</td>
+      <td style="text-align: center;">$e^{\lambda(e^t - 1)}$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$\text{Exp}(\lambda)$</td>
+      <td style="text-align: center;">$f_X(x) = \lambda e^{-\lambda x}, \;\;x \ge 0$</td>
+      <td style="text-align: center;">$\frac{\lambda}{\lambda - t}$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$N(\mu, \sigma^2)$</td>
+      <td style="text-align: center;">$\frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)$</td>
+      <td style="text-align: center;">$\exp\left(\mu t+ \frac{\sigma^2 t^2}{2}\right)$</td>
+    </tr>
+    </tbody>
+  </table>
+
+
 + [Original Slides](https://tinyurl.com/ybwlhoup)
 
 + [Original Slides - Examples](https://tinyurl.com/yaz9mkkt)
@@ -739,7 +785,99 @@
 
 ### Problem Sets
 
+0. If $M(t)$ is a moment generating function, then what is $M(0)$?
+  a. 0<br/>
+  b. 1<br/>
+  c. infinity<br/>
+  d. depends on the distribution
 
+  Ans: b<br>
+  Explanation: $M(0)=E[e^0]=1$
+
+
+1. If $X$ has moment generating function $M_X(t)=(1−3t)^{−1}$, what is $Var(X)$?<br/>
+  a. 6<br/>
+  b. 9<br/>
+  c. 12<br/>
+
+  Ans: b<br/>
+  Explanation: $E(X) = \frac{\partial M_X(t)}{\partial t} |_{t = 0} = 3, E(X^2) = \frac{\partial^2 M_X(t)}{\partial t^2} |_{t = 0} = \frac{18}{(1 - 3t)^3} |_{t = 0} = 18, V(X) = E(X^2) - E^2(X) = 9$
+
+
+2. Let $M_X(t)$ be the MGF of $X$. Which of the following hold for all $X$ and $Y$?<br/>
+  a. $M_{X}(0)=1$<br/>
+  b. $M_{X}(t) \ge 0$ for all $t$<br/>
+  c. $M_{3X+2}(t)=e^{2t}⋅M_X(3t)$<br/>
+  d. $M_{X+Y}(t)=M_X(t)M_Y(t)$<br/>
+
+  Ans: abc<br/>
+  Explanation
+    + True. $M_X(0)=E(e^{0X})=E(1)=1$.
+    + True. As $e^{tx} \ge 0$ for all $t$, $M_X(t)=E(e^{tX}) \ge 0$.
+    + True. $M_{3X+2}(t)=E(e^{t(3X+2)})=e^{2t}E(e^{3tX})=e^{2t}\cdot M_X(3t)$.
+    + False. It only holds when $X$ and $Y$ are independent.
+
+
+3. If $X$ is a non-negative continuous random variable with moment generating function
+
+  \[ M_X(t)=\frac{1}{(1-2t)^2},\quad t<\frac{1}{2} \]
+
+  a. $E[X]$<br/>
+  b. $Var(X)$<br/>
+
+  Ans: a(4); b. (8);<br/>
+  Explanation:
+    + Recall that $E(X)=M^\prime(0)$.  $M^\prime (t)=(−2)⋅(1−2t)^{-3}−3⋅(−2)=4⋅(1−2t)^{−3}$. Hence $E(X)=4$.
+    + Similar to the first part $E(X^2)=M^{\prime\prime}(0)$. $M^{\prime\prime}(t)=(−12)⋅(1−2t)^{−4}⋅(−2)=24⋅(1−2t)^{−4}$. Hence $E(X^2)=24$, and $Var(X)=E(X^2)−E^2(X)=24−16=8$.
+
+
+4. Let $X_1, X_2, \dots$  be independent $B_{1/2}$ random variables, and let $M \sim P_4$, namely Poisson with mean $4$. Which of the following is the MGF of $X_1+X_2+ \cdots +X_M$?<br/>
+  a. $e^{2(1+e^t)}e^{−4}$<br/>
+  b. $e^{1+e^t}e^{−2}$<br/>
+  c. $\frac{1+e^t}{2}$<br/>
+  d. $\frac{1+e^2t}{2}$<br/>
+
+  Ans: <span style="color: cyan;">a</span><br/>
+  Explanation: Let $Y=X_1+X_2+ \cdots+X_M$, then $P(Y=k \mid M=m)=\binom{m}{k}\frac{1}{2}^m$ and using the product rule we get $P(Y=k,M=m)=\binom{m}{k}\frac{1}{2}^m e^{−4} \frac{4^m}{m!}=\binom{m}{k} 2^m \frac{e^{−4}}{m!}$, and $P(Y=k)= \sum^\infty_{m=k} P(Y=k,M=m)$. Thus the moment generating function of $Y$ is given by
+
+  \[\begin{align} M_Y(t) &= E[e^{Yt}] = \sum_{k = 0}^{\infty} e^{kt}P(Y = k) = \sum_{k = 0}^{\infty} e^{kt} \sum_{m = k}^{\infty} P(Y = k, M = m) \\ &= \sum_{m = 0}^{\infty} \sum_{k = 0}^{m} e^{kt} P(Y = k, M = m) = \sum_{m=0}^{\infty} \sum_{k=0}^{m}e^{kt}{m\choose k} 2^m{\frac{e^{-4}}{m!}} \\ &= \sum_{m=0}^{\infty} \left( \sum_{k=0}^{m}e^{kt}{m\choose k} \right) 2^m{\frac{e^{-4}}{m!}} = \sum_{m=0}^{\infty} (1 + e^t)^m 2^m{\frac{e^{-4}}{m!}} = e^{-4}e^{2(1+e^{t})} \end{align}\]
+
+
+5. Let $X$ be a random variable with MGF $M_X(t)=\frac13 e^{−t}+\frac16+\frac12 e^{2t}$. What is $P(X \le 1)$?
+
+  Ans: 
+
+
+
+6. Let $M_X(t)$ be an MGF, which of the following are valid MGF's?<br/>
+  a. $M_X(2t)M_X(7t)$<br/>
+  b. $e^{−5t}M_X(t)$<br/>
+  c. $3M_X(t)$<br/>
+
+  Ans: ab<br/>
+  Explanation:
+    + Tru$.
+    + True. $e^{−5t}M(t)=E[e^{t(X−5)}]$.
+    + False. $3M(0)=3≠1$.
+
+
+7. a. If $M_X(t)=e^{−5(1−e^t)}$, find $Var(X)$.<br/>
+   b. $P(X = 3)$<br/>
+
+  Ans: a. (5); b. ($5^3/6 \cdot e^{-5}$)<br/>
+  Explanation
+    + $E(X) = \frac{\partial M_X(t)}{\partial t} |_{t = 0} = 5$, $E(X^2) = \frac{\partial^2 M_X(t)}{\partial t^2} |_{t = 0} = 30$, $V(X) = E(X^2) - E^2(X) = 5$
+    + $X \sim P_5$, hence, $P(X = k) = \frac{5^k}{k!} e^{-5}$, $P(X = 3) = \frac{5^3}{3!} e^{-5} = 0.14037389581428056$
+
+
+8. Find the MGF of $(X_1+X_2+X_3+X_4)/3$ where each $X_i$ is an independent $B_{1/2}$ random variable?<br/>
+  a. $((1+e^{t/3})/2)^4$<br/>
+  b. $((1+e^t)/2)^4$<br/>
+  c. $((2/3+e^t/3))^4$<br/>
+  d. $((2/3+e^t/3/3))^4$<br/>
+
+  Ans: a<br/>
+  Explanation: $E[e^\frac{{tX_1}{3}}]= \frac{(1+e^{\frac t 3})}{2}$.  $M_X(t) = E(e^{\frac{tX_1}{3}}) E(e^{\frac{tX_2}{3}}) E(e^{\frac{tX_3}{3}}) E(e^{\frac{tX_4}{3}}) = (\frac{1 + e^{\frac{t}{3}}}{2})^4$
 
 
 ### Lecture Video
