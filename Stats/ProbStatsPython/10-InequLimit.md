@@ -746,7 +746,7 @@
     <tbody>
     <tr>
       <td style="text-align: center;">$\text{Bern}(p) = B_p$</td>
-      <td style="text-align: center;">$p_x(1) =p, \;\;p_X(0) = 1 - p$</td>
+      <td style="text-align: center;">$p_X(1) =p, \;\;p_X(0) = 1 - p$</td>
       <td style="text-align: center;">$pe^t + (1-p)$</td>
     </tr>
     <tr>
@@ -889,8 +889,120 @@
 
 ## 10.5 Chernoff Bound
 
++ Herman Chernoff
+  + 1923 ~
+  + statistician
+  + UIUC, Standford, MIT, Harvard
+  + broadd view of statistics
+  + Chernoff bouns: Markov $\to$ Chebyshev $\to$ Chernoff
+  + Chernoff faces: displaying multivariate data in the shape of a human face to handle each variable differently
 
++ Motivation
+  + distribution: $X \sim B_{p, n} \quad \mu=pn \quad \sigma=\sqrt{pqn}$
+  + probability inequalities
+    + decreaing w/ $n$: $P(X \ge \text{ constant times its mean}) \to P(X \ge \left(1+\delta) \mu\right)$
+    + Markov (constant): $P\left(X \ge (1=\delta)\mu\right) \le \frac{1}{1+ \delta}$
+    + Chebyshev (linear)
 
+      \[\begin{align*}
+        (1+\delta)\mu = \mu + \delta pn &= \mu + \delta \sqrt{\frac{pn}{q}} \cdot \sqrt{pqn} \\
+        P(X \ge (1+\delta) \mu) &\le \frac{1}{\delta^2pn}
+      \end{align*}\]
+
+    + Chernoff (exponential): ?
+
++ Chernoff bound
+  + distributoion: $X \sim B_{p, n} \quad \mu=pn$
+  + probability: $P(X \ge (q+ \delta)\mu)$
+  + using Markov to derive exponential bound
+
+    \[
+      \forall\, a \;\; \forall\,t \ge 0, X \ge a \iff tX \ge ta \iff e^{tX} \ge e^{ta} \\
+      \hspace{3em} P(X \ge a) = P(e^{tX} \ge e^{ta}) \le \frac{E[e^tX]}{e^{ta}} \hspace{2em} \text{(Markov ineq})
+    \]
+
+  + $E[e^tX]$
+    + evaluate: $E\left[e^{tX}\right] = \left((1-p) + p e^t \right)^n$
+      + exactly moment generating function
+      + self-containing
+      + $X\sim B_{p, n} \quad X = \sum_{i=1}^n X_i \quad X_i \sim B_p \; {\perp \!\!\!\! \perp}$
+
+        \[\begin{align*}
+          E[e^tX] &= E[e^{t\sum X_i}] = E\left[e^{\sum tX_i}\right] \\
+          &= E\left[ \prod_{i=1}^n e^{tX_i}\right] = \prod_{i=1}^n E\left[e^{tX_i}\right] = \left((1-p)+pe^t\right)^n\\\\
+          E\left[e^{tX_i}\right] &= P(X_i = 0) \cdot e^{t \cdot 0} + P(X_i = 1) \cdot e^{t \cdot 1} = (1 -p) + pe^t
+        \end{align*}\]
+
+    + bound: $E\left[e^{tX}\right] \le \exp\left(\mu(e^t -1 )\right)$
+
+      \[\begin{align*}
+        E[e^{tX}] &= \left( (1-p) + pe^t \right) \le \left(\exp(p(e^t - 1))\right) \\
+        &= \exp\left( np(e^t - 1) \right) = \exp\left( \mu(e^t - 1) \right) \\\\
+        (1-p) + p e^t &= 1 + p(e^t -1) \le \exp\left( p(e^t - 1) \right) \\
+        1+ x \le e^x \quad & \quad e^x = 1 + x + \frac{x^2}{2} + \cdots \ge 1 + x
+      \end{align*}\]
+
+    + incorporate in Markov ($\le$): $P(X \ge a) \le \frac{\exp\left( \mu(e^t - 1) \right)}{e^ta}$ & $P(X \ge (1_\delta)\mu) \le \exp^{\mu((e^t -1) - t(1+\delta))}$
+      + $X \sim B_{p, n}\quad \forall\, a \;\; \forall\,t \ge 0$
+
+        \[\begin{align*}
+          P(X \ge a) &= P\left(e^{tX} \ge e^ta\right) \le \frac{E[e^{tX}]}{e^{ta}} \\
+          E\left[e^{tX}\right] &\le \exp\left( \mu(e^t - 1) \right) \\
+          \to & P(X \ge a) \le \frac{\exp(\mu(e^t - 1))}{\exp(ta)}
+        \end{align*}\]
+
+      + $a = (1 + \delta) \mu \quad \delta \ge 0 \quad \forall\, \ge 0$
+
+        \[ P(X \ge (1+\delta)\mu) \le \frac{\exp\left( \mu(e^t - 1) \right)}{\exp\left( \mu (1+ \delta)t \right)} \]
+
+    + optimization: $\forall\, t \ge 0 \;\; P(X \ge (1+\delta)\mu) \le \exp\left( \mu(\delta - (1+\delta) \ln(1+\delta)) \right)$
+
+      \[\begin{align*}
+        \text{objective: minimizing } \quad&P(X \ge (1 + \delta) \mu) \le \exp\left( \mu((e^t - 1) - t(1+\delta)) \right)\\
+        \text{find t minimizing } \quad& f(t) \stackrel{\text{def}}{=} (e^t - 1) - t(1+\delta) \\
+        & f^\prime(t) = e^t - (1+\delta) = 0 \\
+        & \hspace{2em} e^t = 1 + \delta \to t = \ln(1+\delta) \\
+        & f^{\prime\prime}(t) = e^t \ge 0 \\\\
+        P(X \ge (1+\delta) \mu) &\le \exp\left( \mu ((e^t -1) - t (1+ \delta)) \right) \\
+        &= \exp\left( \mu(\delta - (1+\delta) \ln(1+\delta)) \right)
+      \end{align*}\]
+
+  + final specification:
+  
+    \[\begin{align*}
+      P(X \ge (1 + \delta) \mu) &\le \exp\left(\mu(\delta - (1+\delta) \ln(1+\delta))\right) \le \exp\left( -\frac{\delta^2}{2+\delta} \mu \right) \\\\
+      \text{inequality }\quad& \ln(1+x) \ge \frac{x}{1 + \frac{x}{2}} \quad \forall\, x \ge 0\\
+      \text{define } \quad& f(x) = \ln(1+x) - \frac{x}{1 + \frac{x}{2}} \\
+      \text{show } \quad& f(x) \ge 0 \quad \forall\, x \ge 0 \\
+      f(0) &= \ln 1 - \frac01 \\
+      f^\prime(x) &= \frac{1}{1+x} - \frac{(1+\frac x 2) - \frac x 2}{(1 + \frac x 2)^2} \\
+      &= \frac{1}{1+x} - \frac{1}{(1+\frac x 2)^2} = \frac{1}{1+x} - \frac{1}{1+x+\frac{x^2}{2}} \ge 0 \\
+      f(x) \ge 0 \quad& \forall\, x\ge 0 \\
+      \delta - (1-\delta) \ln(1+\delta) &\le \delta - (1+\delta) \frac{\delta}{1+\frac{\delta}{2}} = \delta\left(1 - \frac{1+\delta}{1+\frac{\delta}{2}} \right) \\
+      &= \delta\left(\frac{2+\delta-2-2\delta}{2+\delta} \right) = \frac{-\delta^2}{2+\delta}
+    \end{align*}\]
+
++ Summary: Chernoff bound
+  + r.v.: $X \sim B_{p, n} \quad \delta \ge 0$
+  + showed: $P(X \ge (1+\delta) \mu) \le \exp(-\frac{\delta^2}{2+\delta}\mu)$
+  + similarly: $P(X \le (1-\delta) \mu) \le \exp(-\frac{\delta^2}{2}\mu)$
+  + $\searrow$ exponentially in $n$
+
++ Example: poll
+  + data: 47% vote D w/ 6000 samples
+  + r.v.: $X$ - \# vote D, $X \sim B_{0.47, 6000}$
+  + poll wrong: $X \ge 0.5 \cdots 6000 = 3000$
+
+    \[\begin{align*}
+      \mu &= np = 6000 \cdot 0.47 = 2820 \\
+      3000 &= (1 + \delta)\mu \\
+      1 + \delta &= \frac{3000}{2820} = \frac{6000 \cdot 0.5}{6000 \cdot 0.47} = \frac{50}{47} \approx 1.06383 \\
+      \delta &\approx 0.0638\\
+    \end{align*}\]
+
+  + wrong probability $P(\text{wrong})$
+
+    \[ P(X \ge 3000) = P(X \ge (1 + \delta)\mu) \le \exp\left( \frac{\delta^2}{2+\delta} \mu \right) \approx 0.38\% \]
 
 
 
