@@ -894,8 +894,8 @@
   + statistician
   + UIUC, Standford, MIT, Harvard
   + broadd view of statistics
-  + Chernoff bouns: Markov $\to$ Chebyshev $\to$ Chernoff
-  + > Years ago a statistician might have claimed thst statisticians deals w/ the processing of data ... to-days statistician will be more likely to say thst statistics is concerned w/ decision making in the cade of uncertainty. -- Herman Chernoff
+  + Chernoff bounds: Markov $\to$ Chebyshev $\to$ Chernoff
+  + > Years ago a statistician might have claimed that statisticians deals w/ the processing of data ... to-days statistician will be more likely to say thst statistics is concerned w/ decision making in the case of uncertainty. -- Herman Chernoff
   + Chernoff faces
     + displaying multivariate data in the shape of a human face to handle each variable differently
     + display high-dimensional data
@@ -906,8 +906,8 @@
 + Motivation
   + r.v.: $X \sim B_{p, n} \quad \mu=pn \quad \sigma=\sqrt{pqn}$
   + probability inequalities
-    + decreaing w/ $n$: $P(X \ge \text{ constant times its mean}) \to P(X \ge \left(1+\delta) \mu\right)$
-    + Markov (constant): $P\left(X \ge (1=\delta)\mu\right) \le \frac{1}{1+ \delta}$
+    + decreasing w/ $n$: $P(X \ge \text{ constant times its mean}) \to P(X \ge \left(1+\delta) \mu\right)$
+    + Markov (constant): $P\left(X \ge (1 + \delta)\mu\right) \le \frac{1}{1+ \delta}$
     + Chebyshev (linear)
 
       \[\begin{align*}
@@ -919,7 +919,7 @@
 
 + Chernoff bound
   + r.v.: $X \sim B_{p, n} \quad \mu=pn$
-  + probability: $P(X \ge (q+ \delta)\mu)$
+  + probability: $P(X \ge (1 + \delta)\mu)$
   + decreasing bound
     + Markov - constant
     + Chebyshev - linear
@@ -928,7 +928,7 @@
 
     \[
       \forall\, a \;\; \forall\,t \ge 0, X \ge a \iff tX \ge ta \iff e^{tX} \ge e^{ta} \\
-      \hspace{3em} P(X \ge a) = P(e^{tX} \ge e^{ta}) \le \frac{E[e^tX]}{e^{ta}} \hspace{2em} \text{(Markov ineq})
+      \hspace{3em} P(X \ge a) = P(e^{tX} \ge e^{ta}) \le \frac{E[e^{tX}]}{e^{ta}} \hspace{2em} \text{(Markov ineq})
     \]
 
 + $E[e^tX]$
@@ -938,7 +938,7 @@
     + $X\sim B_{p, n} \quad X = \sum_{i=1}^n X_i \quad X_i \sim B_p \; {\perp \!\!\!\! \perp}$
 
       \[\begin{align*}
-        E[e^tX] &= E[e^{t\sum X_i}] = E\left[e^{\sum tX_i}\right] \\
+        E[e^{tX}] &= E[e^{t\sum X_i}] = E\left[e^{\sum tX_i}\right] \\
         &= E\left[ \prod_{i=1}^n e^{tX_i}\right] = \prod_{i=1}^n E\left[e^{tX_i}\right] = \left((1-p)+pe^t\right)^n\\\\
         E\left[e^{tX_i}\right] &= P(X_i = 0) \cdot e^{t \cdot 0} + P(X_i = 1) \cdot e^{t \cdot 1} = (1 -p) + pe^t
       \end{align*}\]
@@ -946,13 +946,13 @@
   + bound: $E\left[e^{tX}\right] \le \exp\left(\mu(e^t -1 )\right)$
 
     \[\begin{align*}
-      E[e^{tX}] &= \left( (1-p) + pe^t \right)^n \le \left(\exp(p(e^t - 1))\right) \\
-      &= \exp\left( np(e^t - 1) \right) = \exp\left( \mu(e^t - 1) \right) \\\\
-      (1-p) + p e^t &= 1 + p(e^t -1) \le \exp\left( p(e^t - 1) \right) \\
-      1+ x \le e^x \quad & \xrightarrow{\text{tangent line}} e^x = 1 + x + \frac{x^2}{2} + \cdots \ge 1 + x
+      E[e^{tX}] &= \left( (1-p) + pe^t \right)^n \le \left(\exp\left[p(e^t - 1)\right]\right)^n \\
+      &= \exp\left[ np(e^t - 1) \right] = \exp\left[ \mu(e^t - 1) \right] \\\\
+      (1-p) + p e^t &= 1 + p(e^t -1) \le \exp\left[ p(e^t - 1) \right] \\
+      1+ x \le e^x \quad & \xleftarrow{\text{tangent line}} e^x = 1 + x + \frac{x^2}{2} + \cdots \ge 1 + x
     \end{align*}\]
 
-  + incorporate in Markov ($\le$): $P(X \ge a) \le \frac{\exp\left( \mu(e^t - 1) \right)}{e^ta}$ & $P(X \ge (1 +\delta)\mu) \le \exp^{\mu((e^t -1) - t(1+\delta))}$
+  + incorporate in Markov ($\le$): $P(X \ge a) \le \frac{\exp\left[\mu(e^t - 1) \right]}{e^{ta}}$ & $P(X \ge (1 +\delta)\mu) \le e^{\mu((e^t -1) - t(1+\delta))}$
     + $X \sim B_{p, n}\quad \forall\, a \;\; \forall\,t \ge 0$
 
       \[\begin{align*}
@@ -961,7 +961,7 @@
         \to & P(X \ge a) \le \frac{\exp\left( \mu(e^t - 1) \right)}{\exp(ta)}
       \end{align*}\]
 
-    + $a = (1 + \delta) \mu \quad \delta \ge 0 \quad \forall\, \ge 0$
+    + $a = (1 + \delta) \mu \quad \delta \ge 0 \quad \forall\, t \ge 0$
 
       \[ P(X \ge (1+\delta)\mu) \le \frac{\exp\left( \mu(e^t - 1) \right)}{\exp\left( \mu (1 + \delta)t \right)} \]
 
