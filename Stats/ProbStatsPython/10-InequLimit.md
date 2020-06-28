@@ -1054,9 +1054,103 @@
 
 ## 10.6 Central Limit Theorem
 
++ Overview
+  + Central limited theorem (CLM): central result in statistics
+  + mild consitions:
+    + normalized sum of random variables is roughly Normal
+    + discrete, continuous, mized distributions
+  + explaining why Bell curve so popular
+  + allowing for simnple probability estimation
+
++ Rule of thumb
+  + normalized average distributed roughly Normal: \# samples $\ge 30$
+  + why 30
+    + convergence rate of CLT
+    + hippie wisdom
+  + beyond 30: everything is Normal
+
++ Central Limited Theorem (CLT)
+  + let $X_1, X_2, X_3, \dots$ be iid w/ finite $\mu$ and $\sigma$
+    + iid: independent identically distributed
+    + $\mu$: mean
+    + $\sigma$: standard deviation
+
+    \[n \to \infty, \text{ the distribution of } \frac{X_1+X_2+X_3 + \cdots + X_n - n\mu}{\sigma\sqrt{n}} \to N(0, 1) \]
+
+  + normalization: $X_1, X_2, X_3, \dots$ iid w/ $\mu=0$ and $\sigma=1$
+    + tranlation: $-n\mu$
+    + scaling: $/\sigma$
+    + w/o loss of generality, assume $\mu = 0, \;\sigma =1$
+
+    \[n \to \infty, \text{ the distribution of } \frac{X_1+X_2+X_3 + \cdots + X_n - n\mu}{\sigma\sqrt{n}} \to N(0, 1) \]
+
+  + greatly generalizing the Weak Law of Large Numbers
+
++ WLLN vs. CLT
+  + $X_1, X_2, X_3, \dots$ iid w/ $\mu=0$ and $\sigma=1$
+  + WLLN
+    + $n \to \infty, \frac{X_1 + X_2 + \cdots + X_n}{n} \to 0$
+    + $E[X] = 0 \quad Var(X = X_1 + \cdots + X_n) = n \implies Var(\frac{X_1 + X_2 + \cdots + X_n}{n}) = \frac{n}{n^2} = \frac{1}{n} \to 0$
+  + CLT
+    + $n \to \infty, \frac{X_1 + X_2 + \cdots + X_n}{\sqrt{n}} \sim N(0, 1)$
+    + $E[X] = 0, Var(\frac{X_1 + X_2 + \cdots + X_n}{\sqrt{n}}) = \frac n n  = 1$
+    + more important
+    + much more information
+
++ Probability of Central Limite Theorem
+  + $n \to \infty, \frac{X_1 + X_2 + \cdots + X_n}{\sqrt{n}} \sim N(0, 1)$
+  + $Var(\frac{X_1 + X_2 + \cdots + X_n}{\sqrt{n}}) = \frac n n  = 1$
+  + normalized by
+    + $\gg \sqrt{n} \implies Var \to 0$
+    + $ \ll \sqrt{n} \to Var \to \infty$
+    + $\sqrt{n} \to Var = 1$
+  + $\forall\, X_i,$ converge to $N(0, 1)$
+
++ Examplle: store income
+  + customer spending at a store: $\mu = 80 \quad \sigma  40$
+  + 10% below average: P(a customer spends $\le 72$)
+  + care mroe about total revenue
+  + 100 customers w/ P(average spending $\le 72$)
+  + applying CLT to get answer
+
++ General CLT application
+  + $X_1, \dots, X_n {\perp \!\!\!\! \perp}, \sim$ any distribution w/ mean $\mu$ and stdv $\sigma$
+  + $\overline{X^n} \stackrel{\text{def}}{=} \frac{X_1 + X_2 + \cdots + X_n}{n} \quad P\left(\overline{X^n} \le \alpha \right) = ?$
+  + $Z_n \stackrel{\text{def}}{=} \frac{(X_1 + X_2 + \cdots + X_n) - n\mu}{\sigma\sqrt{n}}$
+  + applying CLT, for sufficiently large $n$
+
+    \[ Z_n = \frac{n\overline{X^n} - n\mu}{\sigma\sqrt{n}} = \frac{n\left(\overline{X^n} - \mu \right)}{\sigma\sqrt{n}} = \frac{\overline{X^n} - \mu}{\sigma / \sqrt{n}} \]
+
+  + general formula for average of random variables
+
+    \[ P\left(\overline{X^n} \le \alpha \right) = P\left(\frac{\overline{X^n} - \mu}{\sigma / \sqrt{n}} \right) = P\left(Z_n \le \frac{\alpha - \mu}{\sigma / \sqrt{n}} \right) \approx \Phi\left(\frac{\alpha - \mu}{\sigma / \sqrt{n}}\right) \]
+
+  + CDF:
+    + r.v.: $N(0, 1)$
+    + cdf: $\Phi(x) \triangleq F(x) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^x e^{-\frac{y^2}{2}} \,dy$
+    + no know formula
+    + using table or computer instead
+      + standard normal table
+      + z table
+
++ Exapmple: store
+  + customer spending
+    + r.v.: $X_i\; {\perp \!\!\!\! \perp}$
+    + mean: $\mu = 80$
+    + stdv: $sigma = 40$
+    + samples: $n = 100$ customers
+  + 10% below average: P(average spending $\le 72$)
+
+    \[\begin{align*}
+      P\left( \overline{X^n} \le \alpha) \right) &\approx \Phi\left(\frac{\alpha - \mu}{\sigma / \sqrt{n}}\right) \\
+      P\left( \overline{X^{100}} \le \alpha) \right) &\approx \Phi\left( \frac{72 - 80}{40/\sqrt{100}} \right) = \Phi\left(-\frac84 \right) = \Phi\left(-2\right) \\
+      &= 1 - \Phi(2) \approx = 1 - 0.9772 = 0.0228 \approx 2.3\% \\
+      P(X \le -a) &= \Phi(-a) = 1 - \Phi(a)
+    \end{align*}\]
 
 
 
++ [Original Slides](https://tinyurl.com/ycz858wd)
 
 
 ### Problem Sets
