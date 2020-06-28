@@ -1058,9 +1058,25 @@
   + Central limited theorem (CLM): central result in statistics
   + mild consitions:
     + normalized sum of random variables is roughly Normal
-    + discrete, continuous, mized distributions
+    + applied to discrete, continuous, mixed distributions
   + explaining why Bell curve so popular
-  + allowing for simnple probability estimation
+  + allowing for simple probability estimation
+  + examples
+    + r.v.: $B_{1/2}$
+    + r.v.: sum of rolling dice
+    + continous distributions
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yafcpxx2" ismap target="_blank">
+      <img src="https://tinyurl.com/y7y9jup5" style="margin: 0.1em;" alt="Note that, if the Binomial distribution has n=1 (only on trial is run), hence it turns to a simple Bernoulli distribution. Furthermore, Binomial distribution is important also because, if n tends towards infinite and both p and (1-p) are not indefinitely small, it well approximates a Gaussian distribution. The latter is hence a limiting form of Binomial distribution." title="Visualizing the Binomial distribution w/ various flips" width=450>
+    </a>
+    <a href="https://mathworld.wolfram.com/Dice.html" ismap target="_blank">
+      <img src="https://mathworld.wolfram.com/images/eps-gif/DicePlots_770.gif" style="margin: 0.1em;" alt="The probabilities for obtaining a given total using n 6-sided dice are shown above for n=1, 2, 3, and 4 dice. They can be seen to approach a normal distribution as the number of dice is increased." title="Visualizing the distribution w/ multiple dice rolling" width=350>
+    </a>
+    <a href="https://tinyurl.com/ycz858wd" ismap target="_blank">
+      <img src="img/t10-06.png" style="margin: 0.1em;" alt="Various continuous distributions and their multiple sums" title="Various continuous distributions and their multiple sums" width=350>
+    </a>
+  </div>
 
 + Rule of thumb
   + normalized average distributed roughly Normal: \# samples $\ge 30$
@@ -1075,19 +1091,20 @@
     + $\mu$: mean
     + $\sigma$: standard deviation
 
-    \[n \to \infty, \text{ the distribution of } \frac{X_1+X_2+X_3 + \cdots + X_n - n\mu}{\sigma\sqrt{n}} \to N(0, 1) \]
+    \[n \to \infty, \text{ the distribution of } \frac{X_1+X_2 + \cdots + X_n - n\mu}{\sigma\sqrt{n}} \to N(0, 1) \]
 
-  + normalization: $X_1, X_2, X_3, \dots$ iid w/ $\mu=0$ and $\sigma=1$
+  + normalization:
+    + r.v.: $X_1, X_2, X_3, \dots$ iid w/ $\mu=0$ and $\sigma=1$
     + tranlation: $-n\mu$
     + scaling: $/\sigma$
     + w/o loss of generality, assume $\mu = 0, \;\sigma =1$
 
-    \[n \to \infty, \text{ the distribution of } \frac{X_1+X_2+X_3 + \cdots + X_n - n\mu}{\sigma\sqrt{n}} \to N(0, 1) \]
+    \[n \to \infty, \text{ the distribution of } \frac{X_1+X_2 + \cdots + X_n - n\mu}{\sigma\sqrt{n}} \to N(0, 1) \]
 
   + greatly generalizing the Weak Law of Large Numbers
 
-+ WLLN vs. CLT
-  + $X_1, X_2, X_3, \dots$ iid w/ $\mu=0$ and $\sigma=1$
++ CLT and Weak Law of Large Number (WLLN)
+  + r.v.: $X_1, X_2, X_3, \dots$ iid w/ $\mu=0$ and $\sigma=1$
   + WLLN
     + $n \to \infty, \frac{X_1 + X_2 + \cdots + X_n}{n} \to 0$
     + $E[X] = 0 \quad Var(X = X_1 + \cdots + X_n) = n \implies Var(\frac{X_1 + X_2 + \cdots + X_n}{n}) = \frac{n}{n^2} = \frac{1}{n} \to 0$
@@ -1096,28 +1113,24 @@
     + $E[X] = 0, Var(\frac{X_1 + X_2 + \cdots + X_n}{\sqrt{n}}) = \frac n n  = 1$
     + more important
     + much more information
-
-+ Probability of Central Limite Theorem
-  + $n \to \infty, \frac{X_1 + X_2 + \cdots + X_n}{\sqrt{n}} \sim N(0, 1)$
-  + $Var(\frac{X_1 + X_2 + \cdots + X_n}{\sqrt{n}}) = \frac n n  = 1$
   + normalized by
-    + $\gg \sqrt{n} \implies Var \to 0$
-    + $ \ll \sqrt{n} \to Var \to \infty$
-    + $\sqrt{n} \to Var = 1$
+    + $> \sqrt{n} \implies Var \to 0$
+    + $< \sqrt{n} \implies Var \to \infty$
+    + $\sqrt{n} \implies Var = 1$
   + $\forall\, X_i,$ converge to $N(0, 1)$
 
-+ Examplle: store income
-  + customer spending at a store: $\mu = 80 \quad \sigma  40$
-  + 10% below average: P(a customer spends $\le 72$)
-  + care mroe about total revenue
++ Example: store income
+  + customer spending at a store: $\mu = 80 \quad \sigma = 40$
+  + chance of purchase 10% below average: P(a customer spends $\le 72$)
+  + care more about total revenue
   + 100 customers w/ P(average spending $\le 72$)
   + applying CLT to get answer
 
 + General CLT application
-  + $X_1, \dots, X_n {\perp \!\!\!\! \perp}, \sim$ any distribution w/ mean $\mu$ and stdv $\sigma$
+  + r.v.: $X_1, \dots, X_n {\perp \!\!\!\! \perp}, \sim$ any distribution w/ mean $\mu$ and stdv $\sigma$
   + $\overline{X^n} \stackrel{\text{def}}{=} \frac{X_1 + X_2 + \cdots + X_n}{n} \quad P\left(\overline{X^n} \le \alpha \right) = ?$
   + $Z_n \stackrel{\text{def}}{=} \frac{(X_1 + X_2 + \cdots + X_n) - n\mu}{\sigma\sqrt{n}}$
-  + applying CLT, for sufficiently large $n$
+  + applying CLT, for sufficiently large $n$ (say 30) approximating $Z_n \sim N(0, 1)
 
     \[ Z_n = \frac{n\overline{X^n} - n\mu}{\sigma\sqrt{n}} = \frac{n\left(\overline{X^n} - \mu \right)}{\sigma\sqrt{n}} = \frac{\overline{X^n} - \mu}{\sigma / \sqrt{n}} \]
 
@@ -1127,24 +1140,24 @@
 
   + CDF:
     + r.v.: $N(0, 1)$
-    + cdf: $\Phi(x) \triangleq F(x) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^x e^{-\frac{y^2}{2}} \,dy$
+    + cdf: $\Phi(x) \triangleq F(x) = \frac{1}{\sqrt{2\pi}} \displaystyle \int_{-\infty}^x e^{-\frac{y^2}{2}} \,dy$
     + no know formula
     + using table or computer instead
       + standard normal table
       + z table
 
-+ Exapmple: store
++ Example: store income (cont.)
   + customer spending
     + r.v.: $X_i\; {\perp \!\!\!\! \perp}$
     + mean: $\mu = 80$
-    + stdv: $sigma = 40$
+    + stdv: $\sigma = 40$
     + samples: $n = 100$ customers
   + 10% below average: P(average spending $\le 72$)
 
     \[\begin{align*}
-      P\left( \overline{X^n} \le \alpha) \right) &\approx \Phi\left(\frac{\alpha - \mu}{\sigma / \sqrt{n}}\right) \\
-      P\left( \overline{X^{100}} \le \alpha) \right) &\approx \Phi\left( \frac{72 - 80}{40/\sqrt{100}} \right) = \Phi\left(-\frac84 \right) = \Phi\left(-2\right) \\
-      &= 1 - \Phi(2) \approx = 1 - 0.9772 = 0.0228 \approx 2.3\% \\
+      P\left( \overline{X^n} \le \alpha \right) &\approx \Phi\left(\frac{\alpha - \mu}{\sigma / \sqrt{n}}\right) \\\\
+      P\left( \overline{X^{100}} \le \alpha) \right) &\approx \Phi\left( \frac{72 - 80}{40/\sqrt{100}} \right) = \Phi\left(-\frac84 \right) = \Phi\left(-2\right) \\\\
+      &= 1 - \Phi(2) \approx 1 - 0.9772 = 0.0228 \approx 2.3\% \\\\
       P(X \le -a) &= \Phi(-a) = 1 - \Phi(a)
     \end{align*}\]
 
