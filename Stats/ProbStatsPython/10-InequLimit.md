@@ -1025,8 +1025,23 @@
 
 + [Original Slides](https://tinyurl.com/yc8qqe73)
 
+
 ### Problem Sets
 
+0. If we want to apply Chernoff bound to other distributions, the formulas are going to be different from Chernoff bound on binomial distributions. Because different distributions have the different moment generating functions. (True/False)
+
+  Ans: <span style="color: cyan;">True</span>
+
+
+1. You toss a fair coin $1000$ times and take a step forward if the coin lands head and a step backward if it lands tail. Upper bound the probability that you end up $\ge 100$ steps from your starting point (in either direction) using Chernoff bound (after the final simplification as in the slides).
+
+  Ans: 
+
+
+
+2. A coin is equally likely to be either $B_{1/3}$ or $B_{2/3}$. To figure out the bias, we toss the coin $99$ times and declare $B_{1/3}$ if the number of heads is less than $49.5$ and $B_{2/3}$ otherwise. Bound the error probability using the Chernoff bound derived in lecture video (in its final form, after simplifcation).
+
+  Ans: 
 
 
 
