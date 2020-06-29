@@ -1168,6 +1168,41 @@
 
 ### Problem Sets
 
+0. Let X be a random variable with $\mu = 10$ and $\sigma = 4$. If X is sampled 100 times, what is the approximate probability that the sample mean of these 100 observations is less than 9?<br/>
+  a. 0.002<br/>
+  b. 0.004<br/>
+  c. 0.006<br/>
+  d. None of the above<br/>
+
+  Ans: c
+
+
+1. For  i≥1 , let  Xi∼G1/2  be distributed Geometrically with parameter $1/2$.
+
+  Define $Y_n=\frac{1}{\sqrt{n}}\sum_{i=1}^n (X_i-2)$
+
+  Approximate $P(−1 \le Y_n \le 2)$  with large enough $n$.
+
+  Ans: 0.6787<br/>
+  Explanation: Recall that the Geometric Distribution $G_p$ has mean $\frac 1 p$ and standard deviation $\frac{\sqrt{1−p)}}{p}$.  Since the $X_i \sim G_{1/2}$, their mean is 2 and their standard deviation is $\frac{\sqrt{1/2}{1/2}=\sqrt{2}$.  Let $Z_n = \frac{Y_n}{\sqrt{2}}$. Then by the central limit theorem, for sufficiently large $n$, $Z_n \sim N(0,1)$.  Hence $P(-1\le Y_n\le 2)=P(-1/\sqrt{2}\le Z_n\le \sqrt2)$ $=\Phi(\sqrt2)-\Phi(-1/\sqrt2)$ $=0.9214-0.2398$ $=0.6816$.
+
+
+2. A class has 100 students. Each student's score is a random variable with mean $85$ and standard deviation $40$. Use the CLT to approximate the probability that the class average score is below $80$.
+
+  Ans: 0.1056<br/>
+  Explanation: The class average score $\frac{1}{100} \sum^{100}_{i=1} X_i$ has mean $85$ and standard deviation $\frac{40}{\sqrt{100}}=4$. The probability can be calculated using $\Phi(\frac{80−85}{4})= \Phi(−1.25)=0.1056$.
+
+
+3. The time between consecutive shuttle arrivals is known to be exponentially distributed with mean 10 minutes. You arrive at the shuttle stop at a uniformly-distributed time.
+
+  a. What is the probability that you wait for less than 9 minutes?  
+  
+  b. Assume that you took the shuttle once a day during the past 30 days. What is the approximate probability, according to the CLT, that your average wait time was less than  9  muinutes?
+
+  Ans: a. (0.5934); b. (0.2912)<br/>
+  Explanation: 
+    + Let $X$ be the wait time. $P(X \le 9) = 1 - e^{-\frac{9}{10}} = 0.5934$
+    + Let $X_i$ be the wait time on the $i$-th day, and $\bar{X} = \frac{X_1 + \cdots + X_{30}}{30}$ be the average wait time. As $P(\bar{X} \le \alpha) = \Phi(\frac{\alpha - \mu}{\sigma / \sqrt{n}})$ with $\alpha =9,\mu=10,\sigma=10,n=30$, we have $P(\overline{X} \le 9)=0.2919$
 
 
 
