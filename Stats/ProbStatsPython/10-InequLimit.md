@@ -568,7 +568,7 @@
       \[ M(t) = E[e^{tX}] = p_1 e^{c_1 t} + p_2 e^{c_2 t} \]
 
 + Example: Bernoulli w/ values 0, 1
-  + distribution: $X \sim B_p \quad p_0 = 1- p \quad p_1 =p$
+  + r.v.: $X \sim B_p \quad p_0 = 1- p \quad p_1 =p$
   + moment generating function
 
     \[ M(t) = (1-p) \;e^{t \cdot 0} + p \;e^{t \cdot 1} = (1-p) + p \;e^{t} \]
@@ -656,7 +656,7 @@
       \[ M^{(n)}(t) = E[X^n \,e^{Xt}] \to M^{(n)}(0) = E[X^n] \]
 
 + Example: Binomial
-  + distribution: $B_{p, n} \quad 0 \le p \le 1, n \ge 0$
+  + r.v.: $B_{p, n} \quad 0 \le p \le 1, n \ge 0$
   + pdf: $p(k) = \tbinom{n}{k} p^k (1 - p)^{n-k}$
   + moment generating function: $M(t) = \left(1+p(e^t -1)\right)^n$
 
@@ -671,7 +671,7 @@
     \[ M^\prime(t) = n(pe^t + 1 - p)^{n-1} \cdot pe^t \to M^\prime(0) = n(pe^0 + 1 - pe^0)^{n-1} \cdot pe^0 = np \]
 
 + Example: Poisson
-  + distribution: $P_\lambda, \lambda > 0$
+  + r.v.: $P_\lambda, \lambda > 0$
   + pdf: $p(k) = e^{-\lambda} \frac{\lambda^k}{k!}$
   + moment generating function: $M(t) = e^{\lambda(e^t - 1)}$
 
@@ -682,7 +682,7 @@
     \end{align*}\]
 
 + Example: standard normal
-  + distribution: $Z \sim N(0, 1)$
+  + r.v.: $Z \sim N(0, 1)$
   + pdf: $f(x) = \frac{1}{\sqrt{2\pi}} \exp(-\frac{x^2}{2})$
   + MGF: $M_Z(t) = \exp\left({\frac{t^2}{2}}\right)$
 
@@ -693,7 +693,7 @@
     \end{align*}\]
 
 + Example: linear transformed normal
-  + distribution: $Z \sim N(\mu, \sigma^2)$
+  + r.v.: $Z \sim N(\mu, \sigma^2)$
   + function: $X = \sigma Z + \mu$
   + moment generating function: $M_X(t) = \exp(\mu t + \frac{\sigma^2 t^2}{2})$
 
@@ -1055,7 +1055,7 @@
 ## 10.6 Central Limit Theorem
 
 + Overview
-  + Central limited theorem (CLM): central result in statistics
+  + Central Limited Theorem (CLT): central result in statistics
   + mild consitions:
     + normalized sum of random variables is roughly Normal
     + applied to discrete, continuous, mixed distributions
@@ -1064,7 +1064,7 @@
   + examples
     + r.v.: $B_{1/2}$
     + r.v.: sum of rolling dice
-    + continous distributions
+    + continuous distributions
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/yafcpxx2" ismap target="_blank">
@@ -1127,16 +1127,16 @@
   + applying CLT to get answer
 
 + General CLT application
-  + r.v.: $X_1, \dots, X_n {\perp \!\!\!\! \perp}, \sim$ any distribution w/ mean $\mu$ and stdv $\sigma$
+  + r.v.: $X_1, \dots, X_n {\perp \!\!\!\! \perp}, \sim$ any distribution w/ mean $\mu$ and stdev $\sigma$
   + $\overline{X^n} \stackrel{\text{def}}{=} \frac{X_1 + X_2 + \cdots + X_n}{n} \quad P\left(\overline{X^n} \le \alpha \right) = ?$
   + $Z_n \stackrel{\text{def}}{=} \frac{(X_1 + X_2 + \cdots + X_n) - n\mu}{\sigma\sqrt{n}}$
-  + applying CLT, for sufficiently large $n$ (say 30) approximating $Z_n \sim N(0, 1)
+  + applying CLT, for sufficiently large $n$ (say 30) approximating $Z_n \sim N(0, 1)$
 
     \[ Z_n = \frac{n\overline{X^n} - n\mu}{\sigma\sqrt{n}} = \frac{n\left(\overline{X^n} - \mu \right)}{\sigma\sqrt{n}} = \frac{\overline{X^n} - \mu}{\sigma / \sqrt{n}} \]
 
   + general formula for average of random variables
 
-    \[ P\left(\overline{X^n} \le \alpha \right) = P\left(\frac{\overline{X^n} - \mu}{\sigma / \sqrt{n}} \right) = P\left(Z_n \le \frac{\alpha - \mu}{\sigma / \sqrt{n}} \right) \approx \Phi\left(\frac{\alpha - \mu}{\sigma / \sqrt{n}}\right) \]
+    \[ P\left(\overline{X^n} \le \alpha \right) = P\left(\frac{\overline{X^n} - \mu}{\sigma / \sqrt{n}} \le \frac{\alpha - \mu}{\sigma / \sqrt{n}} \right) = P\left(Z_n \le \frac{\alpha - \mu}{\sigma / \sqrt{n}} \right) \approx \Phi\left(\frac{\alpha - \mu}{\sigma / \sqrt{n}}\right) \]
 
   + CDF:
     + r.v.: $N(0, 1)$
@@ -1150,13 +1150,13 @@
   + customer spending
     + r.v.: $X_i\; {\perp \!\!\!\! \perp}$
     + mean: $\mu = 80$
-    + stdv: $\sigma = 40$
+    + stdev: $\sigma = 40$
     + samples: $n = 100$ customers
   + 10% below average: P(average spending $\le 72$)
 
     \[\begin{align*}
       P\left( \overline{X^n} \le \alpha \right) &\approx \Phi\left(\frac{\alpha - \mu}{\sigma / \sqrt{n}}\right) \\\\
-      P\left( \overline{X^{100}} \le \alpha) \right) &\approx \Phi\left( \frac{72 - 80}{40/\sqrt{100}} \right) = \Phi\left(-\frac84 \right) = \Phi\left(-2\right) \\\\
+      P\left( \overline{X^{100}} \le 72 \right) &\approx \Phi\left( \frac{72 - 80}{40/\sqrt{100}} \right) = \Phi\left(-\frac84 \right) = \Phi\left(-2\right) \\\\
       &= 1 - \Phi(2) \approx 1 - 0.9772 = 0.0228 \approx 2.3\% \\\\
       P(X \le -a) &= \Phi(-a) = 1 - \Phi(a)
     \end{align*}\]
