@@ -1223,9 +1223,12 @@
 
     \[\begin{align*}
       F_{Z_n}(x) &= P\left(Z_n \le x\right) = P\left(\frac{X_1+X_2+\cdots+X_n}{\sqrt{n}} \le x \right) \\\\
-      F_{Z_n}(x) &= \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} dt \stackrel{\text{def}}{=} \Phi(x)\\\\
-      F_{Z_n}(x) &\xrightarrow[n\to\infty]{} F_{Z_x}(x) \quad \forall\,x \hspace{3em} (\text{convergence "in distributionj"})
+      F_{Z}(x) &= \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} dt \stackrel{\text{def}}{=} \Phi(x) \left(Z \sim N(0, 1) \right)
     \end{align*}\]
+  
+  + convergence "in distribution"
+    + $F_{Z_n}(x) \xrightarrow[n\to\infty]{} F_{Z_x}(x) \quad \forall\,x$
+    + CDF of standard normal distribution
 
 + Moment generating functions (MGF)
   + MGF defintion: $M_X(t) \stackrel{\text{def}}{=} E\left[e^tX\right]$
@@ -1241,31 +1244,31 @@
 
     \[ M^\prime_X(0) = E\left[ X \right] \quad M^{\prime\prime}_X(0) = E\left[ X^2 \right] \quad M_X(0) = E[X^0] = 1 \]
 
-  + standard Normal: $Z \sim N(0, 1) \quad M_X(t) = \exp\left(-\frac{t^2}{2}  \right)$
+  + standard Normal: $Z \sim N(0, 1) \quad M_X(t) = \exp\left(\frac{t^2}{2}  \right)$
 
 + Continuity
-  + cumulative distribution function (CDF)
-  + moment generating funnction (MGF)
-  + r.v.: $Z_1, Z_2, Z-3, \dots$
+  + r.v.: $Z_1, Z_2, Z_3, \dots$
     + CDF: $F_{Z_n}(t)$
     + MGF: $M_{Z_n}(t)$
   + r.v.: $Z$
     + CDF: $F_{Z_n}(t)$
     + MGF: $M_Z(t)
   
-  \[ M_{Z_n}(t) \to M_Z(t) \;\; \forall\,t \implies F_{Z_n} \to F_Z(t) \text{ wherever } F_Z(t) \text{ is continuous } \]
+  \[ M_{Z_n}(t) \to M_Z(t) \;\; \forall\,t \implies F_{Z_n}(t) \to F_Z(t) \text{ wherever } F_Z(t) \text{ is continuous } \]
 
-+ Procedure
++ Proof
   + r.v.: $Z \sim N(0, 1) \to M_Z(t) = \exp\left( \frac{t^2}{2} \right)$
   + prove: $M_{Z_n}(t) \xrightarrow[n \to \infty]{} e^{\frac{t^2}{2}} \implies F_{Z_n}(t) \xrightarrow[n \to \infty]{} \Phi(t)$
 
     \[\begin{align*}
-      Z_n &= \frac{1}{\sqrt{n}} \sum_{i=1}^n X_i = \sum_{i=1}^n \frac{X_1}{\sqrt{n}} \\
-      M_{\frac{X_i}{\sqrt{n}}} &= M_{X_i} \left( \frac{t}{\sqrt{n}} \right) = M\left( \frac{t}{\sqrt{n}} \right) \\\\
+      Z_n &= \frac{1}{\sqrt{n}} \sum_{i=1}^n X_i = \sum_{i=1}^n \frac{X_1}{\sqrt{n}} \to M_{\frac{X_i}{\sqrt{n}}} &= M_{X_i} \left( \frac{t}{\sqrt{n}} \right) = M\left( \frac{t}{\sqrt{n}} \right) \\\\
       M_{Z_n}(t) &= \prod_{i=1}^n M_{\frac{X_i}{\sqrt{n}}} (t) = \prod_{i=1}^n M\left( \frac{t}{\sqrt{n}} \right) = \left[ M\left( \frac{t}{\sqrt{n}} \right) \right]^n \xrightarrow[n \to \infty]{} e^{\frac{t^2}{2}}
     \end{align*}\]
 
-  + $\displaystyle \lim_{n \to \infty} \left[ M\left( \frac{t}{\sqrt{n}} \right) \right]^n = e^{\frac{t^2}{2}} \iff \displaystyle \lim_{n \to \infty} n \cdot \ln M\left( \frac{t}{\sqrt{n}} \right) = \frac{t^2}{2}$
+  + w/ L’Hôpital’s Rule
+  
+    \[ \displaystyle \lim_{n \to \infty} \left[ M\left( \frac{t}{\sqrt{n}} \right) \right]^n = e^{\frac{t^2}{2}} \iff \displaystyle \lim_{n \to \infty} n \cdot \ln M\left( \frac{t}{\sqrt{n}} \right) = \frac{t^2}{2}\]
+
     + $M(0) = E[X_i^0] = 1 \quad M^i(0) = E[X^i]$
     + $M^\prime(0) = E[X_i^1] = \mu = 0 \quad M^{\prime\prime}(0) = E[X^2_i] = \sigma^2 = 1$
     + $\infty \cdot 0 = ?$
@@ -1280,7 +1283,7 @@
 
 
 + L’Hôpital’s Rule
-  + find: $\lim_{x \to a} \frac{f(x)}{g(x)}$ w/ $a$ as anything, finite or $\pm \infty$
+  + find: $\displaystyle\lim_{x \to a} \frac{f(x)}{g(x)}$ w/ $a$ as anything, finite or $\pm \infty$
   + examples
     + $\lim f(x) = 6 \quad \lim g(x) \to \lim \frac{f(x)}{g(x)} = \frac63 = 2$
     + $\lim f(x) = lim g(x) = 0 \text{ or } \lim f(x), \lim g(x) = \pm \infty \to \lim \frac{f(x)}{g(x)}$ unclear
@@ -1290,7 +1293,7 @@
 + Assembling
   + r.v.: $X_i \quad \text{ iid }, \quad \mu=0,\;\; \sigma^2 = 1$
   + normalization: $X_n = \frac{X_1 + X_2 + \cdots + X_N}{\sqrt{n}} \sim N(0, 1)$
-  + $\lim_{n \to \infty} M_{Z_n}(t) = \lim \left[ M\left( \frac{t}{\sqrt{n}} \right) \right] = e^{\frac{t^2}{2}} = M_Z(t)$
+  + $\lim_{n \to \infty} M_{Z_n}(t) = \lim_{n \to \infty} \left[ M\left( \frac{t}{\sqrt{n}} \right) \right]^n = e^{\frac{t^2}{2}} = M_Z(t)$
     + $F_{Z_n} \to F_Z = \Phi$
     + $Z_n$ approach standard Normal distribution
     + general iid $X_i$ just define $Z_n = \frac{X_1 + X_2 + \cdots + X_n - n\mu}{\sigma\sqrt{n}}$
