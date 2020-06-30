@@ -1316,7 +1316,14 @@
 
 ### Problem Sets
 
+0. Suppose that X, Y, and $(X+Y)/\sqrt{2}$ all share the same probability density function f. What could f be?<br/>
+  a. Uniform over [0,1]<br/>
+  b. Exponential with parameter 2<br/>
+  c. Normal with mean 0<br/>
+  d. Normal with mean 1<br/>
 
+  Ans: c <br/>
+  Explanation: The sum of two Gaussian random variables is still Gaussian. The sum of two uniform or two exponential random variables is not uniform or exponential.  If $X, Y \sim N(\mu, \sigma^2)$, then $(X+Y)/\sqrt{2} \sim N(\sqrt{2} \cdot \mu, \sigma^2)$. The answer is the normal distribution with mean 0.
 
 
 ### Lecture Video
