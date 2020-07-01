@@ -235,6 +235,71 @@ def uniform_mean_pdf_clt(s, n, h):
 
     return None
 
+def exp_sample_counts(lam, k, n):
+    """plot the pdf of 1/n(\sum_{i=1}^n X_i), X_i \sim Exp(\lambda)
+
+    Args:
+        lam (float): parameter of exponential distribution
+        k (int): number of r.v.s w/ exponential distribution
+        n (int): number of samples
+    """
+    # generate a k by n matrix of uniform random numbers
+    X = np.random.exponential(1.0/lam, [k, n]) - 1.0/lam
+    S = np.sum(X, axis=0)/sqrt(k)
+
+    return S
+
+
+def exp_plot_hist(lam, k, h):
+    """plot histogram of exponential distribution of samples
+
+    Args:
+        lam (float): parameter of exponential distribution
+        k (int): number of r.v.s w/ exponential distribution
+        h (int): number iof samples
+    """
+    if h > 0:
+        n = h
+        counts = exp_sample_counts(lam, k, n)
+        plt.hist(counts, bins=40, density=True, label="Histogram of empirical means")
+
+    return None
+
+def exp_mean_pdf_clt(lam, n, h):
+    """Plot exponential distribution w/ theoretical values, empirical simulation,\
+    and it mean value w/ central limit theorem
+
+    Args:
+        lam (float): parameter of exponential distribution
+        n (int): number of r.v.s of exponential distribution
+        h (int): number of samples
+    """
+    d = 0.01
+    x = np.linspace(d, 5, 500)
+    z = [(lam**n)*((i*sqrt(n))**(n-1))*exp(-lam*(i*sqrt(n)))/(factorial(n-1))*sqrt(n) for i in x]
+    x = np.linspace(d-n/(sqrt(n)*lam), 5-n/(sqrt(n)*lam), 500)
+
+    plt.close()
+    plt.plot(x, z, label="Distributeion of the Mean")
+    plt.title("PDF and histogram of $X_n$ w/ $\lambda$={:1.2f}, n={:d}"\
+        .format(lam, n), fontsize=20)
+    plt.xlabel('$x$', fontsize=20)
+    plt.ylabel('$f_{X_n}(x)$', fontsize=20)
+
+    var = 1.0/(lam**2)
+    p = np.linspace(-5, 5, 1000)
+    q = [exp(-i**2/(2*var))/(sqrt(2*pi*var)) for i in p]
+    plt.plot(p, q, label="Gaussian distribution")
+    plt.xlim([-5, 5])
+    plt.ylim([0, 1.3])
+    plt.grid()
+
+    exp_plot_hist(lam, n, h)
+    
+    plt.legend()
+    plt.show()
+
+    return None
 
 
 def main():
@@ -286,7 +351,13 @@ def main():
     # n = (1, 20),  h = (1, 10000)
     s, n, h = (2, 8), 5, 10000
     s, n, h = (2, 4), 10, 10000
-    uniform_mean_pdf_clt(s, n, h)
+    # uniform_mean_pdf_clt(s, n, h)
+
+
+    # exponential distribution for CLT
+    # lambda = (1, 3), n = (1, 30), h = (0, 10000)
+    lam, n, h = 3, 10, 10000
+    exp_mean_pdf_clt(lam, n, h)
 
 
     # input("\nPress Enter to continue ......")
