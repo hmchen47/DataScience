@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np 
 import pandas as pd 
 
-from math import sqrt, exp, factorial
+from math import sqrt, exp, factorial, pi
 
 
 def plot_markov_chebyshev(mu, sig):
@@ -168,6 +168,75 @@ def exponential_mean_pdf(lam, n, h):
     return None
 
 
+def uniform_sample_counts(a, b, k, n):
+    """plot the pdf of 1/n(sum_{i=1}^n X_i), X_i \sim U_{a, b}
+
+    Args:
+        a (int): lower bound of uniform distribution
+        b (int): upper bound of uniform distribution
+        k (int): number of rvs w/ unifromation dist
+        n (int): number of samples
+    """
+    X = np.random.uniform(a - (a+b)/2, b - (a+b)/2, [k, n])
+    S = np.sum(X, axis=0)/sqrt(k)
+
+    return S
+
+def uniform_plot_hist(s, k, h):
+    a = s[0]
+    b = s[1]
+    if h > 0:
+        n = h
+        counts = uniform_sample_counts(a, b, k, n)
+        plt.hist(counts, bins=40, density=True, label='Histogram of empirical means')
+
+    return None
+
+def uniform_mean_pdf_clt(s, n, h):
+    """plot aggregation of multiple r.v.s w unifrom distributions under CLT
+
+    Args:
+        s (tuple): range of uniform distribution
+        n (int): number of r.v.s w/ uniform distribution
+        h (int): number of samples
+    """
+    a, b = s
+    d = 10.0/1000
+    x = np.linspace(-4.99, 5, 1000)
+    if a < b:
+        y = (1.0*(x>=(a-b)/2))*(1.0*(x<=(b-a)/2))/(b-a)
+        z = y
+        for j in range(2, n+1):
+            t = [item/(j-1) for item in z for i in range(j-1)]
+            z = [0, ] + np.convolve(y, t).tolist()
+            z = [i*d for i in z]
+            z = np.sum(np.reshape(z, (1000, j)), axis=1)
+        sc = int(n/sqrt(n))
+        rem = n/sqrt(n) - sc
+        z = [item/(rem+sc) for item in z for i in range(sc+np.random.binomial(1, rem))]
+        x = np.linspace(-d*len(z)/2, d*len(z)/2, len(z))
+        plt.close()
+
+        plt.plot(x, z, label="Distribution of the mean")
+        plt.xlim([-5, 5])
+        plt.title("PDF and histogram of $Z_n$ w/ n={}".format(n))
+        plt.xlabel('$x$')
+        plt.ylabel('$f_{S_n}(x)$')
+
+        var = (b-a)**2/12
+        p = np.linspace(-5, 5, 1000)
+        q = [exp(-i**2/(2*var))/(sqrt(2*pi*var)) for i in p]
+        plt.plot(p, q, label='Gaussian distribution')
+        uniform_plot_hist(s, n, h)
+        plt.xlim([-5, 5])
+        plt.legend()
+        plt.grid()
+        plt.show()
+
+    return None
+
+
+
 def main():
 
     plt.style.use([{
@@ -207,7 +276,17 @@ def main():
     # exponential distribution
     # lam = (0.02, 10), n = (1, 20), h = (1, 10000)
     lam, n, h = .5, 12, 10000
-    exponential_mean_pdf(lam, n, h)
+    # exponential_mean_pdf(lam, n, h)
+
+
+    # CLT - uniform distribution
+    # Uniform distribution: [a, b]
+    # k uniform distributions w/ n repetition
+    # width = [a, b], min(a, b) = 0.02, max(a, b) = 9.98
+    # n = (1, 20),  h = (1, 10000)
+    s, n, h = (2, 8), 5, 10000
+    s, n, h = (2, 4), 10, 10000
+    uniform_mean_pdf_clt(s, n, h)
 
 
     # input("\nPress Enter to continue ......")
