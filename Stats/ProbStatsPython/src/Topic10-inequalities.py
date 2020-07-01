@@ -109,6 +109,65 @@ def uniform_mean_pdf(s, n, h, debug=False):
     return None
 
 
+def generate_exponential_counts(lam, k, n):
+    """generate the samples of empirical mean of k exponential distributions 
+    w/ parameter lambda
+
+    Args:
+        lam (float): parameter for exponential distribution
+        k (int): number of r.v. for exponential dist
+        n (int): number of samples
+    """
+    X = np.random.exponential(1.0/lam, [k, n])
+    S = np.sum(X, axis=0)/k
+    
+    return S
+
+
+def exp_plot_hist(lam, k, h):
+    """plot the histogram for the exponential distribution
+
+    Args:
+        lam (float): parameter of the exponential distribution
+        k (int): number of r.v.s of exponential distribution
+        h (int): number of samples
+    """
+    n = h
+    if h > 0:
+        counts = generate_exponential_counts(lam, k, n)
+        plt.hist(counts, bins=int(h/50), density=True, label='Histogram of mean values')
+
+    return max(counts)
+
+
+def exponential_mean_pdf(lam, n, h):
+    """plot the pdf of 1/n(\sum_{i=1}^n X_i), X_i \sim \Exp_{lam}
+
+    Args:
+        lam (float): parameter of exponential distribution
+        n (int): number of r.v.s
+        h (int): number odf samples
+    """
+    xmax = exp_plot_hist(lam, n, h)
+
+    d = np.ceil(xmax)/200
+    x = np.linspace(0.01, np.ceil(xmax), 1000)
+    z = [(lam**n)*((i*(n))**(n-1))*exp(-lam*(i*(n)))/(factorial(n-1))*(n)\
+        for i in x]
+    # plt.close()
+
+    plt.plot(x, z, label='Distribution of mean')
+    plt.plot([1.0/lam, 1.0/lam], [0, np.ceil(max(z)*10)/10], 'r--', linewidth=2.0,\
+        label='Mean of exponential distribution')
+    plt.title('PDF and Histogram of $\overline{X}_n$ w/ $\lambda$=%.2f, n=%d, s=%d'%(lam, n, h))
+    plt.xlabel('$x$')
+    plt.ylabel('$f_{\overline{X}_n}(x)$')
+    plt.legend()
+    plt.show()
+
+    return None
+
+
 def main():
 
     plt.style.use([{
@@ -124,15 +183,15 @@ def main():
 
     # Inequalities
     # mu = (0.5, 20)  sig = (0.5, 20)
-    # mu, sig = 5, 0.5
+    mu, sig = 5, 0.5
     # plot_markov_chebyshev(mu, sig)
-    # mu, sig = 5, 1
+    mu, sig = 5, 1
     # plot_markov_chebyshev(mu, sig)
-    # mu, sig = 5, 5
+    mu, sig = 5, 5
     # plot_markov_chebyshev(mu, sig)
-    # mu, sig = 5, 10
+    mu, sig = 5, 10
     # plot_markov_chebyshev(mu, sig)
-    # mu, sig = 5, 20
+    mu, sig = 5, 20
     # plot_markov_chebyshev(mu, sig)
 
 
@@ -142,7 +201,13 @@ def main():
     # n = (1, 20),  h = (1, 10000)
     s, n, h = (2, 8), 5, 10000
     # uniform_mean_pdf(s, n, h, True)
-    uniform_mean_pdf(s, n, h)
+    # uniform_mean_pdf(s, n, h)
+
+
+    # exponential distribution
+    # lam = (0.02, 10), n = (1, 20), h = (1, 10000)
+    lam, n, h = .5, 12, 10000
+    exponential_mean_pdf(lam, n, h)
 
 
     # input("\nPress Enter to continue ......")
