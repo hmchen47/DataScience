@@ -845,7 +845,8 @@
 
 5. Let $X$ be a random variable with MGF $M_X(t)=\frac13 e^{−t}+\frac16+\frac12 e^{2t}$. What is $P(X \le 1)$?
 
-  Ans: 
+  Ans: 0.5<br/>
+  Explanation: the pmf of X is $P(X = x) = \left\{ \begin{array} \\ \frac{1}{2}, x = 2 \\ \frac{1}{6}, x = 0 \\ \frac{1}{3}, x = -1 \end{array} \right.$
 
 
 
