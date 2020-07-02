@@ -1552,7 +1552,24 @@
 
 ## Programming Assignment 10
 
++ [Programming Assignment NB](https://tinyurl.com/yaufkku3)
 
+1. Which of the following is the correct output for Markov(200.,0.3,1.1)<br/>
+  a. 0.909<br/>
+  b. 0.558<br/>
+  c. 0.986<br/>
+  d. 0.872<br/>
+
+  Ans: a<br/>
+  Explanation:
+
+  ```python
+  def Markov(n, p, c):
+    # inputs: 3 floats as described above
+    # output: a variable of type float
+
+    return 1 / c
+  ```
 
 
 
