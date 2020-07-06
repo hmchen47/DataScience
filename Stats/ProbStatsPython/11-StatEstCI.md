@@ -7,7 +7,7 @@
   + probability
     + distribution $\to$ samples
     + $\mu = \sum x p(x) \to$ average of many samples $\sim \mu$
-    + $X \ge 0 \to \Pr(X \ge 2 \mu) \le 0.5$
+    + $X \ge 0 \to \Pr(X \ge 2 \mu) \le 0.5$ (Markov's inequality)
   + statistics
     + samples $\to$ distribution
     + samples $\to$ parameters $\mu, \sigma$
@@ -28,18 +28,18 @@
 
 + Population
   + population: collection of objects
-    + e.g., all UCSD students
     + typically many
+    + e.g., all UCSD students
   + sample n objects
     + often n $\ll$ population size
     + e.g., pick n students at random
   + deduce population parameter from sample, e.g., average height
-  + can view collection of fights as a distribution, e.g., {153, 178, 165, 153, ...}
+  + can view collection of heights as a distribution, e.g., {153, 178, 165, 153, ...}
   + sampling from population $\to$ sampling from distribution
-  + n $\ll$ population size $\to$ roughly ${\perp \!\!\!\! \perp}$
+  + $n \ll$ population size $\to$ roughly ${\perp \!\!\!\! \perp}$
 
 + Statistic
-  + any function of the data observed, e.g., average, maximum, max-min
+  + any function of the data observed, e.g., average, maximum, max-min value observed
   + using statistics to infer properties of the distribution or population
     + parameters
     + type of distribution
