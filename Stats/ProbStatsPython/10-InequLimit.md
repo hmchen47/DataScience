@@ -91,6 +91,12 @@
 + [Original Slides](https://tinyurl.com/yac6dd37)
 
 
++ [Markov inequality](https://tinyurl.com/yanpjcof)
+  + constraints: must have a strictly positive random variable
+  + pro: used to prove Chebyshev inequality and Chernodd bounds
+  + con: usually gives a very bad bound
+
+
 ### Problem Sets
 
 0. A mob of 30 meerkats has an average height of 10”, and 10 of them are 30” tall. According to Markov's Inequality this is:<br/>
@@ -101,10 +107,10 @@
   Explanation: Impossible. For the average to be 10, the remaining 20 meerkats would need to have height zero.
 
 
-1. Which of the following are correct versions of Markov’s Inequality for a nonnegative random variable  X :<br/>
+1. Which of the following are correct versions of Markov's Inequality for a nonnegative random variable  X :<br/>
   a. $\Pr(X \ge \alpha \mu) \le \frac{1}{\alpha}$<br/>
   b. $\Pr(X \ge \alpha \mu ) \le \mu \alpha$<br/>
-  c. $\Pr(X \ge \mu) \le frac{1}{\alpha}$<br/>
+  c. $\Pr(X \ge \mu) \le \frac{1}{\alpha}$<br/>
   d. $\Pr(X \ge \alpha) \le \frac{\mu}{\alpha}$<br/>
 
   Ans: ad
@@ -112,10 +118,10 @@
 
 2. Markov variations
 
-  Upper bound $P(X \ge 3)$ when $X \ge 2$ and $E[X]=2.5$.
+  Upper bound $\Pr(X \ge 3)$ when $X \ge 2$ and $E[X]=2.5$.
 
   Ans: <span style="color: magenta;">0.5</span><br/>
-  Explanation: Let $Y=X−2$. Then $Y \ge 0$ and $E[Y]=E[X]−2=0.5$. By Markov's inequality, $P(X \ge 3) = P(Y \ge 1) \le \frac{E[Y]}{1}=0.5$. [StackExchange](https://tinyurl.com/yc6qj6vs)
+  Explanation: Let $Y=X−2$. Then $Y \ge 0$ and $E[Y]=E[X]−2=0.5$. By Markov's inequality, $\Pr(X \ge 3) = \Pr(Y \ge 1) \le \frac{E[Y]}{1}=0.5$. [StackExchange](https://tinyurl.com/yc6qj6vs)
 
 
 3. a. In a town of 30 families, the average annual family income is \$80,000. What is the largest number of families that can have income at least \$100,000 according to Markov’s Inequality? (Note: The annual family income can be any non-negative number.)
@@ -124,7 +130,7 @@
 
   Ans: a. (24); b. (<span style="color: cyan;">15</span>)>br/>
     + This question can be answered using the Meerkat paradigm, or we can convert it to a probability question and use Markov's Inequality. Imagine that you pick one of the 30 families uniformly at random. The expected income is the average over all families, $80,000. The probability that the random family has income at least $100,000 is the number of families with such income, normalized by 30. By Markov's Inequality, this probability is at most  80000/100000=0.8 . Hence the number of families with such income is at most  30⋅0.8=24 .
-    + Let $X$ be the size of a family picked uniformly at random. Then $X \ge 1$  and $E[X]=2.5$. Define $Y=X−1$. Then $Y \ge 0$ and $E[Y]=E[X]−1=1.5$. By Markov's Inequality $P(X \ge 4)=P(Y \ge 3) \le \frac{1.5}{3}=\frac12$. Hence the fraction of families with at least 4 members is at most $\frac12⋅30=15$.
+    + Let $X$ be the size of a family picked uniformly at random. Then $X \ge 1$  and $E[X]=2.5$. Define $Y=X−1$. Then $Y \ge 0$ and $E[Y]=E[X]−1=1.5$. By Markov's Inequality $\Pr(X \ge 4)=\Pr(Y \ge 3) \le \frac{1.5}{3}=\frac12$. Hence the fraction of families with at least 4 members is at most $\frac12⋅30=15$.
 
 
 
@@ -282,6 +288,13 @@
 + [Original Slides](https://tinyurl.com/y9yygxbq)
 
 
++ [Chebyshev inequality](https://tinyurl.com/yanpjcof)
+  + constraints: no constraints, works on all r.v.'s
+  + pro: works on everything, an in some sense justifies are use of variance as a measure of spread of a distribution
+  + cons: not as tight as Chernoff bounds
+
+
+
 ### Problem Sets
 
 0. Which of the following is correct about Chebyshev's inequality?<br/>
@@ -294,10 +307,10 @@
   Explanation: Chebyshev's inequality applies to all of those distributions.
 
 
-1. Apply Chebyshev's Inequality to lower bound $P(0 < X < 4)$ when $E[X]=2$ and $E[X^2]=5$.
+1. Apply Chebyshev's Inequality to lower bound $\Pr(0 < X < 4)$ when $E[X]=2$ and $E[X^2]=5$.
 
   Ans: 3/4<br/>
-  Explanation: Note that $P(0 < X < 4)=P(|X−2| < 2)= 1 − P(|X−2| \ge 2)$. Also, $Var(X)=E[X^2]−E^2[X]=5−2^2=1$.  By Chebyshev's inequality, $P(|X−2| \ge 2)=P(|X−E[X]| \ge 2) \le \frac{Var(X)}{2^2}=\frac14$.  Hence, $\Pr(0 < X < 4)=1−P(|X−2| \ge 2) \ge 1−\frac14= \frac34$.
+  Explanation: Note that $\Pr(0 < X < 4)=\Pr(|X−2| < 2)= 1 − \Pr(|X−2| \ge 2)$. Also, $Var(X)=E[X^2]−E^2[X]=5−2^2=1$.  By Chebyshev's inequality, $\Pr(|X−2| \ge 2)=\Pr(|X−E[X]| \ge 2) \le \frac{Var(X)}{2^2}=\frac14$.  Hence, $\Pr(0 < X < 4)=1−\Pr(|X−2| \ge 2) \ge 1−\frac14= \frac34$.
 
 
 2. The average number of spelling errors on a page is  5  and the standard deviation is  2 . What is the probability of more than  20  mistakes on a page?<br/>
@@ -307,7 +320,7 @@
   d. no greater than  10%<br/>
 
   Ans: b<br/>
-  Explanation: Using Chebyshev's inequality, we have $P(X > 20) < P(X \ge 20)=P(X−5 \ge 15)=P(|X−5| \ge 15) \le (\frac{2}{15})^2 \le \frac{1}{50}=2\%$. P.S. Since we cannot get negative number of mistakes, $P(X−5 \le −15)=0$. Hence, $P(|X−5| \ge 15) = P(X−5 \ge 15)+P(X−5 \le −15)=P(X−5 \ge 15)$
+  Explanation: Using Chebyshev's inequality, we have $\Pr(X > 20) < \Pr(X \ge 20)=\Pr(X−5 \ge 15)=\Pr(|X−5| \ge 15) \le (\frac{2}{15})^2 \le \frac{1}{50}=2\%$. P.S. Since we cannot get negative number of mistakes, $\Pr(X−5 \le −15)=0$. Hence, $\Pr(|X−5| \ge 15) = \Pr(X−5 \ge 15)+\Pr(X−5 \le −15)=\Pr(X−5 \ge 15)$
 
 
 3. Let $X\sim \text{Exponential}(1)$. For $\Pr(X \ge 4)$, evaluate:<br/>
@@ -317,9 +330,9 @@
 
   Ans: a. (1/4); b. (1/9); c. ($e^{-4}$)<br/>
   Explanation
-    + $E[X]=\frac{1}{\lambda}=1$. $P(X \ge 4) \le \frac{E[X]}{4}=\frac14$.
-    + $E[X]=\frac{1}{\lambda}=1, Var(X)=\frac{1}{\lambda^2}=1$. $P(X \ge 4)=P(|X−1| \ge 3) \le \frac{Var(X)}{9}=\frac19$.
-    + $P(X \ge 4)=\int_4^\infty e^{−x}\,dx= e^{−4}=0.0183$.
+    + $E[X]=\frac{1}{\lambda}=1$. $\Pr(X \ge 4) \le \frac{E[X]}{4}=\frac14$.
+    + $E[X]=\frac{1}{\lambda}=1, Var(X)=\frac{1}{\lambda^2}=1$. $\Pr(X \ge 4)=\Pr(|X−1| \ge 3) \le \frac{Var(X)}{9}=\frac19$.
+    + $\Pr(X \ge 4)=\int_4^\infty e^{−x}\,dx= e^{−4}=0.0183$.
 
 
 4. A gardener has new tomato plants sprouting up in her garden. Their expected height is 8”, with standard deviation of 1". Which of the following lower bounds the probability that a plant will be between 6" and 10" tall?<br/>
@@ -329,17 +342,17 @@
   d. 75%<br/>
   
   Ans: <span style="color: cyan;">abcd</span><br/>
-  Explanation: By Chebyshev's Inequality, $P(|X−8| \ge 2) \le \frac{Var(X)}{4}=\frac14$. Hence $P(6 \le X \le 10)=1−P(|X−8| \ge 2) \ge 1−\frac14=\frac34=75%$.  Since the probability is at least 75\%, it is also at least 50\%, etc.
+  Explanation: By Chebyshev's Inequality, $\Pr(|X−8| \ge 2) \le \frac{Var(X)}{4}=\frac14$. Hence $\Pr(6 \le X \le 10)=1−\Pr(|X−8| \ge 2) \ge 1−\frac14=\frac34=75%$.  Since the probability is at least 75\%, it is also at least 50\%, etc.
 
 
-5. If $E[X]=15$, $P(X \le 11)=0.2$, and $P(X \ge 19)=0.3$, which of the following is _impossible_?<br/>
+5. If $E[X]=15$, $\Pr(X \le 11)=0.2$, and $\Pr(X \ge 19)=0.3$, which of the following is _impossible_?<br/>
   a. $Var(X) \le 7$<br/>
   b. $Var(X) \le 8$<br/>
   c. $Var(X) > 8$<br/>
   d. $Var(X) > 7$<br/>
 
   Ans: a<br/>
-  Explanation: According to Chebyshev's inequality, $P(|X−15| \ge 4) \le \frac{Var(X)}{16}$. As $P(|X−15| \ge 4)=P(X \le 11)+P(X \ge 19)=0.5$, we have $Var(X) \ge 8$.
+  Explanation: According to Chebyshev's inequality, $\Pr(|X−15| \ge 4) \le \frac{Var(X)}{16}$. As $\Pr(|X−15| \ge 4)=\Pr(X \le 11)+\Pr(X \ge 19)=0.5$, we have $Var(X) \ge 8$.
 
 
 
@@ -505,14 +518,14 @@
     + According to WLLN, when $n \to \infty$, $\frac 1 n \sum^n_{i=0} (X_iY_i) \to E(X_iY_i)=E(X_i)E(Y_i)=4$.
 
 
-5. a. Flip a fair coin $n$ times and let $X_n$ be the number of heads. Is it true that $P(|X_n − \frac n 2|>1000)<0.99$? (True/False)
+5. a. Flip a fair coin $n$ times and let $X_n$ be the number of heads. Is it true that $\Pr(|X_n − \frac n 2|>1000)<0.99$? (True/False)
 
    b. Does the result above contradict with the WLLW? (Yes/No)
 
   Ans: a. (False); b. (No)<br/>
   Explanation:
-    + Very roughly, $|X_n− \\frac n 2| \approx \frac{\sqrt{n}{2}$, which grows as $n$ grows. We cannont guarantee $P(|X_n− \\frac n 2|>1000)<0.99$.
-    + The WLLN shows that $\lim_{n \to \infty} P(|\\frac{X}n}{n}−\\frac12|> \epsilon)=0 \to \Pr(|X_n−\\frac n 2|> \epsilonn)=0$. $\epsilon n$ increases when $n$ increases, but 1000 is not changed.
+    + Very roughly, $|X_n− \\frac n 2| \approx \frac{\sqrt{n}{2}$, which grows as $n$ grows. We cannont guarantee $\Pr(|X_n− \\frac n 2|>1000)<0.99$.
+    + The WLLN shows that $\lim_{n \to \infty} \Pr(|\\frac{X}n}{n}−\\frac12|> \epsilon)=0 \to \Pr(|X_n−\\frac n 2|> \epsilonn)=0$. $\epsilon n$ increases when $n$ increases, but 1000 is not changed.
 
 
 
@@ -838,15 +851,15 @@
   d. $\frac{1+e^2t}{2}$<br/>
 
   Ans: <span style="color: cyan;">a</span><br/>
-  Explanation: Let $Y=X_1+X_2+ \cdots+X_M$, then $P(Y=k \mid M=m)=\binom{m}{k}\frac{1}{2}^m$ and using the product rule we get $P(Y=k,M=m)=\binom{m}{k}\frac{1}{2}^m e^{−4} \frac{4^m}{m!}=\binom{m}{k} 2^m \frac{e^{−4}}{m!}$, and $P(Y=k)= \sum^\infty_{m=k} P(Y=k,M=m)$. Thus the moment generating function of $Y$ is given by
+  Explanation: Let $Y=X_1+X_2+ \cdots+X_M$, then $\Pr(Y=k \mid M=m)=\binom{m}{k}\frac{1}{2}^m$ and using the product rule we get $\Pr(Y=k,M=m)=\binom{m}{k}\frac{1}{2}^m e^{−4} \frac{4^m}{m!}=\binom{m}{k} 2^m \frac{e^{−4}}{m!}$, and $\Pr(Y=k)= \sum^\infty_{m=k} \Pr(Y=k,M=m)$. Thus the moment generating function of $Y$ is given by
 
-  \[\begin{align} M_Y(t) &= E[e^{Yt}] = \sum_{k = 0}^{\infty} e^{kt}P(Y = k) = \sum_{k = 0}^{\infty} e^{kt} \sum_{m = k}^{\infty} P(Y = k, M = m) \\ &= \sum_{m = 0}^{\infty} \sum_{k = 0}^{m} e^{kt} P(Y = k, M = m) = \sum_{m=0}^{\infty} \sum_{k=0}^{m}e^{kt}{m\choose k} 2^m{\frac{e^{-4}}{m!}} \\ &= \sum_{m=0}^{\infty} \left( \sum_{k=0}^{m}e^{kt}{m\choose k} \right) 2^m{\frac{e^{-4}}{m!}} = \sum_{m=0}^{\infty} (1 + e^t)^m 2^m{\frac{e^{-4}}{m!}} = e^{-4}e^{2(1+e^{t})} \end{align}\]
+  \[\begin{align} M_Y(t) &= E[e^{Yt}] = \sum_{k = 0}^{\infty} e^{kt}\Pr(Y = k) = \sum_{k = 0}^{\infty} e^{kt} \sum_{m = k}^{\infty} \Pr(Y = k, M = m) \\ &= \sum_{m = 0}^{\infty} \sum_{k = 0}^{m} e^{kt} \Pr(Y = k, M = m) = \sum_{m=0}^{\infty} \sum_{k=0}^{m}e^{kt}{m\choose k} 2^m{\frac{e^{-4}}{m!}} \\ &= \sum_{m=0}^{\infty} \left( \sum_{k=0}^{m}e^{kt}{m\choose k} \right) 2^m{\frac{e^{-4}}{m!}} = \sum_{m=0}^{\infty} (1 + e^t)^m 2^m{\frac{e^{-4}}{m!}} = e^{-4}e^{2(1+e^{t})} \end{align}\]
 
 
-5. Let $X$ be a random variable with MGF $M_X(t)=\frac13 e^{−t}+\frac16+\frac12 e^{2t}$. What is $P(X \le 1)$?
+5. Let $X$ be a random variable with MGF $M_X(t)=\frac13 e^{−t}+\frac16+\frac12 e^{2t}$. What is $\Pr(X \le 1)$?
 
   Ans: 0.5<br/>
-  Explanation: the pmf of X is $P(X = x) = \left\{ \begin{array} \\ \frac{1}{2}, x = 2 \\ \frac{1}{6}, x = 0 \\ \frac{1}{3}, x = -1 \end{array} \right.$
+  Explanation: the pmf of X is $\Pr(X = x) = \left\{ \begin{array} \\ \frac{1}{2}, x = 2 \\ \frac{1}{6}, x = 0 \\ \frac{1}{3}, x = -1 \end{array} \right.$
 
 
 
@@ -863,12 +876,12 @@
 
 
 7. a. If $M_X(t)=e^{−5(1−e^t)}$, find $Var(X)$.<br/>
-   b. $P(X = 3)$<br/>
+   b. $\Pr(X = 3)$<br/>
 
   Ans: a. (5); b. ($5^3/6 \cdot e^{-5}$)<br/>
   Explanation
     + $E(X) = \frac{\partial M_X(t)}{\partial t} |_{t = 0} = 5$, $E(X^2) = \frac{\partial^2 M_X(t)}{\partial t^2} |_{t = 0} = 30$, $V(X) = E(X^2) - E^2(X) = 5$
-    + $X \sim P_5$, hence, $P(X = k) = \frac{5^k}{k!} e^{-5}$, $P(X = 3) = \frac{5^3}{3!} e^{-5} = 0.14037389581428056$
+    + $X \sim P_5$, hence, $\Pr(X = k) = \frac{5^k}{k!} e^{-5}$, $\Pr(X = 3) = \frac{5^3}{3!} e^{-5} = 0.14037389581428056$
 
 
 8. Find the MGF of $(X_1+X_2+X_3+X_4)/3$ where each $X_i$ is an independent $B_{1/2}$ random variable?<br/>
@@ -907,20 +920,20 @@
 + Motivation
   + r.v.: $X \sim B_{p, n} \quad \mu=pn \quad \sigma=\sqrt{pqn}$
   + probability inequalities
-    + decreasing w/ $n$: $P(X \ge \text{ constant times its mean}) \to P(X \ge \left(1+\delta) \mu\right)$
-    + Markov (constant): $P\left(X \ge (1 + \delta)\mu\right) \le \frac{1}{1+ \delta}$
+    + decreasing w/ $n$: $\Pr(X \ge \text{ constant times its mean}) \to \Pr(X \ge \left(1+\delta) \mu\right)$
+    + Markov (constant): $\Pr\left(X \ge (1 + \delta)\mu\right) \le \frac{1}{1+ \delta}$
     + Chebyshev (linear)
 
       \[\begin{align*}
         (1+\delta)\mu = \mu + \delta pn &= \mu + \delta \sqrt{\frac{pn}{q}} \cdot \sqrt{pqn} \\
-        P(X \ge (1+\delta) \mu) &\le \frac{1}{\delta^2pn}
+        \Pr(X \ge (1+\delta) \mu) &\le \frac{1}{\delta^2pn}
       \end{align*}\]
 
     + Chernoff (exponential): ?
 
 + Chernoff bound
   + r.v.: $X \sim B_{p, n} \quad \mu=pn$
-  + probability: $P(X \ge (1 + \delta)\mu)$
+  + probability: $\Pr(X \ge (1 + \delta)\mu)$
   + decreasing bound
     + Markov - constant
     + Chebyshev - linear
@@ -929,7 +942,7 @@
 
     \[
       \forall\, a \;\; \forall\,t \ge 0, X \ge a \iff tX \ge ta \iff e^{tX} \ge e^{ta} \\
-      \hspace{3em} P(X \ge a) = P(e^{tX} \ge e^{ta}) \le \frac{E[e^{tX}]}{e^{ta}} \hspace{2em} \text{(Markov ineq})
+      \hspace{3em} \Pr(X \ge a) = \Pr(e^{tX} \ge e^{ta}) \le \frac{E[e^{tX}]}{e^{ta}} \hspace{2em} \text{(Markov ineq})
     \]
 
 + $E[e^tX]$
@@ -941,7 +954,7 @@
       \[\begin{align*}
         E[e^{tX}] &= E[e^{t\sum X_i}] = E\left[e^{\sum tX_i}\right] \\
         &= E\left[ \prod_{i=1}^n e^{tX_i}\right] = \prod_{i=1}^n E\left[e^{tX_i}\right] = \left((1-p)+pe^t\right)^n\\\\
-        E\left[e^{tX_i}\right] &= P(X_i = 0) \cdot e^{t \cdot 0} + P(X_i = 1) \cdot e^{t \cdot 1} = (1 -p) + pe^t
+        E\left[e^{tX_i}\right] &= \Pr(X_i = 0) \cdot e^{t \cdot 0} + \Pr(X_i = 1) \cdot e^{t \cdot 1} = (1 -p) + pe^t
       \end{align*}\]
 
   + bound: $E\left[e^{tX}\right] \le \exp\left(\mu(e^t -1 )\right)$
@@ -953,35 +966,35 @@
       1+ x \le e^x \quad & \xleftarrow{\text{tangent line}} e^x = 1 + x + \frac{x^2}{2} + \cdots \ge 1 + x
     \end{align*}\]
 
-  + incorporate in Markov ($\le$): $P(X \ge a) \le \frac{\exp\left[\mu(e^t - 1) \right]}{e^{ta}}$ & $P(X \ge (1 +\delta)\mu) \le e^{\mu((e^t -1) - t(1+\delta))}$
+  + incorporate in Markov ($\le$): $\Pr(X \ge a) \le \frac{\exp\left[\mu(e^t - 1) \right]}{e^{ta}}$ & $\Pr(X \ge (1 +\delta)\mu) \le e^{\mu((e^t -1) - t(1+\delta))}$
     + $X \sim B_{p, n}\quad \forall\, a \;\; \forall\,t \ge 0$
 
       \[\begin{align*}
-        P(X \ge a) &= P\left(e^{tX} \ge e^ta\right) \le \frac{E[e^{tX}]}{e^{ta}} \\
+        \Pr(X \ge a) &= \Pr\left(e^{tX} \ge e^ta\right) \le \frac{E[e^{tX}]}{e^{ta}} \\
         E\left[e^{tX}\right] &\le \exp\left( \mu(e^t - 1) \right) \\
-        \to & P(X \ge a) \le \frac{\exp\left( \mu(e^t - 1) \right)}{\exp(ta)}
+        \to & \Pr(X \ge a) \le \frac{\exp\left( \mu(e^t - 1) \right)}{\exp(ta)}
       \end{align*}\]
 
     + $a = (1 + \delta) \mu \quad \delta \ge 0 \quad \forall\, t \ge 0$
 
-      \[ P(X \ge (1+\delta)\mu) \le \frac{\exp\left( \mu(e^t - 1) \right)}{\exp\left( \mu (1 + \delta)t \right)} \]
+      \[ \Pr(X \ge (1+\delta)\mu) \le \frac{\exp\left( \mu(e^t - 1) \right)}{\exp\left( \mu (1 + \delta)t \right)} \]
 
-  + optimization: $\forall\, t \ge 0 \;\; P(X \ge (1+\delta)\mu) \le \exp\left[\mu(\delta - (1+\delta) \ln(1+\delta)) \right]$
+  + optimization: $\forall\, t \ge 0 \;\; \Pr(X \ge (1+\delta)\mu) \le \exp\left[\mu(\delta - (1+\delta) \ln(1+\delta)) \right]$
 
     \[\begin{align*}
-      \text{objective: minimizing } \quad&P(X \ge (1 + \delta) \mu) \le \exp\left( \mu((e^t - 1) - t(1+\delta)) \right)\\
+      \text{objective: minimizing } \quad&\Pr(X \ge (1 + \delta) \mu) \le \exp\left( \mu((e^t - 1) - t(1+\delta)) \right)\\
       \text{find t minimizing } \quad& f(t) \stackrel{\text{def}}{=} (e^t - 1) - t(1+\delta) \\
       & f^\prime(t) = e^t - (1+\delta) = 0 \\
       & \hspace{2em} e^t = 1 + \delta \to t = \ln(1+\delta) \\
       & f^{\prime\prime}(t) = e^t \ge 0 \\\\
-      P(X \ge (1+\delta) \mu) &\le \exp\left[\mu ((e^t -1) - t (1+ \delta)) \right] \\
+      \Pr(X \ge (1+\delta) \mu) &\le \exp\left[\mu ((e^t -1) - t (1+ \delta)) \right] \\
       &= \exp\left[ \mu(\delta - (1+\delta) \ln(1+\delta)) \right]
     \end{align*}\]
 
   + final specification:
 
     \[\begin{align*}
-      P(X \ge (1 + \delta) \mu) &\le \exp\left[\mu(\delta - (1+\delta) \ln(1+\delta))\right) \le \exp\left( -\frac{\delta^2}{2+\delta} \mu \right) \\\\
+      \Pr(X \ge (1 + \delta) \mu) &\le \exp\left[\mu(\delta - (1+\delta) \ln(1+\delta))\right) \le \exp\left( -\frac{\delta^2}{2+\delta} \mu \right) \\\\
       \text{inequality }\quad& \ln(1+x) \ge \frac{x}{1 + \frac{x}{2}} \quad \forall\, x \ge 0\\
       \text{define } \quad& f(x) = \ln(1+x) - \frac{x}{1 + \frac{x}{2}} \\
       \text{show } \quad& f(x) \ge 0 \quad \forall\, x \ge 0 \\
@@ -1003,8 +1016,8 @@
 
 + Summary: Chernoff bound
   + r.v.: $X \sim B_{p, n} \quad \delta \ge 0$
-  + showed: $P(X \ge (1+\delta) \mu) \le \exp\left(-\frac{\delta^2}{2+\delta}\mu\right)$
-  + similarly: $P(X \le (1-\delta) \mu) \le \exp\left(-\frac{\delta^2}{2}\mu\right)$
+  + showed: $\Pr(X \ge (1+\delta) \mu) \le \exp\left(-\frac{\delta^2}{2+\delta}\mu\right)$
+  + similarly: $\Pr(X \le (1-\delta) \mu) \le \exp\left(-\frac{\delta^2}{2}\mu\right)$
   + $\searrow$ exponentially in $n$
 
 + Example: poll
@@ -1019,12 +1032,18 @@
       \delta &\approx 0.0638\\
     \end{align*}\]
 
-  + wrong probability $P(\text{wrong})$
+  + wrong probability $\Pr(\text{wrong})$
 
-    \[ P(X \ge 3000) = P(X \ge (1 + \delta)\mu) \le \exp\left( \frac{\delta^2}{2+\delta} \mu \right) \approx 0.38\% \]
+    \[ \Pr(X \ge 3000) = \Pr(X \ge (1 + \delta)\mu) \le \exp\left( \frac{\delta^2}{2+\delta} \mu \right) \approx 0.38\% \]
 
 
 + [Original Slides](https://tinyurl.com/yc8qqe73)
+
+
++ [Chernoff bounds](https://tinyurl.com/yanpjcof)
+  + constraints: random variable must be a sum of independent indicator random variables
+  + pros: exponential bounds decay extremely quickly
+  +cons: not a very flexible bound
 
 
 ### Problem Sets
@@ -1036,13 +1055,15 @@
 
 1. You toss a fair coin $1000$ times and take a step forward if the coin lands head and a step backward if it lands tail. Upper bound the probability that you end up $\ge 100$ steps from your starting point (in either direction) using Chernoff bound (after the final simplification as in the slides).
 
-  Ans: 
+  Ans: <span style="color: cyan;">0.1745</span>
+  Explanation: The expected number of heads is $\mu = 500$ and you will be off by $\ge 100$ if and only if the humber of heads is $\ge 550$ or $\le 450$. For both the upper and lower bounds, $\delta=0.1$ , and according to the Chernoff bound, the probability is $\le e^{-\frac{\delta^2}{2+\delta}\mu}+e^{-\frac{\delta^2}{2}\mu}\approx 0.1745$. [Theorem for another solution - Lecture 8.1.1 random walk on a line](https://tinyurl.com/yckaxwou) and [Chernoff bound for simple walk on $\Bbb{X}$](https://tinyurl.com/ybpdc78k)
 
 
 
 2. A coin is equally likely to be either $B_{1/3}$ or $B_{2/3}$. To figure out the bias, we toss the coin $99$ times and declare $B_{1/3}$ if the number of heads is less than $49.5$ and $B_{2/3}$ otherwise. Bound the error probability using the Chernoff bound derived in lecture video (in its final form, after simplifcation).
 
-  Ans: 
+  Ans: <span style="color: cyan;">0.07137</span>
+  Explanation: Suppose the coin is $B_{1/3}$. We misclassify it as $B_{2/3}$ if the number of heads is $\ge 50$. From the Chernoff bound, probability of this event may be upper bounded as $\Pr(B_{1/3})\cdot P(H\ge 50|B_{1/3})= \frac12 \cdot \Pr(H\ge (1+17/33)33)\le \frac12 \cdot e^{-\frac{(17/33)^2}{2+17/33}33}$. Similarly if the coin is $B_{2/3}$, the misclassification error is upper bounded as $P(B_{2/3})\cdot P(H\le 49|B_{2/3})= \frac12 \cdot P(H\le (1-17/66)66)\le \frac12 \cdot e^{-\frac{(17/66)^2}{2}66}$. Summing these two probabilities gives the answer. [Another solution](https://tinyurl.com/y8ev2kd8)
 
 
 
@@ -1122,14 +1143,14 @@
 
 + Example: store income
   + customer spending at a store: $\mu = 80 \quad \sigma = 40$
-  + chance of purchase 10% below average: P(a customer spends $\le 72$)
+  + chance of purchase 10% below average: \Pr(a customer spends $\le 72$)
   + care more about total revenue
-  + 100 customers w/ P(average spending $\le 72$)
+  + 100 customers w/ \Pr(average spending $\le 72$)
   + applying CLT to get answer
 
 + General CLT application
   + r.v.: $X_1, \dots, X_n {\perp \!\!\!\! \perp}, \sim$ any distribution w/ mean $\mu$ and stdev $\sigma$
-  + $\overline{X^n} \stackrel{\text{def}}{=} \frac{X_1 + X_2 + \cdots + X_n}{n} \quad P\left(\overline{X^n} \le \alpha \right) = ?$
+  + $\overline{X^n} \stackrel{\text{def}}{=} \frac{X_1 + X_2 + \cdots + X_n}{n} \quad \Pr\left(\overline{X^n} \le \alpha \right) = ?$
   + $Z_n \stackrel{\text{def}}{=} \frac{(X_1 + X_2 + \cdots + X_n) - n\mu}{\sigma\sqrt{n}}$
   + applying CLT, for sufficiently large $n$ (say 30) approximating $Z_n \sim N(0, 1)$
 
@@ -1137,7 +1158,7 @@
 
   + general formula for average of random variables
 
-    \[ P\left(\overline{X^n} \le \alpha \right) = P\left(\frac{\overline{X^n} - \mu}{\sigma / \sqrt{n}} \le \frac{\alpha - \mu}{\sigma / \sqrt{n}} \right) = P\left(Z_n \le \frac{\alpha - \mu}{\sigma / \sqrt{n}} \right) \approx \Phi\left(\frac{\alpha - \mu}{\sigma / \sqrt{n}}\right) \]
+    \[ \Pr\left(\overline{X^n} \le \alpha \right) = \Pr\left(\frac{\overline{X^n} - \mu}{\sigma / \sqrt{n}} \le \frac{\alpha - \mu}{\sigma / \sqrt{n}} \right) = \Pr\left(Z_n \le \frac{\alpha - \mu}{\sigma / \sqrt{n}} \right) \approx \Phi\left(\frac{\alpha - \mu}{\sigma / \sqrt{n}}\right) \]
 
   + CDF:
     + r.v.: $N(0, 1)$
@@ -1153,13 +1174,13 @@
     + mean: $\mu = 80$
     + stdev: $\sigma = 40$
     + samples: $n = 100$ customers
-  + 10% below average: P(average spending $\le 72$)
+  + 10% below average: Pr(average spending $\le 72$)
 
     \[\begin{align*}
-      P\left( \overline{X^n} \le \alpha \right) &\approx \Phi\left(\frac{\alpha - \mu}{\sigma / \sqrt{n}}\right) \\\\
-      P\left( \overline{X^{100}} \le 72 \right) &\approx \Phi\left( \frac{72 - 80}{40/\sqrt{100}} \right) = \Phi\left(-\frac84 \right) = \Phi\left(-2\right) \\\\
+      \Pr\left( \overline{X^n} \le \alpha \right) &\approx \Phi\left(\frac{\alpha - \mu}{\sigma / \sqrt{n}}\right) \\\\
+      \Pr\left( \overline{X^{100}} \le 72 \right) &\approx \Phi\left( \frac{72 - 80}{40/\sqrt{100}} \right) = \Phi\left(-\frac84 \right) = \Phi\left(-2\right) \\\\
       &= 1 - \Phi(2) \approx 1 - 0.9772 = 0.0228 \approx 2.3\% \\\\
-      P(X \le -a) &= \Phi(-a) = 1 - \Phi(a)
+      \Pr(X \le -a) &= \Phi(-a) = 1 - \Phi(a)
     \end{align*}\]
 
 
@@ -1182,10 +1203,10 @@
 
   Define $Y_n=\frac{1}{\sqrt{n}}\sum_{i=1}^n (X_i-2)$
 
-  Approximate $P(−1 \le Y_n \le 2)$  with large enough $n$.
+  Approximate $\Pr(−1 \le Y_n \le 2)$  with large enough $n$.
 
   Ans: 0.6787<br/>
-  Explanation: Recall that the Geometric Distribution $G_p$ has mean $\frac 1 p$ and standard deviation $\frac{\sqrt{1−p)}}{p}$.  Since the $X_i \sim G_{1/2}$, their mean is 2 and their standard deviation is $\frac{\sqrt{1/2}{1/2}=\sqrt{2}$.  Let $Z_n = \frac{Y_n}{\sqrt{2}}$. Then by the central limit theorem, for sufficiently large $n$, $Z_n \sim N(0,1)$.  Hence $P(-1\le Y_n\le 2)=P(-1/\sqrt{2}\le Z_n\le \sqrt2)$ $=\Phi(\sqrt2)-\Phi(-1/\sqrt2)$ $=0.9214-0.2398$ $=0.6816$.
+  Explanation: Recall that the Geometric Distribution $G_p$ has mean $\frac 1 p$ and standard deviation $\frac{\sqrt{1−p)}}{p}$.  Since the $X_i \sim G_{1/2}$, their mean is 2 and their standard deviation is $\frac{\sqrt{1/2}{1/2}=\sqrt{2}$.  Let $Z_n = \frac{Y_n}{\sqrt{2}}$. Then by the central limit theorem, for sufficiently large $n$, $Z_n \sim N(0,1)$.  Hence $\Pr(-1\le Y_n\le 2)=\Pr(-1/\sqrt{2}\le Z_n\le \sqrt2)$ $=\Phi(\sqrt2)-\Phi(-1/\sqrt2)$ $=0.9214-0.2398$ $=0.6816$.
 
 
 2. A class has 100 students. Each student's score is a random variable with mean $85$ and standard deviation $40$. Use the CLT to approximate the probability that the class average score is below $80$.
@@ -1202,8 +1223,8 @@
 
   Ans: a. (0.5934); b. (0.2912)<br/>
   Explanation: 
-    + Let $X$ be the wait time. $P(X \le 9) = 1 - e^{-\frac{9}{10}} = 0.5934$
-    + Let $X_i$ be the wait time on the $i$-th day, and $\bar{X} = \frac{X_1 + \cdots + X_{30}}{30}$ be the average wait time. As $P(\bar{X} \le \alpha) = \Phi(\frac{\alpha - \mu}{\sigma / \sqrt{n}})$ with $\alpha =9,\mu=10,\sigma=10,n=30$, we have $P(\overline{X} \le 9)=0.2919$
+    + Let $X$ be the wait time. $\Pr(X \le 9) = 1 - e^{-\frac{9}{10}} = 0.5934$
+    + Let $X_i$ be the wait time on the $i$-th day, and $\bar{X} = \frac{X_1 + \cdots + X_{30}}{30}$ be the average wait time. As $\Pr(\bar{X} \le \alpha) = \Phi(\frac{\alpha - \mu}{\sigma / \sqrt{n}})$ with $\alpha =9,\mu=10,\sigma=10,n=30$, we have $\Pr(\overline{X} \le 9)=0.2919$
 
 
 
@@ -1222,7 +1243,7 @@
   + task: show $n \to \infty$, the distribution of $Z_n$ approaches $N(0, 1)$
   + cumulative distribution function (CDF):
 
-    \[ F_{Z_n}(x) &= P\left(Z_n \le x\right) = P\left(\frac{X_1+X_2+\cdots+X_n}{\sqrt{n}} \le x \right) \]
+    \[ F_{Z_n}(x) &= \Pr\left(Z_n \le x\right) = \Pr\left(\frac{X_1+X_2+\cdots+X_n}{\sqrt{n}} \le x \right) \]
 
   + $Z \sim N(0, 1)$
 
