@@ -87,7 +87,7 @@
 
 ### Lecture Video
 
-<a href="url" target="_BLANK">
+<a href="https://tinyurl.com/y9uhpoym" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
 </a><br/>
 
