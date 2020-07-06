@@ -1528,8 +1528,71 @@
 
 
 
-## Markov's Inequality
 
+
+
+## Law of Large Number
+
++ [Sample mean](../Stats/ProbStatsPython/10-InequLimit.md#103-law-of-large-numbers)
+  + sequence abbreviation: $x^n \stackrel{\text{def}}{=} x_1, x_2, \dots, x_n$
+  + mean:
+    + $\overline{x^n} \stackrel{\text{def}}{=} \dfrac{x_1+x_2+\cdots+x_n}{n}$
+    + e.g., $n=4 \quad x^4 = 3, 1, 4, 2 \quad \overline{x^4} = \frac{3+1+4+2}{4} = 2.5$
+  + $n$ samples from a distribution
+    + $X^n = X_1, X_2, \dots, X_n$
+    + sample mean: $\overline{X^n} \stackrel{\text{def}}{=} \dfrac{X_1 + \cdots + X_n}{n}$
+    + $\overline{X^n}$: a random variable
+
++ [Independent samples](../Stats/ProbStatsPython/10-InequLimit.md#103-law-of-large-numbers)
+  + Definition: (__iid__) _independent_ random variables w/ the _same_ distribution are <span style="color: magenta;">independent identically distributed (iid)</span>
+
++ [Weak law of large numbers](../Stats/ProbStatsPython/10-InequLimit.md#103-law-of-large-numbers)
+  + $X^n = X_1, \dots, X_n$ iid samples from distribution w/ finite mean $\mu$ and finite std $\sigma$
+  + $n \to \infty \implies \overline{X^n} \to \mu$
+  + $\Pr(\text{sample mean differs from $\mu$ by any given amount}) \searrow 0 \text{ with } n \nearrow$
+
+    \[ \Pr\left( \left|\overline{X^n} - \mu \right| \ge \epsilon \right) \le \frac{\sigma^2}{\epsilon^2} \cdot \frac{1}{n} \]
+
+  + $\overline{X^n}$ converges in probability to $\mu$
+
++ [Properties of WLLN](../Stats/ProbStatsPython/10-InequLimit.md#103-law-of-large-numbers)
+  + theorem: $\Pr\left(\left|\overline{X^n} - \mu\right| \ge \epsilon\right) \le \frac{\sigma^2}{n \cdot \epsilon^2}$
+  + $X_1, X_2, \dots$, iid w/ finite $\mu$ and $\sigma$
+  + sample mean $\overline{X^n} \stackrel{\text{def}}{=}  \frac{1}{n} \sum_{i=1}^n X_i$
+  + expectation
+
+    \[ E\left[\overline{X^n}\right] = \mu \]
+
+  + variance
+
+    \[ Var\left(\overline{X^n}\right) = \frac{\sigma^2}{n} \]
+
+  + Chebyshev inequality
+
+    \[ \forall\, \epsilon > 0 \quad \Pr\left(\left|\overline{X^n} - \mu \right| \ge \epsilon\right) \le \frac{\sigma^2}{n\cdot \epsilon^2} \;\searrow\; 0 \text{ as } n \to \infty \]
+
++ [Generalization <br/>](../Stats/ProbStatsPython/10-InequLimit.md#103-law-of-large-numbers)
+  let $\mu \stackrel{\text{def}}{=} \frac{1}{n} \sum \mu_i \quad$ and $\quad \sigma^2   \stackrel{\text{def}}{=} \frac 1 n \sum \sigma^2_i$
+
+  \[ \Pr\left( \left|\overline{X^n} - \mu\right| \ge \epsilon \right) \le \frac{\sigma^2}{\epsilon^2} \cdot \frac{1}{n} \]
+
++ [Convergence in probability](../Stats/ProbStatsPython/10-InequLimit.md#103-law-of-large-numbers)
+  + Pr($X_n$ differs from $Y$ by any given fixed amount) $\,\searrow\, 0$ with $n$
+  + for every $\delta > 0$ and $\epsilon > 0, \;\exists\; N \text{ s.t. } \forall\, n \ge N$
+
+    \[ \Pr\left(\left|X_n - Y\right| \ge \delta\right) < \epsilon \]
+
+  + WLLN: $\overline{X^n}$ converges in probability to $\mu \quad \overline{X^n} \xrightarrow{p} \mu$
+
+
+
+
+
+
+
+
+
+## Markov's Inequality
 
 + [Markov's Inequality](../Stats/ProbStatsPython/10-InequLimit.md#101-markov-inequality)
   + $X$: <span style="color: magenta;">nonnegative</span> r.v. (discrete or continuous) w/ finite mean $\mu$
@@ -1553,6 +1616,76 @@
   + used to derive other inequalities: Chebyshev, Chernoff
   + limited to inequalities that hold for all distributions
 
++ [Markov inequality](https://tinyurl.com/yanpjcof)
+  + constraints: must have a strictly positive random variable
+  + pro: used to prove Chebyshev inequality and Chernodd bounds
+  + con: usually gives a very bad bound
+
+
+
+
+
+## Chebushev's Inequality
+
++ [Chebyshev's inequality](../Stats/ProbStatsPython/10-InequLimit.md#102-chebyshev-inequalities)
+  + $X$: any r.v. (discrete or continuous) w/ finite <span style="color: magenta;"> mean $\mu$</span> and <span style="color: magenta;"> std $\sigma$</span>
+  + 1st formulation
+
+    \[ \forall\; \alpha \ge 1 \quad \Pr(|X - \mu| \ge \alpha \sigma) \le \frac{1}{\alpha^2} \]
+
+  + 2nd formulation: $a = \alpha \sigma$, $a$ a value of interest
+
+    \[ \forall\; a \ge \sigma \quad \Pr(|X - \mu| \ge a) \le \frac{\sigma^2}{a^2} \]
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y9yygxbq" ismap target="_blank">
+        <img src="img/t10-02.png" style="margin: 0.1em;" alt="Example distribution for Chebyshev's inequality" title="Example distribution for Chebyshev's inequality" width=450>
+      </a>
+    </div>
+
++ [Markov vs. Chebyshev inequalities](../Stats/ProbStatsPython/10-InequLimit.md#102-chebyshev-inequalities)
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"></th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Formula</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Applies</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Input</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Range</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Deceases</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th style="text-align:center;">Markov</th>
+      <td style="text-align:center;">$\Pr(X \ge a) \le \frac{\mu}{a}$</td>
+      <td style="text-align:center;">$X \ge 0$</td>
+      <td style="text-align:center;">$\mu$</td>
+      <td style="text-align:center;">$a \ge \mu$</td>
+      <td style="text-align:center;">Linearity</td>
+    </tr>
+    <tr>
+      <th style="text-align:center;">Chebyshev</th>
+      <td style="text-align:center;">$\Pr(|X - \mu| \ge a) \le \frac{\sigma^2}{a^2}$</td>
+      <td style="text-align:center;">Any $X$</td>
+      <td style="text-align:center;">$\mu$ &amp; $\sigma$</td>
+      <td style="text-align:center;">$a \ge \sigma$</td>
+      <td style="text-align:center;">Quadratically</td>
+    </tr>
+    </tbody>
+  </table>
+
++ [One-sided Chebyshev inequality](../Stats/ProbStatsPython/10-InequLimit.md#102-chebyshev-inequalities)
+  + [Henry Bottomley](http://www.se16.info/hgb/cheb.htm)
+  + Theorem: (Chebyshev inequality - one-sided version) for $t > 0$
+
+    \[ \Pr(X - \mu \ge t) \le \frac{1}{1 + t^2/Var(X)} = \frac{Var{X}}{Var(X) + t^2} \]
+
++ [Chebyshev inequality](https://tinyurl.com/yanpjcof)
+  + constraints: no constraints, works on all r.v.'s
+  + pro: works on everything, an in some sense justifies are use of variance as a measure of spread of a distribution
+  + cons: not as tight as Chernoff bounds
 
 
 
