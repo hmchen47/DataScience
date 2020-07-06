@@ -1528,5 +1528,34 @@
 
 
 
+## Markov's Inequality
+
+
++ [Markov's Inequality](../Stats/ProbStatsPython/10-InequLimit.md#101-markov-inequality)
+  + $X$: <span style="color: magenta;">nonnegative</span> r.v. (discrete or continuous) w/ finite mean $\mu$
+  + intuitive, memorable
+
+    \[ \forall\; \alpha \ge 1 \quad \Pr(X \ge \alpha) \mu \le \frac{1}{\alpha} \]
+
+    + a nonnegative r.v. is at least $\alpha$ times $\le$ its mean w/ probability $\le \frac{1}{\alpha}$
+  + direct proof, easier to apply, more common
+
+    \[ a = \alpha \mu \quad \forall\; \alpha \ge \mu \quad \Pr(X \ge a) \le \frac{\mu}{a} \]
+
++ [Generalization attempt: removing non-negative?](../Stats/ProbStatsPython/10-InequLimit.md#101-markov-inequality)
+  + $X < 0 \implies \Pr(x \ge a)$ be closed to 1 for any $a$
+  + $p(x) = \begin{cases} 1 - \epsilon & x = a \\ \epsilon & x = \frac{\mu - (1 - \epsilon)a}{\epsilon} \end{cases}$
+  + $E[X] = \mu \implies p(X \ge a) = p(a) \approx 1 \to$ unable to remove
+
++ [Properties of Markov's Inequality](../Stats/ProbStatsPython/10-InequLimit.md#101-markov-inequality)
+  + applied to all non-negative random variables
+  + can always be used
+  + used to derive other inequalities: Chebyshev, Chernoff
+  + limited to inequalities that hold for all distributions
+
+
+
+
+
 
 
