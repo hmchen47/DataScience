@@ -33,8 +33,8 @@
   + sample n objects
     + often n $\ll$ population size
     + e.g., pick n students at random
-  + deduce population parameter from sample, e.g., average height
-  + can view collection of heights as a distribution, e.g., {153, 178, 165, 153, ...}
+  + deducing population parameter from sample, e.g., average height
+  + able to view collection of heights as a distribution, e.g., {153, 178, 165, 153, ...}
   + sampling from population $\to$ sampling from distribution
   + $n \ll$ population size $\to$ roughly ${\perp \!\!\!\! \perp}$
 
@@ -47,7 +47,7 @@
   + how well can do it
 
 + Recall
-  + done some of that already
+  + done some of them already
   + WLLN:
     + sample mean $\to \mu$
     + no need to know $p$
