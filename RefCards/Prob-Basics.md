@@ -1620,8 +1620,26 @@
 
     \[ \Pr\left(\overline{X^n} \le \alpha \right) = \Pr\left(\frac{\overline{X^n} - \mu}{\sigma / \sqrt{n}} \le \frac{\alpha - \mu}{\sigma / \sqrt{n}} \right) = \Pr\left(Z_n \le \frac{\alpha - \mu}{\sigma / \sqrt{n}} \right) \approx \Phi\left(\frac{\alpha - \mu}{\sigma / \sqrt{n}}\right) \]
 
++ [Convergence](../Stats/ProbStatsPython/10-InequLimit.md#107-central-limit-theorem-proof)
+  + r.v.: $X_1, X_2, X_3, \dots$ iid w/ $\mu = 0 \;\; \sigma=1$
+  + normalization: $Z_n \stackrel{\text{def}}{=} \frac{X_1 + X_2 + \cdots + X_n}{\sqrt{n}}$
+  + task: show $n \to \infty$, the distribution of $Z_n$ approaches $N(0, 1)$
 
++ [Continuity](../Stats/ProbStatsPython/10-InequLimit.md#107-central-limit-theorem-proof)
+  
+  \[ M_{Z_n}(t) \to M_Z(t) \;\; \forall\,t \implies F_{Z_n}(t) \to F_Z(t) \text{ wherever } F_Z(t) \text{ is continuous } \]
 
++ [L’Hôpital’s Rule](../Stats/ProbStatsPython/10-InequLimit.md#107-central-limit-theorem-proof)
+  
+    \[ \displaystyle \lim_{n \to \infty} \left[ M\left( \frac{t}{\sqrt{n}} \right) \right]^n = e^{\frac{t^2}{2}} \iff \displaystyle \lim_{n \to \infty} n \cdot \ln M\left( \frac{t}{\sqrt{n}} \right) = \frac{t^2}{2}\]
+
++ [Assembling](../Stats/ProbStatsPython/10-InequLimit.md#107-central-limit-theorem-proof)
+  + r.v.: $X_i \quad \text{ iid }, \quad \mu=0,\;\; \sigma^2 = 1$
+  + normalization: $X_n = \frac{X_1 + X_2 + \cdots + X_N}{\sqrt{n}} \sim N(0, 1)$
+  + $\displaystyle\lim_{n \to \infty} M_{Z_n}(t) = \lim_{n \to \infty} \left[ M\left( \frac{t}{\sqrt{n}} \right) \right]^n = e^{\frac{t^2}{2}} = M_Z(t)$
+    + $F_{Z_n} \to F_Z = \Phi$
+    + $Z_n$ approach standard Normal distribution
+    + general iid $X_i$ just define $Z_n = \frac{X_1 + X_2 + \cdots + X_n - n\mu}{\sigma\sqrt{n}}$
 
 
 
