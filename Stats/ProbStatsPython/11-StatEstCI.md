@@ -96,20 +96,25 @@
 ## 11.2 Mean and Variance Estimation
 
 + Estimators
-  + $p$p: unknown distribution or population
-  + $\theta$
+  + r.v.'s: $X_n \stackrel{\text{def}}{=} X_1, X_2, \dots, X_n$ independent samples from distribution or a population
+  + $p$: unknown distribution or population
+  + estimate a distribution parameter $\theta$
     + parameter of $p$
     + wish to estimate
-    + e.g., mean example: $\mu, \sigma$, max, mode
+    + e.g., mean example: $\mu, \sigma, X_{\max}$, mode
   + sample
     + $X^n \stackrel{\text{def}}{=} X_1, X_2, \dots, X_n \sim p {\perp \!\!\!\! \perp}
     + e.g., $X^2 = 5, -2, 6$
-  + estimate for $\theta$
+  + estimator for parameter $\theta$ as a function
     + function $\widehat{\theta}: \Bbb{R} \to \Bbb{R}$
     + mapping $X^n \to \Bbb{R}$
-  + upon observing $X^n$, estimate $\theta$ as $\widehat{\theta}(X^n) \stackrel{\text{def}}{=} \widehat{\Theta}$
-    + $\mu$ - $\widehat{\theta}(X^n}): \;\; \frac{X_1 + \cdots + X_n}{n} \quad \frac{\min\{X_i\} + \max\{X_i\}}{2} \quad X_1 \cdot x_2$
-    + $\widehat{\Theta}: 3 \quad 2, \quad -10$
+    + e.g., $\max(X_1, \dots, X_n)$
+  + upon observing $X^n$, estimate $\theta$ and defined as $\widehat{\Theta} \stackrel{\text{def}}{=} \widehat{\theta}(X^n)$
+    + random variable
+    + determined by $X^n$
+    + examples
+      + $\mu$ - $\widehat{\theta}(X^n): \;\; \frac{X_1 + \cdots + X_n}{n} \quad \frac{\min\{X_i\} + \max\{X_i\}}{2} \quad X_1 \cdot X_2$
+      + $\widehat{\Theta}: 3 \quad 2, \quad -10$
 
 + Observations
   + distribution parameter $\theta$
@@ -122,13 +127,15 @@
   + point estimate vs. interval
     + point estimate: single value, e.g., 3.5
     + interval: [3, 4]
-  + estimator: any function
+  + estimator
+    + any function
+    + good or bad
   + considering how to
     + come up w/ an estimator?
     + evaluate its performance?
 
 + Sample $X$
-  + apply sample to any parameter $X$
+  + applying sample to any parameter $X$
   + property
 
     <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
@@ -140,13 +147,13 @@
       </thead>
       <tbody>
       <tr>
-        <th>min, $X_{min}$</th>
+        <th>min, $X_{\min}$</th>
         <td style="text-align: center;">$\displaystyle\min_x\{ x: p(x) > 0 \}$</td>
         <th>sample min</th>
         <td style="text-align: center;">$\displaystyle\min_i \{X_i\}$</td>
       </tr>
       <tr>
-        <th>max, $X_{max}$</th>
+        <th>max, $X_{\max}$</th>
         <td style="text-align: center;">$\displaystyle\max_x \{x: p(x) > 0\}$</td>
         <th>sample max</th>
         <td style="text-align: center;">$\displaystyle\max_i \{X_i\}$</td>
@@ -160,12 +167,13 @@
       </tbody>
     </table>
 
-  + simple: if sample is whole population, exact
+  + simple estimator: if sample is whole population, exact
   + sometimes works well, even for small samples
 
 + Estimator evaluation
   + parameter may have several estimators
   + evaluate quality of estimator for a parameter
+  + e.g., bias, variance, and mean squared error
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/y7s47zez" ismap target="_blank">
@@ -173,64 +181,34 @@
       </a>
     </div>
 
-+ Bias
-  + $\widehat{\Theta}$ estimator for $\theta$<br/>
-    <span style="color: magenta;">bias</span> of $\widehat{\Theta}$ as the expected overestimate of $\theta$
++ Bias and variance
+  + bias: $\widehat{\Theta}$ estimator for $\theta$
+    + definition: <span style="color: magenta;">bias</span> of $\widehat{\Theta}$ as the expected overestimate of $\theta$
 
-    \[\text{Bias}_\theta (\widehat{\Theta}) \stackrel{\text{def}}{=} E[\widehat{\Theta} - \theta] = \mu_{\widehat{\Theta}} - \theta \]
+      \[\text{Bias}_\theta (\widehat{\Theta}) \stackrel{\text{def}}{=} E[\widehat{\Theta} - \theta] = \mu_{\widehat{\Theta}} - \theta \quad\to\quad \text{Bias}(\widehat{\Theta}) \]
 
-  + <span style="color: magenta;">unbiased</span>: estimator w/ 0 bias, i.e., $\mu_{\widehat{\Theta}} = \theta$
-  + bias = inequality
-
-+ Variance
-  + definition: $Var(\widehat{\Theta}) = E[(\widehat{\Theta} - \mu_{\widehat{\Theta}})^2]$
-  + unrelated to $\theta$
+    + <span style="color: magenta;">unbiased</span>: estimator w/ 0 bias, i.e., $\mu_{\widehat{\Theta}} = \theta$
+    + bias = inequality
+  + variance
+    + definition: $Var(\widehat{\Theta}) = E[(\widehat{\Theta} - \mu_{\widehat{\Theta}})^2]$
+    + unrelated to $\theta$
   + ideally 0 bias and variance
+    + 0 bias: mean as $\theta$
+    + 0 variance: a constant, always the value of $\theta$
   + typically trade off btw bias and variance
 
-+ Mean example
-  + unknown distribution or population $p$
-  + estimate mean $\mu$
-  + n samples: $X_1, X_2, \dots, X_n \sim p \; {\perp \!\!\!\! \perp}$
-  + sample mean: $\overline{X} \stackrel{\text{def}}{=} \frac{1}{n} \sum_{i=1}^n X_i$
-  + evaluate
-    + bias, variance
-    + weak law of large numbers
-
-+ Sample mean - bias
-  + sample mean: $\overline{X} \stackrel{\text{def}}{=} \frac{1}{n} \sum_{i=1}^n X_i$
-  + expectation
-
-    \[ E[\overline{X}] = E\left[ \frac 1 n \sum_{i=1}^n X_i \right] = \frac 1 n \sum_{i=1}^n E[X-i] = \mu \]
-
-  + bias: 
-
-    \[ \text{Bias}(\overline{X}) = E[\overline{X}] - \mu = \mu - \mu = 0 \]
-
-  + sample mean: unbiased estimator for distribution mean
-
-+ Sample mean - variance
-
-  \[\begin{align*}
-    Var(\overline{X}) &= Var\left( \frac{1}{n} \sum_{i=1}^n X_i \right) = \frac{1}{n^2} Var\left( \sum_{i=1}^n X_i \right) \\
-    &= \frac{1}{n^2} \sum_{i=1}^n Var(X_i) = \frac{1}{n^2} \sum_{i=1}^n \sigma^2 = \frac{\sigma^2}{n} \\\\
-    &\therefore\; \sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}
-  \end{align*}\]
-
-  + $n \searrow \to \sigma \nearrow$
-
 + Mean squared error
-  + single measure for performance of estimator $\overline{\Theta}$ for $\theta$
+  + single measure for performance of estimator $\widehat{\Theta}$ for $\theta$
   + <span style="color: magenta;">MSE</span> of $\widehat{\Theta}$: expected squared distance from $\theta$
 
-    \[ \text{MSE}_{\theta}(\widehat{\Theta}) \stackrel{\text{def}}{=} E[(\widehat{\Theta} - \theta)^2] \quad\to \text{MSE}(\widehat{\Theta}) \]
+    \[ \text{MSE}_{\theta}(\widehat{\Theta}) \stackrel{\text{def}}{=} E[(\widehat{\Theta} - \theta)^2] \quad\to\quad \text{MSE}(\widehat{\Theta}) \]
 
   + common in science and engineering, e.g., communication, transportation, and production
   + need to re-evaluate?
-  + relate to bias and variance
+    + MSE related to bias and variance
 
-+ Bias-Variance Bromance
-  + MSE = $\text{Bias}^2$ + Variance
++ Bias-Variance Bromance <br/>
+  MSE = $\text{Bias}^2$ + Variance
 
   \[\begin{align*}
     \text{MSE}(\Theta) &= E[(\Theta - \theta)^2] = E^2[\Theta - \theta] + Var(\Theta - \theta) \\
@@ -238,14 +216,56 @@
     E[\Theta - \theta] &\stackrel{\text{def}}{=} \text{Bias}(\Theta) \qquad Var(\Theta - \theta) = Var(\Theta)
   \end{align*}\]
 
-+ MSE of ample mean
++ Mean example
+  + unknown distribution or population $p$
+  + estimate mean $\mu$
+  + n samples: $X_1, X_2, \dots, X_n \sim p \; {\perp \!\!\!\! \perp}$
+  + sample mean: $\overline{X} \stackrel{\text{def}}{=} \frac{1}{n} \sum_{i=1}^n X_i$
+  + evaluate
+    + bias, variance, MSE
+    + weak law of large numbers
 
-  \[ \text{MSE}_\mu (\overline{X}) = \text{Bias_\mu^2(\overline(X))} = \frac{\sigma^2}{n} \]
+  + bias
+    + sample mean: $\overline{X} \stackrel{\text{def}}{=} \frac{1}{n} \sum_{i=1}^n X_i$
+    + expectation
 
-  + increasing w/ $\sigma$
-  + decreasing w/ $n$
-  + same estimator works for all distributions
-  + accuracy (MSE) independent of population size
+      \[ E[\overline{X}] = E\left[ \frac 1 n \sum_{i=1}^n X_i \right] = \frac 1 n \sum_{i=1}^n E[X-i] = \mu \]
+
+    + bias: 
+
+      \[ \text{Bias}(\overline{X}) = E[\overline{X}] - \mu = \mu - \mu = 0 \]
+
+    + sample mean: unbiased estimator for distribution mean
+
+  + variance
+
+    \[\begin{align*}
+      Var(\overline{X}) &= Var\left( \frac{1}{n} \sum_{i=1}^n X_i \right) = \frac{1}{n^2} Var\left( \sum_{i=1}^n X_i \right) \\
+      &= \frac{1}{n^2} \sum_{i=1}^n Var(X_i) = \frac{1}{n^2} \sum_{i=1}^n \sigma^2 = \frac{\sigma^2}{n} \\\\
+      &\therefore\; \sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}
+    \end{align*}\]
+
+    + decreasing w/ $n \nearrow$
+    + increasing w/ $\sigma \nearrow$
+  + experiments
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="url" ismap target="_blank">
+        <img src="img/t11-02a.png" style="margin: 0.1em;" alt="Experiment results: mean=0, sample size=5, repetition= 3000" title="Experiment results: mean=0, sample size=5, repetition= 3000" height=150>
+        <img src="img/t11-02b.png" style="margin: 0.1em;" alt="Experiment results: mean=0, sample size=50, repetition= 3000" title="Experiment results: mean=0, sample size=50, repetition= 3000" height=150>
+        <img src="img/t11-02c.png" style="margin: 0.1em;" alt="Experiment results: mean=0, sample size=5, repetition= 400" title="Experiment results: mean=0, sample size=5, repetition= 400" height=150>
+        <img src="img/t11-02d.png" style="margin: 0.1em;" alt="Experiment results: mean=0, sample size=50, repetition= 400" title="Experiment results: mean=0, sample size=50, repetition= 400" height=150>
+      </a>
+    </div>
+
+  + MSE of ample mean
+
+    \[ \text{MSE}_\mu (\overline{X}) = \text{Bias}_\mu^2(\overline{X}) + Var(\overline{X}) = \frac{\sigma^2}{n} \]
+
+    + increasing w/ $\sigma \nearrow$
+    + decreasing w/ $n \nearrow$
+    + same estimator works for all distributions
+    + accuracy (MSE) independent of population size
 
 
 + [Original Slides](https://tinyurl.com/y7s47zez)
