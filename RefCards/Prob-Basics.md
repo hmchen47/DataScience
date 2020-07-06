@@ -1590,6 +1590,110 @@
 
 
 
+## Moment Generating Function (MGF)
+
++ [Moments](../Stats/ProbStatsPython/10-InequLimit.md#104-moment-generating-functions)
+  + <span style="color: magenta;">moments</span>: expectations of powers of $X$, e.g., $E[X], E[X^2], E[X^3]$
+  + sometimes called <span style="color: magenta;">raw moments</span> to distinguish from <span style="color: magenta;">central moments</span>, e.g., $E[(X - \mu)^n]$
+
++ [Moment generating function (MGF)](../Stats/ProbStatsPython/10-InequLimit.md#104-moment-generating-functions)
+  + maps a random variable $X$ to a real function $M \quad M:\Bbb{R} \to \Bbb{R}$
+
+    \[ M(t) \stackrel{\text{def}}{=} M_X(t) \stackrel{\text{def}}{=} E[e^{tX}] = \begin{cases} \sum p(x) \;e^{tx} & \text{discrete} \\\\ \int f(x) \;e^{tx}\,dx & \text{continuous} \end{cases} \]
+
++ [Basic properties](../Stats/ProbStatsPython/10-InequLimit.md#104-moment-generating-functions)
+  + non-negative: $M(t) = E[e^{tX}] > 0$
+  + unitary: $M(0) = E[e^{0X}] = E[e^0] = 1$
+  + finite support $X$: $t \to \infty$
+
+    \[ M(t) \sim p(x_{\max}) \cdot e^{t \cdot x_{\max}} \]
+
++ [Translation and scaling](../Stats/ProbStatsPython/10-InequLimit.md#104-moment-generating-functions)
+  + translation: $X \to X + b$
+
+    \[ M_{X+b}(t) =  e^{tb} M_X(t) \]
+
+  + Scaling: $X \to aX$
+
+    \[ M_{aX}(t) = M_X(at) \]
+
+  + translation and scaling: $X \to aX + b$
+
+    \[ M_{aX+b}(t) = e^{bt} \cdot M_X(at) \]
+
+  + constant MGF
+
+    \[ M_c(t) = e^{ct} \to M_{a\cdot c+b}(t) = e^{bt} \cdot M_c(at) = e^{bt} \cdot e^{cat} = e^{(ac+b)\cdot t} \]
+
++ [Independent addition](../Stats/ProbStatsPython/10-InequLimit.md#104-moment-generating-functions)
+  + independent variable: MGF of sum as product of MGF's
+  + two variables: $X {\perp \!\!\!\! \perp} Y \quad M_{X+Y}(t) = M_X(t) \cdot M_Y(t)$
+  + n variables
+    + $X_1, X_2, \dots, X_n \;\; {\perp \!\!\!\! \perp}$
+    + $X \stackrel{\text{def}}{=} X_1 + X_2 + \cdots + X_n$
+    + $M_X(t) = \prod_{i=1}^n M_{X_i}(t)$
+  + mean
+    + $X_1, X_2, \dots, X_n \;\; {\perp \!\!\!\! \perp}$
+    + $\overline{X} \stackrel{\text{def}}{=} \frac{X_1 + X_2 + \cdots + X_n}{n}$
+    + $M_{\overline{X}}(t) = \prod_{i=1}^n M_{X_i}\left(\tfrac{t}{n}\right)$
+
++ [Moment generation](../Stats/ProbStatsPython/10-InequLimit.md#104-moment-generating-functions)
+  + general: $n > 0$
+
+    \[ M^{(n)}(t) = E[X^n \,e^{Xt}] \to M^{(n)}(0) = E[X^n] \]
+
++ [Summary of Common Distribution w/ MGF](../Stats/ProbStatsPython/10-InequLimit.md#104-moment-generating-functions)
+  <br/><br/>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/ycbw3koq">Common MGF of Distribution</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Random Variable</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">PMF/PDF</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$M(t)$</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td style="text-align: center;">$\text{Bern}(p) = B_p$</td>
+      <td style="text-align: center;">$p_X(1) =p, \;\;p_X(0) = 1 - p$</td>
+      <td style="text-align: center;">$pe^t + (1-p)$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$\text{Genom}(p) = G_p$</td>
+      <td style="text-align: center;">$p_X(k) = p(1-p)^{k-1}, \;\; k=1, 2, \dots$</td>
+      <td style="text-align: center;">$\dfrac{pe^t}{1 - (1-p)e^t}$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$\text{B}(n, p) = B_{n, p}$</td>
+      <td style="text-align: center;">$p_X(k) = \binom{n}{k} p^k (1-p)^{n-k}, \;\; k=0, 1, 2, \dots, n$</td>
+      <td style="text-align: center;">$\left(pe^t + (1-p)\right)^n$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$\text{Poisson}(\lambda) = P_\lambda$</td>
+      <td style="text-align: center;">$p_X(k) = \frac{\lambda^k}{k!} e^{-\lambda}, \;\;k=0, 1, \dots$</td>
+      <td style="text-align: center;">$e^{\lambda(e^t - 1)}$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$\text{Exp}(\lambda)$</td>
+      <td style="text-align: center;">$f_X(x) = \lambda e^{-\lambda x}, \;\;x \ge 0$</td>
+      <td style="text-align: center;">$\frac{\lambda}{\lambda - t}$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$N(\mu, \sigma^2)$</td>
+      <td style="text-align: center;">$\frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)$</td>
+      <td style="text-align: center;">$\exp\left(\mu t+ \frac{\sigma^2 t^2}{2}\right)$</td>
+    </tr>
+    </tbody>
+  </table>
+
+
+
+
+
+
+
 
 
 ## Markov's Inequality
@@ -1621,71 +1725,6 @@
   + pro: used to prove Chebyshev inequality and Chernodd bounds
   + con: usually gives a very bad bound
 
-
-
-
-
-## Chebushev's Inequality
-
-+ [Chebyshev's inequality](../Stats/ProbStatsPython/10-InequLimit.md#102-chebyshev-inequalities)
-  + $X$: any r.v. (discrete or continuous) w/ finite <span style="color: magenta;"> mean $\mu$</span> and <span style="color: magenta;"> std $\sigma$</span>
-  + 1st formulation
-
-    \[ \forall\; \alpha \ge 1 \quad \Pr(|X - \mu| \ge \alpha \sigma) \le \frac{1}{\alpha^2} \]
-
-  + 2nd formulation: $a = \alpha \sigma$, $a$ a value of interest
-
-    \[ \forall\; a \ge \sigma \quad \Pr(|X - \mu| \ge a) \le \frac{\sigma^2}{a^2} \]
-
-    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-      <a href="https://tinyurl.com/y9yygxbq" ismap target="_blank">
-        <img src="img/t10-02.png" style="margin: 0.1em;" alt="Example distribution for Chebyshev's inequality" title="Example distribution for Chebyshev's inequality" width=450>
-      </a>
-    </div>
-
-+ [Markov vs. Chebyshev inequalities](../Stats/ProbStatsPython/10-InequLimit.md#102-chebyshev-inequalities)
-
-  <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-    <thead>
-    <tr style="font-size: 1.2em;">
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"></th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Formula</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Applies</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Input</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Range</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Deceases</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <th style="text-align:center;">Markov</th>
-      <td style="text-align:center;">$\Pr(X \ge a) \le \frac{\mu}{a}$</td>
-      <td style="text-align:center;">$X \ge 0$</td>
-      <td style="text-align:center;">$\mu$</td>
-      <td style="text-align:center;">$a \ge \mu$</td>
-      <td style="text-align:center;">Linearity</td>
-    </tr>
-    <tr>
-      <th style="text-align:center;">Chebyshev</th>
-      <td style="text-align:center;">$\Pr(|X - \mu| \ge a) \le \frac{\sigma^2}{a^2}$</td>
-      <td style="text-align:center;">Any $X$</td>
-      <td style="text-align:center;">$\mu$ &amp; $\sigma$</td>
-      <td style="text-align:center;">$a \ge \sigma$</td>
-      <td style="text-align:center;">Quadratically</td>
-    </tr>
-    </tbody>
-  </table>
-
-+ [One-sided Chebyshev inequality](../Stats/ProbStatsPython/10-InequLimit.md#102-chebyshev-inequalities)
-  + [Henry Bottomley](http://www.se16.info/hgb/cheb.htm)
-  + Theorem: (Chebyshev inequality - one-sided version) for $t > 0$
-
-    \[ \Pr(X - \mu \ge t) \le \frac{1}{1 + t^2/Var(X)} = \frac{Var{X}}{Var(X) + t^2} \]
-
-+ [Chebyshev inequality](https://tinyurl.com/yanpjcof)
-  + constraints: no constraints, works on all r.v.'s
-  + pro: works on everything, an in some sense justifies are use of variance as a measure of spread of a distribution
-  + cons: not as tight as Chernoff bounds
 
 
 
