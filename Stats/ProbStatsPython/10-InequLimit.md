@@ -1043,7 +1043,7 @@
 + [Chernoff bounds](https://tinyurl.com/yanpjcof)
   + constraints: random variable must be a sum of independent indicator random variables
   + pros: exponential bounds decay extremely quickly
-  +cons: not a very flexible bound
+  + cons: not a very flexible bound
 
 
 ### Problem Sets
