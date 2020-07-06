@@ -1589,6 +1589,42 @@
 
 
 
+## Central Limit Theorem (CLT)
+
++ [Rule of thumb](../Stats/ProbStatsPython/10-InequLimit.md#106-central-limit-theorem)
+  + normalized average distributed roughly Normal: \# samples $\ge 30$
+  + beyond 30: everything is Normal
+
++ [Central Limited Theorem (CLT)](../Stats/ProbStatsPython/10-InequLimit.md#106-central-limit-theorem)
+  + let $X_1, X_2, X_3, \dots$ be iid w/ finite $\mu$ and $\sigma$
+
+    \[n \to \infty, \text{ the distribution of } \frac{X_1+X_2 + \cdots + X_n - n\mu}{\sigma\sqrt{n}} \to N(0, 1) \]
+
++ [CLT and Weak Law of Large Number (WLLN)](../Stats/ProbStatsPython/10-InequLimit.md#106-central-limit-theorem)
+  + r.v.: $X_1, X_2, X_3, \dots$ iid w/ $\mu=0$ and $\sigma=1$
+  + WLLN: $n \to \infty, \frac{X_1 + X_2 + \cdots + X_n}{n} \to 0$
+  + CLT
+    + $n \to \infty, \frac{X_1 + X_2 + \cdots + X_n}{\sqrt{n}} \sim N(0, 1)$
+    + $E[X] = 0, Var(\frac{X_1 + X_2 + \cdots + X_n}{\sqrt{n}}) = \frac n n  = 1$
+    + more important
+    + much more information
+  + $\forall\, X_i,$ converge to $N(0, 1)$
+
++ [General CLT application](../Stats/ProbStatsPython/10-InequLimit.md#106-central-limit-theorem)
+  + $Z_n \stackrel{\text{def}}{=} \frac{(X_1 + X_2 + \cdots + X_n) - n\mu}{\sigma\sqrt{n}}$
+  + applying CLT, for sufficiently large $n$ (say 30) approximating $Z_n \sim N(0, 1)$
+
+    \[ Z_n = \frac{n\overline{X^n} - n\mu}{\sigma\sqrt{n}} = \frac{n\left(\overline{X^n} - \mu \right)}{\sigma\sqrt{n}} = \frac{\overline{X^n} - \mu}{\sigma / \sqrt{n}} \]
+
+  + general formula for average of random variables
+
+    \[ \Pr\left(\overline{X^n} \le \alpha \right) = \Pr\left(\frac{\overline{X^n} - \mu}{\sigma / \sqrt{n}} \le \frac{\alpha - \mu}{\sigma / \sqrt{n}} \right) = \Pr\left(Z_n \le \frac{\alpha - \mu}{\sigma / \sqrt{n}} \right) \approx \Phi\left(\frac{\alpha - \mu}{\sigma / \sqrt{n}}\right) \]
+
+
+
+
+
+
 
 ## Moment Generating Function (MGF)
 
@@ -1839,6 +1875,9 @@
   + cons: not a very flexible bound
 
 
+
+
+## 
 
 
 
