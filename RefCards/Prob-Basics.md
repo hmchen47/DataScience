@@ -1795,4 +1795,50 @@
 
 
 
+## Chernoff Bounds
+
++ [Chernoff bound](../Stats/ProbStatsPython/10-InequLimit.md#105-chernoff-bound)
+  + r.v.: $X \sim B_{p, n} \quad \mu=pn$
+  + probability: $\Pr(X \ge (1 + \delta)\mu)$
+  + using Markov to derive exponential bound
+
+    \[
+      \forall\, a \;\; \forall\,t \ge 0, X \ge a \iff tX \ge ta \iff e^{tX} \ge e^{ta} \\
+      \hspace{3em} \Pr(X \ge a) = \Pr(e^{tX} \ge e^{ta}) \le \frac{E[e^{tX}]}{e^{ta}} \hspace{2em} \text{(Markov ineq})
+    \]
+
++ [$E[e^tX]$](../Stats/ProbStatsPython/10-InequLimit.md#105-chernoff-bound)
+  + evaluate: $E\left[e^{tX}\right] = \left((1-p) + p e^t \right)^n$
+  + bound: $E\left[e^{tX}\right] \le \exp\left(\mu(e^t -1 )\right)$
+  + incorporate in Markov ($\le$): $\Pr(X \ge a) \le \frac{\exp\left[\mu(e^t - 1) \right]}{e^{ta}}$ & $\Pr(X \ge (1 +\delta)\mu) \le e^{\mu((e^t -1) - t(1+\delta))}$
+  + optimization: $\forall\, t \ge 0 \;\; \Pr(X \ge (1+\delta)\mu) \le \exp\left[\mu(\delta - (1+\delta) \ln(1+\delta)) \right]$
+
+    \[\begin{align*}
+      \text{objective: minimizing } \quad&\Pr(X \ge (1 + \delta) \mu) \le \exp\left( \mu((e^t - 1) - t(1+\delta)) \right)\\
+      \text{find t minimizing } \quad& f(t) \stackrel{\text{def}}{=} (e^t - 1) - t(1+\delta) \\
+      & f^\prime(t) = e^t - (1+\delta) = 0 \\
+      & \hspace{2em} e^t = 1 + \delta \to t = \ln(1+\delta) \\
+      & f^{\prime\prime}(t) = e^t \ge 0 \\\\
+      \Pr(X \ge (1+\delta) \mu) &\le \exp\left[\mu ((e^t -1) - t (1+ \delta)) \right] \\
+      &= \exp\left[ \mu(\delta - (1+\delta) \ln(1+\delta)) \right]
+    \end{align*}\]
+
+  + final specification:
+
+    \[ \Pr(X \ge (1 + \delta) \mu) \le \exp\left[\mu(\delta - (1+\delta) \ln(1+\delta))\right) \le \exp\left( -\frac{\delta^2}{2+\delta} \mu \right) \]
+
++ [Summary: Chernoff bound](../Stats/ProbStatsPython/10-InequLimit.md#105-chernoff-bound)
+  + r.v.: $X \sim B_{p, n} \quad \delta \ge 0$
+  + showed: $\Pr(X \ge (1+\delta) \mu) \le \exp\left(-\frac{\delta^2}{2+\delta}\mu\right)$
+  + similarly: $\Pr(X \le (1-\delta) \mu) \le \exp\left(-\frac{\delta^2}{2}\mu\right)$
+  + $\searrow$ exponentially in $n$
+
++ [Chernoff bounds](https://tinyurl.com/yanpjcof)
+  + constraints: random variable must be a sum of independent indicator random variables
+  + pros: exponential bounds decay extremely quickly
+  + cons: not a very flexible bound
+
+
+
+
 
