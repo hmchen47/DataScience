@@ -207,7 +207,7 @@
   + need to re-evaluate?
     + MSE related to bias and variance
 
-+ Bias-Variance Bromance <br/>
++ Bias-Variance decomposition <br/>
   MSE = $\text{Bias}^2$ + Variance
 
   \[\begin{align*}
@@ -273,7 +273,85 @@
 
 ### Problem Sets
 
+0. A distribution has mean 5 and variance 10. If we collect a sample by making 20 independent observations, what is the variance of the sample mean?<br/>
+  a. 2<br/>
+  b. 1/2<br/>
+  c. 1/4<br/>
+  d. 1/40<br/>
 
+  Ans: b<br/>
+  Explanation: The answer is 10/20 = 1/2.
+
+
+1. If an estimator is unbiased, then<br/>
+  a. its value is always the value of the parameter,<br/>
+  b. its expected value is always the value of the parameter,<br/>
+  c. it variance is the same as the variance of the parameter.<br/>
+
+  Ans: b<br/>
+  Expectation: An estimator $\widehat{A}$ for a parameter $A$ is unbiased if $E[\widehat{A}]=A$.
+
+
+2. If $\{X_1, \dots, X_n\}$ are the observed values of $n$ sample items, which of the following are unbiased estimators for distribution mean?<br/>
+  a. $X_1$<br/>
+  b. $\frac{1}{n}\sum_{i=1}^n X_i$<br/>
+  c. $\sqrt{\frac{1}{n}\sum_{i=1}^n X_i^2}$<br/>
+
+  Ans: ab<br/>
+  Explanation: Denote the distribution mean as $\mu$
+    + True. $E[X_1] = \mu$
+    + True. $E[\frac{1}{n}\sum_{i=1}^n X_i] = \frac{1}{n} E[\sum_{i=1}^n X_i] = \frac{1}{n} n\mu = \mu$
+    + False. $E\left[\sqrt{\frac{1}{n}\sum_{i=1}^n X_i^2}\right] \ne \mu$$
+
+
+3. As the sample size $n$ grows, the sample mean estimates the distribution mean better. Because<br/>
+  a. its bias decreases,<br/>
+  b. its variance decreases,<br/>
+  c. none of the above.<br/>
+
+  Ans: $Var(\frac{1}{n} \sum_{i = 1}^{n} X_i) = \frac{V(X)}{n}$.  The variance of the sample mean decreases as $n$ grows.
+
+
+4. A sample of size $n$ has sample mean $20.20$. After adding a new observed value $21$, the sample mean increases to $20.25$. What is $n$?
+
+  Ans: 15<br/>
+  Explanation: Let $S_n$ denote the sum of the $n$ samples. Thus $S_n/n=20.20$ or $S_n=20.20n$. We're also told $20.20n+21=S_{n+1}=20.25 \cdot (n+1)$. Hence $0.75=0.05n$ or $n=15$.
+
+
+5. To estimate the average alcohol consumption of UCSD students, we take three random samples of 40, 45 and 50 students respectively, and their sample means turn out to be 3.15, 3.20 and 2.76 pints per week respectively. What is the sample mean of the collection of all three samples?
+
+  Ans: 3.0222<br/>
+  Explanation: Let the total sum of samples be $S$. Clearly, $S=40 \cdot 3.15+45 \cdot 3.20+50 \cdot 2.76=408$. The sample mean is thus $\overline{X}=\frac{S}{n}=408/135=3.022222222$.
+
+
+6. Let $X_1,X_2, \dots,X_n$ be independent samples from a distribution with pdf $f_X(x)=\frac{1}{\theta^2}xe^{−x\theta} (X\ge 0)$. Which of the following is an unbiased estimator for $θ$?<br/>
+  a. $\overline{X}$<br/>
+  b. $\frac{\overline{X}}{2}$<br/>
+  c. $\frac{\overline{X}}{3}$<br/>
+  d. $\frac{\overline{X}}{6}$<br/>
+
+  Ans: <span style="color: cyan;">b</span><br/>
+  Explanation: By linearity of expectation, $E(\bar{X})=E(X_1)=\int_{0}^{\infty}x\frac1{\theta^2}xe^{-\frac x\theta}dx=2\theta$. Thus $E[\frac{\bar{X}}{2}]=\theta$  and is therefore an unbiased estimator for $\theta$.
+
+
+7. For $i \in \{1,\dots,n\}$, let $X_i \sim U(0,W)$ independently of each other, and let $M_n = \max_{i \in \{1, \dots,n\}}X_i$. For what value of $c$ is $c \cdot M_n$ an unbiased mean estimator?<br/>
+  a. $\frac{n+1}{2n}$<br/>
+  b. $\frac{n}{2(n−1)}$<br/>
+  c. $\frac{2n+1}{4n}$<br/>
+  d. $\frac{2n}{4n−1}$<br/>
+
+  Ans: <span style="color: cyan;">a</span><br/>
+  Explanation: Consider $M_n$. For some $m \in (0,W)$, $M_n \le m$ if and only if $X_i \le m \;\forall\,i$. This gives $\Pr(M_n \le m)=\Pr(X_1 \le m \cap \dots  \cap X_n \le m)=\prod^n_{i=1}P(X_i \le m)=(\frac m W)^n$. Differentiating the previous expression w.r.t. $m$, the density of $M_n$ is given by $f_{M_n}(m)=\frac{nm^{n−1}}{W^n}$. Thus $E(M_n)=\int^W_0 z \cdot f_{M_n}(z)dz= \int^W_0 z \cdot \frac{nz^{n−1}}{W^n}dz=\frac{n}{n+1} \cdot W$. Therefore $\frac{n+1}{2n} \cdot M_n$ is an unbiased estimator for $W/2$. [Solved Problems - problem 3](https://tinyurl.com/yaqnslkx)
+
+
+8. Let $X$ be distributed $Poisson(λ)$. Which of the following is an unbiased estimator for $λ^2$.<br/>
+  a. $X^2$<br/>
+  b. $X^2−X$<br/>
+  c. $2X^2−X$<br/>
+  d. $3X^2−2X$<br/>
+
+  Ans: <span style="color: cyan;">b</span><br/>
+  Explanation: For $X$ that is distributed $Poisson(\lambda)$, we know that $E[X]=Var(X)=\lambda$. Thus $E[X^2]=Var(X)+E^2[X]=λ+λ^2$ and therefore $E(X^2−X)=\lambda^2$.
 
 
 
