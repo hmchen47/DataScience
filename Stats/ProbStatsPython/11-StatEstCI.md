@@ -96,15 +96,15 @@
 ## 11.2 Mean and Variance Estimation
 
 + Estimators
-  + r.v.'s: $X_n \stackrel{\text{def}}{=} X_1, X_2, \dots, X_n$ independent samples from distribution or a population
+  + r.v.'s: $X^n \stackrel{\text{def}}{=} X_1, X_2, \dots, X_n$ independent samples from distribution or a population
   + $p$: unknown distribution or population
   + estimate a distribution parameter $\theta$
     + parameter of $p$
     + wish to estimate
     + e.g., mean example: $\mu, \sigma, X_{\max}$, mode
   + sample
-    + $X^n \stackrel{\text{def}}{=} X_1, X_2, \dots, X_n \sim p {\perp \!\!\!\! \perp}
-    + e.g., $X^2 = 5, -2, 6$
+    + $X^n \stackrel{\text{def}}{=} X_1, X_2, \dots, X_n \sim p {\perp \!\!\!\! \perp}$
+    + e.g., $X^3 = 5, -2, 6$
   + estimator for parameter $\theta$ as a function
     + function $\widehat{\theta}: \Bbb{R} \to \Bbb{R}$
     + mapping $X^n \to \Bbb{R}$
@@ -119,7 +119,7 @@
 + Observations
   + distribution parameter $\theta$
     + constant
-    + mean: 3.2
+    + e.g., mean: 3.2
   + estimate $\widehat{\Theta} \stackrel{\text{def}}{=} \widehat{\theta}(X^n)$
     + random variable
     + ideally close to $\theta$
@@ -229,7 +229,7 @@
     + sample mean: $\overline{X} \stackrel{\text{def}}{=} \frac{1}{n} \sum_{i=1}^n X_i$
     + expectation
 
-      \[ E[\overline{X}] = E\left[ \frac 1 n \sum_{i=1}^n X_i \right] = \frac 1 n \sum_{i=1}^n E[X-i] = \mu \]
+      \[ E[\overline{X}] = E\left[ \frac 1 n \sum_{i=1}^n X_i \right] = \frac 1 n \sum_{i=1}^n E[X_i] = \mu \]
 
     + bias: 
 
@@ -258,7 +258,7 @@
       </a>
     </div>
 
-  + MSE of ample mean
+  + MSE of sample mean
 
     \[ \text{MSE}_\mu (\overline{X}) = \text{Bias}_\mu^2(\overline{X}) + Var(\overline{X}) = \frac{\sigma^2}{n} \]
 
