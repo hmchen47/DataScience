@@ -365,13 +365,126 @@
 
 ## 11.3 Variance Estimation
 
++ Estimating the variance
+  + estimating $\sigma^2$
+    + unknown distribution or population $p$
+    + mean: $\mu$
+    + variance: $\sigma^2$
+  + r.v.'s: sample of $n$ observations $\to X_1, \dots, X_n  \sim p \;{\perp \!\!\!\! \perp}$
+  + no distribution
+    + expectation $\to$ average
+    + mean: $\mu E[X_i] \to \overline{X} \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n X_i$
+    + variance: $\sigma^2 = E[(X - \mu)^2] \to S^2 \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n (X_i - \overline{X})^2$ (Raw sample variance)
+
++ Example
+  + sample: $n=5$ observations, e.g., 2, 1, 4, 2, 6
+  + estimated mean: $\overline{\text{X}} = frac15 \sum_{i=1}^5 x_i = \frac{2+1+4+2+6}{5} = \frac{15}{5} = 3$
+  + estimated variance: $S^2 = \frac15 \sum_{i=1}^5 (x_i - \overline{x}})^2 = \frac{16}{5} = 3.2$
+  + variance: $Var(X) = E[(X - \mu)^2] = E[X^2] - \mu^2$
+  + similar expression for $S^2$
+
++ One-pass calculation
+
+  \[\begin{align*}
+    \sum_{i=1}^n (X_i - \overline{x}) &= \sum_{i=1}^n (x_i^2 - 2 x_i \overline{x} + \overline{x}^2) = \sum x_i^2 - 2\overline{x} \sum x_i + \sum \overline{x}^2 \\
+    &= \sum x_i -2n\overline{x}^2 + n \overline{x}^2 = \sum x_i - n \overline{x}^2\\\\
+    S^2 &\stackrel{\text{def}}{=} \frac 1 n \sum (x_i - \overline{x})^2 \hsapce{2em} (\text{intuitive arguments})
+    & = \frac 1 n \sum x_i^2 - \overline{x}^2 \hspace{2em} \text{fewer subtractions, one pass}
+  \end{align*}\]
+
++ Example
+  + samples: $n= 5 \;\;$ 2, 1 , 4, 2, 6
+  + sample parameters: $\overline{X} = 3 \;\; S^2 = 3.2$
+  + one pass: $S^2 = \frac 1 5 \sum_{i=1}^5 x_i^2 - \overline{x}^2 = \frac{4+1+16+4+36}{5} - 3^2 = 12.2 -9 = 3.2$
+
++ $S^2$ and Bias
+  + mean: $E[X_i] = \mu$
+    + Expectation $\to$ average of samples: $\overline{X} \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n X_i$
+    + unbiased (WLLN): $E[\overline{X}] = \mu$
+  + variance: $E[(X_i - \mu)^2] = \sigma^2$
+    + Expectation $\to$ average of samples: $S^2 = \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n (X_i = \overline{X})^2$
+    + unbiased?: $E[S^2] = \sigma^2$
+
++ Simulation plan
+  + pick a distribution w/ known $\sigma^2$
+  + generating n observations: $X_1, \dots, X_n$
+  + calculating expectation?
+    + weak law of large number
+    + E $\approx$ average of many
+  $r$ experiments
+    + obtaining $S^2$ for each
+    + averaging $\overline{S^2} \to E[S^2]$
+  + comparisons
+    + calculated $\overline{S^2}$ to estimate $E[S^2]$
+    + known $\sigma^2$
+  + similar $\to$ unbiased
+  + different $to$ biased
+
++ Example: $N(0-, 16)$
+  + variance of samples: $S^2 = \frac 1 n \sum_{i=1}^n (X_i - \overline{X})^2$ w/ $n = 2$
+  + 100K experiments: $\overline{S^2} \approx E[S^2]$
+  + $E[S^2] \stackrel{?}{=} \sigma^2$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y9fkmcpp" ismap target="_blank">
+      <img src="img/t11-03a.png" style="margin: 0.1em;" alt="Simulation results w/ averaging experimental variance and theoretical variance" title="Simulation results w/ averaging experimental variance and theoretical variance" width=350>
+      <img src="img/t11-03b.png" style="margin: 0.1em;" alt="Simulation results w/ averaging experimental variance and theoretical variance" title="Simulation results w/ averaging experimental variance and theoretical variance" width=350>
+    </a>
+  </div>
+
+  + determining exact difference?
+
++ Example: Bernoulli
+  + r.v.'s: $B_p \;\; \Pr(1) = p \; \Pr(0) = 1 - p = q \quad \sigma^2 = pq$
+  + number of samples: $n=2$
+    + samples: $x_1, x_2$
+    + sample mean: $\overline{x} = \frac{x_1+ x_2}{2}$
+    + sample variance: $S^2 =(x_1, x_2) = \frac12 \left((x_1 - \overline{x})^2 + (x_2 - \overline{x})^2 \right)$
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$X_1, X_2$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$\Pr(X_1, X_2)$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$\overline{X}$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$S^2$</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">0, 0</td> <td style="text-align: center;">$q^2$</td> <td style="text-align: center;">0</td> <td style="text-align: center;">$\frac12 ((0-0)^2 + (0-0)^2) = 0$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">0, 1</td><td style="text-align: center;">$pq$</td><td style="text-align: center;">$\frac12$</td><td style="text-align: center;">$\frac12 \left((0-\frac12)^2+ (1-\frac12)^2 \right) = \frac12 \cdot (\frac14 + \frac14) = \frac14$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">1, 0</td> <td style="text-align: center;">pq</td> <td style="text-align: center;">$\frac12$</td> <td style="text-align: center;">$\frac14$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">1, 1</td> <td style="text-align: center;">$p^2$</td> <td style="text-align: center;">1</td> <td style="text-align: center;">0</td>
+      </tr>
+      </tbody>
+    </table>
+
+  \[\begin{align*}
+    E[S^2] &= \sum_{x_1, x_2} p(x_1, x_2) \cdot S^2(x_1, x_2) \\
+    &= q^2 \cdot 0 + qp \cdot \frac14 + pq \cdot \cdot \frac14 + p^2 \cdot 0 = \frac{pq}{2} = \frac{\sigma^2}{2}
+  \end{align*}\]
+
++ Preview
+  + simulation
+    + number of e.v's: $n = 2$
+    + distribution: $N(0, 16)$ and $E_2$
+    + $E[S^2] \ne \sigma^2 \approx \frac12 \sigma^2$
+  + exact calculation
+    + r.v.: $B_p$
+    + indeed $E[X^2] \ne \sigma^2$
+    + $E[S^2] = \frac12 \sigma^2$ exactly
+  + applied to other distributions? other n? why?
+  + general $n$: simulations $E[S^2] \approx \frac{n-1}{n} \cdot \sigma^2$
 
 
-
-
-
-
-+ [Original Slides]()
++ [Original Slides](https://tinyurl.com/y9fkmcpp)
 
 
 ### Problem Sets
