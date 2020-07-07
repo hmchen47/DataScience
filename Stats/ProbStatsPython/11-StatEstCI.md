@@ -370,14 +370,17 @@
     + unknown distribution or population $p$
     + mean: $\mu$
     + variance: $\sigma^2$
-  + r.v.'s: sample of $n$ observations $\to X_1, \dots, X_n  \sim p \;{\perp \!\!\!\! \perp}$
+  + sample of $n$ observations: $X_1, \dots, X_n  \sim p \;{\perp \!\!\!\! \perp}$
   + no distribution
     + expectation $\to$ average
     + mean: $\mu E[X_i] \to \overline{X} \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n X_i$
-    + variance: $\sigma^2 = E[(X - \mu)^2] \to S^2 \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n (X_i - \overline{X})^2$ (Raw sample variance)
+    + variance: $\sigma^2 = E[(X - \mu)^2] \to S^2 \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n (X_i - \overline{X})^2$
+  + $S^2$
+    + Raw sample variance
+    + random variable
 
-+ Example
-  + sample: $n=5$ observations, e.g., 2, 1, 4, 2, 6
++ Example: samples
+  + samples: $n=5$ observations, e.g., 2, 1, 4, 2, 6
   + estimated mean: $\overline{\text{X}} = frac15 \sum_{i=1}^5 x_i = \frac{2+1+4+2+6}{5} = \frac{15}{5} = 3$
   + estimated variance: $S^2 = \frac15 \sum_{i=1}^5 (x_i - \overline{x}})^2 = \frac{16}{5} = 3.2$
   + variance: $Var(X) = E[(X - \mu)^2] = E[X^2] - \mu^2$
@@ -386,15 +389,15 @@
 + One-pass calculation
 
   \[\begin{align*}
-    \sum_{i=1}^n (X_i - \overline{x}) &= \sum_{i=1}^n (x_i^2 - 2 x_i \overline{x} + \overline{x}^2) = \sum x_i^2 - 2\overline{x} \sum x_i + \sum \overline{x}^2 \\
+    \sum_{i=1}^n (X_i - \overline{x}) &= \sum_{i=1}^n (x_i^2 - 2 x_i \overline{x} + \overline{x}^2) = \sum_{i=1}^n x_i^2 - 2\overline{x} \sum_{i=1}^n x_i + \sum_{i=1}^n \overline{x}^2 \qquad \left(\sum_{i=1}^n x_i = n \overline{x}\right)\\
     &= \sum x_i -2n\overline{x}^2 + n \overline{x}^2 = \sum x_i - n \overline{x}^2\\\\
-    S^2 &\stackrel{\text{def}}{=} \frac 1 n \sum (x_i - \overline{x})^2 \hsapce{2em} (\text{intuitive arguments})
-    & = \frac 1 n \sum x_i^2 - \overline{x}^2 \hspace{2em} \text{fewer subtractions, one pass}
+    S^2 &\stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n (x_i - \overline{x})^2 \hspace{4em} \left[\substack{\text{intuitive}\\\text{proof arguments}}\right] \\
+    & = \frac 1 n \sum_{i=1}^n x_i^2 - \overline{x}^2 \hspace{4.8em} \left[\substack{\text{fewer subtractions}\\ \text{one pass calculation}}\right]
   \end{align*}\]
 
-+ Example
++ Example: samples (cont.)
   + samples: $n= 5 \;\;$ 2, 1 , 4, 2, 6
-  + sample parameters: $\overline{X} = 3 \;\; S^2 = 3.2$
+  + estimated parameters: $\overline{X} = 3 \;\; S^2 = 3.2$
   + one pass: $S^2 = \frac 1 5 \sum_{i=1}^5 x_i^2 - \overline{x}^2 = \frac{4+1+16+4+36}{5} - 3^2 = 12.2 -9 = 3.2$
 
 + $S^2$ and Bias
@@ -402,33 +405,36 @@
     + Expectation $\to$ average of samples: $\overline{X} \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n X_i$
     + unbiased (WLLN): $E[\overline{X}] = \mu$
   + variance: $E[(X_i - \mu)^2] = \sigma^2$
-    + Expectation $\to$ average of samples: $S^2 = \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n (X_i = \overline{X})^2$
+    + Expectation $\to$ average of samples: $S^2 \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n (X_i = \overline{X})^2$
     + unbiased?: $E[S^2] = \sigma^2$
 
 + Simulation plan
   + pick a distribution w/ known $\sigma^2$
   + generating n observations: $X_1, \dots, X_n$
-  + calculating expectation?
+  + sample variance: $S62 = \frac 1 n \sum_{i=1}^n (X_i - \overline{X})^2$
+  + check: $E[S^2] \stackrel{?}{=} \sigma^2$
+  + finding expectation?
     + weak law of large number
     + E $\approx$ average of many
-  $r$ experiments
+  + $r$ experiments
     + obtaining $S^2$ for each
     + averaging $\overline{S^2} \to E[S^2]$
   + comparisons
     + calculated $\overline{S^2}$ to estimate $E[S^2]$
     + known $\sigma^2$
-  + similar $\to$ unbiased
-  + different $to$ biased
+  + scenarios
+    + similar $\to$ unbiased
+    + different $to$ biased
 
-+ Example: $N(0-, 16)$
++ Example: simulating $N(0, 16)$ and $Exp(2)$
   + variance of samples: $S^2 = \frac 1 n \sum_{i=1}^n (X_i - \overline{X})^2$ w/ $n = 2$
   + 100K experiments: $\overline{S^2} \approx E[S^2]$
   + $E[S^2] \stackrel{?}{=} \sigma^2$
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/y9fkmcpp" ismap target="_blank">
-      <img src="img/t11-03a.png" style="margin: 0.1em;" alt="Simulation results w/ averaging experimental variance and theoretical variance" title="Simulation results w/ averaging experimental variance and theoretical variance" width=350>
-      <img src="img/t11-03b.png" style="margin: 0.1em;" alt="Simulation results w/ averaging experimental variance and theoretical variance" title="Simulation results w/ averaging experimental variance and theoretical variance" width=350>
+      <img src="img/t11-03a.png" style="margin: 0.1em;" alt="Simulation results of N(0, 16) w/ estimated variance and distribution variance" title="Simulation results of N(0, 16) w/ estimated variance and distribution variance" width=350>
+      <img src="img/t11-03b.png" style="margin: 0.1em;" alt="Simulation results of Exp(2) w/ estimated variance and distribution variance" title="Simulation results of Exp(2) w/ estimated variance and distribution variance" width=350>
     </a>
   </div>
 
@@ -439,7 +445,7 @@
   + number of samples: $n=2$
     + samples: $x_1, x_2$
     + sample mean: $\overline{x} = \frac{x_1+ x_2}{2}$
-    + sample variance: $S^2 =(x_1, x_2) = \frac12 \left((x_1 - \overline{x})^2 + (x_2 - \overline{x})^2 \right)$
+    + sample variance: $S^2 =(x_1, x_2) = \frac12 \left((x_1 - \overline{x})^2 + (x_2 - \overline{x})^2 \right)$<br/><br/>
 
     <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
       <thead>
@@ -471,17 +477,17 @@
     &= q^2 \cdot 0 + qp \cdot \frac14 + pq \cdot \cdot \frac14 + p^2 \cdot 0 = \frac{pq}{2} = \frac{\sigma^2}{2}
   \end{align*}\]
 
-+ Preview
++ Summary
   + simulation
     + number of e.v's: $n = 2$
-    + distribution: $N(0, 16)$ and $E_2$
+    + distribution: $N(0, 16)$ and $Exp(2)$
     + $E[S^2] \ne \sigma^2 \approx \frac12 \sigma^2$
   + exact calculation
     + r.v.: $B_p$
     + indeed $E[X^2] \ne \sigma^2$
     + $E[S^2] = \frac12 \sigma^2$ exactly
   + applied to other distributions? other n? why?
-  + general $n$: simulations $E[S^2] \approx \frac{n-1}{n} \cdot \sigma^2$
+  + general $n$: simulations shown $E[S^2] \approx \frac{n-1}{n} \cdot \sigma^2$
 
 
 + [Original Slides](https://tinyurl.com/y9fkmcpp)
