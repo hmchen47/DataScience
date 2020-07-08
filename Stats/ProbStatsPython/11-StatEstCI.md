@@ -382,7 +382,7 @@
 + Example: samples
   + samples: $n=5$ observations, e.g., 2, 1, 4, 2, 6
   + estimated mean: $\overline{\text{X}} = \frac15 \sum_{i=1}^5 x_i = \frac{2+1+4+2+6}{5} = \frac{15}{5} = 3$
-  + estimated variance: $S^2 = \frac15 \sum_{i=1}^5 (x_i - \overline{x})^2 = \frac{16}{5} = 3.2$
+  + estimated variance (raw sample varinace): $S^2 = \frac15 \sum_{i=1}^5 (x_i - \overline{x})^2 = \frac{16}{5} = 3.2$
   + variance: $Var(X) = E[(X - \mu)^2] = E[X^2] - \mu^2$
   + similar expression for $S^2$
 
@@ -411,7 +411,7 @@
 + Simulation plan
   + pick a distribution w/ known $\sigma^2$
   + generating n observations: $X_1, \dots, X_n$
-  + sample variance: $S^2 = \frac 1 n \sum_{i=1}^n (X_i - \overline{X})^2$
+  + raw sample variance: $S^2 = \frac 1 n \sum_{i=1}^n (X_i - \overline{X})^2$
   + check: $E[S^2] \stackrel{?}{=} \sigma^2$
   + finding expectation?
     + weak law of large number
@@ -427,7 +427,7 @@
     + different $\to$ biased
 
 + Example: simulating $N(0, 16)$ and $Exp(2)$
-  + variance of samples: $S^2 = \frac 1 n \sum_{i=1}^n (X_i - \overline{X})^2$ w/ $n = 2$
+  + raw sample variance: $S^2 = \frac 1 n \sum_{i=1}^n (X_i - \overline{X})^2$ w/ $n = 2$
   + 100K experiments: $\overline{S^2} \approx E[S^2]$
   + $E[S^2] \stackrel{?}{=} \sigma^2$
 
@@ -445,7 +445,7 @@
   + number of samples: $n=2$
     + samples: $x_1, x_2$
     + sample mean: $\overline{x} = \frac{x_1+ x_2}{2}$
-    + sample variance: $S^2 (x_1, x_2) = \frac12 \left((x_1 - \overline{x})^2 + (x_2 - \overline{x})^2 \right)$<br/><br/>
+    + raw sample variance: $S^2 (x_1, x_2) = \frac12 \left((x_1 - \overline{x})^2 + (x_2 - \overline{x})^2 \right)$<br/><br/>
 
     <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
       <thead>
@@ -485,7 +485,7 @@
   + exact calculation
     + r.v.: $B_p$
     + indeed $E[X^2] \ne \sigma^2$
-    + $E[S^2] = \frac12 \sigma^2$ exactly
+    + raw sample variance: $E[S^2] = \frac12 \sigma^2$ exactly
   + applied to other distributions? other n? why?
   + general $n$: simulations shown $E[S^2] \approx \frac{n-1}{n} \cdot \sigma^2$
 
@@ -555,13 +555,198 @@
 
 ## 11.4 Unbiased Variance Estimation
 
++ Mystery of the missing man
+  + unbiased
+    + sample mean: $\overline{X} \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n X_i$
+    + expectation of sample mean: $E[\overline{X}] = \mu$
+  + raw sample variance: $S^2 \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n (X_i - \overline{X})^2$
+  + mystery
+    + height of 10 people
+    + mean: normalized by 10
+    + variance: normalized by 9
+  + proof
+    + $ = \frac{n-1}{n} \cdot \sigma^2$
+    + why?
+    + how to fix
+
++ Partial explanation
+  + $S^2$ under-estimating $\sigma^2$
+    + sample variance: $\overline{X} \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n X_i$
+    + expectation of sample variance: $E[S^2] = \frac{n-1}{n} \cdot \sigma^2$
+  + minimizing $a$
+    + given $n$ points $x_1, \dots, x_n$
+    + variance: $\sum_{i=1}^n (x_i - a)^2$
+    + minimized for $a = \frac{x_1 + \cdots + x_n}{n}$
+    + e.g., $(x_1, x_2) = (1, -1)$, variance: $(1-a)^2 + (-1-a)^2 = 2 + sa^2 \to$ minimized for $a=0 \to$ average
+  + variance
+    + $\sigma^2 \stackrel{\text{def}}{=} E[(X - \mu)^2]$
+    + $\mu \approx$ average of observations, not exactly
+  + sample variance
+    + $S^2 \stackrel{\text{def}}{=} = \frac a n \sum_{i=1}^n (X_i - \overline{X})^2$
+    + $\overline{X}$: exact average
+    + lower sum
+  + explanation
+    + $S^2$ under-estimating $\sigma^2$
+    + not $\frac{n-1}{n}$
+    + nor capture whole reason
+
+    \[\begin{align*}
+      E[S^2] &= E\left[ \frac 1 n \sum_{i=1}^n (X_i - \overline{X})^2 \right] = \frac 1 n E\left[ \sum_{i=1}^n (X_1 - \overline{X})^2 \right] \\
+      &= \frac 1 n \sum_{i=1}^n E\left[(X_i - \overline{X})^2\right] = \frac{1}{n} \sum_{i=1}^n E[(X_1 - \overline{X})^2] \\
+      &= E[(X_1 - \overline{X})^2]
+    \end{align*}\]
+
+  + easier to understand and explain
+
++ Example: Bernoulli (revisit)
+
++ Example: Bernoulli
+  + r.v.'s: $B_p \;\; \Pr(1) = p \; \Pr(0) = 1 - p = q \quad \sigma^2 = pq$
+  + number of samples: $n=2$
+    + samples: $x_1, x_2$
+    + sample mean: $\overline{x} = \frac{x_1+ x_2}{2}$
+    + raw sample variance: $S^2 (x_1, x_2) = \frac12 \left((x_1 - \overline{x})^2 + (x_2 - \overline{x})^2 \right)$<br/><br/>
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$X_1, X_2$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$\Pr(X_1, X_2)$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$\overline{X}$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$S^2$</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">0, 0</td> <td style="text-align: center;">$q^2$</td> <td style="text-align: center;">0</td> <td style="text-align: center;">$\frac12 ((0-0)^2 + (0-0)^2) = 0$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">0, 1</td><td style="text-align: center;">$qp$</td><td style="text-align: center;">$\frac12$</td><td style="text-align: center;">$\frac12 \left((0-\frac12)^2+ (1-\frac12)^2 \right) = \frac12 \cdot (\frac14 + \frac14) = \frac14$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">1, 0</td> <td style="text-align: center;">$pq$</td> <td style="text-align: center;">$\frac12$</td> <td style="text-align: center;">$\frac14$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">1, 1</td> <td style="text-align: center;">$p^2$</td> <td style="text-align: center;">1</td> <td style="text-align: center;">0</td>
+      </tr>
+      </tbody>
+    </table>
+
+    \[\begin{align*}
+      E[S^2] &= \sum_{x_1, x_2} p(x_1, x_2) \cdot S^2(x_1, x_2) \\
+      &= q^2 \cdot 0 + qp \cdot \frac14 + pq \cdot \cdot \frac14 + p^2 \cdot 0 = \frac{pq}{2} = \frac{\sigma^2}{2}
+    \end{align*}\]
+
+  + alternative
+    + r.v.'s: $B_p \;\; \Pr(1) = p \; \Pr(0) = 1 - p = q \quad \sigma^2 = E[(X - \mu)^2] = p(1-p) = pq$
+    + simplified calculation
+
+    \[\begin{align*}
+      E[S^2] &= E[(X_1 - \overline{X})^2] = \sum_{x_1, x_2} p(x_1, x_2) \cdot (x_1 - \overline{x})^2 \\
+      &= 2 \cdot pq \cdot \frac14 = \frac12 pq = \frac12 \sigma^2
+    \end{align*}\]
+
+    + simpler and easier to analyze
+
++ Simplified formulation
+  + proving $E[S^2] = \frac{n-1}{n} \cdot \sigma^2$
+    + asymmetric, unclear
+    + expectation of sample variance:
+
+      \[ E[S^2] \stackrel{\text{def}}{=} E\left[ \frac{1}{n} \sum_{i=1}^n (X_1 - \overline{X})^2 \right] = E\left[(X_1 - \overline{X})^2 \right] \]
+
+    + variance
+
+      \[ \sigma^2 \stackrel{\text{def}}{=} E[(X-1 - \mu)^2] \qquad X_1 \sim p \]
+
+  + proving $E[(X_1 - \overline{X})^2] = \frac{n-1}{n} \cdot E[X_1 - \mu)^2]$
+    + symmetric, shows difference
+  + simplistic argument
+    + $\overline{X}$ including $X_1$, hence closer than $\mu$
+    + doesn't explain $\frac{n-1}{n}$
+    + nor whole story
+
++ Special case: $n=2$
+  + $E[(X_1 - \overline{X})^2] = \frac12 \cdot E[(X_1 - \mu)^2] = \frac{\sigma^2}{2}$
+  + decoupling $X-1$ from $\overline{X}$
+    + $X_1 - \overline{X} = X_1 - \frac{X_1 + X_2}{2} = \frac{X_2 - X_1}{2}$
+    + $E\left[(X_1 - \overline{X})^2\right] = E\left[(\frac{X_1 - X_2}{2})^2\right] = \frac14 \cdot E\left[ (X_1 - X_2)^2 \right]$
+    + $X_1 {\perp \!\!\!\! \perp}$: difference just from correlation btw $X_1$ and $\overline{X} \implies \frac14 \cdot E[(X_1 - \mu)^2] = \frac{\sigma^2}{4} to$ even smaller!
+    + not whole story. randomness of $X_2$ reverses half of decrease.
+    + showing $E\left[ (X_1 - X_2)^2 \right] = 2 \cdot E[(X_1 - \mu)^2]$
+
+    \[ E[(X_1 - \overline{X})^2] = \underbrace{\frac14 \cdot E\left[ (X_1 - X_2)^2 \right]}_{\text{gain $\frac14$ from proximty}} = \underbrace{\frac14 \cdot 2 \cdots E[(X_1 - \mu)^2]}_{\text{lose 2 for randomness}} = \frac{\sigma^2}{2} \]
+
+  + derivation of $E[(X_1 - X-2)^2] = 2 \cdot E[(X_1 - \mu)^2]$
+    + 0-mean
+      + $E[X_1 - X_2] = \mu - \mu = 0$
+      + $E[X_1 - \mu] = \mu - \mu = 0$
+    + independence ${\perp \!\!\!\! \perp}: $Var(X_1 - X_2) = Var(X_1) + Var(X_2) = 2 \cdot Var(X_1)$
+    + for 0-mean random variable $Z$: $Z[Z^2] = Var(Z)$
+
+      \[ E[(X_1 - X_2)^2] = 2 \cdot E[(X_1 - \mu)^2] \iff Var(X_1 - X_2) = 2 \cdot Var(X_1) \]
+
+  + summary
+
+    \[\begin{align*}
+      E[S^2] &\stackrel{\text{def}}{=} E\left[ \frac 1 n \sum_{i=1}^n (X_i - \overline{X})^2 \right] = E\left[ (X_1 - \overline{X})^2 \right] \quad \text{any } n \\
+      &= E\left[ (\frac{X_1 - X_2}{2})^2 \right] \hspace{3.5em} \left( X_1 - X_2 = \frac{X_1 - X_2}{2} \right) \\
+      &= \frac14 \cdot E\left[ (X_1 - X_2)^2 \right]  \hspace{2.5em} \left( \tfrac14 \text{ from $\overline{X}$ being closer than $\mu$ to $X_1$} \right) \\
+      &= \frac14 \cdot Var(X_1 - X_2) = \frac14 \left(Var(X_1) + Var(X_2)\right) \hspace{2em} \left( \text{0 mean} \& {\perp \!\!\!\! \perp} \right)\\
+      &= \frac14 \cdot 2 \cdot Var(X_1) \hspace{4.3em} \left( iid \;\;\&\;\; 2 \text{ from $\overline{X}$ being random} \right) \\
+      &= \frac14 \cdot 2 \cdot \sigma^2 = \frac{\sigma^2}{2}  \hspace{4.5em} \left(\tfrac12 \text{ together}\right)
+    \end{align*}\]
+
++ General $n$
+
+  \[\begin{align*}
+    X_1 - \overline{X} &= X - \frac{X_! + \cdots + X_N}{n} = \frac{(n-1)X_1 - X_2 - \cdots - X_n}{n} \\
+    &= \frac{n-1}{n} \left(X_1 - \frac{X_2 + \cdots + X_n}{n-1}\right)\\\\
+    E[S^2] &= E\left[ \frac 1 n \sum_{i=1}^n (X_i - \overline{X})^2 \right] = E\left[ (X_1 - \overline{X})^2 \right] = E\left[ \frac{n-1}{n} (X_1 - \frac{X_2 + cdots + X_n}{n-1})^2 \right] \\
+    &= \left(\frac{n-1}{n}\right)^2 \cdot E\left[\left(X_1 - \frac{X_2 + \cdots + X_n}{n-1}\right)^2\right] \hspace{2em} \left( \left(\frac{n-1}{n}\right) \text{ as } \overline{X} \text{ closer than $\mu$ to } X_1 \right) \\
+    &= \left(\frac{n-1}{n}\right)^2 \cdot Var\left(\left(X_1 - \frac{X_2 + \cdots + X_n}{n-1}\right)^2\right) \hspace{2em} \left( \text{0-mean} \right) \\
+    &= \left(\frac{n-1}{n}\right)^2 \cdot \left[ Var(X_1) + Var\left(\frac{X_2 + \cdots + X_n}{n-1}\right) \right] \hspace{2em} \left( {\perp \!\!\!\! \perp} \right) \\
+    &= \left(\frac{n-1}{n}\right)^2 \cdot \left[ \sigma^2 + \frac{\sigma^2}{n-1} \right] \hspace{3em} \left( \text{iid, vr. scaling } \& \frac{n-1}{n} \text{ from $\overline{X}$ being random} \right) \\
+    &= \left(\frac{n-1}{n}\right)^2 \cdot \frac{n}{n-1} \cdot \sigma^2 = \frac{n-1}{n} \cdot \sigma^2 \hspace{4em} \left( \frac{n-1}{n} \text{ together } \right)
+  \end{align*}\]
+
++ Unbiased variance estimate
+  + raw sample variance
+
+    \[\begin{align*}
+      S^2 &= \frac 1 n \sum_{i=1}^n (X_i - \overline{X})^2 \\
+      E[S^2] &= \frac{n-1}{n} \cdot \sigma^2
+    \end{align*}\]
+
+  + Bessel's correction
+
+    \[ s^2 = \farc{n-1}{n} \cdot S^2 = \frac{n-1}{n} \sum_{i=1}^n \left( X_1 - \overline{X} \right)^2 \]
+
+  + unbiased estiamtor of variance: $E[s^2] = \sigma^2$
+  + $s^2$: typically called sample variance
+
++ Example: samples
+  + observations: $n= 5 \quad$ 2, 1, 4, 2, 6
+  + sample mean: $\overline{X} = \frac{1}{n} \sum_{i=1}^n X_i = \frac{2+1+4+2+6}{5} = 3
+  + raw sample variance: $S^2 = 3.2
+  + sample variance: unbiased estimate of $\sigma^2$
+
+    \[S^2 =\frac{n-1}{n} \sum_{i=1}^n \left( X_1 - \overline{X} \right)^2 = \frac{1+4+1+1+9}{4} = \frac{16}{4} = 4 \]
+
+  + one-pass calculation
+
+    \[ S^2 = \frac 1 n \sum_{i=1}^n X_i^2 - \overline{X}^2 \to s^2 = \frac{1}{n-1} \left( \sum_{i=1}^n X_i^2 - n \overline{X}^2 \right) \]
+
++ Final simulations
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y7zytf8z" ismap target="_blank">
+      <img src="img/t11-04.png" style="margin: 0.1em;" alt="Exponential simulation results w/ n=3/30 and r=500/3000" title="Exponential simulation results w/ n=3/30 and r=500/3000" width=450>
+    </a>
+  </div>
 
 
-
-
-
-
-+ [Original Slides]()
++ [Original Slides](https://tinyurl.com/y7zytf8z)
 
 
 ### Problem Sets
