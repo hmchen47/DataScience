@@ -495,6 +495,55 @@
 
 ### Problem Sets
 
+0. As an estimator for distribution variance, the "raw" sample variance is<br/>
+  a. biased<br/>
+  b. unbiased<br/>
+
+  Ans: a
+
+
+1. Let $\overline{X}_n$ and $S_n^2$ be the sample mean and the sample variance of $\{X_1, \dots, X_n\}$. Let $\overline{X}_{n+1}$ and $S^2_{n+1}$ be the sample mean and the sample variance of $\{X_1, \dots, X_n, \overline{X}_n\}$. Which of the following hold
+
+  a) for sample means,<br/>
+  a. $\overline{X}_n > \overline{X}_{n+1}$<br/>
+  b. $\overline{X}_n < \overline{X}_{n+1}$<br/>
+  c. $\overline{X}_n = \overline{X}_{n+1}$<br/>
+
+  b) for sample variances?<br/>
+  a. $S^2_n > S^2_{n+1}$<br/>
+  b. $S^2_n < S^2_{n+1}$<br/>
+  c. $S^2_n = S^2_{n+1}$<br/>
+
+  Ans: a. (c); b. (a)<br/>
+  Explanation:
+    + $\overline{X}_{n+1}=\frac{\sum_{i=1}^{n}X_i+\overline{X}_n}{n+1}$ $=\frac{n\cdot\overline{X}_n+\overline{X}_n}{n+1}=\overline{X}_n$.
+    + ${S}^2_{n+1}=\frac{\sum_{i=1}^{n}(X_i-\overline{X}_{n+1})^2+(\overline{X}_n-\overline{X}_{n+1})^2}{n}$ $=\frac{\sum_{i=1}^{n}(X_i-\overline{X}_{n})^2+(\overline{X}_n-\overline{X}_{n})^2}{n}$ $< \frac{\sum_{i=1}^{n}(X_i-\overline{X}_{n})^2}{n-1}$ $={S}^2_{n}$.
+
+
+2. Consider the following array of $m \times n$ random variables $X_{11}, X_{12}, \cdots, X_{1n}, \cdots,$ $X_{i1}, X_{i2}, \cdots, X_{in}, \cdots,$ $X_{m1}, X_{m2}, \cdots, X_{mn}$. For $i = 1, \cdots, m$, let $\overline{X}_i$ be the sample mean of $\{X_{i1}, X_{i2}, \cdots, X_{in}\}$, and $\overline{S}^2$ be the "raw" sample variance of $\{\overline{X}_1, \overline{X}_2, \cdots,\overline{X}_m\}$. If $\forall i, j, Var(X_{ij}) = \sigma^2$, what is $E[\overline{S}^2]$?<br/>
+  a. $\frac{n−1}{n} \sigma^2$<br/>
+  b. $\frac{m−1}{m} \sigma^2$<br/>
+  c. $\frac{1}{n} \sigma^2$<br/>
+  d. $\frac{1}{m} \sigma^2$<br/>
+  e. $\frac{n−1}{mn} \sigma^2$<br/>
+  f. $\frac{m−1}{mn} \sigma^2$<br/>
+
+  Ans: <span style="color:cyan;">f</span><br/>
+  Explanation: According to WLLN, $V(\overline{X}_i) = \frac{\sigma^2}{n}$. $E(\overline{S}^2) = \frac{m - 1}{m} V(\overline{X}_i) = \frac{m - 1}{mn}\sigma^2$
+
+
+3. If all the observations in a sample increase by 5<br/>
+  a. the sample mean increases by 5,<br/>
+  b. the sample mean stays the same,<br/>
+  c. the sample variance increases by 5,<br/>
+  d. the sample variance stays the same.<br/>
+
+  Ans: <span style="color:cyan;">ad</span><br/>
+  Explanation: Let $y_i=x_i+5$.
+  + True. $\bar{y} = \frac{1}{n} \sum_{i = 1}^{n} y_i = \frac{1}{n} \sum_{i = 1}^{n} (x_i + 5) = \frac{1}{n} \sum_{i = 1}^{n} x_i + 5 = \bar{x} + 5$
+  + False
+  + False
+  + True. $s_y^2 = \frac{1}{n} \sum_{i = 1}^{n} (y_i - \bar{y})^2 = \frac{1}{n} \sum_{i = 1}^{n} (x_i + 5 - (\bar{x} + 5))^2 = \frac{1}{n} \sum_{i = 1}^{n} (x_i - \bar{x})^2 = s_x^2$
 
 
 
