@@ -546,14 +546,11 @@
   + True. $s_y^2 = \frac{1}{n} \sum_{i = 1}^{n} (y_i - \bar{y})^2 = \frac{1}{n} \sum_{i = 1}^{n} (x_i + 5 - (\bar{x} + 5))^2 = \frac{1}{n} \sum_{i = 1}^{n} (x_i - \bar{x})^2 = s_x^2$
 
 
-
-
 ### Lecture Video
 
-<a href="url" target="_BLANK">
+<a href="https://tinyurl.com/y9p4guln" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
 </a><br/>
-
 
 
 ## 11.4 Unbiased Variance Estimation
