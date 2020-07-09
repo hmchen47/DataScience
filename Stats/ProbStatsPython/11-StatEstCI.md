@@ -583,7 +583,7 @@
     + $\sigma^2 \stackrel{\text{def}}{=} E[(X - \mu)^2]$
     + $\mu \approx$ average of observations, not exactly
   + raw sample variance
-    + $S^2 \stackrel{\text{def}}{=} \frac a n \sum_{i=1}^n (X_i - \overline{X})^2$
+    + $S^2 \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n \left(X_i - \overline{X}\right)^2$
     + $\overline{X}$: exact average of samples
     + giving a lower sum than what the distribution given
   + summary
@@ -619,7 +619,7 @@
   + simplified calculation: $n = 2 \to X_1, X_2$
 
   \[\begin{align*}
-    E[S^2] &= E[\left(X_1 - \overline{X}\right)^2] = \sum_{x_1, x_2} p(x_1, x_2) \cdot (x_1 - \overline{x})^2 \\
+    E[S^2] &= E\left[\left(X_1 - \overline{X}\right)^2\right] = \sum_{x_1, x_2} p(x_1, x_2) \cdot (x_1 - \overline{x})^2 \\
     &= 2 \cdot pq \cdot \frac14 = \frac12 pq = \frac12 \sigma^2
   \end{align*}\]
 
@@ -637,7 +637,7 @@
         <td style="text-align: center;">0, 0</td> <td style="text-align: center;">$q^2$</td> <td style="text-align: center;">$0$</td> <td style="text-align: center;">$0$</td>
       </tr>
       <tr>
-        <td style="text-align: center;">0, 1</td> <td style="text-align: center;">$qp$</td> <td style="text-align: center;">$\frac12$</td> <td style="text-align: center;">$frac14$</td>
+        <td style="text-align: center;">0, 1</td> <td style="text-align: center;">$qp$</td> <td style="text-align: center;">$\frac12$</td> <td style="text-align: center;">$\frac14$</td>
       </tr>
       <tr>
         <td style="text-align: center;">1, 0</td> <td style="text-align: center;">$pq$</td> <td style="text-align: center;">$\frac12$</td> <td style="text-align: center;">$\frac14$</td>
@@ -659,47 +659,47 @@
 
     + variance
 
-      \[ X_1 \sim p \qquad \sigma^2 \stackrel{\text{def}}{=} E[(X_1 - \mu)^2] \]
+      \[ X_1 \sim p \qquad \sigma^2 \stackrel{\text{def}}{=} E\left[(X_1 - \mu)^2\right] \]
 
-  + proving $E[\left(X_1 - \overline{X}\right)^2] = \frac{n-1}{n} \cdot E[X_1 - \mu)^2] \to$ symmetric, shows difference
+  + proving $E\left[\left(X_1 - \overline{X}\right)^2\right] = \frac{n-1}{n} \cdot E\left[\left(X_1 - \mu\right)^2\right] \to$ symmetric, shows difference
   + simplistic argument
-    + $\overline{X}$ including $X_1$, hence closer than $\mu$: $E\left[\left(X_1 - \overline{X}\right)^2\right] < $E\left[ \left(X_1 - \mu\right)^2 \right]$
+    + $\overline{X}$ including $X_1$, hence closer than $\mu$: $E\left[\left(X_1 - \overline{X}\right)^2\right] < E\left[ \left(X_1 - \mu\right)^2 \right]$
     + not explaining $\frac{n-1}{n}$
     + not whole story
 
 + Simplest case: $n=2$
-  + proving: $E[\left(X_1 - \overline{X}\right)^2] = \frac12 \cdot E[(X_1 - \mu)^2] = \frac{\sigma^2}{2}$
-  + decoupling $X-1$ from $\overline{X}$
+  + proving: $E\left[\left(X_1 - \overline{X}\right)^2\right] = \frac12 \cdot E\left[\left(X_1 - \mu\right)^2\right] = \frac{\sigma^2}{2}$
+  + decoupling $X_1$ from $\overline{X}$
     + $X_1 - \overline{X} = X_1 - \frac{X_1 + X_2}{2} = \frac{X_2 - X_1}{2}$
-    + $E\left[\left(X_1 - \overline{X}\right)^2\right] = E\left[(\frac{X_1 - X_2}{2})^2\right] = \frac14 \cdot E\left[ \left(X_1 - X_2\right)^2 \right]$
-    + $X_1 {\perp \!\!\!\! \perp}$
-      + difference just from correlation btw $X_1$ and $\overline{X} \implies \frac14 \cdot E[(X_1 - \mu)^2] = \frac{\sigma^2}{4} to$ even smaller!
+    + $E\left[\left(X_1 - \overline{X}\right)^2\right] = E\left[\left(\frac{X_1 - X_2}{2}\right)^2\right] = \frac14 \cdot E\left[ \left(X_1 - X_2\right)^2 \right]$
+    + $X_1 {\perp \!\!\!\! \perp} X_2$
+      + difference just from correlation btw $X_1$ and $\overline{X} \implies \frac14 \cdot E[(X_1 - \mu)^2] = \frac{\sigma^2}{4} \to$ even smaller!
       + $X_2$ not closer to $X_1$ than $\mu \to$ replacing $X_2$ by $\mu$
     + not whole story
       + randomness of $X_2$ reverses half of decrease.
-      + $X_2$ random by $\mu$ fixed
-      + $X_1$ minusing some random value by symmetric $to$ increasing the expected squared
+      + $X_2$ random but $\mu$ fixed
+      + $X_1$ minusing some random value by symmetric $\to$ increasing the expected squared
       + the quantity actually twice the expected value of $(X_1 - \mu)^2$
       + $\therefore\; E\left[ (X_1 - X_2)^2 \right] = 2 \cdot E[(X_1 - \mu)^2] \to$ proof required
 
-    \[ E\left[\left(X_1 - \overline{X}\right)^2\right] = \underbrace{\frac14 \cdot E\left[\left(X_1 - X_2\right)^2 \right]}_{\text{gain $\frac14$ from proximty}} = \underbrace{\frac14 \cdot 2 \cdots E\left[\left(X_1 - \mu\right)^2\right]}_{\text{lose 2 for randomness}} = \frac{\sigma^2}{2} \]
+    \[ E\left[\left(X_1 - \overline{X}\right)^2\right] = \underbrace{\frac14 \cdot E\left[\left(X_1 - X_2\right)^2 \right]}_{\text{gain $\frac14$ from proximty}} = \underbrace{\frac14 \cdot 2 \cdot E\left[\left(X_1 - \mu\right)^2\right]}_{\text{lose 2 for randomness}} = \frac{\sigma^2}{2} \]
 
-  + derivation of $E[(X_1 - X-2)^2] = 2 \cdot E[(X_1 - \mu)^2]$
+  + derivation of $E[(X_1 - X_2)^2] = 2 \cdot E[(X_1 - \mu)^2]$
     + 0-mean
       + $E[X_1 - X_2] = \mu - \mu = 0$
       + $E[X_1 - \mu] = \mu - \mu = 0$
     + independence ${\perp \!\!\!\! \perp}$: $Var(X_1 - X_2) = Var(X_1) + Var(X_2) = 2 \cdot Var(X_1)$
-    + for 0-mean random variable $Z$: $Z[Z^2] = Var(Z)$
+    + for 0-mean random variable $Z$: $E[Z^2] = Var(Z)$
 
-      \[ E[(X_1 - X_2)^2] = 2 \cdot E[(X_1 - \mu)^2] \iff Var(X_1 - X_2) = 2 \cdot Var(X_1) \]
+      \[ E\left[\left(X_1 - X_2\right)^2\right] = 2 \cdot E\left[\left(X_1 - \mu\right)^2\right] \iff Var(X_1 - X_2) = 2 \cdot Var(X_1) \]
 
   + summary
 
     \[\begin{align*}
       E[S^2] &\stackrel{\text{def}}{=} E\left[ \frac 1 n \sum_{i=1}^n \left(X_i - \overline{X}\right)^2 \right] \stackrel{\text{symmetry}}{=} E\left[ \left(X_1 - \overline{X}\right)^2 \right] \quad \text{any } n \\
-      &= E\left[ \left(\frac{X_1 - X_2}{2}\right)^2 \right] \hspace{3.5em} \left( X_1 - X_2 = \frac{X_1 - X_2}{2} \right) \\
+      &= E\left[ \left(\frac{X_1 - X_2}{2}\right)^2 \right] \hspace{3.5em} \left( X_1 - \overline{X} = \frac{X_1 - X_2}{2} \right) \\
       &= \frac14 \cdot E\left[ (X_1 - X_2)^2 \right]  \hspace{3.5em} \left( \substack{\text{Linearity of Expection }\\ \tfrac14 \text{ from $\overline{X}$ being closer than $\mu$ to $X_1$}} \right) \\
-      &= \frac14 \cdot Var(X_1 - X_2) = \frac14 \left(Var(X_1) + Var(X_2)\right) \hspace{2em} \left( \text{0 mean } \;\&\; {\perp \!\!\!\! \perp} \right)\\
+      &= \frac14 \cdot Var(X_1 - X_2) = \frac14 \big(Var(X_1) + Var(X_2)\big) \hspace{2em} \left( \text{0 mean } \;\&\; {\perp \!\!\!\! \perp} \right)\\
       &= \frac14 \cdot 2 \cdot Var(X_1) \hspace{4.3em} \left( iid, \;\; 2 \text{ from $\overline{X}$ being random} \right) \\
       &= \frac14 \cdot 2 \cdot \sigma^2 = \frac{\sigma^2}{2}  \hspace{4.5em} \left(\tfrac12 \text{ together}\right)
     \end{align*}\]
@@ -709,11 +709,12 @@
   \[\begin{align*}
     X_1 - \overline{X} &= X - \frac{X_! + \cdots + X_N}{n} = \frac{(n-1)X_1 - X_2 - \cdots - X_n}{n} \\
     &= \frac{n-1}{n} \left(X_1 - \frac{X_2 + \cdots + X_n}{n-1}\right)\\\\
-    E[S^2] &= E\left[ \frac 1 n \sum_{i=1}^n \left(X_i - \overline{X}\right)^2 \right] = E\left[ \left(X_1 - \overline{X}\right)^2 \right] = E\left[ \frac{n-1}{n} \left(X_1 - \frac{X_2 + \cdots + X_n}{n-1}\right)^2 \right] \\
+    E[S^2] &= E\left[ \frac 1 n \sum_{i=1}^n \left(X_i - \overline{X}\right)^2 \right] = E\left[ \left(X_1 - \overline{X}\right)^2 \right] \\
+    &= E\left[ \left(\frac{n-1}{n} \left(X_1 - \frac{X_2 + \cdots + X_n}{n-1}\right)\right)^2 \right] \\
     &= \left(\frac{n-1}{n}\right)^2 \cdot E\left[\left(X_1 - \frac{X_2 + \cdots + X_n}{n-1}\right)^2\right] \hspace{1em} \left( \left(\frac{n-1}{n}\right)^2 \text{ as } \overline{X} \text{ closer than $\mu$ to } X_1 \right) \\
-    &= \left(\frac{n-1}{n}\right)^2 \cdot Var\left(\left(X_1 - \frac{X_2 + \cdots + X_n}{n-1}\right)^2\right) \hspace{2em} \left( \text{0-mean} \right) \\
+    &= \left(\frac{n-1}{n}\right)^2 \cdot Var\left(X_1 - \frac{X_2 + \cdots + X_n}{n-1}\right) \hspace{2em} \left( \text{0-mean} \right) \\
     &= \left(\frac{n-1}{n}\right)^2 \cdot \left[ Var(X_1) + Var\left(\frac{X_2 + \cdots + X_n}{n-1}\right) \right] \hspace{2em} \left( {\perp \!\!\!\! \perp} \right) \\
-    &= \left(\frac{n-1}{n}\right)^2 \cdot \left[ \sigma^2 + \frac{\sigma^2}{n-1} \right] \hspace{3em} \left( \text{iid, vr. scaling } \;\&\; \frac{n-1}{n} \text{ from $\overline{X}$ being random} \right) \\
+    &= \left(\frac{n-1}{n}\right)^2 \cdot \left[ \sigma^2 + \frac{\sigma^2}{n-1} \right] \hspace{3em} \left( \text{iid, var. scaling } \;\&\; \frac{n-1}{n} \text{ from $\overline{X}$ being random} \right) \\
     &= \left(\frac{n-1}{n}\right)^2 \cdot \frac{n}{n-1} \cdot \sigma^2 = \frac{n-1}{n} \cdot \sigma^2 \hspace{4em} \left( \frac{n-1}{n} \text{ together } \right)
   \end{align*}\]
 
