@@ -728,7 +728,7 @@
 
   + Bessel's correction
 
-    \[ s^2 = \frac{n-1}{n} \cdot S^2 = \frac{n-1}{n} \sum_{i=1}^n \left( X_1 - \overline{X} \right)^2 \]
+    \[ s^2 = \frac{n}{n-1} \cdot S^2 = \frac{1}{n-1} \sum_{i=1}^n \left( X_1 - \overline{X} \right)^2 \]
 
   + unbiased estiamtor of variance: $E[s^2] = \sigma^2$
   + $s^2$: typically called __sample variance__
