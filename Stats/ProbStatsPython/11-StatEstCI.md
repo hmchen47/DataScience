@@ -759,7 +759,32 @@
 
 ### Problem Sets
 
+0. Compared to the distribution variance, the expectation of the biased "raw" sample variance is<br/>
+  a. always larger<br/>
+  b. always smaller<br/>
+  c. always equal<br/>
+  d. could be any of the above<br/>
 
+  Ans: b
+
+
+1. As the sample size $n$ grows, the effect of the Bessel correction<br/>
+  a. becomes larger,<br/>
+  b. becomes smaller,<br/>
+  c. stays the same<br/>
+
+  Ans: b<br/>
+  Explanation: Sample variance $S^2_{n} = \frac{n - 1}{n}\sigma^2$. When $n$ grows, $\frac{n - 1}{n} \to 1$ and the effect becomes smaller.
+
+
+2. According to the U.S. Department of Agriculture, ten to twenty earthworms per cubic foot is a sign of healthy soil. The soil of a garden is checked by digging 8 holes, each of one-cubic-foot, and counting the earthworms, and the following counts are found: 5, 25, 15, 10, 7, 12, 16, 20. Use the unbiased estimators discussed in the video to estimate<br/>
+  a. the true mean,<br/>
+  b. the true variance.<  br/>
+
+  Ans: a. (12.75); b. (44.5)<br/>
+  Explanation:
+  + If $X_i, 1 \le i \le 8$  denotes the samples, the unbiased estimator for the true mean is given by $\overline{X} = \sum^8_{i=1} Xi /n=110/8=13.75$. Python functon - [statistics.mena(x)](https://docs.python.org/3/library/statistics.html#statistics.mean)
+  + The unbiased estimator for the true variance is given by $S=\sum_{i=1}^8 (X_i-\overline{X})^2/(n-1)=311.5/7=44.5$.  Python function: unbiased sample variance - [statistics.variance(x)](https://docs.python.org/3/library/statistics.html#statistics.variance), population variance - [statistics.pvariance(x)](https://docs.python.org/3/library/statistics.html#statistics.pvariance)
 
 
 
