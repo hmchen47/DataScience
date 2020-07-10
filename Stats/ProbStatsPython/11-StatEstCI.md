@@ -790,10 +790,9 @@
 
 ### Lecture Video
 
-<a href="url" target="_BLANK">
+<a href="https://tinyurl.com/yccyp9gl" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
 </a><br/>
-
 
 
 ## 11.5 Estimating Standard Deviation
