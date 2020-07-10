@@ -797,13 +797,134 @@
 
 ## 11.5 Estimating Standard Deviation
 
++ Variance ($\sigma^2$) $\to$ Standard Deviation ($\sigma$)
+  + variance estimator
+    + sample vaince: $s^2 = \frac{1}{n-1} \sum_{i=1}^n \left( X_1 - \overline{X} \right)^2$
+    + shown $E[s^2] = \sigma^2$
+    + $s^2$: an unbiased estimator for $\sigma^2$
+  + natural $\sigma$ estimator
+    + sample standard deviation: $\sigma = \sqrt{\sigma^2}$
+
+      \[ s \stackrel{\text{def}}{=} +\sqrt{s^2} = +\sqrt{\frac{1}{n-1} \sum_{i=1}^n \left( X_1 - \overline{X} \right)^2} \]
+
+  + stanbdard standard-deviation estimator
+    + example
+    + evaluation
+    + possible alternatives
+
++ Example: samples
+  + observations: $n=5\quad$ 2, 1, 4, 2, 6
+  + estimators
+    + $\mu$: $\overline{X} = \frac 1 n \sum_{i=1}^n X_i = \frac{2+1+4+2+6}{5} = 3$
+    + $\sigma^2$: $s^2 = \frac{1}{n-1} \sum_{i=1}^n \left( X_1 - \overline{X} \right)^2 = \farc{1+4+1+1+9}{4} = \frac{16}{4} = 4$
+    + $\sigma$: natural $\to s = \sqrt{s^2} = \sqrt{4} = 2$
+
++ $s$ unbiased?
+  + is $s$ and unbiased estiamtor for $\sigma$?
+    + $\left( E[s] \right)^2 \le E[s^2] = \sigma^2$
+    + $E[s] \le \sigma$: < whenever $X$ not a constant
+    + $E[s^2] = \left( E[s] \right)^2 + Var(s) \ge (E[s])^2$: $ = \iff Var(s) \iff s$ a constant
+  + on average $s$ under-estimating $\sigma$
+  + concrete example
+
++ Exampple: Bernoulli
+  + $s$ strictly underestimating $\sigma$
+  + $B_p$: $\sigma = \sqrt{p(1-p)} = \sqrt{pq}$
+  + $n=2$: show $E[s] < \sqrt{pq}$
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$x_1, x_2$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$p(x_1, x_2)$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$\overline{x}$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$s^2$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$s$</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">0, 0</td> <td style="text-align: center;">$q^2$</td> <td style="text-align: center;">$0$</td> <td style="text-align: center;">$0$</td> <td style="text-align: center;">$0$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">0, 1</td> <td style="text-align: center;">$qp$</td> <td style="text-align: center;">$\frac12$</td> <td style="text-align: center;">$\frac14$</td> <td style="text-align: center;">$\frac{1}{\sqrt{2}}$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">1, 0</td> <td style="text-align: center;">$pq$</td> <td style="text-align: center;">$\frac12$</td> <td style="text-align: center;">$\frac14$</td> <td style="text-align: center;">$\frac{1}{\sqrt{2}}$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">1, 1</td> <td style="text-align: center;">$p^2$</td> <td style="text-align: center;">$1$</td> <td style="text-align: center;">$0$</td> <td style="text-align: center;">$0$</td>
+      </tr>
+      </tbody>
+    </table>
+
+  + raw sample variance: $S^2 = \frac11 \left(\left(0 - \frac12\right)^2 + \left(1 - \farc12\left)^2\right) = \frac12$
+  + $E[S] = q^2 \cdot 0 + qp \cdit \frac{1}{\sqrt{2}} + pq \cdot \farc{1}{\sqrt{2}} + p^2 \cdot 0 = \sqrt{2} \cdot pq < \sqrt{pq}$
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/ya9l73th" ismap target="_blank">
+        <img src="img/t11-05.png" style="margin: 0.1em;" alt="Curve of variance and standard deviation" title="Curve of variance and standard deviation" width=250>
+      </a>
+    </div>
+
++ Unbaised estimator for $\sigma$
+  + is there an unbiased estimator for $\sigma$
+    + known $p \implies$ nothing to estimate
+    + estimator must work for all distributions
+    + e.g., $\gorall\,p \;\; E[\overline{X}] = \mu \quad E[s^2] = \sigma^2$
+  + is there estimator $\sigma$ s.t. for all distribution
+    + $E[\widehat{\sigma}\left( X^n \right)] = \sigma$
+    + no, no general unbiased estimator for $\sigma$
+  + how do you prove the impossible?
+
++ Proof tecniques
+  + induction: true for 1, 2, 3, so much be true
+  + e.g., true for this trival example so must be true
+
++ No unbaised $\sigmator$ estimator
+  + no unbiased estiamtor: even for $B_p$ w/ unknown $p$
+  + no unbiased estimators for general distributions
+  + show for $n=2$ samples
+  + similar for any $n$
+  + how do you prove the impossible?
+  + even possible to prove he impossible?
+
++ Prove impossiblility for Bernoulli
+  + $\widehat{\sigma}$: any estimator for $\sigma$ of $B_p$ distributions
+  + $\widehat{\sigma}(x_1, x_2)$
+    + estimate of $\sigma$ when observing $x_1, x_2$
+    + predeterminined constants
+  + expectation of standard deviation estimator
+    + polynomial in $p$
+    + degree-2 polynomial
+
+    \[\begin{align*}
+      E\left[ \widehat{\sigma}\left(X_1, X_2\right) \right] &= \sum_{x_1, x_2} p(x_1, x_2) \widehat{\sigma}(x_1, x_2) \\
+      &= \Pr(0, 0)\widehat{\sigma}(0, 0) + \Pr(0, 1)\widehat{\sigma}(0, 1) + \Pr(1, 0)\widehat{\sigma}(1, 0) + \Pr(1, 1)\widehat{\sigma}(1, 1)\\
+      &= (1-p)^2\widehat{\sigma}(0,0) + (1-p)p\widehat{\sigma}(0, 1) + p(1-p)\widehat{\sigma}(1, 0) + p^2\widehat{\sigma}(1, 1)
+    \end{align*}\]
+
+  + $\sigma = \sqrt{p(1-p)}$: not a polynomial in $p$
+  + the two functions different: for some $p \quad E\left[\widehat{\sigma}(X_1, X_2)\right] \ne \sigma$
+
++ Impossibility
+  + how to prove the impossible?
+  + estimators for $B_p$
+  + shown that $forall\, \widehat{\sigma}, E[\widehat{\sigma}(X_1, X_2)] \implies $ polynomial in $p$
+    + $\sigma = \sqrt{p(1-p)} \to$ not polynomial in $p$
+    + $\exists\, p, E\left[\widehat{\sigma}(X_1, X-2)\right] \ne \sigma$
+    + $\therefore\, \widehat{\sigma}$ not unbiased
+  + how to prove $E\left[\widehat{\sigma}(X_1, X-2)\right] \ne \sigma$?
+
++ Argument
+  + bias not so bad
+  + providing more freedom
+  + best estimator (MSE) often biased
+  + as the number of samples $n \searrow \implies \s \to \sigma$
+  + consistent
 
 
-
-
-
-
-+ [Original Slides]()
++ [Original Slides](https://tinyurl.com/ya9l73th)
 
 
 ### Problem Sets
