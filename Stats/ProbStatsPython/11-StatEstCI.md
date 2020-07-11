@@ -817,7 +817,7 @@
 
 + $s$ unbiased?
   + is $s$ an unbiased estiamtor for $\sigma$?
-    + $E[s^2] = \left( E[s] \right)^2 + Var(s) \ge (E[s])^2: \quad = \text{ hold } \iff Var(s) \iff s$ a constant
+    + $E[s^2] = \left( E[s] \right)^2 + Var(s) \ge (E[s])^2: \quad = \text{ hold } \iff Var(s) \iff s$ as a constant
     + $\left( E[s] \right)^2 \le E[s^2] = \sigma^2$
     + $s^2$: an unbiased variance estimator
     + $E[s] \le \sigma$: < whenever $X$ not a constant
@@ -856,7 +856,7 @@
       </tbody>
     </table>
 
-  + raw sample variance: $S^2 = \frac11 \left(\left(0 - \frac12\right)^2 + \left(1 - \frac12\right)^2\right) = \frac12$
+  + sample variance: $s^2 = \frac11 \left(\left(0 - \frac12\right)^2 + \left(1 - \frac12\right)^2\right) = \frac12$
   + $E[S] = q^2 \cdot 0 + qp \cdot \frac{1}{\sqrt{2}} + pq \cdot \frac{1}{\sqrt{2}} + p^2 \cdot 0 = \sqrt{2} \cdot pq < \sqrt{pq}$
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -867,17 +867,17 @@
 
 + Unbaised estimator for $\sigma$
   + is there an unbiased estimator for $\sigma$
-    + known $p to$ estimator = $\sigma \implies$ nothing to estimate
+    + known $p \to$ estimator = $\sigma \implies$ nothing to estimate
     + estimator must work for all distributions
     + e.g., $\forall\,p \;\; E[\overline{X}] = \mu \quad E[s^2] = \sigma^2$
   + estimator $\widehat{\sigma}$ s.t. for all distributions
     + $E[\widehat{\sigma}\left( X^n \right)] = \sigma$ hold?
     + no, no general unbiased estimator for $\sigma$
-  + how do you prove the impossible?
+  + how to prove the impossible?
 
 + Proof techniques
   + handwaving: as you can see ...
-  + induction: true for 1, 2, 3, so much be true
+  + induction: true for 1, 2, 3, so must be true
   + e.g., true for this trivial example so must be true
 
 + No unbiased $\sigma$ estimator
@@ -885,9 +885,9 @@
   + no unbiased estimators for general distributions
   + show for $n=2$ samples
   + similar for any $n$
-  + how do you prove the impossible?
+  + how to prove the impossible?
 
-+ Prove impossiblility for Bernoulli
++ Proving impossiblility for Bernoulli
   + $\widehat{\sigma}$: any estimator for $\sigma$ of $B_p$ distributions
   + $\widehat{\sigma}(x_1, x_2)$
     + estimate of $\sigma$ when observing $x_1, x_2$
@@ -903,14 +903,14 @@
     \end{align*}\]
 
   + $\sigma = \sqrt{p(1-p)}$: not a polynomial in $p$
-  + the two functions different: $\exists\,p \quad E\left[\widehat{\sigma}(X_1, X_2)\right] \ne \sigma$
+  + the two functions different: $\exists\,p \; E\left[\widehat{\sigma}(X_1, X_2)\right] \ne \sigma$
 
 + Impossibility
   + how to prove the impossible?
   + estimators for $B_p$
   + shown that $\forall\, \widehat{\sigma}, E[\widehat{\sigma}(X_1, X_2)] \implies $ polynomial in $p$
     + $\sigma = \sqrt{p(1-p)} \to$ not polynomial in $p$
-    + $\exists\, p, E\left[\widehat{\sigma}(X_1, X-2)\right] \ne \sigma$
+    + $\exists\, p, E\left[\widehat{\sigma}(X_1, X_2)\right] \ne \sigma$
     + $\therefore\, \widehat{\sigma}$ not unbiased
   + how to prove $E\left[\widehat{\sigma}(X_1, X_2)\right] \ne \sigma$?
     + no proof required, it is true.
@@ -919,15 +919,15 @@
   + bias not so bad
   + providing more freedom
   + best estimator (MSE) often biased
-  + as the number of samples $n \searrow \implies s \to \sigma$
+  + as the number of samples $n \nearrow \implies s \to \sigma$
   + consistent
 
 + Summary
   + estimator for $\sigma$: $s \stackrel{\text{def}}{=} + \sqrt{s^2} = +\sqrt{\frac{1}{n-1} \sum_{i=1}^n \left(X_1 - \overline{X}\right)^2}$
-  + evaulating $sigma$: $E[s] \le \sigma$ and '<' hold for non-constant distributions
+  + evaulating $\sigma$: $E[s] \le \sigma$ and '<' hold for non-constant distributions
   + unbiased estiamtor
   + simple proof: no unbiaised estimator
-  + property: some biase ok as long as MSE small
+  + property: some bias ok as long as MSE small
 
 
 + [Original Slides](https://tinyurl.com/ya9l73th)
