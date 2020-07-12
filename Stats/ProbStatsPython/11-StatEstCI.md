@@ -950,13 +950,249 @@
 
 ## 11.6 Confidence Interval
 
++ Point and interval parameters
+  + distribution or population: estimate parameters
+  + point estimates: 
+    + precise
+    + certainly wrong
+    + no confidence
+    + e.g., $\mu = 3.14 \quad p = 0.48$
+  + confidence intervals
+    + precision $\serrow$
+    + confidence $\nearrow$
+    + e.g. w/ 95% confidence (probability): $\mu \in (3.1, 3.18)$
+
++ Normal distribution
+  + CLT
+    + averages: normally distributed
+    + intuition
+    + almost everything
+  + r.v's: $X_1, \dots, X_n \;\; {\perp \!\!\!\! \perp},\; \sim$ any distribution w/ mean $\mu$ and stdev $\sigma$
+  + sample mean
+  
+    \[ \overline{X^n} \stackrel{def{\text{def}}}{=} \frac{X_1 + \cdots + X_n}{n} \]
+
+  + normalized sample mean:
+  
+    \[Z_n \stackrel{\text{def}}{=} \frac{(X_1 + cdots + X_n) -  n\mu}{n\sqrt{n}} \]
+
+  + applying CLT
+    + for sufficiently large $n$, typically $\ge 30$
+    + standard Normal varialble: $Z_n \sim N(0, 1)$
+
++ Predicting standard Normal
+  + standard normal variable: $Z \sim N(0, 1)$
+  + predict value of $Z$
+  + point prediction
+    + $Z = 0$: highest probability, unbiased
+    + precise
+    + wrong: $\Pr(Z=0) = 0$
+  + interval
+
+    \[ -a \le Z \le a \quad \Pr(-a \le Z \le a) > 0 \to \Pr(-a \le Z \le a) = ? \]
+
++ Interval probability
+  + r.v.: $Z \sim N(0, 1)$
+  + CDF:
+
+    \[ \Phi(a) = F(a) = \frac{1}{\sqrt{2\pi} \int_{-\infty}^\infyuu e^{-t^2/2} \,dt \]
+
+  + calculating $\Phi(a)$
+    + no known formula
+    + using z/standard normal table
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yb3dyuhl" ismap target="_blank">
+      <img src="img/t11-06.png" style="margin: 0.1em;" alt="Illustration of confidence interval w/ t-table" title="Illustration of confidence interval w/ t-table" height=100>
+      <img src="img/t11-07.png" style="margin: 0.1em;" alt="Illustration of z / standard normal table" title="Illustration of z / standard normal table" height=80>
+    </a>
+  </div>
+
+  + Python code for z-table
+    + linbrary: `from scipy.stats import norm`
+    + CDF of standard normal: `norm.cdf(x)`
+    + examples
+
+      ```python
+      norm.cdf(1)   # 0.8413447460685429
+      norm.cdf(2)   # 0.9772498680518208
+      norm.cdf(3)   # 0.9986501019683699
+      ```
+
++ 68-95-99.7 rule
+
+  \[ \Pr(-a \le Z \le a) = 2 \Phi(a) -1 \]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yaofkz54" ismap target="_blank">
+      <img src="https://tinyurl.com/yabbc839" style="margin: 0.1em;" alt="A diagrammatic representation to show Z-scores (standard scores) on a normal curve. The mean, median, and modal average are all equal to the centre -line on thge curve. The z-score calue represent the number of standard deviations that a stated score is above (+) or below (-) the mean value.  In this case, a z-score of +3 repsent 3 standard deviations above the mean (97.5% of the population) and +2 represent 2 standard deviations above the mean  (95% of the population)." title="A diagrammatic representation to show Z-scores (standard scores) on a normal curve." height=350>
+    </a>
+  </div>
+
+  + $a = 1$: $\Pr(-1 \le Z \le 1) = 2 \cdot 0.8413 - 1 = 0.682$
+  + $a = 2$: $\Pr(-2 \le Z \le 2) = 2 \cdot 0.9772 - 1 = 0.9544$
+  + $a = 3$: $\Pr(-3 \le Z \le 3) = 2 \cdot 0.9987 - 1 = 0.9974
+
++ Intervals $\to$ Probability
+  + $p$: given desired probability
+  + finding $a$ s.t. $\Pr(-a \le Z \le a) = p$
+  
+    \[ p = \Pr(-a \le Z \le a) = 2\Phi(a) -1 \to \Phi(a) - \frac{1+p}{2} \implies a = \Phi^{-1}(\frac{1+p}{2}) \]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yb3dyuhl" ismap target="_blank">
+      <img src="img/t11-08.png" style="margin: 0.1em;" alt="Illustration of obtaininng probability w/ a given interval" title="Illustration of obtaininng probability w/ a given interval" height=100>
+    </a>
+  </div>
+
+  + Python code to get probability
+    + convert a percentile to a point
+    + linbrary: `import scipy.stats as stat`
+    + percent point function: `stat.norm.ppt(x)`
+    + example
+
+      ```python
+      stat.norm.ppf(0.95)   # 1.6448536269514722
+      stat.norm.ppf(0.975)  # 1.959963984540054
+      stat.norm.ppf(0.99)   # 2.3263478740408408
+      ```
+
+  + common values
+    + $p = 95\%$
+
+      \[ a = \Phi^{-1}\left(\frac{q+p}{2}\right) = \Phi^{-1}(0.975) \approx 1.96 \]
+
+    + verification: $\Pr(-1.96 \le Z \le 1.96) \approx 0.95$
+    + 68-97.5-99 rule: $\Pr(-2 \le Z \le 2) \approx 0.95$<br/><br/>
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$p$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\frac{1+p}{2}$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\Phi^{-1}(\frac{1+p}{2})$</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">90</td>
+        <td style="text-align: center;">0.95</td>
+        <td style="text-align: center;">1.645</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">95</td>
+        <td style="text-align: center;">0.975</td>
+        <td style="text-align: center;">1.960</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">98</td>
+        <td style="text-align: center;">0.99</td>
+        <td style="text-align: center;">2.056</td>
+      </tr>
+      </tbody>
+    </table>
+
++ General Normal distribution
+  + normal distribution: $X \sim N_{\mu, \sigma^2} \quad N(\mu, \sigma^2)$
+  + standard normal distribution: $Z \stackrel{\text{def}}{=} \frac{X - \mu}{\sigma} \;\;\sim N_{0, 1}$
+
+    \[\begin{align*}
+      \Pr(\underbrace{\mu - a\sigma \le X \le \mu+a\mu}_{\substack{X \text{ within "a" stdev}\\\text{from its mean}}}) &= \Pr(-a\sigma \le X - \mu \le a \sigma) = \Pr\left(-a \le \frac{X - \mu}{\sigma} \le a\right) \\
+      &= \Pr(\underbrace{-a \le Z \le a}_{\substack{Z \text{ within "a" stdev}\\\text{from its mean}}})
+    \end{align*}\]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ya5tozvb" ismap target="_blank">
+      <img src="https://tinyurl.com/ya386usb" style="margin: 0.1em;" alt="A normal and standard normal curve." title="A normal and standard normal curve." width=450>
+    </a>
+  </div>
+
++ Example: Nornal distribution
+  + r.v.: $X \sim N(1, 4) \quad p = 0.95$
+  + parameters: $\mu = 1 \quad \sigma = 2$
+
+    \[ 0.95 \approx \Pr(-1.96 \le Z \le 1.96) = \Pr(\mu - 1.96 \sigma \le X \le \mu + 1.96 \sigma) = \Pr(-2.92 \le X \le 4.96) \]
 
 
++ Confidence intervals
+  + applied to any parameter
+  + simplest and by far the most common for
+    + mean $p$
+    + proportion $p$
+  + given a simple $X_1, \dots, X_n$
+  + fiund an interval containing $\mu$
+
++ Sample-mean distribution
+  + sampleing distribution of the same mean
+  + normalized sample mean as standard normal distribution
+
+    \[ \frac{X_1 + \cdots + X_n - n \mu}{\sigma\sqrt{n}} \sim N(0,1) \]
+
+  + transformed sample mean as 0-mean noraml distribution
+
+    \[ \frac{X_1 + \cdots + X_n - n \mu}{\sigma} \sim N\left(0,\frac{\sigma^2}{n}\right) \]
+
+  + sample mean as normal distribution
+
+    \[ \frac{X_1 + \cdots + X_n}{\sigma} \sim N\left(\mu, \frac{\sigma^2}{n}\right) \]
+
+  + sample mean
+    + roughly normal
+    + centered at distribution mean: $\mu_{\overline{X}} = \mu$
+    + standard deviation: $var(\overline{X}) = \frac{\sigma^2}{n} \quad \sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}$
+
++ Proximity
+  + sample mean and population mean
+    + difference: $|\overline{X} - \mu| < a$
+    + $\overline{X}$ near $\mu$: $\overline{X} \in (\mu - a, \mu +a)
+    + $\mu$ near $\overline{X}$: $\mu \in \left( \overline{X} -a, \overline{X} + a \right)$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yb3dyuhl" ismap target="_blank">
+      <img src="img/t11-09a.png" style="margin: 0.1em;" alt="Example of Xbar near mu" title="Example of Xbar near mu" height=100>
+      <img src="img/t11-09b.png" style="margin: 0.1em;" alt="Example of mu neat Xbar" title="Example of mu near Xbar" height=100>
+    </a>
+  </div>
+
+  + sample mean $\overline{X} \sim N\left(\mu, \frac{sigma}{\sqrt{n}}\right)$
+    + w/ high probability $\overline{X}$ near $\mu$
+    + w/ high probability $\mu$ near $\overline{X}$
+
++ Confidence interval <br/>
+  with probability $p$
+
+  \[\begin{align*}
+    &\overline{X} \in (\mu - z_p \sigma_{\overline{X}}, \mu + z_p \sigma_{\overline{X}}) \\
+    &|\overline{X} - \mu| < x_p \sigma_{\overline{X}} \\
+    &\mu \in \left(\overline{X} - z_p \frac{\sigma}{\sqrt{n}}, \overline{X} + z_p \frac{\sigma}{\sqrt{n}}\right)
+  \end{align*}\]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yb3dyuhl" ismap target="_blank">
+      <img src="img/t11-10.png" style="margin: 0.1em;" alt="Example of 85%CI" title="Example of 85%CI" height=200>
+    </a>
+  </div>
+
++ Example: Daily Tweets
+  + \# tweets of a random Tweeter user as a r.v. w/ $\sigma = 2$
+  + sample mean = 3.7 w/ a sample of 121 users
+  + finding the 95% CI for the distribution mean
+
+    \[ -z_p = \Phi^{-1}\left(\frac{1+p}{2}\right) = \Phi^{-1}(0.975) = 1.96 \]
+
+  + 95% CI for mean
+
+    \[ (\mu - z_p \sigma_{\overline{X}}, \mu + z_p \sigma_{\overline{X}}) = \left(\overline{X} - z_p \frac{\sigma}{\sqrt{n}}, \overline{X} + z_p \frac{\sigma}{\sqrt{n}}\right) = (3.344, 4.056) \]
+
++ Example: heart rate per minute
+  + adult heart rate w/ standard deviation $\sigma = 7.5$ beats per min
+  + esatimated average heart rate withing margin of error < 2
+  + with CI level 90%
+
+    \[ z_p = \Phi^{-1}\left(\frac{1+p}{2}) = \Phi^{-1}(0.95) = 1.645 \]
 
 
-
-
-+ [Original Slides]()
++ [Original Slides](https://tinyurl.com/yb3dyuhl)
 
 
 ### Problem Sets
