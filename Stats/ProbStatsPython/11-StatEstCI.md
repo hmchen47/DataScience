@@ -1214,7 +1214,37 @@
 
 ### Problem Sets
 
+0. The margin of error of confidence interval with 100% confidence level will be<br/>
+  a. Zero<br/>
+  b. One standard deviation<br/>
+  c. Infinity<br/>
+  d. None of the above<br/>
 
+  Ans: c
+
+
+1. Which of the following will increase the length of the confidence interval?<br/>
+  a. Increase confidence level<br/>
+  b. Decrease confidence level<br/>
+  c. Increase sample size<br/>
+  d. Decrease sample size<br/>
+
+  Ans: ad<br/>
+  Explanation: 
+  + As $\Pr(−a \le Z \le a)= \text{confidence level}$, when confidence level increase, the the length of the interval $(−a,a)$ will increase.
+  + When sample size decreases, the variance increases, and probability under the original interval decreases. Since the confidence level is not changed, the length of the confidence interval will increase.
+
+
+2. A psychologist estimates the standard deviation of a driver's reaction time to be 0.05 seconds. How large a sample of measurements must be taken to derive a confidence interval for the mean with margin of error at most 0.01 second, and confidence level 95%?
+
+  Ans: 97<br/>
+  Explanation: For the margin of error of 0.01, to be within the 95% confidence interval, we require \(1.96*(0.05/\sqrt{n})\le 0.01\) or \(n\ge 1.96^2*25=96.04\). A choice of \(n=97\) thus gives the answer.
+
+
+3. A sample of size $n=25$ with the population standard deviation $\sigma=3$, compute the margin of error of a 90% confidence interval for the mean $\mu$.
+
+  Ans: 0.9870<br/>
+  Explanation: $z_p \frac{\sigma}{\sqrt{n}} = 1.645 \times \frac{3}{5} = 0.987$
 
 
 
