@@ -974,11 +974,11 @@
 
   + normalized sample mean:
   
-    \[Z_n \stackrel{\text{def}}{=} \frac{(X_1 + cdots + X_n) -  n\mu}{n\sqrt{n}} \]
+    \[Z_n \stackrel{\text{def}}{=} \frac{(X_1 + cdots + X_n) -  n\mu}{\sigma\sqrt{n}} \]
 
   + applying CLT
     + for sufficiently large $n$, typically $\ge 30$
-    + standard Normal varialble: $Z_n \mathrel{\dot\sim} N(0, 1)$
+    + standard Normal variable: $Z_n \mathrel{\dot\sim} N(0, 1)$
   + $X \dot\sim N(0, 1)$: x is approximately distributed as standard normal
 
 + Predicting standard Normal
@@ -1049,7 +1049,7 @@
   + Python code to get probability
     + convert a percentile to a point
     + library: `import scipy.stats as stat`
-    + percent point function $$\Phi^{-1}(p)$: `stat.norm.ppf(x)`
+    + percent point function $\Phi^{-1}(p)$: `stat.norm.ppf(x)`
     + example
 
       ```python
@@ -1092,13 +1092,13 @@
   + standard normal distribution: $Z \stackrel{\text{def}}{=} \frac{X - \mu}{\sigma} \;\;\sim N_{0, 1}$
 
     \[\begin{align*}
-      \Pr(\underbrace{\mu - a\sigma \le X \le \mu+a\mu}_{\substack{X \text{ within "a" stdev}\\\text{from its mean}}}) &= \Pr(-a\sigma \le X - \mu \le a \sigma) = \Pr\left(-a \le \frac{X - \mu}{\sigma} \le a\right) \\
+      \Pr(\underbrace{\mu - a\sigma \le X \le \mu+a\sigma}_{\substack{X \text{ within "a" stdev}\\\text{from its mean}}}) &= \Pr(-a\sigma \le X - \mu \le a \sigma) = \Pr\left(-a \le \frac{X - \mu}{\sigma} \le a\right) \\
       &= \Pr(\underbrace{-a \le Z \le a}_{\substack{Z \text{ within "a" stdev}\\\text{from its mean}}})
     \end{align*}\]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/ya5tozvb" ismap target="_blank">
-      <img src="https://tinyurl.com/ya386usb" style="margin: 0.1em;" alt="A normal and standard normal curve." title="A normal and standard normal curve." width=450>
+      <img src="https://tinyurl.com/ya386usb" style="margin: 0.1em;" alt="A normal and standard normal curve." title="A normal and standard normal curve." width=400>
     </a>
   </div>
 
@@ -1118,12 +1118,12 @@
   + finding an interval containing $\mu$
 
 + Sample-mean distribution
-  + sampleing distribution of the same mean
+  + sampling distribution of the same mean
   + normalized sample mean as standard normal distribution
 
     \[ \frac{X_1 + \cdots + X_n - n \mu}{\sigma\sqrt{n}} \mathrel{\dot\sim} N(0,1) \]
 
-  + transformed sample mean as 0-mean normal distribution
+  + scaled sample mean as 0-mean normal distribution
 
     \[ \frac{X_1 + \cdots + X_n - n \mu}{n} \mathrel{\dot\sim} N\left(0,\frac{\sigma^2}{n}\right) \]
 
@@ -1163,12 +1163,11 @@
     + w/ high probability $\overline{X}$ near $\mu$
     + w/ high probability $\mu$ near $\overline{X}$
 
-+ Confidence interval <br/>
-  with probability $p$
++ Confidence interval with probability $p$
 
   \[\begin{align*}
     &\overline{X} \in (\mu - z_p \sigma_{\overline{X}}, \mu + z_p \sigma_{\overline{X}}) \\
-    &|\overline{X} - \mu| < x_p \sigma_{\overline{X}} \\
+    &|\overline{X} - \mu| < z_p \sigma_{\overline{X}} \\
     &\mu \in \left(\overline{X} - z_p \frac{\sigma}{\sqrt{n}}, \overline{X} + z_p \frac{\sigma}{\sqrt{n}}\right)
   \end{align*}\]
 
@@ -1196,7 +1195,7 @@
 
     \[ (\mu - z_p \sigma_{\overline{X}}, \mu + z_p \sigma_{\overline{X}}) = \left(\overline{X} - z_p \frac{\sigma}{\sqrt{n}}, \overline{X} + z_p \frac{\sigma}{\sqrt{n}}\right) = (3.344, 4.056) \]
 
-  + $z_p \sigma_{\overline{X}} = z_p \frac{\sigma}{\sqrt{n}}$: margin f error
+  + $z_p \sigma_{\overline{X}} = z_p \frac{\sigma}{\sqrt{n}}$: margin of error
 
 + Example: heart rate per minute
   + adult heart rate w/ standard deviation $\sigma = 7.5$ beats per min
