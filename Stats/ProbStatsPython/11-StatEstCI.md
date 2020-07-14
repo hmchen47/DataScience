@@ -1409,7 +1409,7 @@
     + sample mean: $\overline{X} = \frac{X_1 + \cdots + X_n}{n}$
     + sample variance: $s^2 = \frac{1}{n-1} \sum_{i=1}^n \left( X_i - \overline{X}\right)^2$
     + margin of error: $t_{p, n-1}\frac{s}{\sqrt{n}} \to$ no $\sigma$ required
-    + confidence interval: $\left[ \overline{X} - t_{p, n-1} \frac{s}{\sqrt{n}}, \overline{X} + t_{p, n-1} \frac{S}{\sqrt{n}} \right]$
+    + confidence interval: $\left[ \overline{X} - t_{p, n-1} \frac{s}{\sqrt{n}}, \overline{X} + t_{p, n-1} \frac{s}{\sqrt{n}} \right]$
 
 + Example: mature African elephant trunk length
   + sample measurements (in feet): $n=8 \;\;$, 5.62, 6.07, 6.64, 5.91, 6.30, 6.55, 6.19, 5.48
@@ -1437,8 +1437,35 @@
 
 ### Problem Sets
 
+0. A confidence interval of mean has confidence level 95%. It means<br/><br/>
+  a. The confidence interval includes distribution mean with probability 95%<br/>
+  b. 95% of the observations in the sample fall into this interval<br/>
+  c. If we take a new sample point, it falls into this interval 95% of the time<br/>
+  d. Non of the above<br/>
+
+  Ans: <span style="color: cyan;">a</span>
+  
+
+1. Student's t-distribution can be used to form confidence intervals only when the samples are normal distributed. (True/False)
+
+  Ans: False
 
 
+2. To find the average SAT verbal score in a class, six students are sampled and their scores are 560, 610, 500, 470, 660, and 640. Assuming that students' SAT verbal scores follow normal distribution, what is the upper limit for the confidence interval of the distribution mean with confidence level 90%?
+
+  Ans: 636.5572<br/>
+  Explanation: Let $X_i,1 \le i \le 6$ denote the samples. Here the sample mean  \overline{X} = \sum^6_{i=1} X_i/6=3440/6=573.333$. The sample variance $s^2= \sim^6_{i=1} (X_i−\overline{X})^2/(6−1)=29533.33333/5=5906.667$.  Since the data is assumed to be generated from a normal distribution, the $90\%$ confidence interval for the mean $\mu$ is given by $[\overline{X} − \frac{t_{0.9,5}s}{\sqrt{6}, \overline{X} + \frac{t_{0.9,5}s}{\sqrt{6}]$. Using the fact that $t_{0.9,5}=2.015$,  $\overline{X}+t_{0.9,5} \frac{s}{\sqrt{6}=573.333+2.015 \frac{\sqrt{5906.667}}{\sqrt{6}}=636.542$ (A tolerance of $\pm 0.5$ about 636.5 is an acceptable answer).
+
+
+3. a. What is the critical $t$ for a 92% confidence interval with a sample size 10?<br/>
+   b. What is the critical $t$ for a 92% confidence interval with a sample size 1000?<br/>
+   c. What is the critical $z$ for a 92% confidence interval?<br/>
+
+  Ans: a. (1.9727); b. (1.7525); c. (1.7507)<br/>
+  Explanation: `import scipy.stats as stat`
+    + `stat.t.ppf((1+0.92)/2, 10-1)`
+    + `stat.t.ppf((1+0.92)/2, 1000-1)`
+    + `stat.norm.ppf((1+0.92)/2)`
 
 
 ### Lecture Video
