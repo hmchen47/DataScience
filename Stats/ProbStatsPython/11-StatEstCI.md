@@ -1255,16 +1255,174 @@
 </a><br/>
 
 
-
 ## 11.7 Confidence Interval - Sigma Unknown
 
++ Confidence interval w/ known $\sigma$
+  + standard normal distribution: $N(0, 1)$
+  + critical point $z_p$: point of probability $p$ s.t. area btw $-z_p$ and $z_p$ w/ $0 \le p \le 1$
+  + rv. w/ standard normnal: $Z \sim N(0, 1)$
+
+    \[\begin{align*}
+      p &= \Pr(|Z| \le z_p) = \Pr(-z_p \le Z \le z_p) \\
+      &= \Phi(z_p) - \Phi(-z+p) = \Phi(z_p) - (1- \Phi(z_p)) = 2 \Phi(z_p) -1
+    \end{align*}\]
+
+  + $\Phi(x)$: CDF of stnadard normal
+
+    \[ ]Phi(z_p) = \frac{1+p}{2} \implies z_p = \Phi^{-1}\left( \frac{1+p}{2} \right) \]
+
+  + example
+
+    \[ z_{0.9} = \Phi^{-1}\left(\frac{1+0.9}{2} = \Phi^{-1}(0.95) = 1.645 \to \Pr(|Z| \le 1.645) = 0.9  \]
+
++ Sample mean $\mathrel{\dot\sim}$ Normal
+  + r.v's: $X_1, X_2, \dots, X_n$ iis w/ known $\sigma$ and unknown $\mu$
+  + sample mean: $\overline{X} = \frac{X_1 + \cdots + X_n}{n}$
+  + unbaised sample mean: $\mu_{\overline{X}} = \mu$
+  + variance and standard deviation: $var(\overline{X}}) = \frac{\sigma^2}{n} \quad \sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}$
+
+    \[ \frac{\overline{X} - \mu}{\sigma_{\overline{X}}} = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \mathrel{\dot\sim} N(0, 1) \]
+
++ Confidence interval
+  + standard normal: $Z \sim N(0, 1) \quad \Pr(|Z| \le z_p) = p$
+  + normalized standard normal: $\frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \mathrel{\dot\sim} N(0, 1)$
+
+    \[ \Pr\left( \left|\frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \right| \le z_p \right) \approx p \implies \Pr\left( |\overline{X} - \mu | \le z_p \frac{\sigma}{\sqrt{n}} \right) \approx p \]
+
+  + with probability $\approx p$
+
+    \[ |\overline{X} - \mu| \le \underbrace{z_p \frac{\sigma}{\sqrt{n}}}_{\text{margin of error}} \implies \mu \in \left[ \overline{X} - z_p \frac{\sigma}{\sqrt{n}, \overline{X} + z_p \frac{\sigma}{\sqrt{n}}} \right] \]
+
++ Confidence to interval
+  + given confidence $p$ and samples $X_1, \dots, X_n$
+  + determining
+    + criticall value $z$: $ \Phi^{-1}\left( \frac{1+p}{2}\right) \to $ `scip[y.stats.norm.ppf((1+p)/2)`
+    + sample mean: $\overline{X} = \frac{X_1+\cdots+X_n}{n}$
+    + margin of error w/ know $\sigma$: $z_p \frac{\sigma}{\sqrt{n}}$
+    + confidence interval: $\left[ \overline{X} - z_p \frac{\sigma}{\sqrt{n}}, \overline{X} + z_p \frac{\sigma}{\sqrt{n}} \right]$$
+  + problem: $\sigma$ almost never known
+
++ Statistics w/ unknow $\sigma$
+  + r.v's: $X_1, \dots, X_n \;\;{\perp \!\!\!\! \perp} \;\; \; n(\mu, \sigma^2)$
+  + neither $\sigma,$ nor $\mu$ known?
+  + finding $\mu$
+  + sample mean: $\overlinePX} = \frac{X_1 + \dots + X_n}{n}
+  + unbiased sample mean: $\mu_{\overline{X}} = \mu$
+  + standard deviation: $\sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}$
+  + standard normal: $\frac{\overline{X} - \mu}{\sigma_{\overline{X}}} = \frac{\frac{\overline{X}} - \mu}{\sigma/\sqrt{n}} \mathrel{\dot\sim} N(0, 1)$
+  + sample variance w/ Bessel correction: $S^2 = \frac{1}{n-1}\sum_{i=1}^n \left(X_i - \overline{X}\right)^2$
+  + unbiased sample variance: $\mu_{S^2} = \sigma^2$
+  + $\frac{\overline{X}-\mu}{S/\sqrt{n}}$
+    + almost standard $S \approx \sigma$
+    + normal: $S$ - r.v.
+  + student's t-distribution: $n-1$ degrees of freedom
+
++ Student's t-distribution
+  + student t-distribution w/ $\nu$ degrees of freedom: $T_{\nu} = \frac{\overline{X} - \mu}{S/\sqrt{\nu + 1}}$
+  + PDF:
+
+    \[ T_{\nu} \sim f_{\nu}(t) = \frac{\Gamma(\frac{\nu+1}{2})}{\sqrt{\nu \pi}\cdot \Gamma{\frac{\nu}{2}}} \left( 1 + \frac{t^2}{\nu} \right)^{-\frac{\nu+1}{2}} \]
+
+    + $\nu$: degrees of freedom
+    + $\Gamma(n) = n!$: gamma function
+    + depending on $t$
+    + symmetric around 0
+  + Python code
+    + `t` class in `scipy.stats` module
+    + probability density function: `scipy.stats.t.pdf(x, v)`
+    + example
+
+      ```python
+      from scipy.stats import t
+      t.pdf(1, 3)   # 0.206748
+      ```
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y4ewofss" ismap target="_blank">
+        <img src="https://tinyurl.com/y7b3mcg9" style="margin: 0.1em;" alt="Exaggerated representations of the z and t distributions" title="Exaggerated representations of the z and t distributions" width=350>
+      </a>
+    </div>
+
++ Analytical argument
+  + t-distribution: $f_{\nu}(t) = \frac{\Gamma(\frac{\nu+1}{2})}{\sqrt{\nu \pi}\cdot \Gamma{\frac{\nu}{2}}} \left( 1 + \frac{t^2}{\nu} \right)^{-\frac{\nu+1}{2}}$
+  + small $x$: $1 + x \approx e^x$
+  + t distribution $\to$ standard normal as $\nu \to \infty$
+
+    \left( 1 + \frac{t^2}{\nu} \right)^{-\frac{\nu+1}{2}} \approx \left( e^{\frac{t^2}{\nu}} \right^{-\frac{\nu + 1}{2}}\right) \approx^{-\frac{t^2}{\nu} \frac{\nu+1}{2} \approx e^{-\frac{t^2}{2}}}
+
+  + distribution: constant same
+
+    \[ \frac{\Gamma\left( \frac{\nu+1}{2} \right)}{\sqrt{\nu\pi} \cdot \Gamma(\frac{\nu}{2})} \approx \frac{1}{\sqrt{2\pi}} \]
+
++ William Sealy Gosset
+  + Guinness Brewery: world's largest
+  + production
+    + Billion pints / year
+    + $\sim 1.75$ Billion bottles
+  + quality control, consistency, statisticians
+  + trade secret, publish, pseudonym
+
++ Confidence interval for t distribution
+  + $T_\nu$: student's t-distribution, $\nu$ degrees of freedom
+  + critical value $t$: $t_{\p, \nu}: \Pr(|T_\nu| \le r_{p, \nu}) = p$
+  
+    \[ p = \Pr(|T_\nu| \le t_{p, \nu}) = \Pr(-t_{p, \nu} \le t_{p, \nu}) = 2 F(T_{p, \nu}) - 1 \]
+
+  + CDF of $T_{p, \nu}$: $F(t_{p, \nu}) = \frac{1+p}{2}$
+  + critical value: $t_{p, \nu} = F^{-1} \left(\frac{1+p}{2}\right)$
+  + Python code
+    + cumulative distribution function: `t.cdf(x, v)$, e.g., $F_3(1)$
+
+      ```python
+      from scipy.stats import t
+      t.cdf(1, 3)   # 0.80449889052211476
+      ```
+
+    + inverse cdf: percent point function `t.ppf(x, v)`, e.g., $F_3^{-1}(0.95)$
+
+      ```python
+      t.ppf(0.95, 3)    # 2.3533634348018264
+      ```
+
++ Confidence interval for general t distribution
+  + r.v.'s: $\overline{X} - \mu}{S/\sqrt{n}} \sim f_{n-1}(t)$
+
+    \[ \Pr\left(\left|\overline{X} - \mu \right| \le t_{p, n-1}\right) = p \implies \Pr\left(\left|\overline{X} - \mu\right| \le t_{p, n-1} \frac{S}{\sqrt{n}}\right) = p \]
+
+  + w/ probability $p$
+
+    \[ |\overline{X} - \mu| \le t_{p, n-1} \frac{S}{\sqrt{n}} \to \mu \in \\left[\overline{X} - t_{p, n-1} \frac{S}{\sqrt{n}}, \overline{X} + t_{p, n-1} \frac{S}{\sqrt{n}}  \right] \]
+
++ Confidence level $\to$ confidence interval
+  + given confidence $p$ and samples $X_1, \dots, X_n$
+  + determining
+    + critical $t$: $t_{p, n-1} = F^{-1}_{n-1} \left(\frac{1+p}{n}\right) \to$ `t.ppf((1+p)/2)` 
+    + sample mean: $\overline{X} = \frac{X_1 + \cdots + X_n}{n}$
+    + sample variance: $s^2 = \frac{1}{n-1} \sum_{i=1}^m \left( X_i - \overline{X}\right)^2$
+    + margin of error: $t_{p, n-1}\frac{S}{\sqrt{n}} \to$ no \sigma required
+    + confidence interval: $\left[ \overline{X} - t_{p, n-1} \frac{S}{\sqrt{n}}, \overline{X} + t_{p, n-1} \frac{S}{\sqrt{n}} \right]$
+
++ Example: mature African elephant trunk length
+  + sample measurements (in feet): $n=8 \;\;$, 5.62, 6.07, 6.64, 5.91, 6.30, 6.55, 6.19, 5.48
+  + finding: 95% CI for distribution mean
+  + critical $t$: t_{p, n-1} = F_{n-1}^{-1}(\frac{1+p}{2}) = F_7^{-1}(0.975) \approx 2.3646 \to$ `t.ppf(0.975, 7) # 2.3646`
+  + sample mean: $\over{X} = 6.095$
+  + sample variance: $S^2 \approx 0.1705 \to S = 0.4130$
+  + margin of error: $t_{p, n-1} \frac{S}{\sqrt{n}} \approx 0.4130$
+  + confidence interval: $\left( \overline{X} - t_{p, n-1} \frac{S}{\sqrt{n}}, \overline{X} + t_{p, n-1} \frac{S}{\sqrt{n}} \right) \approx (5.7497, 6.4403)$
+
++ Observations
+  + $n$ large
+    + $f_{n-1}(t) \to \phi(t)$ as $t_{p, n-1} \to z_p$
+    + $s \to \sigma$
+    + able to use z-based techniques
+  + $n$ small
+    + t-distribution more accurate
+    + yields larger margin of error than known $\sigma$
+    + assumed $X_i \sim N$, best when this roughly holds
 
 
-
-
-
-
-+ [Original Slides]()
++ [Original Slides](https://tinyurl.com/ybjkhdo8)
 
 
 ### Problem Sets
