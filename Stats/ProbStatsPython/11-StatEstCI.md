@@ -1260,7 +1260,7 @@
 + Confidence interval w/ known $\sigma$
   + standard normal distribution: $N(0, 1)$
   + critical point $z_p$: point of probability $p$ s.t. area btw $-z_p$ and $z_p$ w/ $0 \le p \le 1$
-  + rv. w/ standard normal: $Z \sim N(0, 1)$
+  + r.v. w/ standard normal: $Z \sim N(0, 1)$
 
     \[\begin{align*}
       p &= \Pr(|Z| \le z_p) = \Pr(-z_p \le Z \le z_p) \\
@@ -1276,7 +1276,7 @@
     \[ z_{0.9} = \Phi^{-1}\left(\frac{1+0.9}{2} \right) = \Phi^{-1}(0.95) = 1.645 \to \Pr(|Z| \le 1.645) = 0.9  \]
 
 + Sample mean $\mathrel{\dot\sim}$ Normal
-  + r.v's: $X_1, X_2, \dots, X_n$ iis w/ known $\sigma$ and unknown $\mu$
+  + r.v.'s: $X_1, X_2, \dots, X_n$ iid w/ known $\sigma$ and unknown $\mu$
   + sample mean: $\overline{X} = \frac{X_1 + \cdots + X_n}{n}$
   + unbiased sample mean: $\mu_{\overline{X}} = \mu$
   + variance and standard deviation: $var(\overline{X}) = \frac{\sigma^2}{n} \quad \sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}$
@@ -1304,12 +1304,12 @@
 
 + Statistics w/ unknown $\sigma$
   + r.v's: $X_1, \dots, X_n \;\;{\perp \!\!\!\! \perp} \;\; \; N(\mu, \sigma^2)$
-  + neither $\sigma,$ nor $\mu$ known?
+  + neither $\sigma,$ nor $\mu$ known
   + finding $\mu$
   + sample mean: $\overline{X} = \frac{X_1 + \dots + X_n}{n}$
   + unbiased sample mean: $\mu_{\overline{X}} = \mu$
   + standard deviation: $\sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}$
-  + standard normal: $\frac{\overline{X} - \mu}{\sigma_{\overline{X}}} = \frac{\frac{\overline{X}} - \mu}{\sigma/\sqrt{n}} \mathrel{\dot\sim} N(0, 1)$
+  + standard normal: $\frac{\overline{X} - \mu}{\sigma_{\overline{X}}} = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \mathrel{\dot\sim} N(0, 1)$
   + sample variance w/ Bessel correction: $s^2 = \frac{1}{n-1}\sum_{i=1}^n \left(X_i - \overline{X}\right)^2$
   + unbiased sample variance: $\mu_{s^2} = \sigma^2$
   + $\frac{\overline{X}-\mu}{s/\sqrt{n}}$
@@ -1321,7 +1321,7 @@
   + student t-distribution w/ $\nu$ degrees of freedom: $T_{\nu} = \frac{\overline{X} - \mu}{s/\sqrt{\nu + 1}}$
   + PDF:
 
-    \[ T_{\nu} \sim f_{\nu}(t) = \frac{\Gamma(\frac{\nu+1}{2})}{\sqrt{\nu \pi}\cdot \Gamma{\frac{\nu}{2}}} \left( 1 + \frac{t^2}{\nu} \right)^{-\frac{\nu+1}{2}} \]
+    \[ T_{\nu} \sim f_{\nu}(t) = \frac{\Gamma(\frac{\nu+1}{2})}{\sqrt{\nu \pi}\cdot \Gamma(\frac{\nu}{2})} \left( 1 + \frac{t^2}{\nu} \right)^{-\frac{\nu+1}{2}} \]
 
     + $\nu$: degrees of freedom
     + $\Gamma(n) = n!$: gamma function
@@ -1330,7 +1330,7 @@
   + Python code
     + `t` class in `scipy.stats` module
     + probability density function: `scipy.stats.t.pdf(x, v)`
-    + example: $$f_3(1)$
+    + example: $f_3(1)$
 
       ```python
       from scipy.stats import t
@@ -1372,9 +1372,9 @@
 
 + Confidence interval for t distribution
   + $T_\nu$: student's t-distribution, $\nu$ degrees of freedom
-  + critical value $t_{p, \nu}: \Pr(|T_\nu| \le r_{p, \nu}) = p$
+  + t-statistic (critical value $t_{p, \nu}): \Pr(|T_\nu| \le t_{p, \nu}) = p$
   
-    \[ p = \Pr(|T_\nu| \le t_{p, \nu}) = \Pr(-t_{p, \nu} \le t_{p, \nu}) = 2 F(T_{p, \nu}) - 1 \]
+    \[ p = \Pr(|T_\nu| \le t_{p, \nu}) = \Pr(-t_{p, \nu} \le T_\nu \le t_{p, \nu}) = 2 F(T_{p, \nu}) - 1 \]
 
   + CDF of $T_\nu$: $F(t_{p, \nu}) = \frac{1+p}{2}$
   + critical value: $t_{p, \nu} = F^{-1} \left(\frac{1+p}{2}\right)$
@@ -1392,11 +1392,11 @@
       t.ppf(0.95, 3)    # 2.3533634348018264
       ```
 
-+ Confidence interval for general t distribution
++ Confidence interval for t distribution
   + t-distribution, $\nu$ degrees of freedom
-  + t-statistic: $\frac{\overline{X} - \mu}{S/\sqrt{n}} \sim f_{n-1}(t)$
+  + t-statistic: $\frac{\overline{X} - \mu}{s/\sqrt{n}} \sim f_{n-1}(t)$
 
-    \[ \Pr\left(\left|\overline{X} - \mu \right| \le t_{p, n-1}\right) = p \implies \Pr\left(\left|\overline{X} - \mu\right| \le t_{p, n-1} \frac{s}{\sqrt{n}}\right) = p \]
+    \[ \Pr\left(\left|\frac{\overline{X} - \mu}{s/\sqrt{n}} \right| \le t_{p, n-1}\right) = p \implies \Pr\left(\left|\overline{X} - \mu\right| \le t_{p, n-1} \frac{s}{\sqrt{n}}\right) = p \]
 
   + w/ probability $p$
 
@@ -1407,8 +1407,8 @@
   + determining
     + t-score: $t_{p, n-1} = F^{-1}_{n-1} \left(\frac{1+p}{n}\right) \to$ `t.ppf((1+p)/2)` 
     + sample mean: $\overline{X} = \frac{X_1 + \cdots + X_n}{n}$
-    + sample variance: $s^2 = \frac{1}{n-1} \sum_{i=1}^m \left( X_i - \overline{X}\right)^2$
-    + margin of error: $t_{p, n-1}\frac{s}{\sqrt{n}} \to$ no \sigma required
+    + sample variance: $s^2 = \frac{1}{n-1} \sum_{i=1}^n \left( X_i - \overline{X}\right)^2$
+    + margin of error: $t_{p, n-1}\frac{s}{\sqrt{n}} \to$ no $\sigma$ required
     + confidence interval: $\left[ \overline{X} - t_{p, n-1} \frac{s}{\sqrt{n}}, \overline{X} + t_{p, n-1} \frac{S}{\sqrt{n}} \right]$
 
 + Example: mature African elephant trunk length
@@ -1426,7 +1426,7 @@
     + $t_{p, n-1} \to z_p$
     + $s \to \sigma$
     + able to use z-based techniques
-  + $n$ small
+  + $n$ smallgj
     + t-distribution more accurate
     + yields larger margin of error than known $\sigma$
     + assumed $X_i \sim N$, best when this roughly holds
