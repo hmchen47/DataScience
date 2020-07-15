@@ -105,6 +105,17 @@ def raw_variance(n, r):
     return None
 
 
+def unbiased_variance(n, r):
+    """compute and plot unbiased variance
+
+    Args:
+        n (int): sample size
+        r (int): number of experiments
+    """
+    normal_variance(n, 1, r)
+    plt.title('Histogram of unbiased sample variance with sample size n={:d} and r={:d}'\
+        .format(n, r), fontsize=20)
+    plt.xlabel('$s^2$', fontsize=15)
 
 
 def main():
@@ -121,23 +132,46 @@ def main():
 
     # raw variance estimator
     # sample size: n = (2, 20),  degree of freedom df = 0
+    # n, r = 3, 500
+    # raw_variance(n, r)
+    # plt.savefig('../img/t11-02a.png')
+    # plt.show()
+
+    # n, r = 30, 500
+    # raw_variance(n, r)
+    # plt.savefig('../img/t11-02b.png')
+    # plt.show()
+
+    # n, r = 3, 3000
+    # raw_variance(n, r)
+    # plt.savefig('../img/t11-02c.png')
+    # plt.show()
+
+    # n, r = 30, 3000
+    # raw_variance(n, r)
+    # plt.savefig('../img/t11-02d.png')
+    # plt.show()
+
+
+    # unbiased variance
+    # sample size: n = (2, 20),  degree of freedom df = 1
     n, r = 3, 500
-    raw_variance(n, r)
+    unbiased_variance(n, r)
     plt.savefig('../img/t11-02a.png')
     plt.show()
 
     n, r = 30, 500
-    raw_variance(n, r)
-    plt.savefig('../img/t11-02b.png')
-    plt.show()
-
-    n, r = 3, 3000
-    raw_variance(n, r)
+    unbiased_variance(n, r)
     plt.savefig('../img/t11-02c.png')
     plt.show()
 
+    n, r = 3, 3000
+    unbiased_variance(n, r)
+    plt.savefig('../img/t11-02b.png')
+    plt.show()
+
     n, r = 30, 3000
-    raw_variance(n, r)
+    unbiased_variance(n, r)
     plt.savefig('../img/t11-02d.png')
     plt.show()
 
