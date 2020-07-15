@@ -65,18 +65,18 @@ def normal_mean(n):
 
     return None
 
-def normal_variance(n, df):
+def normal_variance(n, df, r):
     """compute and plot normal variance
 
     Args:
         n (int): sample size
         df (int): 0 - raw variance; 1 - unbiased variance
+        r (int): number of experiments
     """
     plt.figure(figsize=(15, 7))
     plt.xlim([0, 3])
 
-    s = 500
-    X = np.random.normal(0, 1, [n, s])
+    X = np.random.normal(0, 1, [n, r])
     V = np.var(X, axis=0, ddof=df)
     v = np.mean(V)
 
@@ -88,22 +88,23 @@ def normal_variance(n, df):
 
     return None
 
-def raw_variance(n):
+def raw_variance(n, r):
     """plot raw variance
 
     Args:
         n (int): sample size
+        r (int): number of experiments
     """
-    normal_variance(n, 0)
-    plt.title('Histogram of "raw" sample variance w/ sample size n={:d} and r= 500'\
-        .format(n), fontsize=15)
+    normal_variance(n, 0, r)
+    plt.title('Histogram of "raw" sample variance w/ sample size n={:d} and r= {:d}'\
+        .format(n, r), fontsize=15)
     plt.xlabel('$s^2$', fontsize=15)
 
-    plt.show()
-
-    # plt.savefig('../img/t11-02c.png')
+    # plt.show()
 
     return None
+
+
 
 
 def main():
@@ -120,8 +121,27 @@ def main():
 
     # raw variance estimator
     # sample size: n = (2, 20),  degree of freedom df = 0
-    n = 3
-    raw_variance(n)
+    n, r = 3, 500
+    raw_variance(n, r)
+    plt.savefig('../img/t11-02a.png')
+    plt.show()
+
+    n, r = 30, 500
+    raw_variance(n, r)
+    plt.savefig('../img/t11-02b.png')
+    plt.show()
+
+    n, r = 3, 3000
+    raw_variance(n, r)
+    plt.savefig('../img/t11-02c.png')
+    plt.show()
+
+    n, r = 30, 3000
+    raw_variance(n, r)
+    plt.savefig('../img/t11-02d.png')
+    plt.show()
+
+
 
     return None
 
