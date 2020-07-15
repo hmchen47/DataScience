@@ -118,6 +118,38 @@ def unbiased_variance(n, r):
     plt.xlabel('$s^2$', fontsize=15)
 
 
+def normal_sd(n, s):
+    """compute and plot standard deviation for normal distr
+
+    Args:
+        n (int): sample size
+        s (int): number of experiments
+    """
+
+    plt.figure(figsize=(15, 7))
+    plt.xlim([0, 3])
+    plt.title("Histogram of sample standard deviation with sample size n={:d} and r={}"\
+        .format(n, s), fontsize=20)
+    plt.xlabel('$\widehat{\sigma}$', fontsize=15)
+
+    X = np.random.normal(0, 1, [n, s])
+    V = np.sqrt(np.var(X, axis=0, ddof=1))
+    v = np.mean(V)
+
+    plt.plot([v, v], [0, 3], 'r--', linewidth=2.0)
+    plt.hist(V, bins=60, density=1)
+
+    plt.plot([1, 1], [0, 3], 'g:', linewidth=2.0)
+    plt.ylabel('Frequency', fontsize=15)
+    plt.grid()
+
+    plt.show()
+
+    return None
+
+
+
+
 def main():
 
     # implement sample mean
@@ -155,26 +187,30 @@ def main():
 
     # unbiased variance
     # sample size: n = (2, 20),  degree of freedom df = 1
-    n, r = 3, 500
-    unbiased_variance(n, r)
-    plt.savefig('../img/t11-02a.png')
-    plt.show()
+    # n, r = 3, 500
+    # unbiased_variance(n, r)
+    # plt.savefig('../img/t11-02a.png')
+    # plt.show()
 
-    n, r = 30, 500
-    unbiased_variance(n, r)
-    plt.savefig('../img/t11-02c.png')
-    plt.show()
+    # n, r = 30, 500
+    # unbiased_variance(n, r)
+    # plt.savefig('../img/t11-02c.png')
+    # plt.show()
 
-    n, r = 3, 3000
-    unbiased_variance(n, r)
-    plt.savefig('../img/t11-02b.png')
-    plt.show()
+    # n, r = 3, 3000
+    # unbiased_variance(n, r)
+    # plt.savefig('../img/t11-02b.png')
+    # plt.show()
 
-    n, r = 30, 3000
-    unbiased_variance(n, r)
-    plt.savefig('../img/t11-02d.png')
-    plt.show()
+    # n, r = 30, 3000
+    # unbiased_variance(n, r)
+    # plt.savefig('../img/t11-02d.png')
+    # plt.show()
 
+    # estimating standard deviation
+    # sample size: n = (2, 10)
+    n, s = 10, 1000000
+    normal_sd(n, s)
 
 
     return None
