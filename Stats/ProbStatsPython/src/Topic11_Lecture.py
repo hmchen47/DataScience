@@ -65,6 +65,46 @@ def normal_mean(n):
 
     return None
 
+def normal_variance(n, df):
+    """compute and plot normal variance
+
+    Args:
+        n (int): sample size
+        df (int): 0 - raw variance; 1 - unbiased variance
+    """
+    plt.figure(figsize=(15, 7))
+    plt.xlim([0, 3])
+
+    s = 500
+    X = np.random.normal(0, 1, [n, s])
+    V = np.var(X, axis=0, ddof=df)
+    v = np.mean(V)
+
+    plt.plot([v, v], [0, 3], 'r--', linewidth=2.0)
+    plt.hist(V, bins=60, density=1)
+
+    plt.plot([1, 1], [0, 3], 'g:', linewidth=2.0)
+    plt.ylabel('frequency', fontsize=15)
+
+    return None
+
+def raw_variance(n):
+    """plot raw variance
+
+    Args:
+        n (int): sample size
+    """
+    normal_variance(n, 0)
+    plt.title('Histogram of "raw" sample variance w/ sample size n={:d} and r= 500'\
+        .format(n), fontsize=15)
+    plt.xlabel('$s^2$', fontsize=15)
+
+    plt.show()
+
+    # plt.savefig('../img/t11-02c.png')
+
+    return None
+
 
 def main():
 
@@ -75,8 +115,13 @@ def main():
 
     # distribution of the sample mean
     # sample size: n = (3, 30)
+    n = 30
+    # normal_mean(n)
+
+    # raw variance estimator
+    # sample size: n = (2, 20),  degree of freedom df = 0
     n = 3
-    normal_mean(n)
+    raw_variance(n)
 
     return None
 
