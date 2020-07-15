@@ -251,10 +251,10 @@
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="url" ismap target="_blank">
-        <img src="img/t11-02a.png" style="margin: 0.1em;" alt="Experiment results: mean=0, sample size=5, repetition= 3000" title="Experiment results: mean=0, sample size=5, repetition= 3000" height=150>
+        <img src="img/t11-02a.png" style="margin: 0.1em;" alt="Experiment results: mean=0, sample size=5, repetition= 500" title="Experiment results: mean=0, sample size=5, repetition= 500" height=150>
         <img src="img/t11-02b.png" style="margin: 0.1em;" alt="Experiment results: mean=0, sample size=50, repetition= 3000" title="Experiment results: mean=0, sample size=50, repetition= 3000" height=150>
-        <img src="img/t11-02c.png" style="margin: 0.1em;" alt="Experiment results: mean=0, sample size=5, repetition= 400" title="Experiment results: mean=0, sample size=5, repetition= 400" height=150>
-        <img src="img/t11-02d.png" style="margin: 0.1em;" alt="Experiment results: mean=0, sample size=50, repetition= 400" title="Experiment results: mean=0, sample size=50, repetition= 400" height=150>
+        <img src="img/t11-02c.png" style="margin: 0.1em;" alt="Experiment results: mean=0, sample size=5, repetition= 500" title="Experiment results: mean=0, sample size=5, repetition= 500" height=150>
+        <img src="img/t11-02d.png" style="margin: 0.1em;" alt="Experiment results: mean=0, sample size=50, repetition= 3000" title="Experiment results: mean=0, sample size=50, repetition= 3000" height=150>
       </a>
     </div>
 
@@ -1477,9 +1477,11 @@
 
 ## Lecture Notebook 11
 
++ [Original Lecture NB](https://tinyurl.com/ybpxj7yh)
 
++ [Local Lecture NB](src/Topic11_Lecture.ipynb)
 
-
++ [Lecture Python code for Statistics](src/Topic11_Lecture.py)
 
 
 
