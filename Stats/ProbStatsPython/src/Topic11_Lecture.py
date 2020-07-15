@@ -39,12 +39,44 @@ def sample_mean(n, r):
     return None
 
 
+def normal_mean(n):
+    """computeand plot the sample mean for Normal distribution
+
+    Args:
+        n (int): sample size
+    """
+    plt.figure(figsize=(14, 7))
+    plt.title('Histogram of sample means w/ sample size n={:d}'.format(n), fontsize=15)
+    plt.xlabel('$\overline{X}$', fontsize=15)
+    plt.ylabel('frequency', fontsize=15)
+    plt.grid()
+
+    s = 100000
+
+    x = np.linspace(-4, 4, 1000)
+    y = [uniform.pdf(i, 0, 1) for i in x]
+    plt.plot(x, y)
+
+    X = np.random.uniform(0, 1, [n, s])
+    M = np.sum(X, axis=0)/n
+    plt.hist(M, bins=40, density=1)
+
+    plt.show()
+
+    return None
+
+
 def main():
 
     # implement sample mean
     # sample size: n = (10, 1000), experiments: r = (1, 10)
     n, r = 500, 100
-    sample_mean(n, r)
+    # sample_mean(n, r)
+
+    # distribution of the sample mean
+    # sample size: n = (3, 30)
+    n = 3
+    normal_mean(n)
 
     return None
 
