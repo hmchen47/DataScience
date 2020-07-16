@@ -109,6 +109,29 @@
 
 
 
+## Bias and Variance
+
++ [Bias and variance](../Stats/ProbStatsPython/11-StatEstCI.md#112-mean-and-variance-estimation)
+  + bias: $\widehat{\Theta}$ estimator for $\theta$
+    + definition: <span style="color: magenta;">bias</span> of $\widehat{\Theta}$ as the expected overestimate of $\theta$
+
+      \[\text{Bias}_\theta (\widehat{\Theta}) \stackrel{\text{def}}{=} E[\widehat{\Theta} - \theta] = \mu_{\widehat{\Theta}} - \theta \quad\to\quad \text{Bias}(\widehat{\Theta}) \]
+
+    + <span style="color: magenta;">unbiased</span>: estimator w/ 0 bias, i.e., $\mu_{\widehat{\Theta}} = \theta$
+  + variance
+    + definition: $Var(\widehat{\Theta}) = E[(\widehat{\Theta} - \mu_{\widehat{\Theta}})^2]$
+    + unrelated to $\theta$
+  + ideally 0 bias and variance
+  + typically trade off btw bias and variance
+
++ [Bias-Variance decomposition <br/>](../Stats/ProbStatsPython/11-StatEstCI.md#112-mean-and-variance-estimation)
+  MSE = $\text{Bias}^2$ + Variance
+
+
+
+
+
+
 ## Statistical Inference
 
 + [statistically significance](../Notes/p01-Bayesian.md#31-subjectivity-and-context)
@@ -131,25 +154,43 @@
 
 
 
-## Bias and Variance
+## Mean Estimation
 
-+ [Bias and variance](../Stats/ProbStatsPython/11-StatEstCI.md#112-mean-and-variance-estimation)
-  + bias: $\widehat{\Theta}$ estimator for $\theta$
-    + definition: <span style="color: magenta;">bias</span> of $\widehat{\Theta}$ as the expected overestimate of $\theta$
++ [Estimators](../Stats/ProbStatsPython/11-StatEstCI.md#112-mean-and-variance-estimation)
+  + r.v.'s: $X^n \stackrel{\text{def}}{=} X_1, X_2, \dots, X_n$ independent samples from distribution or a population
+  + $p$: unknown distribution or population
+  + estimate a distribution parameter $\theta$
+  + sample: $X^n \stackrel{\text{def}}{=} X_1, X_2, \dots, X_n \sim p {\perp \!\!\!\! \perp}$
+  + estimator for parameter $\theta$ as a function
+    + function $\widehat{\theta}: \Bbb{R} \to \Bbb{R}$
+    + mapping $X^n \to \Bbb{R}$
+  + upon observing $X^n$, estimate $\theta$ and defined as $\widehat{\Theta} \stackrel{\text{def}}{=} \widehat{\theta}(X^n)$
+    + random variable
+    + determined by $X^n$
 
-      \[\text{Bias}_\theta (\widehat{\Theta}) \stackrel{\text{def}}{=} E[\widehat{\Theta} - \theta] = \mu_{\widehat{\Theta}} - \theta \quad\to\quad \text{Bias}(\widehat{\Theta}) \]
++ [Observations](../Stats/ProbStatsPython/11-StatEstCI.md#112-mean-and-variance-estimation)
+  + distribution parameter $\theta$
+  + estimate $\widehat{\Theta} \stackrel{\text{def}}{=} \widehat{\theta}(X^n)$
+    + random variable
+    + ideally close to $\theta$
+  + estimator
+    + any function
+    + good or bad
+  + considering how to
+    + come up w/ an estimator?
+    + evaluate its performance?
 
-    + <span style="color: magenta;">unbiased</span>: estimator w/ 0 bias, i.e., $\mu_{\widehat{\Theta}} = \theta$
-  + variance
-    + definition: $Var(\widehat{\Theta}) = E[(\widehat{\Theta} - \mu_{\widehat{\Theta}})^2]$
-    + unrelated to $\theta$
-  + ideally 0 bias and variance
-  + typically trade off btw bias and variance
++ [Estimator evaluation](../Stats/ProbStatsPython/11-StatEstCI.md#112-mean-and-variance-estimation)
+  + parameter may have several estimators
+  + evaluate quality of estimator for a parameter
 
++ [Mean squared error](../Stats/ProbStatsPython/11-StatEstCI.md#112-mean-and-variance-estimation)
+  + single measure for performance of estimator $\widehat{\Theta}$ for $\theta$
+  + <span style="color: magenta;">MSE of $\widehat{\Theta}$</span>: expected squared distance from $\theta$
 
+    \[ \text{MSE}_{\theta}(\widehat{\Theta}) \stackrel{\text{def}}{=} E[(\widehat{\Theta} - \theta)^2] \quad\to\quad \text{MSE}(\widehat{\Theta}) \]
 
-
-
+  + MSE related to bias and variance
 
 
 
