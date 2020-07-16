@@ -100,7 +100,7 @@
 
 ### Probability and Statistics
 
-+ Prof. John Tsitsiklis and Prof. Patrick Jaillet, [Introduction to Probability](https://ocw.mit.edu/resources/res-6-012-introduction-to-probability-spring-2018/)
++ Prof. John Tsitsiklis and Prof. Patrick Jaillet, [Introduction to Probability](https://ocw.mit.edu/resources/res-6-012-introduction-to-probability-spring-2018/), 2018
 + Professor A.J. Hildebrand, [Math 370X: Actuarial Problem solving, Spring 2008](https://faculty.math.illinois.edu/~hildebr/370/)
 + Alexandros Psomas, David Dinh, Fan Ye, [Discrete Mathematics and Probability Theory](https://inst.eecs.berkeley.edu/~cs70/su16/)
 + Joseph Blitzstein, [Introduction to Probability](https://www.edx.org/course/introduction-to-probability)
@@ -120,6 +120,11 @@
 
 
 ### Machine Learning
+
++ Prof. David Jerison, [Single Variable Calculus](https://ocw.mit.edu/courses/mathematics/18-01sc-single-variable-calculus-fall-2010/), 2010
++ Prof. Denis Auroux, [Multivariable Calculus](https://ocw.mit.edu/courses/mathematics/18-02sc-multivariable-calculus-fall-2010/), 2010
++ Prof. Arthur Mattuck, Prof. Haynes Miller, Jeremy Orloff, Dr. John Lewis, [Differential Equations](https://ocw.mit.edu/courses/mathematics/18-03sc-differential-equations-fall-2011/), 2011
++ Gilbert Strage, [Calculus](https://ocw.mit.edu/ans7870/resources/Strang/Edited/Calculus/Calculus.pdf)
 
 + Trevor Hastie and Rob Tibshirani, [introduction to machine learning](https://www.r-bloggers.com/in-depth-introduction-to-machine-learning-in-15-hours-of-expert-videos/)
 
