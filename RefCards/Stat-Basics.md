@@ -84,6 +84,30 @@
     </a>
   </div>
 
++ [Probability x Statistics](../Stats/ProbStatsPython/11-StatEstCI.md#111-statistics)
+  + probability: distribution $\to$ samples
+  + statistics:  samples $\to$ distribution
+
++ [Distribution parameters](../Stats/ProbStatsPython/11-StatEstCI.md#111-statistics)
+  + most distribution families determined by <span style="color: magenta;">parameters</span>
+  + generally, any deterministic function of the distribution as a <span style="color: magenta;">parameter</span> or <span style="color: magenta;">property</span>
+
++ [Population](../Stats/ProbStatsPython/11-StatEstCI.md#111-statistics)
+  + population: collection of objects
+  + sample n objects: often n $\ll$ population size
+  + sampling from population $\to$ sampling from distribution
+
++ [Statistic](../Stats/ProbStatsPython/11-StatEstCI.md#111-statistics)
+  + any function of the data observed
+  + using statistics to infer properties of the distribution or population
+    + parameters
+    + type of distribution
+  + consideration:
+    + how to do it
+    + how well can do it
+
+
+
 
 ## Statistical Inference
 
