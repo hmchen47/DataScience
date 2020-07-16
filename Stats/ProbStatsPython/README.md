@@ -150,15 +150,15 @@ In this course you will learn the following topics (some may be added or dropped
 
 
 + Topic 11: Statistics, Parameter Estimation and Confidence Interval
-  + 11.1 [Statistics](./11-StatEstCI.md#)
-  + 11.2 [Mean and Variance Estimation](./11-StatEstCI.md#)
-  + 11.3 [Variance Estimation](./11-StatEstCI.md#)
-  + 11.4 [Unbiased Variance Estimation](./11-StatEstCI.md#)
-  + 11.5 [Estimating Standard Deviation](./11-StatEstCI.md#)
-  + 11.6 [Confidence Interval](./11-StatEstCI.md#)
-  + 11.7 [Confidence Interval - Sigma Unknown](./11-StatEstCI.md#)
-  + [Lecture Notebook 11](./11-StatEstCI.md#)
-  + [Programming Assignment 11](./11-StatEstCI.md#)
+  + 11.1 [Statistics](./11-StatEstCI.md#111-statistics)
+  + 11.2 [Mean and Variance Estimation](./11-StatEstCI.md#112-mean-and-variance-estimation)
+  + 11.3 [Variance Estimation](./11-StatEstCI.md#113-variance-estimation)
+  + 11.4 [Unbiased Variance Estimation](./11-StatEstCI.md#114-unbiased-variance-estimation)
+  + 11.5 [Estimating Standard Deviation](./11-StatEstCI.md#115-estimating-standard-deviation)
+  + 11.6 [Confidence Interval](./11-StatEstCI.md#116-confidence-interval)
+  + 11.7 [Confidence Interval - Sigma Unknown](./11-StatEstCI.md#117-confidence-interval---sigma-unknown)
+  + [Lecture Notebook 11](./11-StatEstCI.md#lecture-notebook-11)
+  + [Programming Assignment 11](./11-StatEstCI.md#programming-assignment-11)
 
 
 + Topic 12: Regression and PCA

@@ -1366,7 +1366,6 @@
 
 + Random sampling (`numpy.random`)<br/><br/>
 
-
   <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y7djwhnh">Simple Random Data</a></caption>
     <thead>
@@ -1375,40 +1374,39 @@
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
     </tr>
     </thead>
-    <tbody valign="top">
-      <tr><td><a class="reference internal" href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.random.rand.html#numpy.random.rand" title="numpy.random.rand">rand</a>(d0,&nbsp;d1,&nbsp;...,&nbsp;dn)</td>
+    <tbody>
+      <tr><td><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.random.rand.html#numpy.random.rand" title="numpy.random.rand">rand</a>(d0,&nbsp;d1,&nbsp;...,&nbsp;dn)</td>
       <td>Random values in a given shape.</td>
       </tr>
-      <tr class="row-even"><td><a class="reference internal" href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.random.randn.html#numpy.random.randn" title="numpy.random.randn">randn</a>(d0,&nbsp;d1,&nbsp;...,&nbsp;dn)</td>
+      <tr class="row-even"><td><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.random.randn.html#numpy.random.randn" title="numpy.random.randn">randn</a>(d0,&nbsp;d1,&nbsp;...,&nbsp;dn)</td>
       <td>Return a sample (or samples) from the “standard normal” distribution.</td>
       </tr>
-      <tr><td><a class="reference internal" href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.random.randint.html#numpy.random.randint" title="numpy.random.randint">randint</a>(low[,&nbsp;high,&nbsp;size])</td>
+      <tr><td><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.random.randint.html#numpy.random.randint" title="numpy.random.randint">randint</a>(low[,&nbsp;high,&nbsp;size])</td>
       <td>Return random integers from <em class="xref py py-obj">low</em> (inclusive) to <em class="xref py py-obj">high</em> (exclusive).</td>
       </tr>
-      <tr class="row-even"><td><a class="reference internal" href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.random.random_integers.html#numpy.random.random_integers" title="numpy.random.random_integers">random_integers</a>(low[,&nbsp;high,&nbsp;size])</td>
+      <tr class="row-even"><td><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.random.random_integers.html#numpy.random.random_integers" title="numpy.random.random_integers">random_integers</a>(low[,&nbsp;high,&nbsp;size])</td>
       <td>Return random integers between <em class="xref py py-obj">low</em> and <em class="xref py py-obj">high</em>, inclusive.</td>
       </tr>
-      <tr><td><a class="reference internal" href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.random.random_sample.html#numpy.random.random_sample" title="numpy.random.random_sample">random_sample</a>([size])</td>
+      <tr><td><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.random.random_sample.html#numpy.random.random_sample" title="numpy.random.random_sample">random_sample</a>([size])</td>
       <td>Return random floats in the half-open interval [0.0, 1.0).</td>
       </tr>
-      <tr class="row-even"><td><a class="reference internal" href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.random.random.html#numpy.random.random" title="numpy.random.random">random</a>([size])</td>
+      <tr class="row-even"><td><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.random.random.html#numpy.random.random" title="numpy.random.random">random</a>([size])</td>
       <td>Return random floats in the half-open interval [0.0, 1.0).</td>
       </tr>
-      <tr><td><a class="reference internal" href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf" title="numpy.random.ranf">ranf</a>([size])</td>
+      <tr><td><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf" title="numpy.random.ranf">ranf</a>([size])</td>
       <td>Return random floats in the half-open interval [0.0, 1.0).</td>
       </tr>
-      <tr class="row-even"><td><a class="reference internal" href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.random.sample.html#numpy.random.sample" title="numpy.random.sample">sample</a>([size])</td>
+      <tr class="row-even"><td><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.random.sample.html#numpy.random.sample" title="numpy.random.sample">sample</a>([size])</td>
       <td>Return random floats in the half-open interval [0.0, 1.0).</td>
       </tr>
-      <tr><td><a class="reference internal" href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.random.choice.html#numpy.random.choice" title="numpy.random.choice">choice</a>(a[,&nbsp;size,&nbsp;replace,&nbsp;p])</td>
+      <tr><td><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.random.choice.html#numpy.random.choice" title="numpy.random.choice">choice</a>(a[,&nbsp;size,&nbsp;replace,&nbsp;p])</td>
       <td>Generates a random sample from a given 1-D array</td>
       </tr>
-      <tr class="row-even"><td><a class="reference internal" href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.random.bytes.html#numpy.random.bytes" title="numpy.random.bytes">bytes</a>(length)</td>
+      <tr class="row-even"><td><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.random.bytes.html#numpy.random.bytes" title="numpy.random.bytes">bytes</a>(length)</td>
       <td>Return random bytes.</td>
       </tr>
     </tbody>
   </table>
-
 
   <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y7djwhnh">Distributions</a></caption>
