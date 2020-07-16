@@ -131,6 +131,25 @@
 
 
 
+## Margin of Error 
+
++ [Margin of Error](https://tinyurl.com/m5bg2k2) (MOE)
+  + a statistic expressing the amount of random sample error in the result of a survey
+  + Definition: (Margin of Error)  Margin of Error (MOE)
+
+    \[ \text{MOE}_\gamma = z_p \cdot \frac{\sigma}{\sqrt{n}} \]
+
+    + $\gamma$: confidence level
+    + $n$: sample size of a population
+    + $\sigma$: expected standard deviation
+    + $z_\gamma$: quantile, a.k.a, z-score
+  + Definition: (Standard Error) Standard error (se)
+
+    \[ \text{se} = \frac{\sigma}{\sqrt{n}} \]
+
+
+
+
 
 ## Statistical Inference
 
@@ -541,6 +560,129 @@
     &\mu \in \left(\overline{X} - z_p \frac{\sigma}{\sqrt{n}}, \overline{X} + z_p \frac{\sigma}{\sqrt{n}}\right)
   \end{align*}\]
 
++ [Confidence interval w/ known $\sigma$](../Stats/ProbStatsPython/11-StatEstCI.md#117-confidence-interval---sigma-unknown)
+  + standard normal distribution: $N(0, 1)$
+  + critical point $z_p$: point of probability $p$ s.t. area btw $-z_p$ and $z_p$ w/ $0 \le p \le 1$
+  + r.v. w/ standard normal: $Z \sim N(0, 1)$
+
+    \[ p = \Pr(|Z| \le z_p) = 2 \Phi(z_p) -1 \]
+
+  + $\Phi(x)$: CDF of standard normal
+
+    \[ \Phi(z_p) = \frac{1+p}{2} \implies z_p = \Phi^{-1}\left( \frac{1+p}{2} \right) \]
+
++ [Sample mean $\mathrel{\dot\sim}$ Normal](../Stats/ProbStatsPython/11-StatEstCI.md#117-confidence-interval---sigma-unknown)
+  + r.v.'s: $X_1, X_2, \dots, X_n$ iid w/ known $\sigma$ and unknown $\mu$
+  + sample mean: $\overline{X} = \frac{X_1 + \cdots + X_n}{n}$
+  + unbiased sample mean: $\mu_{\overline{X}} = \mu$
+  + variance and standard deviation: $var(\overline{X}) = \frac{\sigma^2}{n} \quad \sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}$
+
+    \[ \frac{\overbrace{\overline{X} - \mu}^{\text{mean } 0}}{\underbrace{\sigma_{\overline{X}}}_{\text{stdev } 1}} = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \quad\underbrace{\mathrel{\dot\sim}}_{\text{CLT}}\quad N(0, 1) \]
+
++ [Confidence interval](../Stats/ProbStatsPython/11-StatEstCI.md#117-confidence-interval---sigma-unknown)
+  + standard normal: $Z \sim N(0, 1) \quad \Pr(|Z| \le z_p) = p$
+  + normalized standard normal: $\frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \mathrel{\dot\sim} N(0, 1)$
+
+    \[ \Pr\left( \left|\frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \right| \le z_p \right) \approx p \implies \Pr\left( |\overline{X} - \mu | \le z_p \frac{\sigma}{\sqrt{n}} \right) \approx p \]
+
+  + with probability $\approx p$
+
+    \[ |\overline{X} - \mu| \le \underbrace{z_p \frac{\sigma}{\sqrt{n}}}_{\text{margin of error}} \implies \mu \in \left[ \overline{X} - z_p \frac{\sigma}{\sqrt{n}}, \overline{X} + z_p \frac{\sigma}{\sqrt{n}} \right] \]
+
++ [Confidence level to confidence interval](../Stats/ProbStatsPython/11-StatEstCI.md#117-confidence-interval---sigma-unknown)
+  + critical value $z$: $ \Phi^{-1}\left( \frac{1+p}{2}\right) \to $ `scipy.stats.norm.ppf((1+p)/2)`
+  + sample mean: $\overline{X} = \frac{X_1+\cdots+X_n}{n}$
+  + margin of error w/ know $\sigma$: $z_p \frac{\sigma}{\sqrt{n}}$
+  + confidence interval: $\left[ \overline{X} - z_p \frac{\sigma}{\sqrt{n}}, \overline{X} + z_p \frac{\sigma}{\sqrt{n}} \right]$
+  + problem: $\sigma$ almost never known
+
+
+
+
+
+
+## Confidence Interval w/ Unknown $\sigma$
+
++ [Statistics w/ unknown $\sigma$](../Stats/ProbStatsPython/11-StatEstCI.md#117-confidence-interval---sigma-unknown)
+  + r.v's: $X_1, \dots, X_n \;\;{\perp \!\!\!\! \perp} \;\; \; N(\mu, \sigma^2)$
+  + neither $\sigma,$ nor $\mu$ known
+  + finding $\mu$
+  + sample mean: $\overline{X} = \frac{X_1 + \dots + X_n}{n}$
+  + unbiased sample mean: $\mu_{\overline{X}} = \mu$
+  + standard deviation: $\sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}$
+  + standard normal: $\frac{\overline{X} - \mu}{\sigma_{\overline{X}}} = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \mathrel{\dot\sim} N(0, 1)$
+  + sample variance w/ Bessel correction: $s^2 = \frac{1}{n-1}\sum_{i=1}^n \left(X_i - \overline{X}\right)^2$
+  + unbiased sample variance: $\mu_{s^2} = \sigma^2$
+  + $\frac{\overline{X}-\mu}{s/\sqrt{n}}$
+    + almost standard: $s \approx \sigma$
+    + almost normal: $s$ as a r.v.
+  + student's t-distribution w/ $n-1$ degrees of freedom
+
++ [Student's t-distribution](../Stats/ProbStatsPython/11-StatEstCI.md#117-confidence-interval---sigma-unknown)
+  + student t-distribution w/ $\nu$ degrees of freedom: $T_{\nu} = \frac{\overline{X} - \mu}{s/\sqrt{\nu + 1}}$
+  + PDF:
+
+    \[ T_{\nu} \sim f_{\nu}(t) = \frac{\Gamma(\frac{\nu+1}{2})}{\sqrt{\nu \pi}\cdot \Gamma(\frac{\nu}{2})} \left( 1 + \frac{t^2}{\nu} \right)^{-\frac{\nu+1}{2}} \]
+
+    + $\nu$: degrees of freedom
+    + $\Gamma(n) = n!$: gamma function
+    + only depending on $t$
+    + symmetric around 0
+  + Python code
+    + `t` class in `scipy.stats` module
+    + probability density function: `scipy.stats.t.pdf(x, v)`
+
+  + properties:
+    + Bell shaped like
+    + similar to Gaussian
+      + as $\nu \nearrow \to $ standard Normal
+      + $n$ increasing $\to s$ concentrated $\to$ a constant $\to \sigma$
+
+      <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+        <a href="https://tinyurl.com/y4ewofss" ismap target="_blank">
+          <img src="https://tinyurl.com/y7b3mcg9" style="margin: 0.1em;" alt="Exaggerated representations of the z and t distributions" title="Exaggerated representations of the z and t distributions" width=350>
+        </a>
+      </div>
+
++ Confidence interval for t distribution
+  + $T_\nu$: student's t-distribution, $\nu$ degrees of freedom
+  + t-statistic (critical value $t_{p, \nu}): \Pr(|T_\nu| \le t_{p, \nu}) = p$
+  
+    \[ p = \Pr(|T_\nu| \le t_{p, \nu}) = \Pr(-t_{p, \nu} \le T_\nu \le t_{p, \nu}) = 2 F(T_{p, \nu}) - 1 \]
+
+  + CDF of $T_\nu$: $F(t_{p, \nu}) = \frac{1+p}{2}$
+  + critical value: $t_{p, \nu} = F^{-1} \left(\frac{1+p}{2}\right)$
+  + Python code
+    + cumulative distribution function: `t.cdf(x, v)`, e.g., $F_3(1)$
+    + inverse cdf: percent point function `t.ppf(x, v)`, e.g., $F_3^{-1}(0.95)$
+
++ [Confidence interval for t distribution](../Stats/ProbStatsPython/11-StatEstCI.md#117-confidence-interval---sigma-unknown)
+  + t-distribution, $\nu$ degrees of freedom
+  + t-statistic: $\frac{\overline{X} - \mu}{s/\sqrt{n}} \sim f_{n-1}(t)$
+
+    \[ \Pr\left(\left|\frac{\overline{X} - \mu}{s/\sqrt{n}} \right| \le t_{p, n-1}\right) = p \implies \Pr\left(\left|\overline{X} - \mu\right| \le t_{p, n-1} \frac{s}{\sqrt{n}}\right) = p \]
+
+  + w/ probability $p$
+
+    \[ |\overline{X} - \mu| \le \underbrace{t_{p, n-1} \frac{s}{\sqrt{n}}}_{\text{margin of error}} \implies \mu \in \left[\overline{X} - t_{p, n-1} \frac{s}{\sqrt{n}}, \overline{X} + t_{p, n-1} \frac{s}{\sqrt{n}}  \right] \]
+
++ [Confidence level $\to$ confidence interval](../Stats/ProbStatsPython/11-StatEstCI.md#117-confidence-interval---sigma-unknown)
+  + t-score: $t_{p, n-1} = F^{-1}_{n-1} \left(\frac{1+p}{n}\right) \to$ `t.ppf((1+p)/2)` 
+  + sample mean: $\overline{X} = \frac{X_1 + \cdots + X_n}{n}$
+  + sample variance: $s^2 = \frac{1}{n-1} \sum_{i=1}^n \left( X_i - \overline{X}\right)^2$
+  + margin of error: $t_{p, n-1}\frac{s}{\sqrt{n}} \to$ no $\sigma$ required
+  + confidence interval: $\left[ \overline{X} - t_{p, n-1} \frac{s}{\sqrt{n}}, \overline{X} + t_{p, n-1} \frac{s}{\sqrt{n}} \right]$
+
++ [Observations](../Stats/ProbStatsPython/11-StatEstCI.md#117-confidence-interval---sigma-unknown)
+  + $n$ large
+    + $f_{n-1}(t) \to \phi(t)$, where $\phi(t)$ as standard normal PDF
+    + $t_{p, n-1} \to z_p$
+    + $s \to \sigma$
+    + able to use z-based techniques
+  + $n$ small
+    + t-distribution more accurate
+    + yields larger margin of error than known $\sigma$
+    + assumed $X_i \sim N$, best when this roughly holds
 
 
 
