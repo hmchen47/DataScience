@@ -116,14 +116,14 @@ In this course you will learn the following topics (some may be added or dropped
 
 
 + Topic 8: Discrete Distribution Families
-  + 8.0 [Introduction](./08-DiscreteDist.md#)
-  + 8.1 [Bernoulli Distribution](./08-DiscreteDist.md#)
-  + 8.2 [Binomial Distribution](./08-DiscreteDist.md#)
-  + 8.3 [Poisson Distribution](./08-DiscreteDist.md#)
-  + 8.4 [Geometric Distribution](./08-DiscreteDist.md#)
-  + 8.5 [Geometric Distribution Example](./08-DiscreteDist.md#)
-  + [Lecture Notebook 8](./08-DiscreteDist.md#)
-  + [Programming Assignment 8](./08-DiscreteDist.md#)
+  + 8.0 [Introduction](./08-DiscreteDist.md#80-introduction)
+  + 8.1 [Bernoulli Distribution](./08-DiscreteDist.md#81-bernoulli-distribution)
+  + 8.2 [Binomial Distribution](./08-DiscreteDist.md#82-binomial-distribution)
+  + 8.3 [Poisson Distribution](./08-DiscreteDist.md#83-poisson-distribution)
+  + 8.4 [Geometric Distribution](./08-DiscreteDist.md#84-geometric-distribution)
+  + 8.5 [Geometric Distribution Example](./08-DiscreteDist.md#85-geometric-distribution-example)
+  + [Lecture Notebook 8](./08-DiscreteDist.md#lecture-notebook-8)
+  + [Programming Assignment 8](./08-DiscreteDist.md#programming-assignment-8)
 
 
 + Topic 9: Continuous Distribution Families
