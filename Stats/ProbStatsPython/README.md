@@ -127,14 +127,14 @@ In this course you will learn the following topics (some may be added or dropped
 
 
 + Topic 9: Continuous Distribution Families
-  + 9.1 [Continuous Distributions](./09-ContDist.md#)
-  + 9.2 [Functions of Random Variables](./09-ContDist.md#)
-  + 9.3 [Uniform Distribution](./09-ContDist.md#)
-  + 9.4 [Exponential Distribution](./09-ContDist.md#)
-  + 9.5 [Gaussian Distribution](./09-ContDist.md#)
-  + 9.6 [Gaussian Distribution - Probabilities](./09-ContDist.md#)
-  + [Lecture Notebook 9](./09-ContDist.md#)
-  + [Programming Assignment 9](./09-ContDist.md#)
+  + 9.1 [Continuous Distributions](./09-ContDist.md#91-continuous-distributions)
+  + 9.2 [Functions of Random Variables](./09-ContDist.md#92-functions-of-random-variables)
+  + 9.3 [Uniform Distribution](./09-ContDist.md#93-uniform-distribution)
+  + 9.4 [Exponential Distribution](./09-ContDist.md#94-exponential-distribution)
+  + 9.5 [Gaussian Distribution](./09-ContDist.md#95-gaussian-distribution)
+  + 9.6 [Gaussian Distribution - Probabilities](./09-ContDist.md#96-gaussian-distribution---probabilities)
+  + [Lecture Notebook 9](./09-ContDist.md#lecture-notebook-9)
+  + [Programming Assignment 9](./09-ContDist.md#programming-assignment-9)
 
 
 + Topic10: Inequalities and Limit Theorems
