@@ -195,6 +195,55 @@
 
 
 
+
+## Variance Estimation
+
++ [Estimating the variance](../Stats/ProbStatsPython/11-StatEstCI.md#113-variance-estimation)
+  + estimating $\sigma^2$
+    + unknown distribution or population $p$
+    + mean: $\mu$
+    + variance: $\sigma^2$
+  + sample of $n$ observations: $X_1, \dots, X_n  \sim p \;{\perp \!\!\!\! \perp}$
+  + no distribution
+    + expectation $\to$ average
+    + mean: $\mu = E[X_i] \to \overline{X} \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n X_i$
+    + variance: $\sigma^2 = E[(X - \mu)^2] \to S^2 \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n \left(X_i - \overline{X}\right)^2$
+  + $S^2$
+    + Raw sample variance
+    + random variable
+
++ [One-pass calculation](../Stats/ProbStatsPython/11-StatEstCI.md#113-variance-estimation)
+
+  \[\begin{align*}
+    \sum_{i=1}^n (X_i - \overline{x})^2 &= \sum_{i=1}^n x_i -2n\overline{x}^2 + n \overline{x}^2 = \sum_{i=1}^n x_i - n \overline{x}^2\\\\
+    S^2 &\stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n (x_i - \overline{x})^2 \hspace{4em} \left[\substack{\text{intuitive}\\\text{proof arguments}}\right] \\
+    & = \frac 1 n \sum_{i=1}^n x_i^2 - \overline{x}^2 \hspace{4.8em} \left[\substack{\text{fewer subtractions}\\ \text{one pass calculation}}\right]
+  \end{align*}\]
+
++ [$S^2$ and Bias](../Stats/ProbStatsPython/11-StatEstCI.md#113-variance-estimation)
+  + mean: $E[X_i] = \mu$
+    + Expectation $\to$ average of samples: $\overline{X} \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n X_i$
+    + unbiased (WLLN): $E[\overline{X}] = \mu$
+  + variance: $E[(X_i - \mu)^2] = \sigma^2$
+    + Expectation $\to$ average of samples: $S^2 \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n \left(X_i - \overline{X}\right)^2$
+
++ [Summary](../Stats/ProbStatsPython/11-StatEstCI.md#113-variance-estimation)
+  + simulation
+    + number of r.v's: $n = 2$
+    + distribution: $N(0, 16)$ and $Exp(2)$
+    + $E[S^2] \ne \sigma^2 \approx \frac12 \sigma^2$
+  + exact calculation
+    + r.v.: $B_p$
+    + indeed $E[X^2] \ne \sigma^2$
+    + raw sample variance: $E[S^2] = \frac12 \sigma^2$ exactly
+  + applied to other distributions? other n? why?
+  + general $n$: simulations shown $E[S^2] \approx \frac{n-1}{n} \cdot \sigma^2$
+
+
+
+
+
+
 ## Analysis Methodologies
 
 + [meta-analysi](../Notes/p01-Bayesian.md#31-subjectivity-and-context)
