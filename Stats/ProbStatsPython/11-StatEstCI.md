@@ -14,9 +14,9 @@
     + samples $\to$ distribution type, e.g., discrete, monotone
 
 + Distribution parameters
-  + most distribution families determined by <span style="color: magenta;">parameters
+  + most distribution families determined by <span style="color: magenta;">parameters</span>
     + e.g., $B_p, B_{p, n}, P_\lambda, G_p, U_{a, b}, E_\lambda, N_{\mu, \sigma^2}$
-  + generally, any deterministic function of the distribution as a <span style="color: magenta;">parameter or <span style="color: magenta;">property
+  + generally, any deterministic function of the distribution as a <span style="color: magenta;">parameter</span> or <span style="color: magenta;">property</span>
     + e.g., mean, variance, standard deviation
     + e.g., min, max, values, mode, median
 
@@ -183,11 +183,11 @@
 
 + Bias and variance
   + bias: $\widehat{\Theta}$ estimator for $\theta$
-    + definition: <span style="color: magenta;">bias of $\widehat{\Theta}$ as the expected overestimate of $\theta$
+    + definition: <span style="color: magenta;">bias</span> of $\widehat{\Theta}$ as the expected overestimate of $\theta$
 
       \[\text{Bias}_\theta (\widehat{\Theta}) \stackrel{\text{def}}{=} E[\widehat{\Theta} - \theta] = \mu_{\widehat{\Theta}} - \theta \quad\to\quad \text{Bias}(\widehat{\Theta}) \]
 
-    + <span style="color: magenta;">unbiased: estimator w/ 0 bias, i.e., $\mu_{\widehat{\Theta}} = \theta$
+    + <span style="color: magenta;">unbiased</span>: estimator w/ 0 bias, i.e., $\mu_{\widehat{\Theta}} = \theta$
     + bias = inequality
   + variance
     + definition: $Var(\widehat{\Theta}) = E[(\widehat{\Theta} - \mu_{\widehat{\Theta}})^2]$
@@ -199,7 +199,7 @@
 
 + Mean squared error
   + single measure for performance of estimator $\widehat{\Theta}$ for $\theta$
-  + <span style="color: magenta;">MSE of $\widehat{\Theta}$: expected squared distance from $\theta$
+  + <span style="color: magenta;">MSE of $\widehat{\Theta}$</span>: expected squared distance from $\theta$
 
     \[ \text{MSE}_{\theta}(\widehat{\Theta}) \stackrel{\text{def}}{=} E[(\widehat{\Theta} - \theta)^2] \quad\to\quad \text{MSE}(\widehat{\Theta}) \]
 
@@ -730,7 +730,7 @@
 
     \[ s^2 = \frac{n}{n-1} \cdot S^2 = \frac{1}{n-1} \sum_{i=1}^n \left( X_1 - \overline{X} \right)^2 \]
 
-  + unbiased estiamtor of variance: $E[s^2] = \sigma^2$
+  + unbiased estimator of variance: $E[s^2] = \sigma^2$
   + $s^2$: typically called __sample variance__
 
 + Example: samples
@@ -799,10 +799,10 @@
 
 + Variance ($\sigma^2$) $\to$ Standard Deviation ($\sigma$)
   + variance estimator
-    + sample vaince: $s^2 = \frac{1}{n-1} \sum_{i=1}^n \left( X_1 - \overline{X} \right)^2$
+    + sample variance: $s^2 = \frac{1}{n-1} \sum_{i=1}^n \left( X_1 - \overline{X} \right)^2$
     + shown $E[s^2] = \sigma^2$
     + $s^2$: an unbiased estimator for $\sigma^2$
-  + stanbdard standard-deviation estimator
+  + standard standard-deviation estimator
     + natural $\sigma$ estimator
     + sample standard deviation: $\sigma = \sqrt{\sigma^2}$
 
@@ -816,7 +816,7 @@
     + $\sigma$: natural $\to s = \sqrt{s^2} = \sqrt{4} = 2$
 
 + $s$ unbiased?
-  + is $s$ an unbiased estiamtor for $\sigma$?
+  + is $s$ an unbiased estimator for $\sigma$?
     + $E[s^2] = \left( E[s] \right)^2 + Var(s) \ge (E[s])^2: \quad = \text{ hold } \iff Var(s) \iff s$ as a constant
     + $\left( E[s] \right)^2 \le E[s^2] = \sigma^2$
     + $s^2$: an unbiased variance estimator
@@ -825,7 +825,7 @@
   + on average $s$ under-estimating $\sigma$
   + concrete example
 
-+ Exampple: Bernoulli
++ Example: Bernoulli
   + $s$ strictly underestimating $\sigma$
   + $B_p$: $\sigma = \sqrt{p(1-p)} = \sqrt{pq}$
   + $n=2$: show $E[s] < \sqrt{pq}$
@@ -865,7 +865,7 @@
       </a>
     </div>
 
-+ Unbaised estimator for $\sigma$
++ Unbiased estimator for $\sigma$
   + is there an unbiased estimator for $\sigma$
     + known $p \to$ estimator = $\sigma \implies$ nothing to estimate
     + estimator must work for all distributions
@@ -924,9 +924,9 @@
 
 + Summary
   + estimator for $\sigma$: $s \stackrel{\text{def}}{=} + \sqrt{s^2} = +\sqrt{\frac{1}{n-1} \sum_{i=1}^n \left(X_1 - \overline{X}\right)^2}$
-  + evaulating $\sigma$: $E[s] \le \sigma$ and '<' hold for non-constant distributions
-  + unbiased estiamtor
-  + simple proof: no unbiaised estimator
+  + evaluating $\sigma$: $E[s] \le \sigma$ and '<' hold for non-constant distributions
+  + unbiased estimator
+  + simple proof: no unbiased estimator
   + property: some bias ok as long as MSE small
 
 
@@ -1010,7 +1010,7 @@
     + using z/standard normal table
 
   + Python code for z-table
-    + linbrary: `from scipy.stats import norm`
+    + library: `from scipy.stats import norm`
     + CDF of standard normal: `norm.cdf(x)`
     + examples
 
@@ -1137,7 +1137,7 @@
     + standard deviation: $var(\overline{X}) = \frac{\sigma^2}{n} \quad\to\quad \sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}$ (standard error)
 
 + Proximity
-  + Reciporocal: applied to both direction
+  + Reciprocal : applied to both direction
   + sample mean and population mean
     + $\overline{X}$ near $\mu$: $\overline{X}$ likely near $\mu$
     + $\mu$ near $\overline{X}$:
@@ -1207,6 +1207,20 @@
   + sample size:
 
     \[ z_p\sigma_{\overline{X}} = z_p \frac{\sigma}{\sqrt{n}} = 2 \implies n = \left(z_p \frac{\sigma}{2}\right)^2 = 38.05 \]
+
++ [Margin of Error](https://tinyurl.com/m5bg2k2) (MOE)
+  + a statistic expressing the amount of random sample error in the result of a survey
+  + Definition: (Margin of Error)  Margin of Error (MOE)
+
+    \[ \text{MOE}_\gamma = z_p \cdot \frac{\sigma}{\sqrt{n}} \]
+
+    + $\gamma$: confidence level
+    + $n$: sample size of a population
+    + $\sigma$: expected standard deviation
+    + $z_\gamma$: quantile, a.k.a, z-score
+  + Definition: (Standard Error) Standard error (se)
+
+    \[ \text{se} = \frac{\sigma}{\sqrt{n}} \]
 
 
 + [Original Slides](https://tinyurl.com/yb3dyuhl)
@@ -1296,7 +1310,7 @@
 + Confidence level to confidence interval
   + given confidence $p$ and samples $X_1, \dots, X_n$
   + determining
-    + criticall value $z$: $ \Phi^{-1}\left( \frac{1+p}{2}\right) \to $ `scipy.stats.norm.ppf((1+p)/2)`
+    + critical value $z$: $ \Phi^{-1}\left( \frac{1+p}{2}\right) \to $ `scipy.stats.norm.ppf((1+p)/2)`
     + sample mean: $\overline{X} = \frac{X_1+\cdots+X_n}{n}$
     + margin of error w/ know $\sigma$: $z_p \frac{\sigma}{\sqrt{n}}$
     + confidence interval: $\left[ \overline{X} - z_p \frac{\sigma}{\sqrt{n}}, \overline{X} + z_p \frac{\sigma}{\sqrt{n}} \right]$
