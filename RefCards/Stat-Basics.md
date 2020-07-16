@@ -243,6 +243,107 @@
 
 
 
+## Unbiased Variance Estimation 
+
++ [Ideas to derive unbiased variance](../Stats/ProbStatsPython/11-StatEstCI.md#114-unbiased-variance-estimation)
+  + $S^2$ under-estimating $\sigma^2$
+    + sample variance: $\overline{X} \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n X_i$
+    + expectation of sample variance: $E[S^2] = \frac{n-1}{n} \cdot \sigma^2$
+  + variance
+    + $\sigma^2 \stackrel{\text{def}}{=} E[(X - \mu)^2]$
+    + $\mu \approx$ average of observations, not exactly
+  + raw sample variance
+    + $S^2 \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n \left(X_i - \overline{X}\right)^2$
+    + $\overline{X}$: exact average of samples
+    + giving a lower sum than what the distribution given
+  + summary
+    + explaining $S^2$ under-estimating $\sigma^2$
+    + not explaining $\frac{n-1}{n}$
+    + nor capturing whole reason
+  + elementary: derivation w/ properties
+
+    \[\begin{align*}
+      E[S^2] &= E\left[ \frac 1 n \sum_{i=1}^n \left(X_i - \overline{X}\right)^2 \right] = \frac 1 n E\left[ \sum_{i=1}^n \left(X_1 - \overline{X}\right)^2 \right] \\
+      &= \frac 1 n \sum_{i=1}^n E\left[\left(X_i - \overline{X}\right)^2\right] = \frac{1}{n} \sum_{i=1}^n E\left[\left(X_1 - \overline{X}\right)^2\right] \\
+      &= E\left[\left(X_1 - \overline{X}\right)^2\right] \hspace{3em} \left(\text{ intuitive, simple}\right)
+    \end{align*}\]
+
++ [Simplified formulation](../Stats/ProbStatsPython/11-StatEstCI.md#114-unbiased-variance-estimation)
+  + proving $E[S^2] = \frac{n-1}{n} \cdot \sigma^2$
+
+      \[ E[S^2] \stackrel{\text{def}}{=} E\left[ \frac{1}{n} \sum_{i=1}^n \left(X_1 - \overline{X}\right)^2 \right] = E\left[\left(X_1 - \overline{X}\right)^2 \right] \]
+
+    + variance
+
+      \[ X_1 \sim p \qquad \sigma^2 \stackrel{\text{def}}{=} E\left[(X_1 - \mu)^2\right] \]
+
+  + proving $E\left[\left(X_1 - \overline{X}\right)^2\right] = \frac{n-1}{n} \cdot E\left[\left(X_1 - \mu\right)^2\right] \to$ symmetric, shows difference
+
++ [Simplest case: $n=2$](../Stats/ProbStatsPython/11-StatEstCI.md#114-unbiased-variance-estimation)
+  + decoupling $X_1$ from $\overline{X}$
+    + $X_1 - \overline{X} = X_1 - \frac{X_1 + X_2}{2} = \frac{X_2 - X_1}{2}$
+    + $E\left[\left(X_1 - \overline{X}\right)^2\right] = E\left[\left(\frac{X_1 - X_2}{2}\right)^2\right] = \frac14 \cdot E\left[ \left(X_1 - X_2\right)^2 \right]$
+    + $X_1 {\perp \!\!\!\! \perp} X_2$: $\frac14 \cdot E[(X_1 - \mu)^2] = \frac{\sigma^2}{4}$
+    + not whole story
+      + $X_2$ random but $\mu$ fixed
+      + $X_1$ minusing some random value by symmetric $\to$ increasing the expected squared
+      + the quantity actually twice the expected value of $(X_1 - \mu)^2$
+      + $\therefore\; E\left[ (X_1 - X_2)^2 \right] = 2 \cdot E[(X_1 - \mu)^2] \to$ proof required
+
+    \[ E\left[\left(X_1 - \overline{X}\right)^2\right] = \underbrace{\frac14 \cdot E\left[\left(X_1 - X_2\right)^2 \right]}_{\text{gain $\frac14$ from proximty}} = \underbrace{\frac14 \cdot 2 \cdot E\left[\left(X_1 - \mu\right)^2\right]}_{\text{lose 2 for randomness}} = \frac{\sigma^2}{2} \]
+
+  + derivation of $E[(X_1 - X_2)^2] = 2 \cdot E[(X_1 - \mu)^2]$
+    + 0-mean
+    + independence ${\perp \!\!\!\! \perp}$: $Var(X_1 - X_2) = Var(X_1) + Var(X_2) = 2 \cdot Var(X_1)$
+    + for 0-mean random variable $Z$: $E[Z^2] = Var(Z)$
+
+      \[ E\left[\left(X_1 - X_2\right)^2\right] = 2 \cdot E\left[\left(X_1 - \mu\right)^2\right] \iff Var(X_1 - X_2) = 2 \cdot Var(X_1) \]
+
+  + summary
+
+    \[\begin{align*}
+      E[S^2] &\stackrel{\text{def}}{=} E\left[ \frac 1 n \sum_{i=1}^n \left(X_i - \overline{X}\right)^2 \right] \stackrel{\text{symmetry}}{=} E\left[ \left(X_1 - \overline{X}\right)^2 \right] \quad \text{any } n \\
+      &= E\left[ \left(\frac{X_1 - X_2}{2}\right)^2 \right] \hspace{3.5em} \left( X_1 - \overline{X} = \frac{X_1 - X_2}{2} \right) \\
+      &= \frac14 \cdot E\left[ (X_1 - X_2)^2 \right]  \hspace{3.5em} \left( \substack{\text{Linearity of Expection }\\ \tfrac14 \text{ from $\overline{X}$ being closer than $\mu$ to $X_1$}} \right) \\
+      &= \frac14 \cdot Var(X_1 - X_2) = \frac14 \big(Var(X_1) + Var(X_2)\big) \hspace{2em} \left( \text{0 mean } \;\&\; {\perp \!\!\!\! \perp} \right)\\
+      &= \frac14 \cdot 2 \cdot Var(X_1) \hspace{4.3em} \left( iid, \;\; 2 \text{ from $\overline{X}$ being random} \right) \\
+      &= \frac14 \cdot 2 \cdot \sigma^2 = \frac{\sigma^2}{2}  \hspace{4.5em} \left(\tfrac12 \text{ together}\right)
+    \end{align*}\]
+
++ [General $n$](../Stats/ProbStatsPython/11-StatEstCI.md#114-unbiased-variance-estimation)
+
+  \[\begin{align*}
+    X_1 - \overline{X} &= X - \frac{X_! + \cdots + X_N}{n} = \frac{(n-1)X_1 - X_2 - \cdots - X_n}{n} \\
+    &= \frac{n-1}{n} \left(X_1 - \frac{X_2 + \cdots + X_n}{n-1}\right)\\\\
+    E[S^2] &= E\left[ \frac 1 n \sum_{i=1}^n \left(X_i - \overline{X}\right)^2 \right] = E\left[ \left(X_1 - \overline{X}\right)^2 \right] \\
+    &= E\left[ \left(\frac{n-1}{n} \left(X_1 - \frac{X_2 + \cdots + X_n}{n-1}\right)\right)^2 \right] \\
+    &= \left(\frac{n-1}{n}\right)^2 \cdot E\left[\left(X_1 - \frac{X_2 + \cdots + X_n}{n-1}\right)^2\right] \hspace{1em} \left( \left(\frac{n-1}{n}\right)^2 \text{ as } \overline{X} \text{ closer than $\mu$ to } X_1 \right) \\
+    &= \left(\frac{n-1}{n}\right)^2 \cdot Var\left(X_1 - \frac{X_2 + \cdots + X_n}{n-1}\right) \hspace{2em} \left( \text{0-mean} \right) \\
+    &= \left(\frac{n-1}{n}\right)^2 \cdot \left[ Var(X_1) + Var\left(\frac{X_2 + \cdots + X_n}{n-1}\right) \right] \hspace{2em} \left( {\perp \!\!\!\! \perp} \right) \\
+    &= \left(\frac{n-1}{n}\right)^2 \cdot \left[ \sigma^2 + \frac{\sigma^2}{n-1} \right] \hspace{3em} \left( \text{iid, var. scaling } \;\&\; \frac{n-1}{n} \text{ from $\overline{X}$ being random} \right) \\
+    &= \left(\frac{n-1}{n}\right)^2 \cdot \frac{n}{n-1} \cdot \sigma^2 = \frac{n-1}{n} \cdot \sigma^2 \hspace{4em} \left( \frac{n-1}{n} \text{ together } \right)
+  \end{align*}\]
+
++ [Unbiased variance estimate](../Stats/ProbStatsPython/11-StatEstCI.md#114-unbiased-variance-estimation)
+  + raw sample variance
+
+    \[\begin{align*}
+      S^2 &= \frac 1 n \sum_{i=1}^n \left(X_i - \overline{X}\right)^2 \\
+      E[S^2] &= \frac{n-1}{n} \cdot \sigma^2
+    \end{align*}\]
+
+  + Bessel's correction
+
+    \[ s^2 = \frac{n}{n-1} \cdot S^2 = \frac{1}{n-1} \sum_{i=1}^n \left( X_1 - \overline{X} \right)^2 \]
+
+  + unbiased estimator of variance: $E[s^2] = \sigma^2$
+  + $s^2$: typically called __sample variance__
+
+
+
+
+
+
 
 ## Analysis Methodologies
 
