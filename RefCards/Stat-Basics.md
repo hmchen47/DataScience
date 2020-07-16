@@ -398,6 +398,155 @@
 
 
 
+## Confidence Interval w/ known $\sigma$
+
++ [Point and interval parameters](../Stats/ProbStatsPython/11-StatEstCI.md#116-confidence-interval)
+  + distribution or population: estimate __parameters__
+  + point estimates:
+    + precise
+    + certainly wrong: not exactly the values got
+    + no confidence
+  + confidence intervals
+    + precision $\searrow$
+    + confidence $\nearrow$
+
++ [Normal distribution](../Stats/ProbStatsPython/11-StatEstCI.md#116-confidence-interval)
+  + CLT
+    + averages: normally distributed
+    + intuition
+    + almost everything
+  + r.v's: $X_1, \dots, X_n \;\; {\perp \!\!\!\! \perp},\; \sim$ any distribution w/ mean $\mu$ and stdev $\sigma$
+  + sample mean
+  
+    \[ \overline{X^n} \stackrel{\text{def}}{=} \frac{X_1 + \cdots + X_n}{n} \]
+
+  + normalized sample mean:
+  
+    \[Z_n \stackrel{\text{def}}{=} \frac{(X_1 + cdots + X_n) -  n\mu}{\sigma\sqrt{n}} \]
+
+  + applying CLT
+    + for sufficiently large $n$, typically $\ge 30$
+    + standard Normal variable: $Z_n \mathrel{\dot\sim} N(0, 1)$
+
++ [Interval probability](../Stats/ProbStatsPython/11-StatEstCI.md#116-confidence-interval)
+  + r.v.: $Z \sim N(0, 1)$
+  + CDF:
+
+    \[ \Phi(a) = F(a) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^a e^{-t^2/2} \,dt \]
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/yb3dyuhl" ismap target="_blank">
+        <img src="img/t11-06.png" style="margin: 0.1em;" alt="Illustration of confidence interval w/ t-table" title="Illustration of confidence interval w/ t-table" height=100>
+        <img src="img/t11-07.png" style="margin: 0.1em;" alt="Illustration of z / standard normal table" title="Illustration of z / standard normal table" height=100>
+      </a>
+    </div>
+
+  + Python code for z-table
+    + library: `from scipy.stats import norm`
+    + CDF of standard normal: `norm.cdf(x)`
+
++ [Intervals $\to$ Probability](../Stats/ProbStatsPython/11-StatEstCI.md#116-confidence-interval)
+  + finding $a$ s.t. $\Pr(-a \le Z \le a) = p$
+  
+    \[ p = \Pr(-a \le Z \le a) = 2\Phi(a) -1 \to \Phi(a) = \frac{1+p}{2} \implies a = \Phi^{-1}\left(\frac{1+p}{2}\right) \]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yb3dyuhl" ismap target="_blank">
+      <img src="img/t11-08.png" style="margin: 0.1em;" alt="Illustration of obtaining probability w/ a given interval" title="Illustration of obtaining probability w/ a given interval" height=100>
+    </a>
+  </div>
+
+  + Python code to get probability
+    + convert a percentile to a point
+    + library: `import scipy.stats as stat`
+    + percent point function $\Phi^{-1}(p)$: `stat.norm.ppf(x)`
+
+  + common values: 68-97.5-99 rule: $\Pr(-2 \le Z \le 2) \approx 0.95$<br/><br/>
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$p$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\frac{1+p}{2}$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\Phi^{-1}\left(\frac{1+p}{2}\right)$</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">90</td> <td style="text-align: center;">0.95</td> <td style="text-align: center;">1.645</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">95</td> <td style="text-align: center;">0.975</td> <td style="text-align: center;">1.960</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">98</td> <td style="text-align: center;">0.99</td> <td style="text-align: center;">2.056</td>
+      </tr>
+      </tbody>
+    </table>
+
++ [General Normal distribution](../Stats/ProbStatsPython/11-StatEstCI.md#116-confidence-interval)
+  + normal distribution: $X \sim N_{\mu, \sigma^2} \quad N(\mu, \sigma^2)$
+  + standard normal distribution: $Z \stackrel{\text{def}}{=} \frac{X - \mu}{\sigma} \;\;\sim N_{0, 1}$
+
+    \[\begin{align*}
+      \Pr(\underbrace{\mu - a\sigma \le X \le \mu+a\sigma}_{\substack{X \text{ within "a" stdev}\\\text{from its mean}}}) &= \Pr(-a\sigma \le X - \mu \le a \sigma) = \Pr\left(-a \le \frac{X - \mu}{\sigma} \le a\right) \\
+      &= \Pr(\underbrace{-a \le Z \le a}_{\substack{Z \text{ within "a" stdev}\\\text{from its mean}}})
+    \end{align*}\]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ya5tozvb" ismap target="_blank">
+      <img src="https://tinyurl.com/ya386usb" style="margin: 0.1em;" alt="A normal and standard normal curve." title="A normal and standard normal curve." width=400>
+    </a>
+  </div>
+
++ [Confidence intervals](../Stats/ProbStatsPython/11-StatEstCI.md#116-confidence-interval)
+  + applied to any parameter
+  + simplest and by far the most common for
+    + mean $\mu$
+    + proportion $p$
+  + given a simple $X_1, \dots, X_n$
+  + finding an interval containing $\mu$
+
++ [Sample-mean distribution](../Stats/ProbStatsPython/11-StatEstCI.md#116-confidence-interval)
+  + normalized sample mean as standard normal distribution
+
+    \[ \frac{X_1 + \cdots + X_n - n \mu}{\sigma\sqrt{n}} \mathrel{\dot\sim} N(0,1) \]
+
+  + scaled sample mean as 0-mean normal distribution
+
+    \[ \frac{X_1 + \cdots + X_n - n \mu}{n} \mathrel{\dot\sim} N\left(0,\frac{\sigma^2}{n}\right) \]
+
+  + sample mean as normal distribution
+
+    \[ \overline{X} = \frac{X_1 + \cdots + X_n}{n} \mathrel{\dot\sim} N\left(\mu, \frac{\sigma^2}{n}\right) \]
+
+  + sample mean $\overline{X}$
+    + roughly normal
+    + centered at distribution mean: $\mu_{\overline{X}} = \mu$
+    + standard deviation: $var(\overline{X}) = \frac{\sigma^2}{n} \quad\to\quad \sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}$ (standard error)
+
++ [Proximity](../Stats/ProbStatsPython/11-StatEstCI.md#116-confidence-interval)
+  + Reciprocal : applied to both direction
+  + sample mean and population mean
+    + $\overline{X}$ near $\mu$: $\overline{X}$ likely near $\mu$
+    + $\mu$ near $\overline{X}$:
+
+      \[ \overline{X} \in (\mu - a, \mu +a) \xleftarrow{\text{proximity}} |\overline{X} - \mu| < a \xrightarrow{\text{proximity}} \mu \in \left( \overline{X} -a, \overline{X} + a \right) \]
+
++ [Confidence interval with probability $p$](../Stats/ProbStatsPython/11-StatEstCI.md#116-confidence-interval)
+
+  \[\begin{align*}
+    &\overline{X} \in (\mu - z_p \sigma_{\overline{X}}, \mu + z_p \sigma_{\overline{X}}) \\
+    &|\overline{X} - \mu| < z_p \sigma_{\overline{X}} \\
+    &\mu \in \left(\overline{X} - z_p \frac{\sigma}{\sqrt{n}}, \overline{X} + z_p \frac{\sigma}{\sqrt{n}}\right)
+  \end{align*}\]
+
+
+
+
+
+
+
 ## Analysis Methodologies
 
 + [meta-analysi](../Notes/p01-Bayesian.md#31-subjectivity-and-context)
