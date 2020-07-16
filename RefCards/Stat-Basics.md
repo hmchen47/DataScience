@@ -129,6 +129,31 @@
   + smaller p-value $\implies$ stronger evidence in favor of the alternative hypothesis
 
 
+
+
+## Bias and Variance
+
++ [Bias and variance](../Stats/ProbStatsPython/11-StatEstCI.md#112-mean-and-variance-estimation)
+  + bias: $\widehat{\Theta}$ estimator for $\theta$
+    + definition: <span style="color: magenta;">bias</span> of $\widehat{\Theta}$ as the expected overestimate of $\theta$
+
+      \[\text{Bias}_\theta (\widehat{\Theta}) \stackrel{\text{def}}{=} E[\widehat{\Theta} - \theta] = \mu_{\widehat{\Theta}} - \theta \quad\to\quad \text{Bias}(\widehat{\Theta}) \]
+
+    + <span style="color: magenta;">unbiased</span>: estimator w/ 0 bias, i.e., $\mu_{\widehat{\Theta}} = \theta$
+  + variance
+    + definition: $Var(\widehat{\Theta}) = E[(\widehat{\Theta} - \mu_{\widehat{\Theta}})^2]$
+    + unrelated to $\theta$
+  + ideally 0 bias and variance
+  + typically trade off btw bias and variance
+
+
+
+
+
+
+
+
+
 ## Analysis Methodologies
 
 + [meta-analysi](../Notes/p01-Bayesian.md#31-subjectivity-and-context)
