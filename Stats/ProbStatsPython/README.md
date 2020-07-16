@@ -137,31 +137,31 @@ In this course you will learn the following topics (some may be added or dropped
   + [Programming Assignment 9](./09-ContDist.md#programming-assignment-9)
 
 
-+ Topic10: Inequalities and Limit Theorems
-  + 10.1 [Markov Inequality](./10-InequLimit.md#)
-  + 10.2 [Chebyshev Inequalities](./10-InequLimit.md#)
-  + 10.3 [Law of Large Numbers](./10-InequLimit.md#)
-  + 10.4 [Moment Generating Functions](./10-InequLimit.md#)
-  + 10.5 [Chernoff Bound](./10-InequLimit.md#)
-  + 10.6 [Central Limit Theorem](./10-InequLimit.md#)
-  + 10.7 [Central Limit Theorem Proof](./10-InequLimit.md#)
-  + [Lecture Notebook 10](./10-InequLimit.md#)
-  + [Programming Assignment 10](./10-InequLimit.md#)
++ Topic 10: Inequalities and Limit Theorems
+  + 10.1 [Markov Inequality](./10-InequLimit.md#101-markov-inequality)
+  + 10.2 [Chebyshev Inequalities](./10-InequLimit.md#102-chebyshev-inequalities)
+  + 10.3 [Law of Large Numbers](./10-InequLimit.md#103-law-of-large-numbers)
+  + 10.4 [Moment Generating Functions](./10-InequLimit.md#104-moment-generating-functions)
+  + 10.5 [Chernoff Bound](./10-InequLimit.md#105-chernoff-bound)
+  + 10.6 [Central Limit Theorem](./10-InequLimit.md#106-central-limit-theorem)
+  + 10.7 [Central Limit Theorem Proof](./10-InequLimit.md#107-central-limit-theorem-proof)
+  + [Lecture Notebook 10](./10-InequLimit.md#lecture-notebook-10)
+  + [Programming Assignment 10](./10-InequLimit.md#programming-assignment-10)
 
 
-+ Topic11: Statistics, Parameter Estimation and Confidence Interval
-  + 11.1 [Statistics](./11-StatEstCI.md#)
-  + 11.2 [Mean and Variance Estimation](./11-StatEstCI.md#)
-  + 11.3 [Variance Estimation](./11-StatEstCI.md#)
-  + 11.4 [Unbiased Variance Estimation](./11-StatEstCI.md#)
-  + 11.5 [Estimating Standard Deviation](./11-StatEstCI.md#)
-  + 11.6 [Confidence Interval](./11-StatEstCI.md#)
-  + 11.7 [Confidence Interval - Sigma Unknown](./11-StatEstCI.md#)
-  + [Lecture Notebook 11](./11-StatEstCI.md#)
-  + [Programming Assignment 11](./11-StatEstCI.md#)
++ Topic 11: Statistics, Parameter Estimation and Confidence Interval
+  + 11.1 [Statistics](./11-StatEstCI.md#111-statistics)
+  + 11.2 [Mean and Variance Estimation](./11-StatEstCI.md#112-mean-and-variance-estimation)
+  + 11.3 [Variance Estimation](./11-StatEstCI.md#113-variance-estimation)
+  + 11.4 [Unbiased Variance Estimation](./11-StatEstCI.md#114-unbiased-variance-estimation)
+  + 11.5 [Estimating Standard Deviation](./11-StatEstCI.md#115-estimating-standard-deviation)
+  + 11.6 [Confidence Interval](./11-StatEstCI.md#116-confidence-interval)
+  + 11.7 [Confidence Interval - Sigma Unknown](./11-StatEstCI.md#117-confidence-interval---sigma-unknown)
+  + [Lecture Notebook 11](./11-StatEstCI.md#lecture-notebook-11)
+  + [Programming Assignment 11](./11-StatEstCI.md#programming-assignment-11)
 
 
-+ Topic12: Regression and PCA
++ Topic 12: Regression and PCA
   + 12.1 [Review of Linear Algebra](./12-RegPCA.md#)
   + 12.2 [Matrix Notation and Operations](./12-RegPCA.md#)
   + 12.3 [Solving a System of Linear Equations](./12-RegPCA.md#)

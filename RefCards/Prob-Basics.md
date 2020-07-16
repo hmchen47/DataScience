@@ -1530,3 +1530,372 @@
 
 
 
+
+## Law of Large Number
+
++ [Sample mean](../Stats/ProbStatsPython/10-InequLimit.md#103-law-of-large-numbers)
+  + sequence abbreviation: $x^n \stackrel{\text{def}}{=} x_1, x_2, \dots, x_n$
+  + mean:
+    + $\overline{x^n} \stackrel{\text{def}}{=} \dfrac{x_1+x_2+\cdots+x_n}{n}$
+    + e.g., $n=4 \quad x^4 = 3, 1, 4, 2 \quad \overline{x^4} = \frac{3+1+4+2}{4} = 2.5$
+  + $n$ samples from a distribution
+    + $X^n = X_1, X_2, \dots, X_n$
+    + sample mean: $\overline{X^n} \stackrel{\text{def}}{=} \dfrac{X_1 + \cdots + X_n}{n}$
+    + $\overline{X^n}$: a random variable
+
++ [Independent samples](../Stats/ProbStatsPython/10-InequLimit.md#103-law-of-large-numbers)
+  + Definition: (__iid__) _independent_ random variables w/ the _same_ distribution are <span style="color: magenta;">independent identically distributed (iid)</span>
+
++ [Weak law of large numbers](../Stats/ProbStatsPython/10-InequLimit.md#103-law-of-large-numbers)
+  + $X^n = X_1, \dots, X_n$ iid samples from distribution w/ finite mean $\mu$ and finite std $\sigma$
+  + $n \to \infty \implies \overline{X^n} \to \mu$
+  + $\Pr(\text{sample mean differs from $\mu$ by any given amount}) \searrow 0 \text{ with } n \nearrow$
+
+    \[ \Pr\left( \left|\overline{X^n} - \mu \right| \ge \epsilon \right) \le \frac{\sigma^2}{\epsilon^2} \cdot \frac{1}{n} \]
+
+  + $\overline{X^n}$ converges in probability to $\mu$
+
++ [Properties of WLLN](../Stats/ProbStatsPython/10-InequLimit.md#103-law-of-large-numbers)
+  + theorem: $\Pr\left(\left|\overline{X^n} - \mu\right| \ge \epsilon\right) \le \frac{\sigma^2}{n \cdot \epsilon^2}$
+  + $X_1, X_2, \dots$, iid w/ finite $\mu$ and $\sigma$
+  + sample mean $\overline{X^n} \stackrel{\text{def}}{=}  \frac{1}{n} \sum_{i=1}^n X_i$
+  + expectation
+
+    \[ E\left[\overline{X^n}\right] = \mu \]
+
+  + variance
+
+    \[ Var\left(\overline{X^n}\right) = \frac{\sigma^2}{n} \]
+
+  + Chebyshev inequality
+
+    \[ \forall\, \epsilon > 0 \quad \Pr\left(\left|\overline{X^n} - \mu \right| \ge \epsilon\right) \le \frac{\sigma^2}{n\cdot \epsilon^2} \;\searrow\; 0 \text{ as } n \to \infty \]
+
++ [Generalization <br/>](../Stats/ProbStatsPython/10-InequLimit.md#103-law-of-large-numbers)
+  let $\mu \stackrel{\text{def}}{=} \frac{1}{n} \sum \mu_i \quad$ and $\quad \sigma^2   \stackrel{\text{def}}{=} \frac 1 n \sum \sigma^2_i$
+
+  \[ \Pr\left( \left|\overline{X^n} - \mu\right| \ge \epsilon \right) \le \frac{\sigma^2}{\epsilon^2} \cdot \frac{1}{n} \]
+
++ [Convergence in probability](../Stats/ProbStatsPython/10-InequLimit.md#103-law-of-large-numbers)
+  + Pr($X_n$ differs from $Y$ by any given fixed amount) $\,\searrow\, 0$ with $n$
+  + for every $\delta > 0$ and $\epsilon > 0, \;\exists\; N \text{ s.t. } \forall\, n \ge N$
+
+    \[ \Pr\left(\left|X_n - Y\right| \ge \delta\right) < \epsilon \]
+
+  + WLLN: $\overline{X^n}$ converges in probability to $\mu \quad \overline{X^n} \xrightarrow{p} \mu$
+
+
+
+
+
+
+## Central Limit Theorem (CLT)
+
++ [Rule of thumb](../Stats/ProbStatsPython/10-InequLimit.md#106-central-limit-theorem)
+  + normalized average distributed roughly Normal: \# samples $\ge 30$
+  + beyond 30: everything is Normal
+
++ [Central Limited Theorem (CLT)](../Stats/ProbStatsPython/10-InequLimit.md#106-central-limit-theorem)
+  + let $X_1, X_2, X_3, \dots$ be iid w/ finite $\mu$ and $\sigma$
+
+    \[n \to \infty, \text{ the distribution of } \frac{X_1+X_2 + \cdots + X_n - n\mu}{\sigma\sqrt{n}} \to N(0, 1) \]
+
++ [CLT and Weak Law of Large Number (WLLN)](../Stats/ProbStatsPython/10-InequLimit.md#106-central-limit-theorem)
+  + r.v.: $X_1, X_2, X_3, \dots$ iid w/ $\mu=0$ and $\sigma=1$
+  + WLLN: $n \to \infty, \frac{X_1 + X_2 + \cdots + X_n}{n} \to 0$
+  + CLT
+    + $n \to \infty, \frac{X_1 + X_2 + \cdots + X_n}{\sqrt{n}} \sim N(0, 1)$
+    + $E[X] = 0, Var(\frac{X_1 + X_2 + \cdots + X_n}{\sqrt{n}}) = \frac n n  = 1$
+    + more important
+    + much more information
+  + $\forall\, X_i,$ converge to $N(0, 1)$
+
++ [General CLT application](../Stats/ProbStatsPython/10-InequLimit.md#106-central-limit-theorem)
+  + $Z_n \stackrel{\text{def}}{=} \frac{(X_1 + X_2 + \cdots + X_n) - n\mu}{\sigma\sqrt{n}}$
+  + applying CLT, for sufficiently large $n$ (say 30) approximating $Z_n \sim N(0, 1)$
+
+    \[ Z_n = \frac{n\overline{X^n} - n\mu}{\sigma\sqrt{n}} = \frac{n\left(\overline{X^n} - \mu \right)}{\sigma\sqrt{n}} = \frac{\overline{X^n} - \mu}{\sigma / \sqrt{n}} \]
+
+  + general formula for average of random variables
+
+    \[ \Pr\left(\overline{X^n} \le \alpha \right) = \Pr\left(\frac{\overline{X^n} - \mu}{\sigma / \sqrt{n}} \le \frac{\alpha - \mu}{\sigma / \sqrt{n}} \right) = \Pr\left(Z_n \le \frac{\alpha - \mu}{\sigma / \sqrt{n}} \right) \approx \Phi\left(\frac{\alpha - \mu}{\sigma / \sqrt{n}}\right) \]
+
++ [Convergence](../Stats/ProbStatsPython/10-InequLimit.md#107-central-limit-theorem-proof)
+  + r.v.: $X_1, X_2, X_3, \dots$ iid w/ $\mu = 0 \;\; \sigma=1$
+  + normalization: $Z_n \stackrel{\text{def}}{=} \frac{X_1 + X_2 + \cdots + X_n}{\sqrt{n}}$
+  + task: show $n \to \infty$, the distribution of $Z_n$ approaches $N(0, 1)$
+
++ [Continuity](../Stats/ProbStatsPython/10-InequLimit.md#107-central-limit-theorem-proof)
+  
+  \[ M_{Z_n}(t) \to M_Z(t) \;\; \forall\,t \implies F_{Z_n}(t) \to F_Z(t) \text{ wherever } F_Z(t) \text{ is continuous } \]
+
++ [L’Hôpital’s Rule](../Stats/ProbStatsPython/10-InequLimit.md#107-central-limit-theorem-proof)
+  
+    \[ \displaystyle \lim_{n \to \infty} \left[ M\left( \frac{t}{\sqrt{n}} \right) \right]^n = e^{\frac{t^2}{2}} \iff \displaystyle \lim_{n \to \infty} n \cdot \ln M\left( \frac{t}{\sqrt{n}} \right) = \frac{t^2}{2}\]
+
++ [Assembling](../Stats/ProbStatsPython/10-InequLimit.md#107-central-limit-theorem-proof)
+  + r.v.: $X_i \quad \text{ iid }, \quad \mu=0,\;\; \sigma^2 = 1$
+  + normalization: $X_n = \frac{X_1 + X_2 + \cdots + X_N}{\sqrt{n}} \sim N(0, 1)$
+  + $\displaystyle\lim_{n \to \infty} M_{Z_n}(t) = \lim_{n \to \infty} \left[ M\left( \frac{t}{\sqrt{n}} \right) \right]^n = e^{\frac{t^2}{2}} = M_Z(t)$
+    + $F_{Z_n} \to F_Z = \Phi$
+    + $Z_n$ approach standard Normal distribution
+    + general iid $X_i$ just define $Z_n = \frac{X_1 + X_2 + \cdots + X_n - n\mu}{\sigma\sqrt{n}}$
+
+
+
+
+## Moment Generating Function (MGF)
+
++ [Moments](../Stats/ProbStatsPython/10-InequLimit.md#104-moment-generating-functions)
+  + <span style="color: magenta;">moments</span>: expectations of powers of $X$, e.g., $E[X], E[X^2], E[X^3]$
+  + sometimes called <span style="color: magenta;">raw moments</span> to distinguish from <span style="color: magenta;">central moments</span>, e.g., $E[(X - \mu)^n]$
+
++ [Moment generating function (MGF)](../Stats/ProbStatsPython/10-InequLimit.md#104-moment-generating-functions)
+  + maps a random variable $X$ to a real function $M \quad M:\Bbb{R} \to \Bbb{R}$
+
+    \[ M(t) \stackrel{\text{def}}{=} M_X(t) \stackrel{\text{def}}{=} E[e^{tX}] = \begin{cases} \sum p(x) \;e^{tx} & \text{discrete} \\\\ \int f(x) \;e^{tx}\,dx & \text{continuous} \end{cases} \]
+
++ [Basic properties](../Stats/ProbStatsPython/10-InequLimit.md#104-moment-generating-functions)
+  + non-negative: $M(t) = E[e^{tX}] > 0$
+  + unitary: $M(0) = E[e^{0X}] = E[e^0] = 1$
+  + finite support $X$: $t \to \infty$
+
+    \[ M(t) \sim p(x_{\max}) \cdot e^{t \cdot x_{\max}} \]
+
++ [Translation and scaling](../Stats/ProbStatsPython/10-InequLimit.md#104-moment-generating-functions)
+  + translation: $X \to X + b$
+
+    \[ M_{X+b}(t) =  e^{tb} M_X(t) \]
+
+  + Scaling: $X \to aX$
+
+    \[ M_{aX}(t) = M_X(at) \]
+
+  + translation and scaling: $X \to aX + b$
+
+    \[ M_{aX+b}(t) = e^{bt} \cdot M_X(at) \]
+
+  + constant MGF
+
+    \[ M_c(t) = e^{ct} \to M_{a\cdot c+b}(t) = e^{bt} \cdot M_c(at) = e^{bt} \cdot e^{cat} = e^{(ac+b)\cdot t} \]
+
++ [Independent addition](../Stats/ProbStatsPython/10-InequLimit.md#104-moment-generating-functions)
+  + independent variable: MGF of sum as product of MGF's
+  + two variables: $X {\perp \!\!\!\! \perp} Y \quad M_{X+Y}(t) = M_X(t) \cdot M_Y(t)$
+  + n variables
+    + $X_1, X_2, \dots, X_n \;\; {\perp \!\!\!\! \perp}$
+    + $X \stackrel{\text{def}}{=} X_1 + X_2 + \cdots + X_n$
+    + $M_X(t) = \prod_{i=1}^n M_{X_i}(t)$
+  + mean
+    + $X_1, X_2, \dots, X_n \;\; {\perp \!\!\!\! \perp}$
+    + $\overline{X} \stackrel{\text{def}}{=} \frac{X_1 + X_2 + \cdots + X_n}{n}$
+    + $M_{\overline{X}}(t) = \prod_{i=1}^n M_{X_i}\left(\tfrac{t}{n}\right)$
+
++ [Moment generation](../Stats/ProbStatsPython/10-InequLimit.md#104-moment-generating-functions)
+  + general: $n > 0$
+
+    \[ M^{(n)}(t) = E[X^n \,e^{Xt}] \to M^{(n)}(0) = E[X^n] \]
+
++ [Summary of Common Distribution w/ MGF](../Stats/ProbStatsPython/10-InequLimit.md#104-moment-generating-functions)
+  <br/><br/>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/ycbw3koq">Common MGF of Distribution</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Random Variable</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">PMF/PDF</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$M(t)$</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td style="text-align: center;">$\text{Bern}(p) = B_p$</td>
+      <td style="text-align: center;">$p_X(1) =p, \;\;p_X(0) = 1 - p$</td>
+      <td style="text-align: center;">$pe^t + (1-p)$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$\text{Genom}(p) = G_p$</td>
+      <td style="text-align: center;">$p_X(k) = p(1-p)^{k-1}, \;\; k=1, 2, \dots$</td>
+      <td style="text-align: center;">$\dfrac{pe^t}{1 - (1-p)e^t}$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$\text{B}(n, p) = B_{n, p}$</td>
+      <td style="text-align: center;">$p_X(k) = \binom{n}{k} p^k (1-p)^{n-k}, \;\; k=0, 1, 2, \dots, n$</td>
+      <td style="text-align: center;">$\left(pe^t + (1-p)\right)^n$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$\text{Poisson}(\lambda) = P_\lambda$</td>
+      <td style="text-align: center;">$p_X(k) = \frac{\lambda^k}{k!} e^{-\lambda}, \;\;k=0, 1, \dots$</td>
+      <td style="text-align: center;">$e^{\lambda(e^t - 1)}$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$\text{Exp}(\lambda)$</td>
+      <td style="text-align: center;">$f_X(x) = \lambda e^{-\lambda x}, \;\;x \ge 0$</td>
+      <td style="text-align: center;">$\frac{\lambda}{\lambda - t}$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">$N(\mu, \sigma^2)$</td>
+      <td style="text-align: center;">$\frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)$</td>
+      <td style="text-align: center;">$\exp\left(\mu t+ \frac{\sigma^2 t^2}{2}\right)$</td>
+    </tr>
+    </tbody>
+  </table>
+
+
+
+
+
+
+
+
+
+## Markov's Inequality
+
++ [Markov's Inequality](../Stats/ProbStatsPython/10-InequLimit.md#101-markov-inequality)
+  + $X$: <span style="color: magenta;">nonnegative</span> r.v. (discrete or continuous) w/ finite mean $\mu$
+  + intuitive, memorable
+
+    \[ \forall\; \alpha \ge 1 \quad \Pr(X \ge \alpha) \mu \le \frac{1}{\alpha} \]
+
+    + a nonnegative r.v. is at least $\alpha$ times $\le$ its mean w/ probability $\le \frac{1}{\alpha}$
+  + direct proof, easier to apply, more common
+
+    \[ a = \alpha \mu \quad \forall\; \alpha \ge \mu \quad \Pr(X \ge a) \le \frac{\mu}{a} \]
+
++ [Generalization attempt: removing non-negative?](../Stats/ProbStatsPython/10-InequLimit.md#101-markov-inequality)
+  + $X < 0 \implies \Pr(x \ge a)$ be closed to 1 for any $a$
+  + $p(x) = \begin{cases} 1 - \epsilon & x = a \\ \epsilon & x = \frac{\mu - (1 - \epsilon)a}{\epsilon} \end{cases}$
+  + $E[X] = \mu \implies p(X \ge a) = p(a) \approx 1 \to$ unable to remove
+
++ [Properties of Markov's Inequality](../Stats/ProbStatsPython/10-InequLimit.md#101-markov-inequality)
+  + applied to all non-negative random variables
+  + can always be used
+  + used to derive other inequalities: Chebyshev, Chernoff
+  + limited to inequalities that hold for all distributions
+
++ [Markov inequality](https://tinyurl.com/yanpjcof)
+  + constraints: must have a strictly positive random variable
+  + pro: used to prove Chebyshev inequality and Chernodd bounds
+  + con: usually gives a very bad bound
+
+
+
+
+
+## Chebushev's Inequality
+
++ [Chebyshev's inequality](../Stats/ProbStatsPython/10-InequLimit.md#102-chebyshev-inequalities)
+  + $X$: any r.v. (discrete or continuous) w/ finite <span style="color: magenta;"> mean $\mu$</span> and <span style="color: magenta;"> std $\sigma$</span>
+  + 1st formulation
+
+    \[ \forall\; \alpha \ge 1 \quad \Pr(|X - \mu| \ge \alpha \sigma) \le \frac{1}{\alpha^2} \]
+
+  + 2nd formulation: $a = \alpha \sigma$, $a$ a value of interest
+
+    \[ \forall\; a \ge \sigma \quad \Pr(|X - \mu| \ge a) \le \frac{\sigma^2}{a^2} \]
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y9yygxbq" ismap target="_blank">
+        <img src="img/t10-02.png" style="margin: 0.1em;" alt="Example distribution for Chebyshev's inequality" title="Example distribution for Chebyshev's inequality" width=450>
+      </a>
+    </div>
+
++ [Markov vs. Chebyshev inequalities](../Stats/ProbStatsPython/10-InequLimit.md#102-chebyshev-inequalities)
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 50vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"></th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Formula</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Applies</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Input</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Range</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Deceases</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th style="text-align:center;">Markov</th>
+      <td style="text-align:center;">$\Pr(X \ge a) \le \frac{\mu}{a}$</td>
+      <td style="text-align:center;">$X \ge 0$</td>
+      <td style="text-align:center;">$\mu$</td>
+      <td style="text-align:center;">$a \ge \mu$</td>
+      <td style="text-align:center;">Linearity</td>
+    </tr>
+    <tr>
+      <th style="text-align:center;">Chebyshev</th>
+      <td style="text-align:center;">$\Pr(|X - \mu| \ge a) \le \frac{\sigma^2}{a^2}$</td>
+      <td style="text-align:center;">Any $X$</td>
+      <td style="text-align:center;">$\mu$ &amp; $\sigma$</td>
+      <td style="text-align:center;">$a \ge \sigma$</td>
+      <td style="text-align:center;">Quadratically</td>
+    </tr>
+    </tbody>
+  </table>
+
++ [One-sided Chebyshev inequality](../Stats/ProbStatsPython/10-InequLimit.md#102-chebyshev-inequalities)
+  + [Henry Bottomley](http://www.se16.info/hgb/cheb.htm)
+  + Theorem: (Chebyshev inequality - one-sided version) for $t > 0$
+
+    \[ \Pr(X - \mu \ge t) \le \frac{1}{1 + t^2/Var(X)} = \frac{Var{X}}{Var(X) + t^2} \]
+
++ [Chebyshev inequality](https://tinyurl.com/yanpjcof)
+  + constraints: no constraints, works on all r.v.'s
+  + pro: works on everything, an in some sense justifies are use of variance as a measure of spread of a distribution
+  + cons: not as tight as Chernoff bounds
+
+
+
+
+
+## Chernoff Bounds
+
++ [Chernoff bound](../Stats/ProbStatsPython/10-InequLimit.md#105-chernoff-bound)
+  + r.v.: $X \sim B_{p, n} \quad \mu=pn$
+  + probability: $\Pr(X \ge (1 + \delta)\mu)$
+  + using Markov to derive exponential bound
+
+    \[
+      \forall\, a \;\; \forall\,t \ge 0, X \ge a \iff tX \ge ta \iff e^{tX} \ge e^{ta} \\
+      \hspace{3em} \Pr(X \ge a) = \Pr(e^{tX} \ge e^{ta}) \le \frac{E[e^{tX}]}{e^{ta}} \hspace{2em} \text{(Markov ineq})
+    \]
+
++ [$E[e^tX]$](../Stats/ProbStatsPython/10-InequLimit.md#105-chernoff-bound)
+  + evaluate: $E\left[e^{tX}\right] = \left((1-p) + p e^t \right)^n$
+  + bound: $E\left[e^{tX}\right] \le \exp\left(\mu(e^t -1 )\right)$
+  + incorporate in Markov ($\le$): $\Pr(X \ge a) \le \frac{\exp\left[\mu(e^t - 1) \right]}{e^{ta}}$ & $\Pr(X \ge (1 +\delta)\mu) \le e^{\mu((e^t -1) - t(1+\delta))}$
+  + optimization: $\forall\, t \ge 0 \;\; \Pr(X \ge (1+\delta)\mu) \le \exp\left[\mu(\delta - (1+\delta) \ln(1+\delta)) \right]$
+
+    \[\begin{align*}
+      \text{objective: minimizing } \quad&\Pr(X \ge (1 + \delta) \mu) \le \exp\left( \mu((e^t - 1) - t(1+\delta)) \right)\\
+      \text{find t minimizing } \quad& f(t) \stackrel{\text{def}}{=} (e^t - 1) - t(1+\delta) \\
+      & f^\prime(t) = e^t - (1+\delta) = 0 \\
+      & \hspace{2em} e^t = 1 + \delta \to t = \ln(1+\delta) \\
+      & f^{\prime\prime}(t) = e^t \ge 0 \\\\
+      \Pr(X \ge (1+\delta) \mu) &\le \exp\left[\mu ((e^t -1) - t (1+ \delta)) \right] \\
+      &= \exp\left[ \mu(\delta - (1+\delta) \ln(1+\delta)) \right]
+    \end{align*}\]
+
+  + final specification:
+
+    \[ \Pr(X \ge (1 + \delta) \mu) \le \exp\left[\mu(\delta - (1+\delta) \ln(1+\delta))\right) \le \exp\left( -\frac{\delta^2}{2+\delta} \mu \right) \]
+
++ [Summary: Chernoff bound](../Stats/ProbStatsPython/10-InequLimit.md#105-chernoff-bound)
+  + r.v.: $X \sim B_{p, n} \quad \delta \ge 0$
+  + showed: $\Pr(X \ge (1+\delta) \mu) \le \exp\left(-\frac{\delta^2}{2+\delta}\mu\right)$
+  + similarly: $\Pr(X \le (1-\delta) \mu) \le \exp\left(-\frac{\delta^2}{2}\mu\right)$
+  + $\searrow$ exponentially in $n$
+
++ [Chernoff bounds](https://tinyurl.com/yanpjcof)
+  + constraints: random variable must be a sum of independent indicator random variables
+  + pros: exponential bounds decay extremely quickly
+  + cons: not a very flexible bound
+
+
+
+
+## 
+
+
+

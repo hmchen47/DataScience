@@ -84,6 +84,72 @@
     </a>
   </div>
 
++ [Probability x Statistics](../Stats/ProbStatsPython/11-StatEstCI.md#111-statistics)
+  + probability: distribution $\to$ samples
+  + statistics:  samples $\to$ distribution
+
++ [Distribution parameters](../Stats/ProbStatsPython/11-StatEstCI.md#111-statistics)
+  + most distribution families determined by <span style="color: magenta;">parameters</span>
+  + generally, any deterministic function of the distribution as a <span style="color: magenta;">parameter</span> or <span style="color: magenta;">property</span>
+
++ [Population](../Stats/ProbStatsPython/11-StatEstCI.md#111-statistics)
+  + population: collection of objects
+  + sample n objects: often n $\ll$ population size
+  + sampling from population $\to$ sampling from distribution
+
++ [Statistic](../Stats/ProbStatsPython/11-StatEstCI.md#111-statistics)
+  + any function of the data observed
+  + using statistics to infer properties of the distribution or population
+    + parameters
+    + type of distribution
+  + consideration:
+    + how to do it
+    + how well can do it
+
+
+
+
+## Bias and Variance
+
++ [Bias and variance](../Stats/ProbStatsPython/11-StatEstCI.md#112-mean-and-variance-estimation)
+  + bias: $\widehat{\Theta}$ estimator for $\theta$
+    + definition: <span style="color: magenta;">bias</span> of $\widehat{\Theta}$ as the expected overestimate of $\theta$
+
+      \[\text{Bias}_\theta (\widehat{\Theta}) \stackrel{\text{def}}{=} E[\widehat{\Theta} - \theta] = \mu_{\widehat{\Theta}} - \theta \quad\to\quad \text{Bias}(\widehat{\Theta}) \]
+
+    + <span style="color: magenta;">unbiased</span>: estimator w/ 0 bias, i.e., $\mu_{\widehat{\Theta}} = \theta$
+  + variance
+    + definition: $Var(\widehat{\Theta}) = E[(\widehat{\Theta} - \mu_{\widehat{\Theta}})^2]$
+    + unrelated to $\theta$
+  + ideally 0 bias and variance
+  + typically trade off btw bias and variance
+
++ [Bias-Variance decomposition <br/>](../Stats/ProbStatsPython/11-StatEstCI.md#112-mean-and-variance-estimation)
+  MSE = $\text{Bias}^2$ + Variance
+
+
+
+
+
+## Margin of Error 
+
++ [Margin of Error](https://tinyurl.com/m5bg2k2) (MOE)
+  + a statistic expressing the amount of random sample error in the result of a survey
+  + Definition: (Margin of Error)  Margin of Error (MOE)
+
+    \[ \text{MOE}_\gamma = z_p \cdot \frac{\sigma}{\sqrt{n}} \]
+
+    + $\gamma$: confidence level
+    + $n$: sample size of a population
+    + $\sigma$: expected standard deviation
+    + $z_\gamma$: quantile, a.k.a, z-score
+  + Definition: (Standard Error) Standard error (se)
+
+    \[ \text{se} = \frac{\sigma}{\sqrt{n}} \]
+
+
+
+
 
 ## Statistical Inference
 
@@ -103,6 +169,524 @@
   + the probability of obtaining results as extreme as the observed results of a statistical hypothesis test, assuming that the null hypothesis is correct
   + used as an alternative to rejection points to provide the smallest level of significance at which the null hypothesis would be rejected
   + smaller p-value $\implies$ stronger evidence in favor of the alternative hypothesis
+
+
+
+
+## Mean Estimation
+
++ [Estimators](../Stats/ProbStatsPython/11-StatEstCI.md#112-mean-and-variance-estimation)
+  + r.v.'s: $X^n \stackrel{\text{def}}{=} X_1, X_2, \dots, X_n$ independent samples from distribution or a population
+  + $p$: unknown distribution or population
+  + estimate a distribution parameter $\theta$
+  + sample: $X^n \stackrel{\text{def}}{=} X_1, X_2, \dots, X_n \sim p {\perp \!\!\!\! \perp}$
+  + estimator for parameter $\theta$ as a function
+    + function $\widehat{\theta}: \Bbb{R} \to \Bbb{R}$
+    + mapping $X^n \to \Bbb{R}$
+  + upon observing $X^n$, estimate $\theta$ and defined as $\widehat{\Theta} \stackrel{\text{def}}{=} \widehat{\theta}(X^n)$
+    + random variable
+    + determined by $X^n$
+
++ [Observations](../Stats/ProbStatsPython/11-StatEstCI.md#112-mean-and-variance-estimation)
+  + distribution parameter $\theta$
+  + estimate $\widehat{\Theta} \stackrel{\text{def}}{=} \widehat{\theta}(X^n)$
+    + random variable
+    + ideally close to $\theta$
+  + estimator
+    + any function
+    + good or bad
+  + considering how to
+    + come up w/ an estimator?
+    + evaluate its performance?
+
++ [Estimator evaluation](../Stats/ProbStatsPython/11-StatEstCI.md#112-mean-and-variance-estimation)
+  + parameter may have several estimators
+  + evaluate quality of estimator for a parameter
+
++ [Mean squared error](../Stats/ProbStatsPython/11-StatEstCI.md#112-mean-and-variance-estimation)
+  + single measure for performance of estimator $\widehat{\Theta}$ for $\theta$
+  + <span style="color: magenta;">MSE of $\widehat{\Theta}$</span>: expected squared distance from $\theta$
+
+    \[ \text{MSE}_{\theta}(\widehat{\Theta}) \stackrel{\text{def}}{=} E[(\widehat{\Theta} - \theta)^2] \quad\to\quad \text{MSE}(\widehat{\Theta}) \]
+
+  + MSE related to bias and variance
+
+
+
+
+
+## Variance Estimation
+
++ [Estimating the variance](../Stats/ProbStatsPython/11-StatEstCI.md#113-variance-estimation)
+  + estimating $\sigma^2$
+    + unknown distribution or population $p$
+    + mean: $\mu$
+    + variance: $\sigma^2$
+  + sample of $n$ observations: $X_1, \dots, X_n  \sim p \;{\perp \!\!\!\! \perp}$
+  + no distribution
+    + expectation $\to$ average
+    + mean: $\mu = E[X_i] \to \overline{X} \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n X_i$
+    + variance: $\sigma^2 = E[(X - \mu)^2] \to S^2 \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n \left(X_i - \overline{X}\right)^2$
+  + $S^2$
+    + Raw sample variance
+    + random variable
+
++ [One-pass calculation](../Stats/ProbStatsPython/11-StatEstCI.md#113-variance-estimation)
+
+  \[\begin{align*}
+    \sum_{i=1}^n (X_i - \overline{x})^2 &= \sum_{i=1}^n x_i -2n\overline{x}^2 + n \overline{x}^2 = \sum_{i=1}^n x_i - n \overline{x}^2\\\\
+    S^2 &\stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n (x_i - \overline{x})^2 \hspace{4em} \left[\substack{\text{intuitive}\\\text{proof arguments}}\right] \\
+    & = \frac 1 n \sum_{i=1}^n x_i^2 - \overline{x}^2 \hspace{4.8em} \left[\substack{\text{fewer subtractions}\\ \text{one pass calculation}}\right]
+  \end{align*}\]
+
++ [$S^2$ and Bias](../Stats/ProbStatsPython/11-StatEstCI.md#113-variance-estimation)
+  + mean: $E[X_i] = \mu$
+    + Expectation $\to$ average of samples: $\overline{X} \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n X_i$
+    + unbiased (WLLN): $E[\overline{X}] = \mu$
+  + variance: $E[(X_i - \mu)^2] = \sigma^2$
+    + Expectation $\to$ average of samples: $S^2 \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n \left(X_i - \overline{X}\right)^2$
+
++ [Summary](../Stats/ProbStatsPython/11-StatEstCI.md#113-variance-estimation)
+  + simulation
+    + number of r.v's: $n = 2$
+    + distribution: $N(0, 16)$ and $Exp(2)$
+    + $E[S^2] \ne \sigma^2 \approx \frac12 \sigma^2$
+  + exact calculation
+    + r.v.: $B_p$
+    + indeed $E[X^2] \ne \sigma^2$
+    + raw sample variance: $E[S^2] = \frac12 \sigma^2$ exactly
+  + applied to other distributions? other n? why?
+  + general $n$: simulations shown $E[S^2] \approx \frac{n-1}{n} \cdot \sigma^2$
+
+
+
+
+
+## Unbiased Variance Estimation 
+
++ [Ideas to derive unbiased variance](../Stats/ProbStatsPython/11-StatEstCI.md#114-unbiased-variance-estimation)
+  + $S^2$ under-estimating $\sigma^2$
+    + sample variance: $\overline{X} \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n X_i$
+    + expectation of sample variance: $E[S^2] = \frac{n-1}{n} \cdot \sigma^2$
+  + variance
+    + $\sigma^2 \stackrel{\text{def}}{=} E[(X - \mu)^2]$
+    + $\mu \approx$ average of observations, not exactly
+  + raw sample variance
+    + $S^2 \stackrel{\text{def}}{=} \frac 1 n \sum_{i=1}^n \left(X_i - \overline{X}\right)^2$
+    + $\overline{X}$: exact average of samples
+    + giving a lower sum than what the distribution given
+  + summary
+    + explaining $S^2$ under-estimating $\sigma^2$
+    + not explaining $\frac{n-1}{n}$
+    + nor capturing whole reason
+  + elementary: derivation w/ properties
+
+    \[\begin{align*}
+      E[S^2] &= E\left[ \frac 1 n \sum_{i=1}^n \left(X_i - \overline{X}\right)^2 \right] = \frac 1 n E\left[ \sum_{i=1}^n \left(X_1 - \overline{X}\right)^2 \right] \\
+      &= \frac 1 n \sum_{i=1}^n E\left[\left(X_i - \overline{X}\right)^2\right] = \frac{1}{n} \sum_{i=1}^n E\left[\left(X_1 - \overline{X}\right)^2\right] \\
+      &= E\left[\left(X_1 - \overline{X}\right)^2\right] \hspace{3em} \left(\text{ intuitive, simple}\right)
+    \end{align*}\]
+
++ [Simplified formulation](../Stats/ProbStatsPython/11-StatEstCI.md#114-unbiased-variance-estimation)
+  + proving $E[S^2] = \frac{n-1}{n} \cdot \sigma^2$
+
+      \[ E[S^2] \stackrel{\text{def}}{=} E\left[ \frac{1}{n} \sum_{i=1}^n \left(X_1 - \overline{X}\right)^2 \right] = E\left[\left(X_1 - \overline{X}\right)^2 \right] \]
+
+    + variance
+
+      \[ X_1 \sim p \qquad \sigma^2 \stackrel{\text{def}}{=} E\left[(X_1 - \mu)^2\right] \]
+
+  + proving $E\left[\left(X_1 - \overline{X}\right)^2\right] = \frac{n-1}{n} \cdot E\left[\left(X_1 - \mu\right)^2\right] \to$ symmetric, shows difference
+
++ [Simplest case: $n=2$](../Stats/ProbStatsPython/11-StatEstCI.md#114-unbiased-variance-estimation)
+  + decoupling $X_1$ from $\overline{X}$
+    + $X_1 - \overline{X} = X_1 - \frac{X_1 + X_2}{2} = \frac{X_2 - X_1}{2}$
+    + $E\left[\left(X_1 - \overline{X}\right)^2\right] = E\left[\left(\frac{X_1 - X_2}{2}\right)^2\right] = \frac14 \cdot E\left[ \left(X_1 - X_2\right)^2 \right]$
+    + $X_1 {\perp \!\!\!\! \perp} X_2$: $\frac14 \cdot E[(X_1 - \mu)^2] = \frac{\sigma^2}{4}$
+    + not whole story
+      + $X_2$ random but $\mu$ fixed
+      + $X_1$ minusing some random value by symmetric $\to$ increasing the expected squared
+      + the quantity actually twice the expected value of $(X_1 - \mu)^2$
+      + $\therefore\; E\left[ (X_1 - X_2)^2 \right] = 2 \cdot E[(X_1 - \mu)^2] \to$ proof required
+
+    \[ E\left[\left(X_1 - \overline{X}\right)^2\right] = \underbrace{\frac14 \cdot E\left[\left(X_1 - X_2\right)^2 \right]}_{\text{gain $\frac14$ from proximty}} = \underbrace{\frac14 \cdot 2 \cdot E\left[\left(X_1 - \mu\right)^2\right]}_{\text{lose 2 for randomness}} = \frac{\sigma^2}{2} \]
+
+  + derivation of $E[(X_1 - X_2)^2] = 2 \cdot E[(X_1 - \mu)^2]$
+    + 0-mean
+    + independence ${\perp \!\!\!\! \perp}$: $Var(X_1 - X_2) = Var(X_1) + Var(X_2) = 2 \cdot Var(X_1)$
+    + for 0-mean random variable $Z$: $E[Z^2] = Var(Z)$
+
+      \[ E\left[\left(X_1 - X_2\right)^2\right] = 2 \cdot E\left[\left(X_1 - \mu\right)^2\right] \iff Var(X_1 - X_2) = 2 \cdot Var(X_1) \]
+
+  + summary
+
+    \[\begin{align*}
+      E[S^2] &\stackrel{\text{def}}{=} E\left[ \frac 1 n \sum_{i=1}^n \left(X_i - \overline{X}\right)^2 \right] \stackrel{\text{symmetry}}{=} E\left[ \left(X_1 - \overline{X}\right)^2 \right] \quad \text{any } n \\
+      &= E\left[ \left(\frac{X_1 - X_2}{2}\right)^2 \right] \hspace{3.5em} \left( X_1 - \overline{X} = \frac{X_1 - X_2}{2} \right) \\
+      &= \frac14 \cdot E\left[ (X_1 - X_2)^2 \right]  \hspace{3.5em} \left( \substack{\text{Linearity of Expection }\\ \tfrac14 \text{ from $\overline{X}$ being closer than $\mu$ to $X_1$}} \right) \\
+      &= \frac14 \cdot Var(X_1 - X_2) = \frac14 \big(Var(X_1) + Var(X_2)\big) \hspace{2em} \left( \text{0 mean } \;\&\; {\perp \!\!\!\! \perp} \right)\\
+      &= \frac14 \cdot 2 \cdot Var(X_1) \hspace{4.3em} \left( iid, \;\; 2 \text{ from $\overline{X}$ being random} \right) \\
+      &= \frac14 \cdot 2 \cdot \sigma^2 = \frac{\sigma^2}{2}  \hspace{4.5em} \left(\tfrac12 \text{ together}\right)
+    \end{align*}\]
+
++ [General $n$](../Stats/ProbStatsPython/11-StatEstCI.md#114-unbiased-variance-estimation)
+
+  \[\begin{align*}
+    X_1 - \overline{X} &= X - \frac{X_! + \cdots + X_N}{n} = \frac{(n-1)X_1 - X_2 - \cdots - X_n}{n} \\
+    &= \frac{n-1}{n} \left(X_1 - \frac{X_2 + \cdots + X_n}{n-1}\right)\\\\
+    E[S^2] &= E\left[ \frac 1 n \sum_{i=1}^n \left(X_i - \overline{X}\right)^2 \right] = E\left[ \left(X_1 - \overline{X}\right)^2 \right] \\
+    &= E\left[ \left(\frac{n-1}{n} \left(X_1 - \frac{X_2 + \cdots + X_n}{n-1}\right)\right)^2 \right] \\
+    &= \left(\frac{n-1}{n}\right)^2 \cdot E\left[\left(X_1 - \frac{X_2 + \cdots + X_n}{n-1}\right)^2\right] \hspace{1em} \left( \left(\frac{n-1}{n}\right)^2 \text{ as } \overline{X} \text{ closer than $\mu$ to } X_1 \right) \\
+    &= \left(\frac{n-1}{n}\right)^2 \cdot Var\left(X_1 - \frac{X_2 + \cdots + X_n}{n-1}\right) \hspace{2em} \left( \text{0-mean} \right) \\
+    &= \left(\frac{n-1}{n}\right)^2 \cdot \left[ Var(X_1) + Var\left(\frac{X_2 + \cdots + X_n}{n-1}\right) \right] \hspace{2em} \left( {\perp \!\!\!\! \perp} \right) \\
+    &= \left(\frac{n-1}{n}\right)^2 \cdot \left[ \sigma^2 + \frac{\sigma^2}{n-1} \right] \hspace{3em} \left( \text{iid, var. scaling } \;\&\; \frac{n-1}{n} \text{ from $\overline{X}$ being random} \right) \\
+    &= \left(\frac{n-1}{n}\right)^2 \cdot \frac{n}{n-1} \cdot \sigma^2 = \frac{n-1}{n} \cdot \sigma^2 \hspace{4em} \left( \frac{n-1}{n} \text{ together } \right)
+  \end{align*}\]
+
++ [Unbiased variance estimate](../Stats/ProbStatsPython/11-StatEstCI.md#114-unbiased-variance-estimation)
+  + raw sample variance
+
+    \[\begin{align*}
+      S^2 &= \frac 1 n \sum_{i=1}^n \left(X_i - \overline{X}\right)^2 \\
+      E[S^2] &= \frac{n-1}{n} \cdot \sigma^2
+    \end{align*}\]
+
+  + Bessel's correction
+
+    \[ s^2 = \frac{n}{n-1} \cdot S^2 = \frac{1}{n-1} \sum_{i=1}^n \left( X_1 - \overline{X} \right)^2 \]
+
+  + unbiased estimator of variance: $E[s^2] = \sigma^2$
+  + $s^2$: typically called __sample variance__
+
+
+
+
+
+
+
+## Standard Deviation Estimation
+
++ [Variance ($\sigma^2$) $\to$ Standard Deviation ($\sigma$)](../Stats/ProbStatsPython/11-StatEstCI.md#115-estimating-standard-deviation)
+  + variance estimator: sample variance: $s^2 = \frac{1}{n-1} \sum_{i=1}^n \left( X_1 - \overline{X} \right)^2$
+  + standard standard-deviation estimator
+    + natural $\sigma$ estimator
+    + sample standard deviation: $\sigma = \sqrt{\sigma^2}$
+
+      \[ s \stackrel{\text{def}}{=} +\sqrt{s^2} = +\sqrt{\frac{1}{n-1} \sum_{i=1}^n \left( X_1 - \overline{X} \right)^2} \]
+
++ [$s$ unbiased?](../Stats/ProbStatsPython/11-StatEstCI.md#115-estimating-standard-deviation)
+  + $E[s] \le \sigma$: < whenever $X$ not a constant
+  + $s$ underestimating $\sigma$: = hold only when $x$ a constant
+  + on average $s$ under-estimating $\sigma$
+
++ [Proving impossiblility for Bernoulli](../Stats/ProbStatsPython/11-StatEstCI.md#115-estimating-standard-deviation)
+  + $\widehat{\sigma}$: any estimator for $\sigma$ of $B_p$ distributions
+  + $\widehat{\sigma}(x_1, x_2)$
+  + expectation of standard deviation estimator
+    + polynomial in $p$
+    + degree-2 polynomial
+  + $\sigma = \sqrt{p(1-p)}$: not a polynomial in $p$
+  + the two functions different: $\exists\,p \; E\left[\widehat{\sigma}(X_1, X_2)\right] \ne \sigma$
+
++ [Impossibility](../Stats/ProbStatsPython/11-StatEstCI.md#115-estimating-standard-deviation)
+  + estimators for $B_p$
+  + shown that $\forall\, \widehat{\sigma}, E[\widehat{\sigma}(X_1, X_2)] \implies $ polynomial in $p$
+    + $\sigma = \sqrt{p(1-p)} \to$ not polynomial in $p$
+    + $\exists\, p, E\left[\widehat{\sigma}(X_1, X_2)\right] \ne \sigma$
+    + $\therefore\, \widehat{\sigma}$ not unbiased
+  + how to prove $E\left[\widehat{\sigma}(X_1, X_2)\right] \ne \sigma$?
+    + no proof required, it is true.
+
++ [Observations](../Stats/ProbStatsPython/11-StatEstCI.md#115-estimating-standard-deviation)
+  + bias not so bad
+  + providing more freedom
+  + best estimator (MSE) often biased
+  + as the number of samples $n \nearrow \implies s \to \sigma$
+  + consistent
+
++ [Summary](../Stats/ProbStatsPython/11-StatEstCI.md#115-estimating-standard-deviation)
+  + estimator for $\sigma$: $s \stackrel{\text{def}}{=} + \sqrt{s^2} = +\sqrt{\frac{1}{n-1} \sum_{i=1}^n \left(X_1 - \overline{X}\right)^2}$
+  + evaluating $\sigma$: $E[s] \le \sigma$ and '<' hold for non-constant distributions
+  + unbiased estimator
+  + simple proof: no unbiased estimator
+  + property: some bias ok as long as MSE small
+
+
+
+
+
+
+
+## Confidence Interval w/ known $\sigma$
+
++ [Point and interval parameters](../Stats/ProbStatsPython/11-StatEstCI.md#116-confidence-interval)
+  + distribution or population: estimate __parameters__
+  + point estimates:
+    + precise
+    + certainly wrong: not exactly the values got
+    + no confidence
+  + confidence intervals
+    + precision $\searrow$
+    + confidence $\nearrow$
+
++ [Normal distribution](../Stats/ProbStatsPython/11-StatEstCI.md#116-confidence-interval)
+  + CLT
+    + averages: normally distributed
+    + intuition
+    + almost everything
+  + r.v's: $X_1, \dots, X_n \;\; {\perp \!\!\!\! \perp},\; \sim$ any distribution w/ mean $\mu$ and stdev $\sigma$
+  + sample mean
+  
+    \[ \overline{X^n} \stackrel{\text{def}}{=} \frac{X_1 + \cdots + X_n}{n} \]
+
+  + normalized sample mean:
+  
+    \[Z_n \stackrel{\text{def}}{=} \frac{(X_1 + cdots + X_n) -  n\mu}{\sigma\sqrt{n}} \]
+
+  + applying CLT
+    + for sufficiently large $n$, typically $\ge 30$
+    + standard Normal variable: $Z_n \mathrel{\dot\sim} N(0, 1)$
+
++ [Interval probability](../Stats/ProbStatsPython/11-StatEstCI.md#116-confidence-interval)
+  + r.v.: $Z \sim N(0, 1)$
+  + CDF:
+
+    \[ \Phi(a) = F(a) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^a e^{-t^2/2} \,dt \]
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/yb3dyuhl" ismap target="_blank">
+        <img src="img/t11-06.png" style="margin: 0.1em;" alt="Illustration of confidence interval w/ t-table" title="Illustration of confidence interval w/ t-table" height=100>
+        <img src="img/t11-07.png" style="margin: 0.1em;" alt="Illustration of z / standard normal table" title="Illustration of z / standard normal table" height=100>
+      </a>
+    </div>
+
+  + Python code for z-table
+    + library: `from scipy.stats import norm`
+    + CDF of standard normal: `norm.cdf(x)`
+
++ [Intervals $\to$ Probability](../Stats/ProbStatsPython/11-StatEstCI.md#116-confidence-interval)
+  + finding $a$ s.t. $\Pr(-a \le Z \le a) = p$
+  
+    \[ p = \Pr(-a \le Z \le a) = 2\Phi(a) -1 \to \Phi(a) = \frac{1+p}{2} \implies a = \Phi^{-1}\left(\frac{1+p}{2}\right) \]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yb3dyuhl" ismap target="_blank">
+      <img src="img/t11-08.png" style="margin: 0.1em;" alt="Illustration of obtaining probability w/ a given interval" title="Illustration of obtaining probability w/ a given interval" height=100>
+    </a>
+  </div>
+
+  + Python code to get probability
+    + convert a percentile to a point
+    + library: `import scipy.stats as stat`
+    + percent point function $\Phi^{-1}(p)$: `stat.norm.ppf(x)`
+
+  + common values: 68-97.5-99 rule: $\Pr(-2 \le Z \le 2) \approx 0.95$<br/><br/>
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$p$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\frac{1+p}{2}$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\Phi^{-1}\left(\frac{1+p}{2}\right)$</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">90</td> <td style="text-align: center;">0.95</td> <td style="text-align: center;">1.645</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">95</td> <td style="text-align: center;">0.975</td> <td style="text-align: center;">1.960</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">98</td> <td style="text-align: center;">0.99</td> <td style="text-align: center;">2.056</td>
+      </tr>
+      </tbody>
+    </table>
+
++ [General Normal distribution](../Stats/ProbStatsPython/11-StatEstCI.md#116-confidence-interval)
+  + normal distribution: $X \sim N_{\mu, \sigma^2} \quad N(\mu, \sigma^2)$
+  + standard normal distribution: $Z \stackrel{\text{def}}{=} \frac{X - \mu}{\sigma} \;\;\sim N_{0, 1}$
+
+    \[\begin{align*}
+      \Pr(\underbrace{\mu - a\sigma \le X \le \mu+a\sigma}_{\substack{X \text{ within "a" stdev}\\\text{from its mean}}}) &= \Pr(-a\sigma \le X - \mu \le a \sigma) = \Pr\left(-a \le \frac{X - \mu}{\sigma} \le a\right) \\
+      &= \Pr(\underbrace{-a \le Z \le a}_{\substack{Z \text{ within "a" stdev}\\\text{from its mean}}})
+    \end{align*}\]
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ya5tozvb" ismap target="_blank">
+      <img src="https://tinyurl.com/ya386usb" style="margin: 0.1em;" alt="A normal and standard normal curve." title="A normal and standard normal curve." width=400>
+    </a>
+  </div>
+
++ [Confidence intervals](../Stats/ProbStatsPython/11-StatEstCI.md#116-confidence-interval)
+  + applied to any parameter
+  + simplest and by far the most common for
+    + mean $\mu$
+    + proportion $p$
+  + given a simple $X_1, \dots, X_n$
+  + finding an interval containing $\mu$
+
++ [Sample-mean distribution](../Stats/ProbStatsPython/11-StatEstCI.md#116-confidence-interval)
+  + normalized sample mean as standard normal distribution
+
+    \[ \frac{X_1 + \cdots + X_n - n \mu}{\sigma\sqrt{n}} \mathrel{\dot\sim} N(0,1) \]
+
+  + scaled sample mean as 0-mean normal distribution
+
+    \[ \frac{X_1 + \cdots + X_n - n \mu}{n} \mathrel{\dot\sim} N\left(0,\frac{\sigma^2}{n}\right) \]
+
+  + sample mean as normal distribution
+
+    \[ \overline{X} = \frac{X_1 + \cdots + X_n}{n} \mathrel{\dot\sim} N\left(\mu, \frac{\sigma^2}{n}\right) \]
+
+  + sample mean $\overline{X}$
+    + roughly normal
+    + centered at distribution mean: $\mu_{\overline{X}} = \mu$
+    + standard deviation: $var(\overline{X}) = \frac{\sigma^2}{n} \quad\to\quad \sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}$ (standard error)
+
++ [Proximity](../Stats/ProbStatsPython/11-StatEstCI.md#116-confidence-interval)
+  + Reciprocal : applied to both direction
+  + sample mean and population mean
+    + $\overline{X}$ near $\mu$: $\overline{X}$ likely near $\mu$
+    + $\mu$ near $\overline{X}$:
+
+      \[ \overline{X} \in (\mu - a, \mu +a) \xleftarrow{\text{proximity}} |\overline{X} - \mu| < a \xrightarrow{\text{proximity}} \mu \in \left( \overline{X} -a, \overline{X} + a \right) \]
+
++ [Confidence interval with probability $p$](../Stats/ProbStatsPython/11-StatEstCI.md#116-confidence-interval)
+
+  \[\begin{align*}
+    &\overline{X} \in (\mu - z_p \sigma_{\overline{X}}, \mu + z_p \sigma_{\overline{X}}) \\
+    &|\overline{X} - \mu| < z_p \sigma_{\overline{X}} \\
+    &\mu \in \left(\overline{X} - z_p \frac{\sigma}{\sqrt{n}}, \overline{X} + z_p \frac{\sigma}{\sqrt{n}}\right)
+  \end{align*}\]
+
++ [Confidence interval w/ known $\sigma$](../Stats/ProbStatsPython/11-StatEstCI.md#117-confidence-interval---sigma-unknown)
+  + standard normal distribution: $N(0, 1)$
+  + critical point $z_p$: point of probability $p$ s.t. area btw $-z_p$ and $z_p$ w/ $0 \le p \le 1$
+  + r.v. w/ standard normal: $Z \sim N(0, 1)$
+
+    \[ p = \Pr(|Z| \le z_p) = 2 \Phi(z_p) -1 \]
+
+  + $\Phi(x)$: CDF of standard normal
+
+    \[ \Phi(z_p) = \frac{1+p}{2} \implies z_p = \Phi^{-1}\left( \frac{1+p}{2} \right) \]
+
++ [Sample mean $\mathrel{\dot\sim}$ Normal](../Stats/ProbStatsPython/11-StatEstCI.md#117-confidence-interval---sigma-unknown)
+  + r.v.'s: $X_1, X_2, \dots, X_n$ iid w/ known $\sigma$ and unknown $\mu$
+  + sample mean: $\overline{X} = \frac{X_1 + \cdots + X_n}{n}$
+  + unbiased sample mean: $\mu_{\overline{X}} = \mu$
+  + variance and standard deviation: $var(\overline{X}) = \frac{\sigma^2}{n} \quad \sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}$
+
+    \[ \frac{\overbrace{\overline{X} - \mu}^{\text{mean } 0}}{\underbrace{\sigma_{\overline{X}}}_{\text{stdev } 1}} = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \quad\underbrace{\mathrel{\dot\sim}}_{\text{CLT}}\quad N(0, 1) \]
+
++ [Confidence interval](../Stats/ProbStatsPython/11-StatEstCI.md#117-confidence-interval---sigma-unknown)
+  + standard normal: $Z \sim N(0, 1) \quad \Pr(|Z| \le z_p) = p$
+  + normalized standard normal: $\frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \mathrel{\dot\sim} N(0, 1)$
+
+    \[ \Pr\left( \left|\frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \right| \le z_p \right) \approx p \implies \Pr\left( |\overline{X} - \mu | \le z_p \frac{\sigma}{\sqrt{n}} \right) \approx p \]
+
+  + with probability $\approx p$
+
+    \[ |\overline{X} - \mu| \le \underbrace{z_p \frac{\sigma}{\sqrt{n}}}_{\text{margin of error}} \implies \mu \in \left[ \overline{X} - z_p \frac{\sigma}{\sqrt{n}}, \overline{X} + z_p \frac{\sigma}{\sqrt{n}} \right] \]
+
++ [Confidence level to confidence interval](../Stats/ProbStatsPython/11-StatEstCI.md#117-confidence-interval---sigma-unknown)
+  + critical value $z$: $ \Phi^{-1}\left( \frac{1+p}{2}\right) \to $ `scipy.stats.norm.ppf((1+p)/2)`
+  + sample mean: $\overline{X} = \frac{X_1+\cdots+X_n}{n}$
+  + margin of error w/ know $\sigma$: $z_p \frac{\sigma}{\sqrt{n}}$
+  + confidence interval: $\left[ \overline{X} - z_p \frac{\sigma}{\sqrt{n}}, \overline{X} + z_p \frac{\sigma}{\sqrt{n}} \right]$
+  + problem: $\sigma$ almost never known
+
+
+
+
+
+
+## Confidence Interval w/ Unknown $\sigma$
+
++ [Statistics w/ unknown $\sigma$](../Stats/ProbStatsPython/11-StatEstCI.md#117-confidence-interval---sigma-unknown)
+  + r.v's: $X_1, \dots, X_n \;\;{\perp \!\!\!\! \perp} \;\; \; N(\mu, \sigma^2)$
+  + neither $\sigma,$ nor $\mu$ known
+  + finding $\mu$
+  + sample mean: $\overline{X} = \frac{X_1 + \dots + X_n}{n}$
+  + unbiased sample mean: $\mu_{\overline{X}} = \mu$
+  + standard deviation: $\sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}$
+  + standard normal: $\frac{\overline{X} - \mu}{\sigma_{\overline{X}}} = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \mathrel{\dot\sim} N(0, 1)$
+  + sample variance w/ Bessel correction: $s^2 = \frac{1}{n-1}\sum_{i=1}^n \left(X_i - \overline{X}\right)^2$
+  + unbiased sample variance: $\mu_{s^2} = \sigma^2$
+  + $\frac{\overline{X}-\mu}{s/\sqrt{n}}$
+    + almost standard: $s \approx \sigma$
+    + almost normal: $s$ as a r.v.
+  + student's t-distribution w/ $n-1$ degrees of freedom
+
++ [Student's t-distribution](../Stats/ProbStatsPython/11-StatEstCI.md#117-confidence-interval---sigma-unknown)
+  + student t-distribution w/ $\nu$ degrees of freedom: $T_{\nu} = \frac{\overline{X} - \mu}{s/\sqrt{\nu + 1}}$
+  + PDF:
+
+    \[ T_{\nu} \sim f_{\nu}(t) = \frac{\Gamma(\frac{\nu+1}{2})}{\sqrt{\nu \pi}\cdot \Gamma(\frac{\nu}{2})} \left( 1 + \frac{t^2}{\nu} \right)^{-\frac{\nu+1}{2}} \]
+
+    + $\nu$: degrees of freedom
+    + $\Gamma(n) = n!$: gamma function
+    + only depending on $t$
+    + symmetric around 0
+  + Python code
+    + `t` class in `scipy.stats` module
+    + probability density function: `scipy.stats.t.pdf(x, v)`
+
+  + properties:
+    + Bell shaped like
+    + similar to Gaussian
+      + as $\nu \nearrow \to $ standard Normal
+      + $n$ increasing $\to s$ concentrated $\to$ a constant $\to \sigma$
+
+      <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+        <a href="https://tinyurl.com/y4ewofss" ismap target="_blank">
+          <img src="https://tinyurl.com/y7b3mcg9" style="margin: 0.1em;" alt="Exaggerated representations of the z and t distributions" title="Exaggerated representations of the z and t distributions" width=350>
+        </a>
+      </div>
+
++ Confidence interval for t distribution
+  + $T_\nu$: student's t-distribution, $\nu$ degrees of freedom
+  + t-statistic (critical value $t_{p, \nu}): \Pr(|T_\nu| \le t_{p, \nu}) = p$
+  
+    \[ p = \Pr(|T_\nu| \le t_{p, \nu}) = \Pr(-t_{p, \nu} \le T_\nu \le t_{p, \nu}) = 2 F(T_{p, \nu}) - 1 \]
+
+  + CDF of $T_\nu$: $F(t_{p, \nu}) = \frac{1+p}{2}$
+  + critical value: $t_{p, \nu} = F^{-1} \left(\frac{1+p}{2}\right)$
+  + Python code
+    + cumulative distribution function: `t.cdf(x, v)`, e.g., $F_3(1)$
+    + inverse cdf: percent point function `t.ppf(x, v)`, e.g., $F_3^{-1}(0.95)$
+
++ [Confidence interval for t distribution](../Stats/ProbStatsPython/11-StatEstCI.md#117-confidence-interval---sigma-unknown)
+  + t-distribution, $\nu$ degrees of freedom
+  + t-statistic: $\frac{\overline{X} - \mu}{s/\sqrt{n}} \sim f_{n-1}(t)$
+
+    \[ \Pr\left(\left|\frac{\overline{X} - \mu}{s/\sqrt{n}} \right| \le t_{p, n-1}\right) = p \implies \Pr\left(\left|\overline{X} - \mu\right| \le t_{p, n-1} \frac{s}{\sqrt{n}}\right) = p \]
+
+  + w/ probability $p$
+
+    \[ |\overline{X} - \mu| \le \underbrace{t_{p, n-1} \frac{s}{\sqrt{n}}}_{\text{margin of error}} \implies \mu \in \left[\overline{X} - t_{p, n-1} \frac{s}{\sqrt{n}}, \overline{X} + t_{p, n-1} \frac{s}{\sqrt{n}}  \right] \]
+
++ [Confidence level $\to$ confidence interval](../Stats/ProbStatsPython/11-StatEstCI.md#117-confidence-interval---sigma-unknown)
+  + t-score: $t_{p, n-1} = F^{-1}_{n-1} \left(\frac{1+p}{n}\right) \to$ `t.ppf((1+p)/2)` 
+  + sample mean: $\overline{X} = \frac{X_1 + \cdots + X_n}{n}$
+  + sample variance: $s^2 = \frac{1}{n-1} \sum_{i=1}^n \left( X_i - \overline{X}\right)^2$
+  + margin of error: $t_{p, n-1}\frac{s}{\sqrt{n}} \to$ no $\sigma$ required
+  + confidence interval: $\left[ \overline{X} - t_{p, n-1} \frac{s}{\sqrt{n}}, \overline{X} + t_{p, n-1} \frac{s}{\sqrt{n}} \right]$
+
++ [Observations](../Stats/ProbStatsPython/11-StatEstCI.md#117-confidence-interval---sigma-unknown)
+  + $n$ large
+    + $f_{n-1}(t) \to \phi(t)$, where $\phi(t)$ as standard normal PDF
+    + $t_{p, n-1} \to z_p$
+    + $s \to \sigma$
+    + able to use z-based techniques
+  + $n$ small
+    + t-distribution more accurate
+    + yields larger margin of error than known $\sigma$
+    + assumed $X_i \sim N$, best when this roughly holds
+
+
+
+
 
 
 ## Analysis Methodologies

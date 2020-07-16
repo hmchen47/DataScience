@@ -167,15 +167,35 @@
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#basic-concepts"> Terminology </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#statistical-inference"> Inference </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#bias-and-variance"> Bias &amp; Variance </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#margin-of-error"> Margin of Error </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#analysis-methodologies"> Analysis </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#multiple-distributions"> Multiple Distributions </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#hypothesis-test"> Hypothesis Test </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#multiple-distributions"> Multiple Distributions </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#">  </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Inference </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#statistical-inference"> Overview </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#mean-estimation"> Mean </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#variance-estimation"> Variance </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#unbiased-variance-estimation"> Unbiased Variance </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#standard-deviation-estimation"> Standard Deviation </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#onfidence-interval-w-known-22342"> CI w/ known $\sigma$ </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#confidence-interval-w-unknown-31675"> CI w/ unknown $\sigma$ </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#">  </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Hypothesis </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#hypothesis-test"> Overview </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Distributions </th>
