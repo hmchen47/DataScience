@@ -345,6 +345,59 @@
 
 
 
+## Standard Deviation Estimation
+
++ [Variance ($\sigma^2$) $\to$ Standard Deviation ($\sigma$)](../Stats/ProbStatsPython/11-StatEstCI.md#115-estimating-standard-deviation)
+  + variance estimator: sample variance: $s^2 = \frac{1}{n-1} \sum_{i=1}^n \left( X_1 - \overline{X} \right)^2$
+  + standard standard-deviation estimator
+    + natural $\sigma$ estimator
+    + sample standard deviation: $\sigma = \sqrt{\sigma^2}$
+
+      \[ s \stackrel{\text{def}}{=} +\sqrt{s^2} = +\sqrt{\frac{1}{n-1} \sum_{i=1}^n \left( X_1 - \overline{X} \right)^2} \]
+
++ [$s$ unbiased?](../Stats/ProbStatsPython/11-StatEstCI.md#115-estimating-standard-deviation)
+  + $E[s] \le \sigma$: < whenever $X$ not a constant
+  + $s$ underestimating $\sigma$: = hold only when $x$ a constant
+  + on average $s$ under-estimating $\sigma$
+
++ [Proving impossiblility for Bernoulli](../Stats/ProbStatsPython/11-StatEstCI.md#115-estimating-standard-deviation)
+  + $\widehat{\sigma}$: any estimator for $\sigma$ of $B_p$ distributions
+  + $\widehat{\sigma}(x_1, x_2)$
+  + expectation of standard deviation estimator
+    + polynomial in $p$
+    + degree-2 polynomial
+  + $\sigma = \sqrt{p(1-p)}$: not a polynomial in $p$
+  + the two functions different: $\exists\,p \; E\left[\widehat{\sigma}(X_1, X_2)\right] \ne \sigma$
+
++ [Impossibility](../Stats/ProbStatsPython/11-StatEstCI.md#115-estimating-standard-deviation)
+  + estimators for $B_p$
+  + shown that $\forall\, \widehat{\sigma}, E[\widehat{\sigma}(X_1, X_2)] \implies $ polynomial in $p$
+    + $\sigma = \sqrt{p(1-p)} \to$ not polynomial in $p$
+    + $\exists\, p, E\left[\widehat{\sigma}(X_1, X_2)\right] \ne \sigma$
+    + $\therefore\, \widehat{\sigma}$ not unbiased
+  + how to prove $E\left[\widehat{\sigma}(X_1, X_2)\right] \ne \sigma$?
+    + no proof required, it is true.
+
++ [Observations](../Stats/ProbStatsPython/11-StatEstCI.md#115-estimating-standard-deviation)
+  + bias not so bad
+  + providing more freedom
+  + best estimator (MSE) often biased
+  + as the number of samples $n \nearrow \implies s \to \sigma$
+  + consistent
+
++ [Summary](../Stats/ProbStatsPython/11-StatEstCI.md#115-estimating-standard-deviation)
+  + estimator for $\sigma$: $s \stackrel{\text{def}}{=} + \sqrt{s^2} = +\sqrt{\frac{1}{n-1} \sum_{i=1}^n \left(X_1 - \overline{X}\right)^2}$
+  + evaluating $\sigma$: $E[s] \le \sigma$ and '<' hold for non-constant distributions
+  + unbiased estimator
+  + simple proof: no unbiased estimator
+  + property: some bias ok as long as MSE small
+
+
+
+
+
+
+
 ## Analysis Methodologies
 
 + [meta-analysi](../Notes/p01-Bayesian.md#31-subjectivity-and-context)
