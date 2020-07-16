@@ -1911,11 +1911,99 @@
 
 ## Programming Assignment 11
 
+### ntroduction
+
+In this assignment you will learn to apply confidence intervals in real world examples.
 
 
+### Dataset
+
+According to [Wikipedia](https://tinyurl.com/yc6ylklv) San Diego has one of the best climates in the United states, enjoying consistent and mild weather year round. We will use the hourly [weather](https://tinyurl.com/yajzg88h) dataset to consider temperature changes in the city.
 
 
+### Some useful functions
 
+The following functions, outlined in the [SciPy](https://tinyurl.com/glrgcp6) library may prove helpful.
+
++ `scipy.stats.norm.ppf()`: Returns the percent point function for the normal distribution
++ `scipy.stats.t.ppf()`: Returns the percent point function for the student's t distribution
+
+
+### Questions
+
+Using the above dataset, answer the following questions for San Diego's temperature:
+
+1. If you plot a histogram with 100 bins using all the samples, which one would represesnt San Diego
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/ycshndf4" ismap target="_blank">
+      <img src="img/t11-12a_Portland2.png" style="margin: 0.1em;" alt="Histogram of hourly weather dataset: Q1 option a - Portland" title="Histogram of hourly weather dataset: Q1 option a" height=150>
+      <img src="img/t11-12b_San_Antonio2.png" style="margin: 0.1em;" alt="Histogram of hourly weather dataset: Q1 option b - San Antonio" title="Histogram of hourly weather dataset: Q1 option b" height=150>
+      <img src="img/t11-12c_San_Diego2.png" style="margin: 0.1em;" alt="Histogram of hourly weather dataset: Q1 option c - San Diego" title="Histogram of hourly weather dataset: Q1 option c" height=150>
+      <img src="img/t11-12d_Detroit2.png" style="margin: 0.1em;" alt="Histogram of hourly weather dataset: Q1 option d - Detroit" title="Histogram of hourly weather dataset: Q1 option d" height=150>
+    </a>
+  </div>
+
+  Ans: c <br/>
+
+  ```python
+  import pandas as pd
+  import matplotlib.pyplot as plt 
+
+  df = pd.read_csv('./data/temperature.csv')
+  df = df.loc[:, ['San Diego']]
+
+  all_temperature = df.values
+  all_temperature = all_temperature[~np.isnan(all_temperature)]
+
+  plt.hist(all_temperature, bins = 100) 
+  plt.show()
+  ```
+
+
+2. The sample mean and variance over the data's duration<br/>
+  a. Sample mean (Report your answers in Kelvin)<br/>
+  b. Variance<br/>
+
+  Ans: a. (290.216795); b. (34.98318591685673)
+
+  ```python
+  import numpy as np
+  import pandas as pd
+
+  df = pd.read_csv('./temperature.csv')
+  df = df.loc[:, ['San Diego']]
+
+  all_temperature = df.values
+  all_temperature = all_temperature[~np.isnan(all_temperature)]
+
+  mu_all = np.mean(all_temperature)
+  var_all = np.var(all_temperature, ddof=1)
+
+  print('The sample mean is {}'.format(mu_all))
+  print('The sample variance is {}'.format(var_all))
+  ```
+
+
+3. The sample mean in February 2013
+
+  Ans: 285.24695012400906
+
+  ```python
+  import numpy as np
+  import pandas as pd
+
+  df = pd.read_csv('./temperature.csv')
+  df = df[ df['datetime'].str.contains('2013-02')]
+  df = df.loc[:, ['San Diego']]
+
+  temperature = df.values
+  temperature = temperature[~np.isnan(temperature)]
+
+  mu = np.mean(temperature)
+
+  print('The sample mean in February 2013 is {}'.format(mu))
+  ```
 
 
 
