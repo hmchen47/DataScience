@@ -67,6 +67,164 @@
   + exponential: `**`
 
 
+## Numpy Statistic Functions
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y79873lp">Order statistics</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.amin.html#numpy.amin" title="numpy.amin"><code>amin</code></a>(a[,&nbsp;axis,&nbsp;out,&nbsp;keepdims,&nbsp;initial,&nbsp;where])</p></td>
+      <td><p>Return the minimum of an array or minimum along an axis.</p></td>
+    </tr>
+    <tr >
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.amax.html#numpy.amax" title="numpy.amax"><code>amax</code></a>(a[,&nbsp;axis,&nbsp;out,&nbsp;keepdims,&nbsp;initial,&nbsp;where])</p></td>
+      <td><p>Return the maximum of an array or maximum along an axis.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nanmin.html#numpy.nanmin" title="numpy.nanmin"><code>nanmin</code></a>(a[,&nbsp;axis,&nbsp;out,&nbsp;keepdims])</p></td>
+      <td><p>Return minimum of an array or minimum along an axis, ignoring any NaNs.</p></td>
+    </tr>
+    <tr >
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nanmax.html#numpy.nanmax" title="numpy.nanmax"><code>nanmax</code></a>(a[,&nbsp;axis,&nbsp;out,&nbsp;keepdims])</p></td>
+      <td><p>Return the maximum of an array or maximum along an axis, ignoring any NaNs.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.ptp.html#numpy.ptp" title="numpy.ptp"><code>ptp</code></a>(a[,&nbsp;axis,&nbsp;out,&nbsp;keepdims])</p></td>
+      <td><p>Range of values (maximum - minimum) along an axis.</p></td>
+    </tr>
+    <tr >
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.percentile.html#numpy.percentile" title="numpy.percentile"><code>percentile</code></a>(a,&nbsp;q[,&nbsp;axis,&nbsp;out,&nbsp;…])</p></td>
+      <td><p>Compute the q-th percentile of the data along the specified axis.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nanpercentile.html#numpy.nanpercentile" title="numpy.nanpercentile"><code>nanpercentile</code></a>(a,&nbsp;q[,&nbsp;axis,&nbsp;out,&nbsp;…])</p></td>
+      <td><p>Compute the qth percentile of the data along the specified axis, while ignoring nan values.</p></td>
+    </tr>
+    <tr >
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.quantile.html#numpy.quantile" title="numpy.quantile"><code>quantile</code></a>(a,&nbsp;q[,&nbsp;axis,&nbsp;out,&nbsp;overwrite_input,&nbsp;…])</p></td>
+      <td><p>Compute the q-th quantile of the data along the specified axis.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nanquantile.html#numpy.nanquantile" title="numpy.nanquantile"><code>nanquantile</code></a>(a,&nbsp;q[,&nbsp;axis,&nbsp;out,&nbsp;…])</p></td>
+      <td><p>Compute the qth quantile of the data along the specified axis, while ignoring nan values.</p></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y8ustxop">Averages and variances</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.median.html#numpy.median" title="numpy.median"><code>median</code></a>(a[,&nbsp;axis,&nbsp;out,&nbsp;overwrite_input,&nbsp;keepdims])</p></td>
+      <td><p>Compute the median along the specified axis.</p></td>
+    </tr>
+    <tr >
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.average.html#numpy.average" title="numpy.average"><code>average</code></a>(a[,&nbsp;axis,&nbsp;weights,&nbsp;returned])</p></td>
+      <td><p>Compute the weighted average along the specified axis.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.mean.html#numpy.mean" title="numpy.mean"><code>mean</code></a>(a[,&nbsp;axis,&nbsp;dtype,&nbsp;out,&nbsp;keepdims])</p></td>
+      <td><p>Compute the arithmetic mean along the specified axis.</p></td>
+    </tr>
+    <tr >
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.std.html#numpy.std" title="numpy.std"><code>std</code></a>(a[,&nbsp;axis,&nbsp;dtype,&nbsp;out,&nbsp;ddof,&nbsp;keepdims])</p></td>
+      <td><p>Compute the standard deviation along the specified axis.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.var.html#numpy.var" title="numpy.var"><code>var</code></a>(a[,&nbsp;axis,&nbsp;dtype,&nbsp;out,&nbsp;ddof,&nbsp;keepdims])</p></td>
+      <td><p>Compute the variance along the specified axis.</p></td>
+    </tr>
+    <tr >
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nanmedian.html#numpy.nanmedian" title="numpy.nanmedian"><code>nanmedian</code></a>(a[,&nbsp;axis,&nbsp;out,&nbsp;overwrite_input,&nbsp;…])</p></td>
+      <td><p>Compute the median along the specified axis, while ignoring NaNs.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nanmean.html#numpy.nanmean" title="numpy.nanmean"><code>nanmean</code></a>(a[,&nbsp;axis,&nbsp;dtype,&nbsp;out,&nbsp;keepdims])</p></td>
+      <td><p>Compute the arithmetic mean along the specified axis, ignoring NaNs.</p></td>
+    </tr>
+    <tr >
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nanstd.html#numpy.nanstd" title="numpy.nanstd"><code>nanstd</code></a>(a[,&nbsp;axis,&nbsp;dtype,&nbsp;out,&nbsp;ddof,&nbsp;keepdims])</p></td>
+      <td><p>Compute the standard deviation along the specified axis, while ignoring NaNs.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nanvar.html#numpy.nanvar" title="numpy.nanvar"><code>nanvar</code></a>(a[,&nbsp;axis,&nbsp;dtype,&nbsp;out,&nbsp;ddof,&nbsp;keepdims])</p></td>
+      <td><p>Compute the variance along the specified axis, while ignoring NaNs.</p></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/yc6sbejm">Correlating</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.corrcoef.html#numpy.corrcoef" title="numpy.corrcoef"><code>corrcoef</code></a>(x[,&nbsp;y,&nbsp;rowvar,&nbsp;bias,&nbsp;ddof])</p></td>
+      <td><p>Return Pearson product-moment correlation coefficients.</p></td>
+    </tr>
+    <tr >
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.correlate.html#numpy.correlate" title="numpy.correlate"><code>correlate</code></a>(a,&nbsp;v[,&nbsp;mode])</p></td>
+      <td><p>Cross-correlation of two 1-dimensional sequences.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.cov.html#numpy.cov" title="numpy.cov"><code>cov</code></a>(m[,&nbsp;y,&nbsp;rowvar,&nbsp;bias,&nbsp;ddof,&nbsp;fweights,&nbsp;…])</p></td>
+      <td><p>Estimate a covariance matrix, given data and weights.</p></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y7vdpd8f">Histograms</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.histogram.html#numpy.histogram" title="numpy.histogram"><code>histogram</code></a>(a[,&nbsp;bins,&nbsp;range,&nbsp;normed,&nbsp;weights,&nbsp;…])</p></td>
+      <td><p>Compute the histogram of a set of data.</p></td>
+    </tr>
+    <tr >
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.histogram2d.html#numpy.histogram2d" title="numpy.histogram2d"><code>histogram2d</code></a>(x,&nbsp;y[,&nbsp;bins,&nbsp;range,&nbsp;normed,&nbsp;…])</p></td>
+      <td><p>Compute the bi-dimensional histogram of two data samples.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.histogramdd.html#numpy.histogramdd" title="numpy.histogramdd"><code>histogramdd</code></a>(sample[,&nbsp;bins,&nbsp;range,&nbsp;normed,&nbsp;…])</p></td>
+      <td><p>Compute the multidimensional histogram of some data.</p></td>
+    </tr>
+    <tr >
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.bincount.html#numpy.bincount" title="numpy.bincount"><code>bincount</code></a>(x[,&nbsp;weights,&nbsp;minlength])</p></td>
+      <td><p>Count number of occurrences of each value in array of non-negative ints.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.histogram_bin_edges.html#numpy.histogram_bin_edges" title="numpy.histogram_bin_edges"><code>histogram_bin_edges</code></a>(a[,&nbsp;bins,&nbsp;range,&nbsp;weights])</p></td>
+      <td><p>Function to calculate only the edges of the bins used by the <a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.histogram.html#numpy.histogram" title="numpy.histogram"><code>histogram</code></a> function.</p></td>
+    </tr>
+    <tr >
+      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.digitize.html#numpy.digitize" title="numpy.digitize"><code>digitize</code></a>(x,&nbsp;bins[,&nbsp;right])</p></td>
+      <td><p>Return the indices of the bins to which each value in input array belongs.</p></td>
+    </tr>
+    </tbody>
+  </table>
+
 
 
 
