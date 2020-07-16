@@ -1440,7 +1440,7 @@
     + $t_{p, n-1} \to z_p$
     + $s \to \sigma$
     + able to use z-based techniques
-  + $n$ smallgj
+  + $n$ small
     + t-distribution more accurate
     + yields larger margin of error than known $\sigma$
     + assumed $X_i \sim N$, best when this roughly holds
@@ -1925,7 +1925,7 @@
 
 ## Programming Assignment 11
 
-### ntroduction
+### Introduction
 
 In this assignment you will learn to apply confidence intervals in real world examples.
 
