@@ -98,6 +98,14 @@
 
 ## Reading List
 
+### Basic Math
+
++ Prof. David Jerison, [Single Variable Calculus](https://ocw.mit.edu/courses/mathematics/18-01sc-single-variable-calculus-fall-2010/), 2010
++ Prof. Denis Auroux, [Multivariable Calculus](https://ocw.mit.edu/courses/mathematics/18-02sc-multivariable-calculus-fall-2010/), 2010
++ Prof. Arthur Mattuck, Prof. Haynes Miller, Jeremy Orloff, Dr. John Lewis, [Differential Equations](https://ocw.mit.edu/courses/mathematics/18-03sc-differential-equations-fall-2011/), 2011
++ Prof. Gil Strang, [18.06 Linear Algebra](http://web.mit.edu/18.06/www/videos.shtml), 2020
+
+
 ### Probability and Statistics
 
 + Prof. John Tsitsiklis and Prof. Patrick Jaillet, [Introduction to Probability](https://ocw.mit.edu/resources/res-6-012-introduction-to-probability-spring-2018/), 2018
@@ -121,9 +129,6 @@
 
 ### Machine Learning
 
-+ Prof. David Jerison, [Single Variable Calculus](https://ocw.mit.edu/courses/mathematics/18-01sc-single-variable-calculus-fall-2010/), 2010
-+ Prof. Denis Auroux, [Multivariable Calculus](https://ocw.mit.edu/courses/mathematics/18-02sc-multivariable-calculus-fall-2010/), 2010
-+ Prof. Arthur Mattuck, Prof. Haynes Miller, Jeremy Orloff, Dr. John Lewis, [Differential Equations](https://ocw.mit.edu/courses/mathematics/18-03sc-differential-equations-fall-2011/), 2011
 + Gilbert Strage, [Calculus](https://ocw.mit.edu/ans7870/resources/Strang/Edited/Calculus/Calculus.pdf)
 
 + Trevor Hastie and Rob Tibshirani, [introduction to machine learning](https://www.r-bloggers.com/in-depth-introduction-to-machine-learning-in-15-hours-of-expert-videos/)
