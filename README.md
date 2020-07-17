@@ -198,22 +198,22 @@
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Distributions </th>
+    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Distributions </th>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#bernoulli-distribution"> Bernoulli </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#binomial-distribution"> Binomial </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#beta-distribution"> Beta </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#beta-binomial-distribution"> Beta-Binomial </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-<<<<<<< HEAD
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#poisson-distribution"> Poisson </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#geometric-distribution"> Geometric </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#">  </a></td>
-=======
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#uniform-distribution"> Uniform </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#exponential-distribution"> Exponential </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#gaussian-distribution"> Gaussian </a></td>
->>>>>>> pspy09
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#">  </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#">  </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
