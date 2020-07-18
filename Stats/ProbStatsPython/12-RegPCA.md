@@ -214,10 +214,50 @@
 
 ### Problem Sets
 
+0. Which is NOT true of an orthonormal basis?	<br/>
+  a. All of the vectors in the set are orthogonal to each other. The norm of each vector is 1.<br/>
+  b. The standard basis in $\Bbb{R}^3$, $e_1=(1,0,0), e_2=(0,1,0), e_3=(0,0,1)$, is orthonormal.<br/>
+  c. A vector in the set cannot be a scalar multiple of another vector in the set.<br/>
+  d. An orthonormal basis can contain infinitely many vectors for any vector space.<br/>
+
+  Ans: c<br/>
+  Explanation: "An orthonormal basis can contain infinitely many vectors for any vector space." is not true. For example, you cannot have an orthonormal basis containing more than 2 vectors for the vector space $\Bbb{R}^2$.
+
+
+1. What is the length of $\vec{u}$ such that $\vec{u} = \frac{\vec{v}}{\parallel \vec{v}\parallel}$, $\vec{v} =(2,3,7)$?<br/>
+  a. 1 <br/>
+  b. 3.61 <br/>
+  c. 7.84 <br/>
+  d. 62<br/>
+
+  Ans: a <br/>
+  Explanation: The length of $\vec{u}$ is $\Vert \vec{u} \Vert = \sqrt{\vec{u}^T \vec{u}} = \sqrt{ \frac{\vec{v}^T \vec{v}}{ \Vert v \Vert^2} } = \sqrt { \frac{\Vert v \Vert^2}{\Vert v \Vert^2} } = 1$
+
+
+2. If every vector in an orthonormal basis is orthogonal to each other, this implies that there can be one and only one vector for each dimension of the vector space in this set. (True/False)
+
+  Ans: <span style="color: cyan;">True</span><br/>
+  Explanation: Orthogonality implies linear independence. The vectors in an orthonormal basis are linear independent.
+
+
+3. An inner product, such as the dot product, always uses two vectors as operands and produces a scalar number as the result.
+
+  Ans: True<br/>
+  Explanation: An inner product maps two vectors to a scalar $\langle \cdot, \cdot\rangle: \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}$
+
+
+4. If vectors $\vec{a}$ and $\vec{b}$ are orthogonal, then what is the value of $\vec{a} \cdot \vec{b}$?<br/>
+  a. 0 <br/>
+  b. 1 <br/>
+  c. 2 <br/>
+  d. 90<br/>
+
+  Ans: a<br/>
+  Explanation: By the definition of orthogonality, $\vec{a} \cdot \vec{b} = \vec{a}^T \vec{b} = 0$
 
 
 
-### Lecture Video 
+### Lecture Video
 
 <a href="url" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
