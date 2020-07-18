@@ -41,7 +41,7 @@
   + $d$ dimensional vector
     + an element of $\Bbb{R}^d$
     + described by a sequence of $d$ real numbers
-    + e.g., $\vec{a} = [1_1, a_2, \dots, a_d]$
+    + e.g., $\vec{a} = [a_1, a_2, \dots, a_d]$
 
 + Python: List vs Numpy Arrays
   + numpy (`np`) library: the workhorse library for linear algebra
@@ -143,7 +143,7 @@
     + implementation: 3 ways to calculate the dot product
       + `np.dot(v1, v2)`
       + `v1[0]*v2[0] + v1[1]*v2[1]`
-      + `np.sum([v1[i]*v2[i] for i in range(v1)])`
+      + `np.sum([v1[i]*v2[i] for i in range(len(v1))])`
 
   + the norm of a vector
     + __length__, __magnitude__, or __norm__ of a vector
@@ -159,16 +159,16 @@
     + vectors whose norm is 1
     + normalizing any vector by dividing its length
     + implementation
-      + length of v1: `np.norm(v)`
-      + `u1 = v1/np.norm(v)`
+      + length of v: `np.norm(v)`
+      + `u = v/np.norm(v)`
 
   + projection
-    + taking the dot product of an arbitrary vector w a unit vector
+    + taking the dot product of an arbitrary vector w/ a unit vector
     + a simple geometric interpretation
-    + example (left diagram)
-      + red arrow: unit vector $u1$
-      + black arrow: unit vector of $v2$
-      + blue line: projection of $v2$ on the direction $u1$
+    + example (right diagram)
+      + red arrow: unit vector $\vec{u}_1$
+      + black arrow: unit vector of $\vec{v}_2$
+      + blue line: projection of $\vec{v}_2$ on the direction $\vec{u}_1$
       + green arrow: result of the projection
       + norm of the green arrow: the dot product of `np.dot(u1, v2)`
 
@@ -194,8 +194,8 @@
     + $v_i$: the $i$th coordinate of $\vec{v} =$ the dot product of a vector $\vec{v}$ w/ a standard basis vector $\vec{e}_i$
   + reconstruction using an orthonormal basis $\vec{u}_1,\ldots,\vec{u}_d$
     + orthonormal basis defining a _coordinate system_
-    + allowing to move btw coordinate system
-    + represented as a list of $d$ dot products: $[\vec{v}\cdot\vec{u_1},\vec{v}\cdot\vec{u_2},\ldots,\vec{v}\cdot\vec{u_d}]$
+    + allowing to move btw coordinate systems
+    + represented as a list of $d$ dot products: $[\vec{v}\cdot\vec{u}_1,\vec{v}\cdot\vec{u}_2,\ldots,\vec{v}\cdot\vec{u}_d]$
     + reconstructing by summing its projections on the basis vectors: $\vec{v} = (\vec{v}\cdot \vec{u}_1)\, \vec{u}_1 + \cdots + (\vec{v}\cdot \vec{u}_d)\, \vec{u}_d$
   + $[v_1, v_2, \dots, v_d]$: representing a vector $\vec{v}$ w/ the standard basis
   + __change of basis__
