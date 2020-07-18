@@ -39,27 +39,33 @@ def sample_mean(n, r):
     return None
 
 
-def normal_mean(n):
+def normal_mean(n, r, fname=None):
     """computeand plot the sample mean for Normal distribution
 
     Args:
         n (int): sample size
+        r (int): number of experiments
     """
     plt.figure(figsize=(14, 7))
-    plt.title('Histogram of sample means w/ sample size n={:d}'.format(n), fontsize=15)
+    plt.title('Histogram of sample means w/ sample size n={:d} r={:d}'.format(n, r), fontsize=15)
     plt.xlabel('$\overline{X}$', fontsize=15)
     plt.ylabel('frequency', fontsize=15)
     plt.grid()
 
-    s = 100000
+    s = r
 
-    x = np.linspace(-4, 4, 1000)
-    y = [uniform.pdf(i, 0, 1) for i in x]
+    x = np.linspace(-1, 1, 1000)
+    y = [norm.pdf(i,0,1) for i in x]
+    # y = [uniform.pdf(i, 0, 1) for i in x]
     plt.plot(x, y)
 
     X = np.random.uniform(0, 1, [n, s])
     M = np.sum(X, axis=0)/n
     plt.hist(M, bins=40, density=1)
+
+    if fname != None:
+        file = '../img/{}'.format(fname)
+        plt.savefig(file)
 
     plt.show()
 
@@ -159,8 +165,17 @@ def main():
 
     # distribution of the sample mean
     # sample size: n = (3, 30)
-    n = 30
-    # normal_mean(n)
+    n, r = 5, 3000
+    normal_mean(n, r, 't11-04a.png')
+
+    n, r = 50, 3000
+    normal_mean(n, r, 't11-04b.png')
+    
+    n, r = 5, 400
+    normal_mean(n, r, 't11-04c.png')
+    
+    n, r = 50, 400
+    normal_mean(n, r, 't11-04d.png')
 
     # raw variance estimator
     # sample size: n = (2, 20),  degree of freedom df = 0
@@ -209,8 +224,8 @@ def main():
 
     # estimating standard deviation
     # sample size: n = (2, 10)
-    n, s = 10, 1000000
-    normal_sd(n, s)
+    # n, s = 10, 1000000
+    # normal_sd(n, s)
 
 
     return None
