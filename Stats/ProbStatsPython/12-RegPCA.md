@@ -445,7 +445,118 @@
 
 ### Problem Sets
 
+0. Select the correct statement about matrices from the following:<br/>
+  a. A matrix cannot be divided by a scalar, and a scalar cannot be divided by a matrix<br/>
+  b. A matrix can be divided by a scalar, but a scalar cannot be divided by a matrix<br/>
+  c. A matrix cannot be divided by a scalar, but a scalar can be divided by a matrix<br/>
+  d. A matrix can be divided by a scalar, and a scalar can be divided by a matrix<br/>
 
+  Ans: b
+
+
+1. A $m \times n$ matrix can be added with a $n \times m$ matrix, but they cannot be multiplied. (Assume $m \ne n$) (True/False)
+
+  Ans: False<br/>
+  Explanation: A $m \times n$ matrix can be multiplied with a $n \times m$ matrix, but they cannot be added.
+
+
+2. Let $\vec{a} =(1,0,0)$, $\vec{b} =(0,1,0)$, and $\vec{c} =(0,0,1)$. This is the standard basis that spans $\Bbb{R}^3$. Answer the following questions about this set of vectors:
+
+  a) $\vec{a} +\vec{b} =?$<br/>
+    <span style="padding-left: 1em">a.</span> (1,1)<br/>
+    <span style="padding-left: 1em">b.</span> (0,0,1)<br/>
+    <span style="padding-left: 1em">c.</span> (1,1,1)<br/>
+    <span style="padding-left: 1em">d.</span> (1,1,0)<br/>
+
+  b) $\vec{a} \cdot \vec{b} =?$<br/>
+    <span style="padding-left: 1em">a.</span> (0,0,0)<br/>
+    <span style="padding-left: 1em">b.</span> 0<br/>
+    <span style="padding-left: 1em">c.</span> (1,1,0)<br/>
+    <span style="padding-left: 1em">d.</span> 2<br/>
+
+  c) $(\vec{a} \cdot \vec{b} )\vec{c}$ =?<br/>
+    <span style="padding-left: 1em">a.</span> (0,0,0)<br/>
+    <span style="padding-left: 1em">b.</span> 0<br/>
+    <span style="padding-left: 1em">c.</span> 1<br/>
+    <span style="padding-left: 1em">d.</span> (0,0,1)<br/>
+
+  d) $−\vec{c} =?$<br/>
+    <span style="padding-left: 1em">a.</span> (0,0,1)<br/>
+    <span style="padding-left: 1em">b.</span> (0,0,−1)<br/>
+    <span style="padding-left: 1em">c.</span> (1,0,0)<br/>
+    <span style="padding-left: 1em">d.</span> Vectors cannot be negative<br/>
+
+  e) $\parallel \vec{a} \parallel = \sqrt{\vec{a} \cdot \vec{a}}$<br/>
+    <span style="padding-left: 1em">a.</span> True<br/>
+    <span style="padding-left: 1em">b.</span> False<br/>
+    <span style="padding-left: 1em">c.</span> This notation is meaningless<br/>
+
+  f) $\parallel \vec{a} \parallel +\parallel \vec{b} \parallel = ?$<br/>
+    <span style="padding-left: 1em">a.</span> \parallel \vec{c} \parallel  <br/>
+    <span style="padding-left: 1em">b.</span> 1 <br/>
+    <span style="padding-left: 1em">c.</span> 2 <br/>
+    <span style="padding-left: 1em">d.</span> (1,1,0) <br/>
+
+  Ans: a. (d); b. (b); c. (a, xb), d. (b); e. (a); f. (b)
+
+
+3. Given a matrix, $A = \begin{bmatrix} 4 \ 1 \\ 1 \ 9 \end{bmatrix}$, find $(4A)^{-1}$.
+  a. $(4A)^{-1} = \begin{bmatrix} 1 \ \, {- \frac{1}{9}} \\ \!\!\!\! \, {- \frac{1}{9}} \ \hspace{.3cm} \frac{4}{9} \end{bmatrix}$
+  b. $(4A)^{-1} = \begin{bmatrix} \frac{9}{140} \ \ {\,-\frac{1}{140}} \\ \!\!\!\!\!\!\! \,- \frac{1}{140} \ \hspace{.4cm} \frac{1}{35} \end{bmatrix}$
+  c. $(4A)^{-1} = \begin{bmatrix} \frac{1}{16} \ \hspace{.5cm} \! \frac{1}{4} \\  \frac{1}{4} \ \hspace{.4cm} \frac{1}{36} \end{bmatrix}$
+  d. $(4A)^{-1} = \begin{bmatrix} \frac{1}{36} \ \hspace{.1cm} {-\frac{1}{4}} \\ \!\!\!\!  \, {-\frac{1}{4}} \ \hspace{.4cm} \frac{1}{16} \end{bmatrix}$
+
+  Ans: b<br/>
+  Explanation: $(4A)^{-1} = \frac{1}{4}A^{-1} = \begin{bmatrix} \frac{9}{140} \ \ {\,-\frac{1}{140}} \\ \!\!\!\!\!\!\! \,- \frac{1}{140} \ \hspace{.4cm} \frac{1}{35} \end{bmatrix}$
+
+
+4. Given the matrix $A$ below, answer the following questions:
+
+  \[ A = \begin{bmatrix} a_{11} \ a_{12} \\ a_{21} \ a_{22} \end{bmatrix} \]
+
+  a) $4A+4A=$?<br/>
+    <span style="padding-left: 1em">a.</span> $4A$<br/>
+    <span style="padding-left: 1em">b.</span> $8A$<br/>
+    <span style="padding-left: 1em">c.</span> $16A$<br/>
+    <span style="padding-left: 1em">d.</span> Cannot add two matrices of the same dimension<br/>
+
+  b) $A-2 = \begin{bmatrix} {a_{11}\!-2} \ {a_{12}\!-2} \\ {a_{21}\!-2} \ {a_{22}\!-2} \end{bmatrix}$ (True/False)
+  
+  c) $A^{−1}= \frac{1}{A}$ (True/False)
+  
+  d) $(A^\top)I=$?<br/>
+    <span style="padding-left: 1em">a.</span> $A$ <br/>
+    <span style="padding-left: 1em">b.</span> $A^\top$ <br/>
+    <span style="padding-left: 1em">c.</span> $1$ <br/>
+    <span style="padding-left: 1em">d.</span> $A^{−1}$ <br/>
+
+  e) $(A^\top)^\top=A$ (True/False)
+
+  Ans: a. (b); b. (True); c. (False); d. (b); e. (True)
+
+
+5. Recall, from linear algebra, that the determinate of a matrix, $A = \begin{bmatrix} a_{11} \ a_{12} \\ a_{21} \ a_{22} \end{bmatrix}$, is equal to $(a_{11}a_{22}-a_{12}a_{21})$. If this determinant is equal to $0$, what does that indicate about the matrix, $A$?<br/>
+  a. The difference of the norms of the column vectors is $0$<br/>
+  b. The matrix $A$ has no transpose<br/>
+  c. The matrix $A$ has no inverse<br/>
+  d. This is an identity matrix<br/>
+
+  Ans: c<br/>
+  Explanation: $A^{-1} = \frac{1}{a_{11}a_{22}-a_{12}a_{21}} \begin{bmatrix} a_{22} \ -a_{12} \\ -a_{21} \ a_{11} \end{bmatrix}$. a_{11}a_{22}-a_{12}a_{21} = 0
+
+
+6. If $A = \begin{bmatrix} a_{11} \ a_{12} \\ a_{21} \ a_{22} \end{bmatrix}$ and $B = \begin{bmatrix} b_{11} \ b_{12} \\ b_{21} \ b_{22} \end{bmatrix}$, then $BA=$?<br/>
+  a. $C$<br/>
+  b. $C^{−1}$<br/>
+  c. $C^\top$<br/>
+  d. None of the above<br/>
+
+  Ans: d, xc
+
+
+7. Only square matrices have inverses. (True/False)
+
+  Ans: True
 
 
 ### Lecture Video 
