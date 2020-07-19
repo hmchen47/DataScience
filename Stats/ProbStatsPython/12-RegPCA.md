@@ -231,12 +231,12 @@
   d. 62<br/>
 
   Ans: a <br/>
-  Explanation: The length of $\vec{u}$ is $\Vert \vec{u} \Vert = \sqrt{\vec{u}^\intercal \vec{u}} = \sqrt{ \frac{\vec{v}^\intercal \vec{v}}{ \Vert v \Vert^2} } = \sqrt { \frac{\Vert v \Vert^2}{\Vert v \Vert^2} } = 1$
+  Explanation: The length of $\vec{u}$ is $\Vert \vec{u} \Vert = \sqrt{\vec{u}^\top \vec{u}} = \sqrt{ \frac{\vec{v}^\top \vec{v}}{ \Vert v \Vert^2} } = \sqrt { \frac{\Vert v \Vert^2}{\Vert v \Vert^2} } = 1$
 
 
 2. If every vector in an orthonormal basis is orthogonal to each other, this implies that there can be one and only one vector for each dimension of the vector space in this set. (True/False)
 
-  Ans: <span style="color: cyan;">True<br/>
+  Ans: <span style="color: cyan;">True</span><br/>
   Explanation: Orthogonality implies linear independence. The vectors in an orthonormal basis are linear independent.
 
 
@@ -253,7 +253,7 @@
   d. 90<br/>
 
   Ans: a<br/>
-  Explanation: By the definition of orthogonality, $\vec{a} \cdot \vec{b} = \vec{a}^\intercal \vec{b} = 0$
+  Explanation: By the definition of orthogonality, $\vec{a} \cdot \vec{b} = \vec{a}^\top \vec{b} = 0$
 
 
 ### Lecture Video
@@ -290,21 +290,21 @@
 + Transposing a matrix
 
   \[ A = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \\ a_{31} & a_{32} \end{bmatrix} \quad \xrightarrow{\text{transpose}} \quad
-    A^\intercal = \begin{bmatrix} a_{11} & a_{21} & a_{31} \\ a_{12} & a_{22} & a_{32} \end{bmatrix} \]
+    A^\top = \begin{bmatrix} a_{11} & a_{21} & a_{31} \\ a_{12} & a_{22} & a_{32} \end{bmatrix} \]
 
 + Vectors represented in matrix context
   + vector: either [row or column vectors](https://tinyurl.com/zwrwnf8)
   + $\vec{v}$ vector denoted by a bold-face letter
     + ${\bf v}$: a column vector
-    + ${\bf v}^\intercal$: a row vector
+    + ${\bf v}^\top$: a row vector
   + column vector: a matrix consisting of a single column
-  + $\vec{v}$ a column vector $\implies$ its transpose, $\vec{v}^\intercal$, as a row vector
+  + $\vec{v}$ a column vector $\implies$ its transpose, $\vec{v}^\top$, as a row vector
 
-    \[ {\bf v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_d \end{bmatrix} \quad\xrightarrow{\text{transpose}}\quad {\bf v}^\intercal = \begin{bmatrix} v_1 & v_2 & \cdots & v_d \end{bmatrix} \]
+    \[ {\bf v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_d \end{bmatrix} \quad\xrightarrow{\text{transpose}}\quad {\bf v}^\top = \begin{bmatrix} v_1 & v_2 & \cdots & v_d \end{bmatrix} \]
 
   + a vector as a matrix
     + column vector ${\bf v}$ as a $d \times 1$ matrix
-    + row vector ${\bf c}^\intercal$ as a $1 \times d$ matrix
+    + row vector ${\bf c}^\top$ as a $1 \times d$ matrix
   + a matrix as a collection of vectors, e.g., a $2 \times 3$ matrix $A = \begin{bmatrix} a_{11} & a_{12} & a_{13} \\ a_{21}& a_{22} & a_{23} \end{bmatrix}$
     + a row of column vectors
 
@@ -357,7 +357,7 @@
 + Matrix-Matrix production
   + dot product of 2 vectors
     + a vector = a skinny matrix
-    + e.g., $(1, 2, 3) \times (1, 1, 0) = 1 \times 1 + 2 \times 1 + 3 \times 0 = 3$
+    + e.g., $(1, 2, 3) \cdot (1, 1, 0) = 1 \times 1 + 2 \times 1 + 3 \times 0 = 3$
   + convention of dot product in matrix notation
     + 1st vector aas a row vector while the 2nd vector as a column vector
     + no operator ($\cdot$) btw 2 vectors
@@ -394,23 +394,24 @@
     + let ${\bf u}_i = \begin{bmatrix} u_{i1} & u_{i2} & \cdots & u_{id} \end{bmatrix}$
     + orthonormal matrix
 
-    \[ {\bf U} = \begin{bmatrix} {\bf u}_1 \\ {\bf u}_2 \\ \vdots \\ {\bf u}_d \end{bmatrix} = \begin{bmatrix}  u_{11}, u_{12},\ldots, u_{1d} \\  u_{21}, u_{22},\ldots, u_{2d} \\  \vdots\\ u_{d1}, u_{d2},\ldots, u_{dd}  \end{bmatrix} \]
+    \[ {\bf U} = \begin{bmatrix} {\bf u}_1 \\ {\bf u}_2 \\ \vdots \\ {\bf u}_d \end{bmatrix} = \begin{bmatrix}  u_{11} & u_{12} & \ldots & u_{1d} \\  u_{21} & u_{22} & \ldots & u_{2d} \\  \vdots\\ u_{d1} & u_{d2} & \ldots & u_{dd}  \end{bmatrix} \]
 
-  + orthonormality: ${\bf UU}^\intercal = {\bf I}$
+  + orthonormality: ${\bf UU}^\top = {\bf I}$
   + representation of a column vector ${\bf v}$ in the orthonormal basis corresponding to the rows of ${\bf U}$ equal to
 
     \[ {\bf Uv} = \begin{bmatrix} {\bf u}_1 {\bf v} \\ {\bf u}_2 {\bf v} \\ \vdots \\ {\bf u}_d {\bf v} \end{bmatrix} \]
 
-  + reconstruction of ${\bf v} = $ ${\bf UU}^\intercal {\bf v}$
+  + reconstruction of ${\bf v} = $ ${\bf UU}^\top {\bf v}$
 
 + The identity matrix
   + behaving like the number 1
   + dot product of any matrix ${\bf A}$ by the identity matrix ${\bf I}$ yields ${\bf A}$: ${\bf AI} = {\bf IA} = {\bf A}$
 
 + Inverting a matrix
-  + property of $a^{-1}$: $aa^{-1} = 1$
-  + no multiplicative inverse w/ 0
-  + $\exists\, {\bf A}$ w/ multiplicative inverse ${\bf A^{-1}}$ s.t. ${\bf AA^{-1}} = {\bf A^{-1}A} = {\bf I}$
+  + multiplicative iverse of the number $a$: $a^{-1} = 1/a$
+    + property of $a^{-1}$: $aa^{-1} = 1$
+    + no multiplicative inverse w/ 0
+  + Definition: (invertible matrix) $\exists\, {\bf A}$ w/ multiplicative inverse ${\bf A^{-1}}$ s.t. ${\bf AA^{-1}} = {\bf A^{-1}A} = {\bf I}$
   + inverting the matrix
     + finding the inverse of a matrix
     + Definition: (__invertible matrix__) an $m \times n$ represents a linear transformation from $\Bbb{R}^n$ to $\Bbb{R}^n$,  the matrix is [invertible](https://tinyurl.com/pj2u5h7) $\implies \exists$ inverse transformation ${\bf A^{-1}}$ s.t. $\forall$ any column vector ${\bf v} \in \Bbb{R}^n$:
