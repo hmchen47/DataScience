@@ -570,13 +570,70 @@
 
 ### Lecture Notes
 
++ Finding a line passing through 2 points
+  + $y = w_0 + w_1 x$
+    + expressing a line as $(x, y)$ are points along the line
+    + $w_0$: y-axis intercept
+    + $w_1$: the slope of the line
+  + identifying the line by finding $w_0, w_1$ that satisfies the constraints w/ given points
+  + e.g., two points (-1, 2) and (1, 1) in $\Bbb{R}^2$
+    + point $(x, y) = (-1, 2) \implies w_0 - w_1 = 2$
+    + point $(x, y) = (1, 2) \implies w_0 + w_1 = 1$
 
++ Writing equations in matrix form
+  + ways to solve the equations
+  + finding $w_x, w_y$ to satisfy both constraints
+  + two ways to find solution w/ `Numpy`
+  + equations in matrix form
 
+    \[ \begin{bmatrix} 1 & -1 \\ 1 & 1	 \end{bmatrix} \begin{bmatrix} w_0 \\ w_1	 \end{bmatrix} = \begin{bmatrix} 2 \\ 1	 \end{bmatrix} \]
+  
+  + writing succinctly as ${\bf Aw = b}$
+    + coefficient matrix: ${\bf A} = \begin{bmatrix} 1 & -1 \\1 & 1	\end{bmatrix}$
+    + ordinate or dependent variable vector: ${\bf b}=\begin{bmatrix} 2 \\ 1 \end{bmatrix}$
+    + parameter vector: ${\bf w} = \begin{bmatrix} w_0 \\ w_1	\end{bmatrix}$
+  + goal: find $w$ s.t. ${\bf Aw = b}$
+    + w/ A is invertible, multiplying both sides by ${\bf A^{-1}}$
 
+      \[ {\bf w =  A^{-1} A w = A^{-1} b } \]
 
+  + Demo: solving using numpy
 
+    ```python
+    from numpy.linalg import inv
+    from numpy.linalg import solve
 
-+ [Original Slide]()
+    A = np.array([[1,-1], [1,1]])
+    b = np.array([[2],[1]])
+
+    # solve using inv(A)
+    Ainv=inv(A)
+    w=inv(A).dot(b)
+
+    # solve using solve()
+    w = solve(A, b)
+    ```
+
+  + more than 2 points: no straight line amoung them
+
++ Using `numpy.linalg.solve()`
+  + used to solve a set of $n$ linear equations w/ $n$ unknowns
+  + simply expressing the set of equation in a matrix format ${\bf Ax = b}$
+  + calling `x = np.linalg.solve(A, b)` and returning a vector w/ the solution for ${\bf x}$  
+  + constraint: the number of equations ($equs$) = the number of unknowns ($unknowns$)
+    + undetermined or singular system
+      + $equs < unknowns$
+      + not enough infor to specify a unique solution
+    + overdetermined system:
+      + $equs > unknows$
+      + no solution  satisfying all constraints
+  + demo: $x+y-z=5 \\ z+2y=3 \\ y-x=4$
+
+    ```python
+    A=np.array([[1,1,-1],[0,2,1],[-1,1,0]])
+    b=np.array([5,3,4])
+    solve(A,b)
+    ```
 
 
 ### Problem Sets
@@ -694,6 +751,7 @@
 ## Lecture Notebook 12
 
 
+### Numpy `ndarray` attributes
 
 + `ndarray` attributes
   + `T`: ndarray
@@ -735,7 +793,7 @@
       array data is actually stored.
 
 
-+ Array manipulation routines
+### Array manipulation routines
 
   <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y2fcsphd">Basic operations</a></caption>
@@ -747,11 +805,11 @@
     </thead>
     <tbody>
     <tr>
-      <td><p><a href="generated/numpy.copyto.html#numpy.copyto" title="numpy.copyto"><code>copyto</code></a>(dst,&nbsp;src[,&nbsp;casting,&nbsp;where])</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.copyto.html#numpy.copyto" title="numpy.copyto"><code>copyto</code></a>(dst,&nbsp;src[,&nbsp;casting,&nbsp;where])</p></td>
       <td><p>Copies values from one array to another, broadcasting as necessary.</p></td>
     </tr>
-    <tr class="row-even">
-      <td><p><a href="generated/numpy.shape.html#numpy.shape" title="numpy.shape"><code>shape</code></a>(a)</p></td>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.shape.html#numpy.shape" title="numpy.shape"><code>shape</code></a>(a)</p></td>
       <td><p>Return the shape of an array.</p></td>
     </tr>
     </tbody>
@@ -767,19 +825,19 @@
     </thead>
     <tbody>
     <tr>
-      <td><p><a href="generated/numpy.reshape.html#numpy.reshape" title="numpy.reshape"><code>reshape</code></a>(a,&nbsp;newshape[,&nbsp;order])</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.reshape.html#numpy.reshape" title="numpy.reshape"><code>reshape</code></a>(a,&nbsp;newshape[,&nbsp;order])</p></td>
       <td><p>Gives a new shape to an array without changing its data.</p></td>
     </tr>
-    <tr class="row-even">
-      <td><p><a href="generated/numpy.ravel.html#numpy.ravel" title="numpy.ravel"><code>ravel</code></a>(a[,&nbsp;order])</p></td>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.ravel.html#numpy.ravel" title="numpy.ravel"><code>ravel</code></a>(a[,&nbsp;order])</p></td>
       <td><p>Return a contiguous flattened array.</p></td>
     </tr>
     <tr>
-      <td><p><a href="generated/numpy.ndarray.flat.html#numpy.ndarray.flat" title="numpy.ndarray.flat"><code>ndarray.flat</code></a></p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.flat.html#numpy.ndarray.flat" title="numpy.ndarray.flat"><code>ndarray.flat</code></a></p></td>
       <td><p>A 1-D iterator over the array.</p></td>
     </tr>
-    <tr class="row-even">
-      <td><p><a href="generated/numpy.ndarray.flatten.html#numpy.ndarray.flatten" title="numpy.ndarray.flatten"><code>ndarray.flatten</code></a>([order])</p></td>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.flatten.html#numpy.ndarray.flatten" title="numpy.ndarray.flatten"><code>ndarray.flatten</code></a>([order])</p></td>
       <td><p>Return a copy of the array collapsed into one dimension.</p></td>
     </tr>
     </tbody>
@@ -795,23 +853,23 @@
     </thead>
     <tbody>
     <tr>
-      <td><p><a href="generated/numpy.moveaxis.html#numpy.moveaxis" title="numpy.moveaxis"><code>moveaxis</code></a>(a,&nbsp;source,&nbsp;destination)</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.moveaxis.html#numpy.moveaxis" title="numpy.moveaxis"><code>moveaxis</code></a>(a,&nbsp;source,&nbsp;destination)</p></td>
       <td><p>Move axes of an array to new positions.</p></td>
     </tr>
-    <tr class="row-even">
-      <td><p><a href="generated/numpy.rollaxis.html#numpy.rollaxis" title="numpy.rollaxis"><code>rollaxis</code></a>(a,&nbsp;axis[,&nbsp;start])</p></td>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.rollaxis.html#numpy.rollaxis" title="numpy.rollaxis"><code>rollaxis</code></a>(a,&nbsp;axis[,&nbsp;start])</p></td>
       <td><p>Roll the specified axis backwards, until it lies in a given position.</p></td>
     </tr>
     <tr>
-      <td><p><a href="generated/numpy.swapaxes.html#numpy.swapaxes" title="numpy.swapaxes"><code>swapaxes</code></a>(a,&nbsp;axis1,&nbsp;axis2)</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.swapaxes.html#numpy.swapaxes" title="numpy.swapaxes"><code>swapaxes</code></a>(a,&nbsp;axis1,&nbsp;axis2)</p></td>
       <td><p>Interchange two axes of an array.</p></td>
     </tr>
-    <tr class="row-even">
-      <td><p><a href="generated/numpy.ndarray.T.html#numpy.ndarray.T" title="numpy.ndarray.T"><code>ndarray.T</code></a></p></td>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.T.html#numpy.ndarray.T" title="numpy.ndarray.T"><code>ndarray.T</code></a></p></td>
       <td><p>The transposed array.</p></td>
     </tr>
     <tr>
-      <td><p><a href="generated/numpy.transpose.html#numpy.transpose" title="numpy.transpose"><code>transpose</code></a>(a[,&nbsp;axes])</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.transpose.html#numpy.transpose" title="numpy.transpose"><code>transpose</code></a>(a[,&nbsp;axes])</p></td>
       <td><p>Reverse or permute the axes of an array; returns the modified array.</p></td>
     </tr>
     </tbody>
@@ -827,39 +885,39 @@
     </thead>
     <tbody>
     <tr>
-      <td><p><a href="generated/numpy.asarray.html#numpy.asarray" title="numpy.asarray"><code>asarray</code></a>(a[,&nbsp;dtype,&nbsp;order])</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.asarray.html#numpy.asarray" title="numpy.asarray"><code>asarray</code></a>(a[,&nbsp;dtype,&nbsp;order])</p></td>
       <td><p>Convert the input to an array.</p></td>
     </tr>
-    <tr class="row-even">
-      <td><p><a href="generated/numpy.asanyarray.html#numpy.asanyarray" title="numpy.asanyarray"><code>asanyarray</code></a>(a[,&nbsp;dtype,&nbsp;order])</p></td>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.asanyarray.html#numpy.asanyarray" title="numpy.asanyarray"><code>asanyarray</code></a>(a[,&nbsp;dtype,&nbsp;order])</p></td>
       <td><p>Convert the input to an ndarray, but pass ndarray subclasses through.</p></td>
     </tr>
     <tr>
-      <td><p><a href="generated/numpy.asmatrix.html#numpy.asmatrix" title="numpy.asmatrix"><code>asmatrix</code></a>(data[,&nbsp;dtype])</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.asmatrix.html#numpy.asmatrix" title="numpy.asmatrix"><code>asmatrix</code></a>(data[,&nbsp;dtype])</p></td>
       <td><p>Interpret the input as a matrix.</p></td>
     </tr>
-    <tr class="row-even">
-      <td><p><a href="generated/numpy.asfarray.html#numpy.asfarray" title="numpy.asfarray"><code>asfarray</code></a>(a[,&nbsp;dtype])</p></td>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.asfarray.html#numpy.asfarray" title="numpy.asfarray"><code>asfarray</code></a>(a[,&nbsp;dtype])</p></td>
       <td><p>Return an array converted to a float type.</p></td>
     </tr>
     <tr>
-      <td><p><a href="generated/numpy.asfortranarray.html#numpy.asfortranarray" title="numpy.asfortranarray"><code>asfortranarray</code></a>(a[,&nbsp;dtype])</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.asfortranarray.html#numpy.asfortranarray" title="numpy.asfortranarray"><code>asfortranarray</code></a>(a[,&nbsp;dtype])</p></td>
       <td><p>Return an array (ndim &gt;= 1) laid out in Fortran order in memory.</p></td>
     </tr>
-    <tr class="row-even">
-      <td><p><a href="generated/numpy.ascontiguousarray.html#numpy.ascontiguousarray" title="numpy.ascontiguousarray"><code>ascontiguousarray</code></a>(a[,&nbsp;dtype])</p></td>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.ascontiguousarray.html#numpy.ascontiguousarray" title="numpy.ascontiguousarray"><code>ascontiguousarray</code></a>(a[,&nbsp;dtype])</p></td>
       <td><p>Return a contiguous array (ndim &gt;= 1) in memory (C order).</p></td>
     </tr>
     <tr>
-      <td><p><a href="generated/numpy.asarray_chkfinite.html#numpy.asarray_chkfinite" title="numpy.asarray_chkfinite"><code>asarray_chkfinite</code></a>(a[,&nbsp;dtype,&nbsp;order])</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.asarray_chkfinite.html#numpy.asarray_chkfinite" title="numpy.asarray_chkfinite"><code>asarray_chkfinite</code></a>(a[,&nbsp;dtype,&nbsp;order])</p></td>
       <td><p>Convert the input to an array, checking for NaNs or Infs.</p></td>
     </tr>
-    <tr class="row-even">
-      <td><p><a href="generated/numpy.asscalar.html#numpy.asscalar" title="numpy.asscalar"><code>asscalar</code></a>(a)</p></td>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.asscalar.html#numpy.asscalar" title="numpy.asscalar"><code>asscalar</code></a>(a)</p></td>
       <td><p>Convert an array of size 1 to its scalar equivalent.</p></td>
     </tr>
     <tr>
-      <td><p><a href="generated/numpy.require.html#numpy.require" title="numpy.require"><code>require</code></a>(a[,&nbsp;dtype,&nbsp;requirements])</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.require.html#numpy.require" title="numpy.require"><code>require</code></a>(a[,&nbsp;dtype,&nbsp;requirements])</p></td>
       <td><p>Return an ndarray of the provided type that satisfies requirements.</p></td>
     </tr>
     </tbody>
@@ -875,31 +933,31 @@
     </thead>
     <tbody>
     <tr>
-      <td><p><a href="generated/numpy.concatenate.html#numpy.concatenate" title="numpy.concatenate"><code>concatenate</code></a>([axis,&nbsp;out])</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.concatenate.html#numpy.concatenate" title="numpy.concatenate"><code>concatenate</code></a>([axis,&nbsp;out])</p></td>
       <td><p>Join a sequence of arrays along an existing axis.</p></td>
     </tr>
-    <tr class="row-even">
-      <td><p><a href="generated/numpy.stack.html#numpy.stack" title="numpy.stack"><code>stack</code></a>(arrays[,&nbsp;axis,&nbsp;out])</p></td>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.stack.html#numpy.stack" title="numpy.stack"><code>stack</code></a>(arrays[,&nbsp;axis,&nbsp;out])</p></td>
       <td><p>Join a sequence of arrays along a new axis.</p></td>
     </tr>
     <tr>
-      <td><p><a href="generated/numpy.block.html#numpy.block" title="numpy.block"><code>block</code></a>(arrays)</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.block.html#numpy.block" title="numpy.block"><code>block</code></a>(arrays)</p></td>
       <td><p>Assemble an nd-array from nested lists of blocks.</p></td>
     </tr>
-    <tr class="row-even">
-      <td><p><a href="generated/numpy.vstack.html#numpy.vstack" title="numpy.vstack"><code>vstack</code></a>(tup)</p></td>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.vstack.html#numpy.vstack" title="numpy.vstack"><code>vstack</code></a>(tup)</p></td>
       <td><p>Stack arrays in sequence vertically (row wise).</p></td>
     </tr>
     <tr>
-      <td><p><a href="generated/numpy.hstack.html#numpy.hstack" title="numpy.hstack"><code>hstack</code></a>(tup)</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.hstack.html#numpy.hstack" title="numpy.hstack"><code>hstack</code></a>(tup)</p></td>
       <td><p>Stack arrays in sequence horizontally (column wise).</p></td>
     </tr>
-    <tr class="row-even">
-      <td><p><a href="generated/numpy.dstack.html#numpy.dstack" title="numpy.dstack"><code>dstack</code></a>(tup)</p></td>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.dstack.html#numpy.dstack" title="numpy.dstack"><code>dstack</code></a>(tup)</p></td>
       <td><p>Stack arrays in sequence depth wise (along third axis).</p></td>
     </tr>
     <tr>
-      <td><p><a href="generated/numpy.column_stack.html#numpy.column_stack" title="numpy.column_stack"><code>column_stack</code></a>(tup)</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.column_stack.html#numpy.column_stack" title="numpy.column_stack"><code>column_stack</code></a>(tup)</p></td>
       <td><p>Stack 1-D arrays as columns into a 2-D array.</p></td>
     </tr>
     </tbody>
@@ -915,23 +973,23 @@
     </thead>
     <tbody>
     <tr>
-      <td><p><a href="generated/numpy.split.html#numpy.split" title="numpy.split"><code>split</code></a>(ary,&nbsp;indices_or_sections[,&nbsp;axis])</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.split.html#numpy.split" title="numpy.split"><code>split</code></a>(ary,&nbsp;indices_or_sections[,&nbsp;axis])</p></td>
       <td><p>Split an array into multiple sub-arrays as views into <em class="xref py py-obj">ary</em>.</p></td>
     </tr>
-    <tr class="row-even">
-      <td><p><a href="generated/numpy.array_split.html#numpy.array_split" title="numpy.array_split"><code>array_split</code></a>(ary,&nbsp;indices_or_sections[,&nbsp;axis])</p></td>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.array_split.html#numpy.array_split" title="numpy.array_split"><code>array_split</code></a>(ary,&nbsp;indices_or_sections[,&nbsp;axis])</p></td>
       <td><p>Split an array into multiple sub-arrays.</p></td>
     </tr>
     <tr>
-      <td><p><a href="generated/numpy.dsplit.html#numpy.dsplit" title="numpy.dsplit"><code>dsplit</code></a>(ary,&nbsp;indices_or_sections)</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.dsplit.html#numpy.dsplit" title="numpy.dsplit"><code>dsplit</code></a>(ary,&nbsp;indices_or_sections)</p></td>
       <td><p>Split array into multiple sub-arrays along the 3rd axis (depth).</p></td>
     </tr>
-    <tr class="row-even">
-      <td><p><a href="generated/numpy.hsplit.html#numpy.hsplit" title="numpy.hsplit"><code>hsplit</code></a>(ary,&nbsp;indices_or_sections)</p></td>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.hsplit.html#numpy.hsplit" title="numpy.hsplit"><code>hsplit</code></a>(ary,&nbsp;indices_or_sections)</p></td>
       <td><p>Split an array into multiple sub-arrays horizontally (column-wise).</p></td>
     </tr>
     <tr>
-      <td><p><a href="generated/numpy.vsplit.html#numpy.vsplit" title="numpy.vsplit"><code>vsplit</code></a>(ary,&nbsp;indices_or_sections)</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.vsplit.html#numpy.vsplit" title="numpy.vsplit"><code>vsplit</code></a>(ary,&nbsp;indices_or_sections)</p></td>
       <td><p>Split an array into multiple sub-arrays vertically (row-wise).</p></td>
     </tr>
     </tbody>
@@ -947,27 +1005,27 @@
     </thead>
     <tbody>
     <tr>
-      <td><p><a href="generated/numpy.delete.html#numpy.delete" title="numpy.delete"><code>delete</code></a>(arr,&nbsp;obj[,&nbsp;axis])</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.delete.html#numpy.delete" title="numpy.delete"><code>delete</code></a>(arr,&nbsp;obj[,&nbsp;axis])</p></td>
       <td><p>Return a new array with sub-arrays along an axis deleted.</p></td>
     </tr>
-    <tr class="row-even">
-      <td><p><a href="generated/numpy.insert.html#numpy.insert" title="numpy.insert"><code>insert</code></a>(arr,&nbsp;obj,&nbsp;values[,&nbsp;axis])</p></td>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.insert.html#numpy.insert" title="numpy.insert"><code>insert</code></a>(arr,&nbsp;obj,&nbsp;values[,&nbsp;axis])</p></td>
       <td><p>Insert values along the given axis before the given indices.</p></td>
     </tr>
     <tr>
-      <td><p><a href="generated/numpy.append.html#numpy.append" title="numpy.append"><code>append</code></a>(arr,&nbsp;values[,&nbsp;axis])</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.append.html#numpy.append" title="numpy.append"><code>append</code></a>(arr,&nbsp;values[,&nbsp;axis])</p></td>
       <td><p>Append values to the end of an array.</p></td>
     </tr>
-    <tr class="row-even">
-      <td><p><a href="generated/numpy.resize.html#numpy.resize" title="numpy.resize"><code>resize</code></a>(a,&nbsp;new_shape)</p></td>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.resize.html#numpy.resize" title="numpy.resize"><code>resize</code></a>(a,&nbsp;new_shape)</p></td>
       <td><p>Return a new array with the specified shape.</p></td>
     </tr>
     <tr>
-      <td><p><a href="generated/numpy.trim_zeros.html#numpy.trim_zeros" title="numpy.trim_zeros"><code>trim_zeros</code></a>(filt[,&nbsp;trim])</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.trim_zeros.html#numpy.trim_zeros" title="numpy.trim_zeros"><code>trim_zeros</code></a>(filt[,&nbsp;trim])</p></td>
       <td><p>Trim the leading and/or trailing zeros from a 1-D array or sequence.</p></td>
     </tr>
-    <tr class="row-even">
-      <td><p><a href="generated/numpy.unique.html#numpy.unique" title="numpy.unique"><code>unique</code></a>(ar[,&nbsp;return_index,&nbsp;return_inverse,&nbsp;…])</p></td>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.unique.html#numpy.unique" title="numpy.unique"><code>unique</code></a>(ar[,&nbsp;return_index,&nbsp;return_inverse,&nbsp;…])</p></td>
       <td><p>Find the unique elements of an array.</p></td>
     </tr>
     </tbody>
@@ -983,32 +1041,213 @@
     </thead>
     <tbody>
     <tr>
-      <td><p><a href="generated/numpy.flip.html#numpy.flip" title="numpy.flip"><code>flip</code></a>(m[,&nbsp;axis])</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.flip.html#numpy.flip" title="numpy.flip"><code>flip</code></a>(m[,&nbsp;axis])</p></td>
       <td><p>Reverse the order of elements in an array along the given axis.</p></td>
     </tr>
-    <tr class="row-even">
-      <td><p><a href="generated/numpy.fliplr.html#numpy.fliplr" title="numpy.fliplr"><code>fliplr</code></a>(m)</p></td>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.fliplr.html#numpy.fliplr" title="numpy.fliplr"><code>fliplr</code></a>(m)</p></td>
       <td><p>Flip array in the left/right direction.</p></td>
     </tr>
     <tr>
-      <td><p><a href="generated/numpy.flipud.html#numpy.flipud" title="numpy.flipud"><code>flipud</code></a>(m)</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.flipud.html#numpy.flipud" title="numpy.flipud"><code>flipud</code></a>(m)</p></td>
       <td><p>Flip array in the up/down direction.</p></td>
     </tr>
-    <tr class="row-even">
-      <td><p><a href="generated/numpy.reshape.html#numpy.reshape" title="numpy.reshape"><code>reshape</code></a>(a,&nbsp;newshape[,&nbsp;order])</p></td>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.reshape.html#numpy.reshape" title="numpy.reshape"><code>reshape</code></a>(a,&nbsp;newshape[,&nbsp;order])</p></td>
       <td><p>Gives a new shape to an array without changing its data.</p></td>
     </tr>
     <tr>
-      <td><p><a href="generated/numpy.roll.html#numpy.roll" title="numpy.roll"><code>roll</code></a>(a,&nbsp;shift[,&nbsp;axis])</p></td>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.roll.html#numpy.roll" title="numpy.roll"><code>roll</code></a>(a,&nbsp;shift[,&nbsp;axis])</p></td>
       <td><p>Roll array elements along a given axis.</p></td>
     </tr>
-    <tr class="row-even">
-      <td><p><a href="generated/numpy.rot90.html#numpy.rot90" title="numpy.rot90"><code>rot90</code></a>(m[,&nbsp;k,&nbsp;axes])</p></td>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.rot90.html#numpy.rot90" title="numpy.rot90"><code>rot90</code></a>(m[,&nbsp;k,&nbsp;axes])</p></td>
       <td><p>Rotate an array by 90 degrees in the plane specified by axes.</p></td>
     </tr>
     </tbody>
   </table>
 
+### Numpy Linear Algebra
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y52df8mf">Matrix and vector products</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot" title="numpy.dot"><code>dot</code></a>(a,&nbsp;b[,&nbsp;out])</p></td>
+      <td><p>Dot product of two arrays.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot" title="numpy.linalg.multi_dot"><code>linalg.multi_dot</code></a>(arrays,&nbsp;\*[,&nbsp;out])</p></td>
+      <td><p>Compute the dot product of two or more arrays in a single function call, while automatically selecting the fastest evaluation order.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.vdot.html#numpy.vdot" title="numpy.vdot"><code>vdot</code></a>(a,&nbsp;b)</p></td>
+      <td><p>Return the dot product of two vectors.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.inner.html#numpy.inner" title="numpy.inner"><code>inner</code></a>(a,&nbsp;b)</p></td>
+      <td><p>Inner product of two arrays.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.outer.html#numpy.outer" title="numpy.outer"><code>outer</code></a>(a,&nbsp;b[,&nbsp;out])</p></td>
+      <td><p>Compute the outer product of two vectors.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.matmul.html#numpy.matmul" title="numpy.matmul"><code>matmul</code></a>(x1,&nbsp;x2,&nbsp;/[,&nbsp;out,&nbsp;casting,&nbsp;order,&nbsp;…])</p></td>
+      <td><p>Matrix product of two arrays.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.tensordot.html#numpy.tensordot" title="numpy.tensordot"><code>tensordot</code></a>(a,&nbsp;b[,&nbsp;axes])</p></td>
+      <td><p>Compute tensor dot product along specified axes.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.einsum.html#numpy.einsum" title="numpy.einsum"><code>einsum</code></a>(subscripts,&nbsp;*operands[,&nbsp;out,&nbsp;dtype,&nbsp;…])</p></td>
+      <td><p>Evaluates the Einstein summation convention on the operands.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.einsum_path.html#numpy.einsum_path" title="numpy.einsum_path"><code>einsum_path</code></a>(subscripts,&nbsp;*operands[,&nbsp;optimize])</p></td>
+      <td><p>Evaluates the lowest cost contraction order for an einsum expression by considering the creation of intermediate arrays.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.matrix_power.html#numpy.linalg.matrix_power" title="numpy.linalg.matrix_power"><code>linalg.matrix_power</code></a>(a,&nbsp;n)</p></td>
+      <td><p>Raise a square matrix to the (integer) power <em class="xref py py-obj">n</em>.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.kron.html#numpy.kron" title="numpy.kron"><code>kron</code></a>(a,&nbsp;b)</p></td>
+      <td><p>Kronecker product of two arrays.</p></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y4n8yc9n">Decompositions</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.cholesky.html#numpy.linalg.cholesky" title="numpy.linalg.cholesky"><code>linalg.cholesky</code></a>(a)</p></td>
+      <td><p>Cholesky decomposition.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.qr.html#numpy.linalg.qr" title="numpy.linalg.qr"><code>linalg.qr</code></a>(a[,&nbsp;mode])</p></td>
+      <td><p>Compute the qr factorization of a matrix.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd" title="numpy.linalg.svd"><code>linalg.svd</code></a>(a[,&nbsp;full_matrices,&nbsp;compute_uv,&nbsp;…])</p></td>
+      <td><p>Singular Value Decomposition.</p></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/yy34rdxx">Matrix eigenvalues</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.eig.html#numpy.linalg.eig" title="numpy.linalg.eig"><code>linalg.eig</code></a>(a)</p></td>
+      <td><p>Compute the eigenvalues and right eigenvectors of a square array.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.eigh.html#numpy.linalg.eigh" title="numpy.linalg.eigh"><code>linalg.eigh</code></a>(a[,&nbsp;UPLO])</p></td>
+      <td><p>Return the eigenvalues and eigenvectors of a complex Hermitian (conjugate symmetric) or a real symmetric matrix.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.eigvals.html#numpy.linalg.eigvals" title="numpy.linalg.eigvals"><code>linalg.eigvals</code></a>(a)</p></td>
+      <td><p>Compute the eigenvalues of a general matrix.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.eigvalsh.html#numpy.linalg.eigvalsh" title="numpy.linalg.eigvalsh"><code>linalg.eigvalsh</code></a>(a[,&nbsp;UPLO])</p></td>
+      <td><p>Compute the eigenvalues of a complex Hermitian or real symmetric matrix.</p></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/yyrmojqp">Norms and other numbers</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html#numpy.linalg.norm" title="numpy.linalg.norm"><code>linalg.norm</code></a>(x[,&nbsp;ord,&nbsp;axis,&nbsp;keepdims])</p></td>
+      <td><p>Matrix or vector norm.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.cond.html#numpy.linalg.cond" title="numpy.linalg.cond"><code>linalg.cond</code></a>(x[,&nbsp;p])</p></td>
+      <td><p>Compute the condition number of a matrix.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.det.html#numpy.linalg.det" title="numpy.linalg.det"><code>linalg.det</code></a>(a)</p></td>
+      <td><p>Compute the determinant of an array.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.matrix_rank.html#numpy.linalg.matrix_rank" title="numpy.linalg.matrix_rank"><code>linalg.matrix_rank</code></a>(M[,&nbsp;tol,&nbsp;hermitian])</p></td>
+      <td><p>Return matrix rank of array using SVD method</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.slogdet.html#numpy.linalg.slogdet" title="numpy.linalg.slogdet"><code>linalg.slogdet</code></a>(a)</p></td>
+      <td><p>Compute the sign and (natural) logarithm of the determinant of an array.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.trace.html#numpy.trace" title="numpy.trace"><code>trace</code></a>(a[,&nbsp;offset,&nbsp;axis1,&nbsp;axis2,&nbsp;dtype,&nbsp;out])</p></td>
+      <td><p>Return the sum along diagonals of the array.</p></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y4lzb4sq">Solving equations and inverting matrices</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.solve.html#numpy.linalg.solve" title="numpy.linalg.solve"><code>linalg.solve</code></a>(a,&nbsp;b)</p></td>
+      <td><p>Solve a linear matrix equation, or system of linear scalar equations.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.tensorsolve.html#numpy.linalg.tensorsolve" title="numpy.linalg.tensorsolve"><code>linalg.tensorsolve</code></a>(a,&nbsp;b[,&nbsp;axes])</p></td>
+      <td><p>Solve the tensor equation <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">b</code> for x.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.lstsq.html#numpy.linalg.lstsq" title="numpy.linalg.lstsq"><code>linalg.lstsq</code></a>(a,&nbsp;b[,&nbsp;rcond])</p></td>
+      <td><p>Return the least-squares solution to a linear matrix equation.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.inv.html#numpy.linalg.inv" title="numpy.linalg.inv"><code>linalg.inv</code></a>(a)</p></td>
+      <td><p>Compute the (multiplicative) inverse of a matrix.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.pinv.html#numpy.linalg.pinv" title="numpy.linalg.pinv"><code>linalg.pinv</code></a>(a[,&nbsp;rcond,&nbsp;hermitian])</p></td>
+      <td><p>Compute the (Moore-Penrose) pseudo-inverse of a matrix.</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.tensorinv.html#numpy.linalg.tensorinv" title="numpy.linalg.tensorinv"><code>linalg.tensorinv</code></a>(a[,&nbsp;ind])</p></td>
+      <td><p>Compute the ‘inverse’ of an N-dimensional array.</p></td>
+    </tr>
+    </tbody>
+  </table>
 
 
 ## Programming Assignment 12
