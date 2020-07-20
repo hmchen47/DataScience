@@ -716,6 +716,8 @@
 
     # linearly generated sequence -> obtaining the parameters
     w = linalg.lstsq(A,y)[0]
+    # array([[19.18888889],
+    #        [ 0.71666667]])
     ```
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -733,20 +735,19 @@
   HW.columns = ['Height','Weight']
   HW.head()
 
-  # Copute some basic descritive statistics
+  # Copute some basic descriptive statistics
   HW.describe()
 
-  # 
-  A=np.array(HW['Height'])
-  A=np.array([ones(len(A)),A])
-  y=np.array(HW['Weight'])
+  # obtaing weight and height and forming related matrix and vectors
+  A = np.array(HW['Height'])
+  A = np.array([ones(len(A)),A])
+  y = np.array(HW['Weight'])
   A.shape,y.shape
 
-  # finding the optimal parameters
-  w1 = linalg.lstsq(A.T,y)[0]
-  # array([-82.57574306,   3.08347645])
+  # finding the optimal parameters (left diagram)
+  w1 = linalg.lstsq(A.T,y)[0]       # array([-82.57574306,   3.08347645])
 
-  # the graph of averages
+  # the graph of averages (right diagram)
   # calculate the mean weight for each 1-inch interval of height.
   HW['round_height'] = HW['Height'].round()
   HW['round_weight'] = HW['Weight'].round()
@@ -762,7 +763,7 @@
   </div>
 
 
-+ Example: predicting height from weight
++ Example: two regression line - predicting height from weight
 
   ```python
   A=np.array(HW['Weight'])
