@@ -49,7 +49,7 @@
   + converting a Python list to an array by `np.array` function, e.g., `c_lst = [1, 2]; c_vec = no.array(c_lst)`
   + example
 
-    ``python
+    ```python
     c_list = [1,2]
     print("The list:",c_list)           # The list: [1, 2]
     print("Has length:", len(c_list))   # Has length: 2
@@ -65,7 +65,7 @@
     zarray = np.array(z)
     print("This is an array, not a list",zarray)    # This is an array, not a list [5 6]
     print(type(zarray))                             # <class 'numpy.ndarray'>
-    ``
+    ```
 
 + Array dimension as vector dimension
   + dimension $d$: `np.array([1, 2, 3, 4])` defines a vector in $\Bbb{R}^4$, i.e., a vector of dimension 4
@@ -83,7 +83,7 @@
     + e.g., $\vec{a} = [a_1, a_2]$
   + python code to plot line w/ arrow to represent vector
 
-    ``python
+    ```python
     import matplotlib.pyplot as plt
     from numpy.linalg import norm
     text_loc=1.1
@@ -114,7 +114,7 @@
     v2=np.array([-1,1])
     v3=np.array([0,-2])
     plot_arrows([[zero,v1,'r',str(v1)],[zero,v2,'k',str(v2)],[zero,v3,'b',str(v3)]]);
-    ``
+    ```
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="./src/Topic12-Lectures/1.Linear_Algebra_Review.ipynb" ismap target="_blank">
@@ -130,12 +130,12 @@
     + -v1= [-1 -2]
   + dimension checking for vector operations
 
-    ``python
+    ```python
     try:
       np.array([1, 1])+np.array([1, 2, 1])
     except:
       print('the two vectors have different dimensions')
-    ``
+    ```
 
   + the inner product
     + __inner product__ or __dot product__: an operation taking two vectors w/ same dimension and returning a number (scalar)
@@ -500,11 +500,11 @@
   Ans: a. (d); b. (b); c. (a, xb), d. (b); e. (a); f. (b)
 
 
-3. Given a matrix, $A = \begin{bmatrix} 4 \ 1 \\ 1 \ 9 \end{bmatrix}$, find $(4A)^{-1}$.
-  a. $(4A)^{-1} = \begin{bmatrix} 1 \ \, {- \frac{1}{9}} \\ \!\!\!\! \, {- \frac{1}{9}} \ \hspace{.3cm} \frac{4}{9} \end{bmatrix}$
-  b. $(4A)^{-1} = \begin{bmatrix} \frac{9}{140} \ \ {\,-\frac{1}{140}} \\ \!\!\!\!\!\!\! \,- \frac{1}{140} \ \hspace{.4cm} \frac{1}{35} \end{bmatrix}$
-  c. $(4A)^{-1} = \begin{bmatrix} \frac{1}{16} \ \hspace{.5cm} \! \frac{1}{4} \\  \frac{1}{4} \ \hspace{.4cm} \frac{1}{36} \end{bmatrix}$
-  d. $(4A)^{-1} = \begin{bmatrix} \frac{1}{36} \ \hspace{.1cm} {-\frac{1}{4}} \\ \!\!\!\!  \, {-\frac{1}{4}} \ \hspace{.4cm} \frac{1}{16} \end{bmatrix}$
+3. Given a matrix, $A = \begin{bmatrix} 4 \ 1 \\ 1 \ 9 \end{bmatrix}$, find $(4A)^{-1}$.<br/>
+  a. $(4A)^{-1} = \begin{bmatrix} 1 \ \, {- \frac{1}{9}} \\ \!\!\!\! \, {- \frac{1}{9}} \ \hspace{.3cm} \frac{4}{9} \end{bmatrix}$<br/>
+  b. $(4A)^{-1} = \begin{bmatrix} \frac{9}{140} \ \ {\,-\frac{1}{140}} \\ \!\!\!\!\!\!\! \,- \frac{1}{140} \ \hspace{.4cm} \frac{1}{35} \end{bmatrix}$<br/>
+  c. $(4A)^{-1} = \begin{bmatrix} \frac{1}{16} \ \hspace{.5cm} \! \frac{1}{4} \\  \frac{1}{4} \ \hspace{.4cm} \frac{1}{36} \end{bmatrix}$<br/>
+  d. $(4A)^{-1} = \begin{bmatrix} \frac{1}{36} \ \hspace{.1cm} {-\frac{1}{4}} \\ \!\!\!\!  \, {-\frac{1}{4}} \ \hspace{.4cm} \frac{1}{16} \end{bmatrix}$<br/>
 
   Ans: b<br/>
   Explanation: $(4A)^{-1} = \frac{1}{4}A^{-1} = \begin{bmatrix} \frac{9}{140} \ \ {\,-\frac{1}{140}} \\ \!\!\!\!\!\!\! \,- \frac{1}{140} \ \hspace{.4cm} \frac{1}{35} \end{bmatrix}$
@@ -666,13 +666,119 @@
 
 ### Lecture Notes
 
++ Linear regression example
+  + 9 points on the plane, defined by $(x, y)$ coordinates
+  + points: (0, 19), (1, 20), (2, 20.5), (3, 21.5), (4, 22), (5, 23), (6, 23), (7, 25.5), (8, 24)
+  + points close to a straight line trending upwards
+  + a function of the form: $f_{w_0, w_1}(x) = w_0 + w_1 x$
+  + goal: find $w_0$ and $w_1$
+  + __overconstrained__ system
+    + more than 2 points
+    + no straight line to pass through all of the points
+  + points not falling __exactly__ on a line $\to$ finding $w_0, w_1$ s.t. the line is __closest__ to the points
+
++ Linear regression
+  + Definition: __square difference__ btw the line $f_{w_0, w_1}$ and the points $\langle(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\rangle$
+
+    \[ \sum_{i=1}^n \left[ f_{w_0, w_1}(x_i) - y_i \right]^2 \]
+
+  + Definition: (least square) the <span style="color: magenta;">least squares</span> solution are the values of $w_0, w_1$ which minimize the square difference
+  + using matrix notsation and `np.linalg` to find the optimal vector ${\bf w} = [w_0 \; w_1]$
+    + $A_{n\times 2}$ matrix
+    + ${\bf y}$ and ${\bf w}$: column vectors
+
+      \[ {\bf A} = \begin{bmatrix} 1 & x_1 \\ \vdots & \vdots \\ 1 & x_n \end{bmatrix}, \;\; {\bf y} = \begin{bmatrix} y_1 \\ \vdots \\ y_n \end{bmatrix}, \;\; {\bf w} = \begin{bmatrix} w_0 \\ w_1 \end{bmatrix} \]
+
+  + the differences are a vector ${\bf d}$
+
+    \[ {\bf d} = {\bf Aw} - {\bf y} \]
+
+  + minimizing the square difference $\implies$ finding the square of the norm of ${\bf d}$
+  + goal: find ${\bf w}$ to minimize
+
+    \[ \parallel {\bf d} \parallel_2^2 = \sum_{i=1}^n d_i^2 \]
+
+  + demo
+
+    ```python
+    import numpy as np
+    from numpy import arange, array, ones, linalg
+
+    x = arange(0,9)
+    y = np.array([[19, 20, 20.5, 21.5, 22, 23, 23, 25.5, 24]]).T
+
+    A = array([ones(9), x ]).T
+    # A.T=
+    #  [[1. 1. 1. 1. 1. 1. 1. 1. 1.]
+    #  [0. 1. 2. 3. 4. 5. 6. 7. 8.]]
+    # y.T = [[19.  20.  20.5 21.5 22.  23.  23.  25.5 24. ]]
+    A.shape,y.shape     # ((9, 2), (9, 1))
+
+    # linearly generated sequence -> obtaining the parameters
+    w = linalg.lstsq(A,y)[0]
+    ```
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="./src/Topic12-Lectures/4.Regression_I.ipynb" ismap target="_blank">
+        <img src="img/t12-06.png" style="margin: 0.1em;" alt="Differences btw regression and data" title="Differences btw regression and data" width=350>
+      </a>
+    </div>
 
 
++ Example: weight prediction from height
+
+  ```pandas
+  HW = pd.read_csv('data/HW25000.csv')
+  HW = HW.iloc[:,1:]
+  HW.columns = ['Height','Weight']
+  HW.head()
+
+  # Copute some basic descritive statistics
+  HW.describe()
+
+  # 
+  A=np.array(HW['Height'])
+  A=np.array([ones(len(A)),A])
+  y=np.array(HW['Weight'])
+  A.shape,y.shape
+
+  # finding the optimal parameters
+  w1 = linalg.lstsq(A.T,y)[0]
+  # array([-82.57574306,   3.08347645])
+
+  # the graph of averages
+  # calculate the mean weight for each 1-inch interval of height.
+  HW['round_height'] = HW['Height'].round()
+  HW['round_weight'] = HW['Weight'].round()
+ 
+  per_height_means = HW.groupby('round_height').mean()[['Weight']]
+  ```
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="./src/Topic12-Lectures/4.Regression_I.ipynb" ismap target="_blank">
+      <img src="img/t12-07a.png" style="margin: 0.1em;" alt="Linear regression example: regression line" title="Linear regression example: regression line" height=250>
+      <img src="img/t12-07b.png" style="margin: 0.1em;" alt="Linear regression example: regression line w/ averages" title="Linear regression example: regression line w/ averages" height=250>
+    </a>
+  </div>
 
 
++ Example: predicting height from weight
 
+  ```python
+  A=np.array(HW['Weight'])
+  A=np.array([ones(len(A)),A])
+  y=np.array(HW['Height'])
+  A.shape,y.shape
 
-+ [Original Slide]()
+  # finding the optimal parameters
+  w2 = linalg.lstsq(A.T,y)[0]
+  ```
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="./src/Topic12-Lectures/4.Regression_I.ipynb" ismap target="_blank">
+      <img src="img/t12-08.png" style="margin: 0.1em;" alt="Predicting height from weight and predicting weight from height: regression lines" title="Predicting height from weight and predicting weight from height: regression lines" height=250>
+    </a>
+  </div>
 
 
 ### Problem Sets
