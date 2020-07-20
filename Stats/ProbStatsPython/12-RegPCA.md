@@ -572,7 +572,7 @@
 
 + Finding a line passing through 2 points
   + $y = w_0 + w_1 x$
-    + expressing a line as $(x, y)$ are points along the line
+    + expressing a line as $(x, y)$ are points along the line, except for vertical line
     + $w_0$: y-axis intercept
     + $w_1$: the slope of the line
   + identifying the line by finding $w_0, w_1$ that satisfies the constraints w/ given points
@@ -589,14 +589,15 @@
     \[ \begin{bmatrix} 1 & -1 \\ 1 & 1	 \end{bmatrix} \begin{bmatrix} w_0 \\ w_1	 \end{bmatrix} = \begin{bmatrix} 2 \\ 1	 \end{bmatrix} \]
   
   + writing succinctly as ${\bf Aw = b}$
-    + coefficient matrix: ${\bf A} = \begin{bmatrix} 1 & -1 \\1 & 1	\end{bmatrix}$
-    + ordinate or dependent variable vector: ${\bf b}=\begin{bmatrix} 2 \\ 1 \end{bmatrix}$
-    + parameter vector: ${\bf w} = \begin{bmatrix} w_0 \\ w_1	\end{bmatrix}$
+    + _coefficient_ matrix: ${\bf A} = \begin{bmatrix} 1 & -1 \\1 & 1	\end{bmatrix}$
+    + _ordinate_ or _dependent variable_ vector: ${\bf b}=\begin{bmatrix} 2 \\ 1 \end{bmatrix}$
+    + _parameter_ vector: ${\bf w} = \begin{bmatrix} w_0 \\ w_1	\end{bmatrix}$
   + goal: find $w$ s.t. ${\bf Aw = b}$
     + w/ A is invertible, multiplying both sides by ${\bf A^{-1}}$
 
       \[ {\bf w =  A^{-1} A w = A^{-1} b } \]
 
+    + alternatively, solving linear equations
   + Demo: solving using numpy
 
     ```python
@@ -609,9 +610,14 @@
     # solve using inv(A)
     Ainv=inv(A)
     w=inv(A).dot(b)
+    # w= inv(A)*b = 
+    # [[ 1.5]
+    # [-0.5]]
 
     # solve using solve()
     w = solve(A, b)
+    # [[ 1.5]
+    # [-0.5]]
     ```
 
   + more than 2 points: no straight line amoung them
@@ -620,12 +626,13 @@
   + used to solve a set of $n$ linear equations w/ $n$ unknowns
   + simply expressing the set of equation in a matrix format ${\bf Ax = b}$
   + calling `x = np.linalg.solve(A, b)` and returning a vector w/ the solution for ${\bf x}$  
-  + constraint: the number of equations ($equs$) = the number of unknowns ($unknowns$)
-    + undetermined or singular system
-      + $equs < unknowns$
-      + not enough infor to specify a unique solution
-    + overdetermined system:
-      + $equs > unknows$
+  + classification of systems
+    + constraint: the number of equations ($eqs$) = the number of unknowns ($unks$)
+    + _undetermined_ or _singular_ system
+      + $eqs < unks$
+      + not enough info to specify a unique solution
+    + _overdetermined_ system:
+      + $eqs > unks$
       + no solution  satisfying all constraints
   + demo: $x+y-z=5 \\ z+2y=3 \\ y-x=4$
 
@@ -633,6 +640,7 @@
     A=np.array([[1,1,-1],[0,2,1],[-1,1,0]])
     b=np.array([5,3,4])
     solve(A,b)
+    # array([-1.,  3., -3.])
     ```
 
 
