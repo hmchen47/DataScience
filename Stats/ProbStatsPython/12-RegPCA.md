@@ -646,7 +646,13 @@
 
 ### Problem Sets
 
+0. In the matrix equation, ${\bf A\vec{w}=\vec{b}$,what does the matrix, A, contain?<br/>
+  a. The x-values of two points<br/>
+  b. The slope and y-intercept of the line connecting two points<br/>
+  c. The y-values of two points<br/>
+  d. The slope of the line connecting two points<br/>
 
+  Ans: <span style="color: cyan;">b</span>
 
 
 ### Lecture Video 
