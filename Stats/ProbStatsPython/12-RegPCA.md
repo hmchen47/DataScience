@@ -785,6 +785,77 @@
 ### Problem Sets
 
 
+0. If your data set contains 10 colinear points, meaning they are all points on the same line, should you use a linear regression to find that line? (yes/no)
+
+  Ans: no<br/>
+  Explanation: No, we do not need to use linear regression. Simply taking two points, we can calculate the slope of the line.
+
+
+1. When a system has more dimensions than points, it is called an “overdetermined system”. (True/False)
+
+  Ans: False<br/>
+  Explanation: It is an "underdetermined system".
+
+
+
+2. The purpose of linear regression is to find a line that most closely matches a set of data with multiple data points. (True/ False)
+
+  Ans: True
+
+
+
+3. Given points $p_1=(2,3)$ and $p_2=(3,0)$, and the equation $A_{\vec{w}} = \vec{b}$ answer the following:
+
+  a) Find the coefficient matrix, $A$.<br/>
+    <span style="padding-left: 1em;">a.</span> $A = \begin{bmatrix} 1 \ 1 \\ 2 \ 3 \end{bmatrix}$<br/>
+    <span style="padding-left: 1em;">b.</span> $A = \begin{bmatrix} 1 \ 2 \\ 1 \ 3 \end{bmatrix}$<br/>
+    <span style="padding-left: 1em;">c.</span> $A = \begin{bmatrix} 1 \ 3 \\ 1 \ 2 \end{bmatrix}$<br/>
+    <span style="padding-left: 1em;">d.</span> $A = \begin{bmatrix} 1 \ 3 \\ 2 \ 1 \end{bmatrix}$<br/>
+
+  b) Find the dependent variable vector, $\vec{b}$.<br/>
+    <span style="padding-left: 1em;">a.</span> $\vec{b} = \begin{bmatrix} 9 \\ {-3} \end{bmatrix}$<br/>
+    <span style="padding-left: 1em;">b.</span> $\vec{b} = \begin{bmatrix} 3 \\ { 0} \end{bmatrix}$<br/>
+    <span style="padding-left: 1em;">c.</span> $\vec{b} = \begin{bmatrix} 9 \\ {-1} \end{bmatrix}$<br/>
+    <span style="padding-left: 1em;">d.</span> $\vec{b} = \begin{bmatrix} 6 \\ { 2} \end{bmatrix}$<br/>
+
+  c) Solve for the parameter vector, $\vec{w}$.<br/>
+    <span style="padding-left: 1em;">a.</span> $\vec{w} = \begin{bmatrix} 9 \\ -3 \end{bmatrix}$<br/>
+    <span style="padding-left: 1em;">b.</span> $\vec{w} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}$<br/>
+    <span style="padding-left: 1em;">c.</span> $\vec{w} = \begin{bmatrix} 3 \\ 0 \end{bmatrix}$<br/>
+    <span style="padding-left: 1em;">d.</span> $\vec{w} = \begin{bmatrix} -3 \\ 1 \end{bmatrix}$<br/>
+
+  d) Give the equation for the line connecting $p_1$ and $p_2$.<br/>
+    <span style="padding-left: 1em;">a.</span> $y = 3x + 9$<br/>
+    <span style="padding-left: 1em;">b.</span> $y = x - 3$<br/>
+    <span style="padding-left: 1em;">c.</span> $y = -3x+3$<br/>
+    <span style="padding-left: 1em;">d.</span> $y = -3x+9$<br/>
+
+  Ans: a. (b); b. (b); c. (a); d. (d)<br/>
+  Explanation:
+    + The definition in the video.
+    + The definition in the video.
+    + With $A = \begin{bmatrix} 1 \ 2 \\ 1 \ 3 \end{bmatrix}$ and $\vec{b} = \begin{bmatrix} 3 \\ 0 \end{bmatrix}$, we get $\vec{w} = \begin{bmatrix} 9 \\ -3 \end{bmatrix}$ by solving the linear equation $A_{\vec{w}} = \vec{b}$
+
+
+
+4. The parameter vector, $\vec{w} \in \Bbb{R}^2$, represents the slope and Y-intercept of a line in the 2-D plane. (True/False)
+
+  Ans: True
+
+
+  
+5. Why do we want to minimize the square difference from a point to the line instead of the actual difference when using the least squares method?<br/>
+  a. It’s more accurate to minimize the larger value<br/>
+  b. We could minimize the actual difference as well<br/>
+  c. We want to ensure the value is positive because it is a distance<br/>
+  d. We want to ensure that far away points are weighted more heavily than nearby points<br/>
+
+  Ans: cd<br/>
+  Explanation:
+    + False.
+    + False.
+    + True. If we use a value that can be negative, for example, the actual difference, it can arbitary small by makeing the line far away from the points.
+    + True. The square difference penalizes far away points heavily than the absolute difference does.  
 
 
 ### Lecture Video 
