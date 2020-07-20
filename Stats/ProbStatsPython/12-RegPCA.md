@@ -666,7 +666,7 @@
 
 ### Lecture Notes
 
-+ Linear regression example
++ Linear regression by example
   + 9 points on the plane, defined by $(x, y)$ coordinates
   + points: (0, 19), (1, 20), (2, 20.5), (3, 21.5), (4, 22), (5, 23), (6, 23), (7, 25.5), (8, 24)
   + points close to a straight line trending upwards
@@ -677,8 +677,8 @@
     + no straight line to pass through all of the points
   + points not falling __exactly__ on a line $\to$ finding $w_0, w_1$ s.t. the line is __closest__ to the points
 
-+ Linear regression
-  + Definition: __square difference__ btw the line $f_{w_0, w_1}$ and the points $\langle(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\rangle$
++ Least squared linear regression
+  + Definition: (squared difference) __square difference__ btw the line $f_{w_0, w_1}$ and the points $\langle(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\rangle$
 
     \[ \sum_{i=1}^n \left[ f_{w_0, w_1}(x_i) - y_i \right]^2 \]
 
@@ -689,7 +689,7 @@
 
       \[ {\bf A} = \begin{bmatrix} 1 & x_1 \\ \vdots & \vdots \\ 1 & x_n \end{bmatrix}, \;\; {\bf y} = \begin{bmatrix} y_1 \\ \vdots \\ y_n \end{bmatrix}, \;\; {\bf w} = \begin{bmatrix} w_0 \\ w_1 \end{bmatrix} \]
 
-  + the differences are a vector ${\bf d}$
+  + the differences: a vector ${\bf d}$
 
     \[ {\bf d} = {\bf Aw} - {\bf y} \]
 
@@ -729,7 +729,7 @@
 
 + Example: weight prediction from height
 
-  ```pandas
+  ```python
   HW = pd.read_csv('data/HW25000.csv')
   HW = HW.iloc[:,1:]
   HW.columns = ['Height','Weight']
