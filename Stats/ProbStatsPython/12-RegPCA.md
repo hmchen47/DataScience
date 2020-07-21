@@ -1030,13 +1030,61 @@
 
 ### Lecture Notes
 
++ Regression to the mean by example
+  + students taking a standard exam at 2 time points $\to$ getting two grades
+  + 1st grade <font style="color: magenta;">higher</font> than average $\implies$ 2ns grade tending to be <font style="color: cyan;">lower</font> than the 1st
+  + 1st grade <font style="color: cyan;">lower</font> than average $\implies$ 2nd frade tending to be <font style="color: magenta;">higher</font> than the 1st
+  + happend happend even if 2 gardes __statistically independent__
+  + regression to the mean
+
++ Example: fathers and sons<br/>
+  a classical example of regression tot eh mean involving the height of fathers and sone
+
+  ```python
+  HH = pd.read_csv('data/Pearson.csv')
+  HH.head()
+
+  # Copute some basic descriptive statistics.
+  HH.describe()
+
+  # regression for fathers and sons height
+  A = np.array(HH['Father'])
+  A = np.array([ones(len(A)),A])
+  y = np.array(HH['Son'])
+  A.shape,y.shape
+
+  # finding the optimal parameters
+  w1 = linalg.lstsq(A.T,y)[0]
+  # array([33.892801, 0.514006])
+  # son's height = 33.892801 + 0.514006 * father's height
+  ```
 
 
++ Example: considering the difference <br/>
+  regression to the mean providing more evidence when comparing the fathers' height and the differences of the father and son
+
+  ```python
+  # regression for father and the difference btw (father and son)
+  HH['Son-Father'] = HH['Son'] - HH['Father']
+  A = np.array(HH['Father'])
+  A = np.array([ones(len(A)),A])
+  y = np.array(HH['Son-Father'])
+  A.shape,y.shape
+
+  # finding the optimal parameters
+  w2 = linalg.lstsq(A.T,y)[0]
+  # array([33.89280054, -0.48599409])
+  ```
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="./src/Topic12-Lectures/6.Regressing_to_the_mean.ipynb" ismap target="_blank">
+      <img src="img/t12-09.png" style="margin: 0.1em;" alt="Regression of Father's height to Son's height" title="Regression of Father's height to Son's height" height=250>
+      <img src="img/t12-10.png" style="margin: 0.1em;" alt="Regression of Father's height to the difference btw father and son" title="Regression of Father's height to the difference btw father and son" height=250>
+    </a>
+  </div>
 
 
-
-
-+ [Original Slide]()
++ [Original Slide](./src/Topic12-Lectures/6.Regressing_to_the_mean.ipynb)
 
 
 ### Problem Sets
