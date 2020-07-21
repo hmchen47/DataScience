@@ -1032,56 +1032,71 @@
 
 + Regression to the mean by example
   + students taking a standard exam at 2 time points $\to$ getting two grades
+    + grades on a 0-100 scale
+    + average grade: 70 
+    + 1st grade = 97 $\to$ 2nd grade likely to be lower than 97
+    + 1st grade = 55 $\to$ 2nd grade likely to be higher than 55
   + 1st grade <font style="color: magenta;">higher</font> than average $\implies$ 2ns grade tending to be <font style="color: cyan;">lower</font> than the 1st
   + 1st grade <font style="color: cyan;">lower</font> than average $\implies$ 2nd frade tending to be <font style="color: magenta;">higher</font> than the 1st
-  + happend happend even if 2 gardes __statistically independent__
+  + happend even if 2 gardes __statistically independent__
+  + happend even if grade 1 and grade 2 exchanged
+  + nothing interested: no judgement
   + regression to the mean
 
-+ Example: fathers and sons<br/>
-  a classical example of regression tot eh mean involving the height of fathers and sone
++ Example: fathers and sons (left diagram)
+  + a classical example of regression tot eh mean involving the height of fathers and sone
+  + Sir Francis Gatlon (1885): extreme characteristics (e.g., height) in parents not passed on completely to their offspring
+  + demo 1: simple regression
+    + father's height: 58" ~ 77"
+    + son's height: 63" ~ 72"
+    + son's height much closer to mean height
 
-  ```python
-  HH = pd.read_csv('data/Pearson.csv')
-  HH.head()
+    ```python
+    HH = pd.read_csv('data/Pearson.csv')
+    HH.head()
 
-  # Copute some basic descriptive statistics.
-  HH.describe()
+    # Copute some basic descriptive statistics.
+    HH.describe()
 
-  # regression for fathers and sons height
-  A = np.array(HH['Father'])
-  A = np.array([ones(len(A)),A])
-  y = np.array(HH['Son'])
-  A.shape,y.shape
+    # regression for fathers and sons height
+    A = np.array(HH['Father'])
+    A = np.array([ones(len(A)),A])
+    y = np.array(HH['Son'])
+    A.shape,y.shape
 
-  # finding the optimal parameters
-  w1 = linalg.lstsq(A.T,y)[0]
-  # array([33.892801, 0.514006])
-  # son's height = 33.892801 + 0.514006 * father's height
-  ```
+    # finding the optimal parameters
+    w1 = linalg.lstsq(A.T,y)[0]
+    # array([33.892801, 0.514006])
+    # son's height = 33.892801 + 0.514006 * father's height
+    ```
 
+  + demo2: considering the difference (right diagram)
+    + regression to the mean providing more evidence when comparing the fathers' height and the differences of the father and son
+    + the heigher the fater's height $\to$ the shorter the son's height
 
-+ Example: considering the difference <br/>
-  regression to the mean providing more evidence when comparing the fathers' height and the differences of the father and son
+    ```python
+    # regression for father and the difference btw (father and son)
+    HH['Son-Father'] = HH['Son'] - HH['Father']
+    A = np.array(HH['Father'])
+    A = np.array([ones(len(A)),A])
+    y = np.array(HH['Son-Father'])
+    A.shape,y.shape
 
-  ```python
-  # regression for father and the difference btw (father and son)
-  HH['Son-Father'] = HH['Son'] - HH['Father']
-  A = np.array(HH['Father'])
-  A = np.array([ones(len(A)),A])
-  y = np.array(HH['Son-Father'])
-  A.shape,y.shape
-
-  # finding the optimal parameters
-  w2 = linalg.lstsq(A.T,y)[0]
-  # array([33.89280054, -0.48599409])
-  ```
+    # finding the optimal parameters
+    w2 = linalg.lstsq(A.T,y)[0]
+    # array([33.89280054, -0.48599409])
+    ```
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="./src/Topic12-Lectures/6.Regressing_to_the_mean.ipynb" ismap target="_blank">
-      <img src="img/t12-09.png" style="margin: 0.1em;" alt="Regression of Father's height to Son's height" title="Regression of Father's height to Son's height" height=250>
-      <img src="img/t12-10.png" style="margin: 0.1em;" alt="Regression of Father's height to the difference btw father and son" title="Regression of Father's height to the difference btw father and son" height=250>
+    <a href="./src/Topic12-Lectures/5.Regressing_to_the_mean.ipynb" ismap target="_blank">
+      <img src="img/t12-12.png" style="margin: 0.1em;" alt="Regression of Father's height to Son's height" title="Regression of Father's height to Son's height" height=250>
+      <img src="img/t12-13.png" style="margin: 0.1em;" alt="Regression of Father's height to the difference btw father and son" title="Regression of Father's height to the difference btw father and son" height=250>
     </a>
   </div>
+
+  + conclusions
+    + a pair of iid independent variables $X_1, X_2$
+    + selecting pairs $x_1, x_2$ s.t. $x_1$ far from the mean of the distribution $\implies$ $x-2$ for those pairs tending to be closer to the mean
 
 
 + [Original Slide](./src/Topic12-Lectures/6.Regressing_to_the_mean.ipynb)
