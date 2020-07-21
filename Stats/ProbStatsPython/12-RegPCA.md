@@ -882,6 +882,13 @@
 
 ### Lecture Notes
 
++ 2nd degree polynomial regression
+  + form:
+
+    \[ f_2(x)=w_0+w_1 x + w_2 x^2 \]
+
+  + goal: find rge parameters $w_0, w_1$, and $w_2$ to minimize the root-square error
+
 + Nonlinear regression
 
   ```python
@@ -899,6 +906,7 @@
   y = np.array(HW['Weight'])
 
   w1 = linalg.lstsq(A.T,y)[0]
+  # w1= [-82.57574306   3.08347645]
 
   # non-liner graph of average (top right diagram)
   HW['P2'] = HW['Weight']+(HW['Height']-68)**2
@@ -909,6 +917,7 @@
   y=np.array(HW['P2'])
 
   w1 = linalg.lstsq(A.T,y)[0]
+  # w1= [-77.29147795   3.05894484]
 
   # 2nd degree polynomial w/ a good fit (bottom right diagram)
   A=np.array(HW['Height'])
@@ -930,15 +939,26 @@
     </a>
   </div>
 
-+ 2nd degree polynomial regression
-  + form:
++ Over-fitting, under-fitting and model selection
+  + covered in machine learning
+  + unknown degree polynomial
+  + underfit = degree of polynomial is too low $\to$ poor fit to the data
+  + overfit = degree of polynomial is too high $\to$ fitting the data too well
+  + overfit issue: interested in the fit of polynomial on unseen data
 
-    \[ f_2(x)=w_0+w_1 x + w_2 x^2 \]
++ Training error and test error<br/>
+  partitioning the data, at random, into two sets
+  + training set: polynomial choosen to minimize training error
+  + test set: used to measure hte error
 
-  + goal: find rge parameters $w_0, w_1$, and $w_2$ to minimize the root-square error
-
-+ Over-fitting, under-fitting and model selection<br/>
-  unknown degree polynomial
++ Overfitting abd test error
+  + increasing the degree of the polynomial
+    + training error keep decreasing
+    + test error decreasing up to some degree and then increasing
+  + overfitting: the incresing portion
+  
++ Example: polynomial fitting
+  + the minimum of test RMS occurs for $d=1$
 
   ```python
   # A function for computing a polynomial of an arbitrary degree
@@ -964,15 +984,16 @@
 
       return train_RMS,test_RMS
 
-  # generate data (bottom left subplot)
+  # generate data
   np.random.seed(0)
   X=np.arange(-1,1.6,0.25)
   Y=X+np.random.rand(len(X))
 
+  # 3-degree polynomial fit (bottom left subplot)
   polyfit(ax,3) 
   # (0.04129876638352148, 0.519905344002559)
 
-  # polynomial fir for various settings (see diagram)
+  # polynomial fit w degree from 0~5 (see diagram)
   rows=2; cols=3; max_d=6
   fig=plt.figure(figsize=[14,10])
   train_RMS=np.zeros(max_d)
@@ -986,13 +1007,16 @@
       train_RMS[d],test_RMS[d]=polyfit(ax,d)
   ```
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="./src/Topic12-Lectures/5.Polynomial_Regression.ipynb" ismap target="_blank">
+      <img src="img/t12-10.png" style="margin: 0.1em;" alt="Example of underfitting and overfitting w/ various degree of polynomial" title="Example of underfitting and overfitting w/ various degree of polynomial" height=550>
+    </a>
+    <a href="./src/Topic12-Lectures/5.Polynomial_Regression.ipynb" ismap target="_blank">
+      <img src="img/t12-11.png" style="margin: 0.1em;" alt="Comparisons of training and test error. as d=1 w/ the lowest test error" title="Comparisons of training and test error" height=200>
+    </a>
+  </div>
 
 + [Original Slide](./src/Topic12-Lectures/5.Polynomial_Regression.ipynb)
-
-
-### Problem Sets
-
-
 
 
 ### Lecture Video 
