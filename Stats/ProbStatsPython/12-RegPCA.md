@@ -889,7 +889,7 @@
 
   + goal: find rge parameters $w_0, w_1$, and $w_2$ to minimize the root-square error
 
-+ Nonlinear regression
++ Linear and nonlinear regression
 
   ```python
   import pandas as pd
@@ -948,14 +948,14 @@
 
 + Training error and test error<br/>
   partitioning the data, at random, into two sets
-  + training set: polynomial choosen to minimize training error
-  + test set: used to measure hte error
+  + training set: polynomial chosen to minimize training error
+  + test set: used to measure the error
 
-+ Overfitting abd test error
++ Overfitting and test error
   + increasing the degree of the polynomial
     + training error keep decreasing
     + test error decreasing up to some degree and then increasing
-  + overfitting: the incresing portion
+  + overfitting: the increasing portion
   
 + Example: polynomial fitting
   + the minimum of test RMS occurs for $d=1$
@@ -964,23 +964,23 @@
   # A function for computing a polynomial of an arbitrary degree
   # The degree is determined by the length of the parameter vector w
   def F(X,w):
-      Accum=w[0]*np.ones(len(X))
+      Accum = w[0]*np.ones(len(X))
       for i in range(1,len(w)):
-          Accum+=w[i]*X**i
+          Accum += w[i]*X**i
       return Accum
 
   # polynomial fitting
-  def polyfit(ax,d=8):
-      Train=Data[Data['split']==1]
-      Test=Data[Data['split']==0]
+  def polyfit(ax, d=8):
+      Train = Data[Data['split']==1]
+      Test = Data[Data['split']==0]
 
-      A=np.array([Train['x']])
-      D=np.ones([1,A.shape[1]])
+      A = np.array([Train['x']])
+      D = np.ones([1,A.shape[1]])
       for i in range(1,d+1):
-          D=np.concatenate([D,A**i])
-      w=linalg.lstsq(D.T,Train['y'])[0]
-      train_RMS=sqrt(mean((Train['y']-F(Train['x'],w))**2))
-      test_RMS=sqrt(mean((Test['y']-F(Test['x'],w))**2))
+          D = np.concatenate([D,A**i])
+      w = linalg.lstsq(D.T,Train['y'])[0]
+      train_RMS = sqrt(mean((Train['y']-F(Train['x'],w))**2))
+      test_RMS = sqrt(mean((Test['y']-F(Test['x'],w))**2))
 
       return train_RMS,test_RMS
 
@@ -994,16 +994,16 @@
   # (0.04129876638352148, 0.519905344002559)
 
   # polynomial fit w degree from 0~5 (see diagram)
-  rows=2; cols=3; max_d=6
-  fig=plt.figure(figsize=[14,10])
-  train_RMS=np.zeros(max_d)
-  test_RMS=np.zeros(max_d)
+  rows = 2; cols = 3; max_d = 6
+  fig = plt.figure(figsize=[14,10])
+  train_RMS = np.zeros(max_d)
+  test_RMS = np.zeros(max_d)
   for d in range(max_d):
-      if d==0:
-          ax=plt.subplot(rows,cols,d+1)
-          ax0=ax
+      if d == 0:
+          ax = plt.subplot(rows,cols,d+1)
+          ax0 = ax
       else:
-          ax=plt.subplot(rows,cols,d+1,sharex=ax0)
+          ax = plt.subplot(rows,cols,d+1,sharex=ax0)
       train_RMS[d],test_RMS[d]=polyfit(ax,d)
   ```
 
