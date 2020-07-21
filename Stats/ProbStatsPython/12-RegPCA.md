@@ -211,6 +211,9 @@
     </div>
 
 
++ [Original Slide](./src/Topic12-Lectures/1.Linear_Algebra_Review.ipynb)
+
+
 
 ### Problem Sets
 
@@ -442,6 +445,9 @@
   + inverse matrix: `np.linalg.inv(A)`
 
 
++ [Original Slide](./src/Topic12-Lectures/2.Matrix_notation_and_operations.ipynb)
+
+
 
 ### Problem Sets
 
@@ -644,6 +650,10 @@
     ```
 
 
++ [Original Slide](./src/Topic12-Lectures/3.Solving_a_system_of_Equations.ipynb)
+
+
+
 ### Problem Sets
 
 0. In the matrix equation, ${\bf A\vec{w}=\vec{b}$,what does the matrix, A, contain?<br/>
@@ -782,6 +792,10 @@
   </div>
 
 
++ [Original Slide](./src/Topic12-Lectures/4.Regression_I.ipynb)
+
+
+
 ### Problem Sets
 
 
@@ -842,7 +856,6 @@
 
   Ans: True
 
-
   
 5. Why do we want to minimize the square difference from a point to the line instead of the actual difference when using the least squares method?<br/>
   a. It’s more accurate to minimize the larger value<br/>
@@ -860,7 +873,7 @@
 
 ### Lecture Video 
 
-<a href="url" target="_BLANK">
+<a href="https://tinyurl.com/y5oddnfj" target="_BLANK">
   <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" width=100/>
 </a><br/>
 
@@ -869,13 +882,112 @@
 
 ### Lecture Notes
 
++ Nonlinear regression
+
+  ```python
+  import pandas as pd
+  from numpy import arange,array,ones,linalg
+
+  # linear regression for average (top left diagram)
+  HW = pd.read_csv('data/HW25000.csv')
+  HW = HW.iloc[:,1:]
+  HW.columns=['Height','Weight']
+  HW.head()
+
+  A = np.array(HW['Height'])
+  A = np.array([ones(len(A)),A])
+  y = np.array(HW['Weight'])
+
+  w1 = linalg.lstsq(A.T,y)[0]
+
+  # non-liner graph of average (top right diagram)
+  HW['P2'] = HW['Weight']+(HW['Height']-68)**2
+
+  # limit of linear regression (bottom left diagram)
+  A=np.array(HW['Height'])
+  A=np.array([ones(len(A)),A])
+  y=np.array(HW['P2'])
+
+  w1 = linalg.lstsq(A.T,y)[0]
+
+  # 2nd degree polynomial w/ a good fit (bottom right diagram)
+  A=np.array(HW['Height'])
+  A=np.array([ones(len(A)),A,A**2])
+  y=np.array(HW['P2'])
+
+  w2 = linalg.lstsq(A.T,y)[0]
+  # w2= [ 4.57718628e+03 -1.33969361e+02  1.00774285e+00]
+  ```
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="./src/Topic12-Lectures/5.Polynomial_Regression.ipynb" ismap target="_blank">
+      <img src="img/t12-09a.png" style="margin: 0.1em;" alt="Regression of Weight and Height: linear" title="Regression of Weight and Height: linear" height=250>
+      <img src="img/t12-09b.png" style="margin: 0.1em;" alt="Regression of Weight and Height: nonlinear" title="Regression of Weight and Height: nonlinear" height=250>
+    </a>
+    <a href="./src/Topic12-Lectures/5.Polynomial_Regression.ipynb" ismap target="_blank">
+      <img src="img/t12-09c.png" style="margin: 0.1em;" alt="Regression of Weight and Height: comparison" title="Regression of Weight and Height: comparison" height=250>
+      <img src="img/t12-09d.png" style="margin: 0.1em;" alt="Regression of Weight and Height: 2nd-order regression line" title="Regression of Weight and Height: 2nd-order regression line" height=250>
+    </a>
+  </div>
+
++ 2nd degree polynomial regression
+  + form:
+
+    \[ f_2(x)=w_0+w_1 x + w_2 x^2 \]
+
+  + goal: find rge parameters $w_0, w_1$, and $w_2$ to minimize the root-square error
+
++ Over-fitting, under-fitting and model selection<br/>
+  unknown degree polynomial
+
+  ```python
+  # A function for computing a polynomial of an arbitrary degree
+  # The degree is determined by the length of the parameter vector w
+  def F(X,w):
+      Accum=w[0]*np.ones(len(X))
+      for i in range(1,len(w)):
+          Accum+=w[i]*X**i
+      return Accum
+
+  # polynomial fitting
+  def polyfit(ax,d=8):
+      Train=Data[Data['split']==1]
+      Test=Data[Data['split']==0]
+
+      A=np.array([Train['x']])
+      D=np.ones([1,A.shape[1]])
+      for i in range(1,d+1):
+          D=np.concatenate([D,A**i])
+      w=linalg.lstsq(D.T,Train['y'])[0]
+      train_RMS=sqrt(mean((Train['y']-F(Train['x'],w))**2))
+      test_RMS=sqrt(mean((Test['y']-F(Test['x'],w))**2))
+
+      return train_RMS,test_RMS
+
+  # generate data (bottom left subplot)
+  np.random.seed(0)
+  X=np.arange(-1,1.6,0.25)
+  Y=X+np.random.rand(len(X))
+
+  polyfit(ax,3) 
+  # (0.04129876638352148, 0.519905344002559)
+
+  # polynomial fir for various settings (see diagram)
+  rows=2; cols=3; max_d=6
+  fig=plt.figure(figsize=[14,10])
+  train_RMS=np.zeros(max_d)
+  test_RMS=np.zeros(max_d)
+  for d in range(max_d):
+      if d==0:
+          ax=plt.subplot(rows,cols,d+1)
+          ax0=ax
+      else:
+          ax=plt.subplot(rows,cols,d+1,sharex=ax0)
+      train_RMS[d],test_RMS[d]=polyfit(ax,d)
+  ```
 
 
-
-
-
-
-+ [Original Slide]()
++ [Original Slide](./src/Topic12-Lectures/5.Polynomial_Regression.ipynb)
 
 
 ### Problem Sets
