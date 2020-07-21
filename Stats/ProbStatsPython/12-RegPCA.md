@@ -1036,15 +1036,15 @@
     + average grade: 70 
     + 1st grade = 97 $\to$ 2nd grade likely to be lower than 97
     + 1st grade = 55 $\to$ 2nd grade likely to be higher than 55
-  + 1st grade <font style="color: magenta;">higher</font> than average $\implies$ 2ns grade tending to be <font style="color: cyan;">lower</font> than the 1st
-  + 1st grade <font style="color: cyan;">lower</font> than average $\implies$ 2nd frade tending to be <font style="color: magenta;">higher</font> than the 1st
+  + 1st grade <font style="color: magenta;">higher</font> than average $\implies$ 2nd grade tending to be <font style="color: cyan;">lower</font> than the 1st
+  + 1st grade <font style="color: cyan;">lower</font> than average $\implies$ 2nd grade tending to be <font style="color: magenta;">higher</font> than the 1st
   + happend even if 2 gardes __statistically independent__
   + happend even if grade 1 and grade 2 exchanged
   + nothing interested: no judgement
   + regression to the mean
 
 + Example: fathers and sons (left diagram)
-  + a classical example of regression tot eh mean involving the height of fathers and sone
+  + a classical example of regression to the mean involving the height of fathers and sone
   + Sir Francis Gatlon (1885): extreme characteristics (e.g., height) in parents not passed on completely to their offspring
   + demo 1: simple regression
     + father's height: 58" ~ 77"
@@ -1072,7 +1072,7 @@
 
   + demo2: considering the difference (right diagram)
     + regression to the mean providing more evidence when comparing the fathers' height and the differences of the father and son
-    + the heigher the fater's height $\to$ the shorter the son's height
+    + the higher the fater's height $\to$ the shorter the son's height
 
     ```python
     # regression for father and the difference btw (father and son)
