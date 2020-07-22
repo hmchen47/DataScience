@@ -1089,8 +1089,8 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="./src/Topic12-Lectures/5.Regressing_to_the_mean.ipynb" ismap target="_blank">
-      <img src="img/t12-12.png" style="margin: 0.1em;" alt="Regression of Father's height to Son's height" title="Regression of Father's height to Son's height" height=250>
-      <img src="img/t12-13.png" style="margin: 0.1em;" alt="Regression of Father's height to the difference btw father and son" title="Regression of Father's height to the difference btw father and son" height=250>
+      <img src="img/t12-12.png" style="margin: 0.1em;" alt="Regression of Father's height to Son's height" title="Regression of Father's height to Son's height" height=200>
+      <img src="img/t12-13.png" style="margin: 0.1em;" alt="Regression of Father's height to the difference btw father and son" title="Regression of Father's height to the difference btw father and son" height=200>
     </a>
   </div>
 
@@ -1113,13 +1113,142 @@
 
 ### Lecture Notes
 
++ Principal components analysis by example
+  + 9 points on the plane, defined by $(x, y)$ coordinates
+    + points closer to a straight line trending upwards
+    + line as a function of a form: $f_{w_0, w_1} (x) = w_0 + w_1 x$
+    + goal: find $w_0$ and $w_1$
+    + overconstrainted system: more than 2 points $\to$ no straight line that passed through all of the points
+    + not falling exactly on a line
+    + find $w_0, w_1$ s.t. the line is closest to the points
+  + square difference btw the line $(w_0, w_1)$ and the points $\langle (x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\rangle$ to be 
+  
+    \[ sum_{i=1)\}^n \left( f_{w_0, w_1}(x_i) - y_i \right)^2 \]
+
+  + __least squares__ solution: the values of $w_0, w_1$ to minimize the square difference
+  + Python: using `numpy.linalg` to find the minimum
+  + defining the problem using `np.linalg` w/ matrix notation
+    + ${\bf A_{n \times 2}}$: coefficient matrix
+    + ${\bf y}$: ordinate or dependent variable vector
+    + ${\bf w}$: parameter vector
+
+    \[ {\bf A} = \begin{bmatrix} 1 & x_1 \\ 1 & x_2 \\ \vdots & \vdots \\ 1 & x_n \end{bmatrix}, \; {\bf y} = \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix}, \; {\bf w} = \begin{bmatrix} w_0 \\ w_1 \end{bmatrix} \]
+
+  + the difference as a vector ${\bf d}$
+
+    \[ {bf d} = {\bf A w - y} \]
+
+  + minimizing the square difference
+
+    \[ \parallel {\bf d} \parallel_2^2 = \sum_{i=1}^n d_i^2 \]
+
+  + implementation
+
+    ```python
+    import pandas as pd
+    from numpy import arange,array,ones,linalg
+
+    A = array(list(zip(x,y)))
+
+    def PCA(A):
+        Mean= mean(A.T,axis=1) # Compute the location of the mean.
+        M = (A-Mean).T # subtract the mean (along columns)
+        [eigvals,eigvecs] = linalg.eig(cov(M))
+        order = argsort(eigvals)[-1::-1] # ordering vectors so that eigen-values decreasing order
+        eigvals = eigvals[order]
+        eigvecs = eigvecs[:,order]
+        eigvecs = eigvecs.T
+
+        return Mean,eigvals,eigvecs
+  
+    x = arange(0,9)
+    y = [21, 19, 23, 21, 25, 22, 25, 23, 24]
+    A = array([ ones(9),x ])
+
+    # linearly generated sequence
+    w = linalg.lstsq(A.T,y)[0]
+    Mean,eigvals,eigvecs = PCA(A)
+    # order= [0 1]
+    # Mean= [ 4.         22.55555556]
+    # eigvals= [9.78318072 1.74459706]
+    # eigvecs=
+    #  [[ 0.84615144  0.53294253]
+    #  [-0.53294253  0.84615144]]
+    ```
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="./src/Topic12-Lectures/7.PCA.ipynb" ismap target="_blank">
+        <img src="img/t12-14.png" style="margin: 0.1em;" alt="" title="" width=250>
+      </a>
+    </div>
+
++ Example: weight and height
+
+  ```python
+  HW=pd.read_csv('data/HW25000.csv')
+  HW=HW.iloc[:,1:]
+  HW.columns=['Height','Weight']
+
+  from math import sin,cos
+  def rotate(data,theta):
+      Mean= mean(data.T,axis=1)
+      M=np.array([[cos(theta),-sin(theta)],[sin(theta),cos(theta)]])
+      return (data-Mean).dot(M.T)+Mean
+
+  _array=rotate(np.array(HW),0)
+  Mean,eigvals,eigvecs = PCA(_array)
+  # order= [1 0]
+  # Mean= [ 67.9931136  127.07942116]
+  # eigvals= [136.90940491   2.68350923]
+  # eigvecs=
+  #  [[-0.08336679 -0.99651893]
+  #  [-0.99651893  0.08336679]]
+  ```
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="./src/Topic12-Lectures/7.PCA.ipynb" ismap target="_blank">
+      <img src="img/t12-15.png" style="margin: 0.1em;" alt="" title="" width=550>
+    </a>
+  </div>
+
++ PCA in 2D and computer vision
+
+  ```python
+  n = 100
+  image = np.zeros([n,n])
+  theta = pi/7
+  scale_x = 0.2
+  scale_y = 1
+  Scale = np.array([[scale_x,0],[0,scale_y]])
+  M=np.array([[cos(theta),-sin(theta)],[sin(theta),cos(theta)]])
+  P=M.dot(Scale)
+  for i in arange(-n/2,n/2,.5):
+      for j in arange(-n/2,n/2,.5):
+          if max(abs(i),abs(j))<30:
+              v=np.array([i,j])
+              s=P.dot(v)+np.array([n/2,n/2])
+              x,y=[int(a) for a in s]
+              image[x,y]=1
+
+  nz=np.array(nonzero(image))
+  Mean,eigvals,eigvecs = PCA(nz.T)
+  # order= [1 0]
+  # Mean= [49.5 49.5]
+  # eigvals= [301.53805674  14.04345802]
+  # eigvecs=
+  #  [[ 0.43719437 -0.89936704]
+  #  [-0.89936704 -0.43719437]]
+  ```
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="./src/Topic12-Lectures/7.PCA.ipynb" ismap target="_blank">
+      <img src="img/t12-16.png" style="margin: 0.1em;" alt="" title="" width=250>
+    </a>
+  </div>
 
 
++ [Original Slide](./src/Topic12-Lectures/7.PCA.ipynb)
 
-
-
-
-+ [Original Slide]()
 
 
 ### Problem Sets
