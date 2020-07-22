@@ -125,6 +125,10 @@
 + Peter Kempthorne, [Mathematical Statistics](https://ocw.mit.edu/courses/mathematics/18-655-mathematical-statistics-spring-2016/)
 + Philippe Rigollet, [Statistics for Applications](https://ocw.mit.edu/courses/mathematics/18-650-statistics-for-applications-fall-2016/)
 + Philippe Rigollet, [Fundamentals of Statistics](https://www.edx.org/course/fundamentals-of-statistics)
++ M Ringnér, [What is principal component analysis?](http://146.6.100.192/users/BCH339N_2018/NBT_primer_PCA.pdf), 2008
++ ME Tipping, CM Bishop, [Probabilistic principal component analysis](https://publications.aston.ac.uk/id/eprint/38367/1/NCRG_97_010.pdf), 1999
++ H Abdi, LJ Williams, [Principal component analysis](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.149.8828&rep=rep1&type=pdf), 2010
++ J Shlens, [A tutorial on principal component analysis](https://arxiv.org/pdf/1404.1100&sa=U&ved=2ahUKEwi57Mfr0ZDpAhWtF6YKHfSxAck4ChAWMAZ6BAgEEAE&usg=AOvVaw2ccduDFnmcXvF-iGE-VXIM), 2014
 
 
 ### Machine Learning
