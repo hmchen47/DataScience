@@ -1113,17 +1113,17 @@
 
 ### Lecture Notes
 
-+ Principal components analysis by example
++ Linear regression example
   + 9 points on the plane, defined by $(x, y)$ coordinates
     + points closer to a straight line trending upwards
     + line as a function of a form: $f_{w_0, w_1} (x) = w_0 + w_1 x$
     + goal: find $w_0$ and $w_1$
-    + overconstrainted system: more than 2 points $\to$ no straight line that passed through all of the points
+    + overconstrainted system: more than 2 points $\to$ no straight line passed through all of the points
     + not falling exactly on a line
     + find $w_0, w_1$ s.t. the line is closest to the points
   + square difference btw the line $(w_0, w_1)$ and the points $\langle (x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\rangle$ to be 
   
-    \[ sum_{i=1)\}^n \left( f_{w_0, w_1}(x_i) - y_i \right)^2 \]
+    \[ \sum_{i=1}^n \left( f_{w_0, w_1}(x_i) - y_i \right)^2 \]
 
   + __least squares__ solution: the values of $w_0, w_1$ to minimize the square difference
   + Python: using `numpy.linalg` to find the minimum
@@ -1136,36 +1136,34 @@
 
   + the difference as a vector ${\bf d}$
 
-    \[ {bf d} = {\bf A w - y} \]
+    \[ {\bf d} = {\bf A w - y} \]
 
   + minimizing the square difference
 
     \[ \parallel {\bf d} \parallel_2^2 = \sum_{i=1}^n d_i^2 \]
 
 + No preferred coordinate
-  + regression proble: find a function to preddict $y$ from $x$
+  + regression problem: find a function to preddict $y$ from $x$
   + a differetnt solution if predicting $x$ from $y$
   + supervised learning: predicting $x \to y$ or $y \to x$, both $x$ and $y$ labeled
   + unsupervised learning: fit a line w/o making a choice btw $x \to y$ and $y \to x$
-  + PCA: using unsupervised learning to find the optimal linear fucntion
+  + PCA: using unsupervised learning to find the optimal linear function
   + regresssion and PCA 
     + both minimizing RMS (root mean square)
     + w/ different definitions of error
 
 + Example: simple regression (see diagram)
   + black line: regression line
-  + green segment: amount of error associated w/ each point
   + red line: PCA solution
   + blue segment: error btw PCA and data
+  + green segment: amount of error associated w/ each point
 
   ```python
   import pandas as pd
   from numpy import arange,array,ones,linalg
 
-  A = array(list(zip(x,y)))
-
   def PCA(A):
-      Mean= mean(A.T,axis=1) # Compute the location of the mean.
+      Mean = mean(A.T,axis=1) # Compute the location of the mean.
       M = (A-Mean).T # subtract the mean (along columns)
       [eigvals,eigvecs] = linalg.eig(cov(M))
       order = argsort(eigvals)[-1::-1] # ordering vectors so that eigen-values decreasing order
@@ -1197,44 +1195,44 @@
   </div>
 
 + Maximizing variance: alternative criterion
-  + PCA = the direction maximizing the variance
-  + r.v's / dat / samples: $\vec{x}_1, \vec{x}_2 \dots, \vec{x}_n$
-  + each unit vector $\vec{u}$ defining a projection of each data point onto the rel line: $a_i = \vecc{x}_i \cdot \vec{u}$
+  + PCA = the direction to maximize the variance
+  + r.v's / data / samples: $\vec{x}_1, \vec{x}_2 \dots, \vec{x}_n$
+  + each unit vector $\vec{u}$ defining a projection of each data point onto the rel line: $a_i = \vec{x}_i \cdot \vec{u}$
   + the variance of the projection $V(\vec{u}) = var(a_i)$
   + modeling
     + considering all possible unit vector - all possible projections
-    + $\forall\,$ projection calculating the stddev
+    + $\forall\,$ projection calculating the stdev
     + putting a point one stdev away from the origin in the unit vector direction 
     + the collection of all of these points forms an ellipse
-  + the larger sxis of the ellipse correspondings to the direction of maximal variance
+  + the larger axis of the ellipse corresponding to the direction of maximal variance
   + the smaller axis of the ellipse corresponds to the direction of minimal variance
   + directions = eigenvectors
-  + generaliing to higher dimension 
-    + direction of largest varaince = 1st eigenvector
-    + direction of 2nd largest varaince = 2nd eigenvector
-    + direction of 3rd largest varaince = 3rd eigenvector
+  + generalizing to higher dimension
+    + direction of largest variance = 1st eigenvector
+    + direction of 2nd largest variance = 2nd eigenvector
+    + direction of 3rd largest variance = 3rd eigenvector
     + ...
 
   + PCA providing one of the most common ways to normalize data
     + subtract the mean
-    + rotate the data s.t. the coordinates w/ igenvectors
+    + rotate the data s.t. the coordinates w/ eigenvectors
   + demo: weight and height
     + left diagram: original data
     + middle diagram: subtracting the mean
     + right diagram: rotation
 
     ```python
-    HW=pd.read_csv('data/HW25000.csv')
-    HW=HW.iloc[:,1:]
-    HW.columns=['Height','Weight']
+    HW = pd.read_csv('data/HW25000.csv')
+    HW = HW.iloc[:,1:]
+    HW.columns = ['Height','Weight']
 
     from math import sin,cos
-    def rotate(data,theta):
-        Mean= mean(data.T,axis=1)
-        M=np.array([[cos(theta),-sin(theta)],[sin(theta),cos(theta)]])
-        return (data-Mean).dot(M.T)+Mean
+    def rotate(data, theta):
+        Mean = mean(data.T, axis=1)
+        M = np.array([[cos(theta), -sin(theta)], [sin(theta), cos(theta)]])
+        return (data-Mean).dot(M.T) + Mean
 
-    _array=rotate(np.array(HW),0)
+    _array = rotate(np.array(HW),0)
     Mean,eigvals,eigvecs = PCA(_array)
     # order= [1 0]
     # Mean= [ 67.9931136  127.07942116]
@@ -1260,17 +1258,17 @@
   scale_x = 0.2
   scale_y = 1
   Scale = np.array([[scale_x,0],[0,scale_y]])
-  M=np.array([[cos(theta),-sin(theta)],[sin(theta),cos(theta)]])
-  P=M.dot(Scale)
+  M = np.array([[cos(theta),-sin(theta)],[sin(theta),cos(theta)]])
+  P = M.dot(Scale)
   for i in arange(-n/2,n/2,.5):
       for j in arange(-n/2,n/2,.5):
           if max(abs(i),abs(j))<30:
-              v=np.array([i,j])
-              s=P.dot(v)+np.array([n/2,n/2])
-              x,y=[int(a) for a in s]
+              v = np.array([i,j])
+              s = P.dot(v)+np.array([n/2,n/2])
+              x,y = [int(a) for a in s]
               image[x,y]=1
 
-  nz=np.array(nonzero(image))
+  nz = np.array(nonzero(image))
   Mean,eigvals,eigvecs = PCA(nz.T)
   # order= [1 0]
   # Mean= [49.5 49.5]
@@ -1287,7 +1285,7 @@
   </div>
 
 + Summary
-  + PCA and regression modeling mthods based om minimizing RMS errror
+  + PCA and regression modeling methods based om minimizing RMS error
   + regression
     + a supervised method
     + choosing what to predict
