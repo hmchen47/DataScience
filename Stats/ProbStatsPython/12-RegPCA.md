@@ -1142,74 +1142,114 @@
 
     \[ \parallel {\bf d} \parallel_2^2 = \sum_{i=1}^n d_i^2 \]
 
-  + implementation
++ No preferred coordinate
+  + regression proble: find a function to preddict $y$ from $x$
+  + a differetnt solution if predicting $x$ from $y$
+  + supervised learning: predicting $x \to y$ or $y \to x$, both $x$ and $y$ labeled
+  + unsupervised learning: fit a line w/o making a choice btw $x \to y$ and $y \to x$
+  + PCA: using unsupervised learning to find the optimal linear fucntion
+  + regresssion and PCA 
+    + both minimizing RMS (root mean square)
+    + w/ different definitions of error
 
-    ```python
-    import pandas as pd
-    from numpy import arange,array,ones,linalg
-
-    A = array(list(zip(x,y)))
-
-    def PCA(A):
-        Mean= mean(A.T,axis=1) # Compute the location of the mean.
-        M = (A-Mean).T # subtract the mean (along columns)
-        [eigvals,eigvecs] = linalg.eig(cov(M))
-        order = argsort(eigvals)[-1::-1] # ordering vectors so that eigen-values decreasing order
-        eigvals = eigvals[order]
-        eigvecs = eigvecs[:,order]
-        eigvecs = eigvecs.T
-
-        return Mean,eigvals,eigvecs
-  
-    x = arange(0,9)
-    y = [21, 19, 23, 21, 25, 22, 25, 23, 24]
-    A = array([ ones(9),x ])
-
-    # linearly generated sequence
-    w = linalg.lstsq(A.T,y)[0]
-    Mean,eigvals,eigvecs = PCA(A)
-    # order= [0 1]
-    # Mean= [ 4.         22.55555556]
-    # eigvals= [9.78318072 1.74459706]
-    # eigvecs=
-    #  [[ 0.84615144  0.53294253]
-    #  [-0.53294253  0.84615144]]
-    ```
-
-    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-      <a href="./src/Topic12-Lectures/7.PCA.ipynb" ismap target="_blank">
-        <img src="img/t12-14.png" style="margin: 0.1em;" alt="" title="" width=250>
-      </a>
-    </div>
-
-+ Example: weight and height
++ Example: simple regression (see diagram)
+  + black line: regression line
+  + green segment: amount of error associated w/ each point
+  + red line: PCA solution
+  + blue segment: error btw PCA and data
 
   ```python
-  HW=pd.read_csv('data/HW25000.csv')
-  HW=HW.iloc[:,1:]
-  HW.columns=['Height','Weight']
+  import pandas as pd
+  from numpy import arange,array,ones,linalg
 
-  from math import sin,cos
-  def rotate(data,theta):
-      Mean= mean(data.T,axis=1)
-      M=np.array([[cos(theta),-sin(theta)],[sin(theta),cos(theta)]])
-      return (data-Mean).dot(M.T)+Mean
+  A = array(list(zip(x,y)))
 
-  _array=rotate(np.array(HW),0)
-  Mean,eigvals,eigvecs = PCA(_array)
-  # order= [1 0]
-  # Mean= [ 67.9931136  127.07942116]
-  # eigvals= [136.90940491   2.68350923]
+  def PCA(A):
+      Mean= mean(A.T,axis=1) # Compute the location of the mean.
+      M = (A-Mean).T # subtract the mean (along columns)
+      [eigvals,eigvecs] = linalg.eig(cov(M))
+      order = argsort(eigvals)[-1::-1] # ordering vectors so that eigen-values decreasing order
+      eigvals = eigvals[order]
+      eigvecs = eigvecs[:,order]
+      eigvecs = eigvecs.T
+
+      return Mean,eigvals,eigvecs
+
+  x = arange(0,9)
+  y = [21, 19, 23, 21, 25, 22, 25, 23, 24]
+  A = array([ ones(9),x ])
+
+  # linearly generated sequence
+  w = linalg.lstsq(A.T,y)[0]
+  Mean,eigvals,eigvecs = PCA(A)
+  # order= [0 1]
+  # Mean= [ 4.         22.55555556]
+  # eigvals= [9.78318072 1.74459706]
   # eigvecs=
-  #  [[-0.08336679 -0.99651893]
-  #  [-0.99651893  0.08336679]]
+  #  [[ 0.84615144  0.53294253]
+  #  [-0.53294253  0.84615144]]
   ```
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="./src/Topic12-Lectures/7.PCA.ipynb" ismap target="_blank">
-      <img src="img/t12-15.png" style="margin: 0.1em;" alt="" title="" width=550>
+      <img src="img/t12-14.png" style="margin: 0.1em;" alt="" title="" width=250>
     </a>
   </div>
+
++ Maximizing variance: alternative criterion
+  + PCA = the direction maximizing the variance
+  + r.v's / dat / samples: $\vec{x}_1, \vec{x}_2 \dots, \vec{x}_n$
+  + each unit vector $\vec{u}$ defining a projection of each data point onto the rel line: $a_i = \vecc{x}_i \cdot \vec{u}$
+  + the variance of the projection $V(\vec{u}) = var(a_i)$
+  + modeling
+    + considering all possible unit vector - all possible projections
+    + $\forall\,$ projection calculating the stddev
+    + putting a point one stdev away from the origin in the unit vector direction 
+    + the collection of all of these points forms an ellipse
+  + the larger sxis of the ellipse correspondings to the direction of maximal variance
+  + the smaller axis of the ellipse corresponds to the direction of minimal variance
+  + directions = eigenvectors
+  + generaliing to higher dimension 
+    + direction of largest varaince = 1st eigenvector
+    + direction of 2nd largest varaince = 2nd eigenvector
+    + direction of 3rd largest varaince = 3rd eigenvector
+    + ...
+
+  + PCA providing one of the most common ways to normalize data
+    + subtract the mean
+    + rotate the data s.t. the coordinates w/ igenvectors
+  + demo: weight and height
+    + left diagram: original data
+    + middle diagram: subtracting the mean
+    + right diagram: rotation
+
+    ```python
+    HW=pd.read_csv('data/HW25000.csv')
+    HW=HW.iloc[:,1:]
+    HW.columns=['Height','Weight']
+
+    from math import sin,cos
+    def rotate(data,theta):
+        Mean= mean(data.T,axis=1)
+        M=np.array([[cos(theta),-sin(theta)],[sin(theta),cos(theta)]])
+        return (data-Mean).dot(M.T)+Mean
+
+    _array=rotate(np.array(HW),0)
+    Mean,eigvals,eigvecs = PCA(_array)
+    # order= [1 0]
+    # Mean= [ 67.9931136  127.07942116]
+    # eigvals= [136.90940491   2.68350923]
+    # eigvecs=
+    #  [[-0.08336679 -0.99651893]
+    #  [-0.99651893  0.08336679]]
+    ```
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="./src/Topic12-Lectures/7.PCA.ipynb" ismap target="_blank">
+        <img src="img/t12-15.png" style="margin: 0.1em;" alt="" title="" width=650>
+      </a>
+    </div>
+
 
 + PCA in 2D and computer vision
 
@@ -1245,6 +1285,14 @@
       <img src="img/t12-16.png" style="margin: 0.1em;" alt="" title="" width=250>
     </a>
   </div>
+
++ Summary
+  + PCA and regression modeling mthods based om minimizing RMS errror
+  + regression
+    + a supervised method
+    + choosing what to predict
+  + PCA: unsupervised method
+  + both based on linear algebra and very efficient
 
 
 + [Original Slide](./src/Topic12-Lectures/7.PCA.ipynb)
