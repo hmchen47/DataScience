@@ -80,9 +80,17 @@ def main():
     # Operations in vectors w/ visualization
     print("\nOperations on vectors w/ visualization:")
     print("  v1 + v2: {} + {} = {}".format(v1, v2, v1+v2))
-    plot_arrow([[orig, v1, 'r', '$\\vec{v}_1$'], [orig, v2, 'k', '$\\vec{v}_2$'], [v1, v2, 'k'], \
-        [orig, v1+v2, 'b', '$\\vec{v}+1 + \\vec{v}_2$']], fontsize=15)
+    # plot_arrow([[orig, v1, 'r', '$\\vec{v}_1$'], [orig, v2, 'k', '$\\vec{v}_2$'], [v1, v2, 'k'], \
+    #     [orig, v1+v2, 'b', '$\\vec{v}+1 + \\vec{v}_2$']], fontsize=15)
 
+    # two vectors summed only if w/ the same dimesion
+    print("\nv1= {}, v2 = {} --> v1+v2".format(np.array([1, 1]), np.array([1, 1, 2])))
+    try:
+        np.array([1, 1]) + np.array([1, 1, 2])
+    except:
+        print("these two vectors w/ different dimension")
+
+    
 
     return None
 
