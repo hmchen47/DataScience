@@ -45,6 +45,7 @@ def plot_arrow(L, scale=4, text_loc=0.2, fontsize=12, title=None):
 def main():
 
     # Lists vs Numpy Arrays
+    print("\nCreating vector and matrix by np.array")
     x_vec = np.array([1, 2, 3])
     print("\n  Create vector x_vec w/ 'np.array([1, 2, 3]'): {}".format(x_vec))
 
@@ -62,18 +63,25 @@ def main():
     v1 = np.array([[1, 2], [3, 4]])
     print("\ncreate a 2D matrix w/ 'np.array([[1, 2], [3, 4]])': \n{}".format(v1))
 
-
     input("\nPress Enter to continue ......")
 
     # Visualizing 2D vectors
-
+    print("\nVisualizing vector in 2D plane")
     orig = np.array([0, 0])
     v1 = np.array([1, 2])
     v2 = np.array([-1, 1])
     v3 = np.array([0, 2])
     title = "Vector arrow representation in 2D coordinate"
-    plot_arrow([[orig, v1, 'r', str(v1)], [orig, v2, 'k', str(v2)], \
-        [orig, v3, 'b', str(v3)]], scale=3, title=title)
+    # plot_arrow([[orig, v1, 'r', str(v1)], [orig, v2, 'k', str(v2)], \
+    #     [orig, v3, 'b', str(v3)]], scale=3, title=title)
+
+    # input("\nPress Enter to continue ......")
+    
+    # Operations in vectors w/ visualization
+    print("\nOperations on vectors w/ visualization:")
+    print("  v1 + v2: {} + {} = {}".format(v1, v2, v1+v2))
+    plot_arrow([[orig, v1, 'r', '$\\vec{v}_1$'], [orig, v2, 'k', '$\\vec{v}_2$'], [v1, v2, 'k'], \
+        [orig, v1+v2, 'b', '$\\vec{v}+1 + \\vec{v}_2$']], fontsize=15)
 
 
     return None
