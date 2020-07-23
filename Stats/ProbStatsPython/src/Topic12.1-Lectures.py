@@ -115,11 +115,24 @@ def main():
     print("\nProjects: u1= {}".format(u1))
     print("  projection a vector w/ u1*np.dot(u1, v2) = {}".format(p))
 
-    ax = plot_arrows([[orig, u1, 'r', '$\\vec{u}_1$'],[orig, v2, 'k', '$\\vec{v}_2$'],\
-                [orig, p, 'g', "$\\vec{u}_1(\\vec{u}_1\\cdot \\vec{v}_2)$"]],\
-               scale=1.3,text_loc=0.05)
-    ax.plot([v2[0],p[0]],[v2[1],p[1]])
-    plt.show();
+    # ax = plot_arrows([[orig, u1, 'r', '$\\vec{u}_1$'],[orig, v2, 'k', '$\\vec{v}_2$'],\
+    #             [orig, p, 'g', "$\\vec{u}_1(\\vec{u}_1\\cdot \\vec{v}_2)$"]],\
+    #            scale=1.3,text_loc=0.05)
+    # ax.plot([v2[0],p[0]],[v2[1],p[1]])
+    # plt.show();
+
+
+    # orthogonal vector
+    a = np.array([2, 2])
+    b = np.array([-1, 1])
+    print("\northogonal vectors: a={} b={}".format(a, b))
+    print("  dot product np.dot(a, b)= {}".format(np.dot(a, b)))
+    # plot_arrows([[orig, a, 'r'], [orig, b, 'k']])
+    # plt.show()
+
+
+
+
 
     return None
 
