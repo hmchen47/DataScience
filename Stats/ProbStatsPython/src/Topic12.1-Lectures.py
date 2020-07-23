@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import pandas as pd
-import numpy as np 
+import numpy as np
+import math
 import matplotlib.pyplot as plt 
 
 
@@ -38,8 +39,6 @@ def plot_arrow(L, scale=4, text_loc=0.2, fontsize=12, title=None):
     plt.show()
 
     return ax
-
-
 
 
 def main():
@@ -84,13 +83,19 @@ def main():
     #     [orig, v1+v2, 'b', '$\\vec{v}+1 + \\vec{v}_2$']], fontsize=15)
 
     # two vectors summed only if w/ the same dimesion
-    print("\nv1= {}, v2 = {} --> v1+v2".format(np.array([1, 1]), np.array([1, 1, 2])))
+    print("\nv1 = {}, v2 = {} --> v1+v2".format(np.array([1, 1]), np.array([1, 1, 2])))
     try:
         np.array([1, 1]) + np.array([1, 1, 2])
     except:
         print("these two vectors w/ different dimension")
 
-    
+    # inner product
+    print("\nways to calculate innerproduct: v1={} v2={}".format(v1, v2))
+    print("  np.dot(v1, v2) = {}".format(np.dot(v1, v2)))
+    print("  v1[0]*v2[0]+v1[1]*v2[1]= {}".format(v1[0]*v2[0]+v1[1]*v2[1]))
+    print("  sum of comprehensive list= {}".format(np.sum([v1[i]*v2[i] for i in range(len(v1))])))
+
+
 
     return None
 
