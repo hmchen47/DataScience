@@ -62,7 +62,7 @@ def main():
     v1 = np.array([[1, 2], [3, 4]])
     print("\ncreate a 2D matrix w/ 'np.array([[1, 2], [3, 4]])': \n{}".format(v1))
 
-    input("\nPress Enter to continue ......")
+    # input("\nPress Enter to continue ......")
 
     # Visualizing 2D vectors
     print("\nVisualizing vector in 2D plane")
@@ -95,6 +95,16 @@ def main():
     print("  v1[0]*v2[0]+v1[1]*v2[1]= {}".format(v1[0]*v2[0]+v1[1]*v2[1]))
     print("  sum of comprehensive list= {}".format(np.sum([v1[i]*v2[i] for i in range(len(v1))])))
 
+    # norm of a vector
+    print("\nways to calculating the norm of the vector: v1={}".format(v1))
+    print("  sqrt(np.dot(v1, v1)= {}".format(math.sqrt(np.dot(v1, v1))))
+    print("  np.linalg.norm(v1)=  {}".format(np.linalg.norm(v1)))
+
+    # unit vector
+    print("\nnormalizing any vector to unit vector: v1= {}, norm= {}"\
+        .format(v1, np.linalg.norm(v1)))
+    print("  unit vector w/ u1=v1/norm(v1): {}".format(v1/np.linalg.norm(v1)))
+    print("  and its norm: {}".format(np.linalg.norm(v1/np.linalg.norm(v1))))
 
 
     return None
