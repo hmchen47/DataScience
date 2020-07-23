@@ -138,6 +138,28 @@ def main():
     print("  their np.dot(v, e2) = {}".format(np.dot(v, e2)))
 
 
+    # visualizing change of basis
+    print("\nvisualizing change of basis")
+    v = np.array([-1, -2])
+    e1 = np.array([1, 0])
+    e2 = np.array([0, 1])
+
+    angle = np.pi/6.0
+    u1 = np.array([math.cos(angle), math.sin(angle)])
+    u2 = np.array([-math.sin(angle), math.cos(angle)])
+    print("  v= {} e1= {} e2= {} u1={} u2= {}".format(v, e1, e2, u1, u2))
+    p1 = u1*np.dot(u1, v)
+    p2 = u2*np.dot(u2, v)
+    print("  projection on the new basis: p1= {} p2= {}".format(p1, p2))
+    ax = plot_arrows([[orig, u1, 'r', '$\\vec{u}_1$'], [orig, u2, 'r', '$\\vec{u}_2$'], \
+        [orig, e1, 'k', '$\\vec{e}_1$'], [orig, e2, 'k', '$\\vec{e}_2$'], \
+        [orig, v, 'b', '$\\vec{v}$'],\
+        [orig, p1, 'g', '$\\vec{u}_1(\\vec{u}_1 \\cdot\\vec{v}$'],\
+        [orig, p2, 'g', '$\\vec{u}_2(\\vec{u}_2 \\cdot\\vec{v}$']], scale=2.2, text_loc=0.2)
+    ax.plot([v[0], p1[0]], [v[1], p1[1]], 'm')
+    ax.plot([v[0], p2[0]], [v[1], p2[1]], 'm')
+    plt.show();
+
 
     return None
 
