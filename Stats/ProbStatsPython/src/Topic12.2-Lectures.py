@@ -35,6 +35,14 @@ if __name__ == "__main__":
     print("\n\nReconstruct matrix from columns w/ np.concatenate(columns, axis=1): \n{}".format(A_recon))
     print("\nchecking the reconstruction = original w/ A_recon == A: \n{}".format(A_recon == A))
 
+    # split matrix into row vectors
+    print("\n\nSplitting matrix into row vectors w/ np.split(A, 2, axis=0)")
+    rows = np.split(A, 2, axis=0)
+    for i in range(len(rows)):
+        print("row {}: {}".format(i, rows[i]))
+
+    A_recon = np.concatenate(rows, axis=0)
+    print("\nreconstruct rows into matrix w/ np.concatenate(rows, axis=0): \n{}".format(A_recon))
 
 
     print("\nEnd Topic 12.2 Lecture Notes Python code ......\n")
