@@ -21,6 +21,8 @@ if __name__ == "__main__":
     print("\ncreate B as a 2x3 matrix w/ A.reshape(2, 3): \n{}  w/ shape= {}".format(B, B.shape))
     print("\ntransposing B matrix w/ B.T: \n{} w/ shape= {}".format(B.T, B.T.shape))
 
+    input("\nPress Enter to continue ...")
+
     # matrix as a collection of vectors
     print("\n\nDemo the relationship btw matrix and vectors:")
     A = np.array(range(6)).reshape(2, 3)
@@ -32,7 +34,7 @@ if __name__ == "__main__":
 
     # reconstruct matrix from vectors
     A_recon = np.concatenate(columns, axis=1)
-    print("\n\nReconstruct matrix from columns w/ np.concatenate(columns, axis=1): \n{}".format(A_recon))
+    print("\nReconstruct matrix from columns w/ np.concatenate(columns, axis=1): \n{}".format(A_recon))
     print("\nchecking the reconstruction = original w/ A_recon == A: \n{}".format(A_recon == A))
 
     # split matrix into row vectors
@@ -43,6 +45,17 @@ if __name__ == "__main__":
 
     A_recon = np.concatenate(rows, axis=0)
     print("\nreconstruct rows into matrix w/ np.concatenate(rows, axis=0): \n{}".format(A_recon))
+    print("\nchecking the reconstruction = original w/ A_recon == A: \n{}".format(A_recon == A))
+
+    input("\nPress Enter to continue ...")
+
+    # matrix scalar operations
+    print("\n\nDemo for matrix scalar operations: A =\n{}".format(A))
+    print("\naddition A + 3 = 3 + A = \n{}".format(A+3))
+    print("\nsubtraction A - 3 = \n{}".format(A-3))
+    print("\nmultiplication A x 3 = 3 x A = \n{}".format(A*3))
+    print("\ndivision (integer) A / 2 = \n{}".format(A/2))
+    print("\ndivision (float) A / 2.0 = \n{}".format(A/2.0))
 
 
     print("\nEnd Topic 12.2 Lecture Notes Python code ......\n")
