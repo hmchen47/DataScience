@@ -7,7 +7,7 @@ import math
 import matplotlib.pyplot as plt 
 
 
-def plot_arrow(L, scale=4, text_loc=0.2, fontsize=12, title=None):
+def plot_arrows(L, scale=4, text_loc=0.2, fontsize=12, title=None):
     """plot a list of arrow.  each arrow defined by start point, end point, color, and optional text
 
     Args:
@@ -36,7 +36,7 @@ def plot_arrow(L, scale=4, text_loc=0.2, fontsize=12, title=None):
             ax.text(_loc*e[0], _loc*e[1], t, fontsize=fontsize)
 
     plt.grid()
-    plt.show()
+    # plt.show()
 
     return ax
 
@@ -71,16 +71,18 @@ def main():
     v2 = np.array([-1, 1])
     v3 = np.array([0, 2])
     title = "Vector arrow representation in 2D coordinate"
-    # plot_arrow([[orig, v1, 'r', str(v1)], [orig, v2, 'k', str(v2)], \
+    # plot_arrows([[orig, v1, 'r', str(v1)], [orig, v2, 'k', str(v2)], \
     #     [orig, v3, 'b', str(v3)]], scale=3, title=title)
+    # plt.show()
 
     # input("\nPress Enter to continue ......")
     
     # Operations in vectors w/ visualization
     print("\nOperations on vectors w/ visualization:")
     print("  v1 + v2: {} + {} = {}".format(v1, v2, v1+v2))
-    # plot_arrow([[orig, v1, 'r', '$\\vec{v}_1$'], [orig, v2, 'k', '$\\vec{v}_2$'], [v1, v2, 'k'], \
+    # plot_arrows([[orig, v1, 'r', '$\\vec{v}_1$'], [orig, v2, 'k', '$\\vec{v}_2$'], [v1, v2, 'k'], \
     #     [orig, v1+v2, 'b', '$\\vec{v}+1 + \\vec{v}_2$']], fontsize=15)
+    # plt.show()
 
     # two vectors summed only if w/ the same dimesion
     print("\nv1 = {}, v2 = {} --> v1+v2".format(np.array([1, 1]), np.array([1, 1, 2])))
@@ -93,7 +95,8 @@ def main():
     print("\nways to calculate innerproduct: v1={} v2={}".format(v1, v2))
     print("  np.dot(v1, v2) = {}".format(np.dot(v1, v2)))
     print("  v1[0]*v2[0]+v1[1]*v2[1]= {}".format(v1[0]*v2[0]+v1[1]*v2[1]))
-    print("  sum of comprehensive list= {}".format(np.sum([v1[i]*v2[i] for i in range(len(v1))])))
+    print("  sum of comprehensive list= {}"\
+        .format(np.sum([v1[i]*v2[i] for i in range(len(v1))])))
 
     # norm of a vector
     print("\nways to calculating the norm of the vector: v1={}".format(v1))
@@ -106,6 +109,17 @@ def main():
     print("  unit vector w/ u1=v1/norm(v1): {}".format(v1/np.linalg.norm(v1)))
     print("  and its norm: {}".format(np.linalg.norm(v1/np.linalg.norm(v1))))
 
+    # projection and visualization
+    u1 = v1/np.linalg.norm(v1)
+    p = u1*np.dot(u1,v2)
+    print("\nProjects: u1= {}".format(u1))
+    print("  projection a vector w/ u1*np.dot(u1, v2) = {}".format(p))
+
+    ax = plot_arrows([[orig, u1, 'r', '$\\vec{u}_1$'],[orig, v2, 'k', '$\\vec{v}_2$'],\
+                [orig, p, 'g', "$\\vec{u}_1(\\vec{u}_1\\cdot \\vec{v}_2)$"]],\
+               scale=1.3,text_loc=0.05)
+    ax.plot([v2[0],p[0]],[v2[1],p[1]])
+    plt.show();
 
     return None
 
