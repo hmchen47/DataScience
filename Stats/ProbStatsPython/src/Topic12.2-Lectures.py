@@ -58,6 +58,18 @@ if __name__ == "__main__":
     print("\ndivision (float) A / 2.0 = \n{}".format(A/2.0))
 
 
+    # adding & subtraction w/ 2 matrices must be consistent of dimension
+    B = np.random.randn(2, 2)
+    print("\n\ncreate a random value m2x2 matrices B w/ np.random.randn(2, 2): \n{}".format(B))
+    print("\nadding and subtraction on A & B required dimesion checking code\n")
+    try:
+        rlt = A + B
+    except Exception as e:
+        print(e)
+
+    
+
+
     print("\nEnd Topic 12.2 Lecture Notes Python code ......\n")
 
 
