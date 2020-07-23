@@ -30,6 +30,10 @@ if __name__ == "__main__":
     for i in range(len(columns)):
         print("column {}\n{}".format(i, columns[i]))
 
+    # reconstruct matrix from vectors
+    A_recon = np.concatenate(columns, axis=1)
+    print("\n\nReconstruct matrix from columns w/ np.concatenate(columns, axis=1): \n{}".format(A_recon))
+    print("\nchecking the reconstruction = original w/ A_recon == A: \n{}".format(A_recon == A))
 
 
 
