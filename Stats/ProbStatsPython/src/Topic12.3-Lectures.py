@@ -35,6 +35,19 @@ def plot_through_line(p, w):
 
     return None
 
+def plot_3_pts():
+    """plot three points and unable to find straight line
+    """
+    plt.figure(figsize=(8, 6))
+    p = np.array([[-1, 2], [1,1], [0, 1.25]])
+
+    plt.plot(p[:, 0], p[:, 1], 'ro')
+    plt.xlim([-1.1, 1.1])
+    plt.ylim([0, 2.1])
+    plt.grid()
+    plt.,title("No straight line goes through these 3 points")
+
+    return None
 
 
 if __name__ == "__main__":
@@ -62,6 +75,10 @@ if __name__ == "__main__":
     print("\nalternatively, get solution w/ np.linalg.solve(A, b): \n{}".format(w))
 
     plot_through_line(p, w)
+
+    # no straight lin ethrough 3 points
+    plot_3_pts()
+
 
 
     print("\nEnd of Topic 12.3 Lecture Notes Python code ......\n")
