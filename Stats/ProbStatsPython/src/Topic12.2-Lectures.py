@@ -67,7 +67,23 @@ if __name__ == "__main__":
     except Exception as e:
         print(e)
 
-    
+    # matrix-matrix product
+    print("\n\nMatrix-matrix products::")
+    A = np.arange(6).reshape((3,2))
+    C = np.array([-1, 1])
+    print("\nA= {} ]\nC={}".format(A, C))
+
+    print("\ndot product for matrix and vector: np.dot(A, C): \n{}".format(np.dot(A, C)))
+
+    A = np.arange(6).reshape((3,2))
+    C = np.random.randn(2, 2)
+    print("\n\nA= {}\nC={}".format(A, C))
+
+    print("\ndot product for matrix and matrixvector: A.dot(C): \n{}".format(A.dot(C)))
+    print("\ndot product for matrix and matrixvector: np.dot(A, C): \n{}".format(np.dot(A, C)))
+
+
+
 
 
     print("\nEnd Topic 12.2 Lecture Notes Python code ......\n")
