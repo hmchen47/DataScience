@@ -82,8 +82,36 @@ if __name__ == "__main__":
     print("\ndot product for matrix and matrixvector: A.dot(C): \n{}".format(A.dot(C)))
     print("\ndot product for matrix and matrixvector: np.dot(A, C): \n{}".format(np.dot(A, C)))
 
+    # conformity
+    print("\nconformity for matrix-matrix production: C.shape x A.shape = {} x {}".format(C.shape, A.shape))
+    try:
+        result = np.dot(C, A)
+    except ValueError as e:
+        print("-->", e)
 
+    input("\nPress Enter to continue ...")
+    
+    # identity matrix
+    print("\n\ncreateing identity matrix w/ np.eye(n), e.g., np.eye(3)= \n{}".format(np.eye(3)))
 
+    # computing inverse matrix
+    C = np.random.randn(2, 2)
+    C_inv = np.linalg.inv(C)
+    print("\n\nComputing inverse matrix of A= \n{}".format(C))
+    print("\nget inverse matrix w/ np.linalg.inv(C)= \n{}".format(C_inv))
+
+    # checking inverse matrix
+    I = np.eye(2)
+    print("C x V_inv = C_inv x C = I: \nC xC_inv - I = \n{}\n\n C_inv x C - I = \n{}"\
+        .format(C.dot(C_inv) - I, C_inv.dot(C) - I))
+
+    # singular matrix
+    C = np.array([[1, 0], [1, 0]])
+    print("\na singular matrix unable to get inverse matrix: C =\n{}\n".format(C))
+    try:
+        C_inv = np.linalg.inv(C)
+    except np.linalg.LinAlgError as err:
+        print("C matrix invertion error:", err)
 
 
     print("\nEnd Topic 12.2 Lecture Notes Python code ......\n")
