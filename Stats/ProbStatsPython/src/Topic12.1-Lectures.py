@@ -131,6 +131,11 @@ def main():
     # plt.show()
 
 
+    # orthonormal basis
+    v = np.array([5, 6, 3, 4])
+    e2 = np.array([0, 1, 0, 0])
+    print("\northonormal basis w/ v={} e={}".format(v, e2))
+    print("  their np.dot(v, e2) = {}".format(np.dot(v, e2)))
 
 
 
