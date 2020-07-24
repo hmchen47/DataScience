@@ -32,17 +32,22 @@ def plot_reg(x, y, w):
 def f(x, w):
     return w[0]+w[1]*x
 
-
-def plot_reg_wh():
-    """Plot data and its regression line for wright-height relation
-    """
+def load_hw_data(print=False):
     hw_df = pd.read_csv('./Topic12-Lectures/data/HW25000.csv')
     hw_df = hw_df.iloc[:, 1:]
     hw_df.columns = ['Height', 'Weight']
 
-    print("\n\nHeight-Weight regression:")
-    print("\nhw_df first 5 rows: \{}".format(hw_df.head()))
-    print("\nhw_df statistic info: \n{}".format(hw_df.describe()))
+    if print:
+        print("\n\nHeight-Weight regression:")
+        print("\nhw_df first 5 rows: \{}".format(hw_df.head()))
+        print("\nhw_df statistic info: \n{}".format(hw_df.describe()))
+
+    return hw_df
+
+def plot_reg_wh():
+    """Plot data and its regression line for wright-height relation
+    """
+    hw_df = load_hw_data(print=True)
 
     A = np.array(hw_df['Height'])
     A = np.array([np.ones(len(A)), A])
@@ -56,6 +61,40 @@ def plot_reg_wh():
     x0, x1 = plt.xlim()
     ax.plot([x0, x1], [f(x0, w1), f(x1, w1)], 'r')
     plt.show();
+
+    return None
+
+
+def plot_average():
+
+    hw_df = load_hw_data()
+    hw_df['round_height'] = hw_df['Height'].round()
+    hw_df['round_weight'] = hw_df['Weight'].round()
+
+    A = np.array(hw_df['Height'])
+    A = np.array([np.ones(len(A)),A])
+    y = np.array(hw_df['Weight'])
+    
+    w1 = np.linalg.lstsq(A.T,y)[0]
+    
+    per_height_means = hw_df.groupby('round_height').mean()[['Weight']]
+
+    ax = hw_df.plot(kind='scatter', s=1, x='Height', y='Weight', figsize=[10, 8])
+    per_height_means.plot(y='Weight', style='ro', ax=ax, legend=False)
+
+    _xlim = plt.xlim()
+    _ylim = plt.ylim()
+
+    for _x in np.arange(_xlim[0]+0.5, _xlim[1], 1):
+        plt.plot([_x, _x], [_ylim[0], _ylim[1]], 'g')
+
+    x0, x1 = plt.xlim()
+    ax.plot([x0, x1], [f(x0, w1), f(x1, w1)], 'k')
+    plt.xlabel('Height')
+    plt.ylabel('Weight')
+    plt.title('The Height-Weight data plot and their regression line: y-intercept= {:.2f} & slope= {:.2f}'\
+        .format(w1[0], w1[1]))
+    plt.show()
 
     return None
 
@@ -78,7 +117,11 @@ if __name__ == "__main__":
     # plot_reg(x, y, w)
 
     # Height & weight regression
-    plot_reg_wh()
+    # plot_reg_wh()
+
+    # the graph of average
+    plot_average()
+
 
 
     print("\nEnd of Topic 12.4 Lecture Notes Python code ......\n")
