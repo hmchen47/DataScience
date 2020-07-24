@@ -21,12 +21,11 @@ def load_hw_data(printing=False):
 
     return hw_df
 
-def get_hw_reg(df, printing=False):
+def get_hw_reg(df, x_name, y_name, printing=False):
     """calculate parameter vector for Height-Weight regression"""
-    print(df.head())
-    A = np.array(df['Height'])
+    A = np.array(df[x_name])
     A = np.array([np.ones(len(A)), A])
-    y = np.array(df['Weight'])
+    y = np.array(df[y_name])
 
     w = np.linalg.lstsq(A.T, y)[0]
 
@@ -49,11 +48,9 @@ def df_average(df, x_name, y_name):
 def f(x, w):
     return w[0]+w[1]*x
 
-
-
-def plot_average(df, x_name, y_name):
+def plot_average(df, x_name, y_name, title, regline=False):
     per_height_means = df_average(df, x_name, y_name)
-    ax = df.plot(kind='scatter', s=1, x=x_name, y=y_name, figsize=[10, 8])
+    ax = df.plot(kind='scatter', s=1, x=x_name, y=y_name, figsize=[8, 6])
     per_height_means.plot(y=y_name, style='ro', ax=ax, legend=False)
 
     x0, x1 = plt.xlim()
@@ -63,12 +60,61 @@ def plot_average(df, x_name, y_name):
     for _x in np.arange(x0+0.5, x1+1, 1):
         ax.plot([_x, _x], [y0, y1], 'g')
 
-    x0, x1 = plt.xlim()
-    ax.plot([x0, x1], [f(x0, w1), f(x1, w1)], 'k')
+    if regline:
+        w1 = get_hw_reg(df, x_name, y_name)
+        x0, x1 = plt.xlim()
+        ax.plot([x0, x1], [f(x0, w1), f(x1, w1)], 'k')
+    
+    plt.title(title, fontsize=15)
     plt.show()
 
     return None
     
+
+def f2(x, w):
+    return w[0]+w[1]*x+w[2]*x**2
+
+
+def get_hw_reg2(df, x_name, y_name, printing=False):
+    """calculate parameter vector for Height-Weight 2nd degree regression"""
+    A = np.array(df[x_name])
+    A = np.array([np.ones(len(A)), A, A**2])
+    y = np.array(df[y_name])
+
+    w = np.linalg.lstsq(A.T, y)[0]
+
+    if printing:
+        print("\n\nCalculating the parameter vector for Height-Weight regression:")
+        print("\nAw = b w/ w = linalg.lstsq(A.T, b): \nA= \n{}, \nb.T= {}, w.T= {}"\
+            .format(A, y.T, w.T))
+
+    return w
+    
+def plot_hw_reg2(df, x_name, y_name, title):
+
+    w2 = get_hw_reg2(hw_df, 'Height', 'P2')
+
+    per_height_means = df_average(df, x_name, y_name)
+    ax = df.plot(kind='scatter', s=1, x=x_name, y=y_name, figsize=[8, 6])
+    per_height_means.plot(y=y_name, style='ro', ax=ax, legend=False)
+
+    x0, x1 = plt.xlim()
+    y0, y1 = plt.ylim()
+
+    # plot vertical line for grid
+    for _x in np.arange(x0+0.5, x1+1, 1):
+        ax.plot([_x, _x], [y0, y1], 'g')
+
+    X = np.arange(x0, x1, (x1-x0)/100)
+    Y = f2(X, w2)
+
+    ax.plot(X, Y, 'k')
+    plt.title(title, fontsize=15)
+
+    plt.show()
+
+    return None
+
 
 if __name__ == "__main__":
 
@@ -76,15 +122,24 @@ if __name__ == "__main__":
 
     hw_df = load_hw_data()
 
-    w1= get_hw_reg(hw_df)
-
     # A linear graph of averages
-    # plot_average(hw_df, 'Height', 'Weight')
+    title = 'Scattered data and average height w/ regression line'
+    # plot_average(hw_df, 'Height', 'Weight', title, regline=True)
 
 
     # non-linear graph of averages
+    title = 'Scattered data and 2nd-degree polynomial height average'
     hw_df['P2'] = hw_df['Weight'] + (hw_df['Height']-68)**2
-    plot_average(hw_df, 'Height', 'P2')
+    # plot_average(hw_df, 'Height', 'P2', title, regline=False)
+
+    # limits of linear regression
+    title = 'Scattered data and 2nd polynomial average w/ regression line'
+    # plot_average(hw_df, 'Height', 'P2', title, regline=True)
+
+    # 2nd degree polynomial fit
+    title = 'Scattered data and average w/ 2nd degree polynomial fit'
+    plot_hw_reg2(hw_df, 'Height', 'P2', title)
+
 
 
 
