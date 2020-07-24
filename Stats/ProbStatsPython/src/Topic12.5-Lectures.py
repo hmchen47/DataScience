@@ -63,7 +63,11 @@ def plot_average(df, x_name, y_name):
     for _x in np.arange(x0+0.5, x1+1, 1):
         ax.plot([_x, _x], [y0, y1], 'g')
 
-    return ax
+    x0, x1 = plt.xlim()
+    ax.plot([x0, x1], [f(x0, w1), f(x1, w1)], 'k')
+    plt.show()
+
+    return None
     
 
 if __name__ == "__main__":
@@ -75,11 +79,7 @@ if __name__ == "__main__":
     w1= get_hw_reg(hw_df)
 
     # A linear graph of averages
-    ax = plot_average(hw_df, 'Height', 'Weight')
-
-    x0, x1 = plt.xlim()
-    ax.plot([x0, x1], [f(x0, w1), f(x1, w1)], 'k')
-    plt.show();
+    plot_average(hw_df, 'Height', 'Weight')
 
 
     # 
