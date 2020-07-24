@@ -32,12 +32,12 @@ def plot_reg(x, y, w):
 def f(x, w):
     return w[0]+w[1]*x
 
-def load_hw_data(print=False):
+def load_hw_data(printing=False):
     hw_df = pd.read_csv('./Topic12-Lectures/data/HW25000.csv')
     hw_df = hw_df.iloc[:, 1:]
     hw_df.columns = ['Height', 'Weight']
 
-    if print:
+    if printing:
         print("\n\nHeight-Weight regression:")
         print("\nhw_df first 5 rows: \{}".format(hw_df.head()))
         print("\nhw_df statistic info: \n{}".format(hw_df.describe()))
@@ -47,7 +47,7 @@ def load_hw_data(print=False):
 def plot_reg_wh():
     """Plot data and its regression line for wright-height relation
     """
-    hw_df = load_hw_data(print=True)
+    hw_df = load_hw_data(printing=True)
 
     A = np.array(hw_df['Height'])
     A = np.array([np.ones(len(A)), A])
@@ -98,6 +98,36 @@ def plot_average():
 
     return None
 
+def plot_two_reg():
+
+    hw_df = load_hw_data()
+
+    A = np.array(hw_df['Height'])
+    A = np.array([np.ones(len(A)), A])
+    y = np.array(hw_df['Weight'])
+    w1 = np.linalg.lstsq(A.T, y)[0]
+
+    A = np.array(hw_df['Weight'])
+    A = np.array([np.ones(len(A)), A])
+    y = np.array(hw_df['Height'])
+
+    w2 = np.linalg.lstsq(A.T, y)[0]
+
+    ax = hw_df.plot(kind='scatter', s=1, x='Height', y='Weight', figsize=[10,8])
+    x0, x1 = plt.xlim()
+    ax.plot([x0, x1], [f(x0, w1), f(x1, w1)], 'r', label="Weight from Height")
+
+    y0, y1 = plt.ylim()
+    ax.plot([f(y0, w2), f(y1, w2)], [y0, y1], 'k', label='Height from Weight')
+    plt.legend()
+    plt.title('Two regression problem for Height and Weight')
+    ax.set_xlabel('Height')
+    ax.set_ylabel('Weight')
+    plt.grid()
+    plt.show();
+
+    return None
+
 
 if __name__ == "__main__":
 
@@ -114,13 +144,16 @@ if __name__ == "__main__":
     w = np.linalg.lstsq(A, y)[0]
     print("\nregression: {}".format(w.T))
 
-    # plot_reg(x, y, w)
+    plot_reg(x, y, w)
 
     # Height & weight regression
-    # plot_reg_wh()
+    plot_reg_wh()
 
     # the graph of average
     plot_average()
+
+    # two regression lines
+    plot_two_reg()
 
 
 
