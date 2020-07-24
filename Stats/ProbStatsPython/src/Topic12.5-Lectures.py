@@ -79,10 +79,12 @@ if __name__ == "__main__":
     w1= get_hw_reg(hw_df)
 
     # A linear graph of averages
-    plot_average(hw_df, 'Height', 'Weight')
+    # plot_average(hw_df, 'Height', 'Weight')
 
 
-    # 
+    # non-linear graph of averages
+    hw_df['P2'] = hw_df['Weight'] + (hw_df['Height']-68)**2
+    plot_average(hw_df, 'Height', 'P2')
 
 
 
