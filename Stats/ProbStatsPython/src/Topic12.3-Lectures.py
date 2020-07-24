@@ -45,7 +45,7 @@ def plot_3_pts():
     plt.xlim([-1.1, 1.1])
     plt.ylim([0, 2.1])
     plt.grid()
-    plt.,title("No straight line goes through these 3 points")
+    plt.title("No straight line goes through these 3 points")
 
     return None
 
@@ -79,6 +79,15 @@ if __name__ == "__main__":
     # no straight lin ethrough 3 points
     plot_3_pts()
 
+
+    # solution for the equations
+    # x + y -z = 5; z + 2y = 3; y - x = 4
+    print("\n\nExample of using np.linalg.solve to sole x + y -z = 5; z + 2y = 3; y - x = 4")
+    A = np.array([[1, 1, -1], [0, 2, 1], [-1, 1, 0]])
+    b = np.array([5, 3, 4])
+    rlt = np.linalg.solve(A, b)
+    
+    print("\nresult= {}".format(rlt))
 
 
     print("\nEnd of Topic 12.3 Lecture Notes Python code ......\n")
