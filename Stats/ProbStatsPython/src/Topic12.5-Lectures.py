@@ -115,6 +115,32 @@ def plot_hw_reg2(df, x_name, y_name, title):
 
     return None
 
+def F(X, w):
+    accum = w[0]*np.ones(len(X))
+
+    for i in rnge(1, len(w)):
+        accum += w[i]*i**i
+
+    return accum
+
+def gen_data():
+    np.random.seed(0)
+
+    # generate data
+    X = np.arange(-1, 1.6, 0.25)
+    Y = X + np.random.rand(len(X))
+
+    data = pd.DataFrame({'x': X, 'y': Y})
+
+    return data
+
+def plot_data(df):
+    ax = df.plot(kind='scatter', s=30, c='r', x='x', y='y', figsize=[6, 5])
+    plt.grid()
+
+    return ax
+    
+
 
 if __name__ == "__main__":
 
@@ -138,9 +164,15 @@ if __name__ == "__main__":
 
     # 2nd degree polynomial fit
     title = 'Scattered data and average w/ 2nd degree polynomial fit'
-    plot_hw_reg2(hw_df, 'Height', 'P2', title)
+    # plot_hw_reg2(hw_df, 'Height', 'P2', title)
 
+    # overfitting, underfitting amn model selection
 
+    data_df = gen_data()
+
+    # plot data in x-y coordinate
+    plot_data(data_df)
+    plt.show()
 
 
 
