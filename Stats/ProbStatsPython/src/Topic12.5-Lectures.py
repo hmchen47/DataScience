@@ -229,6 +229,13 @@ if __name__ == "__main__":
 
     plt.show()
 
+    # Train & Test RMS to get best degree of fit
+    plt.plot(train_RMS, label='train RMS')
+    plt.plot(test_RMS, label='test RMS')
+    plt.legend()
+    plt.grid()
+    plt.show()
+
 
     print("\nEnd of Topic 12.5 Lecture Notes Python code ......\n")
 
