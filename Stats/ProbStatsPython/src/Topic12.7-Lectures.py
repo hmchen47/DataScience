@@ -63,6 +63,9 @@ if __name__ == "__main__":
     mean, eigvals, eigvecs = PCA(A, debug=True)
 
     # example of projection
+    prjvec = project(A[3], eigvecs[0:], mean)
+    print("\nProjection vecctor of x({}) on \nu= \n{} \nprjection vector: \n{}"\
+        .format(A[3], eigvecs[0:], prjvec))
 
 
     print("\nEnd of Topic 12.7 Lecture Notes Python code ......\n")
