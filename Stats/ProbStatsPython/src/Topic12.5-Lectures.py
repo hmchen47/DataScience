@@ -118,28 +118,63 @@ def plot_hw_reg2(df, x_name, y_name, title):
 def F(X, w):
     accum = w[0]*np.ones(len(X))
 
-    for i in rnge(1, len(w)):
-        accum += w[i]*i**i
+    for i in range(1, len(w)):
+        accum += w[i]*X**i
 
     return accum
 
-def gen_data():
+def plot_data():
     np.random.seed(0)
 
     # generate data
-    X = np.arange(-1, 1.6, 0.25)
+    X = np.arange(-1, 1.6, 0.25*0.2)
     Y = X + np.random.rand(len(X))
 
     data = pd.DataFrame({'x': X, 'y': Y})
 
-    return data
-
-def plot_data(df):
-    ax = df.plot(kind='scatter', s=30, c='r', x='x', y='y', figsize=[6, 5])
+    data.plot(kind='scatter', s=30, c='r', x='x', y='y', figsize=[6, 5])
     plt.grid()
+    plt.show()
 
-    return ax
+    return data
     
+def plot_polyfit(ax, df, d):
+    """plot polyfit regression line
+
+    Args:
+        df (dataframe): input dataframe for analysis
+        d (int): degree of polynomial to fit data
+    """
+    L = df.count()[0]
+    split = [0, 1] * L
+    df['split'] = split[:L]
+
+    train_df = df[df['split'] == 1]
+    test_df = df[df['split'] == 0]
+
+    A = np.array([train_df['x']])
+    D = np.ones([1, A.shape[1]])
+    for i in range(1, d+1):
+        D = np.concatenate([D, A**i])
+
+    w = np.linalg.lstsq(D.T, train_df['y'])[0]
+    train_RMS = np.sqrt(np.mean((train_df['y'] - F(train_df['x'], w))**2))
+    test_RMS = np.sqrt(np.mean((test_df['y'] - F(test_df['x'], w))**2))
+
+    train_df.plot(kind='scatter', s=30, c='b', x='x', y='y', ax=ax, label='Train')
+    test_df.plot(kind='scatter', s=30, c='r', x='x', y='y', ax=ax, label='Test')
+    plt.grid()
+    plt.legend()
+    _xmin, _xmax = plt.xlim()
+    _xrange = _xmax - _xmin
+    X = np.arange(_xmin, _xmax, _xrange/100.)
+
+    ax.plot(X, F(X, w), 'k')
+
+    plt.title("d={} , train_RMS = {:5.3f}, test_RMS= {:5.3f}"\
+        .format(d, train_RMS, test_RMS), fontsize=10)
+
+    return train_RMS, test_RMS
 
 
 if __name__ == "__main__":
@@ -150,30 +185,49 @@ if __name__ == "__main__":
 
     # A linear graph of averages
     title = 'Scattered data and average height w/ regression line'
-    # plot_average(hw_df, 'Height', 'Weight', title, regline=True)
+    plot_average(hw_df, 'Height', 'Weight', title, regline=True)
 
 
     # non-linear graph of averages
     title = 'Scattered data and 2nd-degree polynomial height average'
     hw_df['P2'] = hw_df['Weight'] + (hw_df['Height']-68)**2
-    # plot_average(hw_df, 'Height', 'P2', title, regline=False)
+    plot_average(hw_df, 'Height', 'P2', title, regline=False)
 
     # limits of linear regression
     title = 'Scattered data and 2nd polynomial average w/ regression line'
-    # plot_average(hw_df, 'Height', 'P2', title, regline=True)
+    plot_average(hw_df, 'Height', 'P2', title, regline=True)
 
     # 2nd degree polynomial fit
     title = 'Scattered data and average w/ 2nd degree polynomial fit'
-    # plot_hw_reg2(hw_df, 'Height', 'P2', title)
+    plot_hw_reg2(hw_df, 'Height', 'P2', title)
 
     # overfitting, underfitting amn model selection
-
-    data_df = gen_data()
-
     # plot data in x-y coordinate
-    plot_data(data_df)
+    data_df = plot_data()
+
+
+    # plot 2-dim polyfit for data
+    fig = plt.figure(figsize=[6,5])
+    ax = plt.subplot(111)
+    plot_polyfit(ax, data_df, 3)
     plt.show()
 
+    # multiple degrees of polynomial
+    rows, cols, max_d = 2, 3, 6
+    fig = plt.figure(figsize=[14, 10])
+    train_RMS = np.zeros(max_d)
+    test_RMS = np.zeros(max_d)
+
+    for d in range(max_d):
+        if d == 0:
+            ax = plt.subplot(rows, cols, d+1)
+            ax0 = ax
+        else:
+            ax = plt.subplot(rows, cols, d+1, sharex=ax0)
+
+        train_RMS[d], test_RMS[d] = plot_polyfit(ax, data_df, d)
+
+    plt.show()
 
 
     print("\nEnd of Topic 12.5 Lecture Notes Python code ......\n")
