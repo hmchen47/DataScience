@@ -1372,6 +1372,270 @@
       array data is actually stored.
 
 
+### Numpy Array Creating routines
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y2ecowxs">Template</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.empty.html#numpy.empty" title="numpy.empty"><code>empty</code></a>(shape[,&nbsp;dtype,&nbsp;order])</td>
+      <td>Return a new array of given shape and type, without initializing entries.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.empty_like.html#numpy.empty_like" title="numpy.empty_like"><code>empty_like</code></a>(prototype[,&nbsp;dtype,&nbsp;order,&nbsp;subok,&nbsp;…])</td>
+      <td>Return a new array with the same shape and type as a given array.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.eye.html#numpy.eye" title="numpy.eye"><code>eye</code></a>(N[,&nbsp;M,&nbsp;k,&nbsp;dtype,&nbsp;order])</td>
+      <td>Return a 2-D array with ones on the diagonal and zeros elsewhere.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.identity.html#numpy.identity" title="numpy.identity"><code>identity</code></a>(n[,&nbsp;dtype])</td>
+      <td>Return the identity array.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.ones.html#numpy.ones" title="numpy.ones"><code>ones</code></a>(shape[,&nbsp;dtype,&nbsp;order])</td>
+      <td>Return a new array of given shape and type, filled with ones.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.ones_like.html#numpy.ones_like" title="numpy.ones_like"><code>ones_like</code></a>(a[,&nbsp;dtype,&nbsp;order,&nbsp;subok,&nbsp;shape])</td>
+      <td>Return an array of ones with the same shape and type as a given array.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.zeros.html#numpy.zeros" title="numpy.zeros"><code>zeros</code></a>(shape[,&nbsp;dtype,&nbsp;order])</td>
+      <td>Return a new array of given shape and type, filled with zeros.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.zeros_like.html#numpy.zeros_like" title="numpy.zeros_like"><code>zeros_like</code></a>(a[,&nbsp;dtype,&nbsp;order,&nbsp;subok,&nbsp;shape])</td>
+      <td>Return an array of zeros with the same shape and type as a given array.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.full.html#numpy.full" title="numpy.full"><code>full</code></a>(shape,&nbsp;fill_value[,&nbsp;dtype,&nbsp;order])</td>
+      <td>Return a new array of given shape and type, filled with <em class="xref py py-obj">fill_value</em>.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.full_like.html#numpy.full_like" title="numpy.full_like"><code>full_like</code></a>(a,&nbsp;fill_value[,&nbsp;dtype,&nbsp;order,&nbsp;…])</td>
+      <td>Return a full array with the same shape and type as a given array.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y2c2nlc8">From existing data</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array"><code>array</code></a>(object[,&nbsp;dtype,&nbsp;copy,&nbsp;order,&nbsp;subok,&nbsp;ndmin])</td>
+      <td>Create an array.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.asarray.html#numpy.asarray" title="numpy.asarray"><code>asarray</code></a>(a[,&nbsp;dtype,&nbsp;order])</td>
+      <td>Convert the input to an array.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.asanyarray.html#numpy.asanyarray" title="numpy.asanyarray"><code>asanyarray</code></a>(a[,&nbsp;dtype,&nbsp;order])</td>
+      <td>Convert the input to an ndarray, but pass ndarray subclasses through.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.ascontiguousarray.html#numpy.ascontiguousarray" title="numpy.ascontiguousarray"><code>ascontiguousarray</code></a>(a[,&nbsp;dtype])</td>
+      <td>Return a contiguous array (ndim &gt;= 1) in memory (C order).</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.asmatrix.html#numpy.asmatrix" title="numpy.asmatrix"><code>asmatrix</code></a>(data[,&nbsp;dtype])</td>
+      <td>Interpret the input as a matrix.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.copy.html#numpy.copy" title="numpy.copy"><code>copy</code></a>(a[,&nbsp;order,&nbsp;subok])</td>
+      <td>Return an array copy of the given object.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.frombuffer.html#numpy.frombuffer" title="numpy.frombuffer"><code>frombuffer</code></a>(buffer[,&nbsp;dtype,&nbsp;count,&nbsp;offset])</td>
+      <td>Interpret a buffer as a 1-dimensional array.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.fromfile.html#numpy.fromfile" title="numpy.fromfile"><code>fromfile</code></a>(file[,&nbsp;dtype,&nbsp;count,&nbsp;sep,&nbsp;offset])</td>
+      <td>Construct an array from data in a text or binary file.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.fromfunction.html#numpy.fromfunction" title="numpy.fromfunction"><code>fromfunction</code></a>(function,&nbsp;shape,&nbsp;\*[,&nbsp;dtype])</td>
+      <td>Construct an array by executing a function over each coordinate.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.fromiter.html#numpy.fromiter" title="numpy.fromiter"><code>fromiter</code></a>(iterable,&nbsp;dtype[,&nbsp;count])</td>
+      <td>Create a new 1-dimensional array from an iterable object.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.fromstring.html#numpy.fromstring" title="numpy.fromstring"><code>fromstring</code></a>(string[,&nbsp;dtype,&nbsp;count,&nbsp;sep])</td>
+      <td>A new 1-D array initialized from text data in a string.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html#numpy.loadtxt" title="numpy.loadtxt"><code>loadtxt</code></a>(fname[,&nbsp;dtype,&nbsp;comments,&nbsp;delimiter,&nbsp;…])</td>
+      <td>Load data from a text file.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/yy6fjtnj">Creating record arrays (numpy.rec)</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.core.records.array.html#numpy.core.records.array" title="numpy.core.records.array"><code>core.records.array</code></a>(obj[,&nbsp;dtype,&nbsp;shape,&nbsp;…])</td>
+      <td>Construct a record array from a wide-variety of objects.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.core.records.fromarrays.html#numpy.core.records.fromarrays" title="numpy.core.records.fromarrays"><code>core.records.fromarrays</code></a>(arrayList[,&nbsp;dtype,&nbsp;…])</td>
+      <td>Create a record array from a (flat) list of arrays</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.core.records.fromrecords.html#numpy.core.records.fromrecords" title="numpy.core.records.fromrecords"><code>core.records.fromrecords</code></a>(recList[,&nbsp;dtype,&nbsp;…])</td>
+      <td>Create a recarray from a list of records in text form.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.core.records.fromstring.html#numpy.core.records.fromstring" title="numpy.core.records.fromstring"><code>core.records.fromstring</code></a>(datastring[,&nbsp;dtype,&nbsp;…])</td>
+      <td>Create a record array from binary data</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.core.records.fromfile.html#numpy.core.records.fromfile" title="numpy.core.records.fromfile"><code>core.records.fromfile</code></a>(fd[,&nbsp;dtype,&nbsp;shape,&nbsp;…])</td>
+      <td>Create an array from binary file data</td>
+    </tr>
+    </tbody>
+      </table>
+
+      <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+        <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y6lrgpf2">Creating character arrays (numpy.char)</a></caption>
+        <thead>
+        <tr style="font-size: 1.2em;">
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+          <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+        </tr>
+        </thead>
+    <tbody>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.core.defchararray.array.html#numpy.core.defchararray.array" title="numpy.core.defchararray.array"><code>core.defchararray.array</code></a>(obj[,&nbsp;itemsize,&nbsp;…])</td>
+      <td>Create a <a href="https://numpy.org/doc/stable/reference/generated/numpy.chararray.html#numpy.chararray" title="numpy.chararray"><code>chararray</code></a>.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.core.defchararray.asarray.html#numpy.core.defchararray.asarray" title="numpy.core.defchararray.asarray"><code>core.defchararray.asarray</code></a>(obj[,&nbsp;itemsize,&nbsp;…])</td>
+      <td>Convert the input to a <a href="https://numpy.org/doc/stable/reference/generated/numpy.chararray.html#numpy.chararray" title="numpy.chararray"><code>chararray</code></a>, copying the data only if necessary.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y5gztb7q">Numerical ranges</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html#numpy.arange" title="numpy.arange"><code>arange</code></a>([start,]&nbsp;stop[,&nbsp;step,][,&nbsp;dtype])</td>
+      <td>Return evenly spaced values within a given interval.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace" title="numpy.linspace"><code>linspace</code></a>(start,&nbsp;stop[,&nbsp;num,&nbsp;endpoint,&nbsp;…])</td>
+      <td>Return evenly spaced numbers over a specified interval.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.logspace.html#numpy.logspace" title="numpy.logspace"><code>logspace</code></a>(start,&nbsp;stop[,&nbsp;num,&nbsp;endpoint,&nbsp;base,&nbsp;…])</td>
+      <td>Return numbers spaced evenly on a log scale.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.geomspace.html#numpy.geomspace" title="numpy.geomspace"><code>geomspace</code></a>(start,&nbsp;stop[,&nbsp;num,&nbsp;endpoint,&nbsp;…])</td>
+      <td>Return numbers spaced evenly on a log scale (a geometric progression).</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.meshgrid.html#numpy.meshgrid" title="numpy.meshgrid"><code>meshgrid</code></a>(\*xi[,&nbsp;copy,&nbsp;sparse,&nbsp;indexing])</td>
+      <td>Return coordinate matrices from coordinate vectors.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.mgrid.html#numpy.mgrid" title="numpy.mgrid"><code>mgrid</code></a></td>
+      <td><em class="xref py py-obj">nd_grid</em> instance which returns a dense multi-dimensional “meshgrid”.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.ogrid.html#numpy.ogrid" title="numpy.ogrid"><code>ogrid</code></a></td>
+      <td><em class="xref py py-obj">nd_grid</em> instance which returns an open multi-dimensional “meshgrid”.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/yx9gl3p6">Building matrices</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.diag.html#numpy.diag" title="numpy.diag"><code>diag</code></a>(v[,&nbsp;k])</td>
+      <td>Extract a diagonal or construct a diagonal array.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.diagflat.html#numpy.diagflat" title="numpy.diagflat"><code>diagflat</code></a>(v[,&nbsp;k])</td>
+      <td>Create a two-dimensional array with the flattened input as a diagonal.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.tri.html#numpy.tri" title="numpy.tri"><code>tri</code></a>(N[,&nbsp;M,&nbsp;k,&nbsp;dtype])</td>
+      <td>An array with ones at and below the given diagonal and zeros elsewhere.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.tril.html#numpy.tril" title="numpy.tril"><code>tril</code></a>(m[,&nbsp;k])</td>
+      <td>Lower triangle of an array.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.triu.html#numpy.triu" title="numpy.triu"><code>triu</code></a>(m[,&nbsp;k])</td>
+      <td>Upper triangle of an array.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.vander.html#numpy.vander" title="numpy.vander"><code>vander</code></a>(x[,&nbsp;N,&nbsp;increasing])</td>
+      <td>Generate a Vandermonde matrix.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y3b3p5yw">The Matrix class</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.mat.html#numpy.mat" title="numpy.mat"><code>mat</code></a>(data[,&nbsp;dtype])</td>
+      <td>Interpret the input as a matrix.</td>
+    </tr>
+    <tr>
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.bmat.html#numpy.bmat" title="numpy.bmat"><code>bmat</code></a>(obj[,&nbsp;ldict,&nbsp;gdict])</td>
+      <td>Build a matrix object from a string, nested sequence, or array.</td>
+    </tr>
+    </tbody>
+  </table>
+
+
+
 ### Array manipulation routines
 
   <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
@@ -1646,6 +1910,7 @@
     </tbody>
   </table>
 
+
 ### Numpy Linear Algebra
 
   <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
@@ -1827,6 +2092,122 @@
     </tr>
     </tbody>
   </table>
+
+
+### Numpy Sorting, searching, and counting
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y3zpsdcd">Sorting</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.sort.html#numpy.sort" title="numpy.sort"><code>sort</code></a>(a[,&nbsp;axis,&nbsp;kind,&nbsp;order])</td> 
+      <td>Return a sorted copy of an array.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.lexsort.html#numpy.lexsort" title="numpy.lexsort"><code>lexsort</code></a>(keys[,&nbsp;axis])</td> 
+      <td>Perform an indirect stable sort using a sequence of keys.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.argsort.html#numpy.argsort" title="numpy.argsort"><code>argsort</code></a>(a[,&nbsp;axis,&nbsp;kind,&nbsp;order])</td> 
+      <td>Returns the indices that would sort an array.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.sort.html#numpy.ndarray.sort" title="numpy.ndarray.sort"><code>ndarray.sort</code></a>([axis,&nbsp;kind,&nbsp;order])</td> 
+      <td>Sort an array in-place.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.msort.html#numpy.msort" title="numpy.msort"><code>msort</code></a>(a)</td> 
+      <td>Return a copy of an array sorted along the first axis.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.sort_complex.html#numpy.sort_complex" title="numpy.sort_complex"><code>sort_complex</code></a>(a)</td> 
+      <td>Sort a complex array using the real part first, then the imaginary part.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.partition.html#numpy.partition" title="numpy.partition"><code>partition</code></a>(a,&nbsp;kth[,&nbsp;axis,&nbsp;kind,&nbsp;order])</td> 
+      <td>Return a partitioned copy of an array.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.argpartition.html#numpy.argpartition" title="numpy.argpartition"><code>argpartition</code></a>(a,&nbsp;kth[,&nbsp;axis,&nbsp;kind,&nbsp;order])</td> 
+      <td>Perform an indirect partition along the given axis using the algorithm specified by the <em class="xref py py-obj">kind</em> keyword.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y68fh56n">Searching</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.argmax.html#numpy.argmax" title="numpy.argmax"><code>argmax</code></a>(a[,&nbsp;axis,&nbsp;out])</td> 
+      <td>Returns the indices of the maximum values along an axis.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.nanargmax.html#numpy.nanargmax" title="numpy.nanargmax"><code>nanargmax</code></a>(a[,&nbsp;axis])</td> 
+      <td>Return the indices of the maximum values in the specified axis ignoring NaNs.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.argmin.html#numpy.argmin" title="numpy.argmin"><code>argmin</code></a>(a[,&nbsp;axis,&nbsp;out])</td> 
+      <td>Returns the indices of the minimum values along an axis.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.nanargmin.html#numpy.nanargmin" title="numpy.nanargmin"><code>nanargmin</code></a>(a[,&nbsp;axis])</td> 
+      <td>Return the indices of the minimum values in the specified axis ignoring NaNs.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.argwhere.html#numpy.argwhere" title="numpy.argwhere"><code>argwhere</code></a>(a)</td> 
+      <td>Find the indices of array elements that are non-zero, grouped by element.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.nonzero.html#numpy.nonzero" title="numpy.nonzero"><code>nonzero</code></a>(a)</td> 
+      <td>Return the indices of the elements that are non-zero.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.flatnonzero.html#numpy.flatnonzero" title="numpy.flatnonzero"><code>flatnonzero</code></a>(a)</td> 
+      <td>Return indices that are non-zero in the flattened version of a.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.where.html#numpy.where" title="numpy.where"><code>where</code></a>(condition,&nbsp;[x,&nbsp;y])</td> 
+      <td>Return elements chosen from <em class="xref py py-obj">x</em> or <em class="xref py py-obj">y</em> depending on <em class="xref py py-obj">condition</em>.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.searchsorted.html#numpy.searchsorted" title="numpy.searchsorted"><code>searchsorted</code></a>(a,&nbsp;v[,&nbsp;side,&nbsp;sorter])</td> 
+      <td>Find indices where elements should be inserted to maintain order.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.extract.html#numpy.extract" title="numpy.extract"><code>extract</code></a>(condition,&nbsp;arr)</td> 
+      <td>Return the elements of an array that satisfy some condition.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y5o2mh9y">Counting</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.count_nonzero.html#numpy.count_nonzero" title="numpy.count_nonzero"><code>count_nonzero</code></a>(a[,&nbsp;axis,&nbsp;keepdims])</td> 
+      <td>Counts the number of non-zero values in the array <code class="docutils literal notranslate"><span class="pre">a</code>.</td>
+    </tr>
+    </tbody>
+  </table>
+
 
 
 ### pandas.DataFrame
