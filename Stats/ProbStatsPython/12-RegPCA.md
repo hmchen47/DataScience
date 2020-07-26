@@ -3077,6 +3077,52 @@
 ## Programming Assignment 12
 
 
+[Download the assignment](https://tinyurl.com/yyr9zp9n), unzip the file for the dataset and programing assignment. Use it to answer the questions below.
+
+1. This problem adresses the first `do_regression` function used in exercise 2 to solve:
+
+  \[ \text{grades}= w_0 + w_1 \cdot \text{study_hours} \]
+
+  Which of the following is the correct output for: do_regression(data)[1]<br/>
+  a. 0.82<br/>
+  b. 0.83<br/>
+  c. 0.84<br/>
+  d. 0.85<br/>
+
+  Ans: c
+
+  ```python
+  def do_regression(data):
+    # input: the HW's dataset
+    # output: a numpy array yielding w=(w0,w1) from linear regression
+
+    y = data['grades'].values
+    x = data['study_hours'].values
+    A = np.vstack([np.ones(len(x)), x]).T
+    
+    return np.linalg.lstsq(A, y, rcond=None)[0]
+  ```
+
+
+2. In exercise 3, Which of the following is the correct output for: reverse_regression(data)[1]?<br/>
+  a. 0.84 <br/>
+  b. 0.85 <br/>
+  c. 0.86 <br/>
+  d. 0.87 <br/>
+  
+  Ans: c
+
+  ```python
+  def reverse_regression(data):
+    # input: the HW's dataset
+    # output: a numpy array yielding w=(w0,w1) for the reversed linear regression
+
+    x = data['grades'].values
+    y = data['study_hours'].values
+    A = np.vstack([np.ones(len(x)), x]).T
+    
+    return np.linalg.lstsq(A, y, rcond=None)[0]
+  ```
 
 
 
