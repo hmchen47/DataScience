@@ -45,7 +45,7 @@ def do_regression_old(data):
     A = np.array([np.ones(len(A)), A])
     y = np.array(data['grades'])
 
-    w = np.linalg.lstsq(A.T, y)[0]
+    w = np.linalg.lstsq(A.T, y, rcond=None)[0]
 
     return w
 
@@ -59,12 +59,25 @@ def do_regression(data, debug=False):
     y = data['grades'].values
     A = np.vstack([np.ones(len(x)), x]).T
 
-    w = np.linalg.lstsq(A, y)[0]
+    w = np.linalg.lstsq(A, y, rcond=None)[0]
 
     if debug:
         print("\nRegression analysis Aw = y")
         print("A= \n{}...... \ny = {}...... \n-> w= {}"\
             .format(A[:2, :], y[:2], w))
+
+    return w
+
+
+def reverse_regression(data):
+    # input: the HW's dataset
+    # output: a numpy array yielding w=(w0,w1) for the reversed linear regression
+    
+    x = data['grades'].values
+    y = data['study_hours'].values
+    A = np.vstack([np.ones(len(x)), x]).T
+
+    w = np.linalg.lstsq(A, y, rcond=None)[0]
 
     return w
 
@@ -99,7 +112,12 @@ def main(debug=False):
         print("\nparameter vector: {}".format(w))
         print("  typ2= {}  shape={}".format(type(w), w.shape))
 
+    # Exercise 3: reversed regression
+    w2 = reverse_regression(data_df)
 
+    if debug:
+        print("\nreverse parameter vector: {}".format(w2))
+        print("  typ2= {}  shape={}".format(type(w2), w2.shape))
 
     return None
 
