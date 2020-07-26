@@ -37,6 +37,19 @@ def get_averages(data):
     return df_averages(data, 'study_hours', 'grades')
 
 
+def do_regression(data):
+    # input: the HW's dataset
+    # output: a numpy array yielding w=(w0,w1) from linear regression
+
+    A = np.array(data['study_hours'])
+    A = np.array([np.ones(len(A)), A])
+    y = np.array(data['grades'])
+
+    w = np.linalg.lstsq(A.T, y)[0]
+
+    return w
+
+
 
 def main(debug=False):
     """main function to execute all
@@ -50,7 +63,7 @@ def main(debug=False):
 
     if debug:
         print("\nLoading data...")
-        print("  \ndata.shape: {}".format(data_df.shape))
+        print("  \ndataframe info: {}".format(data_df.info()))
         print("  \ndataset: \n{}".format(data_df.head()))
 
     # exercise 1: get averages
@@ -59,6 +72,14 @@ def main(debug=False):
     if debug:
         print("\nTable of index= {} and columns= {}: \n{}".format(per_hours_means.index.name, \
             per_hours_means.columns, per_hours_means))
+
+    # Exercise 2: Simple Linear Regression
+    w = do_regression(data_df)
+
+    if debug:
+        print("\nparameter vector: {}".format(w))
+        print("  typ2= {}  shape={}".format(type(w), w.shape))
+
 
 
     return None
