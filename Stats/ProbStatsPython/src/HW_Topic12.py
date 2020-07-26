@@ -37,7 +37,7 @@ def get_averages(data):
     return df_averages(data, 'study_hours', 'grades')
 
 
-def do_regression(data):
+def do_regression_old(data):
     # input: the HW's dataset
     # output: a numpy array yielding w=(w0,w1) from linear regression
 
@@ -49,6 +49,24 @@ def do_regression(data):
 
     return w
 
+def do_regression(data, debug=False):
+    """get regression line parameters
+
+    Args:
+        data (dataframe): dataset for analysis
+    """
+    x = data['study_hours'].values
+    y = data['grades'].values
+    A = np.vstack([np.ones(len(x)), x]).T
+
+    w = np.linalg.lstsq(A, y)[0]
+
+    if debug:
+        print("\nRegression analysis Aw = y")
+        print("A= \n{}...... \ny = {}...... \n-> w= {}"\
+            .format(A[:2, :], y[:2], w))
+
+    return w
 
 
 def main(debug=False):
@@ -70,11 +88,12 @@ def main(debug=False):
     per_hours_means = get_averages(data_df)
 
     if debug:
-        print("\nTable of index= {} and columns= {}: \n{}".format(per_hours_means.index.name, \
-            per_hours_means.columns, per_hours_means))
+        print("\nTable of index= {} and columns= {}: \n{}\n......"\
+            .format(per_hours_means.index.name, per_hours_means.columns, \
+            per_hours_means.head()))
 
     # Exercise 2: Simple Linear Regression
-    w = do_regression(data_df)
+    w = do_regression(data_df, True)
 
     if debug:
         print("\nparameter vector: {}".format(w))
