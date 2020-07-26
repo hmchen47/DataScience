@@ -118,7 +118,7 @@ if __name__ == "__main__":
     y = [21, 19, 23, 21, 25, 22, 25, 23, 24]
 
     A = np.array([np.ones(len(x)), x])
-    w = np.linalg.lstsq(A.T, y)[0]
+    w = np.linalg.lstsq(A.T, y, rcond=None)[0]
 
     print("\n\nRegression line from Aw = y with \nA= \n{} \ny= {} \nto get w={}"\
         .format(A, y, w))

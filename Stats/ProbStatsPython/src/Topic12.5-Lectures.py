@@ -27,11 +27,11 @@ def get_hw_reg(df, x_name, y_name, printing=False):
     A = np.array([np.ones(len(A)), A])
     y = np.array(df[y_name])
 
-    w = np.linalg.lstsq(A.T, y)[0]
+    w = np.linalg.lstsq(A.T, y, rcond=None)[0]
 
     if printing:
         print("\n\nCalculating the parameter vector for Height-Weight regression:")
-        print("\nAw = b w/ w = linalg.lstsq(A.T, b): A= \n{}, \nb.T= {}, w.T= {}")
+        print("\nAw = b w/ w = linalg.lstsq(A.T, b, rcond=None): A= \n{}, \nb.T= {}, w.T= {}")
 
     return w
 
@@ -81,11 +81,11 @@ def get_hw_reg2(df, x_name, y_name, printing=False):
     A = np.array([np.ones(len(A)), A, A**2])
     y = np.array(df[y_name])
 
-    w = np.linalg.lstsq(A.T, y)[0]
+    w = np.linalg.lstsq(A.T, y, rcond=None)[0]
 
     if printing:
         print("\n\nCalculating the parameter vector for Height-Weight regression:")
-        print("\nAw = b w/ w = linalg.lstsq(A.T, b): \nA= \n{}, \nb.T= {}, w.T= {}"\
+        print("\nAw = b w/ w = linalg.lstsq(A.T, b, rcond=None): \nA= \n{}, \nb.T= {}, w.T= {}"\
             .format(A, y.T, w.T))
 
     return w
@@ -157,7 +157,7 @@ def plot_polyfit(ax, df, d):
     for i in range(1, d+1):
         D = np.concatenate([D, A**i])
 
-    w = np.linalg.lstsq(D.T, train_df['y'])[0]
+    w = np.linalg.lstsq(D.T, train_df['y'], rcond=None)[0]
     train_RMS = np.sqrt(np.mean((train_df['y'] - F(train_df['x'], w))**2))
     test_RMS = np.sqrt(np.mean((test_df['y'] - F(test_df['x'], w))**2))
 

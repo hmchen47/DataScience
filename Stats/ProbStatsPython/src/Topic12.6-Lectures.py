@@ -19,7 +19,7 @@ def plot_fs_reg(df, debug=False):
     A = np.array([np.ones(len(A)), A])
     y = np.array(df['Son'])
 
-    w1 = np.linalg.lstsq(A.T, y)[0]
+    w1 = np.linalg.lstsq(A.T, y, rcond=None)[0]
 
     if debug:
         print("\nPearson Father-Son height regression: w.T={}".format(w1.T))
@@ -45,7 +45,7 @@ def plot_fsd_reg(df, debug=False):
     A = np.array([np.ones(len(A)), A])
     y = np.array(df['Son-Father'])
 
-    w2 = np.linalg.lstsq(A.T, y)[0]
+    w2 = np.linalg.lstsq(A.T, y, rcond=None)[0]
 
     if debug:
         print("\ndimension of A & y: A.shape= {}, y.shape= {}".format(A.shape, y.shape))

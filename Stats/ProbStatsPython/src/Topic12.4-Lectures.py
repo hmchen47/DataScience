@@ -53,7 +53,7 @@ def plot_reg_wh():
     A = np.array([np.ones(len(A)), A])
     y = np.array(hw_df['Weight'])
 
-    w1 = np.linalg.lstsq(A.T, y)[0]
+    w1 = np.linalg.lstsq(A.T, y, rcond=None)[0]
     print("\ndimension: A.shape= {}, y.shape= {}".format(A.shape, y.shape))
     print("\nsolution: w.T = {}".format(w1.T))
 
@@ -75,7 +75,7 @@ def plot_average():
     A = np.array([np.ones(len(A)),A])
     y = np.array(hw_df['Weight'])
     
-    w1 = np.linalg.lstsq(A.T,y)[0]
+    w1 = np.linalg.lstsq(A.T,y, rcond=None)[0]
     
     per_height_means = hw_df.groupby('round_height').mean()[['Weight']]
 
@@ -105,13 +105,13 @@ def plot_two_reg():
     A = np.array(hw_df['Height'])
     A = np.array([np.ones(len(A)), A])
     y = np.array(hw_df['Weight'])
-    w1 = np.linalg.lstsq(A.T, y)[0]
+    w1 = np.linalg.lstsq(A.T, y, rcond=None)[0]
 
     A = np.array(hw_df['Weight'])
     A = np.array([np.ones(len(A)), A])
     y = np.array(hw_df['Height'])
 
-    w2 = np.linalg.lstsq(A.T, y)[0]
+    w2 = np.linalg.lstsq(A.T, y, rcond=None)[0]
 
     ax = hw_df.plot(kind='scatter', s=1, x='Height', y='Weight', figsize=[10,8])
     x0, x1 = plt.xlim()
@@ -141,7 +141,7 @@ if __name__ == "__main__":
     print("\n\nA.T = \n{} \nx= {} \ny.T= {}".format(A.T, x, y.T))
     print("\ndimensions: A.shape= {}, y.shape = {}\n".format(A.shape, y.shape))
 
-    w = np.linalg.lstsq(A, y)[0]
+    w = np.linalg.lstsq(A, y, rcond=None)[0]
     print("\nregression: {}".format(w.T))
 
     plot_reg(x, y, w)
