@@ -131,6 +131,29 @@
       + otherwise, matrix product undefined
   
 
+## Special Matrices
+
++ [The identity matrix](./Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
+  + behaving like the number 1
+  + dot product of any matrix ${\bf A}$ by the identity matrix ${\bf I}$ yields ${\bf A}$: ${\bf AI} = {\bf IA} = {\bf A}$
+
+
+
+## Inverse Matrix
+
++ [Inverse Matrix](./Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
+  + Definition: (inverse matrix) $\exists\, {\bf A}$ w/ multiplicative inverse ${\bf A^{-1}}$ s.t. ${\bf AA^{-1}} = {\bf A^{-1}A} = {\bf I}$
+  + inverting the matrix
+    + finding the inverse of a matrix
+    + Definition: (__invertible__) an $m \times n$ represents a linear transformation from $\Bbb{R}^n$ to $\Bbb{R}^n$,  the matrix is [invertible](https://tinyurl.com/pj2u5h7) $\implies \exists$ inverse transformation ${\bf A^{-1}}$ s.t. $\forall$ any column vector ${\bf v} \in \Bbb{R}^n$:
+
+      \[ {\bf A^{-1}A v} = {\bf AA^{-1}v} = {\bf v} \]
+
+  + inverting a $2 \times 2$ matrix:
+
+    \[ {\bf A} = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22}\end{bmatrix} \quad\to\quad {\bf A}^{-1}=\begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}^{-1}=\frac{1}{a_{11}a_{22}-a_{12}a_{21}}	\begin{bmatrix}  a_{22} & -a_{12} \\ -a_{21} & a_{11} \end{bmatrix} \]
+
+
 
 
 
