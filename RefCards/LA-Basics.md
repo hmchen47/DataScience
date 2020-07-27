@@ -66,7 +66,7 @@
       </a>
     </div>
 
-+ [Orthonormal matrices and change of Basis](./Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
++ [Orthonormal matrices and change of Basis
   + change of basis using matrix notation
     + let ${\bf u}_i = \begin{bmatrix} u_{i1} & u_{i2} & \cdots & u_{id} \end{bmatrix}$
     + orthonormal matrix
@@ -77,59 +77,6 @@
   + reconstruction of ${\bf v} = $ ${\bf UU}^\top {\bf v}$
 
 
-
-
-## Matrix Notation
-
-+ [Matrix notation](./Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
-  + Matlab based on Matrix notation
-  + Python: similar functionality by using numpy
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://tinyurl.com/y2te9nw3" ismap target="_blank">
-      <img src="https://tinyurl.com/q5knya4" style="margin: 0.1em;" alt="Matrix notation: Specific entries of a matrix are often referenced by using pairs of subscripts, for the numbers at each of the rows & columns." title="Matrix notation" width=250>
-    </a>
-  </div>
-
-+ [Transposing a matrix](./Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
-
-  \[ A = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \\ a_{31} & a_{32} \end{bmatrix} \quad \xrightarrow{\text{transpose}} \quad
-    A^\top = \begin{bmatrix} a_{11} & a_{21} & a_{31} \\ a_{12} & a_{22} & a_{32} \end{bmatrix} \]
-
-
-
-## Matrix Operations
-
-+ [Matrix scalar operation](./Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
-  + adding a scalar value to a matrix
-  + subtracting a scalar value to a matrix
-  + product of a scalar and a matrix
-  + dividing a matrix by a scalar
-
-+ [Adding and subtracting two matrices](./Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
-  + adding / subtracting
-
-    \[ A \pm B =	\begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} 	\end{bmatrix} \pm	\begin{bmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{bmatrix} = \begin{bmatrix} a_{11} \pm b_{11} & a_{12} \m b_{12} \\ a_{21} \pm b_{21} & a_{22} \pm b_{22} \end{bmatrix} \]
-
-  + explicit about the dimensions of matrices for checking conformability
-
-    \[ A_{2 \times 2} + B_{2 \times 2}= \begin{bmatrix} a_{11}+b_{11} & a_{12}+b_{12} \\ a_{21}+b_{21} & a_{22}+b_{22} 	\end{bmatrix}_{2 \times 2} \]
-
-+ [Matrix-Matrix production](./Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
-  + dot product of a matrix and a vector
-
-    \[\begin{equation}
-    {\bf A}=\begin{bmatrix}  a_{11} & a_{12} & a_{13}\\  a_{21} & a_{22} & a_{23}	\end{bmatrix} \qquad {\bf c}=\begin{bmatrix} c_1 \\ c_2 \\ c_3 \end{bmatrix} \\
-    {\bf A} = \begin{bmatrix} {\bf r}_1 \\ {\bf r}_2 \end{bmatrix} \quad\to\quad {\bf r}_1=\begin{bmatrix} a_{11} &  a_{12} &  a_{13} \end{bmatrix},  {\bf r}_2=\begin{bmatrix} a_{21} &  a_{22} &  a_{23} \end{bmatrix} \\
-    \therefore\; {\bf A} {\bf c} = \begin{bmatrix} {\bf r}_1 {\bf c} \\ {\bf r}_2 {\bf c} \end{bmatrix}  = \begin{bmatrix} a_{11}c_1 + a_{12}c_2 + a_{13} c_3 \\ a_{21}c_1 + a_{22}c_2 + a_{23} c_3	\end{bmatrix}
-    \end{equation}\]
-
-  + dot product of two matrices
-    + ${\bf AC}$: a matrix generated from taking the dot product of each row vector in ${\bf A}$ w/ each column vector in ${\bf C}$
-    + conformity
-      + conform: the number of columns in the 1st matrix = the number of rows in the 2nd matrix
-      + otherwise, matrix product undefined
-  
 
 
 
