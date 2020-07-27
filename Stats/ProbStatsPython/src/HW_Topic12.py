@@ -81,6 +81,16 @@ def reverse_regression(data):
 
     return w
 
+def y_minus_x(df):
+    # input: the HW's dataset
+    # output: there is NO OUTPUT
+
+    df['y-x'] = df['y'] - df['x']
+
+    return df
+    
+
+
 
 def main(debug=False):
     """main function to execute all
@@ -93,7 +103,7 @@ def main(debug=False):
     data_df = pd.read_csv('./data/hw_regression_data.csv')
 
     if debug:
-        print("\nLoading data...")
+        print("\nLoading data for study hours and grades...")
         print("  \ndataframe info: {}".format(data_df.info()))
         print("  \ndataset: \n{}".format(data_df.head()))
 
@@ -118,6 +128,23 @@ def main(debug=False):
     if debug:
         print("\nreverse parameter vector: {}".format(w2))
         print("  typ2= {}  shape={}".format(type(w2), w2.shape))
+
+    
+    # Regression to the Mean
+    hw_df = pd.read_csv('./data/gauss_R2.csv')
+
+    if debug:
+        print("\nLoading data for gauss...")
+        print("  \ndataframe info: {}".format(hw_df.info()))
+        print("  \ndataset: \n{}".format(hw_df.head()))
+
+    # Exercise 4: put y - x in DataFrame
+    hw_df = y_minus_x(hw_df)
+
+    if debug:
+        print("\nLoading data for gauss data...")
+        print("  \ndataframe info: {}".format(hw_df.info()))
+        print("  \ndataset: \n{}".format(hw_df.head()))
 
     return None
 
