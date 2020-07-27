@@ -2,14 +2,14 @@
 
 ## Vectors
 
-+ [Vector notation](./Stats/ProbStatsPython/12-RegPCA.md#121-review-of-linear-algebra)
++ [Vector notation](../Stats/ProbStatsPython/12-RegPCA.md#121-review-of-linear-algebra)
   + __vectors__: letters with a little arrow on top, e.g., $\vec{a},\vec{b},\vec{v}_1,\vec{v}_2,\ldots$
   + $\Bbb{R}^d$: vectors grouped by __dimension d__, the set of all $d$ dimensional (Euclidean) vectors
   + $d$ dimensional vector
     + an element of $\Bbb{R}^d$
     + described by a sequence of $d$ real numbers
 
-+ [Operations on vectors](./Stats/ProbStatsPython/12-RegPCA.md#121-review-of-linear-algebra)
++ [Operations on vectors](../Stats/ProbStatsPython/12-RegPCA.md#121-review-of-linear-algebra)
   + basic
     + v1= [1 2] v2= [-1  1]
     + v1+v2= [0 3]
@@ -41,7 +41,7 @@
 
 ## Orthonormal Basis
 
-+ [Orthonormal basis](./Stats/ProbStatsPython/12-RegPCA.md#121-review-of-linear-algebra)
++ [Orthonormal basis](../Stats/ProbStatsPython/12-RegPCA.md#121-review-of-linear-algebra)
   + Definition: (orthonormal basis) the vectors $\vec{u}_1, \vec{u}_2, \dots, \vec{u}_d \in \Bbb{R}^d$ form an <span style="color: magenta; font-weight: bold;"> orthonormal basis of $\Bbb{R}^d$, if
     + __normality__: $\vec{u}_1, \vec{u}_2, \dots, \vec{u}_d$ are unit vectors, i.e., $\forall\, 1 \le i \le d: \vec{u}_i \cdot \vec{u}_i = 1$
     + __orthogonality__: every pair of vectors are orthogonal, i.e., $\forall\, 1 \le i \ne j \le d: \vec{u}_i \cdot \vec{u}_j = 0$
@@ -62,7 +62,7 @@
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="./src/Topic12-Lectures/1.Linear_Algebra_Review.ipynb" ismap target="_blank">
-        <img src="./Stats/ProbStatsPython/img/t12-05.png" style="margin: 0.1em;" alt="Example of change of basis" title="Example of change of basis" height=250>
+        <img src="../Stats/ProbStatsPython/img/t12-05.png" style="margin: 0.1em;" alt="Example of change of basis" title="Example of change of basis" height=250>
       </a>
     </div>
 
@@ -81,7 +81,7 @@
 
 ## Matrix Notation
 
-+ [Matrix notation](./Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
++ [Matrix notation](../Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
   + Matlab based on Matrix notation
   + Python: similar functionality by using numpy
 
@@ -91,7 +91,7 @@
     </a>
   </div>
 
-+ [Transposing a matrix](./Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
++ [Transposing a matrix](../Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
 
   \[ A = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \\ a_{31} & a_{32} \end{bmatrix} \quad \xrightarrow{\text{transpose}} \quad
     A^\top = \begin{bmatrix} a_{11} & a_{21} & a_{31} \\ a_{12} & a_{22} & a_{32} \end{bmatrix} \]
@@ -100,13 +100,13 @@
 
 ## Matrix Operations
 
-+ [Matrix scalar operation](./Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
++ [Matrix scalar operation](../Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
   + adding a scalar value to a matrix
   + subtracting a scalar value to a matrix
   + product of a scalar and a matrix
   + dividing a matrix by a scalar
 
-+ [Adding and subtracting two matrices](./Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
++ [Adding and subtracting two matrices](../Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
   + adding / subtracting
 
     \[ A \pm B =	\begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} 	\end{bmatrix} \pm	\begin{bmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{bmatrix} = \begin{bmatrix} a_{11} \pm b_{11} & a_{12} \m b_{12} \\ a_{21} \pm b_{21} & a_{22} \pm b_{22} \end{bmatrix} \]
@@ -115,7 +115,7 @@
 
     \[ A_{2 \times 2} + B_{2 \times 2}= \begin{bmatrix} a_{11}+b_{11} & a_{12}+b_{12} \\ a_{21}+b_{21} & a_{22}+b_{22} 	\end{bmatrix}_{2 \times 2} \]
 
-+ [Matrix-Matrix production](./Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
++ [Matrix-Matrix production](../Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
   + dot product of a matrix and a vector
 
     \[\begin{equation}
@@ -133,7 +133,7 @@
 
 ## Special Matrices
 
-+ [The identity matrix](./Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
++ [The identity matrix](../Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
   + behaving like the number 1
   + dot product of any matrix ${\bf A}$ by the identity matrix ${\bf I}$ yields ${\bf A}$: ${\bf AI} = {\bf IA} = {\bf A}$
 
@@ -141,7 +141,7 @@
 
 ## Inverse Matrix
 
-+ [Inverse Matrix](./Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
++ [Inverse Matrix](../Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
   + Definition: (inverse matrix) $\exists\, {\bf A}$ w/ multiplicative inverse ${\bf A^{-1}}$ s.t. ${\bf AA^{-1}} = {\bf A^{-1}A} = {\bf I}$
   + inverting the matrix
     + finding the inverse of a matrix
@@ -153,6 +153,34 @@
 
     \[ {\bf A} = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22}\end{bmatrix} \quad\to\quad {\bf A}^{-1}=\begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}^{-1}=\frac{1}{a_{11}a_{22}-a_{12}a_{21}}	\begin{bmatrix}  a_{22} & -a_{12} \\ -a_{21} & a_{11} \end{bmatrix} \]
 
+
+
+## Matrix Form for Linear Systems 
+
++ [Writing equations in matrix form](../Stats/ProbStatsPython/12-RegPCA.md#123-solving-a-system-of-linear-equations)
+  + writing succinctly as ${\bf Aw = b}$
+    + _coefficient_ matrix: ${\bf A} = \begin{bmatrix} 1 & -1 \\1 & 1	\end{bmatrix}$
+    + _ordinate_ or _dependent variable_ vector: ${\bf b}=\begin{bmatrix} 2 \\ 1 \end{bmatrix}$
+    + _parameter_ vector: ${\bf w} = \begin{bmatrix} w_0 \\ w_1	\end{bmatrix}$
+  + goal: find $w$ s.t. ${\bf Aw = b}$
+    + w/ A is invertible, multiplying both sides by ${\bf A^{-1}}$
+
+      \[ {\bf w =  A^{-1} A w = A^{-1} b } \]
+
+    + alternatively, solving linear equations
+
++ [Using `numpy.linalg.solve()`](../Stats/ProbStatsPython/12-RegPCA.md#123-solving-a-system-of-linear-equations)
+  + used to solve a set of $n$ linear equations w/ $n$ unknowns
+  + simply expressing the set of equation in a matrix format ${\bf Ax = b}$
+  + calling `x = np.linalg.solve(A, b)` and returning a vector w/ the solution for ${\bf x}$  
+  + classification of systems
+    + constraint: the number of equations ($eqs$) = the number of unknowns ($unks$)
+    + _undetermined_ or _singular_ system
+      + $eqs < unks$
+      + not enough info to specify a unique solution
+    + _overdetermined_ system:
+      + $eqs > unks$
+      + no solution  satisfying all constraints
 
 
 
