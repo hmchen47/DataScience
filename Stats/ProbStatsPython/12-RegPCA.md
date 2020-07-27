@@ -626,7 +626,7 @@
     # [-0.5]]
     ```
 
-  + more than 2 points: no straight line amoung them
+  + more than 2 points: no straight line among them
 
 + Using `numpy.linalg.solve()`
   + used to solve a set of $n$ linear equations w/ $n$ unknowns
