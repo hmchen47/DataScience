@@ -90,6 +90,17 @@ def y_minus_x(df):
     return df
     
 
+def do_regression2(df):
+    # input: the HW's dataset
+    # output: a numpy array yielding w=(w0,w1) from linear regression
+    
+    x = df['x'].values
+    y = df['y-x'].values
+    A = np.vstack([np.ones(len(x)), x]).T
+
+    w = np.linalg.lstsq(A, y, rcond=None)[0]
+
+    return w
 
 
 def main(debug=False):
@@ -145,6 +156,14 @@ def main(debug=False):
         print("\nLoading data for gauss data...")
         print("  \ndataframe info: {}".format(hw_df.info()))
         print("  \ndataset: \n{}".format(hw_df.head()))
+
+
+    # Exercise 5: simple linear regression
+    w3 = do_regression2(hw_df)
+
+    if debug:
+        print("\nreverse parameter vector: {}".format(w3))
+        print("  typ2= {}  shape={}".format(type(w3), w3.shape))
 
     return None
 
