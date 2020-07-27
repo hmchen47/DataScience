@@ -79,5 +79,24 @@
 
 
 
+## Matrix Notation
+
++ [Matrix notation](./Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
+  + Matlab based on Matrix notation
+  + Python: similar functionality by using numpy
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y2te9nw3" ismap target="_blank">
+      <img src="https://tinyurl.com/q5knya4" style="margin: 0.1em;" alt="Matrix notation: Specific entries of a matrix are often referenced by using pairs of subscripts, for the numbers at each of the rows & columns." title="Matrix notation" width=250>
+    </a>
+  </div>
+
++ [Transposing a matrix](./Stats/ProbStatsPython/12-RegPCA.md#122-matrix-notation-and-operations)
+
+  \[ A = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \\ a_{31} & a_{32} \end{bmatrix} \quad \xrightarrow{\text{transpose}} \quad
+    A^\top = \begin{bmatrix} a_{11} & a_{21} & a_{31} \\ a_{12} & a_{22} & a_{32} \end{bmatrix} \]
+
+
+
 
 
