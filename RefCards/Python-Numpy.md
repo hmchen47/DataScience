@@ -1,7 +1,7 @@
 # Numpy - Array, Vector, Matrix, Linear Algebra, and Other Useful Functions
 
 
-## Numpy Array
+## Array Basics
 
 + `ndarray` attributes
   + `T`: ndarray
@@ -43,7 +43,7 @@
       array data is actually stored.
 
 
-## Numpy Array Creating routines
+## Array Creating routines
 
   <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y2ecowxs">Template</a></caption>
@@ -582,7 +582,7 @@
   </table>
 
 
-## Numpy Linear Algebra
+## Linear Algebra
 
   <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y52df8mf">Matrix and vector products</a></caption>
@@ -763,4 +763,121 @@
     </tr>
     </tbody>
   </table>
+
+
+## Sorting, searching, and counting
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y3zpsdcd">Sorting</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.sort.html#numpy.sort" title="numpy.sort"><code>sort</code></a>(a[,&nbsp;axis,&nbsp;kind,&nbsp;order])</td> 
+      <td>Return a sorted copy of an array.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.lexsort.html#numpy.lexsort" title="numpy.lexsort"><code>lexsort</code></a>(keys[,&nbsp;axis])</td> 
+      <td>Perform an indirect stable sort using a sequence of keys.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.argsort.html#numpy.argsort" title="numpy.argsort"><code>argsort</code></a>(a[,&nbsp;axis,&nbsp;kind,&nbsp;order])</td> 
+      <td>Returns the indices that would sort an array.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.sort.html#numpy.ndarray.sort" title="numpy.ndarray.sort"><code>ndarray.sort</code></a>([axis,&nbsp;kind,&nbsp;order])</td> 
+      <td>Sort an array in-place.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.msort.html#numpy.msort" title="numpy.msort"><code>msort</code></a>(a)</td> 
+      <td>Return a copy of an array sorted along the first axis.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.sort_complex.html#numpy.sort_complex" title="numpy.sort_complex"><code>sort_complex</code></a>(a)</td> 
+      <td>Sort a complex array using the real part first, then the imaginary part.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.partition.html#numpy.partition" title="numpy.partition"><code>partition</code></a>(a,&nbsp;kth[,&nbsp;axis,&nbsp;kind,&nbsp;order])</td> 
+      <td>Return a partitioned copy of an array.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.argpartition.html#numpy.argpartition" title="numpy.argpartition"><code>argpartition</code></a>(a,&nbsp;kth[,&nbsp;axis,&nbsp;kind,&nbsp;order])</td> 
+      <td>Perform an indirect partition along the given axis using the algorithm specified by the <em class="xref py py-obj">kind</em> keyword.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y68fh56n">Searching</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.argmax.html#numpy.argmax" title="numpy.argmax"><code>argmax</code></a>(a[,&nbsp;axis,&nbsp;out])</td> 
+      <td>Returns the indices of the maximum values along an axis.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.nanargmax.html#numpy.nanargmax" title="numpy.nanargmax"><code>nanargmax</code></a>(a[,&nbsp;axis])</td> 
+      <td>Return the indices of the maximum values in the specified axis ignoring NaNs.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.argmin.html#numpy.argmin" title="numpy.argmin"><code>argmin</code></a>(a[,&nbsp;axis,&nbsp;out])</td> 
+      <td>Returns the indices of the minimum values along an axis.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.nanargmin.html#numpy.nanargmin" title="numpy.nanargmin"><code>nanargmin</code></a>(a[,&nbsp;axis])</td> 
+      <td>Return the indices of the minimum values in the specified axis ignoring NaNs.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.argwhere.html#numpy.argwhere" title="numpy.argwhere"><code>argwhere</code></a>(a)</td> 
+      <td>Find the indices of array elements that are non-zero, grouped by element.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.nonzero.html#numpy.nonzero" title="numpy.nonzero"><code>nonzero</code></a>(a)</td> 
+      <td>Return the indices of the elements that are non-zero.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.flatnonzero.html#numpy.flatnonzero" title="numpy.flatnonzero"><code>flatnonzero</code></a>(a)</td> 
+      <td>Return indices that are non-zero in the flattened version of a.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.where.html#numpy.where" title="numpy.where"><code>where</code></a>(condition,&nbsp;[x,&nbsp;y])</td> 
+      <td>Return elements chosen from <em class="xref py py-obj">x</em> or <em class="xref py py-obj">y</em> depending on <em class="xref py py-obj">condition</em>.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.searchsorted.html#numpy.searchsorted" title="numpy.searchsorted"><code>searchsorted</code></a>(a,&nbsp;v[,&nbsp;side,&nbsp;sorter])</td> 
+      <td>Find indices where elements should be inserted to maintain order.</td>
+    </tr>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.extract.html#numpy.extract" title="numpy.extract"><code>extract</code></a>(condition,&nbsp;arr)</td> 
+      <td>Return the elements of an array that satisfy some condition.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y5o2mh9y">Counting</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr >
+      <td><a href="https://numpy.org/doc/stable/reference/generated/numpy.count_nonzero.html#numpy.count_nonzero" title="numpy.count_nonzero"><code>count_nonzero</code></a>(a[,&nbsp;axis,&nbsp;keepdims])</td> 
+      <td>Counts the number of non-zero values in the array <code class="docutils literal notranslate"><span class="pre">a</code>.</td>
+    </tr>
+    </tbody>
+  </table>
+
+
 
