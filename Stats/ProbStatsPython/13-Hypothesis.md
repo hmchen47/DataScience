@@ -38,17 +38,17 @@
     + notation: $H_1$ or $H_A$
   + $H_A$ often complement or "one-side complement" of $H_0$
 
-+ Simple $H_0$
++ Example: simple $H_0$
   + coin:
     + null hypothesis: unbiased $\to p_h = 0.5$
     + alternative hypothesis
       + 2-sided: biased $\to p_h \ne 0.5$
       + 1-sided: heads more likely $\to p_h > 0.5$
-  + gender equality average GPS
+  + gender equality average GPA
     + null hypothesis: same average GPA (not exactly simple: {(x, x)})
     + alternative hypothesis
-      + 2-sided: different average GPS
-      + 1-sided: men's average GPS higher
+      + 2-sided: different average GPA
+      + 1-sided: men's average GPA higher
 
 + Example: one-sided $H_0$
   + smartphones iOS x Android
@@ -68,7 +68,7 @@
     + yes: reject null in favor of alternative
     + no: do not reject null
   + conservative
-    + reject bull (status quo)
+    + reject null (status quo)
     + only if stronger evidence against it
     + two analogies
 
