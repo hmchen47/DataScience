@@ -206,9 +206,9 @@
 
   Ans: <font style="color: cyan;">b</font><br/>
   Explanation: By the 68-95-99.7 Rule:
-    + $\Pr(Z \in [−σ,σ]) \approx 68\%$
-    + $\Pr(Z \ni [−2σ,2σ]) \approx 100−95=5\%$
-    + $\Pr(Z \ge σ) \approx (100−68)/2=16\%$,
+    + $\Pr(Z \in [−\sigma,\sigma]) \approx 68\%$
+    + $\Pr(Z \ni [−2\sigma,2\sigma]) \approx 100−95=5\%$
+    + $\Pr(Z \ge \sigma) \approx (100−68)/2=16\%$,
 
   hence the second is smallest.
 
@@ -231,28 +231,33 @@
   + Type-I error
     + $H_0$: coin unbiased
     + declare $H_A$: heads more likely
-  + under $H_0$: $X \sim B_{0.5, 20} \quad \Pr_{H_0}$
+  + under $H_0$: $X \sim B_{0.5, 20} \to P_{H_0}$ (see diagram)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
+      <img src="img/t13-10.png" style="margin: 0.1em;" alt="pmf of Bernoulli distribution w/ n=20, p = 0.5" title="pmf of Bernoulli distribution w/ n=20, p = 0.5" width=250>
+    </a>
+  </div>
 
 + Nomencalture
-  + complicated work for terminology
-    + appropos
-    + appropriate
-  + $H_A$
+  + complicated work for terminology, e.g., appropos = appropriate
+  + $H_A$ is true, allowed statements
     + reject $H_0$ in favor of $H_A$
     + reject $H_0$
-    + accept $H_A$
-  + $H_0$:
+    + <font style="color: cyan;">accept $H_A$</font>
+  + $H_0$ is true, allowed statements
     + do not reject $H_0$
     + data not significant
     + $H_0$ plausible
-    + retain $H_0$ (reluctantly retain)
+    + <font style="text-decoration: line-through;">accept $H_0$</font>
+    + (reluctantly) <font style="color: cyan;">retain $H_0$</font> 
   + why verbal gymnastics?
     + test asymmetric
   + example
     + 20 trials w/ $X= 12 \to$ accept $H_0$?
-    + what if $p_H$ = 0.5 or 0.55
-    + better explain 12 than $P_h = 0.5$
-    + not knowing  that $H_0$ true
+    + what if $p_H$ = 0.6 or 0.55?
+    + better explain 12 than $p_h = 0.5$
+    + not knowing that $H_0$ is true
     + just not enough data to reject it
 
 + Significant level
@@ -260,25 +265,33 @@
   + precise probabilistic formulation
   + $\alpha$: significant level, typically 5%, 1%
   + if $H_0$ is true, accept $H_A$ w/ probability $\le \alpha$
-  + $\Pr_{_{H_0}}(\underbrace{\text{accept} H_A}_{\text{Type-I Error}}) \le \alpha$
+  
+    \[ P_{H_0}(\underbrace{\text{accept} H_A}_{\text{Type-I Error}}) \le \alpha \]
+
   + two methods
     + critical values
     + p-values
 
 + Critical value
-  + $H_0: p_h = 0.5 \quad H_A: p_h > 0.5$
+  + hypotheses: $H_0 p_h = 0.5 \quad H_A: p_h > 0.5$
   + sampling data: 20 trials
   + test statistic: $X$ as number of heads
   + $H_0 \to X \approx 10$
   + accept $H_A$ when $X = 16, 17, 18, 19, 20$
-  + critical value: $x_\alpha$ as threshold
+  + critical value: $x_\alpha$ as a threshold
     + $X \ge x_\alpha \to$ accept $H_A$
     + $X < x_\alpha \to$ retain $H_A$
   + $x_\alpha \gets$ significance level $\alpha$
-    + $\alpha$: upper bound on $\Pr_{H_0}(\text{accept } H_A)$
+  + $\alpha$: upper bound on $P_{H_0}(\text{accept } H_A)$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
+      <img src="img/t13-03.png" style="margin: 0.1em;" alt="Bernoulli distribution w/ p=0.5, n=20 as x_α = 16 for significance level α = 5%" title="Bernoulli distribution w/ p=0.5, n=20 as x_α = 16 for significance level α = 5%" width=200>
+    </a>
+  </div>
 
 + Finding $x_\alpha$
-  + $H_0: p_h = 0.5 \quad H_A: p_h > 0.5$
+  + hypotheses: $H_0 p_h = 0.5 \quad H_A: p_h > 0.5$
   + sampling data: 20 trials
   + test statistic: $X$ as number of heads
   + critical value $x_\alpha$
@@ -287,18 +300,18 @@
   + significance level $\alpha$
     + typical $\alpha = 5\%, 1\%$
     + $P_{H_0} (X \ge x\alpha) = P_{H_0}(\text{falsely accept } H_A) \le \alpha$
-  + requirement: $P_{H_0}( X \ge x\alpha) \le \alpha$
+  + requirement: $P_{H_0}( X \ge x_\alpha) \le \alpha$
     + $x_\alpha$ large: almost never declare $H_A$
     + smallest $x$ s.t. $P_{H_0}(X \ge x) \le \alpha$
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
-      <img src="img/t13-03.png" style="margin: 0.1em;" alt="" title="" width=200>
+      <img src="img/t13-11.png" style="margin: 0.1em;" alt="Bernoulli distribution w/ p=0.5, n=20 as x_α = 16 for significance level α = 5% and the area of probability" title="Bernoulli distribution w/ p=0.5, n=20 as x_α = 16 for significance level α = 5% and the area of probability" width=250>
     </a>
   </div>
 
-+ Example: $X_{5\%}$ and $x_{1\%}$
-  + $H_0: p_h = 0.5 \quad H_A: p_h > 0.5$
++ Example: $X_{5\%}$ and $X_{1\%}$
+  + hypotheses: $H_0 p_h = 0.5 \quad H_A: p_h > 0.5$
   + sampling data: 20 trials
   + test statistic: $X$ as number of heads
   + significance level: $\alpha = 5\%$
@@ -307,7 +320,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
-      <img src="img/t13-04.png" style="margin: 0.1em;" alt="Example of critical value calculation" title="Example of critical value calculation" width=450>
+      <img src="img/t13-04.png" style="margin: 0.1em;" alt="Example of critical value calculation" title="Example of critical value calculation" width=650>
     </a>
   </div>
 
@@ -318,12 +331,12 @@
     + $X < x_\alpha$: retain $H_0$
     + $X \ge x_\alpha$: accept $H_A$
   + practically observe one value $x$ of $X$
-  + $X = 13 \to$ retain $H_0$ or accept $H_A$
-  + get around finding smallest $x$ for accepting $H_A$?
-  + find a rule just for $X$ itself?
+  + $X = 13 \to$ retain $H_0$ or accept $H_A$?
+    + get around finding smallest $x$ for accepting $H_A$? $\to$ critical value
+    + find a rule just for $X$ itself? $\to$ p-value
 
 + p (probability) value
-  + critical value
+  + critical value recall
     + $x_{5\%} = 15$
     + finding smallest $x$ s.t. $P_{H_0}(X \ge x) \le 5\%$
     + $X \ge x_{x_{5\%}} \to$ accept $H_A$: $x \ge x_{5\%} \iff P_{H_0}(X \ge x) \le P_{H_0}(X \ge x_{5\%}) \le 5\%$
@@ -331,55 +344,61 @@
   + p values of $x$
     + accept $H_A$: $P_{H_0}(X \ge x) \le 5\% \to x \ge x_{5\%}$
     + retain $H_0$: $P_{H_0}(X > x) > 5\% \to x < x_{5\%}$
-  + same $H_0$ and $H_A$ regions as before!
+  + same $H_0$ and $H_A$ regions as in critical values
   + intuitively $P$ under $H_0$ small $\to H_A$ more likely
 
-+ Example: p-value
-  + $H_0: p_h = 0.5 \quad H_A: p_h > 0.5$
++ Example: p-value w/ 1-sided hypothesis testing
+  + hypotheses: $H_0 p_h = 0.5 \quad H_A: p_h > 0.5$
   + sampling data: 20 trials
   + test statistic: $X$ as number of heads
   + significance level: $\alpha = 5\%$
-  + critical value
+  + critical value testing
     + $x_{5\%} = 15$
     + $X \ge 15 \to H_A$
     + $X < 15 \to H_0$
+  + p-value testing
+    + $\le 5\%: x \ge x_\{5\%} \to $ accept $H_A$
+    + $> 5\% : x < x_{5\%} to$ retain $H_0$
+  + p-value of $x$ = Probability $X \ge x$
+    + $\le \alpha$: accept $H_A$
+    + $> \alpha$: retain $H_0$
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
-      <img src="img/t13-05.png" style="margin: 0.1em;" alt="Example of p-value calculation" title="Example of p-value calculation" width=450>
+      <img src="img/t13-05.png" style="margin: 0.1em;" alt="Example of p-value calculation" title="Example of p-value calculation" width=350>
     </a>
   </div>
 
-+ Opposite alternative
-  + $H_0: p_h = 0.5 \quad H_A: p_h {\color{Magenta}<}\, 0.5$
++ Example: critical value & p-value w/ 1-sided hypothesis testing in opposite alternative
+  + hypotheses: $H_0 p_h = 0.5 \quad H_A: p_h {\color{Magenta}<}\, 0.5$
   + sampling data: 20 trials
   + test statistic: $X$ as number of heads
-  + significance level: $\alpha = 5\%$ or 1 \to P_{H_0}(\text{falsely accept } H_A) \le \alpha$
-  + critical value $x_\alpha$
+  + significance level: $\alpha = 5\% \text{ or } 1\% \to P_{H_0}(\text{falsely accept } H_A) \le \alpha$
+  + critical value $x_\alpha$ (refer to diagram in example for p-value)
     + <font style="color: magenta;">largest</font> $x$ s.t. $P_{H_0}(X {\color{magenta}\le}\, x) \le \alpha \xrightarrow{\text{snsures}} P_{H_0}(\text{falsely accept } H_A) \le \alpha$
     + largest $x \to$ left tail
   + $X \le x_\alpha$: accept $H_0$
   + $x > x_\alpha$: retain $H_0$
   + $\alpha = 5\% \xrightarrow{\text{by symmetry}} x_{5\%} = 5$
 
-+ Example: using p-value
-  + $H_0: p_h = 0.5 \quad H_A: p_h {\color{Magenta}<}\, 0.5$
++ Example: p-value w/ 1-sided hypothesis testing in opposite alternative
+  + hypotheses: $H_0 p_h = 0.5 \quad H_A: p_h {\color{Magenta}<}\, 0.5$
   + sampling data: 20 trials
   + test statistic: $X$ as number of heads
   + significance level: $\alpha = 5\%$
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
-      <img src="img/t13-06.png" style="margin: 0.1em;" alt="Application of p-value" title="Application of p-value" width=450>
+      <img src="img/t13-06.png" style="margin: 0.1em;" alt="Application of p-value" title="Application of p-value" width=650>
     </a>
   </div>
 
-+ Two-sided alternative hypothesis
++ Example: two-sided alternative hypothesis
   + $\underbrace{H_0: p_h = 0.5}_{\text{unbiased}} \quad \underbrace{H_A: p_h {\color{Magenta}\ne}\, 0.5}_{\text{2-sided}}$
   + sampling data: 20 trials
   + test statistic: $X$ as number of heads
   + $H_0$ mean: $\mu_x = 10$
-  + $P(|X - 10| \le x)$: under the area
+  + probability under the area
     + $H_0$: $X$ close to 10
     + $H_A$: $X$ far from 10
   + $P(|X - 10| > x)$: two far ends
@@ -392,12 +411,12 @@
     </a>
   </div>
 
-+ Critical value
-  + $H_0: p_h = 0.5 \quad H_A: p_h {\color{Magenta}\ne}\, 0.5$
++ Critical value for 2-sided $H_A$
+  + hypotheses: $H_0 p_h = 0.5 \quad H_A: p_h {\color{Magenta}\ne}\, 0.5$
   + sampling data: 20 trials
   + test statistic: $X$ as number of heads
-  + significance level
-    + $\alpha$ as upper bound on Type-I error
+  + significance level $\alpha$
+    + upper bound on Type-I error
     + $H_o$ mean: $\mu_x = 10$
   + critical value $x_\alpha$: $x$ close to 10 s.t. $P_{H-0}(|X - 10| \ge |x - 10|) \le \alpha$
   + testing
@@ -414,7 +433,7 @@
     </a>
   </div>
 
-+ p values
++ p values for 2-sided $H_A$
   + p value of $x$
     + $P_{H_0}(X \text{ is at least as far from 10 as } x)$
     + $P_{H_0}(|X - 10| \ge |x - 10|)$
@@ -426,11 +445,7 @@
     + $x$ far from mean
     + high $H_0$ prob of outcome $x$ or further towards $H_A$
     + $x$ more likely to be generated under $H_0$
-
-+ p-values $\to$ hypothesis
-  + p value of $x$
-    + $P_{H_0}(X \text{ is at least as far from 10 as } x)$
-    + $P_{H_0}(|X - 10| \ge |x - 10|)$
+  + p-values $\to$ hypothesis
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
