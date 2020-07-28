@@ -224,12 +224,229 @@
 
 ### Lecture Notes
 
++ Example: biased coin
+  + $\underbrace{H_0: p_h = 0.5}_{\text{Unbiased}} \quad \underbrace{H_A: p_h > 0.5}_{\substack{\text{Heads more}\\\text{likely}}}$
+  + data: 20 trials
+  + test statistic: $X$ as the number of heads
+  + Type-I error
+    + $H_0$: coin unbiased
+    + declare $H_A$: heads more likely
+  + under $H_0$: $X \sim B_{0.5, 20} \quad \Pr_{H_0}$
+
++ Nomencalture
+  + complicated work for terminology
+    + appropos
+    + appropriate
+  + $H_A$
+    + reject $H_0$ in favor of $H_A$
+    + reject $H_0$
+    + accept $H_A$
+  + $H_0$:
+    + do not reject $H_0$
+    + data not significant
+    + $H_0$ plausible
+    + retain $H_0$ (reluctantly retain)
+  + why verbal gymnastics?
+    + test asymmetric
+  + example
+    + 20 trials w/ $X= 12 \to$ accept $H_0$?
+    + what if $p_H$ = 0.5 or 0.55
+    + better explain 12 than $P_h = 0.5$
+    + not knowing  that $H_0$ true
+    + just not enough data to reject it
+
++ Significant level
+  + reject null (status quo) hypothesis $H_0$ only if strong evidence for alternative $H_A$
+  + precise probabilistic formulation
+  + $\alpha$: significant level, typically 5%, 1%
+  + if $H_0$ is true, accept $H_A$ w/ probability $\le \alpha$
+  + $\Pr_{_{H_0}}(\underbrace{\text{accept} H_A}_{\text{Type-I Error}}) \le \alpha$
+  + two methods
+    + critical values
+    + p-values
+
++ Critical value
+  + $H_0: p_h = 0.5 \quad H_A: p_h > 0.5$
+  + sampling data: 20 trials
+  + test statistic: $X$ as number of heads
+  + $H_0 \to X \approx 10$
+  + accept $H_A$ when $X = 16, 17, 18, 19, 20$
+  + critical value: $x_\alpha$ as threshold
+    + $X \ge x_\alpha \to$ accept $H_A$
+    + $X < x_\alpha \to$ retain $H_A$
+  + $x_\alpha \gets$ significance level $\alpha$
+    + $\alpha$: upper bound on $\Pr_{H_0}(\text{accept } H_A)$
+
++ Finding $x_\alpha$
+  + $H_0: p_h = 0.5 \quad H_A: p_h > 0.5$
+  + sampling data: 20 trials
+  + test statistic: $X$ as number of heads
+  + critical value $x_\alpha$
+    + $X < x_\alpha \to$ retain $H_0$
+    + $X \ge x_\alpha \to$ accept $H_A$
+  + significance level $\alpha$
+    + typical $\alpha = 5\%, 1\%$
+    + $P_{H_0} (X \ge x\alpha) = P_{H_0}(\text{falsely accept } H_A) \le \alpha$
+  + requirement: $P_{H_0}( X \ge x\alpha) \le \alpha$
+    + $x_\alpha$ large: almost never declare $H_A$
+    + smallest $x$ s.t. $P_{H_0}(X \ge x) \le \alpha$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
+      <img src="img/t13-03.png" style="margin: 0.1em;" alt="" title="" width=200>
+    </a>
+  </div>
+
++ Example: $X_{5\%}$ and $x_{1\%}$
+  + $H_0: p_h = 0.5 \quad H_A: p_h > 0.5$
+  + sampling data: 20 trials
+  + test statistic: $X$ as number of heads
+  + significance level: $\alpha = 5\%$
+  + critical value: $x_{5\%}$
+  + finding smallest $x$ s.t. $P_{H_0}(X \ge x) \le 5\%$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
+      <img src="img/t13-04.png" style="margin: 0.1em;" alt="Example of critical value calculation" title="Example of critical value calculation" width=450>
+    </a>
+  </div>
+
++ Room for improvement: critical value
+  + significance level: $\alpha = 5\%$
+  + critical value: $x_\alpha = 15$
+  + testing
+    + $X < x_\alpha$: retain $H_0$
+    + $X \ge x_\alpha$: accept $H_A$
+  + practically observe one value $x$ of $X$
+  + $X = 13 \to$ retain $H_0$ or accept $H_A$
+  + get around finding smallest $x$ for accepting $H_A$?
+  + find a rule just for $X$ itself?
+
++ p (probability) value
+  + critical value
+    + $x_{5\%} = 15$
+    + finding smallest $x$ s.t. $P_{H_0}(X \ge x) \le 5\%$
+    + $X \ge x_{x_{5\%}} \to$ accept $H_A$: $x \ge x_{5\%} \iff P_{H_0}(X \ge x) \le P_{H_0}(X \ge x_{5\%}) \le 5\%$
+    + $X < x_{x_{5\%}} \to$ retain $H_0$: $x < x_{5\%} \iff P_{H_0}(X \ge x) > 5\%$
+  + p values of $x$
+    + accept $H_A$: $P_{H_0}(X \ge x) \le 5\% \to x \ge x_{5\%}$
+    + retain $H_0$: $P_{H_0}(X > x) > 5\% \to x < x_{5\%}$
+  + same $H_0$ and $H_A$ regions as before!
+  + intuitively $P$ under $H_0$ small $\to H_A$ more likely
+
++ Example: p-value
+  + $H_0: p_h = 0.5 \quad H_A: p_h > 0.5$
+  + sampling data: 20 trials
+  + test statistic: $X$ as number of heads
+  + significance level: $\alpha = 5\%$
+  + critical value
+    + $x_{5\%} = 15$
+    + $X \ge 15 \to H_A$
+    + $X < 15 \to H_0$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
+      <img src="img/t13-05.png" style="margin: 0.1em;" alt="Example of p-value calculation" title="Example of p-value calculation" width=450>
+    </a>
+  </div>
+
++ Opposite alternative
+  + $H_0: p_h = 0.5 \quad H_A: p_h {\color{Magenta}<}\, 0.5$
+  + sampling data: 20 trials
+  + test statistic: $X$ as number of heads
+  + significance level: $\alpha = 5\%$ or 1 \to P_{H_0}(\text{falsely accept } H_A) \le \alpha$
+  + critical value $x_\alpha$
+    + <font style="color: magenta;">largest</font> $x$ s.t. $P_{H_0}(X {\color{magenta}\le}\, x) \le \alpha \xrightarrow{\text{snsures}} P_{H_0}(\text{falsely accept } H_A) \le \alpha$
+    + largest $x \to$ left tail
+  + $X \le x_\alpha$: accept $H_0$
+  + $x > x_\alpha$: retain $H_0$
+  + $\alpha = 5\% \xrightarrow{\text{by symmetry}} x_{5\%} = 5$
+
++ Example: using p-value
+  + $H_0: p_h = 0.5 \quad H_A: p_h {\color{Magenta}<}\, 0.5$
+  + sampling data: 20 trials
+  + test statistic: $X$ as number of heads
+  + significance level: $\alpha = 5\%$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
+      <img src="img/t13-06.png" style="margin: 0.1em;" alt="Application of p-value" title="Application of p-value" width=450>
+    </a>
+  </div>
+
++ Two-sided alternative hypothesis
+  + $\underbrace{H_0: p_h = 0.5}_{\text{unbiased}} \quad \underbrace{H_A: p_h {\color{Magenta}\ne}\, 0.5}_{\text{2-sided}}$
+  + sampling data: 20 trials
+  + test statistic: $X$ as number of heads
+  + $H_0$ mean: $\mu_x = 10$
+  + $P(|X - 10| \le x)$: under the area
+    + $H_0$: $X$ close to 10
+    + $H_A$: $X$ far from 10
+  + $P(|X - 10| > x)$: two far ends
+    + small: retain $H_0$
+    + large: accept $H_A$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
+      <img src="img/t13-07.png" style="margin: 0.1em;" alt="Example of 2-sided alternative hypothesis" title="Example of 2-sided alternative hypothesis" width=250>
+    </a>
+  </div>
+
++ Critical value
+  + $H_0: p_h = 0.5 \quad H_A: p_h {\color{Magenta}\ne}\, 0.5$
+  + sampling data: 20 trials
+  + test statistic: $X$ as number of heads
+  + significance level
+    + $\alpha$ as upper bound on Type-I error
+    + $H_o$ mean: $\mu_x = 10$
+  + critical value $x_\alpha$: $x$ close to 10 s.t. $P_{H-0}(|X - 10| \ge |x - 10|) \le \alpha$
+  + testing
+    + $|X - 10| \ge |x - 10|$: accept $H_A$
+    + $|X - 10| < |x - 10|$: retain $H_0$
+  
+    \[ P_{H_0} (\text{type-I error}) = P_{H_0}(|X - 10| \ge |x_{\alpha} -10|) \le \alpha \]
+
+  + $x_\alpha$ closest to 10 minimizes type-II error
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
+      <img src="img/t13-08.png" style="margin: 0.1em;" alt="Example of critical value" title="Example of critical value" width=250>
+    </a>
+  </div>
+
++ p values
+  + p value of $x$
+    + $P_{H_0}(X \text{ is at least as far from 10 as } x)$
+    + $P_{H_0}(|X - 10| \ge |x - 10|)$
+  + low p-value
+    + $x$ far from mean
+    + low $H_0$ prob of outcome $x$ or further towards $H_A$
+    + $x$ less likely to be generated under $H_0$
+  + higher p-value
+    + $x$ far from mean
+    + high $H_0$ prob of outcome $x$ or further towards $H_A$
+    + $x$ more likely to be generated under $H_0$
+
++ p-values $\to$ hypothesis
+  + p value of $x$
+    + $P_{H_0}(X \text{ is at least as far from 10 as } x)$
+    + $P_{H_0}(|X - 10| \ge |x - 10|)$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
+      <img src="img/t13-09.png" style="margin: 0.1em;" alt="Critical value and hypothesis" title=4Critical value and hypothesis" width=450>
+    </a>
+  </div>
+
++ General p-value
+  + p value of statistic $t$ of $T$: $P_{H_0}(T \text{ is $t$ or further towards } H_A)$
+  + significance level: $\alpha$
+  + p-value
+    + $\le \alpha$: accep $H_A$
+    + $> \alpha$: retain $H_0$
 
 
-
-
-
-+ [Original Slides]()
++ [Original Slides](https://tinyurl.com/y4s4tdt5)
 
 
 ### Problem Sets
