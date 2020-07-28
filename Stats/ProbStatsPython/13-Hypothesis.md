@@ -146,10 +146,71 @@
   </a>
 </div>
 
++ [Test statistic](https://tinyurl.com/vkvx9b8)
+  + a random variable that is calculated from sample data and used in a hypothesis test
+  + determining whether to reject the null hypothesis
+  + comparing data with what is expected under the null hypothesis
+  + used to calculate the p-value
+  + measuring the degree of agreement between a sample of data and the null hypothesis
+  + containing information about the data relevant for deciding whether to reject the null hypothesis
+  + <font style="color: cyan;">null distribution</font>: the sampling distribution of the test statistic under the null hypothesis
+  + When the data show strong evidence against the assumptions in the null hypothesis, the magnitude of the test statistic becomes too large or too small depending on the alternative hypothesis.
+  + the test's p-value small enough to reject the null hypothesis
+  + Z-statistic
+    + the test statistic for a Z-test
+    + the standard normal distribution under the null hypothesis
+  + Different hypothesis tests using different test statistics based on the probability model assumed in the null hypothesis (hypothesis test $\to$ test statistic)
+    + z-test $\to$ z-statistic
+    + t-tests $\to$ t-statistic
+    + ANOVA $\to$ F-statistic
+    + $\chi^2$-tests $\to \chi^2$ statistic
+
++ Critical value
+  + a point on the test distribution compared to the test statistic to determine whether to reject the null hypothesis
+  + the absolute value of test statistic is greater than the critical value $\implies$ statistical significance and reject the null hypothesis
+  + corresponding to $\alpha$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/tq5prhd" ismap target="_blank">
+      <img src="https://tinyurl.com/y4qu4g4s" style="margin: 0.1em;" alt="Figure A shows that results of a one-tailed Z-test are significant if the test statistic is equal to or greater than 1.64, the critical value in this case. The shaded area is 5% (α) of the area under the curve." title="Figure A shows that results of a one-tailed Z-test are significant if the test statistic is equal to or greater than 1.64, the critical value in this case. The shaded area is 5% (α) of the area under the curve." height=150>
+      <img src="https://tinyurl.com/y2gyrtne" style="margin: 0.1em;" alt="Figure B shows that results of a two-tailed Z-test are significant if the absolute value of the test statistic is equal to or greater than 1.96, the critical value in this case. The two shaded areas sum to 5% (α) of the area under the curve." title="Figure B shows that results of a two-tailed Z-test are significant if the absolute value of the test statistic is equal to or greater than 1.96, the critical value in this case. The two shaded areas sum to 5% (α) of the area under the curve." height=150>
+    </a>
+  </div>
+
+
 + [Original Slides](https://tinyurl.com/y4k2be2r)
 
 
 ### Problem Sets
+
+0. If we fail to reject the null hypothesis, does it mean that the null hypothesis is correct?<br/>
+  a. Yes, it must be correct.<br/>
+  b. No, we just don't have enough evidence to reject it.<br/>
+
+  Ans: b
+
+
+1. The distribution of the test statistic T depends on<br/>
+  a. Null hypothesis $H_0$,<br/>
+  b. Alternative hypothesis $H_A$,<br/>
+  c. Observed data t,<br/>
+  d. None of above.<br/>
+
+  Ans: a
+
+
+2. The null hypothesis says that  Z  follows normal distribution $N(0,\sigma^2)$. If the null hypothesis is correct, which of the following is the most unlikely event?<br/>
+  a. $Z \in [−\sigma, \sigma]$<br/>
+  b. $Z \ni [−2\sigma,2\sigma]$<br/>
+  c. $Z \ge \sigma$<br/>
+
+  Ans: <font style="color: cyan;">b</font><br/>
+  Explanation: By the 68-95-99.7 Rule:
+    + $\Pr(Z \in [−σ,σ]) \approx 68\%$
+    + $\Pr(Z \ni [−2σ,2σ]) \approx 100−95=5\%$
+    + $\Pr(Z \ge σ) \approx (100−68)/2=16\%$,
+
+  hence the second is smallest.
 
 
 
