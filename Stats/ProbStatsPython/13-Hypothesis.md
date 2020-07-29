@@ -224,7 +224,7 @@
 
 ### Lecture Notes
 
-+ Example: biased coin
++ Example: coin bias
   + $\underbrace{H_0: p_h = 0.5}_{\text{Unbiased}} \quad \underbrace{H_A: p_h > 0.5}_{\substack{\text{Heads more}\\\text{likely}}}$
   + data: 20 trials
   + test statistic: $X$ as the number of heads
@@ -251,8 +251,7 @@
     + $H_0$ plausible
     + <font style="text-decoration: line-through;">accept $H_0$</font>
     + (reluctantly) <font style="color: cyan;">retain $H_0$</font> 
-  + why verbal gymnastics?
-    + test asymmetric
+  + why verbal gymnastics? $\to$ test asymmetric
   + example
     + 20 trials w/ $X= 12 \to$ accept $H_0$?
     + what if $p_H$ = 0.6 or 0.55?
@@ -260,27 +259,27 @@
     + not knowing that $H_0$ is true
     + just not enough data to reject it
 
-+ Significant level
++ Significance level
   + reject null (status quo) hypothesis $H_0$ only if strong evidence for alternative $H_A$
   + precise probabilistic formulation
   + $\alpha$: significant level, typically 5%, 1%
-  + if $H_0$ is true, accept $H_A$ w/ probability $\le \alpha$
+  + if $H_0$ is true, accept $H_A$ w/ probability $\le \alpha$ (Type-I error)
   
-    \[ P_{H_0}(\underbrace{\text{accept} H_A}_{\text{Type-I Error}}) \le \alpha \]
+    \[ P_{H_0}(\text{accept} H_A) \le \alpha \]
 
   + two methods
     + critical values
     + p-values
 
 + Critical value
-  + hypotheses: $H_0 p_h = 0.5 \quad H_A: p_h > 0.5$
+  + hypotheses: $H_0: p_h = 0.5 \quad H_A: p_h > 0.5$
   + sampling data: 20 trials
   + test statistic: $X$ as number of heads
   + $H_0 \to X \approx 10$
   + accept $H_A$ when $X = 16, 17, 18, 19, 20$
   + critical value: $x_\alpha$ as a threshold
     + $X \ge x_\alpha \to$ accept $H_A$
-    + $X < x_\alpha \to$ retain $H_A$
+    + $X < x_\alpha \to$ retain $H_0$
   + $x_\alpha \gets$ significance level $\alpha$
   + $\alpha$: upper bound on $P_{H_0}(\text{accept } H_A)$
 
@@ -291,7 +290,7 @@
   </div>
 
 + Finding $x_\alpha$
-  + hypotheses: $H_0 p_h = 0.5 \quad H_A: p_h > 0.5$
+  + hypotheses: $H_0: p_h = 0.5 \quad H_A: p_h > 0.5$
   + sampling data: 20 trials
   + test statistic: $X$ as number of heads
   + critical value $x_\alpha$
@@ -311,7 +310,7 @@
   </div>
 
 + Example: $X_{5\%}$ and $X_{1\%}$
-  + hypotheses: $H_0 p_h = 0.5 \quad H_A: p_h > 0.5$
+  + hypotheses: $H_0: p_h = 0.5 \quad H_A: p_h > 0.5$
   + sampling data: 20 trials
   + test statistic: $X$ as number of heads
   + significance level: $\alpha = 5\%$
@@ -347,8 +346,8 @@
   + same $H_0$ and $H_A$ regions as in critical values
   + intuitively $P$ under $H_0$ small $\to H_A$ more likely
 
-+ Example: p-value w/ 1-sided hypothesis testing
-  + hypotheses: $H_0 p_h = 0.5 \quad H_A: p_h > 0.5$
++ Example: 1-sided hypothesis testing
+  + hypotheses: $H_0: p_h = 0.5 \quad H_A: p_h > 0.5$
   + sampling data: 20 trials
   + test statistic: $X$ as number of heads
   + significance level: $\alpha = 5\%$
@@ -357,8 +356,8 @@
     + $X \ge 15 \to H_A$
     + $X < 15 \to H_0$
   + p-value testing
-    + $\le 5\%: x \ge x_\{5\%} \to $ accept $H_A$
-    + $> 5\% : x < x_{5\%} to$ retain $H_0$
+    + $\le 5\%: x \ge x_{5\%} \to $ accept $H_A$
+    + $> 5\% : x < x_{5\%} \to$ retain $H_0$
   + p-value of $x$ = Probability $X \ge x$
     + $\le \alpha$: accept $H_A$
     + $> \alpha$: retain $H_0$
@@ -369,29 +368,25 @@
     </a>
   </div>
 
-+ Example: critical value & p-value w/ 1-sided hypothesis testing in opposite alternative
-  + hypotheses: $H_0 p_h = 0.5 \quad H_A: p_h {\color{Magenta}<}\, 0.5$
-  + sampling data: 20 trials
-  + test statistic: $X$ as number of heads
-  + significance level: $\alpha = 5\% \text{ or } 1\% \to P_{H_0}(\text{falsely accept } H_A) \le \alpha$
-  + critical value $x_\alpha$ (refer to diagram in example for p-value)
-    + <font style="color: magenta;">largest</font> $x$ s.t. $P_{H_0}(X {\color{magenta}\le}\, x) \le \alpha \xrightarrow{\text{snsures}} P_{H_0}(\text{falsely accept } H_A) \le \alpha$
-    + largest $x \to$ left tail
-  + $X \le x_\alpha$: accept $H_0$
-  + $x > x_\alpha$: retain $H_0$
-  + $\alpha = 5\% \xrightarrow{\text{by symmetry}} x_{5\%} = 5$
++ Example: 1-sided hypothesis testing in opposite alternative
+  + critical values
+    + hypotheses: $H_0: p_h = 0.5 \quad H_A: p_h {\color{Magenta}<}\, 0.5$
+    + sampling data: 20 trials
+    + test statistic: $X$ as number of heads
+    + significance level: $\alpha = 5\% \text{ or } 1\% \to P_{H_0}(\text{falsely accept } H_A) \le \alpha$
+    + critical value $x_\alpha$ (refer to diagram in example for p-value)
+      + <font style="color: magenta;">largest</font> $x$ s.t. $P_{H_0}(X {\color{magenta}\le}\, x) \le \alpha \xrightarrow{\text{snsures}} P_{H_0}(\text{falsely accept } H_A) \le \alpha$
+      + largest $x \to$ left tail
+    + $X \le x_\alpha$: accept $H_0$
+    + $x > x_\alpha$: retain $H_0$
+    + $\alpha = 5\% \xrightarrow{\text{by symmetry}} x_{5\%} = 5$
+  + p-value
 
-+ Example: p-value w/ 1-sided hypothesis testing in opposite alternative
-  + hypotheses: $H_0 p_h = 0.5 \quad H_A: p_h {\color{Magenta}<}\, 0.5$
-  + sampling data: 20 trials
-  + test statistic: $X$ as number of heads
-  + significance level: $\alpha = 5\%$
-
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
-      <img src="img/t13-06.png" style="margin: 0.1em;" alt="Application of p-value" title="Application of p-value" width=650>
-    </a>
-  </div>
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
+        <img src="img/t13-06.png" style="margin: 0.1em;" alt="Application of p-value" title="Application of p-value" width=650>
+      </a>
+    </div>
 
 + Example: two-sided alternative hypothesis
   + $\underbrace{H_0: p_h = 0.5}_{\text{unbiased}} \quad \underbrace{H_A: p_h {\color{Magenta}\ne}\, 0.5}_{\text{2-sided}}$
@@ -412,13 +407,13 @@
   </div>
 
 + Critical value for 2-sided $H_A$
-  + hypotheses: $H_0 p_h = 0.5 \quad H_A: p_h {\color{Magenta}\ne}\, 0.5$
+  + hypotheses: $H_0: p_h = 0.5 \quad H_A: p_h {\color{Magenta}\ne}\, 0.5$
   + sampling data: 20 trials
   + test statistic: $X$ as number of heads
   + significance level $\alpha$
     + upper bound on Type-I error
     + $H_o$ mean: $\mu_x = 10$
-  + critical value $x_\alpha$: $x$ close to 10 s.t. $P_{H-0}(|X - 10| \ge |x - 10|) \le \alpha$
+  + critical value $x_\alpha$: $x$ close to 10 s.t. $P_{H_0}(|X - 10| \ge |x - 10|) \le \alpha$
   + testing
     + $|X - 10| \ge |x - 10|$: accept $H_A$
     + $|X - 10| < |x - 10|$: retain $H_0$
