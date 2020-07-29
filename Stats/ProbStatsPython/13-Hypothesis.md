@@ -444,7 +444,7 @@
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
-      <img src="img/t13-09.png" style="margin: 0.1em;" alt="Critical value and hypothesis" title=4Critical value and hypothesis" width=450>
+      <img src="img/t13-09.png" style="margin: 0.1em;" alt="Critical value and hypothesis" title=4Critical value and hypothesis" width=650>
     </a>
   </div>
 
@@ -461,6 +461,82 @@
 
 ### Problem Sets
 
+0. If the statistic T is observed to be t, the p-value is<br/>
+  a. The probability that T=t<br/>
+  b. The probability under the null hypothesis that T=t<br/>
+  c. The probability under the null hypothesis that T=t or is further towards the alternative hypothesis<br/>
+  d. None of the above<br/>
+
+  Ans: c
+
+
+1. One- and two-sided tests
+
+  We know the male students' height is approximately normal, and has standard deviation 4 inches. In a sample of 10 male students, the mean height is 68 inches. Calculate the p value corresponding to the following null hypotheses.
+
+  a) $H_0$: The average height of male students in this college is 70 inches.<br/>
+     $H_1$: The average height of male students in this college is not 70 inches.
+
+  b) $H_0$: The average height of male students in this college is at least 70 inches.<br/>
+     $H_1$: The average height of male students in this college less than 70 inches.
+
+  Ans: a. (0.1138); b. (0.056923)<br/>
+  Explanation: 
+    + Since we take a sample of 10 students, the standard deviation of the sample mean is $4/\sqrt{10}$. $P(N(0,4/\sqrt{10}) \le 2)=0.9431$. Hence, $P(|N(0,4/\sqrt{10})|>2)=2(1−0.9431)=0.1138$.
+    + $P(N(0,4/\sqrt{10}) \le 2)=0.9431$. Hence, $P(N(0,4/\sqrt{10}) < −2)=(1−0.9431)=0.0569$.
+
+
+2. The null hypothesis says that 20% of college students are left-handed, while the alternative hypothesis says that less than 20% of college students are left-handed. If we took a sample of 20 college students and let $X$ be the number of lefties in the sample. Calculate the p values if
+
+  a) $X=1$
+
+  b) $X=2$
+  
+  Ans: a. (0.06918); b(0.2061)<br/>
+  Explanation:
+    + The p-value is $P(X \le 1) = P(X = 0) + P(X = 1) = 0.069$
+    + The p-value is $P(X \le 2) = P(X = 0) + P(X = 1) + P(X = 2) = 0.206$
+
+
+3. The null hypothesis states that a random variable follows the standard normal distribution, while the alternative hypothesis states that the random variable has negative mean. Which of the following shaded areas represents the  p  value when the observed outcome is  z ?
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y3ceuemh" ismap target="_blank">
+      <img src="img/t13-12.fig1.png" style="margin: 0.1em;" alt="Option of Q3 in T13.2: fig1" title="Option of Q3 in T13.2: fig1" height=130>
+      <img src="img/t13-12.fig2.png" style="margin: 0.1em;" alt="Option of Q3 in T13.2: fig2" title="Option of Q3 in T13.2: fig2" height=130>
+      <img src="img/t13-12.fig3.png" style="margin: 0.1em;" alt="Option of Q3 in T13.2: fig3" title="Option of Q3 in T13.2: fig3" height=130>
+      <img src="img/t13-12.fig4.png" style="margin: 0.1em;" alt="Option of Q3 in T13.2: fig4" title="Option of Q3 in T13.2: fig4" height=130>
+    </a>
+  </div>
+
+  Ans: b<br/>
+  Explanation: The alternative hypothesis is one-sided. According to definition the p value is $P(X \le z)$.
+
+
+4. In the following problem we discuss the test comparing two distribution means with the same variance. Assume $X \sim \mathcal{N}(\mu_1, \sigma^2)$, $Y \sim \mathcal{N}(\mu_2, \sigma^2)$, and they are independent.
+
+  a) What is the variance of $X−Y$?<br/>
+    a. $\sigma^2$<br/>
+    b. $2\sigma^2$<br/>
+    c. $\sigma^2/2$<br/>
+ 
+  b) If $\overline{X}$ is the sample mean of $n$ independent random observations of $X$ and  $\overline{Y}$ is the sample mean of $n$ independent random observations of $Y$, what distribution does $\overline{X}-\overline{Y}$ follow?<br/>
+    a. $\mathcal{N}(\mu_1-\mu_2,\frac{\sigma^2}{n})$<br/>
+    b. $\mathcal{N}(\mu_1-\mu_2,\frac{\sigma^2}{2n})$<br/>
+    c. $\mathcal{N}(\mu_1-\mu_2,\frac{2\sigma^2}{n})$<br/>
+  
+  b) we now want to test the null hypothesis $H_0$
+
+    $H_0$: In college, the average GPA of men is equal to the average GPA of women.<br/>
+    $H_1$: In college, the average GPA of men is different from the average GPA of women.<br/>
+
+    A sample of 10 men's GPA in college has sample mean 2.9, and a sample of 10 women's GPA has sample mean 3.1. We also know the GPAs of men and women have the same standard deviation 0.2. Calculate the p value.
+
+  Ans: a. (b, xc); b. (c, xb); c. (0.025352, x0.4795-z, x0.00155-t)<br/>
+  Explanation:
+    + $V(X - Y) = V(X) + V(-Y) = 2\sigma^2$
+    + $E(\overline{X} - \overline{Y}) = \mu_1 - \mu_2$, and $V(\overline{X} - \overline{Y}) = V(\overline{X}) + V(-\overline{Y}) = \frac{2\sigma^2}{n}$
+    + Let $\overline{X}$ be the men's average GPA, $\overline{Y}$  be the women's average GPA. The p value is $P(|\overline{X}−\overline{Y}| \le |2.9−3.1|)=0.025$. Under the null hypothesis, $\frac{\overline{X} - \overline{Y}}{\sqrt{2\sigma^2 / n}} \sim \mathcal{N} (0, 1)$
 
 
 ### Lecture Video
