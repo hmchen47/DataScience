@@ -551,8 +551,161 @@
 ### Lecture Notes
 
 
++ Proper preparation of milk tea
+  + in preparing milk tea: should tea or milk be added first?
+  + most say
+    + does not matter
+    + can't tell the difference
+  + Algologist Lay Muiel Bristol
+    + adamant: utterly unyielding in attitude or opinion in spite of all appeals, urgings, etc.
+    + tea first or it's foul
+    + is she right?
+    + is she wrong?
+    + can she even tell???
+  + Statistics Dr. Ronald Fisher
+    + $H_0$: Lady cannot tell which of tea or milk was poured first
+    + $H_1$: Lady can discern order w/ probability > 0.5
+  + Fisher's test
+    + 8 cups of tea: 4 tea first, 4 milk first
+    + mix them up
+    + ask Lady Bristol which 4 are which?
 
++ Decision & Interpretation
+  + Lady knows: 4 tea first, 4 milk first
+  + asked for which 4 tea first and which 4 milk first
+  + random guesses: 4 right, 4 wrong
+  + if she can discern
+    + &gt; 4
+    + ideally 8
+  + calculate probabilities
 
++ Ever even
+  + always guess same number of tea-first and milk-first correctly
+    + guess 3 tea-first correctly as tea-first
+    + guess 1 tea-first as milk-first
+    + guess 3 milk-first as milk-first correctly
+    + 3 tea-first $\to$ 3 milk-first
+  + never odd number correct
+  + always guess same # correctly: $x$ tea-first $\to x$ milk-first
+  + always guess even number correctly
+
++ Probability formulation
+  + hypotheses: $H_0: $ Lady randomly chooses 4 tea-first cups
+  + probability: $P_{H_0}(x \text{ cups correct }) = ?$
+  + Lady chooses 4 tea-first cups: \# ways to make such choices = $\binom{8}{4} = \frac{8!}{4!\cdot 4!} = 70$
+  + assume $x = 6$
+    + 6 correct $\iff$ 3 tea-first & 3 milk-first correct
+    + 6 correct $\iff$ of lady's 4 tea-first choices, 3 tea-first and 1 milk-first
+    + \# ways to make such choices: $\binom{4}{3} \cdot \binom{4}{1} = 16$
+
+    \[ P(6 \text{ correct }) = \frac{16}{70} \approx 0.229 \]
+
++ p- values
+  + hypotheses: $H_0:$ Lady guesses randonly $\quad H_A:$ correct w/ prob. > 0.5
+  + notation
+    + $c$: specific choice
+    + $C$: random choice
+  + test statistic: \# correct guesses
+  + p value of $c$:
+    + $P_{H_0}(c \text{ or more correct guesses})$
+    + $P_{H_0}(C \ge c)$
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$c$</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$P_{H_0}(C = c)$</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$P_{H_o}(C \ge c)$</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td style="text-align: center;">0</td>
+      <td style="text-align: center;">$\binom{4}{0}\binom{4}{4}/70 = 1/70$</td>
+      <td style="text-align: center;">$1$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">2</td>
+      <td style="text-align: center;">$\binom{4}{1}\binom{4}{3}/70 = 16/70$</td>
+      <td style="text-align: center;">$69/70 \approx 0.986$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">4</td>
+      <td style="text-align: center;">$\binom{4}{2}\binom{4}{2}/70 = 36/70$</td>
+      <td style="text-align: center;">$53/70 \approx 0.757$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">6</td>
+      <td style="text-align: center;">$\binom{4}{3}\binom{4}{1}/70 = 16/70$</td>
+      <td style="text-align: center;">$17/70 \approx 0.243$</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">8</td>
+      <td style="text-align: center;">$\binom{4}{4}\binom{4}{0}/70 = 1/70$</td>
+      <td style="text-align: center;">$1/70 \approx 0.014$</td>
+    </tr>
+    </tbody>
+  </table>
+
++ p-value $\to$ hypothesis test
+  + hypotheses: $H_0: $ Lady guesses randomly $\quad H_A: $ correct w.p. > 0.5
+  + significance level: 5%
+    + Prob. type_I error $\le 5\%$
+    + $P_{H_0}(\text accept } H_A) \le 5\%$
+  + p value of $c$
+    + $P_{H_0}( C \ge c) > 5\%$: outcome likely under $H_0$ $\to$ retain $H_0$
+    + $P_{H_0}( C \ge c) \le 5\%$: unlikely under $H_0$ $\to$ accept $H_A$<br/><br/>
+
+    <table style="font-family: arial,helvetica,sans-serif; width: 35vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$c$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">p-value</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\%$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">vs. $5\%$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Hypothesis</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">0</td>
+        <td style="text-align: center;">70/70</td>
+        <td style="text-align: center;">100</td>
+        <td style="text-align: center;">&gt;</td>
+        <td style="text-align: center;">$H_0$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">2</td>
+        <td style="text-align: center;">69/70</td>
+        <td style="text-align: center;">98.6</td>
+        <td style="text-align: center;">&gt;</td>
+        <td style="text-align: center;">$H_0$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">4</td>
+        <td style="text-align: center;">53/70</td>
+        <td style="text-align: center;">75.7</td>
+        <td style="text-align: center;">&gt;</td>
+        <td style="text-align: center;">$H_0$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">6</td>
+        <td style="text-align: center;">17/70</td>
+        <td style="text-align: center;">24.3</td>
+        <td style="text-align: center;">&gt;</td>
+        <td style="text-align: center;">$H_0$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">8</td>
+        <td style="text-align: center;">1/70</td>
+        <td style="text-align: center;">1.4</td>
+        <td style="text-align: center;">&le;</td>
+        <td style="text-align: center;">$H_A$</td>
+      </tr>
+      </tbody>
+    </table>
+
+  + $H_A$: need all 8 cups correct to accept $H_A$ w/ 5% significance level
 
 
 + [Original Slides]()
