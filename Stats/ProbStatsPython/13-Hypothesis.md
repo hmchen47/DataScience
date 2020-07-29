@@ -600,15 +600,15 @@
 
     \[ P(6 \text{ correct }) = \frac{16}{70} \approx 0.229 \]
 
-+ p- values
++ p-values
   + hypotheses: $H_0:$ Lady guesses randonly $\quad H_A:$ correct w/ prob. > 0.5
   + notation
     + $c$: specific choice
-    + $C$: random choice
+    + $C$: random r.v.
   + test statistic: \# correct guesses
   + p value of $c$:
     + $P_{H_0}(c \text{ or more correct guesses})$
-    + $P_{H_0}(C \ge c)$
+    + $P_{H_0}(C \ge c)$<br/><br/>
 
   <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <thead>
@@ -622,7 +622,7 @@
     <tr>
       <td style="text-align: center;">0</td>
       <td style="text-align: center;">$\binom{4}{0}\binom{4}{4}/70 = 1/70$</td>
-      <td style="text-align: center;">$1$</td>
+      <td style="text-align: center;">$70/70 = 1$</td>
     </tr>
     <tr>
       <td style="text-align: center;">2</td>
@@ -648,10 +648,10 @@
   </table>
 
 + p-value $\to$ hypothesis test
-  + hypotheses: $H_0: $ Lady guesses randomly $\quad H_A: $ correct w.p. > 0.5
+  + hypotheses: $H_0: $ Lady guesses randomly $\quad H_A: $ correct w. prob. > 0.5
   + significance level: 5%
     + Prob. type_I error $\le 5\%$
-    + $P_{H_0}(\text accept } H_A) \le 5\%$
+    + $P_{H_0}(\text{accept } H_A) \le 5\%$
   + p value of $c$
     + $P_{H_0}( C \ge c) > 5\%$: outcome likely under $H_0$ $\to$ retain $H_0$
     + $P_{H_0}( C \ge c) \le 5\%$: unlikely under $H_0$ $\to$ accept $H_A$<br/><br/>
@@ -670,7 +670,7 @@
       <tr>
         <td style="text-align: center;">0</td>
         <td style="text-align: center;">70/70</td>
-        <td style="text-align: center;">100</td>
+        <td style="text-align: center;">100.</td>
         <td style="text-align: center;">&gt;</td>
         <td style="text-align: center;">$H_0$</td>
       </tr>
@@ -698,14 +698,14 @@
       <tr>
         <td style="text-align: center;">8</td>
         <td style="text-align: center;">1/70</td>
-        <td style="text-align: center;">1.4</td>
+        <td style="text-align: center;">1.40</td>
         <td style="text-align: center;">&le;</td>
         <td style="text-align: center;">$H_A$</td>
       </tr>
       </tbody>
     </table>
 
-  + $H_A$: need all 8 cups correct to accept $H_A$ w/ 5% significance level
+  + conclusion: need all 8 cups correct to accept $H_A$ w/ 5% significance level
 
 
 + [Original Slides]()
