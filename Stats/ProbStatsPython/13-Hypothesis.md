@@ -708,10 +708,54 @@
   + conclusion: need all 8 cups correct to accept $H_A$ w/ 5% significance level
 
 
-+ [Original Slides]()
++ [Original Slides](https://tinyurl.com/y4z9wnec)
 
 
 ### Problem Sets
+
+0. If instead of preparing 4 cups milk-first ,and 4 tea-first, each cup is prepared randomly, with equal probability of milk- and tea-first. Which of the following most closely approximates the p value of correctly guessing all 8 milk/tea orders?<br/>
+  a. 0.014<br/>
+  b. 0.010<br/>
+  c. 0.004<br/>
+  d. 0.001<br/>
+
+  Ans: <font style="color: cyan;">c</font><br/>
+  Explanation: Under the null hypothesis, the distribution of the number of cups the lady guesses correctly is is binomial, and the p value of 8 is (8 choose 0)/(2^8)=1/256, or roughly 0.004.
+
+
+1. Continuing the poll question, what is the smallest number of milk-tea cups the lady must guess correctly to reject the null hypothesis with significance level $\alpha=5\%$.
+
+  Ans: <font style="color: cyan;">7</font><br/>
+  Explanation: The p-value value of 7, namely the probability of guessing 7 or more cups correctly, is $\frac{\binom87+\binom88}{2^8}\approx3.5\%$, which is below  5%. The p-value of 6 cups is  ≈14.4% , which exceeds 5%. Hence the lady must guess at least 7 cups correctly to reject the null hypothesis with significance level  5% .
+
+
+
+2. For a real $−1 \le \alpha \le 1$, define $f_\alpha(x)=2\alpha x+1− \alpha$.
+
+  It is easy to see that $f_\alpha$ is non-negative and integrates to 1, namely is a distribution, over $[0,1]$.
+
+  a) Consider the null hypothesis that $\alpha=0$, namely $f_\alpha$ is uniform, and the alternative hypothesis that $\alpha > 0$. Given a single sample, 0.8, from $f_\alpha$, find the  $p$-value.
+
+  b) Find the lowest outcome for rejecting the null hypothesis with 5% significance level.
+  
+  Ans: a. (); b(); <br/>
+  Explanation:
+
+
+
+3. An old scale displays a weight that is uniformly distributed between the real weight  ±10  lbs. For example for a person with weight 100 lbs, the scale will show a weight uniformly distributed between 90 and 110.
+
+  Consider the null hypothesis that a person weighs 100 lbs, and the alternative hypothesis that the weight is lower.
+
+  a) What is the $p$-value (in percentage) of 91?
+  
+  b) What is the $p$-value (in percentage) of 90?
+
+  c) What is the highest weight in lbs for which we can reject the null hypothesis with significance level 10%?
+  
+
+  Ans: a. (); b. (); c()<br/>
+  Explanation:
 
 
 
