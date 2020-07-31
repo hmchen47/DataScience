@@ -775,20 +775,20 @@
   + knowing $P_{H_0}$ exactly: binomial and related distributions
   + knowing $P_{H_0}$ approximately
     + normal distributions
-    + sample mean
+    + example: sample mean
       + few samples, distributed $\approx$ normal
       + many (&ge; 30) samples, any distribution
 
 + Central limit theorem - Review
-  + r.v.'s: $X_1, X_2, \dots, X_n \;\; {\perp \!\!\!\! \perp} \sim$ any fixed distribution w/ mean $\mu$ and \stdev $\sigma$
+  + r.v.'s: $X_1, X_2, \dots, X_n \;\; {\perp \!\!\!\! \perp} \sim$ any fixed distribution w/ mean $\mu$ and stdev $\sigma$
   + sample mean
     + $\overline{X} = \frac 1 n \left( X_1 + \cdots + X_n \right)$
-    + parameters: $\mu_{\overline{X}} = \mu \quad var(\overline{X}) = \frac{\sigma^2}{n} \quad \sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}$
+    + distribution or population parameters: $\mu_{\overline{X}} = \mu \quad var(\overline{X}) = \frac{\sigma^2}{n} \quad \sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}$
   + CLT: for large n (&ge; 30) 
 
     \[ \overline{X} \;\dot\sim\; \mathcal{N}(\mu_{\overline{X}}, \sigma^2_{\overline{X}}) = \mathcal{N}\left(\mu, \frac{\sigma^2}{n}\right) \]
 
-  + tiny transformation: $\overline{X} \;\dot\sim\; \mathcal{N}\left(0, \frac{\sigma^2}{n}\right)$
+  + transformation: $\overline{X} \;\dot\sim\; \mathcal{N}\left(0, \frac{\sigma^2}{n}\right)$
 
     \[ Z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \;\dot\sim\; \mathcal{N}(0, 1) \]
 
@@ -803,26 +803,30 @@
       + $H_A:$ Normal w/ mean > 0
   
 
-+ Z test
++ z-test
   + hypotheses: $H_0: \mu_Z = 0 \text{ as } Z \;\dot\sim\; \mathcal{N}(0, 1) \quad H_A: \mu_Z > 0$
   + significance level $\alpha$
     + $\alpha = 5\%, 1\%$
-    + ensuring $P_{H_o}(\text{accept } H_A) \le \alpha$
+    + ensuring $P_{H_o}(\text{accept } H_A) \le \alpha$ (type-I Error)
   + critical value $z_\alpha$ w/ $P(Z \ge z\alpha) = \alpha$
+    + right-tailed normal distribution w/ critical value $z_\alpha$ (see diagram)
     + $Z \ge z_\alpha$: accept $H_A$
     + $Z < z_\alpha$: retain $H_0$
   + p-value of $z$: $P_{H_0}(\text{accept } H_A) = P(X \ge z_\alpha) = \alpha$
     + $P(Z \ge z) \le \alpha: z \ge z_\alpha \to$ accept H_A
-    + $P(Z \ge z) > \alpha: z \< z_\alpha \to$ retain $H_0$
+    + $P(Z \ge z) > \alpha: z < z_\alpha \to$ retain $H_0$
   + computationally $P(Z \ge z) = 1 - \Phi(z)$
-  + python implementation
 
-    ```python
-    from scipy.stats import norm
-    print(norm.cdf(-1.8623))  # 0.0312804077445571
-    ```
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yxafyms4" ismap target="_blank">
+      <img src="img/t13-14.png" style="margin: 0.1em;" alt="Z-test on right-tailed normal distribution" title="Z-test on right-tailed normal distribution" width=250>
+    </a>
+  </div>
+
 
 + 1-tailed & 2-tailed tests
+  + $H_0: \text{ mean } \le \mu$ also applied to right-tailed normal distribution
+  + $H_0: \text{ mean } \ge \mu$ also applied to left-tailed normal distribution
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/y2jyy58c" ismap target="_blank">
@@ -833,7 +837,7 @@
 + Example: cocoa in chocolate - one-trailed test
   + 100g dark chocolate bar contains 85g cacao
   + suspect less
-  + hypotheses: $H_0: \mu 85 g \quad H_A: \mu < 85 g$
+  + hypotheses: $H_0: \mu = 85 g \quad H_A: \mu < 85 g$
   + significance level: 5%
   + testing
     + sample size: $n = 30$
@@ -852,26 +856,33 @@
 
     \[ p-\text{value} = P(Z \le -1.8623) = \Phi(-1.8623) \approx 0.0313 < 5\% \]
 
+  + python implementation
+
+    ```python
+    from scipy.stats import norm
+    print(norm.cdf(-1.8623))  # 0.0312804077445571
+    ```
+
   + conclusion: accept $H_A$
   + average bar contains < 85 g cocoa
   + same calculation if $H_0: \mu \ge 85 g$
-  + statement: under $H_0: \mu = 85 g, \sigma = 0.5g$, probability that 30 bars have average &le; 84.83 g is $\approx 3.13\%$. This low probability is < 5% significance level.  We reject $H_0$ and accept $H_A$.
+  + statement for p-value &lt; 5%: under $H_0: \mu = 85 g, \sigma = 0.5g$, probability that 30 bars have average &le; 84.83 g is $\approx 3.13\%$. This low probability is < 5% significance level.  We reject $H_0$ and accept $H_A$.
 
 + Example: two-tailed test
-  + hypotheses: $H_0: \mu = 85 mg \quad H_A: \mu \ne 85 mg$
+  + hypotheses: $H_0: \mu = 85 g \quad H_A: \mu \ne 85 g$
   + significance level: 5%
   + z-score: $Z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \approx -1.8623$
   + p-value
 
-    \[ p-\text{value} = P(|Z| \ge 1.8623) = 2 \cdot \Phi(-1.8623) \approx 0.0626 > 5% \]
+    \[ p\text{-value} = P(|Z| \ge 1.8623) = 2 \cdot \Phi(-1.8623) \approx 0.0626 > 5% \]
 
-  + conclusion: 
+  + conclusion:
     + retain $H_0$
     + retain possibility that on average a chocolate bar contains 85 g cocoa
-  + statement: under $H_0:  \mu = 85g, \sigma = 0.5g$, the probability that 30 bas have average &le; 84.83 or \&ge; 85.17g is $\approx$ 6.26%.  Theis 'high' probability is > 5% significance level. 'Likely' to happen under $H_0$. Retain $H_0$.
+  + statement for p-value &gt; 5%: under $H_0:  \mu = 85g, \sigma = 0.5g$, the probability that 30 bas have average &le; 84.83 or \&ge; 85.17g is $\approx$ 6.26%.  This 'high' probability is > 5% significance level. 'Likely' to happen under $H_0$. Retain $H_0$.
   
 + 1-sided vs. 2-sided alternatives
-  + same conditions: 
+  + same level and score:
     + significance level = 5%
     + z-score = -1.8623
   + different results:
@@ -881,7 +892,7 @@
     + &le; 5%: accept $H_A$
     + &gt; 5%: retain $H_0$
 
-    <table style="font-family: arial,helvetica,sans-serif; width: 44vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <table style="font-family: Arial,Helvetica,sans-serif; width: 44vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
       <thead>
       <tr style="font-size: 1.2em;">
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$H_A$</th>
@@ -918,7 +929,7 @@
     + hypotheses: $H_0: \text{ mean } = \mu \quad H_A: \text{ 2-sided, mean } \ne \mu$
     + z-test: $Z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}}$
     + significance level: 5%
-      + accept $h_A$
+      + accept $H_A$
       + $|Z| \ge 1.96$
   + 95% confidence interval
 
@@ -940,17 +951,17 @@
   + sample variance (Bessel corrected): $s^2 = \frac{1}{n-1} \sum_{i=1}^n \left( X_i - \overline{X} \right)^2$
   + student's t-distribution: $n-1$ degree of freedom
 
-    \[ t_{n-1} = \frac{\ovrline{X} - \mu}{s/\sqrt{n}} \]
+    \[ T_{n-1} = \frac{\overline{X} - \mu}{s/\sqrt{n}} \]
 
-+ T-test
++ t-test
   + test statistic follows t-distribution
   + hypotheses: $H_0: \text{ mean } = \mu$
   + sample: $X_1, \dots, X_n$
-    + possible small n
-    + roughly normal $\to$ normality test
-  + test statistic: $t = \frac{\overline{X} - \mu}{s/\sqrt{n}}$
+    + small n - ok
+    + roughly normal? $\to$ normality test
+  + test statistic: $T = \frac{\overline{X} - \mu}{s/\sqrt{n}}$
   + under $H_0$:
-    + $ f_{n-1}(t)$
+    + $T \sim f_{n-1}(t)$
     + student's t-distribution w/ $n-1$ DoF
   + calculate p-value for t-distribution
 
@@ -971,8 +982,8 @@
     import numpy as np
 
     sample = [3.74, 4.73, 3.85, 3.96, 4.11, 4.30, 4.28, 4.02]
-    print(np.mean(sample))          # x_bar = 4.12375
-    print(np.var(sample, ddof=1))   # s^2 = 0.0975696428571
+    print(np.mean(sample))          # sample mean x_bar = 4.12375
+    print(np.var(sample, ddof=1))   # sample variance s^2 = 0.0975696428571
     ```
 
   + under $H_0$: distribution mean $\mu = 4$
@@ -981,9 +992,9 @@
     \[ t = \frac{\overline{X} - \mu}{s/\sqrt{n}} \approx = \frac{4/12375 - 4}{\sqrt{0.097570/8}} \approx 1.1206 \]
 
     + under $H_0$: $t \sim f_7(t)$
-  + one-tailed probability
+  + one-tailed probability (right tailed normal)
 
-    \[ p-\text{value} = P_t(X \ge 1.1206) = 1- F_7(t) \approx 0.1497 > 5\% \]
+    \[ p\text{-value} = P_t(X \ge 1.1206) = 1- F_7(t) \approx 0.1497 > 5\% \]
 
   + p-value > 5%: retain $H_0$
   + python implementation
@@ -993,19 +1004,52 @@
     print(1 - t.cdf(1.1206, 7))   # 0.149713065157
     ```
 
-  + conclusion: retain possibility of average 0-60 acceleration in &le 4 sec
-  + statement: under the $\mu \le 4$ sec $H_0$, probability of observing at least the 4.124 sec average and $s^2$ we saw, is $\approx 15\%$. Exceeds out 5% significance level. Retain $H_0$.
+  + conclusion: retain possibility of average 0-60 acceleration in &le; 4 sec
+  + statement for p-value &gt; 5%: under the $\mu \le 4$ sec $H_0$, probability of observing at least the 4.124 sec average and $s^2$ we saw, is $\approx 15\%$. Exceeds out 5% significance level. Retain $H_0$.
 
 + z-test and t-test
-  + z-test statistic: $z = \frac{\overline{X}-\mu}{\sigma\sqrt{n}}
-  + t-test statistic: $t = \frac{\overline{X}-\mu}{s\sqrt{n}}$
-  + differential aspects
-    + stdev $\signa$
-    + test statistic
-    + typical sample size $n$
-    + population distribution
-    + distribution used for p-value
-  + similar
+
+  <table style="font-family: Arial,Helvetica,Sans-Serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"></th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">z-test</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">t-test</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td style="text-align: center;">stdev $\sigma$</td>
+      <td style="text-align: center;">Known</td>
+      <td style="text-align: center;">Unknown</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">test statistic</td>
+      <td style="text-align: center;">$Z = \frac{\overline{X}-\mu}{\sigma\sqrt{n}}$</td>
+      <td style="text-align: center;">$T = \frac{\overline{X}-\mu}{s\sqrt{n}}$</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td style="text-align: center;">typical sample size $n$</td>
+      <td style="text-align: center;">any</td>
+      <td style="text-align: center;">small</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">population dist.</td>
+      <td style="text-align: center;">$n < 15 \to X \sim \mathcal{N}$<br/>$n > 30 \to X \sim$ any</td>
+      <td style="text-align: center;">$\sim \mathcal{N}$</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td style="text-align: center;">dist. used for p-value</td>
+      <td style="text-align: center;">normal</td>
+      <td style="text-align: center;">student-t w/ $n-1$ DOF</td>
+    </tr>
+    </tbody>
+  </table>
+
   + as sample size $n$ increased: $t \to z$
 
 
