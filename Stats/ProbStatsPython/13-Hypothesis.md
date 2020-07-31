@@ -807,13 +807,13 @@
   + hypotheses: $H_0: \mu_Z = 0 \text{ as } Z \;\dot\sim\; \mathcal{N}(0, 1) \quad H_A: \mu_Z > 0$
   + significance level $\alpha$
     + $\alpha = 5\%, 1\%$
-    + ensuring $P_{H_o}(\text{accept } H_A) \le \alpha$ (type-I Error)
+    + ensuring $P_{H_o}(\text{accept } H_A) \le \alpha \gets$ (type-I Error)
   + critical value $z_\alpha$ w/ $P(Z \ge z\alpha) = \alpha$
     + right-tailed normal distribution w/ critical value $z_\alpha$ (see diagram)
     + $Z \ge z_\alpha$: accept $H_A$
     + $Z < z_\alpha$: retain $H_0$
-  + p-value of $z$: $P_{H_0}(\text{accept } H_A) = P(X \ge z_\alpha) = \alpha$
-    + $P(Z \ge z) \le \alpha: z \ge z_\alpha \to$ accept H_A
+  + p-value of $z$: $P_{H_0}(\text{accept } H_A) = P(Z \ge z_\alpha) = \alpha$
+    + $P(Z \ge z) \le \alpha: z \ge z_\alpha \to$ accept $H_A$
     + $P(Z \ge z) > \alpha: z < z_\alpha \to$ retain $H_0$
   + computationally $P(Z \ge z) = 1 - \Phi(z)$
 
@@ -823,10 +823,14 @@
     </a>
   </div>
 
-
 + 1-tailed & 2-tailed tests
-  + $H_0: \text{ mean } \le \mu$ also applied to right-tailed normal distribution
-  + $H_0: \text{ mean } \ge \mu$ also applied to left-tailed normal distribution
+  + $H_0$ also applied to 
+    + $H_0: \text{ mean } \le \mu$ also applied to right-tailed normal distribution
+    + $H_0: \text{ mean } \ge \mu$ also applied to left-tailed normal distribution
+  + p-value
+    + one-tailed (left tail): $P(Z \le z)$
+    + one-tailed (right tail): $P(Z \ge z)$
+    + 2-tailed: $P(|Z| \ge z)$
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/y2jyy58c" ismap target="_blank">
@@ -850,11 +854,11 @@
   + r.v.'s: $n=30, \;\;X_1, \dots, X_{30} = 84.1, 83.2, 85.7, \dots \to \overline{X} = 84.83$
   + z-score:
 
-    \[ Z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \;\dot\sim\; \mathcal{N}(0, 1) \to Z = \frac{84.83 - 85}{0.5} \approx -1.8623\]
+    \[ Z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \;\dot\sim\; \mathcal{N}(0, 1) \to Z = \frac{84.83 - 85}{0.5/\sqrt{30}} \approx -1.8623\]
 
   + p-value: left-tailed z-distribution w/ z = -1.8623
 
-    \[ p-\text{value} = P(Z \le -1.8623) = \Phi(-1.8623) \approx 0.0313 < 5\% \]
+    \[ p\text{-value} = P(Z \le -1.8623) = \Phi(-1.8623) \approx 0.0313 < 5\% \]
 
   + python implementation
 
@@ -879,7 +883,7 @@
   + conclusion:
     + retain $H_0$
     + retain possibility that on average a chocolate bar contains 85 g cocoa
-  + statement for p-value &gt; 5%: under $H_0:  \mu = 85g, \sigma = 0.5g$, the probability that 30 bas have average &le; 84.83 or \&ge; 85.17g is $\approx$ 6.26%.  This 'high' probability is > 5% significance level. 'Likely' to happen under $H_0$. Retain $H_0$.
+  + statement for p-value &gt; 5%: under $H_0:  \mu = 85g, \sigma = 0.5g$, the probability that 30 bars have average &le; 84.83 or &ge; 85.17g is $\approx$ 6.26%.  This 'high' probability is > 5% significance level. 'Likely' to happen under $H_0$. Retain $H_0$.
   
 + 1-sided vs. 2-sided alternatives
   + same level and score:
@@ -946,7 +950,7 @@
 
 + Unknown $\sigma$
   + what if we want to test $\mu$ but don't know $\sigma$?
-  + r.v.'s: $X_1, X_2, \dots, X_n \;\; {\perp \!\!\!\! \perp} \quad \mathcal{N}_{\mu. \sigma}$
+  + r.v.'s: $X_1, X_2, \dots, X_n \;\; {\perp \!\!\!\! \perp} \sim \mathcal{N}_{\mu. \sigma}$
   + sample mean: $\overline{X} = \frac 1 n (X_1 + \cdots + X_n)$
   + sample variance (Bessel corrected): $s^2 = \frac{1}{n-1} \sum_{i=1}^n \left( X_i - \overline{X} \right)^2$
   + student's t-distribution: $n-1$ degree of freedom
