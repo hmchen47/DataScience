@@ -525,10 +525,10 @@
     b. $\mathcal{N}(\mu_1-\mu_2,\frac{\sigma^2}{2n})$<br/>
     c. $\mathcal{N}(\mu_1-\mu_2,\frac{2\sigma^2}{n})$<br/>
   
-  b) we now want to test the null hypothesis $H_0$
+  c) we now want to test the null hypothesis $H_0$
 
-    $H_0$: In college, the average GPA of men is equal to the average GPA of women.<br/>
-    $H_1$: In college, the average GPA of men is different from the average GPA of women.<br/>
+    + $H_0$: In college, the average GPA of men is equal to the average GPA of women.<br/>
+    + $H_1$: In college, the average GPA of men is different from the average GPA of women.<br/>
 
     A sample of 10 men's GPA in college has sample mean 2.9, and a sample of 10 women's GPA has sample mean 3.1. We also know the GPAs of men and women have the same standard deviation 0.2. Calculate the p value.
 
@@ -993,9 +993,9 @@
   + under $H_0$: distribution mean $\mu = 4$
   + t-test statistic:
 
-    \[ t = \frac{\overline{X} - \mu}{s/\sqrt{n}} \approx = \frac{4/12375 - 4}{\sqrt{0.097570/8}} \approx 1.1206 \]
+    \[ T = \frac{\overline{X} - \mu}{s/\sqrt{n}} \approx \frac{4.12375 - 4}{\sqrt{0.097570/8}} \approx 1.1206 \]
 
-    + under $H_0$: $t \sim f_7(t)$
+    + under $H_0$: $T  \sim f_7(t)$
   + one-tailed probability (right tailed normal)
 
     \[ p\text{-value} = P_t(X \ge 1.1206) = 1- F_7(t) \approx 0.1497 > 5\% \]
@@ -1062,6 +1062,32 @@
 
 ### Problem Sets
 
+0. We first calculate the p-value of a sample under a t-test. We then receive additional information about the distribution variance and calculate the p-value again under a z-test. Which of the following do you think will happen?<br/>
+  a. The p value will increase.<br/>
+  b. The p value will decrease.<br/>
+  c. It could be both.<br/>
+
+  Ans: c<br/>
+  Explanation: suggest answer - it could be either.
+
+
+1. This is the T-test version of Q5 in section 13.2.
+
+  We now want to test the null hypothesis $H_0$
+
+  + $H_0$: In college, the average GPA of men is equal to the average GPA of women.
+  + $H_1$: In college, the average GPA of men is different from the average GPA of women.
+
+  A sample of 10 men's GPA in college has sample mean 2.9, and a sample of 10 women's GPA has sample mean 3.1. We also know the GPAs of men and women have the same  estimated standard deviation  0.2. Calculate the p value.
+  
+  Ans: 0.03824<br/>
+  Explanation: Let $\overline{X}$ be the men's average GPA, $\overline{Y}$ be the women's average GPA. The p value is $P(|\overline{X}−\overline{Y}|| \ge |2.9−3.1|)=0.0382$, where $\frac{\overline{X}−\overline{Y}}{\sqrt{2s^2/n}$ follows a t-distribution with degree of freedom $2n−2$ under the the null hypothesis. [Follow HT4 pooled scenario, using pooled due to $s_1 = s_2$]
+
+
+2. The null hypothesis says that a sprinter's reaction time follows a normal distribution with mean at most 0.150 seconds. Six measurements of a sprinter's reaction time show 0.152, 0.154, 0.166, 0.147, 0.161, and 0.159 seconds. What is the p value?
+
+  Ans: 0.03361<br/>
+  Explanation: The problem is almost the same as the one in slides 16-18, just with numbers changed. The sample mean is $\overlien{X}=0.1565$, the sample variance is $s^2=4.67×10−5$, and the sample size $n=6$. The T-Test statistic is $T = \frac{\bar{X} - \mu}{S / \sqrt{n}} = 2.3299$. Hence the p-value is $1−f_{n−1}(t)=0.0336$.
 
 
 ### Lecture Video
