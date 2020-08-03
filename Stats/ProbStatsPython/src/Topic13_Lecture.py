@@ -98,22 +98,85 @@ def plot_estimate_samples():
     return None
 
 
+def z_test(n, test_type, debug=False):
+    """z-test to calculate p-value for different cases of alternative hypothesis
+
+    Args:
+        n (int): number of samples
+        test_type (str): type of null hypothesis
+            "μ > μ under null hypothesis": right-tail 1-sided Ha
+            "μ < μ under null hypothesis": left-tail 1-sided Ha
+            "μ ≠ μ under null hypothesis": 2-sided Ha
+    """
+
+    if debug:
+        print("\nz-test for samples from Gaussian Mixture Models")
+
+    # generate samples w/ mu = 10, sigma^2 = 4
+    samples = np.asarray([sample(0.2) for _ in range(n)])
+
+    # compute sample mean
+    sample_mean = np.mean(samples)
+    if debug:
+        print("\nSample mean: {:.4f}".format(sample_mean))
+
+    # z-test
+    mean = 10
+    sigma = 2
+    z = (sample_mean - mean) * np.sqrt(n)/sigma
+    if debug:
+        print("z-score: {:.4f}".format(z))
+    
+    if test_type == "μ > μ under null hypothesis":
+        p = 1.0 - stats.norm.cdf(z)
+    elif test_type == "μ < μ under null hypothesis":
+        p = stats.norm.cdf(z)
+    elif "μ ≠ μ under null hypothesis":
+        p = 2*(1 - stats.norm.cdf(np.abs(z)))
+    
+    if debug:
+        print("p-value: {:.6f}".format(p))
+
+    return (sample_mean, z, p)
+    # return sample_mean
+
+
+
 if __name__ == "__main__":
 
     print("\nStarting Topic 13 Lecture NB Python code .......")
 
     # hypothesis testing for coin bias
     print("\nHypothesis testing for Bernoulli distribution")
-    options = ["p > 0.5", "p < 0.5", "p ≠ 0.5"]
+    p_options = ["p > 0.5", "p < 0.5", "p ≠ 0.5"]
     n, sig_lvl, debug = 25, 0.01, True
-    # hypothesisTesting(n, options[0], sig_lvl, debug=debug)
-    # hypothesisTesting(n, options[1], sig_lvl, debug=debug)
-    # hypothesisTesting(n, options[2], sig_lvl, debug=debug)
+    # hypothesisTesting(n, p_options[0], sig_lvl, debug=debug)
+    # hypothesisTesting(n, p_options[1], sig_lvl, debug=debug)
+    # hypothesisTesting(n, p_options[2], sig_lvl, debug=debug)
 
 
     # z-test
     # plot histogram of X = Y*Z_1 + (1-Y)*Z2
-    plot_estimate_samples()
+    # plot_estimate_samples()
+
+    z_options=["μ > μ under null hypothesis","μ < μ under null hypothesis",\
+             "μ ≠ μ under null hypothesis"]
+
+    # typical value: n = [10, 1000] w/ default = 20
+
+    # spl_mean, z, p = z_test(20, z_options[0])
+
+    for opt in z_options:
+        print("\nGaussian Mixture models w/ mean= 10, sigma= 2\n -> z-test w/ null hypothesis: {}"\
+            .format(opt))
+        for i in range(10, 101, 10):
+            print("")
+            for j in range(5):
+                # (spl_mean, z, p-val) = z_test(i, opt)
+                spl_mean, z, p = z_test(i, opt)
+                print("  sample size= {:4d}: sample_mean= {:7.4f}, z-score= {:+6.4f} w/ p-value= {:.6f}"\
+                    .format(i, spl_mean, z, p))
+
 
 
     print("\nEnd of Topic 13 Lecture NB Python code .......\n")
