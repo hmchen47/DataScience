@@ -185,32 +185,32 @@ if __name__ == "__main__":
     print("\nHypothesis testing for Bernoulli distribution")
     p_options = ["p > 0.5", "p < 0.5", "p ≠ 0.5"]
     n, sig_lvl, debug = 25, 0.01, True
-    # hypothesisTesting(n, p_options[0], sig_lvl, debug=debug)
-    # hypothesisTesting(n, p_options[1], sig_lvl, debug=debug)
-    # hypothesisTesting(n, p_options[2], sig_lvl, debug=debug)
+    hypothesisTesting(n, p_options[0], sig_lvl, debug=debug)
+    hypothesisTesting(n, p_options[1], sig_lvl, debug=debug)
+    hypothesisTesting(n, p_options[2], sig_lvl, debug=debug)
 
 
     # z-test
     # plot histogram of X = Y*Z_1 + (1-Y)*Z2
-    # plot_estimate_samples()
+    plot_estimate_samples()
 
     z_options=["μ > μ under null hypothesis","μ < μ under null hypothesis",\
              "μ ≠ μ under null hypothesis"]
 
     # typical value: n = [10, 1000] w/ default = 20
 
-    # spl_mean, z, p = z_test(20, z_options[0])
+    spl_mean, z, p = z_test(20, z_options[0], True)
 
-    # for opt in z_options:
-    #     print("\nGaussian Mixture models w/ mean= 10, sigma= 2\n -> z-test w/ null hypothesis: {}"\
-    #         .format(opt))
-    #     for i in range(10, 101, 10):
-    #         print("")
-    #         for j in range(5):
-    #             # (spl_mean, z, p-val) = z_test(i, opt)
-    #             spl_mean, z, p = z_test(i, opt)
-    #             print("  sample size= {:4d}: sample mean= {:7.4f}, z-score= {:+6.4f} w/ p-value= {:.6f}"\
-    #                 .format(i, spl_mean, z, p))
+    for opt in z_options:
+        print("\nGaussian Mixture models w/ mean= 10, sigma= 2\n -> z-test w/ null hypothesis: {}"\
+            .format(opt))
+        for i in range(10, 101, 10):
+            print("")
+            for j in range(5):
+                # (spl_mean, z, p-val) = z_test(i, opt)
+                spl_mean, z, p = z_test(i, opt)
+                print("  sample size= {:4d}: sample mean= {:7.4f}, z-score= {:+6.4f} w/ p-value= {:.6f}"\
+                    .format(i, spl_mean, z, p))
 
 
     # t-test
