@@ -141,6 +141,41 @@ def z_test(n, test_type, debug=False):
     # return sample_mean
 
 
+def t_test(n, test_type, debug=False):
+    """compute sample mean, t-score and p-value for a Gaussian mixture model
+
+    Args:
+        n (int): number of samples
+        test_type (str): type of null hypothesis
+            "μ > μ under null hypothesis": right-tail 1-sided Ha
+            "μ < μ under null hypothesis": left-tail 1-sided Ha
+            "μ ≠ μ under null hypothesis": 2-sided Ha
+    """
+    samples = np.asarray([sample(0.2) for _ in range(n)])
+    sample_mean = np.mean(samples)
+    s = np.std(samples, ddof=1)
+    
+    if debug:
+        print("\nSample mean: {:.4f}".format(sample_mean))
+        print("Sample standard deviation: {:.4f}".format(s))
+
+    mean = 10
+    t_score = (sample_mean - mean) * np.sqrt(n)/s
+    if debug:
+        print("t-score: {:.4f}".format(t_score))
+    
+    if test_type == "μ > μ under null hypothesis":
+        p = 1.0 - stats.t.cdf(t_score, n-1)
+    elif test_type == "μ < μ under null hypothesis":
+        p = stats.t.cdf(t_score, n-1)
+    elif "μ ≠ μ under null hypothesis":
+        p = 2*(1 - stats.t.cdf(np.abs(t_score), n-1))
+    
+    if debug:
+        print("p-value: {:.6f}".format(p))
+
+    return sample_mean, s, t_score, p
+
 
 if __name__ == "__main__":
 
@@ -166,16 +201,34 @@ if __name__ == "__main__":
 
     # spl_mean, z, p = z_test(20, z_options[0])
 
-    for opt in z_options:
-        print("\nGaussian Mixture models w/ mean= 10, sigma= 2\n -> z-test w/ null hypothesis: {}"\
+    # for opt in z_options:
+    #     print("\nGaussian Mixture models w/ mean= 10, sigma= 2\n -> z-test w/ null hypothesis: {}"\
+    #         .format(opt))
+    #     for i in range(10, 101, 10):
+    #         print("")
+    #         for j in range(5):
+    #             # (spl_mean, z, p-val) = z_test(i, opt)
+    #             spl_mean, z, p = z_test(i, opt)
+    #             print("  sample size= {:4d}: sample mean= {:7.4f}, z-score= {:+6.4f} w/ p-value= {:.6f}"\
+    #                 .format(i, spl_mean, z, p))
+
+
+    # t-test
+    t_options=["μ > μ under null hypothesis","μ < μ under null hypothesis",\
+             "μ ≠ μ under null hypothesis"]
+
+    spl_mean, spl_stdev, t, p = t_test(20, p_options[2], True)
+
+    step = 10
+    for opt in p_options:
+        print("\nGaussian Mixture models w/ mean= 10, sigma= 2\n -> t-test w/ null hypothesis: {}"\
             .format(opt))
-        for i in range(10, 101, 10):
+        for i in range(step, 101, step):
             print("")
             for j in range(5):
-                # (spl_mean, z, p-val) = z_test(i, opt)
-                spl_mean, z, p = z_test(i, opt)
-                print("  sample size= {:4d}: sample_mean= {:7.4f}, z-score= {:+6.4f} w/ p-value= {:.6f}"\
-                    .format(i, spl_mean, z, p))
+                spl_mean, spl_stdev, t, p = t_test(i, opt)
+                print("  size= {:4d}: spl mean= {:7.4f}, spl stdev= {:7.4f} t-score= {:+6.4f} w/ p-value= {:.6f}"\
+                    .format(i, spl_mean, spl_stdev, t, p))
 
 
 
