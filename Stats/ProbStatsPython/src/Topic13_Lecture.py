@@ -65,16 +65,55 @@ def hypothesisTesting(n, option, sig_lvl, debug=False):
     return None
 
 
+def sample(p=0.5):
+    """generate normal distribution approximating the Binomial distribution
+    
+    Gaussian Mixture Models: X = Y *Z1 + (1 - Y) * Z2
+
+    Y: Bernoulli random variable
+    Z1 & Z2: Gaussian random variables
+
+    Sampling X is same as sampling Z1 and Z2 w/ probability p and 1-p, respectively.
+
+    Args:
+        p (float, optional): probability of Binomial dist. Defaults to 0.5.
+    """
+    Y = np.random.rand(1)
+
+    if Y >= p:
+        return np.random.normal(10, 2)
+    else:
+        return np.random.normal(12, 2)
+
+
+def plot_estimate_samples():
+    plt.figure(figsize=(12, 8))
+    plt.hist(np.asarray([sample(0.2) for _ in range(10000)]), 50, density=True)
+    plt.xlabel("X", fontsize=12)
+    plt.ylabel("probability", fontsize=12)
+    plt.title('Normal distribution of $X = Y \\ast Z_1 + (1-Y) \\ast Z_2$ w/ $\\mu=10$ & $\\sigma^2=4$')
+
+    plt.show()
+
+    return None
+
+
 if __name__ == "__main__":
 
     print("\nStarting Topic 13 Lecture NB Python code .......")
 
     # hypothesis testing for coin bias
+    print("\nHypothesis testing for Bernoulli distribution")
     options = ["p > 0.5", "p < 0.5", "p ≠ 0.5"]
     n, sig_lvl, debug = 25, 0.01, True
-    hypothesisTesting(n, options[0], sig_lvl, debug=debug)
-    hypothesisTesting(n, options[1], sig_lvl, debug=debug)
-    hypothesisTesting(n, options[2], sig_lvl, debug=debug)
+    # hypothesisTesting(n, options[0], sig_lvl, debug=debug)
+    # hypothesisTesting(n, options[1], sig_lvl, debug=debug)
+    # hypothesisTesting(n, options[2], sig_lvl, debug=debug)
+
+
+    # z-test
+    # plot histogram of X = Y*Z_1 + (1-Y)*Z2
+    plot_estimate_samples()
 
 
     print("\nEnd of Topic 13 Lecture NB Python code .......\n")
