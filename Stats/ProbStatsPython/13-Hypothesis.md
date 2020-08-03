@@ -1087,7 +1087,7 @@
 2. The null hypothesis says that a sprinter's reaction time follows a normal distribution with mean at most 0.150 seconds. Six measurements of a sprinter's reaction time show 0.152, 0.154, 0.166, 0.147, 0.161, and 0.159 seconds. What is the p value?
 
   Ans: 0.03361<br/>
-  Explanation: The problem is almost the same as the one in slides 16-18, just with numbers changed. The sample mean is $\overlien{X}=0.1565$, the sample variance is $s^2=4.67×10−5$, and the sample size $n=6$. The T-Test statistic is $T = \frac{\bar{X} - \mu}{S / \sqrt{n}} = 2.3299$. Hence the p-value is $1−f_{n−1}(t)=0.0336$.
+  Explanation: The problem is almost the same as the one in slides 16-18, just with numbers changed. The sample mean is $\overline{X}=0.1565$, the sample variance is $s^2=4.67×10−5$, and the sample size $n=6$. The T-Test statistic is $T = \frac{\bar{X} - \mu}{S / \sqrt{n}} = 2.3299$. Hence the p-value is $1−f_{n−1}(t)=0.0336$.
 
 
 ### Lecture Video
@@ -1099,9 +1099,11 @@
 
 ## Lecture Notebook 13
 
++ [Origin Lecture NB](https://tinyurl.com/y4uyntn2)
 
++ [Local Lecture NB](./src/Topic13_Lecture.ipynb)
 
-
++ [Local Python code](src/Topic13_Lecture.py)
 
 
 
