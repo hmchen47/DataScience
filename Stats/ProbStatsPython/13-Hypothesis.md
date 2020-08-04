@@ -1110,6 +1110,27 @@
 ## Programming Assignment 13
 
 
+### Introduction
+
+The [Köppen–Geiger climate classification system](https://tinyurl.com/qxgekbr) is a common climate classification system. It classifies the climate of a region using [3 letters](https://tinyurl.com/yxoddlbu). The first represents the type of climate, the second indicates precipitation, and the third corresponds to temperature. For example, San Diego is classified as Bsh, where the B represents arid climate, s stand for dry summer, and h corresponds to hot. For the 3rd symbol to be h, the annual average temperature should be above 18ºC.
+
+### Dataset
+
+We will use the [hourly weather](https://tinyurl.com/yajzg88h) dataset to consider temperature changes in the city.
+
+Note that the temperatures given in the dataset is in Kelvin. To convert from Kelvin to ºC use [ºC]=[K]-273.15
+
+1. Using hypothesis testing, verify with 5% significance if the city of San Diego should have the 3rd symbol to be h according to the Köppen–Geiger climate classification system using temperature data from the year 2016.<br/>
+  a. San Diego may have the 3rd symbol to be h according to the Köppen–Geiger climate classification system<br/>
+  b. San Diego should not have the 3rd symbol to be h according to the Köppen–Geiger climate classification system<br/>
+
+  Ans: b <br/>
+  Explanation: mean temperature of 2016 is 17.59727
+
+
+2. report the p-value for the above problem
+
+  Ans: 
 
 
 
