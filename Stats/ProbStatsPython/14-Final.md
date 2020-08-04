@@ -133,14 +133,68 @@
   Explanation:
 
 
-
-
-
 ## 14.2 Final Exam Instructions
 
+All assignments (including the Final Exam) must be submitted by the course end date. We do not recommend that you wait until the course end date to attempt the exam. Each learner has 4 hour and 30 minutes to complete the final exam. Please see the section below for information on disability or other special requests.
+
+Note: It is your responsibility to review and follow all the rules for the exam. All rules in the Online Proctoring Rules for Learners will apply for the final exam and a breach of any of the rules can and will result in a score of 0; however, for this course's final exam the following will be allowed during the exam.
+
++ Items allowed:
++ Pencil(s)
++ Pen(s)
++ Three Blank/Clean Sheets Scratch Paper (Letter size).
++ One Standard Sheet of Notes (front and back, typed or handwritten).
++ Physical Scientific Calculator 
+
+If you have any questions on these allowances, please post a message on the discussion board below.
+Online websites during the exam are NOT allowed by the software.
+
+Violating any of edX's rules for the exam will result in an automatic score of 0. 
+
+### Final Exam Instructions
+
+As a reminder: [Onboarding quiz](https://tinyurl.com/yxr8f8sq) is designed to help you ensure your system is compatible with the online proctoring system. Take the Onboarding quiz well in advance of the deadline to ensure your system is compatible. 
+
+Check your edX Dashboard for your deadline to upgrade and be ID-verified. Please make sure your ID verified status has not expired. Confirm this by checking your verification status on your [edX Dashboard](https://tinyurl.com/ohp47kp).
+
+__Please note__: Only those in the Verified track may complete Onboarding and be allowed to complete proctored assessments during this course, which are required for MicroMasters in Data Science Program.
 
 
+#### Plan your time wisely
 
+Please ensure you have sufficient time to complete the assessment from start to finish, including time for the software to download. It should take no more than 30 minutes total. 
+
+This Onboarding quiz does not count as part of your grade for this course. Working through the steps in this Onboarding quiz will help you confirm that you have the following:
+
++ a compatible computer system (must be a modern version of Windows or Mac laptop or desktop operating system)
++ a consistent internet connection
++ a private test room (environment) in which to complete the assessment
+
+Read the rules and system requirements at the following links: 
+
++ [Online Proctoring Rules for Learners](https://tinyurl.com/y2vqvwj3)
++ [Proctoring System Requirements](https://tinyurl.com/y4vyvrlt)
+
+
+### Quick Tips
+
++ Onboarding must be completed at least 5 days prior to the proctored exam.
++ You may only take the Onboarding quiz once.
++ Once you have completed the final, remain connected to the internet until the recordings are completely uploaded to Verificient.
+
+
+### Accessibility and Accommodation Requests
+
+If you are a learner with disabilities, or need extra time or assistance during a proctored assessment, please request it as soon as possible. It could take a few days to receive and respond to requests, so please do not wait. Please see the Final Exam Disability Request Discussion Board. This is just the practice exam, so don't worry (hint: there's only 3 questions). However, when we get to the final exam, if you have a disability that means you need extra time that falls under UCSD's guidelines (see below), you will be able to request support. 
+
+"A disability may be temporary or permanent in nature, can occur at anytime during a student’s college career and may impact a student’s ability to complete day to day activities such as hearing, seeing, standing, sitting, writing, thinking, or interacting with others. This is also known as a current functional limitation. Disabilities can occur in the following areas: psychological, psychiatric, learning, attention, chronic health, physical, vision, hearing, and acquired brain injury." (p.2, Utilizing Disability Services at UC, San Diego: A Guide for Students, Faculty, and Staff). 
+
+
+### Ending the Quiz
+
+When you have completed the questions, and if the exam timer has not reached 00:00, click the "End My Exam" button on the exam timer bar.
+
+Once the exam is finished, remain connected to the internet until the recordings are completely uploaded to Verificient. Confirm that you want to quit the ProctorTrack application when you are prompted. If you encountered any problems while completing the Onboarding exam please contact edX Support via the contact us form or Verificient. Contact Verificient by phone at +1 (844) 753-2020.
 
 
 
