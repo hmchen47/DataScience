@@ -738,8 +738,10 @@
 
   b) Find the lowest outcome for rejecting the null hypothesis with 5% significance level.
   
-  Ans: a. (); b(); <br/>
+  Ans: a. (0.2); b(0.95); <br/>
   Explanation:
+    + Under the null hypothesis, $f_\alpha$  is uniform. The $p$-value is $P_{H_0}(X \ge 0.8) = 1 - 0.8 = 0.2$.
+    + To reject the null hypothesis with  5%  significance level, the  p -value should be smaller than  0.05 . Hence the lowest outcome is  0.95 .
 
 
 
@@ -754,8 +756,11 @@
   c) What is the highest weight in lbs for which we can reject the null hypothesis with significance level 10%?
   
 
-  Ans: a. (); b. (); c()<br/>
+  Ans: a. (5); b. (0); c(92)<br/>
   Explanation:
+    + Under the null hypothesis, the distribution is uniform. The $p$-value is $1 - \frac{91 - 90}{110 - 90} = 0.05 = 5\%$
+    + Under the null hypothesis, the distribution is uniform. The $p$-value is $1 - \frac{90 - 90}{110 - 90} = 0$
+    + To reject the null hypothesis with 10% significance level, the p-value should be smaller than 0.1. Hence the lowest outcome is 92.
 
 
 
