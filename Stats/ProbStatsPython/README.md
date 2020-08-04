@@ -182,9 +182,10 @@ In this course you will learn the following topics (some may be added or dropped
   + [Programming Assignment 13](./13-Hypothesis.md#)
  
  
-+ Final Exam
-  + [Preparing for the Final Exam](./14-Final.md)
-  + [Final Exam Instructions](./14-Final.md)
++ Topic 14: Final Exam
+  + 14.1 [Preparing for the Final Exam](./14-Final.md#)
+  + 14.2 [Final Exam Instructions](./14-Final.md#)
+  + 14.3 [Final Exam Instructions](./14-Final.md#)
 
 
 
