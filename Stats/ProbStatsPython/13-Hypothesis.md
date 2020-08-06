@@ -1114,7 +1114,6 @@
 
 ## Programming Assignment 13
 
-
 ### Introduction
 
 The [Köppen–Geiger climate classification system](https://tinyurl.com/qxgekbr) is a common climate classification system. It classifies the climate of a region using [3 letters](https://tinyurl.com/yxoddlbu). The first represents the type of climate, the second indicates precipitation, and the third corresponds to temperature. For example, San Diego is classified as Bsh, where the B represents arid climate, s stand for dry summer, and h corresponds to hot. For the 3rd symbol to be h, the annual average temperature should be above 18ºC.
@@ -1135,7 +1134,28 @@ Note that the temperatures given in the dataset is in Kelvin. To convert from Ke
 
 2. report the p-value for the above problem
 
-  Ans: 
+  Ans: <font style="color: cyan;">8.6e-12</font>
+  
+  ```python
+  import numpy as np
+  import pandas as pd
+  from scipy.stats import t
+
+  df = pd.read_csv('./temperature.csv')
+  df = df[ df['datetime'].str.contains('2016')]
+  df = df.loc[:, ['San Diego']]
+
+  temperature = df.values
+  temperature = temperature[~np.isnan(temperature)]
+
+  n = len(temperature)
+  mu = np.mean(temperature)
+  s = np.std(temperature, ddof=1)
+
+  p = t.cdf((mu - 273.15 - 18) / (s / (n ** 0.5)), n - 1)
+
+  print('p-value is {}'.format(p))
+  ```
 
 
 
