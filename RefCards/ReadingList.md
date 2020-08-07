@@ -137,6 +137,8 @@
 
 + Trevor Hastie and Rob Tibshirani, [introduction to machine learning](https://www.r-bloggers.com/in-depth-introduction-to-machine-learning-in-15-hours-of-expert-videos/)
 
++ Lukas Spranger, [Awesome Machine Learning and AI Courses](https://tinyurl.com/y5phkqwj)
+
 
 ### Neural Networks
 
