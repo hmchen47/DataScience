@@ -740,7 +740,7 @@
   
   Ans: a. (0.2); b(0.95); <br/>
   Explanation:
-    + Under the null hypothesis, $f_\alpha$  is uniform. The $p$-value is $P_{H_0}(X \ge 0.8) = 1 - 0.8 = 0.2$.
+    + Under the null hypothesis, $f_\alpha$  is uniform. The $p$-value is $P_{H_0}(X \ge 0.8) = 1 - 0.8 = 0.2$. [StackExchange](https://tinyurl.com/y35q3wya)
     + To reject the null hypothesis with  5%  significance level, the  p -value should be smaller than  0.05 . Hence the lowest outcome is  0.95 .
 
 
