@@ -873,7 +873,7 @@
 
 
 
-## Critical Value
+## Critical Value and p-value
 
 + [Critical value](../Stats/ProbStatsPython/13-Hypothesis.md#131-hypothesis-test---introduction)
   + a point on the test distribution compared to the test statistic to determine whether to reject the null hypothesis
@@ -918,12 +918,6 @@
   + get around finding smallest $x$ for accepting $H_A$? $\to$ critical value
   + find a rule just for $X$ itself? $\to$ p-value
 
-
-
-
-
-## p-value
-
 + [p (probability) value](../Stats/ProbStatsPython/13-Hypothesis.md#132-hypothesis-testing---p-values)
   + p values of $x$
     + accept $H_A$: $P_{H_0}(X \ge x) \le 5\% \to x \ge x_{5\%}$
@@ -964,4 +958,168 @@
   + p-value
     + $\le \alpha$: accep $H_A$
     + $> \alpha$: retain $H_0$
+
++ [p-value $\to$ hypothesis test](../Stats/ProbStatsPython/13-Hypothesis.md#133-lady-tasting-tea)
+  + hypotheses: $H_0: $ Lady guesses randomly $\quad H_A: $ correct w. prob. > 0.5
+  + significance level: 5%
+    + Prob. type_I error $\le 5\%$
+    + $P_{H_0}(\text{accept } H_A) \le 5\%$
+  + p value of $c$
+    + $P_{H_0}( C \ge c) > 5\%$: outcome likely under $H_0$ $\to$ retain $H_0$
+    + $P_{H_0}( C \ge c) \le 5\%$: unlikely under $H_0$ $\to$ accept $H_A$<br/><br/>
+
++ [1-sided vs. 2-sided alternatives](../Stats/ProbStatsPython/13-Hypothesis.md#134-hypothesis-testing---z-and-t-tests)
+  + same level and score:
+    + significance level = 5%
+    + z-score = -1.8623
+  + different results:
+    + 1-sided $H_A$: accept $H_A$
+    + 2-sided $H_A$: retain $H_0$
+  + p-value = $P_{H_0}$(observed value or one more towards $H_A$)
+    + &le; 5%: accept $H_A$
+    + &gt; 5%: retain $H_0$
+
+    <table style="font-family: Arial,Helvetica,sans-serif; width: 44vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$H_A$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">p-value</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\%$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">vs. $5\%$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Prob.</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Hypothesis</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">one-sided</td> <td style="text-align: center;">$P(Z < -1.86)$</td> <td style="text-align: center;">3.13%</td> <td style="text-align: center;">&lt;</td> <td style="text-align: center;">Low</td> <td style="text-align: center;">$H_A$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">Two-sided</td> <td style="text-align: center;">$P(|Z| > 1.86)$</td> <td style="text-align: center;">6.26%</td> <td style="text-align: center;">&gt;</td> <td style="text-align: center;">High</td> <td style="text-align: center;">$H_0$</td>
+      </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+## z-test
+
++ [z-test](../Stats/ProbStatsPython/13-Hypothesis.md#134-hypothesis-testing---z-and-t-tests)
+  + hypotheses: $H_0: \mu_Z = 0 \text{ as } Z \;\dot\sim\; \mathcal{N}(0, 1) \quad H_A: \mu_Z > 0$
+  + significance level $\alpha$
+    + $\alpha = 5\%, 1\%$
+    + ensuring $P_{H_o}(\text{accept } H_A) \le \alpha \gets$ (type-I Error)
+  + critical value $z_\alpha$ w/ $P(Z \ge z\alpha) = \alpha$
+    + right-tailed normal distribution w/ critical value $z_\alpha$ (see diagram)
+    + $Z \ge z_\alpha$: accept $H_A$
+    + $Z < z_\alpha$: retain $H_0$
+  + p-value of $z$: $P_{H_0}(\text{accept } H_A) = P(Z \ge z_\alpha) = \alpha$
+    + $P(Z \ge z) \le \alpha: z \ge z_\alpha \to$ accept $H_A$
+    + $P(Z \ge z) > \alpha: z < z_\alpha \to$ retain $H_0$
+  + computationally $P(Z \ge z) = 1 - \Phi(z)$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yxafyms4" ismap target="_blank">
+      <img src="../Stats/ProbStatsPython/img/t13-14.png" style="margin: 0.1em;" alt="Z-test on right-tailed normal distribution" title="Z-test on right-tailed normal distribution" width=250>
+    </a>
+  </div>
+
++ [1-tailed & 2-tailed tests](../Stats/ProbStatsPython/13-Hypothesis.md#134-hypothesis-testing---z-and-t-tests)
+  + $H_0$ also applied to 
+    + $H_0: \text{ mean } \le \mu$ also applied to right-tailed normal distribution
+    + $H_0: \text{ mean } \ge \mu$ also applied to left-tailed normal distribution
+  + p-value
+    + one-tailed (left tail): $P(Z \le z)$
+    + one-tailed (right tail): $P(Z \ge z)$
+    + 2-tailed: $P(|Z| \ge z)$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y2jyy58c" ismap target="_blank">
+      <img src="https://tinyurl.com/yxvv7trj" style="margin: 0.1em;" alt="Summary of the Different Tests. Note that in a one-tailed test, when H1 involves values that are greater than μ_X, we have a right-tail test. Similarly, when H1 involves values that are less than μ_X, we have a left-tail test. For example, an alternative hypothesis of the type H1 : μ_X > 100 is a right-tail test while an alternative hypothesis of the type H1 : μ_X < 100 is a left-tail test." title="Summary of the Different Tests" height=200>
+    </a>
+  </div>
+
++ [Relation to confidence intervals](../Stats/ProbStatsPython/13-Hypothesis.md#134-hypothesis-testing---z-and-t-tests)
+  + hypothesis testing $\iff$ 95% confidence interval
+  + hypothesis testing
+    + hypotheses: $H_0: \text{ mean } = \mu \quad H_A: \text{ 2-sided, mean } \ne \mu$
+    + z-test: $Z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}}$
+    + significance level: 5%
+      + accept $H_A$
+      + $|Z| \ge 1.96$
+  + 95% confidence interval
+
+    \[ \left( \overline{X} - z_{95\%} \frac{\sigma}{\sqrt{n}}, \overline{X} + z_{95\%} \frac{\sigma}{\sqrt{n}} \right) \]
+
+    + $\mu \notin \text{ confidence interval } \iff 0 \notin (Z - z_{95\%}, Z + z_{95\%}) \iff |Z| \ge 1.96$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yxafyms4" ismap target="_blank">
+      <img src="../Stats/ProbStatsPython/img/t13-13a.png" style="margin: 0.1em;" alt="z-test of 2-sided H_A w/ 5% significance level " title="z-test of 2-sided H_A w/ 5% significance level " height=150>
+      <img src="../Stats/ProbStatsPython/img/t13-13b.png" style="margin: 0.1em;" alt="95% confidence interval" title="95% confidence interval" height=150>
+    </a>
+  </div>
+
+
+
+
+
+
+## t-test
+
++ [Unknown $\sigma$](../Stats/ProbStatsPython/13-Hypothesis.md#134-hypothesis-testing---z-and-t-tests)
+  + r.v.'s: $X_1, X_2, \dots, X_n \;\; {\perp \!\!\!\! \perp} \sim \mathcal{N}_{\mu. \sigma}$
+  + sample mean: $\overline{X} = \frac 1 n (X_1 + \cdots + X_n)$
+  + sample variance (Bessel corrected): $s^2 = \frac{1}{n-1} \sum_{i=1}^n \left( X_i - \overline{X} \right)^2$
+  + student's t-distribution: $n-1$ degree of freedom
+
+    \[ T_{n-1} = \frac{\overline{X} - \mu}{s/\sqrt{n}} \]
+
++ [t-test](../Stats/ProbStatsPython/13-Hypothesis.md#134-hypothesis-testing---z-and-t-tests)
+  + test statistic: $T = \frac{\overline{X} - \mu}{s/\sqrt{n}}$
+  + under $H_0$:
+    + $T \sim f_{n-1}(t)$
+    + student's t-distribution w/ $n-1$ DoF
+  + calculate p-value for t-distribution
+
++ [z-test and t-test](../Stats/ProbStatsPython/13-Hypothesis.md#134-hypothesis-testing---z-and-t-tests)
+
+  <table style="font-family: Arial,Helvetica,Sans-Serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"></th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">z-test</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">t-test</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td style="text-align: center;">stdev $\sigma$</td> <td style="text-align: center;">Known</td> <td style="text-align: center;">Unknown</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">test statistic</td> <td style="text-align: center;">$Z = \frac{\overline{X}-\mu}{\sigma\sqrt{n}}$</td> <td style="text-align: center;">$T = \frac{\overline{X}-\mu}{s\sqrt{n}}$</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td style="text-align: center;">typical sample size $n$</td> <td style="text-align: center;">any</td> <td style="text-align: center;">small</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">population dist.</td> <td style="text-align: center;">$n < 15 \to X \sim \mathcal{N}$<br/>$n > 30 \to X \sim$ any</td> <td style="text-align: center;">$\sim \mathcal{N}$</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td style="text-align: center;">dist. used for p-value</td> <td style="text-align: center;">normal</td> <td style="text-align: center;">student-t w/ $n-1$ DOF</td>
+    </tr>
+    </tbody>
+  </table>
+
+  + as sample size $n$ increased: $t \to z$
+
+
+
 

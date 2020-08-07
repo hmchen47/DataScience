@@ -1641,6 +1641,31 @@
     + $Z_n$ approach standard Normal distribution
     + general iid $X_i$ just define $Z_n = \frac{X_1 + X_2 + \cdots + X_n - n\mu}{\sigma\sqrt{n}}$
 
++ [Central limit theorem - Review](../Stats/ProbStatsPython/13-Hypothesis.md#134-hypothesis-testing---z-and-t-tests)
+  + r.v.'s: $X_1, X_2, \dots, X_n \;\; {\perp \!\!\!\! \perp} \sim$ any fixed distribution w/ mean $\mu$ and stdev $\sigma$
+  + sample mean
+    + $\overline{X} = \frac 1 n \left( X_1 + \cdots + X_n \right)$
+    + distribution or population parameters: $\mu_{\overline{X}} = \mu \quad var(\overline{X}) = \frac{\sigma^2}{n} \quad \sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}$
+  + CLT: for large n (&ge; 30) 
+
+    \[ \overline{X} \;\dot\sim\; \mathcal{N}(\mu_{\overline{X}}, \sigma^2_{\overline{X}}) = \mathcal{N}\left(\mu, \frac{\sigma^2}{n}\right) \]
+
+  + transformation: $\overline{X} \;\dot\sim\; \mathcal{N}\left(0, \frac{\sigma^2}{n}\right)$
+
+    \[ Z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \;\dot\sim\; \mathcal{N}(0, 1) \]
+
++ [Typical application of CLT](../Stats/ProbStatsPython/13-Hypothesis.md#134-hypothesis-testing---z-and-t-tests)
+  + unknown distribution or population w/ known $\sigma$
+  + hypotheses: $H_0: \text{ mean } = \mu \quad H_A: \text{ mean } > \mu$
+  + testing
+    + n independent samples: $X_1, X_2, \dots, X_n$
+    + sample mean: $\overline{X} = \frac{1}{n} \sum_{i=1}^n X_i$
+    + moderate n (&ge; 30)
+      + $H_0: Z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \;\dot\sim\; \mathcal{N}(0, 1)$ w/ mean 0
+      + $H_A:$ Normal w/ mean > 0
+  
+
+
 
 
 
