@@ -723,9 +723,9 @@
     \[ f_X(x) = \int_c^d f(x, y) dy, \qquad f_Y(y) = \int_a^b f(x, y) dx \]
 
 
-## Hypothesis Test
+## Hypothesis Testing
 
-+ [Neyman-Pearson lemma
++ Neyman-Pearson lemma
   + performing a hypothesis test btw two simple hypotheses, $H_0: \theta = \theta_0$ and  $H_1: \theta = \theta_1$
   + using the likelihood ratio test  w/ threshold $\eta$
   + rejecting $H_0$ in favor of $H_1$ at a significance level of
@@ -757,4 +757,211 @@
     + $\therefore$ test statistic w/ a scaled $\chi^2$ distributed random variable $\implies$ obtaining an exact critical value $\eta$
 
 
++ [Hypotheses](../Stats/ProbStatsPython/13-Hypothesis.md#131-hypothesis-test---introduction): assumptions (statements) about <font style="color: magenta; font-wight: bold;">parameters</font> of
+  + distribution
+  + population
+
++ [Hypotheses types](../Stats/ProbStatsPython/13-Hypothesis.md#131-hypothesis-test---introduction)
+  + simple: parameters taking a single specific value
+  + composite: parameter taking one of several values
+  + one-sided: $\mu \le 2.3, \mu > 4.5$
+  + two-sided: $\mu \le 2.3 \text{ or } > 4.5, \mu < 2.3 \text{ or } > 2.3, \mu \ne 2.3$
+
++ [Null and Alternative Hypotheses](../Stats/ProbStatsPython/13-Hypothesis.md#131-hypothesis-test---introduction)
+  + null hypothesis
+    + more often
+    + assumption believed to be true
+    + Status quo
+    + notation: $H_0$
+  + alternative hypothesis
+    + complementary view
+    + notation: $H_1$ or $H_A$
+  + $H_A$ often complement or "one-side complement" of $H_0$
+
++ [Procedure: How to test](../Stats/ProbStatsPython/13-Hypothesis.md#131-hypothesis-test---introduction)
+  + design experiment
+  + gather data
+  + data consistent w/ null hypothesis?
+    + no: reject null in favor of alternative
+    + yes: do not reject null
+  + equivalently, strong evidence for alternative hypothesis?
+    + yes: reject null in favor of alternative
+    + no: do not reject null
+  + conservative
+    + reject null (status quo)
+    + only if stronger evidence against it
+    + two analogies
+
++ [Test vs. trial](../Stats/ProbStatsPython/13-Hypothesis.md#131-hypothesis-test---introduction)
+  + hypothesis test: strong evidence for alternative hypothesis?
+    + yes: reject null in favor of alternative
+    + no: do not reject null
+  + legal trial: strong incriminating evidence? presumed innocence
+    + guilty: innocent = null
+    + not guilty: reject only by strong evidence
+
++ [Test vs. Myth](../Stats/ProbStatsPython/13-Hypothesis.md#131-hypothesis-test---introduction)
+  + hypothesis test: strong evidence for alternative hypothesis?
+    + yes: reject null in favor of alternative
+    + no: do not reject null
+  + myth: strong evidence for myth?
+    + yes: accept
+    + no: keep default belief
+
++ [Testing hypotheses](../Stats/ProbStatsPython/13-Hypothesis.md#131-hypothesis-test---introduction)
+  + test: design experiment
+  + test statistic
+  + $P_{H_0}(T=t)$: determine distribution of $T$ under $H_0$
+  + observe data: calculate value $t$ of the test statistic $T$
+  + $P_{H_0}(t)$ value:
+    + large $t$ toward $H_0 \to$ accept $H_0$
+    + small $t$ toward $H_A \to$ reject $H_0$ in favor of $H_A$
+
++ [Test statistic](https://tinyurl.com/vkvx9b8)
+  + a random variable that is calculated from sample data and used in a hypothesis test
+  + determining whether to reject the null hypothesis
+  + comparing data with what is expected under the null hypothesis
+  + used to calculate the p-value
+  + measuring the degree of agreement between a sample of data and the null hypothesis
+  + containing information about the data relevant for deciding whether to reject the null hypothesis
+  + <font style="color: cyan;">null distribution</font>: the sampling distribution of the test statistic under the null hypothesis
+  + When the data show strong evidence against the assumptions in the null hypothesis, the magnitude of the test statistic becomes too large or too small depending on the alternative hypothesis.
+  + the test's p-value small enough to reject the null hypothesis
+  + Different hypothesis tests using different test statistics based on the probability model assumed in the null hypothesis (hypothesis test $\to$ test statistic)
+    + z-test $\to$ z-statistic
+    + t-tests $\to$ t-statistic
+    + ANOVA $\to$ F-statistic
+    + $\chi^2$-tests $\to \chi^2$ statistic
+
++ [1-sided and 2-sided $H_a$](../Stats/ProbStatsPython/13-Hypothesis.md#131-hypothesis-test---introduction)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y4k2be2r" ismap target="_blank">
+      <img src="img/t13-01.png" style="margin: 0.1em;" alt="Hypothesis testing: 1-sided alternative hypothesis" title="Hypothesis testing: 1-sided alternative hypothesis" height=200>
+      <img src="img/t13-02.png" style="margin: 0.1em;" alt="Hypothesis testing: 2-sided alternative hypothesis" title="Hypothesis testing: 2-sided alternative hypothesis" height=200>
+    </a>
+    <a href="https://tinyurl.com/y2jyy58c" ismap target="_blank">
+      <img src="https://tinyurl.com/yxvv7trj" style="margin: 0.1em;" alt="Summary of the Different Tests. Note that in a one-tailed test, when H1 involves values that are greater than μ_X, we have a right-tail test. Similarly, when H1 involves values that are less than μ_X, we have a left-tail test. For example, an alternative hypothesis of the type H1 : μ_X > 100 is a right-tail test while an alternative hypothesis of the type H1 : μ_X < 100 is a left-tail test." title="Summary of the Different Tests" height=200>
+    </a>
+  </div>
+
++ [Nomencalture](../Stats/ProbStatsPython/13-Hypothesis.md#132-hypothesis-testing---p-values)
+  + $H_A$ is true, allowed statements
+    + reject $H_0$ in favor of $H_A$
+    + reject $H_0$
+    + <font style="color: cyan;">accept $H_A$</font>
+  + $H_0$ is true, allowed statements
+    + do not reject $H_0$
+    + data not significant
+    + $H_0$ plausible
+    + <font style="text-decoration: line-through;">accept $H_0$</font>
+    + (reluctantly) <font style="color: cyan;">retain $H_0$</font>
+
++ [Significance level](../Stats/ProbStatsPython/13-Hypothesis.md#132-hypothesis-testing---p-values)
+  + reject null (status quo) hypothesis $H_0$ only if strong evidence for alternative $H_A$
+  + precise probabilistic formulation
+  + $\alpha$: significant level, typically 5%, 1%
+  + if $H_0$ is true, accept $H_A$ w/ probability $\le \alpha$ (Type-I error)
+  
+    \[ P_{H_0}(\text{accept} H_A) \le \alpha \]
+
+  + two methods
+    + critical values
+    + p-values
+
+
+
+
+
+## Critical Value
+
++ [Critical value](../Stats/ProbStatsPython/13-Hypothesis.md#131-hypothesis-test---introduction)
+  + a point on the test distribution compared to the test statistic to determine whether to reject the null hypothesis
+  + the absolute value of test statistic is greater than the critical value $\implies$ statistical significance and reject the null hypothesis
+  + corresponding to $\alpha$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/tq5prhd" ismap target="_blank">
+      <img src="https://tinyurl.com/y4qu4g4s" style="margin: 0.1em;" alt="Figure A shows that results of a one-tailed Z-test are significant if the test statistic is equal to or greater than 1.64, the critical value in this case. The shaded area is 5% (α) of the area under the curve." title="Figure A shows that results of a one-tailed Z-test are significant if the test statistic is equal to or greater than 1.64, the critical value in this case. The shaded area is 5% (α) of the area under the curve." height=150>
+      <img src="https://tinyurl.com/y2gyrtne" style="margin: 0.1em;" alt="Figure B shows that results of a two-tailed Z-test are significant if the absolute value of the test statistic is equal to or greater than 1.96, the critical value in this case. The two shaded areas sum to 5% (α) of the area under the curve." title="Figure B shows that results of a two-tailed Z-test are significant if the absolute value of the test statistic is equal to or greater than 1.96, the critical value in this case. The two shaded areas sum to 5% (α) of the area under the curve." height=150>
+    </a>
+  </div>
+
++ [Critical value](../Stats/ProbStatsPython/13-Hypothesis.md#132-hypothesis-testing---p-values)
+  + critical value: $x_\alpha$ as a threshold
+    + $X \ge x_\alpha \to$ accept $H_A$
+    + $X < x_\alpha \to$ retain $H_0$
+  + $x_\alpha \gets$ significance level $\alpha$
+  + $\alpha$: upper bound on $P_{H_0}(\text{accept } H_A)$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
+      <img src="../Stats/ProbStatsPython/img/t13-03.png" style="margin: 0.1em;" alt="Bernoulli distribution w/ p=0.5, n=20 as x_α = 16 for significance level α = 5%" title="Bernoulli distribution w/ p=0.5, n=20 as x_α = 16 for significance level α = 5%" width=200>
+    </a>
+  </div>
+
++ [Finding $x_\alpha$](../Stats/ProbStatsPython/13-Hypothesis.md#132-hypothesis-testing---p-values)
+  + significance level $\alpha$
+    + typical $\alpha = 5\%, 1\%$
+    + $P_{H_0} (X \ge x\alpha) = P_{H_0}(\text{falsely accept } H_A) \le \alpha$
+  + requirement: $P_{H_0}( X \ge x_\alpha) \le \alpha$
+    + $x_\alpha$ large: almost never declare $H_A$
+    + smallest $x$ s.t. $P_{H_0}(X \ge x) \le \alpha$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
+      <img src="img/t13-11.png" style="margin: 0.1em;" alt="Bernoulli distribution w/ p=0.5, n=20 as x_α = 16 for significance level α = 5% and the area of probability" title="Bernoulli distribution w/ p=0.5, n=20 as x_α = 16 for significance level α = 5% and the area of probability" width=250>
+    </a>
+  </div>
+
++ [Room for improvement](../Stats/ProbStatsPython/13-Hypothesis.md#132-hypothesis-testing---p-values)
+  + get around finding smallest $x$ for accepting $H_A$? $\to$ critical value
+  + find a rule just for $X$ itself? $\to$ p-value
+
+
+
+
+
+## p-value
+
++ [p (probability) value](../Stats/ProbStatsPython/13-Hypothesis.md#132-hypothesis-testing---p-values)
+  + p values of $x$
+    + accept $H_A$: $P_{H_0}(X \ge x) \le 5\% \to x \ge x_{5\%}$
+    + retain $H_0$: $P_{H_0}(X > x) > 5\% \to x < x_{5\%}$
+  + same $H_0$ and $H_A$ regions as in critical values
+  + intuitively $P$ under $H_0$ small $\to H_A$ more likely
+
++ [Critical value for 2-sided $H_A$](../Stats/ProbStatsPython/13-Hypothesis.md#132-hypothesis-testing---p-values)
+  + critical value $x_\alpha$: $x$ close to 10 s.t. $P_{H_0}(|X - 10| \ge |x - 10|) \le \alpha$
+  + testing
+    + $|X - 10| \ge |x - 10|$: accept $H_A$
+    + $|X - 10| < |x - 10|$: retain $H_0$
+  
+    \[ P_{H_0} (\text{type-I error}) = P_{H_0}(|X - 10| \ge |x_{\alpha} -10|) \le \alpha \]
+
+  + $x_\alpha$ closest to 10 minimizes type-II error
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
+      <img src="img/t13-08.png" style="margin: 0.1em;" alt="Example of critical value" title="Example of critical value" width=250>
+    </a>
+  </div>
+
++ [p values for 2-sided $H_A$](../Stats/ProbStatsPython/13-Hypothesis.md#132-hypothesis-testing---p-values)
+  + p value of $x$
+    + $P_{H_0}(X \text{ is at least as far from 10 as } x)$
+    + $P_{H_0}(|X - 10| \ge |x - 10|)$
+  + low p-value
+    + low $H_0$ prob of outcome $x$ or further towards $H_A$
+    + $x$ less likely to be generated under $H_0$
+  + higher p-value
+    + high $H_0$ prob of outcome $x$ or further towards $H_A$
+    + $x$ more likely to be generated under $H_0$
+
++ [General p-value](../Stats/ProbStatsPython/13-Hypothesis.md#132-hypothesis-testing---p-values)
+  + p value of statistic $t$ of $T$: $P_{H_0}(T \text{ is $t$ or further towards } H_A)$
+  + significance level: $\alpha$
+  + p-value
+    + $\le \alpha$: accep $H_A$
+    + $> \alpha$: retain $H_0$
 
