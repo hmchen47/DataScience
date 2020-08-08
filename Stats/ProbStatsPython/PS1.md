@@ -28,7 +28,7 @@
 ## 1.3 What is Statistics
 
 
-+ If we flip a coin a thousand times and get 507 heads, can we conclude with certainty that the coin is unbiased?
+0. If we flip a coin a thousand times and get 507 heads, can we conclude with certainty that the coin is unbiased?
 
   Ans: 
   
@@ -103,6 +103,7 @@
 
 # Topic 2: Sets
 
+
 ## 2.1 Notation
 
 
@@ -112,8 +113,8 @@
   
 
 
-1. The empty set $\varnothing$ is unique.<br/>
-   The universal set $\Omega$ is unique.
+1. a) The empty set $\varnothing$ is unique.<br/>
+   b) The universal set $\Omega$ is unique.
 
   Ans: 
   
@@ -123,28 +124,28 @@
   a. $0 \in \{0, 1\}$<br/>
   b. $a \in \{A, B\}$<br/>
   c. $\{a, b\} \in \{\{a, b\}, c\}$<br/>
-  d. $a \in \{{a, b}, c\}$<br/>
+  d. $a \in \{\{a, b\}, c\}$<br/>
   e. $\{a\} \in \{a\}$<br/>
 
   Ans: 
   
 
 
-3. Recall that $\varnothing$ is the empty set. How many elements do the following sets have?
-  a. $\varnothing$
-  b. $\{\varnothing\}$
-  c. $\{\varnothing, \varnothing\}$
-  d. $\{\{\varnothing\}, \varnothing\}$
+3. Recall that $\varnothing$ is the empty set. How many elements do the following sets have?<br/>
+  a. $\varnothing$<br/>
+  b. $\{\varnothing\}$<br/>
+  c. $\{\varnothing, \varnothing\}$<br/>
+  d. $\{\{\varnothing\}, \varnothing\}$<br/>
 
   Ans: 
   
 
-4. How many elements do the following sets have?
-  a. $\{a\}$
-  b. $\{a, a\}$
-  c. $\{a, \varnothing\}$
-  d. $\{\{a\}, a\}$
-  e. $\{\{\{a\}\}\}$
+4. How many elements do the following sets have?<br/>
+  a. $\{a\}$<br/>
+  b. $\{a, a\}$<br/>
+  c. $\{a, \varnothing\}$<br/>
+  d. $\{\{a\}, a\}$<br/>
+  e. $\{\{\{a\}\}\}$<br/>
 
   Ans: 
   
@@ -200,7 +201,7 @@
   b. $a, a$<br/>
   c. $\{a\}$<br/>
   d. $\{a, b\}, \{b, a\}$<br/>
-  e. $a,{b}$<br/>
+  e. $a,\{b\}$<br/>
   f. $\varnothing$<br/>
   g. no elements<br/>
 
@@ -220,28 +221,25 @@
   Ans: 
   
 
-1. Which of the following define a set unambiguously?{br/>}
+1. Which of the following define a set unambiguously?<br/>
   a. $\{3, 4, 5, 7\}$<br/>
   b. {negative primes}<br/>
-  c. $\{x \in \mathbb{R} \,∣\, x^2 \cdot y > 100}\ $<br/>
+  c. $\{x \in \Bbb{R} \mid x^2 \cdot y > 100\}$<br/>
   d. {good drivers in San Diego}<br/>
 
   Ans: 
   
 
 
-
 2. Which of the following are true?<br/>
   a. $0 \in $ {Even numbers} <br/>
-  b. $0.5 \in \mathbb{N}$<br/>
-  c. $\{-1\} \in \{x \in \mathbb{R}∣x^2 = 1\}$<br/>
-  d. $0.5 \in \{x \in \mathbb{Z} \,∣\, 2x^2 + x - 1 = 0\}$<br/>
-  e. $\varnothing \in \mathbb{Q}$<br/>
-  f. unanswered<br/>
+  b. $0.5 \in \Bbb{N}$<br/>
+  c. $\{-1\} \in \{x \in \Bbb{R}∣x^2 = 1\}$<br/>
+  d. $0.5 \in \{x \in \Bbb{Z} \mid 2x^2 + x - 1 = 0\}$<br/>
+  e. $\varnothing \in \Bbb{Q}$<br/>
 
   Ans: 
   
-
 
 3. Which of the following hold?<br/>
   a. $\{0\}=\varnothing$ <br/>
@@ -254,7 +252,7 @@
 
 4. Which of the following are true?<br/>
   a. $e \in \{1,2,…,10\}$<br/>
-  b. $π \in (3,3.5)$<br/>
+  b. $\pi \in (3,3.5)$<br/>
   c. $2 \in[-2,2)$<br/>
 
   Ans: 
@@ -266,9 +264,9 @@
 
   Note: Represent your answers in ascending order, For example the set {1,-1,0} should be written as -1,0,1 (without whitespace).
 
-  a. $\{x \in \mathbb{Z} \,∣\, -2 \leq x < 5\}$
-  b. $\{x \in \mathbb{N} \,∣\, x^2+x-2=0\}$
-  c. $\{x \in \mathbb{R} \,∣\, x^3+x-2=0\} $
+  a. $\{x \in \Bbb{Z} \mid -2 \leq x < 5\}$
+  b. $\{x \in \Bbb{N} \mid x^2+x-2=0\}$
+  c. $\{x \in \Bbb{R} \mid x^3+x-2=0\} $
   
   Ans: 
   
@@ -332,8 +330,8 @@
   
 
 4. Which of the following set pairs are equal?<br/>
-  a. $\{x \in \mathbb{R} \,∣\, x^2-4x+3=0\}$ and {3,1,3}<br/>
-  b. $\{x \in \mathbb{Q} \,∣\, x2=10\}$ and $\varnothing$ <br/>
+  a. $\{x \in \Bbb{R} \mid x^2-4x+3=0\}$ and {3,1,3}<br/>
+  b. $\{x \in \Bbb{Q} \mid x^2=10\}$ and $\varnothing$ <br/>
   c. {0} and {$\varnothing$}<br/>
   d. { letters in word _little_ }  and  { letters in word _title_ }<br/>
 
@@ -360,7 +358,7 @@
 
 
 6. Which of the following are subsets of  A=[2,4)? <br/>
-  a. $B = \{x \in \mathbb{R} \,∣\, x+3>6\}$<br/>
+  a. $B = \{x \in \Bbb{R} \mid x+3>6\}$<br/>
   b. $C = \{2,3,4\}$<br/>
   c. $D = (2,4)$<br/>
   d. $E = \varnothing$<br/>
@@ -369,13 +367,13 @@
   
 
 
-7. Recall that $\mathbb{P}(S)$ is the collection of all subsets of $S$, and let $\mathbb{Q}(S)$ be the collection of all proper subsets of $S$.
+7. Recall that $\Bbb{P}(S)$ is the collection of all subsets of $S$, and let $\Bbb{Q}(S)$ be the collection of all proper subsets of $S$.
 
   Which of the following hold for every set $S$?<br/>
-  a. $\mathbb{P}(S) \subseteq \mathbb{Q}(S)$<br/>
-  b. $\mathbb{P}(S) \supseteq \mathbb{Q}(S)$<br/>
-  c. $\mathbb{P}(S) \supset \mathbb{Q}(S)$<br/>
-  d. $\mathbb{P}(S) = \mathbb{Q}(S)$<br/>
+  a. $\Bbb{P}(S) \subseteq \Bbb{Q}(S)$<br/>
+  b. $\Bbb{P}(S) \supseteq \Bbb{Q}(S)$<br/>
+  c. $\Bbb{P}(S) \supset \Bbb{Q}(S)$<br/>
+  d. $\Bbb{P}(S) = \Bbb{Q}(S)$<br/>
 
   Ans: 
   
@@ -384,7 +382,7 @@
 8. Which of the following set pairs intersect?<br/>
   a. {1,2,3} and {2,4,6} <br/>
   b. { prime numbers } and { even numbers }<br/>
-  c. $\{x \in \mathbb{R} \,∣\, x^2 \leq 4\}$  and  [2,7)<br/>
+  c. $\{x \in \Bbb{R} \mid x^2 \leq 4\}$  and  [2,7)<br/>
   d. $\varnothing$ and $\varnothing$ <br/>
   e. {$\varnothing$,1,2}  and $\varnothing$<br/>
 
@@ -457,11 +455,11 @@
 
 
 6. For any two sets $A$ and $B$, add $\subseteq$ or $\supseteq$ to make the following statements true.<br/>
-  a. $A \cap B _____ A$<br/>
-  b. $A \cup B _____ A$<br/>
-  c. $A -    B _____ A$<br/>
-  d. $A \cap B _____ A \cup B$<br/>
-  e. $A -    B _____ A \Delta B$<br/>
+  a. $A \cap B$ `_____` $A$<br/>
+  b. $A \cup B$ `_____` $A$<br/>
+  c. $A -    B$ `_____` $A$<br/>
+  d. $A \cap B$ `_____` $A \cup B$<br/>
+  e. $A -    B$ `_____` $A \Delta B$<br/>
 
   Ans: 
   
@@ -476,7 +474,7 @@
     </a>
   </div>
 
-  a. $(A \cup B) - (A \cap )$<br/>
+  a. $(A \cup B) - (A \cap B)$<br/>
   b. $(A \cap B)^c$<br/>
   c. $A \cup B$<br/>
   d. $A \cap B$<br/>
@@ -551,9 +549,9 @@
 
 
 4. Add $\subseteq, \supseteq$, or $\in$ in the blanks to make the following statements true.<br/>
-  a. $\{(x,y) \,∣\, x^2 + y^2 \leq 1\} \times \{x \,∣\, -1 \leq x \leq 1\}$ `_____` $\{(x,y,z) \,∣\, x^2 + y^2 + z^2 \leq 1\}$<br/>
-  b. $(1,2,3)$ `_____` $\{(x,y) \,∣\, y = 2x\} \times \{x \,∣\, |x| \leq 3 \}$<br/>
-  c. $\{(x,y,z) \,∣\, \max\{|x|,|y|,|z|\} \leq 1\}$ `_____` $\{x \,∣\, -1 \leq x \leq 1\} \times \{(x,y) \,∣\, x^2 + y^2 \leq 1\}$<br/>
+  a. $\{(x,y) \mid x^2 + y^2 \leq 1\} \times \{x \mid -1 \leq x \leq 1\}$ `_____` $\{(x,y,z) \mid x^2 + y^2 + z^2 \leq 1\}$<br/>
+  b. $(1,2,3)$ `_____` $\{(x,y) \mid y = 2x\} \times \{x \mid |x| \leq 3 \}$<br/>
+  c. $\{(x,y,z) \mid \max\{|x|,|y|,|z|\} \leq 1\}$ `_____` $\{x \mid -1 \leq x \leq 1\} \times \{(x,y) \mid x^2 + y^2 \leq 1\}$<br/>
 
   Ans:
   
@@ -598,11 +596,11 @@
 
 
 3. Which of the following sets are finite?<br/>
-  a. $\{ x \in \mathbb{Z} \mid x^2 \leq 10\}$<br/>
-  b. $\{ x \in \mathbb{Z} \mid x^3 \leq 10\}$<br/>
-  c. $\{ x \in \mathbb{N} \mid x^3 \leq 10\}$<br/>
-  d. $\{ x \in \mathbb{R} \mid x^2 \leq 10\}$<br/>
-  e. $\{ x \in \mathbb{R} \mid x^3 = 10\}$<br/>
+  a. $\{ x \in \Bbb{Z} \mid x^2 \leq 10\}$<br/>
+  b. $\{ x \in \Bbb{Z} \mid x^3 \leq 10\}$<br/>
+  c. $\{ x \in \Bbb{N} \mid x^3 \leq 10\}$<br/>
+  d. $\{ x \in \Bbb{R} \mid x^2 \leq 10\}$<br/>
+  e. $\{ x \in \Bbb{R} \mid x^3 = 10\}$<br/>
 
   Ans: 
 
@@ -634,7 +632,7 @@
 2. Which of the following pairs A and B satisfy $|A \cup B| = |A| + |B|$?<br/>
   a. $\{1,2\}$ and $\{0,5\}$<br/>
   b. $\{1,2\}$ and $\{2,3\}$<br/>
-  c. $\{i \in \mathbb{Z} : |i| \leq 3\}$ and $\{i \in \mathbb{Z} : 2 \leq |i| \leq 5\}$<br/>
+  c. $\{i \in \Bbb{Z} : |i| \leq 3\}$ and $\{i \in \Bbb{Z} : 2 \leq |i| \leq 5\}$<br/>
   d. {English words starting with the letter 'a'}  and  {English words ending with the letter 'a'}<br/>
 
   Ans: 
@@ -749,7 +747,7 @@
 
 
 
-3. (Cartesian product shape) Taking the geometric view of Cartesian products, if A and B are real intervals of positive length in $\mathbb{R}$, then A×B is a:<br/>
+3. (Cartesian product shape) Taking the geometric view of Cartesian products, if A and B are real intervals of positive length in $\Bbb{R}$, then A×B is a:<br/>
   a. line,<br/>
   b. rectangle,<br/>
   c. circle,<br/>
@@ -803,12 +801,12 @@
 4. Recall that the power set  P(S)  of a set  S  is the collection of all subsets of  S .
 
   For $A  = \{1,2,3\}$ and $B=\{x,y\}$, calculate the following cardinalities.<br/>
-  a. $|\mathbb{P}(A)|$<br/>
-  b. $|\mathbb{P}(B)|$<br/>
+  a. $|\Bbb{P}(A)|$<br/>
+  b. $|\Bbb{P}(B)|$<br/>
   c. $|A \times B^2|$<br/>
-  d. $|\mathbb{P}(A \times B)|$<br/>
-  e. $|\mathbb{P}(A) \times B|$<br/>
-  f. $|\mathbb{P}(\mathbb{P}(A))|$<br/>
+  d. $|\Bbb{P}(A \times B)|$<br/>
+  e. $|\Bbb{P}(A) \times B|$<br/>
+  f. $|\Bbb{P}(\Bbb{P}(A))|$<br/>
 
   Ans: 
 
@@ -953,7 +951,7 @@
   Ans: 
 
 
-2. Which of the following are true for all $n,m \in \mathbb{N}$ and $n \geq 1$.<br/>
+2. Which of the following are true for all $n,m \in \Bbb{N}$ and $n \geq 1$.<br/>
   a. $n! = n \cdot (n−1)! $<br/>
   b. $(n⋅m)! = n! \cdot m! $<br/>
   c. $(n+m)! = n! + m! $<br/>
@@ -973,8 +971,7 @@
 
 4. In how many ways can 8 identical rooks be placed on an 8×8 chessboard so that none can capture any other, namely no row and no column contains more than one rook?
 
-  Ans: <span style="color: magenta;">8! = 40320</span><br/>
-  Explanation: Since there are 8 rooks and 8 rows, each with at most one rook, each row must have exactly one rook. In the first row, there are 8 options for the location of the rook, and once that is chosen, there are 7 options for the second row, etc. Hence the number of ways to place the rooks is $8 \cdot 7 \cdot  \dots \cdot 2 \cdot 1= 8! = 40,320$.
+  Ans: 
 
 
 5. In how many ways can 8 distinguishable rooks be placed on an 8×8 chessboard so that none can capture any other, namely no row and no column contains more than one rook?
