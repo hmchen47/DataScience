@@ -183,9 +183,13 @@ In this course you will learn the following topics (some may be added or dropped
  
  
 + Topic 14: Final Exam
+  + 14.0 Problem Sets
+    + [Problem Sets 1~4](./PS1.md)
+    + [Problem Sets 5~8](./PS2.md)
+    + [Problem Sets 9~13](./PS3.md)
   + 14.1 [Preparing for the Final Exam](./14-Final.md#)
   + 14.2 [Final Exam Instructions](./14-Final.md#)
-  + 14.3 [Final Exam Instructions](./14-Final.md#)
+  + 14.3 [Final Exam](./14-Final.md#)
 
 
 
