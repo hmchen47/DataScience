@@ -222,8 +222,8 @@
   c. $\tbinom{13}{4}/\tbinom{52}{4}$<br/>
   d. $\tbinom{4}{1}⋅\tbinom{13}{4}/(\tbinom{52}{4}$<br/>
 
-  Ans: d<br/>
-  Explanation: There are $\tbinom{4}{1}$ ways to choose the suit (e.g. hearts) and $\tbinom{13}{4}$ ways to draw 4 cards from this suit. Yet the total number of ways to draw 4 cards is $\tbinom{52}{4}$. Hence, the probability is $4 \tbinom{13}{4} / \tbinom{52}{4}$.
+  Ans: 
+  
 
 
 2. Find the probability that a five-card hand contains:<br/>
