@@ -7,7 +7,7 @@
   + probability
     + distribution $\to$ samples
     + $\mu = \sum x p(x) \to$ average of many samples $\sim \mu$
-    + $X \ge 0 \to \Pr(X \ge 2 \mu) \le 0.5$ (Markov's inequality)
+    + $X \ge 0 \to P(X \ge 2 \mu) \le 0.5$ (Markov's inequality)
   + statistics
     + samples $\to$ distribution
     + samples $\to$ parameters $\mu, \sigma$
@@ -75,13 +75,13 @@
 1. $225$ iPhones go on sale on black Friday, and 100 customers are in line to buy them. If the random number of iPhones that each customer wishes to buy is distributed Poisson with mean 2, approximate the probability that all 100 customers get their desired number of iPhones?
 
   Ans: 0.96145<br/>
-  Explanation: The total iPhone demand may be expressed as a sum $S=X_1+...+X_{100}$, where each $X_i$ is distributed $Poission(2)$, denoting the number of iPhones demanded by the $i$th customer. By the central limit theorem, $S=X_1+...+X_{100}$ is distributed approximately $N(200,200)$. Therefore we may approximate the probability as $\Pr(S\le 225)=\Pr(\frac{S-200}{\sqrt{200}}\le \frac{25}{\sqrt{200}})\approx \Phi(\frac{25}{\sqrt{200}})=0.9615$
+  Explanation: The total iPhone demand may be expressed as a sum $S=X_1+...+X_{100}$, where each $X_i$ is distributed $Poission(2)$, denoting the number of iPhones demanded by the $i$th customer. By the central limit theorem, $S=X_1+...+X_{100}$ is distributed approximately $N(200,200)$. Therefore we may approximate the probability as $P(S\le 225)=P(\frac{S-200}{\sqrt{200}}\le \frac{25}{\sqrt{200}})\approx \Phi(\frac{25}{\sqrt{200}})=0.9615$
 
 
 2. The number of years a Bulldog lives is a random variable with mean 9 and standard deviation 3, while for Chihuahuas, the mean is 15 and the standard deviation is 4. Approximate the probability the that in a kennel of 100 Bulldogs and 100 Chihuahuas, the average Chihuahua lives at least 7 years longer than the average Bulldog.
 
   Ans: 0.02275<br/>
-  Explanation: Let $B_i$, $C_i$, $i \in \{1,...,100\}$ denote the number of years the $i$th Bulldog, Chihuahua lives respectively, hence $B_i \sim N(9,9),C_i \sim N(15,16)$. Then, by the central limit theorem, the difference in average lifetime, $D= \sum^{100}_{i=1} \frac{C_i - B_i}{100}$ is distributed $N(6,25/100)$. Therefore $\Pr(D\ge 7)$ $=\Pr(\frac{D-6}{\sqrt{25/100}}\ge\frac{1}{\sqrt{25/100}})$ $\approx 1-\Phi(\sqrt{100/25})$ $=1-\Phi(2)=0.0228$
+  Explanation: Let $B_i$, $C_i$, $i \in \{1,...,100\}$ denote the number of years the $i$th Bulldog, Chihuahua lives respectively, hence $B_i \sim N(9,9),C_i \sim N(15,16)$. Then, by the central limit theorem, the difference in average lifetime, $D= \sum^{100}_{i=1} \frac{C_i - B_i}{100}$ is distributed $N(6,25/100)$. Therefore $P(D\ge 7)$ $=P(\frac{D-6}{\sqrt{25/100}}\ge\frac{1}{\sqrt{25/100}})$ $\approx 1-\Phi(\sqrt{100/25})$ $=1-\Phi(2)=0.0228$
 
 
 
@@ -341,7 +341,7 @@
   d. $\frac{2n}{4n−1}$<br/>
 
   Ans: <span style="color: cyan;">a<br/>
-  Explanation: Consider $M_n$. For some $m \in (0,W)$, $M_n \le m$ if and only if $X_i \le m \;\forall\,i$. This gives $\Pr(M_n \le m)=\Pr(X_1 \le m \cap \dots  \cap X_n \le m)=\prod^n_{i=1}P(X_i \le m)=(\frac m W)^n$. Differentiating the previous expression w.r.t. $m$, the density of $M_n$ is given by $f_{M_n}(m)=\frac{nm^{n−1}}{W^n}$. Thus $E(M_n)=\int^W_0 z \cdot f_{M_n}(z)dz= \int^W_0 z \cdot \frac{nz^{n−1}}{W^n}dz=\frac{n}{n+1} \cdot W$. Therefore $\frac{n+1}{2n} \cdot M_n$ is an unbiased estimator for $W/2$. [Solved Problems - problem 3](https://tinyurl.com/yaqnslkx)
+  Explanation: Consider $M_n$. For some $m \in (0,W)$, $M_n \le m$ if and only if $X_i \le m \;\forall\,i$. This gives $P(M_n \le m)=P(X_1 \le m \cap \dots  \cap X_n \le m)=\prod^n_{i=1}P(X_i \le m)=(\frac m W)^n$. Differentiating the previous expression w.r.t. $m$, the density of $M_n$ is given by $f_{M_n}(m)=\frac{nm^{n−1}}{W^n}$. Thus $E(M_n)=\int^W_0 z \cdot f_{M_n}(z)dz= \int^W_0 z \cdot \frac{nz^{n−1}}{W^n}dz=\frac{n}{n+1} \cdot W$. Therefore $\frac{n+1}{2n} \cdot M_n$ is an unbiased estimator for $W/2$. [Solved Problems - problem 3](https://tinyurl.com/yaqnslkx)
 
 
 8. Let $X$ be distributed $Poisson(λ)$. Which of the following is an unbiased estimator for $λ^2$.<br/>
@@ -441,7 +441,7 @@
   + determining exact difference?
 
 + Example: Bernoulli
-  + r.v.'s: $B_p \;\; \Pr(1) = p \; \Pr(0) = 1 - p = q \quad \sigma^2 = pq$
+  + r.v.'s: $B_p \;\; P(1) = p \; P(0) = 1 - p = q \quad \sigma^2 = pq$
   + number of samples: $n=2$
     + samples: $x_1, x_2$
     + sample mean: $\overline{x} = \frac{x_1+ x_2}{2}$
@@ -451,7 +451,7 @@
       <thead>
       <tr style="font-size: 1.2em;">
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$X_1, X_2$</th>
-        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$\Pr(X_1, X_2)$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$P(X_1, X_2)$</th>
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$\overline{X}$</th>
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$S^2$</th>
       </tr>
@@ -603,7 +603,7 @@
   + easier to understand and explain
 
 + Example: Bernoulli (revisit)
-  + r.v.'s: $B_p \;\; \Pr(1) = p \; \Pr(0) = 1 - p = q \quad \sigma^2 = pq$
+  + r.v.'s: $B_p \;\; P(1) = p \; P(0) = 1 - p = q \quad \sigma^2 = pq$
   + number of samples: $n=2$
     + samples: $x_1, x_2$
     + sample mean: $\overline{x} = \frac{x_1+ x_2}{2}$
@@ -615,7 +615,7 @@
       \end{align*}\]
 
 + Example: Bernoulli (alternative)
-  + r.v.'s: $B_p \;\; \Pr(1) = p \; \Pr(0) = 1 - p = q \quad \sigma^2 = E[(X - \mu)^2] = p(1-p) = pq$
+  + r.v.'s: $B_p \;\; P(1) = p \; P(0) = 1 - p = q \quad \sigma^2 = E[(X - \mu)^2] = p(1-p) = pq$
   + simplified calculation: $n = 2 \to X_1, X_2$
 
   \[\begin{align*}
@@ -901,7 +901,7 @@
 
     \[\begin{align*}
       E\left[ \widehat{\sigma}\left(X_1, X_2\right) \right] &= \sum_{x_1, x_2} p(x_1, x_2) \widehat{\sigma}(x_1, x_2) \\
-      &= \Pr(0, 0)\widehat{\sigma}(0, 0) + \Pr(0, 1)\widehat{\sigma}(0, 1) + \Pr(1, 0)\widehat{\sigma}(1, 0) + \Pr(1, 1)\widehat{\sigma}(1, 1)\\
+      &= P(0, 0)\widehat{\sigma}(0, 0) + P(0, 1)\widehat{\sigma}(0, 1) + P(1, 0)\widehat{\sigma}(1, 0) + P(1, 1)\widehat{\sigma}(1, 1)\\
       &= (1-p)^2\widehat{\sigma}(0,0) + (1-p)p\widehat{\sigma}(0, 1) + p(1-p)\widehat{\sigma}(1, 0) + p^2\widehat{\sigma}(1, 1)
     \end{align*}\]
 
@@ -990,10 +990,10 @@
   + point prediction
     + $Z = 0$: highest probability, unbiased
     + precise
-    + wrong: $\Pr(Z=0) = 0$
+    + wrong: $P(Z=0) = 0$
   + interval
 
-    \[ -a \le Z \le a \quad \Pr(-a \le Z \le a) > 0 \to \Pr(-a \le Z \le a) = ? \]
+    \[ -a \le Z \le a \quad P(-a \le Z \le a) > 0 \to P(-a \le Z \le a) = ? \]
 
 + Interval probability
   + r.v.: $Z \sim N(0, 1)$
@@ -1025,7 +1025,7 @@
 
 + 68-95-99.7 rule
 
-  \[ \Pr(-a \le Z \le a) = 2 \Phi(a) -1 \]
+  \[ P(-a \le Z \le a) = 2 \Phi(a) -1 \]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/yaofkz54" ismap target="_blank">
@@ -1033,15 +1033,15 @@
     </a>
   </div>
 
-  + $a = 1$: $\Pr(-1 \le Z \le 1) = 2 \cdot 0.8413 - 1 = 0.682$
-  + $a = 2$: $\Pr(-2 \le Z \le 2) = 2 \cdot 0.9772 - 1 = 0.9544$
-  + $a = 3$: $\Pr(-3 \le Z \le 3) = 2 \cdot 0.9987 - 1 = 0.9974$
+  + $a = 1$: $P(-1 \le Z \le 1) = 2 \cdot 0.8413 - 1 = 0.682$
+  + $a = 2$: $P(-2 \le Z \le 2) = 2 \cdot 0.9772 - 1 = 0.9544$
+  + $a = 3$: $P(-3 \le Z \le 3) = 2 \cdot 0.9987 - 1 = 0.9974$
 
 + Intervals $\to$ Probability
   + $p$: given desired probability
-  + finding $a$ s.t. $\Pr(-a \le Z \le a) = p$
+  + finding $a$ s.t. $P(-a \le Z \le a) = p$
   
-    \[ p = \Pr(-a \le Z \le a) = 2\Phi(a) -1 \to \Phi(a) = \frac{1+p}{2} \implies a = \Phi^{-1}\left(\frac{1+p}{2}\right) \]
+    \[ p = P(-a \le Z \le a) = 2\Phi(a) -1 \to \Phi(a) = \frac{1+p}{2} \implies a = \Phi^{-1}\left(\frac{1+p}{2}\right) \]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/yb3dyuhl" ismap target="_blank">
@@ -1066,8 +1066,8 @@
 
       \[ a = \Phi^{-1}\left(\frac{1+p}{2}\right) = \Phi^{-1}(0.975) \approx 1.96 \]
 
-    + verification: $\Pr(-1.96 \le Z \le 1.96) \approx 0.95$
-    + 68-97.5-99 rule: $\Pr(-2 \le Z \le 2) \approx 0.95$<br/><br/>
+    + verification: $P(-1.96 \le Z \le 1.96) \approx 0.95$
+    + 68-97.5-99 rule: $P(-2 \le Z \le 2) \approx 0.95$<br/><br/>
 
     <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
       <thead>
@@ -1095,8 +1095,8 @@
   + standard normal distribution: $Z \stackrel{\text{def}}{=} \frac{X - \mu}{\sigma} \;\;\sim N_{0, 1}$
 
     \[\begin{align*}
-      \Pr(\underbrace{\mu - a\sigma \le X \le \mu+a\sigma}_{\substack{X \text{ within "a" stdev}\\\text{from its mean}}}) &= \Pr(-a\sigma \le X - \mu \le a \sigma) = \Pr\left(-a \le \frac{X - \mu}{\sigma} \le a\right) \\
-      &= \Pr(\underbrace{-a \le Z \le a}_{\substack{Z \text{ within "a" stdev}\\\text{from its mean}}})
+      P(\underbrace{\mu - a\sigma \le X \le \mu+a\sigma}_{\substack{X \text{ within "a" stdev}\\\text{from its mean}}}) &= P(-a\sigma \le X - \mu \le a \sigma) = P\left(-a \le \frac{X - \mu}{\sigma} \le a\right) \\
+      &= P(\underbrace{-a \le Z \le a}_{\substack{Z \text{ within "a" stdev}\\\text{from its mean}}})
     \end{align*}\]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -1109,7 +1109,7 @@
     + r.v.: $X \sim N(1, 4) \quad p = 0.95$
     + parameters: $\mu = 1 \quad \sigma = 2$
 
-      \[ 0.95 \approx \Pr(-1.96 \le Z \le 1.96) = \Pr(\mu - 1.96 \sigma \le X \le \mu + 1.96 \sigma) = \Pr(-2.92 \le X \le 4.96) \]
+      \[ 0.95 \approx P(-1.96 \le Z \le 1.96) = P(\mu - 1.96 \sigma \le X \le \mu + 1.96 \sigma) = P(-2.92 \le X \le 4.96) \]
 
 
 + Confidence intervals
@@ -1248,7 +1248,7 @@
 
   Ans: ad<br/>
   Explanation: 
-  + As $\Pr(−a \le Z \le a)= \text{confidence level}$, when confidence level increase, the the length of the interval $(−a,a)$ will increase.
+  + As $P(−a \le Z \le a)= \text{confidence level}$, when confidence level increase, the the length of the interval $(−a,a)$ will increase.
   + When sample size decreases, the variance increases, and probability under the original interval decreases. Since the confidence level is not changed, the length of the confidence interval will increase.
 
 
@@ -1280,7 +1280,7 @@
   + r.v. w/ standard normal: $Z \sim N(0, 1)$
 
     \[\begin{align*}
-      p &= \Pr(|Z| \le z_p) = \Pr(-z_p \le Z \le z_p) \\
+      p &= P(|Z| \le z_p) = P(-z_p \le Z \le z_p) \\
       &= \Phi(z_p) - \Phi(-z+p) = \Phi(z_p) - (1- \Phi(z_p)) = 2 \Phi(z_p) -1
     \end{align*}\]
 
@@ -1290,7 +1290,7 @@
 
   + example
 
-    \[ z_{0.9} = \Phi^{-1}\left(\frac{1+0.9}{2} \right) = \Phi^{-1}(0.95) = 1.645 \to \Pr(|Z| \le 1.645) = 0.9  \]
+    \[ z_{0.9} = \Phi^{-1}\left(\frac{1+0.9}{2} \right) = \Phi^{-1}(0.95) = 1.645 \to P(|Z| \le 1.645) = 0.9  \]
 
 + Sample mean $\mathrel{\dot\sim}$ Normal
   + r.v.'s: $X_1, X_2, \dots, X_n$ iid w/ known $\sigma$ and unknown $\mu$
@@ -1301,10 +1301,10 @@
     \[ \frac{\overbrace{\overline{X} - \mu}^{\text{mean } 0}}{\underbrace{\sigma_{\overline{X}}}_{\text{stdev } 1}} = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \quad\underbrace{\mathrel{\dot\sim}}_{\text{CLT}}\quad N(0, 1) \]
 
 + Confidence interval
-  + standard normal: $Z \sim N(0, 1) \quad \Pr(|Z| \le z_p) = p$
+  + standard normal: $Z \sim N(0, 1) \quad P(|Z| \le z_p) = p$
   + normalized standard normal: $\frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \mathrel{\dot\sim} N(0, 1)$
 
-    \[ \Pr\left( \left|\frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \right| \le z_p \right) \approx p \implies \Pr\left( |\overline{X} - \mu | \le z_p \frac{\sigma}{\sqrt{n}} \right) \approx p \]
+    \[ P\left( \left|\frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \right| \le z_p \right) \approx p \implies P\left( |\overline{X} - \mu | \le z_p \frac{\sigma}{\sqrt{n}} \right) \approx p \]
 
   + with probability $\approx p$
 
@@ -1389,9 +1389,9 @@
 
 + Confidence interval for t distribution
   + $T_\nu$: student's t-distribution, $\nu$ degrees of freedom
-  + t-statistic (critical value $t_{p, \nu}): \Pr(|T_\nu| \le t_{p, \nu}) = p$
+  + t-statistic (critical value $t_{p, \nu}): P(|T_\nu| \le t_{p, \nu}) = p$
   
-    \[ p = \Pr(|T_\nu| \le t_{p, \nu}) = \Pr(-t_{p, \nu} \le T_\nu \le t_{p, \nu}) = 2 F(T_{p, \nu}) - 1 \]
+    \[ p = P(|T_\nu| \le t_{p, \nu}) = P(-t_{p, \nu} \le T_\nu \le t_{p, \nu}) = 2 F(T_{p, \nu}) - 1 \]
 
   + CDF of $T_\nu$: $F(t_{p, \nu}) = \frac{1+p}{2}$
   + critical value: $t_{p, \nu} = F^{-1} \left(\frac{1+p}{2}\right)$
@@ -1413,7 +1413,7 @@
   + t-distribution, $\nu$ degrees of freedom
   + t-statistic: $\frac{\overline{X} - \mu}{s/\sqrt{n}} \sim f_{n-1}(t)$
 
-    \[ \Pr\left(\left|\frac{\overline{X} - \mu}{s/\sqrt{n}} \right| \le t_{p, n-1}\right) = p \implies \Pr\left(\left|\overline{X} - \mu\right| \le t_{p, n-1} \frac{s}{\sqrt{n}}\right) = p \]
+    \[ P\left(\left|\frac{\overline{X} - \mu}{s/\sqrt{n}} \right| \le t_{p, n-1}\right) = p \implies P\left(\left|\overline{X} - \mu\right| \le t_{p, n-1} \frac{s}{\sqrt{n}}\right) = p \]
 
   + w/ probability $p$
 

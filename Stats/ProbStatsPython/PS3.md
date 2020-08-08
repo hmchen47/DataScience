@@ -13,8 +13,8 @@
 
 1. \(F\) is the cumulative distribution function for a continuous random variable. If \(F(b) - F(a) = 0.20\), then<br/>
   a. \([a,b]\) has length \(0.20\)<br/>
-  b. \(\Pr(X = b) - \Pr(X = a) = 20\%\)<br/>
-  c. \(\Pr(X\in(a,b])=20\%\)<br/>
+  b. \(P(X = b) - P(X = a) = 20\%\)<br/>
+  c. \(P(X\in(a,b])=20\%\)<br/>
   
   Ans: 
 
@@ -50,7 +50,7 @@
   Ans: 
 
 
-1. Let $(X,Y)$ be distributed over $[0,1]×[0,1]$ according to $f(x,y)=6xy^2$. Find $\Pr(XY^3 \le 1/2)$.
+1. Let $(X,Y)$ be distributed over $[0,1]×[0,1]$ according to $f(x,y)=6xy^2$. Find $P(XY^3 \le 1/2)$.
 
   Ans: 
 
@@ -62,7 +62,7 @@
   and $Y=X^2$. Calculate
 
   a. $C$<br/>
-  b. $\Pr(X≥0)$<br/>
+  b. $P(X≥0)$<br/>
   c. $E[Y]$<br/>
   d. $Var(Y)$<br/>
 
@@ -70,7 +70,7 @@
   
 
 
-3. Let $X$ be distributed according to $f(x)=ce^{−2x}$ over $x>0$. Find $\Pr(X>2)$.
+3. Let $X$ be distributed according to $f(x)=ce^{−2x}$ over $x>0$. Find $P(X>2)$.
 
   Ans: 
 
@@ -101,7 +101,7 @@
   
 
 
-3. Let $X,Y \sim U_{[0,1]}$ independently. Find $\Pr(\max(X,Y) \ge 0.8 \mid \min(X,Y)=0.5)$.
+3. Let $X,Y \sim U_{[0,1]}$ independently. Find $P(\max(X,Y) \ge 0.8 \mid \min(X,Y)=0.5)$.
 
   Ans: 
   
@@ -139,7 +139,7 @@
 
   Ans: 
 
-3. Let $X,Y$ be two independent exponential random variables with means $1$ and $3$, respectively. Find $\Pr(X>Y)$.
+3. Let $X,Y$ be two independent exponential random variables with means $1$ and $3$, respectively. Find $P(X>Y)$.
 
   Ans: 
 
@@ -216,7 +216,7 @@
 
 
 1. If $X$ is a normal random variable with $\mu=−2$ and $\sigma=3$, and has probability density function and cumulative density function $f_X(x)$, $F_X(x)$, calculate<br/>
-  a. $\Pr(−3 < X < 0)$<br/>
+  a. $P(−3 < X < 0)$<br/>
   b. $F(1/4)$<br/>
   c. $F^{−1}(1/4)$<br/>
 
@@ -224,13 +224,13 @@
   
 
 
-2. Suppose $X,Y$ are independent and $X \sim N(1,4)$ and $Y \sim N(1,9)$. If $\Pr(2X+Y \le a)$ $=\Pr(4X−2Y \ge 4a)$, then find $a$.
+2. Suppose $X,Y$ are independent and $X \sim N(1,4)$ and $Y \sim N(1,9)$. If $P(2X+Y \le a)$ $=P(4X−2Y \ge 4a)$, then find $a$.
 
   And: 
   
 
 
-3. Let $X \sim B_{.36,1600}$. Approximate $\Pr(552 \le X \le 600)$.
+3. Let $X \sim B_{.36,1600}$. Approximate $P(552 \le X \le 600)$.
 
   Ans: 
   
@@ -259,7 +259,7 @@
   Ans: 
 
 
-1. Apply Chebyshev's Inequality to lower bound $\Pr(0 < X < 4)$ when $E[X]=2$ and $E[X^2]=5$.
+1. Apply Chebyshev's Inequality to lower bound $P(0 < X < 4)$ when $E[X]=2$ and $E[X^2]=5$.
 
   Ans: 
 
@@ -273,7 +273,7 @@
   Ans: 
 
 
-3. Let $X\sim \text{Exponential}(1)$. For $\Pr(X \ge 4)$, evaluate:<br/>
+3. Let $X\sim \text{Exponential}(1)$. For $P(X \ge 4)$, evaluate:<br/>
   a. Markov's inequality,<br/>
   b. Chebyshev's inequality,<br/>
   c. the exact value.<br/>
@@ -289,7 +289,7 @@
   Ans: 
 
 
-5. If $E[X]=15$, $\Pr(X \le 11)=0.2$, and $\Pr(X \ge 19)=0.3$, which of the following is _impossible_?<br/>
+5. If $E[X]=15$, $P(X \le 11)=0.2$, and $P(X \ge 19)=0.3$, which of the following is _impossible_?<br/>
   a. $Var(X) \le 7$<br/>
   b. $Var(X) \le 8$<br/>
   c. $Var(X) > 8$<br/>
@@ -337,7 +337,7 @@
   Ans: 
 
 
-5. a. Flip a fair coin $n$ times and let $X_n$ be the number of heads. Is it true that $\Pr(|X_n − \frac n 2|>1000)<0.99$? (True/False)
+5. a. Flip a fair coin $n$ times and let $X_n$ be the number of heads. Is it true that $P(|X_n − \frac n 2|>1000)<0.99$? (True/False)
 
    b. Does the result above contradict with the WLLW? (Yes/No)
 
@@ -394,7 +394,7 @@
   
 
 
-5. Let $X$ be a random variable with MGF $M_X(t)=\frac13 e^{−t}+\frac16+\frac12 e^{2t}$. What is $\Pr(X \le 1)$?
+5. Let $X$ be a random variable with MGF $M_X(t)=\frac13 e^{−t}+\frac16+\frac12 e^{2t}$. What is $P(X \le 1)$?
 
   Ans: 
   
@@ -410,7 +410,7 @@
 
 
 7. a. If $M_X(t)=e^{−5(1−e^t)}$, find $Var(X)$.<br/>
-   b. $\Pr(X = 3)$<br/>
+   b. $P(X = 3)$<br/>
 
   Ans: 
   
@@ -458,7 +458,7 @@
 
   Define $Y_n=\frac{1}{\sqrt{n}}\sum_{i=1}^n (X_i-2)$
 
-  Approximate $\Pr(−1 \le Y_n \le 2)$  with large enough $n$.
+  Approximate $P(−1 \le Y_n \le 2)$  with large enough $n$.
 
   Ans: 
 

@@ -44,16 +44,16 @@
   </table>
 
 + Event probability
-  + discrete: $\Pr(A) = \sum_{x\in A} p(x)$
-  + continuous: $\Pr(A) = \int_{x \in A} f(x) dx$
-  + typically interested in interval probability: $\Pr(a \le X \le b)$
+  + discrete: $P(A) = \sum_{x\in A} p(x)$
+  + continuous: $P(A) = \int_{x \in A} f(x) dx$
+  + typically interested in interval probability: $P(a \le X \le b)$
   + AuC (area under curve) btw a and b
-  + cumulative distribution function: $\Pr(X \le b) - \Pr(X \le a)$
+  + cumulative distribution function: $P(X \le b) - P(X \le a)$
 
 + Cumulative distribution function (CDF)
 
   <table style="font-family: arial,helvetica,sans-serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-    <caption style="font-size: 1.0em; margin: 0.2em;">$F(X) \triangleq \Pr(X \le x)$</caption>
+    <caption style="font-size: 1.0em; margin: 0.2em;">$F(X) \triangleq P(X \le x)$</caption>
     <thead>
     <tr style="font-size: 1.2em;">
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;"></th>
@@ -141,18 +141,18 @@
 
 + Interval probability
 
-  \[ \Pr(a, b) = \Pr([a, b)) = \Pr((a, b]) = F(b) - F(a) \]
+  \[ P(a, b) = P([a, b)) = P((a, b]) = F(b) - F(a) \]
 
   + examples
     + uniform: $0 \le a \le b \le 1$
 
-      \[ \Pr(a \le X \le b) = \begin{cases} \text{AuC } = (b-a) \cdot 1 = b-a \\ \int_a^b f(x)\,dx = \int_a^b 1\,dx = \left. x \right|_a^b = b-a \\ F(b) - F(a) = b-a \end{cases} \]
+      \[ P(a \le X \le b) = \begin{cases} \text{AuC } = (b-a) \cdot 1 = b-a \\ \int_a^b f(x)\,dx = \int_a^b 1\,dx = \left. x \right|_a^b = b-a \\ F(b) - F(a) = b-a \end{cases} \]
 
-      + $\Pr(0.6 \le X \le 1.3) = \Pr(0.6 \le X \le 1) = 0.4$
-      + $\Pr(0.6 \le X \le 1.3) = F(1.3) - F(0.6) = 1 - 0.6 = 0.4$
+      + $P(0.6 \le X \le 1.3) = P(0.6 \le X \le 1) = 0.4$
+      + $P(0.6 \le X \le 1.3) = F(1.3) - F(0.6) = 1 - 0.6 = 0.4$
     + power law: $1 \le a \le b$
 
-      \[ \Pr(a \le X \le b) = F(b) - F(a) = (1 - \frac 1 b) - (1 - \frac 1 a) = \frac1 a  - \frac 1 b \]
+      \[ P(a \le X \le b) = F(b) - F(a) = (1 - \frac 1 b) - (1 - \frac 1 a) = \frac1 a  - \frac 1 b \]
 
 + Differences between discrete and continuous
 
@@ -166,9 +166,9 @@
     <tbody>
     <tr> <td style="text-align: center;">$p(x) \le 1$</td> <td style="text-align: center;">$f(x)$ can be $> 1$</td> </tr>
     <tr> <td style="text-align: center;">Generally $p(x) \neq 0$</td> <td style="text-align: center;">$p(x) = 0$</td> </tr>
-    <tr> <td rowspan="3" style="text-align: center;">Generally $\Pr(X \le a) \neq \Pr(X < a)$</td> <td style="text-align: center;">$\Pr(X \le a) = \Pr(X < a) = F(a)$</td> </tr>
-    <tr> <td style="text-align: center;">$\Pr(X \ge a) = \Pr(X > a) = 1 -F(a)$</td></tr>
-    <tr> <td style="text-align: center;">$\Pr(a \le X \le b) = \Pr(a < X < b) = F(b) - F(a)$</td> </tr>
+    <tr> <td rowspan="3" style="text-align: center;">Generally $P(X \le a) \neq P(X < a)$</td> <td style="text-align: center;">$P(X \le a) = P(X < a) = F(a)$</td> </tr>
+    <tr> <td style="text-align: center;">$P(X \ge a) = P(X > a) = 1 -F(a)$</td></tr>
+    <tr> <td style="text-align: center;">$P(a \le X \le b) = P(a < X < b) = F(b) - F(a)$</td> </tr>
     </tbody>
   </table>
 
@@ -231,7 +231,7 @@
     <tr> <th>Prob. Fun.</th> <td style="text-align: center;">pmf: p</td> <td style="text-align: center;">PDF: f</td> </tr>
     <tr> <th>$\ge 0$</th> <td style="text-align: center;">$p(x) \ge 0$</td> <td style="text-align: center;">$f(x) \ge 0$</td> </tr>
     <tr> <th>unitary</th> <td style="text-align: center;">$\sum p(x) = 1$</td> <td style="text-align: center;">$\int f(x)\,dx = 1$</td> </tr>
-    <tr> <th>$\Pr(A)$</th> <td style="text-align: center;">$\sum_{x \in A} p(x)$</td> <td style="text-align: center;">$\int_{x \in A} f(x)\,dx$</td> </tr>
+    <tr> <th>$P(A)$</th> <td style="text-align: center;">$\sum_{x \in A} p(x)$</td> <td style="text-align: center;">$\int_{x \in A} f(x)\,dx$</td> </tr>
     <tr> <th>$F(X)$</th> <td style="text-align: center;">$\sum_{u \le x} p(u)$</td> <td style="text-align: center;">$\int_{-\infty}^x f(u)\, dx$</td> </tr>
     <tr> <th>$\mu = E[X]$</th> <td style="text-align: center;">$\sum x p(x)$</td> <td style="text-align: center;">$\int xf(x)\, dx$</td> </tr>
     <tr> <th>$Var(X)$</th> <td style="text-align: center;">$\sum (x-\mu)^2 p(x)$</td> <td style="text-align: center;">$\int (x-\mu)^2 f(x)\,dx$</td> </tr>
@@ -256,11 +256,11 @@
 
 1. \(F\) is the cumulative distribution function for a continuous random variable. If \(F(b) - F(a) = 0.20\), then<br/>
   a. \([a,b]\) has length \(0.20\)<br/>
-  b. \(\Pr(X = b) - \Pr(X = a) = 20\%\)<br/>
-  c. \(\Pr(X\in(a,b])=20\%\)<br/>
+  b. \(P(X = b) - P(X = a) = 20\%\)<br/>
+  c. \(P(X\in(a,b])=20\%\)<br/>
   
   Ans: c<br/>
-  Explanation: Recall that $F(b)=\Pr(X \le b)$, $F(a)=\Pr(X \le a)$. Hence $\Pr(a < X \le b)=F(b)−F(a)=0.2$.
+  Explanation: Recall that $F(b)=P(X \le b)$, $F(a)=P(X \le a)$. Hence $P(a < X \le b)=F(b)−F(a)=0.2$.
 
 
 2. Which of the following holds for all continuous probability distribution function \(f(x)\) having support set \(\mathbb{R}\)?<br/>
@@ -328,7 +328,7 @@
     + $g \nearrow \to Y = g(X) \triangleq X^{\frac32}$
       + $0 \le x \le 1 \to 0 \le y \le 1$
 
-        \[ F_Y(y) = \Pr(Y \le y) = \Pr(X^{\frac32} \le y) = \Pr(X \le y^{\frac23}) = F_X(y^{\frac23}) = y^2 \]
+        \[ F_Y(y) = P(Y \le y) = P(X^{\frac32} \le y) = P(X \le y^{\frac23}) = F_X(y^{\frac23}) = y^2 \]
 
       + $F_Y(0) = 0 \quad F_Y(1) = 1$
       + $f_Y(y) = F_Y^\prime(y) = 2y$
@@ -336,8 +336,8 @@
       + $0 \le x \le 1 \to y \ge 1$
 
         \[\begin{align*}
-          F_Y(y) &= \Pr(X \le y) = \Pr(X^{-3} \le y) = \Pr(X \ge y^{\frac{-1}{3}}) \\
-          &= 1 - \Pr(X \le y^{\frac{-1}{3}}) = 1 - F_X(y^{\frac{-1}{3}}) = 1 - y^{-1} 
+          F_Y(y) &= P(X \le y) = P(X^{-3} \le y) = P(X \ge y^{\frac{-1}{3}}) \\
+          &= 1 - P(X \le y^{\frac{-1}{3}}) = 1 - F_X(y^{\frac{-1}{3}}) = 1 - y^{-1} 
         \end{align*}\]
 
       + $F_Y(1) = 0 \quad F_Y(\infty) = 1$
@@ -348,8 +348,8 @@
     + $F_Y \to F_X$
 
       \[\begin{align*}
-        F_Y (y) &\triangleq \Pr(Y \le y) = \Pr(g(X) \le y) \\
-        &= \Pr(X \le^{-1}(y)) = F_X(g^{-1}(y)) \hspace{2em} (h(y) \triangleq g^{-1}(y)) \\
+        F_Y (y) &\triangleq P(Y \le y) = P(g(X) \le y) \\
+        &= P(X \le^{-1}(y)) = F_X(g^{-1}(y)) \hspace{2em} (h(y) \triangleq g^{-1}(y)) \\
         &= F_X(h(y))
       \end{align*}\]
 
@@ -361,15 +361,15 @@
       \end{align*}\]
 
     + example: $f_X(x) = 3x^2 \quad F_X(x) = x^3 \quad g(x) = x^{\frac32} \quad h(y) = y^{\frac23} \quad f_Y(y) = 2y$
-      + $F_Y(y) = \Pr(Y \le y) = \Pr(X^{\frac32} \le y) = \Pr(X \le y^{\frac23}) = F_X(y^{\frac23})$
+      + $F_Y(y) = P(Y \le y) = P(X^{\frac32} \le y) = P(X \le y^{\frac23}) = F_X(y^{\frac23})$
       + $f_Y(y) = F^\prime(y) = [(y^{\frac23})]^\prime = 3(y^{\frac23})^2 \cdot \frac23 y^{-\frac13} = 2y$
 
   + $Y = g(X)$ w/ $g \searrow$
     + $F_Y \to F_X$
 
       \[\begin{align*}
-        F_Y(y) &\triangleq \Pr(g(X) \le y) = \Pr(X \ge g^{-1}(y)) \\
-        &= 1 - \Pr(X \le g^{-1}(y)) = 1 - F_X(g^{-1}(y)) \\
+        F_Y(y) &\triangleq P(g(X) \le y) = P(X \ge g^{-1}(y)) \\
+        &= 1 - P(X \le g^{-1}(y)) = 1 - F_X(g^{-1}(y)) \\
         &= 1 - F_X(h(y))
       \end{align*}\]
 
@@ -404,10 +404,10 @@
   Explanation: A step function will make g(X) discrete, as it will take only the y-values that correspond to the steps.
 
 
-1. Let $(X,Y)$ be distributed over $[0,1]×[0,1]$ according to $f(x,y)=6xy^2$. Find $\Pr(XY^3 \le 1/2)$.
+1. Let $(X,Y)$ be distributed over $[0,1]×[0,1]$ according to $f(x,y)=6xy^2$. Find $P(XY^3 \le 1/2)$.
 
   Ans: 3/4<br/>
-  Explanation: Let $Z=XY^3$. For any $z \in (0, 1)$, $Z=XY^3 \le z \iff Y \le \min{(z/X)^{1/3}, 1}$. Therefore $\Pr(Z\le z)=$ $\Pr(XY^3\le z)=$ $\int_0^z\int_0^1f(x,y)dydx+\int_z^1\int_0^{(z/x)^{1/3}}f(x,y)dydx=$ $\int_0^z\int_0^1 6xy^2dydx+\int_z^1\int_0^{(z/x)^{1/3}}6xy^2 dydx=$ $z^2+2z(1-z)$. Plugging in $z=1/2$ gives the answer. [StackExchange](https://tinyurl.com/y8e48pv6)
+  Explanation: Let $Z=XY^3$. For any $z \in (0, 1)$, $Z=XY^3 \le z \iff Y \le \min{(z/X)^{1/3}, 1}$. Therefore $P(Z\le z)=$ $P(XY^3\le z)=$ $\int_0^z\int_0^1f(x,y)dydx+\int_z^1\int_0^{(z/x)^{1/3}}f(x,y)dydx=$ $\int_0^z\int_0^1 6xy^2dydx+\int_z^1\int_0^{(z/x)^{1/3}}6xy^2 dydx=$ $z^2+2z(1-z)$. Plugging in $z=1/2$ gives the answer. [StackExchange](https://tinyurl.com/y8e48pv6)
 
 
 2. A random variable  X  follows the distribution
@@ -417,22 +417,22 @@
   and $Y=X^2$. Calculate
 
   a. $C$<br/>
-  b. $\Pr(X≥0)$<br/>
+  b. $P(X≥0)$<br/>
   c. $E[Y]$<br/>
   d. $Var(Y)$<br/>
 
   Ans: a. (1/3); b. (8/9); c. ($\frac{43}{7} - (\frac{11}{5})^2$)<br/>
   Explanation:
     + Since $1=\int_{-1}^2f_X(x)dx=\int_{-1}^2Cx^2dx=3C$, we must have $C=1/3$
-    + $\Pr(X\ge 0)=\int_{0}^2f_X(x)dx=\int_{0}^2\frac13x^2dx=\frac19\cdot\left.x^3\right|^2_0=\frac89$
+    + $P(X\ge 0)=\int_{0}^2f_X(x)dx=\int_{0}^2\frac13x^2dx=\frac19\cdot\left.x^3\right|^2_0=\frac89$
     + $E(Y)=E(X^2)=\int_{-1}^2 x^2 f_X(x)dx=\int_{-1}^2\frac13\cdot x^4dx=33/15=11/5$
     + First, $E(Y^2)=E(X^4)=\int_{-1}^2 x^4 f_X(x)dx=\int_{-1}^2\frac13\cdot x^6dx=\frac{129}{21}$. Hence, $V(Y)=E(Y^2)-E(Y)^2=$ $\frac{129}{21}-\left(\frac{11}5\right)^2=\frac{228}{175}$
     + [Example 3, Distributions of Functions of Random variables - Stat. Dept. UW](../../Notes/p04.5-FuncRV.md)
 
-3. Let $X$ be distributed according to $f(x)=ce^{−2x}$ over $x>0$. Find $\Pr(X>2)$.
+3. Let $X$ be distributed according to $f(x)=ce^{−2x}$ over $x>0$. Find $P(X>2)$.
 
   Ans: $e^{-4}$<br/>
-  Explanation: Since $\int_0^\infty f(x)dx=1$, we have $c=2$. $\Pr(X > 2) = \int_{2}^{\infty} f(x) dx = \int_{2}^{\infty} 2e^{-2x} dx = e^{-4}$
+  Explanation: Since $\int_0^\infty f(x)dx=1$, we have $c=2$. $P(X > 2) = \int_{2}^{\infty} f(x) dx = \int_{2}^{\infty} 2e^{-2x} dx = e^{-4}$
 
 
 ### Video Links
@@ -585,10 +585,10 @@
   Explanation: The expectation of a uniformly distributed random variable $X$ on $[a,b]$ is $E(X)=\frac{a+b}{2}$.  Its variance is $V(X) = \int_{a}^{b} (x - \frac{a + b}{2})^2 \frac{1}{b - a} dx = (b-a)^2/12$
 
 
-3. Let $X,Y \sim U_{[0,1]}$ independently. Find $\Pr(\max(X,Y) \ge 0.8 \mid \min(X,Y)=0.5)$.
+3. Let $X,Y \sim U_{[0,1]}$ independently. Find $P(\max(X,Y) \ge 0.8 \mid \min(X,Y)=0.5)$.
 
   Ans: <span style="color: magenta;">2/5</span><br/>
-  Explanation: Red area is the region that $\max(X,Y) \ge 0.8$. Blue line (both solid and dash) is the region that $\min(X,Y)=0.5$.  Blue dash line is the region that $\max(X,Y) \ge 0.8$ and $\min(X,Y)=0.5$.  Notice that $\Pr(\max(X,Y)\ge 0.8 \mid \min(X,Y)=0.5) = \frac{\Pr(\max(X,Y)\ge 0.8, \min(X,Y)=0.5)}{\Pr(\min(X,Y)=0.5)}$
+  Explanation: Red area is the region that $\max(X,Y) \ge 0.8$. Blue line (both solid and dash) is the region that $\min(X,Y)=0.5$.  Blue dash line is the region that $\max(X,Y) \ge 0.8$ and $\min(X,Y)=0.5$.  Notice that $P(\max(X,Y)\ge 0.8 \mid \min(X,Y)=0.5) = \frac{P(\max(X,Y)\ge 0.8, \min(X,Y)=0.5)}{P(\min(X,Y)=0.5)}$
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/ybblggz3" ismap target="_blank">
@@ -629,8 +629,8 @@
   + cdf:
 
     \[\begin{align*}
-      \Pr(X > x) &= \begin{cases} \int_x^\infty \lambda e^{-\lambda u}\,du = \left. -e^{-\lambda u} \right|_x^\infty = e^{-\lambda x} & x \ge 0 \\ 1 & x \le 0 \end{cases} \\\\
-      F(x) = \Pr(X \le x) &= \begin{cases} 1 - \Pr(X > x) = 1 - e^{-\lambda x} & x \ge 0 \\ 0 & x \le 0 \end{cases}
+      P(X > x) &= \begin{cases} \int_x^\infty \lambda e^{-\lambda u}\,du = \left. -e^{-\lambda u} \right|_x^\infty = e^{-\lambda x} & x \ge 0 \\ 1 & x \le 0 \end{cases} \\\\
+      F(x) = P(X \le x) &= \begin{cases} 1 - P(X > x) = 1 - e^{-\lambda x} & x \ge 0 \\ 0 & x \le 0 \end{cases}
     \end{align*}\]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -649,7 +649,7 @@
 + Example: $0 \le a \le b$
 
   \[\begin{align*}
-    \Pr(a \le X \le b) &= \Pr(a < X < b) = F(b) - F(a) \\
+    P(a \le X \le b) &= P(a < X < b) = F(b) - F(a) \\
     &= (1 - e^{-\lambda b}) - (1 - e^{-\lambda a}) = e^{-\lambda a} - e^{-\lambda b} 
   \end{align*}\]
 
@@ -687,14 +687,14 @@
   + Exponential distribution: $X \sim f_\lambda \quad a, b \ge 0$
 
     \[\begin{align*}
-      \Pr(X \ge a + b \mid X \ge a) &= \frac{\Pr(X \ge a +b, X \ge a)}{\Pr(X \ge a)}\\
-      &= \frac{\Pr(X \ge a+b)}{\Pr(X \ge a)} = \frac{e^{-\lambda (a+b)}}{e^{-\lambda a}} = e^{-\lambda b} \\
-      &= \Pr(X \ge b)
+      P(X \ge a + b \mid X \ge a) &= \frac{P(X \ge a +b, X \ge a)}{P(X \ge a)}\\
+      &= \frac{P(X \ge a+b)}{P(X \ge a)} = \frac{e^{-\lambda (a+b)}}{e^{-\lambda a}} = e^{-\lambda b} \\
+      &= P(X \ge b)
     \end{align*}\]
 
     \[\begin{align*}
-      \Pr(X < a + b \mid x \ge a) &= 1 - \Pr(X \ge a +b \mid X \ge a) = 1 -\Pr(X \ge b) \\
-      &= \Pr(X < b)
+      P(X < a + b \mid x \ge a) &= 1 - P(X \ge a +b \mid X \ge a) = 1 -P(X \ge b) \\
+      &= P(X < b)
     \end{align*}\]
 
   + pdf
@@ -707,19 +707,19 @@
   + while waiting, someone custs in front of you
   + at some point a clerk becomes available and starts serving the fist person
   + before 1st person finished, other clerk starts serving 2nd person
-  + if all 3 person served randomly, $\Pr(\text{you finish last}) = 1/3$
-  + $\Pr(\text{you finish last now})?$
+  + if all 3 person served randomly, $P(\text{you finish last}) = 1/3$
+  + $P(\text{you finish last now})?$
   + evaluation
     + A: time 1st person finished
     + B: time 2nd person finishes
     + C: time you finish
-    + Service: $\Pr(A < B < C)$
+    + Service: $P(A < B < C)$
       + fixed: 1
       + exponential: ?
 
     \[\begin{align*}
-      \Pr(A < B < C) &= \underbrace{\Pr(A < B)}_{\tfrac12} \cdot \underbrace{\Pr(B < C \mid A < B)}_{\tfrac12} = \frac14\\
-      \Pr(B < C < A) &= \overbrace{\Pr({B < A})}_{} \cdot \overbrace{\Pr(C < A \mid B < A)}_{} = \frac14
+      P(A < B < C) &= \underbrace{P(A < B)}_{\tfrac12} \cdot \underbrace{P(B < C \mid A < B)}_{\tfrac12} = \frac14\\
+      P(B < C < A) &= \overbrace{P({B < A})}_{} \cdot \overbrace{P(C < A \mid B < A)}_{} = \frac14
     \end{align*}\]
 
     <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
@@ -740,12 +740,12 @@
     </table>
 
   + conclusion
-    + all 3 of you served randomly, $\Pr(\text{you finish last}) = \frac13$
-    + fixed service time, $\Pr(\text{you finish last}) = 1$
+    + all 3 of you served randomly, $P(\text{you finish last}) = \frac13$
+    + fixed service time, $P(\text{you finish last}) = 1$
     + exponential (memoryless) service time
       + you won't finish first
       + all 4 others equally likely
-      + \$Pr(\text{you finish last}) = \Pr(A < B < C) + \Pr(B < A< C) = \frac14 + \frac14 = \frac12$
+      + \$Pr(\text{you finish last}) = P(A < B < C) + P(B < A< C) = \frac14 + \frac14 = \frac12$
       + only slightly larger than $\frac13$
 
 + Intervals, multiples of exponential in Python
@@ -811,20 +811,20 @@
 
   Ans: a. (e^{-1..5}); b. (1/e)<br/>
   Explanation:
-    + Let $X \sim Exponential(\lambda)$ denote the age of the battery. Since $1=E(X)=1/\lambda$, we have $\lambda=1$. Further, for an exponential distribution, the CDF is given by $F_X(x)=\Pr(X \le x)=1−e^{−λ \cdot x}, x \ge 0$. Thus $\Pr(X> 1.5)=1-\Pr(X\le 1.5)=1-F_X(1.5)=e^{-1.5}=0.22313$
-    + By the memoryless property of expoential distribution, $\Pr(X>1.5 \mid X>0.5)=\Pr(X>1)$. Following the same steps as the previous part above, $\Pr(X>1)=e^{-1}=0.367879$
+    + Let $X \sim Exponential(\lambda)$ denote the age of the battery. Since $1=E(X)=1/\lambda$, we have $\lambda=1$. Further, for an exponential distribution, the CDF is given by $F_X(x)=P(X \le x)=1−e^{−λ \cdot x}, x \ge 0$. Thus $P(X> 1.5)=1-P(X\le 1.5)=1-F_X(1.5)=e^{-1.5}=0.22313$
+    + By the memoryless property of expoential distribution, $P(X>1.5 \mid X>0.5)=P(X>1)$. Following the same steps as the previous part above, $P(X>1)=e^{-1}=0.367879$
 
 
-3. Let $X,Y$ be two independent exponential random variables with means $1$ and $3$, respectively. Find $\Pr(X>Y)$.
+3. Let $X,Y$ be two independent exponential random variables with means $1$ and $3$, respectively. Find $P(X>Y)$.
 
   Ans: <span style="color: magenta;">0.25</span><br/>
-  Explanation: From the description we have $f_X(x)=e^{−x}, f_Y(y)=\frac13 e^{\frac{−y}{3}}$.  Hence, $\Pr(Y \lt y) = F_Y(y)$ $= \int_{-\infty}^{y} f_Y(y^\prime) dy^\prime$ $= \int_{0}^{y} \frac{1}{3}e^{-\frac{y^\prime}{3}} dy\prime$ $= 1 - e^{\frac{y}{3}}$.  $\Pr(X>Y) = \int_{0}^{\infty} \int_{0}^{t} f_X(t) f_Y(y) dydt$ $=\int_{0}^{\infty}f_X(t)\Pr(Y \lt t)dt$ $= \int_{0}^{\infty}e^{-t}(1-e^{-t/3})dt$ $= \int_{0}^{\infty}e^{-t}-e^{-4t/3}dt=1/4$ [Stack Exchange](https://tinyurl.com/yarpua5l)
+  Explanation: From the description we have $f_X(x)=e^{−x}, f_Y(y)=\frac13 e^{\frac{−y}{3}}$.  Hence, $P(Y \lt y) = F_Y(y)$ $= \int_{-\infty}^{y} f_Y(y^\prime) dy^\prime$ $= \int_{0}^{y} \frac{1}{3}e^{-\frac{y^\prime}{3}} dy\prime$ $= 1 - e^{\frac{y}{3}}$.  $P(X>Y) = \int_{0}^{\infty} \int_{0}^{t} f_X(t) f_Y(y) dydt$ $=\int_{0}^{\infty}f_X(t)P(Y \lt t)dt$ $= \int_{0}^{\infty}e^{-t}(1-e^{-t/3})dt$ $= \int_{0}^{\infty}e^{-t}-e^{-4t/3}dt=1/4$ [Stack Exchange](https://tinyurl.com/yarpua5l)
 
 
 4. In order to attend an important $8$ A.M. lecture, you arrive at the shuttle stop at a time distributed uniformly between $7:20$ A.M. and $7:30$ A.M. The time between consecutive shuttle arrivals is known to be exponentially distributed with mean $15$ minutes. If the journey takes $30$ minutes, what is the probability that you arrive late to the lecture?
 
   Ans: <span style="color: magenta;">0.7298</span><br/>
-  Explanation: Let $Y$ be the time in minutes between $7:20$ A.M. and $7:30$ A.M. that you arrive at the shuttle stop. Let $Z$ be the time you have to wait until the next shuttle arrives. Then $Y \sim Unif(0,10)$ and by the memoryless property of the exponential, $Z \sim Exp(1/15)$. Note also that in this case $Y$ is independent of $Z$.  Now you arrive late to class iff $Y+Z>10$. Therefore the required probability is $\Pr(Y+Z > 10)$ $=\int_{0}^{10}f_Y(t)\Pr(Z> 10-t)dt$ $=\int_{0}^{10}1/10\cdot e^{-(10-t)/15}dt$ $=3/2\cdot (1-e^{-2/3})=0.730$ [HomeworkLib](https://tinyurl.com/ybthhuk4)
+  Explanation: Let $Y$ be the time in minutes between $7:20$ A.M. and $7:30$ A.M. that you arrive at the shuttle stop. Let $Z$ be the time you have to wait until the next shuttle arrives. Then $Y \sim Unif(0,10)$ and by the memoryless property of the exponential, $Z \sim Exp(1/15)$. Note also that in this case $Y$ is independent of $Z$.  Now you arrive late to class iff $Y+Z>10$. Therefore the required probability is $P(Y+Z > 10)$ $=\int_{0}^{10}f_Y(t)P(Z> 10-t)dt$ $=\int_{0}^{10}1/10\cdot e^{-(10-t)/15}dt$ $=3/2\cdot (1-e^{-2/3})=0.730$ [HomeworkLib](https://tinyurl.com/ybthhuk4)
 
 
 ### Video Links
@@ -1007,14 +1007,14 @@
   + distribution: $X \sim N(0, 1)$
 
     \[\begin{align*}
-      \Pr(X \le a) &= \Phi(a) \\
-      \Pr(X \ge a) &= 1 - \Phi(a) \\
-      \Pr(a \le X \le b) &= \Phi(b) - \Phi(a)
+      P(X \le a) &= \Phi(a) \\
+      P(X \ge a) &= 1 - \Phi(a) \\
+      P(a \le X \le b) &= \Phi(b) - \Phi(a)
     \end{align*}\]
 
   + negative values
     + $a > 0$
-    + $\Phi(-a) = \Pr(X \le -a) = \Pr(X \ge a) = 1 - \Pr(X \le a) = 1 - \Phi(a)$
+    + $\Phi(-a) = P(X \le -a) = P(X \ge a) = 1 - P(X \le a) = 1 - \Phi(a)$
 
       <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
         <a href="https://tinyurl.com/yaef2n9n" ismap target="_blank">
@@ -1022,29 +1022,29 @@
         </a>
       </div>
 
-    + $\Pr(x \le -a) = \Phi(-a) = 1 - \Phi(a)$
-    + $\Pr(X \ge -a) = 1 - \Phi(-a) = \Phi(a)$
-    + $\Pr(-a \le X \le b) = \Phi(b) - \Phi(-a) = \Phi(b) - (1 - \Phi(a)) = \Phi(a) + \Phi(b) - 1$
+    + $P(x \le -a) = \Phi(-a) = 1 - \Phi(a)$
+    + $P(X \ge -a) = 1 - \Phi(-a) = \Phi(a)$
+    + $P(-a \le X \le b) = \Phi(b) - \Phi(-a) = \Phi(b) - (1 - \Phi(a)) = \Phi(a) + \Phi(b) - 1$
 
 + General normal distribution
   + distribution: $X \sim N(\mu, \sigma^2)$
-  + $\Pr(a \le X \le b) = \Pr\left( \frac{a - \mu}{\sigma} \le \frac{X - \mu}{\sigma} \le \frac{b - \mu}{\sigma} \right) = \Pr\left.(\frac{a - \mu}{\sigma} \le Z \le \frac{b - \mu}{\sigma}\right)$
+  + $P(a \le X \le b) = P\left( \frac{a - \mu}{\sigma} \le \frac{X - \mu}{\sigma} \le \frac{b - \mu}{\sigma} \right) = P\left.(\frac{a - \mu}{\sigma} \le Z \le \frac{b - \mu}{\sigma}\right)$
   + standardized version of $X$ = Z score: $Z = \frac{X- \mu}{\sigma} \sim N(0, 1)$
   + example:
     + $X \sim N(15, 4) \quad \mu = 15 \quad \sigma=2$
     + Z score: $Z = \frac{X - 15}{2}$
 
     \[\begin{align*}
-      \Pr(11 \le X \le 17) &= \Pr(\frac{11-15}{2} \le Z \le \frac{17-15}{2}) \\
-      &= \Pr(-2 \le Z \le 1) = \Phi(1) + \Phi(2) - 1 \\
+      P(11 \le X \le 17) &= P(\frac{11-15}{2} \le Z \le \frac{17-15}{2}) \\
+      &= P(-2 \le Z \le 1) = \Phi(1) + \Phi(2) - 1 \\
       &\approx 0.8413 + 0.9772 - 1 = 0.8185
     \end{align*}\]
 
 + Probability and standard deviation
-  + $\Pr(|X - \mu| \le \sigma)?$
+  + $P(|X - \mu| \le \sigma)?$
   + standard normal: $f(x) = \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{x^2}{2}\right)$
   + area of th house: $ab + \frac{a(c-b)}{2} = \frac{ab + ac}{2}$
-  + $0.48 \approx \sqrt{\frac{2}{\pi e}} \le \Pr(|X - \mu| \le \sigma) \le \sqrt{\frac{2}{\pi}} \approx 0.8 \implies \frac{\sqrt{\frac{2}{\pi e}} + \sqrt{\frac{2}{\pi}}}{2} \approx 0.64$
+  + $0.48 \approx \sqrt{\frac{2}{\pi e}} \le P(|X - \mu| \le \sigma) \le \sqrt{\frac{2}{\pi}} \approx 0.8 \implies \frac{\sqrt{\frac{2}{\pi e}} + \sqrt{\frac{2}{\pi}}}{2} \approx 0.64$
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/yaef2n9n" ismap target="_blank">
@@ -1056,13 +1056,13 @@
 
 + 68 - 95 - 99.7 Rule
 
-  \[ \Pr(\mu - \alpha \sigma \le X \le \mu + \alpha \sigma) = \Pr(-\alpha \le Z \le \alpha) = 2\Phi(\alpha) - 1 \]
+  \[ P(\mu - \alpha \sigma \le X \le \mu + \alpha \sigma) = P(-\alpha \le Z \le \alpha) = 2\Phi(\alpha) - 1 \]
 
   <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <thead>
     <tr style="font-size: 1.2em;">
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">$\alpha$</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\Pr(|X - \mu| \le \alpha \sigma)$</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$P(|X - \mu| \le \alpha \sigma)$</th>
     </tr>
     </thead>
     <tbody>
@@ -1084,8 +1084,8 @@
     <thead>
     <tr style="font-size: 1.2em;">
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width: 5%;">$\alpha$</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\Pr(\left| X - \mu\right| \le \alpha \sigma)$</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\Pr(\left| X - \mu\right| > \alpha \sigma$)</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$P(\left| X - \mu\right| \le \alpha \sigma)$</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$P(\left| X - \mu\right| > \alpha \sigma$)</th>
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Daily event ~</th>
     </tr>
     </thead>
@@ -1103,16 +1103,16 @@
 
 + Normal approximation of Binomial distribution
   + Binomial: $X \sim B_{n, p} \qquad \mu = np \quad \sigma = \sqrt{npq}$
-  + Normal approximation: $Y \sim N(np, npq) \qquad \Pr(X = k) \approx \Pr(k - \frac12 \le Y \le k + \frac12)$
+  + Normal approximation: $Y \sim N(np, npq) \qquad P(X = k) \approx P(k - \frac12 \le Y \le k + \frac12)$
   + example:
     + $X \sim B_{100, 0.5} \qquad \mu = np = 50 \quad \sigma = \sqrt{npq} = 5$
     + $Y \sim N(50, 25)$
 
       \[\begin{align*}
-        \Pr(X = 60) &\approx \Pr(59.5 \le Y \le 60.5) \\
-        &= \Pr(1.9 = \frac{59.5 - 50}{5} \le Z = \frac{Y - 50}{5} \le \frac{60.5 - 50}{5} = 2.1)\\
+        P(X = 60) &\approx P(59.5 \le Y \le 60.5) \\
+        &= P(1.9 = \frac{59.5 - 50}{5} \le Z = \frac{Y - 50}{5} \le \frac{60.5 - 50}{5} = 2.1)\\
         &= \Phi(2.1) - \Phi(1.9) \approx 0.9821 - 0.9713 = 0.0108 \\
-        \Pr(X = 60) &= \binom{100}{60} 0.5^{100} \approx 0.0108
+        P(X = 60) &= \binom{100}{60} 0.5^{100} \approx 0.0108
       \end{align*}\]
 
   + example: interval probabilities
@@ -1120,8 +1120,8 @@
     + Normal approximation: $Y \sim N(50, 25)$
 
       \[\begin{align*}
-        \Pr(42 \le X \le 53) &\approx \Pr(41.5 \le Y \le 53.3) \\
-        &= \Pr(-1.7 = \frac{41.5 - 50}{5} \le Z \le \frac{53.5 - 50}{5} \le 0.7) \\
+        P(42 \le X \le 53) &\approx P(41.5 \le Y \le 53.3) \\
+        &= P(-1.7 = \frac{41.5 - 50}{5} \le Z \le \frac{53.5 - 50}{5} \le 0.7) \\
         &= \Phi(0.7) + \Phi(1.7) - 1 \approx 0.7580 + 0.9554 - 1 = 0.7134 \\\\
         \text{Actual } &= \sum_{k=42}^{53} \binom{100}{k} (\frac12)^{100} \approx 0.7136
       \end{align*}\]
@@ -1142,27 +1142,27 @@
 
 
 1. If $X$ is a normal random variable with $\mu=−2$ and $\sigma=3$, and has probability density function and cumulative density function $f_X(x)$, $F_X(x)$, calculate<br/>
-  a. $\Pr(−3 < X < 0)$<br/>
+  a. $P(−3 < X < 0)$<br/>
   b. $F(1/4)$<br/>
   c. $F^{−1}(1/4)$<br/>
 
   Ans: a. (0.3779); b. (0.7734); c. (-4.01)<br/>
   Explanation:
-    + We may rewrite $\Pr(−3 < X < 0)=\Pr(−1/3 < (X+2)/3 < 2/3) . Define $Z=(X+2)/3$. Now $Z=(X+2)/3 \sim Normal(0,1)$. Thus $\Pr(−1/3 < (X+2)/3 < 2/3)=\Pr(−1/3 < Z < 2/3)= \Phi(2/3)− \Phi(−1/3)=0.378066$, where the latter is obtained from a standard Guassian table.
-    + $F(1/4) = \Pr(X \le 1/4) = \Pr((X+2)/3 \le 3/4) = \Pr(Z \le 3/4)$. Similar to the above part, we evaluate the latter as $\Pr(Z \le 3/4)= \Phi(3/4)=0.773373$.
+    + We may rewrite $P(−3 < X < 0)=P(−1/3 < (X+2)/3 < 2/3) . Define $Z=(X+2)/3$. Now $Z=(X+2)/3 \sim Normal(0,1)$. Thus $P(−1/3 < (X+2)/3 < 2/3)=P(−1/3 < Z < 2/3)= \Phi(2/3)− \Phi(−1/3)=0.378066$, where the latter is obtained from a standard Guassian table.
+    + $F(1/4) = P(X \le 1/4) = P((X+2)/3 \le 3/4) = P(Z \le 3/4)$. Similar to the above part, we evaluate the latter as $P(Z \le 3/4)= \Phi(3/4)=0.773373$.
     + Using the same transformation as above: $Z=(X+2)/3$, $F−1(1/4)=3 \cdot F^{−1}_Z (1/4)−2 . Now $F^{−1}_Z(1/4)=−0.67449$. Thus $F^{−1}(1/4)=3 \cdot −0.67449−2=−4.02347$.
 
 
-2. Suppose $X,Y$ are independent and $X \sim N(1,4)$ and $Y \sim N(1,9)$. If $\Pr(2X+Y \le a)$ $=\Pr(4X−2Y \ge 4a)$, then find $a$.
+2. Suppose $X,Y$ are independent and $X \sim N(1,4)$ and $Y \sim N(1,9)$. If $P(2X+Y \le a)$ $=P(4X−2Y \ge 4a)$, then find $a$.
 
   And: 4/3<br/>
-  Explanation: Notice that $2X+Y \sim N(3,25), 4X−2Y \sim N(2,100)$. Then $\Pr(2X+Y \le a)$ $= \Phi(\frac{a−3}{5})$, and $\Pr(4X−2Y \ge 4a)$ $=1− \Phi(\frac{4a−2}{10})$ $= \Phi(\frac{2−4a}{10})$. By solving the equation $\frac{a−3}{5}=\frac{2−4a}{10}$, we have $a=\frac43$. [Stack Exchange](https://tinyurl.com/yavpnhnv)
+  Explanation: Notice that $2X+Y \sim N(3,25), 4X−2Y \sim N(2,100)$. Then $P(2X+Y \le a)$ $= \Phi(\frac{a−3}{5})$, and $P(4X−2Y \ge 4a)$ $=1− \Phi(\frac{4a−2}{10})$ $= \Phi(\frac{2−4a}{10})$. By solving the equation $\frac{a−3}{5}=\frac{2−4a}{10}$, we have $a=\frac43$. [Stack Exchange](https://tinyurl.com/yavpnhnv)
 
 
-3. Let $X \sim B_{.36,1600}$. Approximate $\Pr(552 \le X \le 600)$.
+3. Let $X \sim B_{.36,1600}$. Approximate $P(552 \le X \le 600)$.
 
   Ans: 0.798<br/>
-  Explanation: First note that $\Pr(X > 600)=\Pr(X−576 > 24)$ $=\Pr(X−0.36∗1600 > 24)$ $=\Pr((X−0.36∗1600)/19.2>24/19.2)$. From the Gaussian approximation, noting that $(X−0.36∗1600)/19.2$ has zero mean and unit variance, $\Pr((X−0.36∗1600)/19.2 > 24/19.2)≈\Pr(Z > 24/19.2)$, where $Z \sim N(0,1)$. Repeating the same for $\Pr(X < 552)$, we have our desired answer.
+  Explanation: First note that $P(X > 600)=P(X−576 > 24)$ $=P(X−0.36∗1600 > 24)$ $=P((X−0.36∗1600)/19.2>24/19.2)$. From the Gaussian approximation, noting that $(X−0.36∗1600)/19.2$ has zero mean and unit variance, $P((X−0.36∗1600)/19.2 > 24/19.2)≈P(Z > 24/19.2)$, where $Z \sim N(0,1)$. Repeating the same for $P(X < 552)$, we have our desired answer.
 
 
 4. Suppose a binary message is transmitted through a noisy channel. The transmitted signal $S$ is equally likely to be $1$ or $−1$, the noise $N$ follows a normal distribution $N(0,4)$, and the received signal is $R=S+N$. $S$ and $N$ are independent. The receiver concludes that the signal is $1$ when $R \ge 0$ and $−1$ when $R < 0$.<br/>
@@ -1172,8 +1172,8 @@
 
   Ans: a. (0.3085); b. (0.0668); c. (0.2268)<br/>
   Explanation:
-    + An error occurs under either of these two events, $S=1,Z<0$ or if $S=−1,Z \ge0$. Now $\Pr(S=1,Z<0)$ $7=\Pr(S=1)\Pr(Z<0|S=1)$ $=1/2 \cdot \Pr(N<−1)$. Since $N/2∼N(0,1)$, $\Pr(N < −1)$ $=\Pr(N/2 < −1/2)= \Phi(−1/2)=0.308538$. Thus $\Pr(S=1,Z<0)$ $=1/2 \cdot 0.308538$. Similarly, by symmetry it follows that $\Pr(S=−1,Z \ge 0)=1/2 \cdot 0.308538$. The probability of error thus is $2 \cdot 1/2 \cdot 0.308538=0.308538$.
-    + Following the same analysis as above, the first error event $\Pr(S=3,Z<0)$ $=\Pr(S=3)\Pr(Z<0|S=3)$ $=1/2 \cdot \Pr(N<−3)$. Since $N/2∼N(0,1)$, $\Pr(N<−3)$ $=\Pr(N/2<−3/2)$ $=\Phi (−3/2)=0.0668072$. Thus $\Pr(S=3,Z<0)$ $=1/2 \cdot 0.0668072$. Similarly, by symmetry it follows that $\Pr(S=−3,Z \ge 0)$ $=1/2 \cdot 0.0668072$. Thus the probability of error is $2 \cdot 1/2 \cdot 0.0668072$ $=0.0668072$ and is drastically smaller than the previous scenario.
+    + An error occurs under either of these two events, $S=1,Z<0$ or if $S=−1,Z \ge0$. Now $P(S=1,Z<0)$ $7=P(S=1)P(Z<0|S=1)$ $=1/2 \cdot P(N<−1)$. Since $N/2∼N(0,1)$, $P(N < −1)$ $=P(N/2 < −1/2)= \Phi(−1/2)=0.308538$. Thus $P(S=1,Z<0)$ $=1/2 \cdot 0.308538$. Similarly, by symmetry it follows that $P(S=−1,Z \ge 0)=1/2 \cdot 0.308538$. The probability of error thus is $2 \cdot 1/2 \cdot 0.308538=0.308538$.
+    + Following the same analysis as above, the first error event $P(S=3,Z<0)$ $=P(S=3)P(Z<0|S=3)$ $=1/2 \cdot P(N<−3)$. Since $N/2∼N(0,1)$, $P(N<−3)$ $=P(N/2<−3/2)$ $=\Phi (−3/2)=0.0668072$. Thus $P(S=3,Z<0)$ $=1/2 \cdot 0.0668072$. Similarly, by symmetry it follows that $P(S=−3,Z \ge 0)$ $=1/2 \cdot 0.0668072$. Thus the probability of error is $2 \cdot 1/2 \cdot 0.0668072$ $=0.0668072$ and is drastically smaller than the previous scenario.
     + If we denote the error probability in the first part by $p(=0.308538)$, on repeated transmission, an error occurs if and only if the incorrect signal is concluded in least 2 of the 3 transmissions. Since the transmission are independent, the probability of error is thus $\binom32 p^2 \cdot (1−p)+\binom33 p^3=0.226844$.
 
 

@@ -417,7 +417,7 @@
 
 ## 6.1 Conditional Probability
 
-0. Let A and B be two positive-probability events. Does \Pr(A\mid B)>\Pr(A) imply \Pr(B\mid A)>\Pr(B)?<br/>
+0. Let A and B be two positive-probability events. Does P(A\mid B)>P(A) imply P(B\mid A)>P(B)?<br/>
   a. Yes<br/>
   b. Not necessarily<br/>
 
@@ -425,7 +425,7 @@
   
 
 
-1. Suppose $\Pr(A)>0$. Find $\Pr(B\mid A)$ when:<br/>
+1. Suppose $P(A)>0$. Find $P(B\mid A)$ when:<br/>
   a. $B=A$,<br/>
   b. $B \supseteq A$,<br/>
   c. $B=\Omega$,<br/>
@@ -437,20 +437,20 @@
   
 
 
-2. If \(A\) and \(B\) are disjoint positive-probability events, then \(\Pr(A\mid B)\)=<br/>
-  a. \(\Pr(A)\),<br/>
-  b. \(\Pr(B\mid A)\),<br/>
-  c. \(\Pr(A\cup B)\),<br/>
-  d. \(\Pr(A\cap B)\).<br/>
+2. If \(A\) and \(B\) are disjoint positive-probability events, then \(P(A\mid B)\)=<br/>
+  a. \(P(A)\),<br/>
+  b. \(P(B\mid A)\),<br/>
+  c. \(P(A\cup B)\),<br/>
+  d. \(P(A\cap B)\).<br/>
 
   Ans: 
 
 
-3. Given events $A$, $B$ with $\Pr(A)=0.5$, $\Pr(B)=0.7$, and $\Pr(A \cap B)=0.3$ , find:<br/>
-  a. $\Pr(A\mid B)$ ,<br/>
-  b. $\Pr(B\mid A)$ ,<br/>
-  c. $\Pr(A^c\mid B^c)$ ,<br/>
-  d. $\Pr(B^c\mid A^c)$ .<br/>
+3. Given events $A$, $B$ with $P(A)=0.5$, $P(B)=0.7$, and $P(A \cap B)=0.3$ , find:<br/>
+  a. $P(A\mid B)$ ,<br/>
+  b. $P(B\mid A)$ ,<br/>
+  c. $P(A^c\mid B^c)$ ,<br/>
+  d. $P(B^c\mid A^c)$ .<br/>
 
   Ans: 
   
@@ -571,7 +571,7 @@
 ## 6.3 Sequential Probability
 
 
-0. The equality $\Pr(A \cap B)=\Pr(A)\Pr(B)$ holds whenever the events A and B are<br/>
+0. The equality $P(A \cap B)=P(A)P(B)$ holds whenever the events A and B are<br/>
   a. independent<br/>
   b. disjoint<br/>
   c. intersecting<br/>
@@ -765,7 +765,7 @@
 
   Ans: 
 
-12. A fair coin with $\Pr(heads)=0.5$ and a biased coin with $\Pr(heads)=0.75$ are placed in an urn. One of the two coins is picked at random and tossed twice. Find the probability:<br/>
+12. A fair coin with $P(heads)=0.5$ and a biased coin with $P(heads)=0.75$ are placed in an urn. One of the two coins is picked at random and tossed twice. Find the probability:<br/>
   a. of observing two heads,<br/>
   b. that the biased coin was picked if two heads are observed.<br/>
 
@@ -797,7 +797,7 @@
   a. A random variable $X$ defines an event.<br/>
   b. For a random variable $X$ and a fixed real number  a , "$X \leq a$" defines an event.<br/>
   c. Random variables for the same sample space must be same.<br/>
-  d. For a random variable $X$, possible values for $\Pr(X=x)$ include 0, 0.5 and 1.<br/>
+  d. For a random variable $X$, possible values for $P(X=x)$ include 0, 0.5 and 1.<br/>
 
   Ans: 
   
@@ -805,8 +805,8 @@
 
 3. An urn contains 20 balls numbered 1 through 20. Three of the balls are selected from the run randomly without replacement, and $X$ denotes the largest number selected.<br/>
   a. How many values can $X$ take?<br/>
-  b. What is $\Pr(X=18)$?<br/>
-  c. What is $\Pr(X \geq 17)$?<br/>
+  b. What is $P(X=18)$?<br/>
+  c. What is $P(X \geq 17)$?<br/>
 
   Ans: 
 
@@ -830,9 +830,9 @@
     </a>
   </div>
 
-  a. $\Pr(X = 1)$,<br/>
-  b. $\Pr(X \geq 1)$,<br/>
-  c. $\Pr(X \in \Bbb{Z})$.<br/>
+  a. $P(X = 1)$,<br/>
+  b. $P(X \geq 1)$,<br/>
+  c. $P(X \in \Bbb{Z})$.<br/>
 
   Ans: 
 
@@ -844,15 +844,15 @@
   is a cumulative distribution function (cdf) for some fixed number $k$. Find:<br/>
   a. $k$,<br/>
   b. $x_{min}$ (the smallest number with non-zero probability),<br/>
-  c. $\Pr(X=4)$,<br/>
-  d. $\Pr(2 < X \leq 5)$.<br/>
+  c. $P(X=4)$,<br/>
+  d. $P(2 < X \leq 5)$.<br/>
 
   Ans: 
 
 
 3. Flip a coin with heads probability 0.6 repeatedly till it lands on tails, and let $X$ be the total number of flips, for example, for h, h, t, $X=3$. Find:
-  a. $\Pr(X\le 3)$
-  b. $\Pr(X\ge 5)$
+  a. $P(X\le 3)$
+  b. $P(X\ge 5)$
 
   Ans: 
 
@@ -916,7 +916,7 @@
 7. Which of the following statements are true for a random variable $X$?<br/>
   a. $E(X)$ must be in the range $(0,1)$<br/>
   b. $E(X)$ can take a value that $X$ does not take<br/>
-  c. $\Pr(X\le E(X))=1/2$<br/>
+  c. $P(X\le E(X))=1/2$<br/>
   d. $E(X)=\frac12 (x_{\text{max}}+x_{\text{min}})$<br/>
 
   Ans: 
@@ -924,7 +924,7 @@
 
 
 8. A bag contains five balls numbered 1 to 5. Randomly draw two balls from the bag and let $X$ denote the sum of the numbers.
-  a. What is $\Pr(X \le 5)$?
+  a. What is $P(X \le 5)$?
   b. What is $E(X)$?
 
   Ans: 
@@ -962,13 +962,13 @@
 
 1. Let $X$ be distributed over the set $\Bbb{N}$ of non-negative integers, with pmf
 
-  \[ \Pr(X=i)= \frac{\alpha}{2^i} \]
+  \[ P(X=i)= \frac{\alpha}{2^i} \]
   
   a. $\alpha$<br/>
   b. $E[X]$<br/>
 
   For $Y = X \mod 3$, find<br/>
-  c. $\Pr(Y=1)$<br/>
+  c. $P(Y=1)$<br/>
   d. $E[Y]$<br/>
 
   Ans: 
@@ -1003,7 +1003,7 @@
 
   a. always 0 or 1,<br/>
   b. $E(X)$,<br/>
-  c. $\Pr(A)$.<br/>
+  c. $P(A)$.<br/>
 
   Ans: 
 
@@ -1034,7 +1034,7 @@
   Ans: 
   
 
-2. A random variable $X$ is distributed over $\{−1,0,1\}$ according to the p.m.f. $\Pr(X=x)=|x|+15$.<br/>
+2. A random variable $X$ is distributed over $\{−1,0,1\}$ according to the p.m.f. $P(X=x)=|x|+15$.<br/>
   a. Find its expectation $E(X)$<br/>
   b. and variance $Var(X)$<br/>
 
@@ -1047,7 +1047,7 @@
   \[\begin{array}{c|ccc}
     x & 1 & 2 & 3 \\
     \hline
-    \Pr(x) & 0.3 & 0.5 & 0.2\\
+    P(x) & 0.3 & 0.5 & 0.2\\
   \end{array} \]
 
   If $Y=2^X$, what are<br/>
@@ -1087,7 +1087,7 @@
 
 6. We say $X_A$ is an indicator variable for event $A$: $X_A=1$ if A occurs, $X_A=0$ if $A$ does not occur. 
   
-  If $\Pr(A)=0.35$, what is:<br/>
+  If $P(A)=0.35$, what is:<br/>
   a. $E(XA)$?<br/>
   b. $Var(X_A)$?<br/>
 
@@ -1120,8 +1120,8 @@
 
 
 1. Which of the following hold for all Independent random variables, $X$ and $Y$?
-  a. $\Pr(X=x|Y=y) = \Pr(X=x)$<br/>
-  b. $\Pr(X=x|Y=y) = \Pr(Y=y|X=x)$<br/>
+  a. $P(X=x|Y=y) = P(X=x)$<br/>
+  b. $P(X=x|Y=y) = P(Y=y|X=x)$<br/>
 
   Ans: 
   
@@ -1132,17 +1132,17 @@
   \[ \begin{array}{|c|c|c|} \hline X\backslash Y & 0 & 1\\ \hline 0 & 0.15 & 0.25\\ \hline 1 & 0.45 & 0.15\\ \hline \end{array}  \]
 
   1) Choose the correct marginal PMFs for $X$ and $Y$.<br/>
-    a. $\begin{array}{|c|c|c|} \hline x,y & \Pr(x) & \Pr(y)\\ \hline 0 & 0.15 & 0.45\\ \hline 1 & 0.25 & 0.5\\ \hline \end{array}$<br/>
-    b. $\begin{array}{|c|c|c|} \hline x,y & \Pr(x) & \Pr(y)\\ \hline 0 & 0.4 & 0.6\\ \hline 1 & 0.6 & 0.4\\ \hline \end{array}$<br/>
-    c. $\begin{array}{|c|c|c|} \hline x,y & \Pr(x) & \Pr(y)\\ \hline 0 & 0.6 & 0.4\\ \hline 1 & 0.4 & 0.6\\ \hline \end{array}$<br/>
+    a. $\begin{array}{|c|c|c|} \hline x,y & P(x) & P(y)\\ \hline 0 & 0.15 & 0.45\\ \hline 1 & 0.25 & 0.5\\ \hline \end{array}$<br/>
+    b. $\begin{array}{|c|c|c|} \hline x,y & P(x) & P(y)\\ \hline 0 & 0.4 & 0.6\\ \hline 1 & 0.6 & 0.4\\ \hline \end{array}$<br/>
+    c. $\begin{array}{|c|c|c|} \hline x,y & P(x) & P(y)\\ \hline 0 & 0.6 & 0.4\\ \hline 1 & 0.4 & 0.6\\ \hline \end{array}$<br/>
 
-  2) Find $\Pr(X=0|Y=0)$.<br/>
+  2) Find $P(X=0|Y=0)$.<br/>
     a. 0.250 <br/>
     b. 0.375 <br/>
     c. 0.667 <br/>
     d. 1<br/>
 
-  3) Find $\Pr(Y=1|X=0)$.<br/>
+  3) Find $P(Y=1|X=0)$.<br/>
     a. 0.375<br/>
     b. 0.417<br/>
     c. 0.625<br/>
@@ -1159,10 +1159,10 @@
 
 
 4. Which equation accurately describes the marginal PMFs for the random variables, $X$ and $Y$?<br/>
-  a. $\Pr(X = x) = \sum_{x}p(X = x, Y = y), \quad \Pr(Y = y) = \sum_{y}p(X = x, Y = y)$<br/>
-  b. $\Pr(X = x) = \sum_{y}p(X = x, Y = y), \quad \Pr(Y = y) = \sum_{x}p(X = x, Y = y)$<br/>
-  c. $\Pr(X = x) = \sum_{x}p(Y = y), \quad \Pr(Y = y) = \sum_{y}p(X = x)$<br/>
-  d. $\Pr(X = x) = \sum_{y}p(X = x), \quad \Pr(Y = y) = \sum_{x}p(Y = y)$<br/>
+  a. $P(X = x) = \sum_{x}p(X = x, Y = y), \quad P(Y = y) = \sum_{y}p(X = x, Y = y)$<br/>
+  b. $P(X = x) = \sum_{y}p(X = x, Y = y), \quad P(Y = y) = \sum_{x}p(X = x, Y = y)$<br/>
+  c. $P(X = x) = \sum_{x}p(Y = y), \quad P(Y = y) = \sum_{y}p(X = x)$<br/>
+  d. $P(X = x) = \sum_{y}p(X = x), \quad P(Y = y) = \sum_{x}p(Y = y)$<br/>
 
   Ans: 
 
@@ -1380,7 +1380,7 @@
 
 
 8. Let $X$ be the number of heads when flipping four coins with heads probabilities 0.3, 0.4, 0.7, and 0.8. Find:<br/>
-  a. $\Pr(X=1)$,<br/>
+  a. $P(X=1)$,<br/>
   b. $E(X)$,<br/>
   c. $Var(X)$.<br/>
 
@@ -1472,8 +1472,8 @@
 
 
 6. Ten balls are randomly dropped into four urns. Let $X$ be the number of balls dropped into one pre-selected urn. Find:<br/>
-  a. $\Pr(X=0)$,<br/>
-  b. $\Pr(X=1)$,<br/>
+  a. $P(X=0)$,<br/>
+  b. $P(X=1)$,<br/>
   c. $E(X)$,<br/>
   d. $Var(X)$.<br/>
 

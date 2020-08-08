@@ -4,6 +4,8 @@
 
 ## 14.1 Preparing for the Final Exam
 
++ [Standard Normal Probability & t-distribution critical values](https://tinyurl.com/y33hyqwu)
+
 1. Statistical Reasoning
 
   Which type of reasoning can be used for each of the following statements? (Bayesian Reasoning / Frequentist Reasoning)
@@ -198,7 +200,7 @@ Once the exam is finished, remain connected to the internet until the recordings
 
 
 
-## 14.2 Final Exam Instructions
+## 14.3 Final Exam
 
 
 

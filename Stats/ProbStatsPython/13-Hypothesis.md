@@ -206,9 +206,9 @@
 
   Ans: <font style="color: cyan;">b</font><br/>
   Explanation: By the 68-95-99.7 Rule:
-    + $\Pr(Z \in [−\sigma,\sigma]) \approx 68\%$
-    + $\Pr(Z \notin [−2\sigma,2\sigma]) \approx 100−95=5\%$
-    + $\Pr(Z \ge \sigma) \approx (100−68)/2=16\%$,
+    + $P(Z \in [−\sigma,\sigma]) \approx 68\%$
+    + $P(Z \notin [−2\sigma,2\sigma]) \approx 100−95=5\%$
+    + $P(Z \ge \sigma) \approx (100−68)/2=16\%$,
 
   hence the second is smallest.
 
