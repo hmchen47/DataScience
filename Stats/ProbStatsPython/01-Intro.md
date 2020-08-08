@@ -254,7 +254,7 @@
 
 ### Problem Set
 
-+ If we flip a coin a thousand times and get 507 heads, can we conclude with certainty that the coin is unbiased?
+0. If we flip a coin a thousand times and get 507 heads, can we conclude with certainty that the coin is unbiased?
 
   Ans: No<br/>
   Explanation: Regardless of the bias of the coin (except when it is always heads or always tails), we can get 507 heads, hence we cannot deduce the bias with certainty. We will see how likely this outcome is later on.
