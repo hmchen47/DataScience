@@ -740,7 +740,7 @@
   
   Ans: a. (0.2); b(0.95); <br/>
   Explanation:
-    + Under the null hypothesis, $f_\alpha$  is uniform. The $p$-value is $P_{H_0}(X \ge 0.8) = 1 - 0.8 = 0.2$.
+    + Under the null hypothesis, $f_\alpha$  is uniform. The $p$-value is $P_{H_0}(X \ge 0.8) = 1 - 0.8 = 0.2$. [StackExchange](https://tinyurl.com/y35q3wya)
     + To reject the null hypothesis with  5%  significance level, the  p -value should be smaller than  0.05 . Hence the lowest outcome is  0.95 .
 
 
@@ -806,7 +806,6 @@
     + moderate n (&ge; 30)
       + $H_0: Z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \;\dot\sim\; \mathcal{N}(0, 1)$ w/ mean 0
       + $H_A:$ Normal w/ mean > 0
-  
 
 + z-test
   + hypotheses: $H_0: \mu_Z = 0 \text{ as } Z \;\dot\sim\; \mathcal{N}(0, 1) \quad H_A: \mu_Z > 0$
@@ -889,7 +888,7 @@
     + retain $H_0$
     + retain possibility that on average a chocolate bar contains 85 g cocoa
   + statement for p-value &gt; 5%: under $H_0:  \mu = 85g, \sigma = 0.5g$, the probability that 30 bars have average &le; 84.83 or &ge; 85.17g is $\approx$ 6.26%.  This 'high' probability is > 5% significance level. 'Likely' to happen under $H_0$. Retain $H_0$.
-  
+
 + 1-sided vs. 2-sided alternatives
   + same level and score:
     + significance level = 5%
@@ -1114,7 +1113,6 @@
 
 ## Programming Assignment 13
 
-
 ### Introduction
 
 The [Köppen–Geiger climate classification system](https://tinyurl.com/qxgekbr) is a common climate classification system. It classifies the climate of a region using [3 letters](https://tinyurl.com/yxoddlbu). The first represents the type of climate, the second indicates precipitation, and the third corresponds to temperature. For example, San Diego is classified as Bsh, where the B represents arid climate, s stand for dry summer, and h corresponds to hot. For the 3rd symbol to be h, the annual average temperature should be above 18ºC.
@@ -1135,7 +1133,28 @@ Note that the temperatures given in the dataset is in Kelvin. To convert from Ke
 
 2. report the p-value for the above problem
 
-  Ans: 
+  Ans: <font style="color: cyan;">8.6e-12</font>
+  
+  ```python
+  import numpy as np
+  import pandas as pd
+  from scipy.stats import t
+
+  df = pd.read_csv('./temperature.csv')
+  df = df[ df['datetime'].str.contains('2016')]
+  df = df.loc[:, ['San Diego']]
+
+  temperature = df.values
+  temperature = temperature[~np.isnan(temperature)]
+
+  n = len(temperature)
+  mu = np.mean(temperature)
+  s = np.std(temperature, ddof=1)
+
+  p = t.cdf((mu - 273.15 - 18) / (s / (n ** 0.5)), n - 1)
+
+  print('p-value is {}'.format(p))
+  ```
 
 
 
