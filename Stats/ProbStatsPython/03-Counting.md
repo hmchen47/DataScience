@@ -899,9 +899,9 @@
   Ans: <span style="color: magenra:">443,888,640</span><br/>
   Explanation:
     + For each of length 4 and 5, we use inclusion-exclusion to count the number of password that do not contain at least one of the three character types, then use the complement rule.
-    + Let $U$, $L$, and $D$ denote the sets of passwords that do not contain upper-case letters, lower-case letters, and digits, respectively, and let $n$ be the password length. Then $|U| = |L| = 36^n$, and $|D|= 52^n$. Furthermore, $|L \cap U|=10^n$, while $|L \cap D|=|U \cap D|=26^n$, and $U \cap L \cap D = \varnothing$. Finally, the number of length-n character sequences is $62^n$.
+    + Let $U$, $L$, and $D$ denote the sets of passwords that do not contain upper-case letters, lower-case letters, and digits, respectively, and let $n$ be the password length. Then $|U| = |L| = 36^n$, and $|D|= 52^n$. Furthermore, $|L \cap U|=10^n$, while $|L \cap D|$ $=|U \cap D|$ $=26^n$, and $U \cap L \cap D$ $= \varnothing$. Finally, the number of length-n character sequences is $62^n$.
     + $|U \cap L \cap D|$  is the number of sequences that have at least one character type missed.
-    + By the 3-set inclusion-exclusion principle, $|U \cup L \cup D| = |U|+|L|+|D|−|L \cap U|−|L \cap D|−|U \cap D|+|U \cap L \cap D|$. Hence, there are $(62^4−(36^4+36^4+52^4−26^4−26^4−10^4+0))+$ $(62^5−(36^5+36^5+52^5−26^5−26^5−10^5+0))=443,888,640$ valid passwords.
+    + By the 3-set inclusion-exclusion principle, $|U \cup L \cup D|$ $= |U|+|L|+|D|$ $−|L \cap U|$ $−|L \cap D|$ $−|U \cap D|$ $+|U \cap L \cap D|$. Hence, there are $(62^4$ $−(36^4+36^4+52^4−26^4−26^4−10^4+0))$ $+(62^5$ $−(36^5+36^5+52^5−26^5−26^5−10^5+0))$ $=443,888,640$ valid passwords.
 
 
 5. In the US, telephone numbers are 7-digit long. While real phone numbers have some restrictions, for example, they cannot start with 0 or 1, here we assume that all 7-digit sequences are possible, even 0000000.
@@ -910,10 +910,10 @@
   a. start or end with two identical digits, for example 0012345, 1234511, or 2222222,<br/>
   b. contain a substring of $5$ consecutive digits. For example 0034567, 2567892, or 0123456.<br/>
 
-  Ans: a. ($2 \cdot 10^6 - 10^5$); b. ($3 \cdot 600 - 2 \cdot 50 -4 + 4$) (<span style="color: magenta;">$3 \cdot 600, 3 \cdot 600 - 3 \cdot 50 + 4, 3 \cdot 600 - 2 \cdot 50 + 4$</span>)<br/>
+  Ans: a. ($2 \cdot 10^6 - 10^5$); b. (<span style="color: magenta;">$3 \cdot 600 - 2 \cdot 50 -4 + 4$</span>) (<span style="color: magenta;">$3 \cdot 600, 3 \cdot 600 - 3 \cdot 50 + 4, 3 \cdot 600 - 2 \cdot 50 + 4$</span>)<br/>
   Explanation:
-  + a. $10 \cdot 10^5 = 10^6$ phone numbers start with two identical digits, and the same number end with two identical digits, furthermore $10^2 \cdot 10^3 = 10^5$ numbers start and end with two identical digits. By inclusion-exclusion, the answer is $2 \cdot 10^6 − 10^5 = 1,900,000$.
-  + b. Let  $L$, $M$, and $R$, be the sets of phone numbers whose 5 left, middle, and right digits, respectively, are consecutive. The set of phone numbers with five consecutive digits is  L∪M∪R , and we'll determine its size. $|L|=|M|=|R|=6 \cdot 10^2 = 600$, while $|L \cap M|=|M \cap R|=5 \cdot 10=50$, and $|L \cap R|=|L \cap M \cap R| = 4$. By inclusion-exclusion, $|L \cup M \cup R|=3 \cdot 600−2 \cdot 50−4+4=1700$.
+  + $10 \cdot 10^5 = 10^6$ phone numbers start with two identical digits, and the same number end with two identical digits, furthermore $10^2 \cdot 10^3 = 10^5$ numbers start and end with two identical digits. By inclusion-exclusion, the answer is $2 \cdot 10^6 − 10^5 = 1,900,000$.
+  + Let  $L$, $M$, and $R$, be the sets of phone numbers whose 5 left, middle, and right digits, respectively, are consecutive. The set of phone numbers with five consecutive digits is  L∪M∪R , and we'll determine its size. $|L|=|M|=|R|=6 \cdot 10^2 = 600$, while $|L \cap M|$ $=|M \cap R|$ $=5 \cdot 10$ $=50$, and $|L \cap R|$ $=|L \cap M \cap R|$ $= 4$. By inclusion-exclusion, $|L \cup M \cup R|$ $=3 \cdot 600−2 \cdot 50−4+4$ $=1700$.
 
 
 6. How many ordered pairs $(A,B)$, where $A$, $B$ are subsets of $\{1,2,3,4,5\}$ have:<br/>
