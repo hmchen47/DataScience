@@ -766,10 +766,10 @@
 
 
 0. The set {000, 001, ....,111} of all 3-bit strings has the following number of subsets:<br/>
-  a. 2^3<br/>
-  b. 2^6<br/>
-  c. 2^8<br/>
-  d. 2^9<br/>
+  a. $2^3$<br/>
+  b. $2^6$<br/>
+  c. $2^8$<br/>
+  d. $2^9$<br/>
 
   Ans: 
 
