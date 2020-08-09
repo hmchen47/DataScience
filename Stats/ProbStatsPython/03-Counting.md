@@ -33,8 +33,8 @@
     + digits: $|\{0, 1, \dots, 9\}| = 10$
     + letters: $|\{a, \dots, z\}| = 26$
     + empty set: $|\varnothing| = 0$
-    + integers: $|\mathbb{Z}| = |\mathbb{N}| = |\mathbb{P}| = \infty \to$ countable infinite $\aleph_0$
-    + Rreals: $|\mathbb{R}| = \infty \to$ uncountably infinite $\aleph$
+    + integers: $|\Bbb{Z}| = |\Bbb{N}| = |\Bbb{P}| = \infty \to$ countable infinite $\aleph_0$
+    + Rreals: $|\Bbb{R}| = \infty \to$ uncountably infinite $\aleph$
 
 + Integer intervals
   + $m \leq n$: $\{m, \dots, n\} = \{\text{integers from } m \text{ to } n, \text{inclusive}\}$, e.g., $\{3, \dots, 5\} = \{3, 4, 5\}$
@@ -105,18 +105,18 @@
 
 
 3. Which of the following sets are finite?<br/>
-  a. $\{ x \in \mathbb{Z} \mid x^2 \leq 10\}$<br/>
-  b. $\{ x \in \mathbb{Z} \mid x^3 \leq 10\}$<br/>
-  c. $\{ x \in \mathbb{N} \mid x^3 \leq 10\}$<br/>
-  d. $\{ x \in \mathbb{R} \mid x^2 \leq 10\}$<br/>
-  e. $\{ x \in \mathbb{R} \mid x^3 = 10\}$<br/>
+  a. $\{ x \in \Bbb{Z} \mid x^2 \leq 10\}$<br/>
+  b. $\{ x \in \Bbb{Z} \mid x^3 \leq 10\}$<br/>
+  c. $\{ x \in \Bbb{N} \mid x^3 \leq 10\}$<br/>
+  d. $\{ x \in \Bbb{R} \mid x^2 \leq 10\}$<br/>
+  e. $\{ x \in \Bbb{R} \mid x^3 = 10\}$<br/>
 
   Ans: ace<br/>
   Explanation
     + True. It is $\{-3, -2, \dots, 3\}$.
-    + False. It is $\{x \in \mathbb{Z} \mid x \leq 2\}$.
+    + False. It is $\{x \in \Bbb{Z} \mid x \leq 2\}$.
     + True. It is  {0,1,2}.
-    + False. It is  $\{x \in \mathbb{R} \mid -\sqrt{10} \leq x \leq \sqrt{10}\}$ .
+    + False. It is  $\{x \in \Bbb{R} \mid -\sqrt{10} \leq x \leq \sqrt{10}\}$ .
     + True. It is  $\{\sqrt[3]{10}\}$.
 
 
@@ -208,7 +208,7 @@
 2. Which of the following pairs A and B satisfy $|A \cup B| = |A| + |B|$?<br/>
   a. $\{1,2\}$ and $\{0,5\}$<br/>
   b. $\{1,2\}$ and $\{2,3\}$<br/>
-  c. $\{i \in \mathbb{Z} : |i| \leq 3\}$ and $\{i \in \mathbb{Z} : 2 \leq |i| \leq 5\}$<br/>
+  c. $\{i \in \Bbb{Z} : |i| \leq 3\}$ and $\{i \in \Bbb{Z} : 2 \leq |i| \leq 5\}$<br/>
   d. {English words starting with the letter 'a'}  and  {English words ending with the letter 'a'}<br/>
 
   Ans: a<br/>
@@ -317,7 +317,7 @@
 
 1. In a high school graduation exam, 80% of examinees passed the English exam, 85% passed the math exam, and 75% passed both. If 40 examinees failed both subjects, what what the total number of examinees?
 
-  Ans: 100<br/>
+  Ans: 400<br/>
   Explanation: By inclusion exclusion (applied to fractions), 80+85-75=90% of the students passed at least one topic. Therefore  10% failed both topics. It follows that 40 students correspond to 10%, hence 400 students took the exam.
 
 2. How many integers in  {1,2,…,100}  do not contain the digit  6 ?
@@ -446,7 +446,7 @@
   c. infinite<br/>
 
   Ans: ac<br/>
-  Explanation: If A is empty then A×\\B , otherwise it is infinite.
+  Explanation: If A is empty then $A\times B = \varnothing$ , otherwise it is infinite.
 
 
 2. (Order matters) Which of the following ensures that $A \times B = B \times A$?<br/>
@@ -465,7 +465,7 @@
     + False. Same as above.
 
 
-3. (Cartesian product shape) Taking the geometric view of Cartesian products, if A and B are real intervals of positive length in $\mathbb{R}$, then A×B is a:<br/>
+3. (Cartesian product shape) Taking the geometric view of Cartesian products, if A and B are real intervals of positive length in $\Bbb{R}$, then A×B is a:<br/>
   a. line,<br/>
   b. rectangle,<br/>
   c. circle,<br/>
@@ -473,7 +473,7 @@
   e. none of above.<br/>
 
   Ans: b<br/>
-  Explanation: Let A=[a,b), B=[c,d). Then $ A \times B = \{(x,y) \mid a \leq x < b, c \leq y < d, x\in \mathbb{R}, y \in \mathbb{R}\}$, which is a rectangle.
+  Explanation: Let A=[a,b), B=[c,d). Then $ A \times B = \{(x,y) \mid a \leq x < b, c \leq y < d, x\in \Bbb{R}, y \in \Bbb{R}\}$, which is a rectangle.
 
 
 4. (Divisors) How many positive divisors does 2016 have?
@@ -530,12 +530,12 @@
   + size of n-bit string: $|\{0, 1\}^n| = |\{0, 1\}|^n = 2^n$
 
 + Subsets
-  + the <span style="color: magenta;">power set</span> of S, denoted <span style="color: magenta;">$\mathbb{P}(S)$</span>, is the collection of all subsets of S
-  + $\mathbb{P}(\{a, b\}) = \{\{\}, \{a\}, \{b\}, \{a, b\}\}$
-  + 1-1 correspondence btw $\mathbb{P}(S)$ (subset of $S$) and $\{0, 1\}^{|S|}$ (binary strings of length $|S|$): mapping $\mathbb{P}(\{a, b\})$ to $\{0, 1\}^2$
-  + $|\mathbb{P}(S)| = ?$
+  + the <span style="color: magenta;">power set</span> of S, denoted <span style="color: magenta;">$\Bbb{P}(S)$</span>, is the collection of all subsets of S
+  + $\Bbb{P}(\{a, b\}) = \{\{\}, \{a\}, \{b\}, \{a, b\}\}$
+  + 1-1 correspondence btw $\Bbb{P}(S)$ (subset of $S$) and $\{0, 1\}^{|S|}$ (binary strings of length $|S|$): mapping $\Bbb{P}(\{a, b\})$ to $\{0, 1\}^2$
+  + $|\Bbb{P}(S)| = ?$
 
-      \[ \left|\mathbb{P}(S)\right| = \left| \{0, 1\}^{|S|} \right| = 2^{|S|} \]
+      \[ \left|\Bbb{P}(S)\right| = \left| \{0, 1\}^{|S|} \right| = 2^{|S|} \]
 
   + the size of the power set = the power of the set size
 
@@ -604,19 +604,19 @@
   + find a natural counting question whose answer is a double exponential!
     + $? \gets 2^{2^n}$
     + solution 1: power set
-      + power set of S: set of subsets of S = $\mathbb{P}(S)$, e.g., $\mathbb({P}(\{a, b\}) = \{ \{\}, \{a\}, \{b\}, \{a, b\}\}$
-      + $|\mathbb{P}(S)| = 2^{|S|}$, e.g., $|\mathbb{P}(S)| = 4 = 2^2 = 2^{|\{a, b\}|}$
-      + $\mathbb{P}(S)$ is a set $\to$ power set of $\mathbb{P}(S)$
-      + $\mathbb{P}(\mathbb{P}(S))$ - set of subsets of $\mathbb{P}(S)$
-      + $|\mathbb{P}(S)| = 2^{|S|} \to |\mathbb{P}(\mathbb{P}(S)) | = 2^{|\mathbb{P}(S)|} = 2^{2^n}$, e.g., $\mathbb{P}(\{a, b\}) = \{ \{\}, \{a\}, \{b\}, \{a, b\}\} \to $
+      + power set of S: set of subsets of S = $\Bbb{P}(S)$, e.g., $\Bbb({P}(\{a, b\}) = \{ \{\}, \{a\}, \{b\}, \{a, b\}\}$
+      + $|\Bbb{P}(S)| = 2^{|S|}$, e.g., $|\Bbb{P}(S)| = 4 = 2^2 = 2^{|\{a, b\}|}$
+      + $\Bbb{P}(S)$ is a set $\to$ power set of $\Bbb{P}(S)$
+      + $\Bbb{P}(\Bbb{P}(S))$ - set of subsets of $\Bbb{P}(S)$
+      + $|\Bbb{P}(S)| = 2^{|S|} \to |\Bbb{P}(\Bbb{P}(S)) | = 2^{|\Bbb{P}(S)|} = 2^{2^n}$, e.g., $\Bbb{P}(\{a, b\}) = \{ \{\}, \{a\}, \{b\}, \{a, b\}\} \to $
 
         \[\begin{align*}
-          \mathbb{P}(\mathbb{P}(\{a, b\})) &= \mathbb{P}(\{ \{\}, \{a\}, \{b\}, \{a. b\}\}) \\
+          \Bbb{P}(\Bbb{P}(\{a, b\})) &= \Bbb{P}(\{ \{\}, \{a\}, \{b\}, \{a. b\}\}) \\
           &= \left\{ \{\}, \{\{\}\}, \{\{a\}\}, \dots, \{\{\}, \{a\}\}, \dots, \{\{\}, \{a\}, \{b\}, \{a, b\}\}\right\}
         \end{align*}\]
 
-      + $|\mathbb{P}(\mathbb{P}(\{a, b\}))| = 2^{|\mathbb{P}(\{a, b\})|} = 2^{2^{|\{a, b\}|}}$
-      + $\therefore\; |\mathbb{P}(\mathbb{P}([n])) = 2^{2^n} \to$ Double exponential
+      + $|\Bbb{P}(\Bbb{P}(\{a, b\}))| = 2^{|\Bbb{P}(\{a, b\})|} = 2^{2^{|\{a, b\}|}}$
+      + $\therefore\; |\Bbb{P}(\Bbb{P}([n])) = 2^{2^n} \to$ Double exponential
     + solution 2: Boolean functions
       + Functions from A to B $\to B^A \to \# = |B|^{|A|}$
       + \# Boolean functions of $n$ Boolean (binary) variables
@@ -651,13 +651,13 @@
 ### Problem Sets
 
 0. The set {000, 001, ....,111} of all 3-bit strings has the following number of subsets:<br/>
-  a. 2^3<br/>
-  b. 2^6<br/>
-  c. 2^8<br/>
-  d. 2^9<br/>
+  a. $2^3$<br/>
+  b. $2^6$<br/>
+  c. $2^8$<br/>
+  d. $2^9$<br/>
 
   Ans: c<br/>
-  Explanation: 2^8. The set has (2^3=8) strings, and a set of 8 elements has 2^8 subsets.
+  Explanation: $2^8$. The set has ($2^3=8$) strings, and a set of 8 elements has $2^8$ subsets.
 
 
 1. Rank the functions \(n^2\), \(2^n\), \(n\) from slow to fast in terms of their growth rate as \(n\) increases.<br/>
@@ -674,11 +674,11 @@
   b. the first 3 characters are letters and the last 4 are numbers,<br/>
   c. letters and numbers alternate, for example A3B5A7Q or 0Z3Q4Q9.<br/>
 
-  Ans: a. ($37^7$); b. ($26^3 \cdot 10^4$); c. ($26^4 \cdot 10^3 + 26^3 \cdot 10^4$)<br/>
+  Ans: a. ($36^7$); b. ($26^3 \cdot 10^4$); c. ($26^4 \cdot 10^3 + 26^3 \cdot 10^4$)<br/>
   Explanation:
   + a. In each position there are $26+10=36$ choices ($26$ letters and $10$ digits). The number of ways is $(26+10)^7=367=78,364,164,096$.
   + b. For the first 3 positions, the number of ways is $26^3$ (letters only). For the last 4 positions, the number of ways is $10^4$ (digits only). The total number of ways is $26^3 \cdot 10^4 = 175,760,000$.
-  + c. If there are 4 digits and 3 letters, the number of ways is $26^3 \cdot 10^4$. If there are 4 letters and 3 digits, the number of ways is $26^4 \cdot 10^3$. The total number of ways is $26^3 \cdot 10^4 + 26^4 \cdot 10^3 = 175,760,000 + 456,976,000 = 632,736,000$.
+  + c. If there are 4 digits and 3 letters, the number of ways is $26^3 \cdot 10^4$. If there are 4 letters and 3 digits, the number of ways is $26^4 \cdot 10^3$. The total number of ways is $26^3 \cdot 10^4 + 26^4 \cdot 10^3$ $= 175,760,000 + 456,976,000$ $= 632,736,000$.
 
 
 3. If $P$ and $Q$ are sets, then $|P|^{|Q|}$ is the number of functions<br/>
@@ -689,15 +689,15 @@
   Explanation: The number of functions from $Q $to $P $as there are $|P| $possible images for every element of $Q$.
 
 
-4. Recall that the power set  P(S)  of a set  S  is the collection of all subsets of  S .
+4. Recall that the power set $\Bbb{P}(S)$ of a set $$  is the collection of all subsets of $S$.
 
   For $A  = \{1,2,3\}$ and $B=\{x,y\}$, calculate the following cardinalities.<br/>
-  a. $|\mathbb{P}(A)|$<br/>
-  b. $|\mathbb{P}(B)|$<br/>
+  a. $|\Bbb{P}(A)|$<br/>
+  b. $|\Bbb{P}(B)|$<br/>
   c. $|A \times B^2|$<br/>
-  d. $|\mathbb{P}(A \times B)|$<br/>
-  e. $|\mathbb{P}(A) \times B|$<br/>
-  f. $|\mathbb{P}(\mathbb{P}(A))|$<br/>
+  d. $|\Bbb{P}(A \times B)|$<br/>
+  e. $|\Bbb{P}(A) \times B|$<br/>
+  f. $|\Bbb{P}(\Bbb{P}(A))|$<br/>
 
   Ans: a. (8); b. (4); c. (12); d. ($2^6 = 64$), e. (16); f. ($2^8 = 256$)
 
@@ -725,10 +725,10 @@
 
   Ans: a. ($2^9 = 512$); b. ($2^8 = 256$); c. (256); d. ($2^4 = 16$)<br/>
   Explanation:
-  + a. Every element of  {1,2,…,9}  is an either in the subset of not, hence there are $2^9=512$ subsets.
-  + b. Ever set containing '1' corresponds to an arbitrary subset of  {2,3,⋯,9} , and there are $2^8=256$ such subsets.
-  + c. Every subset of size  ≥5  corresponds to its complement that has size  ≤4 . For example, {1,2,3,4,5} has 5 elements, while its complement {6,7,8,9} has 4 elements. Hence the number of subsets of size $\geq 5$  is the same as the number of subsets of size $\leq 4$ and together they comprise all $2^9$ subsets. Hence the number of subsets of size $ \geq 5$ is $\frac{2^9}{2} = 2^8 = 256$.
-  + d. Any subset with no odd elements is a subset of {2,4,6,8} and there are $2^4 = 16$ such subsets.
+    + Every element of $\{1,2,\dots ,9\}$ is an either in the subset of not, hence there are $2^9=512$ subsets.
+    + Ever set containing '1' corresponds to an arbitrary subset of $\{2,3, \dots,9\}$, and there are $2^8=256$ such subsets.
+    + Every subset of size  ≥5  corresponds to its complement that has size  ≤4 . For example, {1,2,3,4,5} has 5 elements, while its complement {6,7,8,9} has 4 elements. Hence the number of subsets of size $\geq 5$  is the same as the number of subsets of size $\leq 4$ and together they comprise all $2^9$ subsets. Hence the number of subsets of size $ \geq 5$ is $\frac{2^9}{2} = 2^8 = 256$.
+    + Any subset with no odd elements is a subset of {2,4,6,8} and there are $2^4 = 16$ such subsets.
 
 
 
@@ -874,9 +874,9 @@
 
   Ans: a. (900); b. (400); c. (452)<br/>
   Explanation:
-  + a. Since the number is palindromic, it is determined by its first three digits. The first digit must be 1,2,...,9, while the second and third are unconstrained. Hence the total number is $9 \cdot 10 \cdot 10 = 900$.
-  + b. The first digit can be only 2,4,6,8, hence $4 \cdot 10 \cdot 10 = 400$.
-  + c. $7 \cdot 8 \cdot 8 = 448$ palindromic integers do not contain 7 or 8. By the complement rule, $900-448=452$ contain 7 or 8.
+    + Since the number is palindromic, it is determined by its first three digits. The first digit must be 1,2,...,9, while the second and third are unconstrained. Hence the total number is $9 \cdot 10 \cdot 10 = 900$.
+    + The first digit can be only 2,4,6,8, hence $4 \cdot 10 \cdot 10 = 400$.
+    + $7 \cdot 8 \cdot 8 = 448$ palindromic integers do not contain 7 or 8. By the complement rule, $900-448=452$ contain 7 or 8.
 
 
 3. How many $5$-digit ternary strings are there without $4$ consecutive $0$s, $1$s or $2$s?
@@ -884,7 +884,6 @@
   For example,  01210  and  11211  are counted, but  20000 ,  11112 , and  22222  are excluded.
 
   Ans: 228<br>
-  Explanation:
   Explanation:
     + First count the number of excluded sequences.
     + A 5-digit string contains 4 consecutive 0's if it starts with 0000, or ends with 0000, or both.
@@ -911,10 +910,10 @@
   a. start or end with two identical digits, for example 0012345, 1234511, or 2222222,<br/>
   b. contain a substring of $5$ consecutive digits. For example 0034567, 2567892, or 0123456.<br/>
 
-  Ans: a. ($2 \cdot 10^6 + 10^5$); b. ($3 \cdot 600 - 2 \cdot 50 -4 + 4$) (<span style="color: magenta;">$3 \cdot 600, 3 \cdot 600 - 3 \cdot 50 + 4, 3 \cdot 600 - 2 \cdot 50 + 4$</span>)<br/>
+  Ans: a. ($2 \cdot 10^6 - 10^5$); b. ($3 \cdot 600 - 2 \cdot 50 -4 + 4$) (<span style="color: magenta;">$3 \cdot 600, 3 \cdot 600 - 3 \cdot 50 + 4, 3 \cdot 600 - 2 \cdot 50 + 4$</span>)<br/>
   Explanation:
   + a. $10 \cdot 10^5 = 10^6$ phone numbers start with two identical digits, and the same number end with two identical digits, furthermore $10^2 \cdot 10^3 = 10^5$ numbers start and end with two identical digits. By inclusion-exclusion, the answer is $2 \cdot 10^6 − 10^5 = 1,900,000$.
-  + b. Let  $L$, $M$, and $R$, be the sets of phone numbers whose 5 left, middle, and right digits, respectively, are consecutive. The set of phone numbers with five consecutive digits is  L∪M∪R , and we'll determine its size. $|L|=|M|=|R|=6 \cdot 102 = 600$, while $|L \cap M|=|M \cap R|=5 \cdot 10=50$, and $|L \cap R|=|L \cap M \cap R| = 4$. By inclusion-exclusion, $|L \cup M \cup R|=3 \cdot 600−2 \cdot 50−4+4=1700$.
+  + b. Let  $L$, $M$, and $R$, be the sets of phone numbers whose 5 left, middle, and right digits, respectively, are consecutive. The set of phone numbers with five consecutive digits is  L∪M∪R , and we'll determine its size. $|L|=|M|=|R|=6 \cdot 10^2 = 600$, while $|L \cap M|=|M \cap R|=5 \cdot 10=50$, and $|L \cap R|=|L \cap M \cap R| = 4$. By inclusion-exclusion, $|L \cup M \cup R|=3 \cdot 600−2 \cdot 50−4+4=1700$.
 
 
 6. How many ordered pairs $(A,B)$, where $A$, $B$ are subsets of $\{1,2,3,4,5\}$ have:<br/>
@@ -922,7 +921,7 @@
   b. $A \cap B=\{1\}$<br/>
   c. $|A \cap B|=1$<br/>
 
-  Ans: a. ($3^5$); b. ($3^4$); c. (5 \cdot 3^4$) <br/>
+  Ans: a. ($3^5$); b. ($3^4$); c. ($5 \cdot 3^4$) <br/>
   <span style="color: magenta;">Explanation:</span>
   + Represent each pair $(A,B)$ of disjoint subssets of $\{1,2,3,4,5\}$ as a ternary sequence of length 5, where 1 in location $i$ indicaes that $i \in A$, 2 in location $i$ indicates that $i \in B$, and 0 in location $i$ indicates that $i$ is in neither $A$ nor $B$. For example, 10201 corresponds to $A=\{1,5\}$ and $B=\{3\}$. The number of disjoint subset pairs is therefore the same as the number of ternary sequences of length 5, namely $3^5$.
   + Include $1$ in both $A$, $B$ and then repeat above part with the set $\{2,3,4,5\}$.
