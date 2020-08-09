@@ -923,9 +923,11 @@
 
   Ans: a. ($3^5$); b. ($3^4$); c. ($5 \cdot 3^4$) <br/>
   <span style="color: magenta;">Explanation:</span>
-  + Represent each pair $(A,B)$ of disjoint subssets of $\{1,2,3,4,5\}$ as a ternary sequence of length 5, where 1 in location $i$ indicaes that $i \in A$, 2 in location $i$ indicates that $i \in B$, and 0 in location $i$ indicates that $i$ is in neither $A$ nor $B$. For example, 10201 corresponds to $A=\{1,5\}$ and $B=\{3\}$. The number of disjoint subset pairs is therefore the same as the number of ternary sequences of length 5, namely $3^5$.
-  + Include $1$ in both $A$, $B$ and then repeat above part with the set $\{2,3,4,5\}$.
+  + Represent each pair $(A,B)$ of disjoint subssets of $\{1,2,3,4,5\}$ as a ternary sequence of length 5, where 1 in location $i$ indicaes that $i \in A$, 2 in location $i$ indicates that $i \in B$, and 0 in location $i$ indicates that $i$ is in neither $A$ nor $B$. For example, 10201 corresponds to $A=\{1,5\}$ and $B=\{3\}$. The number of disjoint subset pairs is therefore the same as the number of ternary sequences of length 5, namely $3^5$. [Quora](https://tinyurl.com/y5k8e65m)
+  + Include $1$ in both $A$, $B$ and then repeat above part with the set $\{2,3,4,5\}$. [Stackexchange](https://tinyurl.com/y6soc9mb)
   + Same as the above part, except the element in common can be any from $\{1,2,...,5\}$ and therefore $5 \cdot 3^4 = 405$.
+  + Similar question: [Solutions to April 2008 Problems - Problem 2](https://tinyurl.com/yyzs223q)
+  + general question: [Number of Pairs of Subsets](https://tinyurl.com/y5qdbj24)
 
 
 7. How many ordered pairs $(A,B)$, where $A$, $B$ are subsets of $\{1,2,3,4,5\}$, are there if:<br/>
