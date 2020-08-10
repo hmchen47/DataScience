@@ -798,7 +798,7 @@
   Ans: 
 
 
-4. Recall that the power set  P(S)  of a set  S  is the collection of all subsets of  S .
+4. Recall that the power set $\Bbb{P}(S)$ of a set $$  is the collection of all subsets of $S$.
 
   For $A  = \{1,2,3\}$ and $B=\{x,y\}$, calculate the following cardinalities.<br/>
   a. $|\Bbb{P}(A)|$<br/>
@@ -1004,8 +1004,7 @@
   b. 12<br/>
   c. 16<br/>
 
-  Ans: b<br/>
-  Explanation: The answer is $P(4, 2) = 4 \times 3 = 12$.
+  Ans: 
 
 
 1. In how many ways can 5 cars - a BMW, a Chevy, a Fiat, a Honda, and a Kia - park in 8 parking spots?
@@ -1217,7 +1216,7 @@
   
 
 
-3. Which of the following is the expansion of  (x+y)3 ?<br/>
+3. Which of the following is the expansion of $(x+y)^3$?<br/>
   a. $x^3+y^3$<br/>
   b. $x^3+x^2y+xy^2+y^3$<br/>
   c. $x^3+6xy+y^3$<br/>
@@ -1364,7 +1363,7 @@
   Ans: 
   
 
-4. How many terms are there in the expansion of  (x+y+z)10  ?
+4. How many terms are there in the expansion of $(x+y+z)^{10}$?
 
   Ans: 
   
