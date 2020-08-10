@@ -2,8 +2,6 @@
 
 ## 12.1 Review of Linear Algebra
 
-### Lecture Notes
-
 + Vectors representing
   + arrows
   + velocity and directions
@@ -267,8 +265,6 @@
 
 
 ## 12.2 Matrix Notation and Operations
-
-### Lecture Notes
 
 + Matrix notation
   + Matlab based on Matrix notation
@@ -574,8 +570,6 @@
 
 ## 12.3 Solving a System of Linear Equations
 
-### Lecture Notes
-
 + Finding a line passing through 2 points
   + $y = w_0 + w_1 x$
     + expressing a line as $(x, y)$ are points along the line, except for vertical line
@@ -673,8 +667,6 @@
 
 
 ## 12.4 Linear Regression
-
-### Lecture Notes
 
 + Linear regression by example
   + 9 points on the plane, defined by $(x, y)$ coordinates
@@ -880,8 +872,6 @@
 
 ## 12.5 Polynomial Regression
 
-### Lecture Notes
-
 + 2nd degree polynomial regression
   + form:
 
@@ -1028,8 +1018,6 @@
 
 ## 12.6 Regression Towards the Mean
 
-### Lecture Notes
-
 + Regression to the mean by example
   + students taking a standard exam at 2 time points $\to$ getting two grades
     + grades on a 0-100 scale
@@ -1110,8 +1098,6 @@
 
 
 ## 12.7 Principle Component Analysis
-
-### Lecture Notes
 
 + Linear regression example
   + 9 points on the plane, defined by $(x, y)$ coordinates

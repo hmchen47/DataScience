@@ -3,8 +3,6 @@
 
 ## 13.1 Hypothesis Test - Introduction
 
-### Lecture Notes
-
 + Hypotheses
   + assumptions (statements) about <font style="color: magenta; font-wight: bold;">parameters</font> of
     + distribution
@@ -221,8 +219,6 @@
 
 
 ## 13.2 Hypothesis Testing - p-Values
-
-### Lecture Notes
 
 + Example: coin bias
   + $\underbrace{H_0: p_h = 0.5}_{\text{Unbiased}} \quad \underbrace{H_A: p_h > 0.5}_{\substack{\text{Heads more}\\\text{likely}}}$
@@ -548,8 +544,6 @@
 
 ## 13.3 Lady Tasting Tea
 
-### Lecture Notes
-
 
 + Proper preparation of milk tea
   + in preparing milk tea: should tea or milk be added first?
@@ -772,8 +766,6 @@
 
 
 ## 13.4 Hypothesis Testing - Z and T Tests
-
-### Lecture Notes
 
 + Motivation
   + task: tests for mean
