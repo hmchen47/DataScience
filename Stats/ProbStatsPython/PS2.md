@@ -141,10 +141,10 @@
   Ans: 
 
 
-9. A standard poker deck has 52 cards, of 13 ranks $\{A,2, \dots ,10,J,Q,K\}$  and 4 suits $\{diamonds,clubs,hearts,spades\}$. What is the probability that a hand of five cards contains:
-  a. a queen of hearts,
-  b. at least one queen,
-  c. at least one heart?
+9. A standard poker deck has 52 cards, of 13 ranks $\{A,2, \dots ,10,J,Q,K\}$  and 4 suits $\{diamonds,clubs,hearts,spades\}$. What is the probability that a hand of five cards contains:<br/>
+  a. a queen of hearts,<br/>
+  b. at least one queen,<br/>
+  c. at least one heart?<br/>
 
   Ans: 
 
@@ -220,7 +220,7 @@
   a. $\frac{4}{52}$<br/>
   b. $\frac{13}{52}$<br/>
   c. $\tbinom{13}{4}/\tbinom{52}{4}$<br/>
-  d. $\tbinom{4}{1}⋅\tbinom{13}{4}/(\tbinom{52}{4}$<br/>
+  d. $\tbinom{4}{1}⋅\tbinom{13}{4}/\tbinom{52}{4}$<br/>
 
   Ans: 
   
@@ -351,7 +351,7 @@
 
 7. Let $X$ be distributed over $\Omega=\{1,2,\dots,100\}$ with $P(X=i)=\frac{i}{k}$ for some integer $k$. Find:<br/>
   a. $k$<br/>
-  b. $|E|$ where $E={x|x \in \Omega, x \text{ is multiples of 3}\}$,<br/>
+  b. $|E|$ where $E=\{x|x \in \Omega, x \text{ is multiples of 3}\}$,<br/>
   c. $P(E)$ .<br/>
 
   Ans: 
