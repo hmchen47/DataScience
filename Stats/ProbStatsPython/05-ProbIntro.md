@@ -66,7 +66,7 @@
   + <span style="color: magenta;">outcomes</span>: possible experiment results
   + <span style="color: magenta;">sample space</span>: set of possible outcomes, denoted <span style="color: magenta;">$\Omega, S \text{ or } U$</span>
 
-    <table style="font-family: arial,helvetica,sans-serif; width: 20vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
       <thead>
       <tr style="font-size: 1.2em;">
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Experiment</th>
@@ -84,7 +84,7 @@
 
 + Two sample-space types
   + <span style="color: magenta;">discrete</span>: finite or countable infinite sample space
-    + e.g., $\{h, t\}, \{1, 2, \dots, 6\}, \Bbb{N}, \Bbb{Z}, \{words\}, \{cities\}, \{people\}$
+    + e.g., $\{h, t\}, \{1, 2, \dots, 6\}, \Bbb{N}, \Bbb{Z}, \{\text{words}\}, \{\text{cities}\}, \{\text{people}\}$
   + <span style="color: magenta;">continuous</span>: uncountably infinite sample space
     + e.g., $\Bbb{R}, [0, 1], \{\text{temperatures}\}, \underbrace{\{\text{salaries}\}, \{\text{prices}\}}_{\text{upgraded}}$
   + discrete space: easier to understand, visualize, analyze; important; first
@@ -104,7 +104,7 @@
       + after: $X = \begin{cases} \text{h} & \text{get h} \\ \text{t} & \text{get t} \end{cases}$
 
 + Probability of an outcome
-  + the <span style="color: magenta;">probability</span>, or <span style="color: magenta;">likelihood</span>, of an outcome $x \in \Omega$, denoted <span style="color: magenta;">$P(x), P(x)$</span>, or <span style="color: magenta;">$P(X = x), P(X = x)$</span>, is the fraction of times $x$ will occur when experiment is repeated many times
+  + the <span style="color: magenta;">probability</span>, or <span style="color: magenta;">likelihood</span>, of an outcome $x \in \Omega$, denoted <span style="color: magenta;">$P(x)$</span>, or <span style="color: magenta;">$P(X = x)$</span>, is the fraction of times $x$ will occur when experiment is repeated many times
   + fair coin
     + as \# experiment $\to \infty$, fraction of heads (or tails) $\to 1/2$
     + heads w/ probability $1/2$: $P(h) = 1/2 \quad P(X=h) = 1/2$
@@ -133,7 +133,7 @@
     + rain: $P(\text{rain}) = 10\%, P(\text{no rain}) = 90\%$
   + <span style="color: magenta;">Probability distribution function (PDF)</span>: $P$ mapping outcome in $\Omega$ to nonnegative values that sum to 1
   
-    \[ P: \Omega \to \Bbb{R} , \; P(x) \geq 0 \text{ s.t. } \sum_{x\in \Omega} P(x) = 1 \]
+    \[ P: \Omega \to \Bbb{R} , \; P(x) \geq 0 \;\text{ s.t. }\; \sum_{x\in \Omega} P(x) = 1 \]
 
   + sample space $\Omega$ + distribution $P$ = probability space
 
@@ -148,7 +148,7 @@
   b. An even number.<br/>
   c. A positive number.<br/>
 
-  Ans: <span style="color: magenta;">b</span>
+  Ans: <span style="color: magenta;">b</span><br/>
   Explanation: The outcome of dice is certainly real and positive, but it may or may not be even, so it is random.
 
 1. Which of the following outcomes are random (not certain) after throwing a six-sided dice?<br/>
@@ -172,7 +172,7 @@
   c. The sequence "head, tail, head, head, head, head" is an outcome in the sample space.<br/>
   d. The sample space of the experiment is {head, tail}.<br/>
 
-  Ans: <span style="color: magenta;">c</span>
+  Ans: <span style="color: magenta;">c</span><br/>
   Explanation
     + False. The outcome is random and the coin may be fair.
     + False. In this experiment 1 out of 6 outcomes was "tail", but the coin's "tail" probability may differ.
@@ -646,10 +646,10 @@
   Explanation: The number of ways to pick 3 balls is $\tbinom{6}{3}=20$. 8 of them have their sum as a multiple of 3.
 
 
-9. A standard poker deck has 52 cards, of 13 ranks $\{A,2, \dots ,10,J,Q,K\}$  and 4 suits $\{diamonds,clubs,hearts,spades\}$. What is the probability that a hand of five cards contains:
-  a. a queen of hearts,
-  b. at least one queen,
-  c. at least one heart?
+9. A standard poker deck has 52 cards, of 13 ranks $\{A,2, \dots ,10,J,Q,K\}$  and 4 suits $\{diamonds,clubs,hearts,spades\}$. What is the probability that a hand of five cards contains:<br/>
+  a. a queen of hearts,<br/>
+  b. at least one queen,<br/>
+  c. at least one heart?<br/>
 
   Ans: a. (5/52); b. (0.3412); c. (0.7785)<br/>
   Explanation:
@@ -972,7 +972,7 @@
   Explanation
     + The 5 engineers and 3 artists can line up in $\tbinom{8}{3}$ ways, each corresponding to one choice of the the 3 artist locations out of the total 8. Note that all these arrangements are equally likely, hence this space is uniform.
     + If the first and last are engineers, then there are 6 locations left, and the number of ways to choose the locations of the artists is $\tbinom{6}{3}$.
-    + Hence the probability that the first and last are engineers is $\tbinom{6}{3}/\tbinom{8}{3}=6⋅5⋅4/8⋅7⋅6=5/14$.
+    + Hence the probability that the first and last are engineers is $\tbinom{6}{3}/\tbinom{8}{3}=6\cdot 5\cdot 4/8\cdot 7\cdot 6=5/14$.
     + In the sequential probability section we will see an easier way to find the answer.
 
 
@@ -1085,7 +1085,7 @@
   a. $\frac{4}{52}$<br/>
   b. $\frac{13}{52}$<br/>
   c. $\tbinom{13}{4}/\tbinom{52}{4}$<br/>
-  d. $\tbinom{4}{1}⋅\tbinom{13}{4}/(\tbinom{52}{4}$<br/>
+  d. $\tbinom{4}{1}\cdot \tbinom{13}{4}/\tbinom{52}{4}$<br/>
 
   Ans: d<br/>
   Explanation: There are $\tbinom{4}{1}$ ways to choose the suit (e.g. hearts) and $\tbinom{13}{4}$ ways to draw 4 cards from this suit. Yet the total number of ways to draw 4 cards is $\tbinom{52}{4}$. Hence, the probability is $4 \tbinom{13}{4} / \tbinom{52}{4}$.
@@ -1108,9 +1108,9 @@
   b. two pairs (two pairs of same-rank cards),<br/>
   c. one pair (a pair of same-rank cards, and three cards of three different ranks).<br/>
 
-  Ans: a. (0.021128); b. (0.047539); c. ()<br/>
+  Ans: a. (0.021128); b. (0.047539); c. (0.4226)<br/>
   <span style="color: magenta;">Explanation</span><br/>
-    + We deal with the 3 cards of the same rank first, and then the 2 remaining cards with different ranks. The are 13 ranks. The number of ways to get 3 cards of a particular rank, (e.g. ace) is $\tbinom{4}{3}=4$. In total the number of ways to get 3 cards of the same rank is $13 \cdot 4$. The remaining 2 cards cannot have the same rank as the one we choose the first step, so there are 12 cards left. Since 4 suits can be chosen for each card, the number of ways in total is  \tbinom{12}{2}⋅4^22$. The answer is $13 \cdot 4 \cdot \tbinom{12}{2} \cdot 42/ \tbinom{52}{5}=0.0211$.
+    + We deal with the 3 cards of the same rank first, and then the 2 remaining cards with different ranks. The are 13 ranks. The number of ways to get 3 cards of a particular rank, (e.g. ace) is $\tbinom{4}{3}=4$. In total the number of ways to get 3 cards of the same rank is $13 \cdot 4$. The remaining 2 cards cannot have the same rank as the one we choose the first step, so there are 12 cards left. Since 4 suits can be chosen for each card, the number of ways in total is  $\tbinom{12}{2}\cdot 4^2$. The answer is $13 \cdot 4 \cdot \tbinom{12}{2} \cdot 42/ \tbinom{52}{5}=0.0211$.
     + We first deal with the rank of the 2 pairs, and then the one left over. There are $\tbinom{13}{2}$ ways to choose 2 ranks out of 13. The number of ways get 2 cards of a probability of a particular rank, (e.g. ace), is $\tbinom{4}{2}$. We do the same for both the pair, so the total number of ways is $\tbinom{13}{2} \cdot \tbinom{4}{2}^2$,  For the one left over, there are 11 ranks left that can be chosen, and 4 suit can be chosen for each rank. The number of ways is $11 \cdot 4$. The answer is $\tbinom{13}{2} \cdot \tbinom{4}{2}^2 \cdot 11 \cdot 4/ \tbinom{52}{5}=0.0475$.
     + We first deal with the rank of the pair, and then the three left over. There are $\tbinom{13}{1}=13$ ways to choose a ranks out of 13. The number of ways get 2 cards of a probability of a particular rank, (e.g. ace), is $\tbinom{4}{2}$. The total number of ways is $13 \cdot \tbinom{4}{2}$, For the one left over, there are 12 ranks left that can be chosen, and 4 suit can be chosen for each rank. The number of ways is $\tbinom{12}{3} \cdot 43$. The answer is $13 \cdot \tbinom{4}{2} \cdot \tbinom{12}{3} \cdot 43/ \tbinom{52}{5}=0.4226$.
     + [5-CARD POKER HANDS](https://tinyurl.com/6mh5em)
@@ -1133,8 +1133,8 @@
 
   Ans: a. (0.048265); b. (<span style="color: magenta;">0.04072398</span>); c. (27/50)<br/>
   Explanation
-    + The possible combinations that sum to 21 are (A, 10), (A, J), (A, Q), (A, K). The number of them is 16⋅4. The answer is $16⋅4/\tbinom{(52}{2}=0.0483$.
-    + The possible combinations that sum to 10 are (2, 8), (3, 7), (4, 6), (5, 5). The number of them is $3 \cdot 4^2 + \tbinom{4}{2}$. The answer is $(3⋅4⋅4+ \tbinom{4}{2})/\tbinom{52}{2}=0.0407$.
+    + The possible combinations that sum to 21 are (A, 10), (A, J), (A, Q), (A, K). The number of them is $16\cdot 4$. The answer is $16\cdot 4/\tbinom{52}{2}=0.0483$.
+    + The possible combinations that sum to 10 are (2, 8), (3, 7), (4, 6), (5, 5). The number of them is $3 \cdot 4^2 + \tbinom{4}{2}$. The answer is $(3\cdot 4\cdot 4 + \tbinom{4}{2})/\tbinom{52}{2}=0.0407$.
     + To exceed 21, the third card belongs to { A, 8, 9, 10, J, Q, K }. As one 10 was drawn, $4 \cdot 7−1=27$ choices are left. The answer is $27/50=0.54$.
 
 
@@ -1149,7 +1149,7 @@
     + Each roll differs from "1" with probability 5/6, hence "1" does not appear in any roll with probability $(5/6)^3$ , because they are independent, and "1" does appear with probability $1−(5/6)^3=0.4213$.
     + There are $6^3$ possible ordered outcomes. By the "Partial Permutations" lecture, there are $6^{\underline{3}}$ distinct-element sequences of length 3 over $1 \dots 6$. Hence the probability is $6^{\underline{3}}/6^3=0.5556$.
     + There are four increasing sequences (starting with 1...4), hence $4/6^3=0.0185$.
-    + Adding the permutations to part 2, the number of sequences is $4 \cdot 3!$. Hence, the answer is $4 \cdot 3!/6^3=1/9=0.1111$.
+    + Adding the permutations to part 2, the number of sequences is $4 \cdot 3!$. Hence, the answer is $4 \cdot 3!/6^3$ $=1/9$ $=0.1111$.
 
 
 7. An instructor assigns 10 problems and says that the final exam will consist of a random selection of 5 of them. If a student knows how to solve 7 of the problems, what is the probability that he or she will answer correctly<br/>
@@ -1351,7 +1351,7 @@
 
 7. Let $X$ be distributed over $\Omega=\{1,2,\dots,100\}$ with $P(X=i)=\frac{i}{k}$ for some integer $k$. Find:<br/>
   a. $k$<br/>
-  b. $|E|$ where $E={x|x \in \Omega, x \text{ is multiples of 3}\}$,<br/>
+  b. $|E|$ where $E=\{x|x \in \Omega, x \text{ is multiples of 3}\}$,<br/>
   c. $P(E)$ .<br/>
 
   Ans: a. (5050); b. (33); c. (0.333267)<br/>
@@ -1477,28 +1477,28 @@
 
 1. Which of the following holds for all events A and B
 
-  1.1 in any probability space:<br/>
+  a) in any probability space:<br/>
   
   a. $A \supseteq B \implies P(A) \geq P(B)$<br/>
   b. $P(A) \geq P(B) \implies A \supseteq B$<br/>
   c. $|A| \geq |B| \implies P(A) \geq P(B)$<br/>
   d. $P(A) \geq P(B) \implies |A| \geq |B|$<br/>
 
-  1.2 in any uniform probability space:
+  b) in any uniform probability space:
 
   a. $A \supseteq B \implies P(A) \geq P(B)$<br/>
   b. $P(A) \geq P(B) \implies A \supseteq B$<br/>
   c. $|A| \geq |B| \implies P(A) \geq P(B)$<br/>
   d. $P(A) \geq P(B) \implies |A| \geq |B|$<br/>
   
-  Ans: 1.1 (xacd, a); 1.2 (xabcd, acd)<br/>
+  Ans: a. (a, xacd); b. (acd, xabcd)<br/>
   Explanation
-    + 1.1
+    + a)
       + $A supseteq B \implies P(A)=P(B)+P(A∖B) \geq P(B)$.
       + $A$ and $B$ can be nonempty and disjoint with $P(A) \geq P(B)$, then $A$ does not contain $B$.
       + $B$ can be a singleton with higher probability than a set $A$ with two elements.
       + Similar counter-example to 3.
-    + 1.2
+    + b)
       + Follows from the result for general spaces.
       + Similar counter-example to part a.
       + I uniform sample spaces $S$, for any event $E$, $P(E)=|E|/|S|$, hence $|A| \geq |B| \implies P(A) \geq P(B)$.
@@ -1511,7 +1511,7 @@
   c. If $P(A)+P(B)>1$, then $A \cap B \neq \varnothing$<br/>
   d. If $P(A)+P(B)>1$, then $P(A \cup B)=1$<br/>
 
-  Ans: xbc, c<br/>
+  Ans: c, xbc<br/>
   Explanation: Let  Ω={1,2,3} , and  P(1)=P(2)=0.1,P(3)=0.8 .
     + False. Let $A=B=\{1,2\}$. $|A|+|B|=4>|Ω|$, but $P(A \cup B)=0.2$.
     + False. Let $A=B=\{1,2\}$. $|A|+|B|=4>|Ω|$, but $P(A)+P(B)=0.4$.
