@@ -417,7 +417,7 @@
 
 ## 6.1 Conditional Probability
 
-0. Let A and B be two positive-probability events. Does P(A\mid B)>P(A) imply P(B\mid A)>P(B)?<br/>
+0. Let A and B be two positive-probability events. Does $P(A\mid B)>P(A) \implies P(B\mid A)>P(B)$?<br/>
   a. Yes<br/>
   b. Not necessarily<br/>
 
@@ -426,12 +426,12 @@
 
 
 1. Suppose $P(A)>0$. Find $P(B\mid A)$ when:<br/>
-  a. $B=A$,<br/>
+  a. $B = A$,<br/>
   b. $B \supseteq A$,<br/>
-  c. $B=\Omega$,<br/>
-  d. $B=A \subset $,<br/>
-  e. $A∩B= \varnothing$,<br/>
-  f. $B= \varnothing$.<br/>
+  c. $B =\Omega$,<br/>
+  d. $B =A \subset $,<br/>
+  e. $A \cap B= \varnothing$,<br/>
+  f. $B = \varnothing$.<br/>
 
   Ans: 
   
@@ -447,10 +447,10 @@
 
 
 3. Given events $A$, $B$ with $P(A)=0.5$, $P(B)=0.7$, and $P(A \cap B)=0.3$ , find:<br/>
-  a. $P(A\mid B)$ ,<br/>
-  b. $P(B\mid A)$ ,<br/>
-  c. $P(A^c\mid B^c)$ ,<br/>
-  d. $P(B^c\mid A^c)$ .<br/>
+  a. $P(A\mid B)$,<br/>
+  b. $P(B\mid A)$,<br/>
+  c. $P(A^c\mid B^c)$,<br/>
+  d. $P(B^c\mid A^c)$.<br/>
 
   Ans: 
   
@@ -483,7 +483,7 @@
 
 
 7. A 5-card poker hand is drawn randomly from a standard 52-card deck. Find the probability that:<br/>
-  a. all cards in the hand are  ≥7  (7, 8,..., K, Ace), given that the hand contains at least one face card (J, Q, or K),<br/>
+  a. all cards in the hand are $\ge 7$ (7, 8,..., K, Ace), given that the hand contains at least one face card (J, Q, or K),<br/>
   b. there are exactly two suits given that the hand contains exactly one queen.<br/>
 
   Ans: 
