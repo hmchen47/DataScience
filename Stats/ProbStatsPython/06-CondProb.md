@@ -81,7 +81,7 @@
 
 ### Problem Sets
 
-0. Let A and B be two positive-probability events. Does P(A\mid B)>P(A) imply P(B\mid A)>P(B)?<br/>
+0. Let A and B be two positive-probability events. Does $P(A\mid B)>P(A) \implies P(B\mid A)>P(B)$?<br/>
   a. Yes<br/>
   b. Not necessarily<br/>
 
@@ -93,7 +93,7 @@
   a. $B=A$,<br/>
   b. $B \supseteq A$,<br/>
   c. $B=\Omega$,<br/>
-  d. $B=A \subset $,<br/>
+  d. $B=A^c$,<br/>
   e. $A∩B= \varnothing$,<br/>
   f. $B= \varnothing$.<br/>
 
@@ -113,7 +113,7 @@
   c. \(P(A\cup B)\),<br/>
   d. \(P(A\cap B)\).<br/>
 
-  Ans: bc<br>
+  Ans: bd<br>
   Explanation: Since $A$ and $B$ are disjoint, $P(A\mid B)=0$. $P(A\ \cap B)=P(B\mid A)=0$, while $P(A)$ and $P(A∪B)$ are positive as $A$ and $B$ are positive-probability events.
 
 
@@ -158,7 +158,7 @@
 
   Ans: a. (0); b. (1/4); c. (1/7)<br/>
   Explanation:
-    + If the first coin is tails, it's impossible for all coins to be heads, hence the probability is 0. More formally, $P(X_1 \cap X_2 \cap X_3\mid \overline{X_3}) = \frac{P(X_1 \cap X_2 \cap X_3 \cap \overline{X_3})}{P(\overline{X_3})= \frac{P(\varnothing)}{P(\overline{X_3})= \frac{0}{1/2}=0$.
+    + If the first coin is tails, it's impossible for all coins to be heads, hence the probability is 0. More formally, $P(X_1 \cap X_2 \cap X_3\mid \overline{X_3}) $ $= \frac{P(X_1 \cap X_2 \cap X_3 \cap \overline{X_3})}{P(\overline{X_3})}$ $= \frac{P(\varnothing)}{P(\overline{X_3}})$ $= \frac{0}{1/2}=0$.
     + First intuitively, if the first coin is heads, then all are heads iff the second and third coins are heads, which by independence of coin flips happens with probability $\frac{1}{2} \cdot \frac{1}{2}=14$.  A bit more formally, let $X_1,X_2,X_3$ be the events that the first, second, and third coin is heads. Then $P(X_1 \cap X_2 \cap X_3\mid X_1)=\frac{P(X_1 \cap X_2 \cap X_3 \cap X_1)}{P(X_1)}=\frac{P(X_1 \cap X_2 \cap X_3)}{P(X_1)}=\frac{1/8}{1/2}=\frac{1}{4}$.
     + First intuitively, there are seven possible outcome triples where at least one of the coins is heads, and only one of them has all heads. Hence the probability of all heads given that one is heads is $1/7$.  More formally, $P(X_1 \cap X_2 \cap X_3\mid X_1 \cup X_2 \cup X_3)=\frac{P((X_1 \cap X_2 \cap X_3) \cap (X_1 \cup X_2 \cup X_3))}{P(X_1 \cup X_2 \cup X_3)}=\frac{P(X_1 \cap X_2 \cap 3)}{P(X_1 \cup X_2 \cup X_3)}=\frac{1/8}{7/8}=\frac{1}{7}$.
 
@@ -181,7 +181,7 @@
 
 
 ## 6.2 Independence
-
+ 
 + Motivation
   + $P(F \mid  E) > P(F)$
     + $E \nearrow$ probability of $F$
@@ -374,7 +374,7 @@
 
 3. 4 freshman boys, 6 freshman girls, and 6 sophomore boys go on a trip. How many sophomore girls must join them if a student's gender and class are to be independent when a student is selected at random?
 
-  Ans:9 <br/>
+  Ans: 9 <br/>
   Explanation: 
     + First, let's do it the formal but hard way. Let $SG$ denote the number of sophomore girls. Then the total number of students is $4+6+6+SG=16+SG$.  If a student is selected at random, the probability that the student is a freshman is $4+616+SG$, the probability that a random student is a boy is $\frac{4+6}{16+SG}$, and the probability that the student is both a freshman and boy is $\frac{4}{16+SG}$. If the student's gender and class are independent, then by the product rule, the probability of the intersection is the product of the probabilities, hence $\frac{4}{16+SG}=\frac{4+6}{16+SG} \cdot \frac{4+6}{16+SG}$, hence $100=4 \cdot (16+SG)$, or $SG=9$.
     + Another way to see this is to observe that if the gender and class are independent, then the fraction of girls that are freshmen, namely $\frac{6}{6+SG}$ should be the same as the fraction of boys that are freshmen, namely $\frac{4}{4+6}=2/5$. Therefore $\frac{6}{6+SG}=2/5$, or $SG=9$. 
@@ -424,7 +424,7 @@
   a. $F_e$ and $S_4$,<br/>
   b. $F_e$ and $\Sigma_o$,<br/>
   c. $S_4$ and $\Sigma_o$,<br/>
-  d. $F_e$, $S_4$, and $\Sigma_o$ (mutually independent)$?<br/>
+  d. $F_e$, $S_4$, and $\Sigma_o$ (mutually independent)?<br/>
   
   Ans: abc<br/>
   Explanation
@@ -572,10 +572,11 @@
   c. What is the probability of observing 7 red and 9 black balls?<br/>
 
   Ans: a. (1/60); b. (1/6); c. (1/17)<br/>
+  Hint: (Part b) Note that any sequence with 3 red and 2 black balls, e.g. r,r,r,b,b is observed with the same probability.
   <span style="color: magenta;">Explanation</br>
-    + $P(r,b,b,r,r)=P(r) \cdot P(b\mid r) \cdot P(b\mid r,b) \cdot P(r\mid r,b,b) \cdot P(r\mid r,b,b,r)=1/2 \cdot 1/3 \cdot2/4 \cdot 2/5 \cdot 3/6=160=0.01666 \cdots$
+    + $P(r,b,b,r,r)$ $=P(r) \cdot P(b\mid r) \cdot P(b\mid r,b) \cdot P(r\mid r,b,b) \cdot P(r\mid r,b,b,r)$ $=1/2 \cdot 1/3 \cdot2/4 \cdot 2/5 \cdot 3/6$ $=1/60=0.01667$
     + any sequence with 3 red and 2 black balls, e.g. r,r,r,b,b is observed with the same probability.
-    + t can be verified that for any sequence with $n_r$ red balls and $n_b$ black balls, the probability $p=n_r! \cdot n_b!/(n_r+n_b+1)!$.  Hence the probability of observing $n_r$ red balls and $n_b$ black balls is <span style="color: cyan;">$\tfrac{n_r! \cdot n_b!}{(n_r+n_b+1)!} \tbinom{n_r+n_b}{n_b}=\frac{1}{n_r+n_b+1}$</span>.
+    + It can be verified that for any sequence with $n_r$ red balls and $n_b$ black balls, the probability $p=n_r! \cdot n_b!/(n_r+n_b+1)!$.  Hence the probability of observing $n_r$ red balls and $n_b$ black balls is <span style="color: cyan;">$\tfrac{n_r! \cdot n_b!}{(n_r+n_b+1)!} \tbinom{n_r+n_b}{n_b}=\frac{1}{n_r+n_b+1}$</span>.
     + [StackExchange](https://tinyurl.com/yc8x5e6j)
 
 
@@ -606,6 +607,7 @@
   b. there are 5 remaining balls.<br/>
 
   Ans: a. (<span style="color: magenta;">3/7</span>); b. (<span style="color: magenta;">0.0300463</span>)<br/>
+  Hint: If you drew all balls, with what probability would the last be white?<br/>
   Explanation:
     + [StackExchange](https://tinyurl.com/y7v3tury)
 
@@ -616,9 +618,12 @@
         <a href="https://tinyurl.com/y7v3tury" ismap target="_blank">
           <img src="https://i.stack.imgur.com/KAla7.jpg" style="margin: 0.1em;" alt="Derivative of probability w/ remaining while balls" title="Derivative of probability w/ remaining while balls" width=450>
         </a>
+        <a href="https://tinyurl.com/y7v3tury" ismap target="_blank">
+          <img src="https://i.stack.imgur.com/c3YtL.jpg" style="margin: 0.1em;" alt="Derivative of probability w/ remaining while balls" title="Derivative of probability w/ remaining while balls" width=450>
+        </a>
       </div>
 
-    + Let $S$ be the sequence of balls you draw, for example $S$ could be $BWWBW \cdot$), with $B$ being a black ball, $W$ being a white ball. $S$ is of length $35$.  The remaining colors will be all white iff the last ball of $S$ is white, which happens with probability $15/35$.
+    + Let $S$ be the sequence of balls you draw, for example $S$ could be $BWWBW \cdots$, with $B$ being a black ball, $W$ being a white ball. $S$ is of length $35$.  The remaining colors will be all white iff the last ball of $S$ is white, which happens with probability $15/35$.
     + Since there are five balls left, the last five balls need to be of the same color, and the ball just before them, of a different color. That is, the last 6 positions of $S$ should be either $BWWWWW$ or $WBBBBB$. Hence, the answer is $(\tbinom{29}{10}+\tbinom{29}{15})/\tbinom{35}{15}=0.03$.
 
 
@@ -748,7 +753,9 @@
 3. Let $A$ and $B$ be two random subsets of $\{1,2,3,4\}$. What is the probability that $A \subseteq B$?
 
   Ans: $81/16^2$<br/>
-  Explanation: This can be calculated via total probability, conditioning on the possible sizes of $A$ from 0 to 4, namely $(\tbinom{4}{0}2^0+\tbinom{4}{1}2^1+ \cdots+\tbinom{4}{4}2^44)/(2^4)^2=0.3164$.  A cleaner derivation is to observe that $A \subseteq  B \iff$ for every element $x$, $x \in A \implies x \in B$, namely $x \notin A$ and $x \notin B$, or $x \notin A$ and $x \in B$, or $x \in A$ and $x \in B$. (Just $x \in A$ and $x \notin B$ is excluded.) Since any given $x$ is in $A$ and $B$ independently at random, the probability that this holds for $x$ is $3/4$, and the probability that it holds for all four elements is $(3/4)^4=0.3164$.
+  Explanation: 
+    + This can be calculated via total probability, conditioning on the possible sizes of $A$ from 0 to 4, namely $(\tbinom{4}{0}2^0+\tbinom{4}{1}2^1+ \cdots+\tbinom{4}{4}2^4 )/(2^4)^2=0.3164$.  A cleaner derivation is to observe that $A \subseteq  B \iff$ for every element $x$, $x \in A \implies x \in B$, namely $x \notin A$ and $x \notin B$, or $x \notin A$ and $x \in B$, or $x \in A$ and $x \in B$. (Just $x \in A$ and $x \notin B$ is excluded.) Since any given $x$ is in $A$ and $B$ independently at random, the probability that this holds for $x$ is $3/4$, and the probability that it holds for all four elements is $(3/4)^4=0.3164$.
+    + [StackExchange](https://tinyurl.com/yxdy3ym8)
 
 
 4. Eight equal-strength players, including Alice and Bob, are randomly split into $4$ pairs, and each pair plays a game (i.e. 4 games in total), resulting in four winners. What is the probability that exactly one of Alice and Bob will be among the four winners?
@@ -756,7 +763,9 @@
   Ans: 4/7<br/>
   Explanation: Here are two ways of solving the problem. One using total probability, the other by symmetry.
     + Total Probability.<br/>Let $E$ be the desired event that exactly one of Alice or Bob is a winner. We divide the sample space into two disjoint events, $E_1$, $E_2$. $E_1$ is the event that Alice and Bob play against each other and $E_2$ is the complimentary event that Alice and Bob play against other players. Since Alice is equally likely to play with any of the seven other players, $P(E_1)=1/7$, hence $P(E_2)=6/7$. Now $P(E\mid E_1)=1$, while $P(E\mid E_2)=1/2$ since Alice and Bob each play an independent game where the probability of winning is $1/2$. Therefore $P(E)=P(E_1) \cdot P(E\mid E_1)+P(E_2) \cdot P(E\mid E_2)=1/7 \cdot 1+6/7 \cdot 1/2=4/7$.
-    + Symmetry.<br/>In the end, 4 of the 8 players will be declared winners. There are $\tbinom{8}{4}$ such 4-winner "quartets", all equally likely.  The number of "quartets" that contain exactly one of Alice and Bob is $\tbinom{2}{1} \cdot \tbinom{6}{3}$.  Hence the probability that this occurs is $\frac{\tbinom{2}{1} \cdot \tbinom{6}{3}}{\tbinom{8}{4}}=47$.
+    + Symmetry.<br/>In the end, 4 of the 8 players will be declared winners. There are $\tbinom{8}{4}$ such 4-winner "quartets", all equally likely.  The number of "quartets" that contain exactly one of Alice and Bob is $\tbinom{2}{1} \cdot \tbinom{6}{3}$.  Hence the probability that this occurs is $\frac{\tbinom{2}{1} \cdot \tbinom{6}{3}}{\tbinom{8}{4}}=\frac 4 7$.
+    + [Quora - Jacob Miller](https://tinyurl.com/y5t329ze)
+    + [Brainly](https://brainly.com/question/15019135)
 
 
 
@@ -904,14 +913,14 @@
 
 3. A college graduate is applying for a job and has 3 interviews. She passes the first, second, and third interviews with probabilities 0.9, 0.8, and 0.7, respectively. If she fails any interview, she cannot proceed with subsequent interview(s) and will not get the job. If she didn’t get the job, what is the probability that she failed the second interview?
 
-  Ans: <span style="color: magenta;">0.3629</span>
-  Explanation: Let $F$, $S$, and $T$ denote the events that the applicant passed the first, second, and third interviews, respectively. The probability that she failed the second interview given that she didn't get the job is  $P(\overline{S}\mid  \overline{FST})=P(\overline{FS} \mid  \overline{FST}) =$  $P(\overline{FS}\nabla \overline{FST}) P(\overline{FST})$ $= P(\overline{FS}) P(\overline{FST})= $ $0.9 \cdot 0.21−0.9 \cdot 0.8 \cdot 0.7$, where the first equality follows as the applicant fails the second interview iff she passes the first interview and fails the second. [EstackExchange](https://tinyurl.com/ya73scpb)
+  Ans: <span style="color: magenta;">0.3629</span><br/>
+  Explanation: Let $F$, $S$, and $T$ denote the events that the applicant passed the first, second, and third interviews, respectively. The probability that she failed the second interview given that she didn't get the job is  $P(\overline S\mid \overline{FST})$ $=P(F\overline S\mid \overline{FST})$ $=\frac{P(F\overline S\land\overline{FST})}{P(\overline{FST})}$ $=\frac{P(F\overline S)}{P(\overline{FST})}$ $=\frac{0.9\cdot 0.2}{1-0.9\cdot0.8\cdot0.7}$, where the first equality follows as the applicant fails the second interview iff she passes the first interview and fails the second. [EstackExchange](https://tinyurl.com/ya73scpb)
 
 
 4. An ectopic pregnancy is twice as likely to develop when a pregnant woman is a smoker than when she is a nonsmoker. If 32% of women of childbearing age are smokers, what fraction of women having ectopic pregnancies are smokers?
 
   Ans: <span style="color: magenta;">0.4848</span><br/>
-  Explanation: Let $S$ and $E$ denote the events that a pregnant woman is a smoker, and has an ectopic pregnancy, respectively. We are told that $P(S)=.32$ and $P(E\mid S^c)=.5 \cdot P(E\mid S)$. By Bayes' Rule, $P(S\mid E)=P(E\mid S) \cdot P(S)P(E\mid S) \cdot P(S)+P(E\mid S^c) \cdot P(S^c)=$ $P(E\mid S) \cdot P(S)P(E\mid S) \cdot P(S)+.5 \cdot P(E\mid S) \cdot P(S^c)=$ $P(S)P(S)+.5 \cdot P(S^c)=.32.32+.5 \cdot (1−.32)=1633$. [Waterloo](https://ece.uwaterloo.ca/~oamin/Tut3.pdf)
+  Explanation: Let $S$ and $E$ denote the events that a pregnant woman is a smoker, and has an ectopic pregnancy, respectively. We are told that $P(S)=.32$ and $P(E\mid S^c)=.5 \cdot P(E\mid S)$. By Bayes' Rule, $P(S\mid E)$ $=\frac{P(E\mid S)\cdot P(S)}{P(E\mid S)\cdot P(S)+P(E\mid \overline S)\cdot P(\overline S)}$ $=\frac{P(E\mid S)\cdot P(S)}{P(E\mid S)\cdot P(S)$ $+.5\cdot P(E\mid S)\cdot P(\overline S)}$ $=\frac{P(S)}{P(S)$ $+.5\cdot P(\overline S)}$ $=\frac{.32}{.32+.5\cdot(1-.32)}$ $=\frac{16}{33}.$. [Waterloo](https://ece.uwaterloo.ca/~oamin/Tut3.pdf)
 
 
 5. Each of Alice, Bob, and Chuck shoots at a target once, and hits it independently with probabilities 1/6, 1/4, and 1/3, respectively. If only one shot hit the target, what is the probability that Alice's shot hit the target?<br/>
@@ -945,16 +954,16 @@
     + [StackExchange 1](https://tinyurl.com/y8muf6ye), [StackExchange 2](https://tinyurl.com/y8bxt2ew)
 
 
-8. On any night, there is a 92% chance that an burglary attempt will trigger the alarm, and a  1%  chance of a false alarm, namely that the alarm will go off when there is no burglary. The chance that a house will be burglarized on a given night is  1/1000 . What is the chance of a burglary attempt if you wake up at night to the sound of your alarm?
+8. On any night, there is a 92% chance that an burglary attempt will trigger the alarm, and a 1% chance of a false alarm, namely that the alarm will go off when there is no burglary. The chance that a house will be burglarized on a given night is 1/1000. What is the chance of a burglary attempt if you wake up at night to the sound of your alarm?
 
-  Ans: 0.09125<br/>
-  Explanation: Let $A$ be the event of triggering alarm, $B$ be the event of an burglary attempt, $NB$ be the event of no attempts. As $P(A\mid B)=0.92,P(A\mid NB)=0.01,P(B)=0.001$. Following Bayes rule $P(B\mid A)=0.084$.
+  Ans: <font style="color: cyan">0.084</font><br/>
+  Explanation: Let $A$ be the event of triggering alarm, $B$ be the event of an burglary attempt, $NB$ be the event of no attempts. As $P(A\mid B)=0.92,P(A\mid NB)=0.01,P(B)=0.001$. Following Bayes rule $P(B\mid A) = \frac{P(A\mid B) P(B)}{P(A)} = \frac{P(A\mid B) P(B)}{P(A\mid B) P(B) + P(A\mid NB) P(NB)} = 0.084$.
 
 
 9. An urn labeled "heads" has  5  white and  7  black balls, and an urn labeled "tails" has  3  white and  12  black balls. Flip a fair coin, and randomly select on ball from the "heads" or "tails" urn according to the coin outcome. Suppose a white ball is selected, what is the probability that the coin landed tails?
 
   Ans: 12/37<br/>
-  Explanation: Let $H$ and $T$ be the events that the coin turnd up heads and tails, and let $W$ be the event of selecting a white ball. $P(H)=P(T)=0.5,P(W\mid H)=5/12,P(W\mid T)=3/15$. Following Bayesian rule $P(T\mid W)=12/37$.
+  Explanation: Let $H$ and $T$ be the events that the coin turnd up heads and tails, and let $W$ be the event of selecting a white ball. $P(H)=P(T)=0.5,P(W\mid H)=5/12,P(W\mid T)=3/15$. Following Bayesian rule $P(T\mid W)=12/37$. [Math UConn](https://tinyurl.com/yy69563z)
 
 
 10. A car manufacturer receives its air conditioning units from 3 suppliers. 20% of the units come from supplier A, 30% from supplier B, and 50% from supplier C. 10% of the units from supplier A are defective, 8% of units from supplier B are defective, and 5% of units from supplier C are defective. If a unit is selected at random and is found to be defective.
