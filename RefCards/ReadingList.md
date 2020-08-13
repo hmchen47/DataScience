@@ -129,6 +129,17 @@
 + ME Tipping, CM Bishop, [Probabilistic principal component analysis](https://publications.aston.ac.uk/id/eprint/38367/1/NCRG_97_010.pdf), 1999
 + H Abdi, LJ Williams, [Principal component analysis](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.149.8828&rep=rep1&type=pdf), 2010
 + J Shlens, [A tutorial on principal component analysis](https://arxiv.org/pdf/1404.1100&sa=U&ved=2ahUKEwi57Mfr0ZDpAhWtF6YKHfSxAck4ChAWMAZ6BAgEEAE&usg=AOvVaw2ccduDFnmcXvF-iGE-VXIM), 2014
++ Farhad Malik, [Understanding Statistics And Probability](https://towardsdatascience.com/@farhadmalik)
+  + [Understanding Statistics And Probability: Bayesian Inference](https://tinyurl.com/y4gepghk)
+  + [Statistical Inference For Data Scientists](https://tinyurl.com/y5xu8m3c)
+  + [Chi-Squared, Student-T, And F Distributions](https://tinyurl.com/yyvmqhzt)
+  + [Markov Chains](https://tinyurl.com/y4m2eu8w)
+  + [Central Limit Theorem And Convergence For Data Scientists](https://tinyurl.com/y3hxtu2v)
+  + [The Essentials Of Probability For Data Scientists](https://tinyurl.com/y26czmyj)
++ Gordan Zitkovic, [Theory of Probability, Parts I and II](https://web.ma.utexas.edu/users/gordanz/lecture_notes_page.html)
++ Gordan Zitkovic, [Introduction to Stochastic Processes](https://web.ma.utexas.edu/users/gordanz/lecture_notes_page.html)
++ Gordan Zitkovic, [Introduction to Mathematical Statistics](https://web.ma.utexas.edu/users/gordanz/lecture_notes_page.html)
+
 
 
 ### Machine Learning
@@ -136,6 +147,9 @@
 + Gilbert Strage, [Calculus](https://ocw.mit.edu/ans7870/resources/Strang/Edited/Calculus/Calculus.pdf)
 
 + Trevor Hastie and Rob Tibshirani, [introduction to machine learning](https://www.r-bloggers.com/in-depth-introduction-to-machine-learning-in-15-hours-of-expert-videos/)
+
++ Farhad Malik, [End To End Guide For Machine Learning Project](https://tinyurl.com/y4vey39z), Dec 28, 2018
+
 
 
 ### Neural Networks
