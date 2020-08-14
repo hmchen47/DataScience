@@ -2,7 +2,7 @@
 
 
 ## 7.1 Random Variables
-
+ 
 + Motivation
   + basic: coin, dice, cards, dominoes, marbles, ...
   + applications $\to$ numbers
@@ -266,9 +266,9 @@
     + $P(2\lt X\le 5) = F(5) - F(2) = \frac{4}{5} - \frac{1}{2} = \frac{3}{10}$
 
 
-3. Flip a coin with heads probability 0.6 repeatedly till it lands on tails, and let $X$ be the total number of flips, for example, for h, h, t, $X=3$. Find:
-  a. $P(X\le 3)$
-  b. $P(X\ge 5)$
+3. Flip a coin with heads probability 0.6 repeatedly till it lands on tails, and let $X$ be the total number of flips, for example, for h, h, t, $X=3$. Find:<br/>
+  a. $P(X\le 3)$<br/>
+  b. $P(X\ge 5)$<br/>
 
   Ans: a. (0.784); b.(0.1296)<br/>
   Explanation
@@ -458,7 +458,7 @@
   Explanation: An expectation of a distribution is a constant, which can be deducted by the distribution.
 
 
-2. A quiz-show contestant is presented with two questions, question 1 and question 2, and she can choose which question to answer first. If her initial answer is incorrect, she is not allowed to answer the other question. If the rewards for correctly answering question 1 and 2 are \$200 and \$100 respectively, and the contestant is 60% and 80% certain of answering question 1 and 2, which question should she answer first as to maximize the expected reward?
+2. A quiz-show contestant is presented with two questions, question 1 and question 2, and she can choose which question to answer first. If her initial answer is incorrect, she is not allowed to answer the other question. If the rewards for correctly answering question 1 and 2 are `$200` and `$100` respectively, and the contestant is 60% and 80% certain of answering question 1 and 2, which question should she answer first as to maximize the expected reward?
 
   Ans: <span style="color: magenta;">Question 2 first</span><br/>
   Explanation: 
@@ -475,15 +475,15 @@
   d. 7.692<br/>
 
   Ans: a<br/>
-  Explanation: Create 100 random variables $X1,X2, \dots ,X100$, each of which is a binary number, with 1 denotes we get a black king and 0 otherwise. It is easy to show that $E[X_i]=2/52$.  The times we expect to draw a black king can be calculated using $E[X_1 + X_2 + \cdots + X_{100}] = E[X_1] + E[X_2] + \cdots + E[X_{100}] = \frac{200}{52} = 3.846$
+  Explanation: Create 100 random variables $X_1,X_2, \dots ,X_{100}$, each of which is a binary number, with 1 denotes we get a black king and 0 otherwise. It is easy to show that $E[X_i]=2/52$. The times we expect to draw a black king can be calculated using $E[X_1 + X_2 + \cdots + X_{100}] = E[X_1] + E[X_2] + \cdots + E[X_{100}] = \frac{200}{52} = 3.846$
 
 
 4. Each time you play a die rolling game you must pay `$1`. If you roll an even number, you win `$2`. If you roll an odd number, you lose additional `$1`. What is the expected value of your winnings?<br/>
-  a. `−$0.50`<br/>
-  b. `+$0.50`<br/>
-  c. `+$0.00`<br/>
-  d. `+$1.00`<br/>
-  e. `−$1.00`<br/>
+  a. $−\$0.50$<br/>
+  b. $+\$0.50$<br/>
+  c. $+\$0.00$<br/>
+  d. $+\$1.00$<br/>
+  e. $−\$1.00$<br/>
 
   Ans: a<br/>
   Explanation: Since each time you need to pay `$1` for the game, the question is equivalent to "If you roll an even number, you win `$1`. If you roll an odd number, you lose `$2`." With $P(\text{even}) = P(\text{odd}) = \frac{1}{2}$, the expectation is $1×12+(−2)×12=−0.5$.  [Quora](https://tinyurl.com/y89ctmc4)
@@ -492,7 +492,8 @@
 5. Choose a random subset of $\{2^1,2^2,\cdots, 2^{10}\}$ by selecting each of the 10 elements independently with probability $1/2$. Find the expected value of the smallest element in the subset (e.g. the subset can be $\{2^1,2^3,2^4,2^7\}$. The smallest element is $2^1$).
 
   Ans: 10<br/>
-  Explanation: An element $2^j$, $(j\in\{1,\cdots, 10\})$ is the smallest if and only if all elements less than it have not been chosen and $j$ is chosen. The probability of this happening is $1/2^j$. Therefore the expectation is $\sum_{j=1}^{10} 1/2^{j}\cdot 2^j=10.$.
+  Explanation:
+    + An element $2^j$, $(j\in\{1,\cdots, 10\})$ is the smallest if and only if all elements less than it have not been chosen and $j$ is chosen. The probability of this happening is $1/2^j$. Therefore the expectation is $\sum_{j=1}^{10} 1/2^{j}\cdot 2^j=10.$.
 
 
 6. An edX assignment has $50$ multiple-choice questions, each with four choices of which one is correct. A student gets $3$ points for solving a question correctly, and loses a point for an incorrect answer. What is the expected score of a student who answers all questions uniformly at random?
@@ -515,14 +516,14 @@
     + False. For random variable $X$ uniformly distributed over $\{−2,0,1\}$, the expectation is $E(X)=−\frac13 \neq \frac12 (x_{max}+x_{min})=−0.5$.
 
 
-8. A bag contains five balls numbered 1 to 5. Randomly draw two balls from the bag and let $X$ denote the sum of the numbers.
-  a. What is $P(X \le 5)$?
-  b. What is $E(X)$?
+8. A bag contains five balls numbered 1 to 5. Randomly draw two balls from the bag and let $X$ denote the sum of the numbers.<br/>
+  a. What is $P(X \le 5)$?<br/>
+  b. What is $E(X)$?<br/>
 
   Ans: a. (0.4); b. (6)<br/>
   Explanation:
     + The total number of ways to draw balls is $\tbinom52=10$. There are 4 ways to draw 2 balls with sum smaller or equal to 5 (i.e. $(1,2),(1,3),(1,4),(2,3)$).  Thus $P(X \le 5)= \frac{4}{10}=0.4$.
-    + ind out the distribution of $X$, which is $P(X = 3) = 0.1,$ $P(X = 4) = 0.1,$ $ P(X = 5) = 0.2,$ $P(X = 6) = 0.2,$ $P(X = 7) = 0.2,$ $P(X = 8) = 0.1,$ $P(X = 9) = 0.1$.  The expectation is $E(X) = 0.1 \times 3 + 0.1 \times 4+ 0.2 \times 5 + 0.2 \times 6 + 0.2 \times 7 + 0.1 \times 8 + 0.1 \times 9 = 6$
+    + Find out the distribution of $X$, which is $P(X = 3) = 0.1,$ $P(X = 4) = 0.1,$ $ P(X = 5) = 0.2,$ $P(X = 6) = 0.2,$ $P(X = 7) = 0.2,$ $P(X = 8) = 0.1,$ $P(X = 9) = 0.1$.  The expectation is $E(X) = 0.1 \times 3 + 0.1 \times 4+ 0.2 \times 5 + 0.2 \times 6 + 0.2 \times 7 + 0.1 \times 8 + 0.1 \times 9 = 6$
 
 9. A player flips two fair coins. The player wins `$3` if 2 heads occur and `$1` if 1 head occurs. How much money (in `$`) should the player lose when no heads occur for the game to be fair (expected gain is 0)?
 
@@ -653,7 +654,7 @@
 
 ### Problem Sets
 
-0. Let X be a random variable. For a fixed real function g, g(X) is also a random variable.
+0. Let X be a random variable. For a fixed real function g, g(X) is also a random variable. (yes/no)
 
   Ans: <span style="color: magenta;">yes</span>
 
@@ -842,11 +843,11 @@
 
   The coffeeshop will never order more than $w−1$ croissants, hence $r \leq w−1$. If customers wish to buy $1 \le i \le r−1$ croissants, their sale will bring in  $i \cdot s$ dollars, and if customers wish to buy more than $r$ croissants, their sale will fetch $r \cdot s$ dollars. Hence the expected revenue from selling the croissants is
 
-  \[ \sum_{i=0}^{r-1} \frac{i \cdot s}{w} + \sum_{i=r}^{w-1} \frac{r \cdot s}{w} = \frac{s}{w} \cdot \frac{r \cdot (r-1)}{2} + \frac{s}{w} \cdot (w - r) \cdot r = \frac{s}{w} \cdot (-\frac{r^2}{2} + (w - \frac12) \cdot r) \]
+  \[ \sum_{i=0}^{r-1} \frac{i \cdot s}{w} + \sum_{i=r}^{w-1} \frac{r \cdot s}{w} = \frac{s}{w} \cdot \frac{r \cdot (r-1)}{2} + \frac{s}{w} \cdot (w - r) \cdot r = \frac{s}{w} \cdot \left(-\frac{r^2}{2} + (w - \frac12) \cdot r\right) \]
 
   The coffeeshop spends $b \cdot r$ to purchase the croissants, hence their profit is $\frac{s}{w} \cdot (-\frac{r2}{2} + (w--\frac12)\cdot r) - b \cdot r$
 
-  We would like to find the value of $r$ maximizing the equation. Since it is quadratic in $r$ with a negative leading coefficient, the profit is maximized when the derivative is 0, namely $-\frac{s}{w} \cdot r + \frac{s}{w} (w - \frac12) - b = 0$, or $r=w \cdot 1−\frac{b}{s})−\frac12$.
+  We would like to find the value of $r$ maximizing the equation. Since it is quadratic in $r$ with a negative leading coefficient, the profit is maximized when the derivative is 0, namely $-\frac{s}{w} \cdot r + \frac{s}{w} (w - \frac12) - b = 0$, or $r=w \cdot (1−\frac{b}{s})−\frac12$.
 
   In our case, $w=50$, $b=1$, and $s=4$, hence the expected profit is highest when $r=50 \cdot (1−\frac14)−\frac12=37$.
 
@@ -862,7 +863,7 @@
   c. $P(A)$.<br/>
 
   Ans: <span style="color:magenta;">c</span><br/>
-  Explanation $E(I_A(X)) = \displaystyle \sum_{x \in \Omega} I_A(X = x)P(X = x) =$ $\displaystyle \sum_{x \in A} I_A(X = x)P(X = x) + \sum_{x \not\in A} I_A(X = x)P(X = x) =$ $\displaystyle \sum_{x \in A} P(X = x) + \sum_{x \not\in A} 0 = P(A)$
+  Explanation $E(I_A(X)) = \displaystyle \sum_{x \in \Omega} I_A(X = x)P(X = x)$ $= \displaystyle \sum_{x \in A} I_A(X = x)P(X = x) + \sum_{x \not\in A} I_A(X = x)P(X = x)$ $ =\displaystyle \sum_{x \in A} P(X = x) + \sum_{x \not\in A} 0$ $= P(A)$
 
 
 
@@ -1123,7 +1124,7 @@
   Explanation: Variance measures how far a set of (random) numbers are spread out from their average value. 3 is the broadest one.
 
 
-2. A random variable $X$ is distributed over $\{−1,0,1\}$ according to the p.m.f. $P(X=x)=|x|+15$.<br/>
+2. A random variable $X$ is distributed over $\{−1,0,1\}$ according to the p.m.f. $P(X = x)=\frac{|x|+1}{5}$.<br/>
   a. Find its expectation $E(X)$<br/>
   b. and variance $Var(X)$<br/>
 
@@ -1154,7 +1155,7 @@
     + $E(Y)=E(2^X)=2\times 0.3+4\times 0.5+8\times0.2=4.2$
     + For any random variable $Var(Z)=E(Z^2)-E(Z)^2$. Here, $E(Y^2)=E(2^{2X})=4\times 0.3+16\times 0.5+64\times0.2=22$. Thus, $Var(Y)=22-4.2^2=4.36$
     + 10/7
-    + First, $E(X)=0.3×1+0.5×2+0.2×3=1.9$, $E(X2)=0.3×1+0.5×4+0.2×9=4.1$ and thus $Var(X)=E(X2)−E(X)2=4.1−1.92=0.49$.  Now, by linearity of expectation, $0=E(Z)=aE(X)+b=1.9 \cdot a+b$. Further, we know $1=Var(Z)=Var(aX+b)=a2 \cdot Var(X)=a2 \cdot 0.49$. Solving these two equations gives $|a|=1.42857$, $|b|=2.71485$.
+    + First, $E(X)=0.3×1+0.5×2+0.2×3=1.9$, $E(X^2)=0.3×1+0.5×4+0.2×9=4.1$ and thus $Var(X)=E(X^2)−E(X)^2=4.1−1.92=0.49$.  Now, by linearity of expectation, $0=E(Z)=aE(X)+b=1.9 \cdot a+b$. Further, we know $1=Var(Z)=Var(aX+b)=a2 \cdot Var(X)=a2 \cdot 0.49$. Solving these two equations gives $|a|=1.42857$, $|b|=2.71485$.
 
 
 4. Consider two games. One with a guaranteed payout $P_1=90$, and the other whose payout $P_2$ is equally likely to be 80 or 120. Find:<br/>
@@ -1164,7 +1165,7 @@
   d. $Var(P_2)$<br/>
   e. Which of games 1 and 2 maximizes the `risk-adjusted reward' $E(P_i)-\sqrt{\text{Var}(P_i)}$?
 
-  Ans: a. (90); b. (100); c. (0); d. (); e. (1)<br/>
+  Ans: a. (90); b. (100); c. (0); d. (400); e. (1)<br/>
   Explanation
     + The distribution of $P_1$ is $P(P_1=90)=1$. Hence, $E(P1)=1×90=90$.
     + The distribution of $P_2$ is $P(P_2=80)=P(P_2=120)=1/2$. Hence, $E(P_2)=1/2×80+1/2×120=100$.
@@ -1194,7 +1195,7 @@
 6. We say $X_A$ is an indicator variable for event $A$: $X_A=1$ if A occurs, $X_A=0$ if $A$ does not occur. 
   
   If $P(A)=0.35$, what is:<br/>
-  a. $E(XA)$?<br/>
+  a. $E(X_A)$?<br/>
   b. $Var(X_A)$?<br/>
 
   Ans: a. (0.35); b. (0.2275)<br/>
@@ -1209,14 +1210,14 @@
 
   Ans: a. (2.9167); b. (1.7078)<br/>
   Explanation
-    + The expectation of $X$ is $E(X)=3.5$. The variance of $X$ is $\text{Var}(X) = \frac{1}{6} \times (1 - 3.5)^2 + \frac{1}{6} \times (2 - 3.5)^2 + \frac{1}{6} \times (3 - 3.5)^2 + \frac{1}{6} \times (4 - 3.5)^2 + \frac{1}{6} \times (5 - 3.5)^2 + \frac{1}{6} \times (6 - 3.5)^2 = \frac{35}{12}$
+    + The expectation of $X$ is $E(X)=3.5$. The variance of $X$ is $\text{Var}(X)$ $= \frac{1}{6} \times (1 - 3.5)^2$ $+ \frac{1}{6} \times (2 - 3.5)^2$ $+ \frac{1}{6} \times (3 - 3.5)^2$ $+ \frac{1}{6} \times (4 - 3.5)^2$ $+ \frac{1}{6} \times (5 - 3.5)^2$ $+ \frac{1}{6} \times (6 - 3.5)^2$ $= \frac{35}{12}$
     + The standard deviation of $X$ is $\sigma_X = \sqrt{\text{Var}(X)} = 1.7078$
 
 
 8. Let $X$ and $Y$ be independent random variables with expectations 1 and 2, and variances 3 and 4, respectively. Find the variance of $Var(XY)$.
 
   Ans: 28<br/>
-  Explanation: $E(X^2)=Var(X)+(EX)^2=3+12=4$ and $E(Y^2)=Var(Y)+(EY)^2=4+22=8$. Hence $Var(XY)=E((XY)2)−E^2(XY)=E(X^2 \cdot Y^2)−(EX \cdot EY)^2 =$ $E(X^2) \cdot E(Y^2)−(EX)^2 \cdot (EY)^2=4 \cdot 8−(1 \cdot 2)2=28$.
+  Explanation: $E(X^2)=Var(X)+(EX)^2=3+1^2=4$ and $E(Y^2)$ $=Var(Y)+(EY)^2$ $=4+2^2$ $=8$. Hence $Var(XY)=E((XY)^2)−E^2(XY)$ $=E(X^2 \cdot Y^2)−(EX \cdot EY)^2$ $= E(X^2) \cdot E(Y^2)−(EX)^2 \cdot (EY)^2$ $=4 \cdot 8−(1 \cdot 2)^2$ $=28$.
 
 
 
@@ -1472,7 +1473,7 @@
   Explanation: The answer is 3x4=12.
 
 
-1. Which of the following hold for all Independent random variables, $X$ and $Y$?
+1. Which of the following hold for all Independent random variables, $X$ and $Y$?<br/>
   a. $P(X=x|Y=y) = P(X=x)$<br/>
   b. $P(X=x|Y=y) = P(Y=y|X=x)$<br/>
 
@@ -1480,28 +1481,28 @@
   Explanation: If two random variables are independent, by definition, $P(X=x,Y=y)=P(X=x)P(Y=y)$. Since $P(X=x,Y=y)=P(X=x|Y=y)P(Y=y)$, we have $P(X=x|Y=y)=P(X=x)$.
 
 
-2. A joint probabilty mass table is given as follows:
+2. A joint probability mass table is given as follows:
 
   \[ \begin{array}{|c|c|c|} \hline X\backslash Y & 0 & 1\\ \hline 0 & 0.15 & 0.25\\ \hline 1 & 0.45 & 0.15\\ \hline \end{array}  \]
 
-  1) Choose the correct marginal PMFs for $X$ and $Y$.<br/>
+  a) Choose the correct marginal PMFs for $X$ and $Y$.<br/>
     a. $\begin{array}{|c|c|c|} \hline x,y & P(x) & P(y)\\ \hline 0 & 0.15 & 0.45\\ \hline 1 & 0.25 & 0.5\\ \hline \end{array}$<br/>
     b. $\begin{array}{|c|c|c|} \hline x,y & P(x) & P(y)\\ \hline 0 & 0.4 & 0.6\\ \hline 1 & 0.6 & 0.4\\ \hline \end{array}$<br/>
     c. $\begin{array}{|c|c|c|} \hline x,y & P(x) & P(y)\\ \hline 0 & 0.6 & 0.4\\ \hline 1 & 0.4 & 0.6\\ \hline \end{array}$<br/>
 
-  2) Find $P(X=0|Y=0)$.<br/>
+  b) Find $P(X=0|Y=0)$.<br/>
     a. 0.250 <br/>
     b. 0.375 <br/>
     c. 0.667 <br/>
     d. 1<br/>
 
-  3) Find $P(Y=1|X=0)$.<br/>
+  c) Find $P(Y=1|X=0)$.<br/>
     a. 0.375<br/>
     b. 0.417<br/>
     c. 0.625<br/>
     d. 0.750<br/>
 
-  Ans: 1) b; 2) a; 3) c
+  Ans: a. (b); b. (a); c. (c)
 
 
 3. Given independent random variables $X$ and $Y$ with the following joint distribution. Find $a, b$
@@ -1525,7 +1526,7 @@
 
 5. Roll two fair six-sided dice, and let $X$, $Y$ denote the first and the second numbers.
 
-  1) If $Z=\max{X,Y}$, find<br/>
+  1) If $Z=\max\{X,Y\}$, find<br/>
     a. $E(Z)$<br/>
     b. $Var(Z)$<br/>
 
@@ -1650,7 +1651,7 @@
   What is the probability that the ball we remove at the 11th round is blue?
 
   Ans: <span style="color: magenta;">0.348678</span><br/>
-  Explanation: Imagine that the balls are placed in 10 locations 1 to 10. Let $B_i$ be the event that at the final ($11$th) round, the ball in location $i$ is blue. $B_i$ occurs iff the ball in location $i$ was not discarded in any of the previous 10 rounds, hence $P(B_i)=(1−1/10)10=(9/10)10$.  Let $B$ be the event that the final ball, picked at the 11th round, is blue. By the rule of total probability, $P(B)=\sum^{10}_{i=1} \frac{1}{10} P(B_i)=10 \cdot \frac{1}{10} (\frac{9}{10})^{10}=(\frac{9}{10})^{10}=0.3486$. [Quora](https://tinyurl.com/y8fokmw7)
+  Explanation: Imagine that the balls are placed in 10 locations 1 to 10. Let $B_i$ be the event that at the final ($11$th) round, the ball in location $i$ is blue. $B_i$ occurs iff the ball in location $i$ was not discarded in any of the previous 10 rounds, hence $P(B_i)=(1−1/10)10=(9/10)^{10}$.  Let $B$ be the event that the final ball, picked at the 11th round, is blue. By the rule of total probability, $P(B)=\sum^{10}_{i=1} \frac{1}{10} P(B_i)=10 \cdot \frac{1}{10} (\frac{9}{10})^{10}=(\frac{9}{10})^{10}=0.3486$. [Quora](https://tinyurl.com/y8fokmw7)
 
 
 3. $E(X)=2$ and $E(X(X−1))=5$. Find $Var(X)$.
@@ -1929,6 +1930,7 @@
   b. Independent \(\Rightarrow\) uncorrelated<br/>
 
   Ans: b<br/>
+  Hint: Two random variables $X$ and $Y$ are uncorrelated if their covariance is 0, or equivalently, if $E(XY)=E(X) \cdot E(Y)$. If you are not sure of the answer, check the poll..
   Explanation
     + False. Let random variable $X$ have the distribution $P(X=−1)=P(X=1)=1/4, P(X=0)=1/2$, and $Y=X^2$ . We can solve that $Cov(X,Y)=E(XY)−E(X)E(Y)=0$, while $X$ and $Y$ are not independent.
     + True. If two random variables $X$ and $Y$ are independent, then $E(XY)= \sum_x \sum_y xy P(X=x,Y=y)=$ $\sum_x \sum_y yxyP(X=x)P(Y=y)=$ $\sum_x xP(X=x) \sum_y yP(Y=y) =E(X)E(Y)$.
@@ -2003,7 +2005,7 @@
 
 9. Flip a coin thrice (3 times), and let $X$ and $Y$ denote the number of heads in the first two flips, and in the last two flips, respectively. For example, if the coins turn up h,h,t then $X=2$ and $Y=1$, while if they turn up t,t,h then $X=0$ and $Y=1$. Find:<br/>
   a. $Cov(X,Y)$,<br/>
-  b. $\rho{X,Y}$.<br/>
+  b. $\rho_{X,Y}$.<br/>
 
   Ans: a. (1/4); b. (1/2) <br/>
   Explanation: 
