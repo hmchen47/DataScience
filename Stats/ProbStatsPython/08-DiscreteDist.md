@@ -187,9 +187,15 @@
   Ans: ab<br/>
   Explanation
     + True. It is trivial.
-    + True. Let  $X \sim B_p_x, Y \sim B_p_y$.
+    + True. Let  $X \sim B_{p_x}, Y \sim B_{p_y}$.
 
-      If $X$ and $Y$ are uncorrelated, $\text{Cov}(X, Y) = E(XY) - E(X)E(Y) \\ = \sum_{x = 0}^{1} \sum_{y = 0}^{1} xyP(X = x, Y = y) - p_{x}p_{y} \\ = P(X = 1, Y = 1) - p_{x}p_{y} \\ = P(X = 1 | Y = 1)P(Y = 1) - p_{x}p_{y} \\ = (P(X = 1 | Y = 1) - p_{x})p_{y} \\ = 0$.
+      If $X$ and $Y$ are uncorrelated, 
+      
+        \[\begin{align*}
+          \text{Cov}(X, Y) &= E(XY) - E(X)E(Y) = \sum_{x = 0}^{1} \sum_{y = 0}^{1} xyP(X = x, Y = y) - p_{x}p_{y} \\ 
+          &= P(X = 1, Y = 1) - p_{x}p_{y} = P(X = 1 | Y = 1)P(Y = 1) - p_{x}p_{y} \\ 
+          &= (P(X = 1 | Y = 1) - p_{x})p_{y} = 0
+        \end{align*}\]
 
       Hence, $P(X=1 \mid Y=1)=p_x=P(X=1)$ and similarly $P(Y=1 \mid X=1)=p_y=P(Y=1)$. From that, we have $P(X = 0 | Y = 1) = \frac{P(Y = 1 | X = 0)P(X = 0)}{P(Y = 1)} =$ $1 - p_{x} = P(X = 0) \implies$ $P(Y = 1 | X = 0) = p_{y} = P(Y = 1)$, and similarly $P(X=1|Y=0)=p_x=P(X=1)$. Thus, $X$ and $Y$ are independent.
 
@@ -218,13 +224,13 @@
 
 5. Bernoulli modifications
 
-  Let $X \sim B_{0.2}$. Find the Bernoulli parameter for the following random variables. Write $−1$ if they are not Bernoulli.
-  a. $X^2$,
-  b. $+\sqrt{X}$,
-  c. $1 − X$,
-  d. $−X$.
+  Let $X \sim B_{0.2}$. Find the Bernoulli parameter for the following random variables. Write $−1$ if they are not Bernoulli.<br/>
+  a. $X^2$,<br/>
+  b. $+\sqrt{X}$,<br/>
+  c. $1 − X$,<br/>
+  d. $−X$.<br/>
 
-  Ans: a. (0.2); b. (0.2); c. (0.2); d. (-1)<br/>
+  Ans: a. (0.2); b. (0.2); c. (0.8); d. (-1)<br/>
   Explanation
     + Since $X \in \{0,1\}$, we have $X^2=X$.
     + Since $X \in \{0,1\}$, we have $+\sqrt{X}=X$.
@@ -234,7 +240,7 @@
 
 6. Let $X \sim B_{0.4}$, $Y \sim B_{0.2}$, and they are independent. Find the Bernoulli parameter for the following random variables. Write $−1$ if they are not Bernoulli.<br/>
   a. $X \cdot Y$,<br/>
-  b. $XY$, recall that $0^ 0=1$,<br/>
+  b. $X^Y$, recall that $0^ 0=1$,<br/>
   c. $|X−Y|$,<br/>
   d. $X+Y$.<br/>
 
@@ -265,7 +271,7 @@
   b. $E(X)$,<br/>
   c. $Var(X)$.<br/>
 
-  Ans: a. (); b. (); c. ()<br/>
+  Ans: a. (0.1872); b. (2.2); c. (0.82)<br/>
   Explanation
     + $P(X = 1) = 0.3 \cdot 0.6 \cdot 0.3 \cdot 0.2 + 0.7 \cdot 0.4 \cdot 0.3 \cdot 0.2 +$ $0.7 \cdot 0.6 \cdot 0.7 \cdot 0.2 +$ $0.7 \cdot 0.6 \cdot 0.3 \cdot 0.8 =$ $0.1872$
     + $E[X] = 0.3 + 0.4 + 0.7 + 0.8 = 2.2$
@@ -526,22 +532,22 @@
 1. There are 5 traffic signals between your home and work. Each is red with probability 0.35, independently of all others. Find:
 
   1) the probability of encountering no red lights,<br/>
-  a. 2.26%<br/>
-  b. 5.2%<br/>
-  c. 11.6%<br/>
-  d. 17.5%<br/>
+    a. 2.26%<br/>
+    b. 5.2%<br/>
+    c. 11.6%<br/>
+    d. 17.5%<br/>
 
   2) the probability of encountering only red lights,<br/>
-  a. 0.03%<br/>
-  b. 0.52%<br/>
-  c. 1.16%<br/>
-  d. 16.4%<br/>
+    a. 0.03%<br/>
+    b. 0.52%<br/>
+    c. 1.16%<br/>
+    d. 16.4%<br/>
 
   3) the expected number of red lights you will encounter?<br/>
-  a. 0.75 <br/>
-  b. 1.42 <br/>
-  c. 1.75 <br/>
-  d. 2.25 <br/>
+    a. 0.75 <br/>
+    b. 1.42 <br/>
+    c. 1.75 <br/>
+    d. 2.25 <br/>
 
   Ans: 1. (c); 2. (b); c. (c)<br/>
   Explanation
@@ -577,7 +583,7 @@
 
   Ans: a. (0.13824); b (0.23328); c. (0.5)<br/>
   Explanation
-    + The number of heads, $H$ is distributed as $H \sim Binomial(6,0.6)$. Thus the probability here is $P(H=2)=\binom62 0.6^2 c\dot 0.44=0.13824$.
+    + The number of heads, $H$ is distributed as $H \sim Binomial(6,0.6)$. Thus the probability here is $P(H=2)=\binom62 0.6^2 \cdot 0.4^4=0.13824$.
     + The number of tails, $T$ is distributed as $T \sim Binomial(6,0.4)$. Thus the probability here is $P(T=0)+P(T=1) = \binom60 0.6^6+\binom61 0.4^1\cdot 0.6^5 = 0.23328$
     + Using the distribution of $H$, the probability here is $P(H=0)+P(H=2)+P(H=4)+P(H=6)$ $=\binom60 0.4^6+\binom62 0.6^2\cdot 0.4^4+\binom64 0.6^4\cdot 0.4^2+\binom66 0.6^6=0.50032$
 
@@ -855,7 +861,7 @@
 
 7. Assume the number of tropical storms making landfall in the Philippines each year follows Poisson distribution with parameter $9$. What is the probability that there are less than $6$ tropical storms making landfall in Philippines in one year?
 
-  Ans: 0.1156
+  Ans: 0.1156<br/>
   Explanation: Follows from summing the corresponding Poisson probabilities under $\lambda=9$.
 
 
@@ -873,8 +879,8 @@
 
 9. A vendor sells merchandise through Amazon and Ebay. On Ebay she sells an average rate of 2 items per day, while on Amazon the daily average is 3. Both sales follow a Poisson distribution and are independent of each other. What is the probability that she sells 5 items on a given day?
 
-  Ans: 0.1665<br/>
-  Explanation: You can solve this the hard way, namely $P_3(0) \cdot P_2(5)+P_3(1) \cdot P_2(4)+ \cdots +P_3(5) \cdot P_2(0)$.  Or note that the sum of independent $P_{\lambda_1}$ and a  $P_{\lambda_2}$ random variables is a $P_{\lambda_1+\lambda_2}$ random variable, the total number of items the vendor sells is a $P_{2+3}=P_5$ variable and $P_5(5)=\frac{e^{−5} \cdot 5}^5}{5!}$.
+  Ans: 0.17546<br/>
+  Explanation: You can solve this the hard way, namely $P_3(0) \cdot P_2(5)+P_3(1) \cdot P_2(4)+ \cdots +P_3(5) \cdot P_2(0)$.  Or note that the sum of independent $P_{\lambda_1}$ and a  $P_{\lambda_2}$ random variables is a $P_{\lambda_1+\lambda_2}$ random variable, the total number of items the vendor sells is a $P_{2+3}=P_5$ variable and $P_5(5) = \frac{e^{-5} \cdot 5^5}{5!}$.
 
 
 ### Lecture Video
@@ -1080,15 +1086,22 @@ Several of the following questions ask about the number of experiments performed
 
 
 3. A $G_p$ random variable is odd with probability<br/>
-  a. $\frac{1−p}{2−p$}$,<br/>
+  a. $\frac{1−p}{2−p}$,<br/>
   b. $\frac{p}{2−p}$,<br/>
   c. $\frac{1}{2−p}$,<br/>
   d. $p+(1−p)^2 \cdot p$.<br/>
 
   Ans: c<br/>
+  Hints:
+    + There are two natural ways to find the probability that $X \sim G_p$ is odd. You may want to try both. One is "brute force", by adding the probabilities that $X=1,3,5, \dots$. The other is by relating $P(X \text{ is even})$ to $P(X \text{ is odd})$.
+    + For the brute-force way, recall that $1+q+q^2+ \cdots=\frac{1}{1−q}$. If you use the second method, first show that $P(X\text{ is even})=(1-p)\cdot P(X\text{ is odd})$.
+
   Explanation: There are two natural ways to find the probability that $X \sim G_p$ is odd.
-    + The first is "brute force". Recall that $1+q+q^2+ \cdots =$ $\frac1{1-q}$. Hence, $P(X \text{ is odd})=P(X=1)+P(X=3)+\ldots=$ $p+{\overline p}^2\cdot p+{\overline p}^4\cdot p+\ldots=$ $\frac{p}{1-{\overline p}^2}=$ $\frac{p}{1-(1-p)^2}=$ $\frac{p}{2p-p^2}=\frac1{2-p}$
+    + The first is "brute force". Recall that $1+q+q^2+ \cdots =$ $\frac1{1-q}$. Hence, $P(X \text{ is odd})$ $=P(X=1)+P(X=3)+\ldots$ $= p+{\overline p}^2\cdot p+{\overline p}^4\cdot p+\ldots$ $= \frac{p}{1-{\overline p}^2}=$ $\frac{p}{1-(1-p)^2}=$ $\frac{p}{2p-p^2}=\frac1{2-p}$
     + The second method is by relating $(P(X \text{ is even})$, $P(X\text{ is even})=$ $P(X\text{ is even}\cap X\gt 1)=$ $P(X\gt 1)\cdot P(X \text{ is even}\mid {X \gt 1})=$ $P(X \gt 1)\cdot P(X \text{ is odd})$. $X$  is even or odd, hence $1=P(X\text{ is odd})+(1-p)\cdot P(X\text{ is odd})=$ $(2-p)\cdot P(X\text{ is odd})$.  Hence, $P(X\text{ is odd})=\frac1{2-p}$
+    + [Probability  X  is odd in a geometric distribution - StackExchange](https://tinyurl.com/y6987gfj)
+    + [ the probability that a geometric random variable X is an even number - StackExchange](https://tinyurl.com/y4dbaau2)
+    + [Probability that a geometric random variable is even - StackExchange](https://tinyurl.com/y57k6do5)
 
 
 4. Find the expected number of coin tosses till the third heads appears, (e.g., for  h,t,h,t,h , five coins were tossed).
@@ -1251,8 +1264,8 @@ Several of the following questions ask about the number of experiments performed
 
 2. A production line has a 5% defective rate, and its products are inspected one-by-one until the first defect is found. Given that the first 10 inspections do not find any defect, what is the probability that the number of inspections is at most 20?
 
-  Ans: $1 - 0.9{10} = 04013$<br/>
-  Explanation: Let $D$ be the event of interest here. Further let  E  denote the event that any 10 consecutive inspections find a defect. Since the inspections here are independent, the required probability $P(D)=P(E)$.  Now if $\overline{E}$ denotes the compliment of event $E$, $P(\overline{E})=1−P(E)=(1−0.05)^{10}$ since in $\overline{E}$ we require that no defective item be discovered in each of the 10 inspections. Thus $P(D)=P(E)=1−0.9510$.
+  Ans: $1 - 0.95^{10} = 04013$<br/>
+  Explanation: Let $D$ be the event of interest here. Further let  E  denote the event that any 10 consecutive inspections find a defect. Since the inspections here are independent, the required probability $P(D)=P(E)$.  Now if $\overline{E}$ denotes the compliment of event $E$, $P(\overline{E})=1−P(E)=(1−0.05)^{10}$ since in $\overline{E}$ we require that no defective item be discovered in each of the 10 inspections. Thus $P(D)=P(E)=1−0.95^{10}$.
 
 
 3. A bag contains $K$ blue balls and $N−K$ red balls. Find the expected number of blue balls observed when $n$ balls are randomly drawn. Does the answer depend on whether the selection is with or without replacement?<br/>
