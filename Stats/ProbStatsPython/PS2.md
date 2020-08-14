@@ -428,9 +428,9 @@
 1. Suppose $P(A)>0$. Find $P(B\mid A)$ when:<br/>
   a. $B = A$,<br/>
   b. $B \supseteq A$,<br/>
-  c. $B =\Omega$,<br/>
-  d. $B =A \subset $,<br/>
-  e. $A \cap B= \varnothing$,<br/>
+  c. $B = \Omega$,<br/>
+  d. $B = A^c$,<br/>
+  e. $A \cap B = \varnothing$,<br/>
   f. $B = \varnothing$.<br/>
 
   Ans: 
@@ -554,7 +554,7 @@
   a. $F_e$ and $S_4$,<br/>
   b. $F_e$ and $\Sigma_o$,<br/>
   c. $S_4$ and $\Sigma_o$,<br/>
-  d. $F_e$, $S_4$, and $\Sigma_o$ (mutually independent)$?<br/>
+  d. $F_e$, $S_4$, and $\Sigma_o$ (mutually independent)?<br/>
   
   Ans: 
 
@@ -850,9 +850,9 @@
   Ans: 
 
 
-3. Flip a coin with heads probability 0.6 repeatedly till it lands on tails, and let $X$ be the total number of flips, for example, for h, h, t, $X=3$. Find:
-  a. $P(X\le 3)$
-  b. $P(X\ge 5)$
+3. Flip a coin with heads probability 0.6 repeatedly till it lands on tails, and let $X$ be the total number of flips, for example, for h, h, t, $X=3$. Find:<br/>
+  a. $P(X\le 3)$<br/>
+  b. $P(X\ge 5)$<br/>
 
   Ans: 
 
@@ -875,7 +875,7 @@
   Ans: 
 
 
-2. A quiz-show contestant is presented with two questions, question 1 and question 2, and she can choose which question to answer first. If her initial answer is incorrect, she is not allowed to answer the other question. If the rewards for correctly answering question 1 and 2 are \$200 and \$100 respectively, and the contestant is 60% and 80% certain of answering question 1 and 2, which question should she answer first as to maximize the expected reward?
+2. A quiz-show contestant is presented with two questions, question 1 and question 2, and she can choose which question to answer first. If her initial answer is incorrect, she is not allowed to answer the other question. If the rewards for correctly answering question 1 and 2 are `$200` and `$100` respectively, and the contestant is 60% and 80% certain of answering question 1 and 2, which question should she answer first as to maximize the expected reward?
 
   Ans: 
   
@@ -892,11 +892,11 @@
 
 
 4. Each time you play a die rolling game you must pay `$1`. If you roll an even number, you win `$2`. If you roll an odd number, you lose additional `$1`. What is the expected value of your winnings?<br/>
-  a. `−$0.50`<br/>
-  b. `+$0.50`<br/>
-  c. `+$0.00`<br/>
-  d. `+$1.00`<br/>
-  e. `−$1.00`<br/>
+  a. $−\$0.50$<br/>
+  b. $+\$0.50$<br/>
+  c. $+\$0.00$<br/>
+  d. $+\$1.00$<br/>
+  e. $−\$1.00$<br/>
 
   Ans: 
   
@@ -923,9 +923,9 @@
   
 
 
-8. A bag contains five balls numbered 1 to 5. Randomly draw two balls from the bag and let $X$ denote the sum of the numbers.
-  a. What is $P(X \le 5)$?
-  b. What is $E(X)$?
+8. A bag contains five balls numbered 1 to 5. Randomly draw two balls from the bag and let $X$ denote the sum of the numbers.<br/>
+  a. What is $P(X \le 5)$?<br/>
+  b. What is $E(X)$?<br/>
 
   Ans: 
   
@@ -943,7 +943,7 @@
 ## 7.4 Variable Modifications
 
 
-0. Let X be a random variable. For a fixed real function g, g(X) is also a random variable.
+0. Let X be a random variable. For a fixed real function g, g(X) is also a random variable. (yes/no)
 
   Ans: 
 
@@ -1034,7 +1034,7 @@
   Ans: 
   
 
-2. A random variable $X$ is distributed over $\{−1,0,1\}$ according to the p.m.f. $P(X=x)=|x|+15$.<br/>
+2. A random variable $X$ is distributed over $\{−1,0,1\}$ according to the p.m.f. $P(X = x)=\frac{|x|+1}{5}$.<br/>
   a. Find its expectation $E(X)$<br/>
   b. and variance $Var(X)$<br/>
 
@@ -1088,7 +1088,7 @@
 6. We say $X_A$ is an indicator variable for event $A$: $X_A=1$ if A occurs, $X_A=0$ if $A$ does not occur. 
   
   If $P(A)=0.35$, what is:<br/>
-  a. $E(XA)$?<br/>
+  a. $E(X_A)$?<br/>
   b. $Var(X_A)$?<br/>
 
   Ans: 
@@ -1119,7 +1119,7 @@
   
 
 
-1. Which of the following hold for all Independent random variables, $X$ and $Y$?
+1. Which of the following hold for all Independent random variables, $X$ and $Y$?<br/>
   a. $P(X=x|Y=y) = P(X=x)$<br/>
   b. $P(X=x|Y=y) = P(Y=y|X=x)$<br/>
 
@@ -1127,22 +1127,22 @@
   
 
 
-2. A joint probabilty mass table is given as follows:
+2. A joint probability mass table is given as follows:
 
   \[ \begin{array}{|c|c|c|} \hline X\backslash Y & 0 & 1\\ \hline 0 & 0.15 & 0.25\\ \hline 1 & 0.45 & 0.15\\ \hline \end{array}  \]
 
-  1) Choose the correct marginal PMFs for $X$ and $Y$.<br/>
+  a) Choose the correct marginal PMFs for $X$ and $Y$.<br/>
     a. $\begin{array}{|c|c|c|} \hline x,y & P(x) & P(y)\\ \hline 0 & 0.15 & 0.45\\ \hline 1 & 0.25 & 0.5\\ \hline \end{array}$<br/>
     b. $\begin{array}{|c|c|c|} \hline x,y & P(x) & P(y)\\ \hline 0 & 0.4 & 0.6\\ \hline 1 & 0.6 & 0.4\\ \hline \end{array}$<br/>
     c. $\begin{array}{|c|c|c|} \hline x,y & P(x) & P(y)\\ \hline 0 & 0.6 & 0.4\\ \hline 1 & 0.4 & 0.6\\ \hline \end{array}$<br/>
 
-  2) Find $P(X=0|Y=0)$.<br/>
+  b) Find $P(X=0|Y=0)$.<br/>
     a. 0.250 <br/>
     b. 0.375 <br/>
     c. 0.667 <br/>
     d. 1<br/>
 
-  3) Find $P(Y=1|X=0)$.<br/>
+  c) Find $P(Y=1|X=0)$.<br/>
     a. 0.375<br/>
     b. 0.417<br/>
     c. 0.625<br/>
@@ -1169,7 +1169,7 @@
 
 5. Roll two fair six-sided dice, and let $X$, $Y$ denote the first and the second numbers.
 
-  1) If $Z=\max{X,Y}$, find<br/>
+  1) If $Z=\max\{X,Y\}$, find<br/>
     a. $E(Z)$<br/>
     b. $Var(Z)$<br/>
 
@@ -1284,7 +1284,7 @@
 
 9. Flip a coin thrice (3 times), and let $X$ and $Y$ denote the number of heads in the first two flips, and in the last two flips, respectively. For example, if the coins turn up h,h,t then $X=2$ and $Y=1$, while if they turn up t,t,h then $X=0$ and $Y=1$. Find:<br/>
   a. $Cov(X,Y)$,<br/>
-  b. $\rho{X,Y}$.<br/>
+  b. $\rho_{X,Y}$.<br/>
 
   Ans: 
 
@@ -1351,18 +1351,18 @@
 
 5. Bernoulli modifications
 
-  Let $X \sim B_{0.2}$. Find the Bernoulli parameter for the following random variables. Write $−1$ if they are not Bernoulli.
-  a. $X^2$,
-  b. $+\sqrt{X}$,
-  c. $1 − X$,
-  d. $−X$.
+  Let $X \sim B_{0.2}$. Find the Bernoulli parameter for the following random variables. Write $−1$ if they are not Bernoulli.<br/>
+  a. $X^2$,<br/>
+  b. $+\sqrt{X}$,<br/>
+  c. $1 − X$,<br/>
+  d. $−X$.<br/>
 
   Ans: 
 
 
 6. Let $X \sim B_{0.4}$, $Y \sim B_{0.2}$, and they are independent. Find the Bernoulli parameter for the following random variables. Write $−1$ if they are not Bernoulli.<br/>
   a. $X \cdot Y$,<br/>
-  b. $XY$, recall that $0^ 0=1$,<br/>
+  b. $X^Y$, recall that $0^ 0=1$,<br/>
   c. $|X−Y|$,<br/>
   d. $X+Y$.<br/>
 
@@ -1409,22 +1409,22 @@
 1. There are 5 traffic signals between your home and work. Each is red with probability 0.35, independently of all others. Find:
 
   1) the probability of encountering no red lights,<br/>
-  a. 2.26%<br/>
-  b. 5.2%<br/>
-  c. 11.6%<br/>
-  d. 17.5%<br/>
+    a. 2.26%<br/>
+    b. 5.2%<br/>
+    c. 11.6%<br/>
+    d. 17.5%<br/>
 
   2) the probability of encountering only red lights,<br/>
-  a. 0.03%<br/>
-  b. 0.52%<br/>
-  c. 1.16%<br/>
-  d. 16.4%<br/>
+    a. 0.03%<br/>
+    b. 0.52%<br/>
+    c. 1.16%<br/>
+    d. 16.4%<br/>
 
   3) the expected number of red lights you will encounter?<br/>
-  a. 0.75 <br/>
-  b. 1.42 <br/>
-  c. 1.75 <br/>
-  d. 2.25 <br/>
+    a. 0.75 <br/>
+    b. 1.42 <br/>
+    c. 1.75 <br/>
+    d. 2.25 <br/>
 
   Ans: 
 
@@ -1590,7 +1590,7 @@ Several of the following questions ask about the number of experiments performed
 
 
 3. A $G_p$ random variable is odd with probability<br/>
-  a. $\frac{1−p}{2−p$}$,<br/>
+  a. $\frac{1−p}{2−p}$,<br/>
   b. $\frac{p}{2−p}$,<br/>
   c. $\frac{1}{2−p}$,<br/>
   d. $p+(1−p)^2 \cdot p$.<br/>
