@@ -1,6 +1,6 @@
 # Topic 9: Continuous Distribution Families
 
-
+ 
 ## 9.1 Continuous Distributions
 
 + Discrete to continuous
@@ -269,12 +269,12 @@
   c. \(\exists x\in\mathbb{R},\quad f(x)\le 1\)<br/>
   d. If the limits of \(f(x)\) at positive and negative infinity exist, then \(\lim_{x\rightarrow\infty}f(x)=\lim_{x\rightarrow -\infty}f(x)=0\)<br/>
 
-  Ans: <span style="color: magenta;">ad</span><br/>
+  Ans: <span style="color: magenta;">acd</span><br/>
   Explanation
-  + By definition, $f(x) \ge 0$.
-  + Consider Gaussian $N(0,1/(8\pi))$. For this probability density function, $f(0)=2>1$.
-  + If $f>1, \forall x \in \Bbb{R}$, $\int_{\Bbb{R}} f(z)dz= \infty$, but we require $\int_{\Bbb{R}} f(z)dz=1$.
-  + Suppose $\exists \epsilon, x_0>0$ such that $\forall\, x \ge x_0,f(x)> \epsilon$, then $\int_{\Bbb{R}} f(z)dz= \infty$. Thus there cannot exist such an $\epsilon, x_0>0$ and hence $\lim_{x \to \infty} f(x)=0$. Similarly $\lim_{x \to −\infty} f(x)=0$.
+    + By definition, $f(x) \ge 0$.
+    + Consider Gaussian $\mathcal{N}(0,1/(8\pi))$. For this probability density function, $f(0)=2>1$.
+    + If $f>1, \forall x \in \Bbb{R}$, $\int_{\Bbb{R}} f(z)dz= \infty$, but we require $\int_{\Bbb{R}} f(z)dz=1$.
+    + Suppose $\exists \epsilon, x_0>0$ such that $\forall\, x \ge x_0,f(x)> \epsilon$, then $\int_{\Bbb{R}} f(z)dz= \infty$. Thus there cannot exist such an $\epsilon, x_0>0$ and hence $\lim_{x \to \infty} f(x)=0$. Similarly $\lim_{x \to −\infty} f(x)=0$.
 
 
 3. Power Law
@@ -282,10 +282,12 @@
   Let  X  be a random variable with pdf $f_X(x) = C x^{−\alpha}, x \ge 1$.
 
   a. If $\alpha = 2$, $C=$?<br/>
-  b. If $\alpha = 3$, $C=$?<br/>
+
+  If $\alpha = 3$,<br/>
+  b. $C=$?<br/>
   c. $E(X)=$?<br/>
 
-  Ans: a. (1); b(12; c(2)<br/>
+  Ans: a. (1); b(2); c(2)<br/>
   Explanation: 
     + $\int_{-\infty}^{\infty} f_X(x) dx = \int_{1}^{\infty} Cx^{-2} dx = C = 1$
     + $\int_{-\infty}^{\infty} f_X(x) dx = \int_{1}^{\infty} Cx^{-3} dx = \frac{C}{2} = 1$
@@ -407,7 +409,11 @@
 1. Let $(X,Y)$ be distributed over $[0,1]×[0,1]$ according to $f(x,y)=6xy^2$. Find $P(XY^3 \le 1/2)$.
 
   Ans: 3/4<br/>
-  Explanation: Let $Z=XY^3$. For any $z \in (0, 1)$, $Z=XY^3 \le z \iff Y \le \min{(z/X)^{1/3}, 1}$. Therefore $P(Z\le z)=$ $P(XY^3\le z)=$ $\int_0^z\int_0^1f(x,y)dydx+\int_z^1\int_0^{(z/x)^{1/3}}f(x,y)dydx=$ $\int_0^z\int_0^1 6xy^2dydx+\int_z^1\int_0^{(z/x)^{1/3}}6xy^2 dydx=$ $z^2+2z(1-z)$. Plugging in $z=1/2$ gives the answer. [StackExchange](https://tinyurl.com/y8e48pv6)
+  Hint: Let $Z=XY^3$. The cdf of $Z$ is $F_Z(z) = P(Z \le z) = P(XY^3 \le z) = \underset{xy^3 \le z}{\int\int} f(x,y) dxdy$
+
+  Explanation:
+    + Let $Z=XY^3$. For any $z \in (0, 1)$, $Z=XY^3 \le z \iff Y \le \min{(z/X)^{1/3}, 1}$. Therefore $P(Z\le z)=$ $P(XY^3\le z)=$ $\int_0^z\int_0^1f(x,y)dydx+\int_z^1\int_0^{(z/x)^{1/3}}f(x,y)dydx=$ $\int_0^z\int_0^1 6xy^2dydx+\int_z^1\int_0^{(z/x)^{1/3}}6xy^2 dydx=$ $z^2+2z(1-z)$. Plugging in $z=1/2$ gives the answer.
+    + [StackExchange](https://tinyurl.com/y8e48pv6)
 
 
 2. A random variable  X  follows the distribution
@@ -421,7 +427,7 @@
   c. $E[Y]$<br/>
   d. $Var(Y)$<br/>
 
-  Ans: a. (1/3); b. (8/9); c. ($\frac{43}{7} - (\frac{11}{5})^2$)<br/>
+  Ans: a. (1/3); b. (8/9); c. (11/5); d. (228/175)<br/>
   Explanation:
     + Since $1=\int_{-1}^2f_X(x)dx=\int_{-1}^2Cx^2dx=3C$, we must have $C=1/3$
     + $P(X\ge 0)=\int_{0}^2f_X(x)dx=\int_{0}^2\frac13x^2dx=\frac19\cdot\left.x^3\right|^2_0=\frac89$
@@ -599,7 +605,7 @@
   Conditioning on $\min(X,Y)=0.5)$ restricts our focus to the L-shaped line from $(1,0.5)$ to $(0.5,0.5)$ to $(0.5,1)$ whose total length is $0.5+0.5=1$, and the distribution over that line is uniform. Within this line, $\max(X,Y) \ge 0.8$ forms the segments from $(0.8,0.5)$ to $(1,0.5)$ and from $(0.5,0.8)$ to $(0.5,1)$ whose total length is $0.2+0.2=0.4$. The probability of falling within these segments given the L-shaped line is $0.4/1=0.4$. [Stack Exchange](https://tinyurl.com/y8622gka)
 
 
-4. Given $X \sim _{U[a,b]}$ with $E[X]=2$ and $Var(X)=3$, find $a$ and $b$.
+4. Given $X \sim U_{[a,b]}$ with $E[X]=2$ and $Var(X)=3$, find $a$ and $b$.
 
   Ans: a. (-1); b. (5)<br/>
   Explanation: The mean and variance of $X \sim U_{[a,b]}$ are given by $E[X]=(a+b)/2$, $Var(X)=(b−a)^2/12$ respectively. Thus $(a+b)/2=2$ or $a=4−b$. Further $(b−a)^2/12=3$, and substituting $a=4−b$, we have $(b−2)^2=9$. Solving this and keeping the solution with $b \ge a$ gives $b=5,a=−1$.
@@ -801,7 +807,7 @@
   c. 1 <br/>
   d. 2 <br/>
   
-  Ans: <span style="color: magenta;">d</span>
+  Ans: <span style="color: magenta;">d</span><br/>
   Explanation: The y-intercept of a pdf is $f_X(0)$. For an exponential distribution that has pdf $f_X(x)=2e^{−2x}$, the y-intercept is $f_X(0)=2$.
 
 
@@ -809,10 +815,10 @@
   a. What is the probability that one such batteries can be used for more than 1.5 years?<br/>
   b. What is the probability that one such batteries can be used for more than 1.5 years  in total  if it has already been used for 0.5 year?<br/>
 
-  Ans: a. (e^{-1..5}); b. (1/e)<br/>
+  Ans: a. ($e^{-1.5}$); b. (1/e)<br/>
   Explanation:
     + Let $X \sim Exponential(\lambda)$ denote the age of the battery. Since $1=E(X)=1/\lambda$, we have $\lambda=1$. Further, for an exponential distribution, the CDF is given by $F_X(x)=P(X \le x)=1−e^{−λ \cdot x}, x \ge 0$. Thus $P(X> 1.5)=1-P(X\le 1.5)=1-F_X(1.5)=e^{-1.5}=0.22313$
-    + By the memoryless property of expoential distribution, $P(X>1.5 \mid X>0.5)=P(X>1)$. Following the same steps as the previous part above, $P(X>1)=e^{-1}=0.367879$
+    + By the memoryless property of exponential distribution, $P(X>1.5 \mid X>0.5)=P(X>1)$. Following the same steps as the previous part above, $P(X>1)=e^{-1}=0.367879$
 
 
 3. Let $X,Y$ be two independent exponential random variables with means $1$ and $3$, respectively. Find $P(X>Y)$.
@@ -824,7 +830,9 @@
 4. In order to attend an important $8$ A.M. lecture, you arrive at the shuttle stop at a time distributed uniformly between $7:20$ A.M. and $7:30$ A.M. The time between consecutive shuttle arrivals is known to be exponentially distributed with mean $15$ minutes. If the journey takes $30$ minutes, what is the probability that you arrive late to the lecture?
 
   Ans: <span style="color: magenta;">0.7298</span><br/>
-  Explanation: Let $Y$ be the time in minutes between $7:20$ A.M. and $7:30$ A.M. that you arrive at the shuttle stop. Let $Z$ be the time you have to wait until the next shuttle arrives. Then $Y \sim Unif(0,10)$ and by the memoryless property of the exponential, $Z \sim Exp(1/15)$. Note also that in this case $Y$ is independent of $Z$.  Now you arrive late to class iff $Y+Z>10$. Therefore the required probability is $P(Y+Z > 10)$ $=\int_{0}^{10}f_Y(t)P(Z> 10-t)dt$ $=\int_{0}^{10}1/10\cdot e^{-(10-t)/15}dt$ $=3/2\cdot (1-e^{-2/3})=0.730$ [HomeworkLib](https://tinyurl.com/ybthhuk4)
+  Explanation: 
+  + Let $Y$ be the time in minutes between $7:20$ A.M. and $7:30$ A.M. that you arrive at the shuttle stop. Let $Z$ be the time you have to wait until the next shuttle arrives. Then $Y \sim Unif(0,10)$ and by the memoryless property of the exponential, $Z \sim Exp(1/15)$. Note also that in this case $Y$ is independent of $Z$.  Now you arrive late to class iff $Y+Z>10$. Therefore the required probability is $P(Y+Z > 10)$ $=\int_{0}^{10}f_Y(t)P(Z> 10-t)dt$ $=\int_{0}^{10}1/10\cdot e^{-(10-t)/15}dt$ $=3/2\cdot (1-e^{-2/3})=0.730$
+  + [HomeworkLib](https://tinyurl.com/ybthhuk4)
 
 
 ### Video Links
@@ -837,7 +845,7 @@
 ## 9.5 Gaussian Distribution
 
 + Normal distribution
-  + notation: $X \sim N(\mu, \sigma^2)$
+  + notation: $X \sim \mathcal{N}(\mu, \sigma^2)$
   + pdf: $f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
   + a.k.a. Bell curve
   + very common
@@ -858,7 +866,7 @@
 
 + Linear transformations
   + linear transformation of normal distributions are normal
-    + $X \sim N(\mu, \sigma^2)$
+    + $X \sim \mathcal{N}(\mu, \sigma^2)$
     + pdf: $f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
     + affine: $Y = aX +b$
     + $\forall\,$ r.v.: $\mu_Y = a \mu_X + b \quad \sigma_Y = a \sigma_X$
@@ -867,11 +875,11 @@
     \[\begin{align*}
       f_Y(y) &= \left.\frac{1}{(ax+b)^\prime} f_X(x) \right|_{y=ax+b} \qquad \left( x = \frac{y - b}{a} \right) \\
       &= \frac 1 a \frac{1}{\sqrt{2\pi \sigma^2}} e^{-\frac{\left(\frac{y-b}{a} - \mu\right)^2}{2\sigma^2}} = \frac{1}{\sqrt{2\pi(a\sigma)^2}} e^{- \frac{(y - (a\mu +b))^2}{2(a\sigma)^2}}\\\\
-      Y &\sim N\left(a\mu+b, (a\sigma)^2\right)
+      Y &\sim \mathcal{N}eft(a\mu+b, (a\sigma)^2\right)
     \end{align*}\]
 
 + Standard Normal distribution
-  + w/o loss of generality considering $X \sim N(0, 1)$
+  + w/o loss of generality considering $X \sim \mathcal{N}(0, 1)$
 
     \[ f(x) = \frac{1}{2\pi} e^{-\frac{x^2}{2}} \]
 
@@ -914,7 +922,7 @@
     \end{align*}\]
 
 + Summary
-  + notation: $X \sim N(\mu, \sigma)$
+  + notation: $X \sim \mathcal{N}(\mu, \sigma)$
   + pdf: $f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{\frac{-(x-\mu)^2}{2\sigma^2}} \quad -\infty < x < \infty$
   + mean: $E[X] = \mu$
   + variance: $Var = \sigma^2$
@@ -951,10 +959,10 @@
   The linear transformation of a normal random variable is also a normal random variable. (True/False)
 
   Ans: True<br/>
-  Explanation: For any $X \sim N(\mu, \sigma^2)$, we have $aX+b \sim N(a\mu+b, a^2 \sigma^2)$
+  Explanation: For any $X \sim \mathcal{N}(\mu, \sigma^2)$, we have $aX+b \sim \mathcal{N}(a\mu+b, a^2 \sigma^2)$
 
 
-3. If $X,Y$ are two independent random variable with $X \sim N(1,16)$ and $Y \sim N(1,9)$, then find $Var(XY)$.
+3. If $X,Y$ are two independent random variable with $X \sim \mathcal{N}(1,16)$ and $Y \sim \mathcal{N}(1,9)$, then find $Var(XY)$.
 
   Ans: <span style="color: magenta;">169</span><br/>
   Explanation: Noted that $E[X^2]=Var(X)+E^2[X]=17, E[Y^2]=Var(Y)+E^2[Y]=10$, we have $Var(XY) = E[X^2Y^2] - E^2[XY] = E[X^2]E[Y^2] - E^2[X]E^2[Y] = 170 - 1 = 169$ [StackExchange](https://tinyurl.com/yavkx3ez)
@@ -972,15 +980,18 @@
   Explanation: $E\left(e^{-X^2}\right) = \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} e^{-x^2} dx = \frac{1}{\sqrt{3}} \int_{-\infty}^{\infty} \underbrace{\frac{1}{\sqrt{2\pi \frac{1}{3}}} e^{-\frac{x^2}{2 \cdot \frac{1}{3}}}}_{\mathcal{N}(0, \frac{1}{3})} dx = 1/\sqrt{3}$
 
 
-6. Let $$ be distributed according to the pdf $ke^{−x^2−7x}$. Find $E[X^2]$.
+6. Let $X$ be distributed according to the pdf $ke^{−x^2−7x}$. Find $E[X^2]$.
 
-  Ans: Notice that $f_X(x)=k e^{-x^2-7x}= (ke^{49/4})\cdot e^{-\frac{(x+7/2)^2}{2\times 0.5}} = c \cdot e^{-\frac{(x+7/2)^2}{2\times 0.5}}$,  where $c$ is a constant. Therefore $X$ is normally distributed with $μ=−7/2$ and $\sigma^2=0.5$ and thus $E(X^2)$ $=V(X)+E(X)^2$ $=1/2+49/4$ $=51/4.$.
+  Ans: $51/4$<br/>
+  Explanation: Notice that $f_X(x)=k e^{-x^2-7x}= (ke^{49/4})\cdot e^{-\frac{(x+7/2)^2}{2\times 0.5}} = c \cdot e^{-\frac{(x+7/2)^2}{2\times 0.5}}$,  where $c$ is a constant. Therefore $X$ is normally distributed with $μ=−7/2$ and $\sigma^2=0.5$ and thus $E(X^2)$ $=V(X)+E(X)^2$ $=1/2+49/4$ $=51/4.$.
 
 
-7. Let $X \sim N(0,9)$ have mean 0 and variance 9. Find the expected value of $X^2(X+1)$.
+7. Let $X \sim \mathcal{N}(0,9)$ have mean 0 and variance 9. Find the expected value of $X^2(X+1)$.
 
   Ans: 9<br/>
-  Explanation: Notice that since the Guassian distribution is symmetric around its mean $0$, $E[X^3]=0$. Further since $E[X^2]=Var(X)+E[X]^2=9$, the answer follows. [StackExchange](https://tinyurl.com/ycnb77hj)
+  Explanation:
+    + Notice that since the Guassian distribution is symmetric around its mean $0$, $E[X^3]=0$. Further since $E[X^2]=Var(X)+E[X]^2=9$, the answer follows. 
+    + [StackExchange](https://tinyurl.com/ycnb77hj)
 
 
 
@@ -994,7 +1005,7 @@
 ## 9.6 Gaussian Distribution - Probabilities
 
 + Cumulative distribution function
-  + distribution: $X \sim N(0, 1)$
+  + distribution: $X \sim \mathcal{N}(0, 1)$
   + cdf: 
     + $\Phi(x) \triangleq F(x) = \frac{1}{2\pi} \int_{-\infty}^x \exp(-\frac{x^2}{2})\, dx$
     + no known formula
@@ -1004,7 +1015,7 @@
     + z table
 
 + Using the z table
-  + distribution: $X \sim N(0, 1)$
+  + distribution: $X \sim \mathcal{N}(0, 1)$
 
     \[\begin{align*}
       P(X \le a) &= \Phi(a) \\
@@ -1027,11 +1038,11 @@
     + $P(-a \le X \le b) = \Phi(b) - \Phi(-a) = \Phi(b) - (1 - \Phi(a)) = \Phi(a) + \Phi(b) - 1$
 
 + General normal distribution
-  + distribution: $X \sim N(\mu, \sigma^2)$
+  + distribution: $X \sim \mathcal{N}(\mu, \sigma^2)$
   + $P(a \le X \le b) = P\left( \frac{a - \mu}{\sigma} \le \frac{X - \mu}{\sigma} \le \frac{b - \mu}{\sigma} \right) = P\left.(\frac{a - \mu}{\sigma} \le Z \le \frac{b - \mu}{\sigma}\right)$
-  + standardized version of $X$ = Z score: $Z = \frac{X- \mu}{\sigma} \sim N(0, 1)$
+  + standardized version of $X$ = Z score: $Z = \frac{X- \mu}{\sigma} \sim \mathcal{N}(0, 1)$
   + example:
-    + $X \sim N(15, 4) \quad \mu = 15 \quad \sigma=2$
+    + $X \sim \mathcal{N}(15, 4) \quad \mu = 15 \quad \sigma=2$
     + Z score: $Z = \frac{X - 15}{2}$
 
     \[\begin{align*}
@@ -1103,10 +1114,10 @@
 
 + Normal approximation of Binomial distribution
   + Binomial: $X \sim B_{n, p} \qquad \mu = np \quad \sigma = \sqrt{npq}$
-  + Normal approximation: $Y \sim N(np, npq) \qquad P(X = k) \approx P(k - \frac12 \le Y \le k + \frac12)$
+  + Normal approximation: $Y \sim \mathcal{N}(np, npq) \qquad P(X = k) \approx P(k - \frac12 \le Y \le k + \frac12)$
   + example:
     + $X \sim B_{100, 0.5} \qquad \mu = np = 50 \quad \sigma = \sqrt{npq} = 5$
-    + $Y \sim N(50, 25)$
+    + $Y \sim \mathcal{N}(50, 25)$
 
       \[\begin{align*}
         P(X = 60) &\approx P(59.5 \le Y \le 60.5) \\
@@ -1117,7 +1128,7 @@
 
   + example: interval probabilities
     + Binomial: $X \sim B_{100, 0.5} \qquad np = 50 \quad \sqrt{npq} = 5$
-    + Normal approximation: $Y \sim N(50, 25)$
+    + Normal approximation: $Y \sim \mathcal{N}(50, 25)$
 
       \[\begin{align*}
         P(42 \le X \le 53) &\approx P(41.5 \le Y \le 53.3) \\
@@ -1148,33 +1159,36 @@
 
   Ans: a. (0.3779); b. (0.7734); c. (-4.01)<br/>
   Explanation:
-    + We may rewrite $P(−3 < X < 0)=P(−1/3 < (X+2)/3 < 2/3) . Define $Z=(X+2)/3$. Now $Z=(X+2)/3 \sim Normal(0,1)$. Thus $P(−1/3 < (X+2)/3 < 2/3)=P(−1/3 < Z < 2/3)= \Phi(2/3)− \Phi(−1/3)=0.378066$, where the latter is obtained from a standard Guassian table.
+    + We may rewrite $P(−3 < X < 0)=P(−1/3 < (X+2)/3 < 2/3)$. Define $Z=(X+2)/3$. Now $Z=(X+2)/3 \sim Normal(0,1)$. Thus $P(−1/3 < (X+2)/3 < 2/3)=P(−1/3 < Z < 2/3)= \Phi(2/3)− \Phi(−1/3)=0.378066$, where the latter is obtained from a standard Guassian table.
     + $F(1/4) = P(X \le 1/4) = P((X+2)/3 \le 3/4) = P(Z \le 3/4)$. Similar to the above part, we evaluate the latter as $P(Z \le 3/4)= \Phi(3/4)=0.773373$.
-    + Using the same transformation as above: $Z=(X+2)/3$, $F−1(1/4)=3 \cdot F^{−1}_Z (1/4)−2 . Now $F^{−1}_Z(1/4)=−0.67449$. Thus $F^{−1}(1/4)=3 \cdot −0.67449−2=−4.02347$.
+    + Using the same transformation as above: $Z=(X+2)/3$, $F^{−1}(1/4)=3 \cdot F^{−1}_Z (1/4)−2$. Now $F^{−1}_Z(1/4)=−0.67449$. Thus $F^{−1}(1/4)=3 \cdot −0.67449−2=−4.02347$.
 
 
-2. Suppose $X,Y$ are independent and $X \sim N(1,4)$ and $Y \sim N(1,9)$. If $P(2X+Y \le a)$ $=P(4X−2Y \ge 4a)$, then find $a$.
+2. Suppose $X,Y$ are independent and $X \sim \mathcal{N}(1,4)$ and $Y \sim \mathcal{N}(1,9)$. If $P(2X+Y \le a)$ $=P(4X−2Y \ge 4a)$, then find $a$.
 
   And: 4/3<br/>
-  Explanation: Notice that $2X+Y \sim N(3,25), 4X−2Y \sim N(2,100)$. Then $P(2X+Y \le a)$ $= \Phi(\frac{a−3}{5})$, and $P(4X−2Y \ge 4a)$ $=1− \Phi(\frac{4a−2}{10})$ $= \Phi(\frac{2−4a}{10})$. By solving the equation $\frac{a−3}{5}=\frac{2−4a}{10}$, we have $a=\frac43$. [Stack Exchange](https://tinyurl.com/yavpnhnv)
+  Explanation:
+    + Notice that $2X+Y \sim \mathcal{N}(3,25), 4X−2Y \sim \mathcal{N}(2,100)$. Then $P(2X+Y \le a)$ $= \Phi(\frac{a−3}{5})$, and $P(4X−2Y \ge 4a)$ $=1− \Phi(\frac{4a−2}{10})$ $= \Phi(\frac{2−4a}{10})$. By solving the equation $\frac{a−3}{5}=\frac{2−4a}{10}$, we have $a=\frac43$.
+    + [Stack Exchange](https://tinyurl.com/yavpnhnv)
 
 
 3. Let $X \sim B_{.36,1600}$. Approximate $P(552 \le X \le 600)$.
 
   Ans: 0.798<br/>
-  Explanation: First note that $P(X > 600)=P(X−576 > 24)$ $=P(X−0.36∗1600 > 24)$ $=P((X−0.36∗1600)/19.2>24/19.2)$. From the Gaussian approximation, noting that $(X−0.36∗1600)/19.2$ has zero mean and unit variance, $P((X−0.36∗1600)/19.2 > 24/19.2)≈P(Z > 24/19.2)$, where $Z \sim N(0,1)$. Repeating the same for $P(X < 552)$, we have our desired answer.
+  Explanation: First note that $P(X > 600)=P(X−576 > 24)$ $=P(X−0.36∗1600 > 24)$ $=P((X−0.36∗1600)/19.2>24/19.2)$. From the Gaussian approximation, noting that $(X−0.36∗1600)/19.2$ has zero mean and unit variance, $P((X−0.36∗1600)/19.2 > 24/19.2)≈P(Z > 24/19.2)$, where $Z \sim \mathcal{N}(0,1)$. Repeating the same for $P(X < 552)$, we have our desired answer.
 
 
-4. Suppose a binary message is transmitted through a noisy channel. The transmitted signal $S$ is equally likely to be $1$ or $−1$, the noise $N$ follows a normal distribution $N(0,4)$, and the received signal is $R=S+N$. $S$ and $N$ are independent. The receiver concludes that the signal is $1$ when $R \ge 0$ and $−1$ when $R < 0$.<br/>
+4. Suppose a binary message is transmitted through a noisy channel. The transmitted signal $S$ is equally likely to be $1$ or $−1$, the noise $N$ follows a normal distribution $\mathcal{N}(0,4)$, and the received signal is $R=S+N$. $S$ and $N$ are independent. The receiver concludes that the signal is $1$ when $R \ge 0$ and $−1$ when $R < 0$.<br/>
   a. What is the error probability when one signal is transmitted?<br/>
   b. What is the error probability when one signal is transmitted if we triple the amplitude of the transmitted signal, namely, $S=3$ or $−3$ with equal probability.<br/>
   c. What is the error probability if we send the original signal (with amplitude $1$) three times, and take majority for conclusion? For example, if three received signal was concluded $1$, $−1$, $1$ by receiver, we determine the transmitted signal to be $1$.<br/>
 
   Ans: a. (0.3085); b. (0.0668); c. (0.2268)<br/>
   Explanation:
-    + An error occurs under either of these two events, $S=1,Z<0$ or if $S=−1,Z \ge0$. Now $P(S=1,Z<0)$ $7=P(S=1)P(Z<0|S=1)$ $=1/2 \cdot P(N<−1)$. Since $N/2∼N(0,1)$, $P(N < −1)$ $=P(N/2 < −1/2)= \Phi(−1/2)=0.308538$. Thus $P(S=1,Z<0)$ $=1/2 \cdot 0.308538$. Similarly, by symmetry it follows that $P(S=−1,Z \ge 0)=1/2 \cdot 0.308538$. The probability of error thus is $2 \cdot 1/2 \cdot 0.308538=0.308538$.
-    + Following the same analysis as above, the first error event $P(S=3,Z<0)$ $=P(S=3)P(Z<0|S=3)$ $=1/2 \cdot P(N<−3)$. Since $N/2∼N(0,1)$, $P(N<−3)$ $=P(N/2<−3/2)$ $=\Phi (−3/2)=0.0668072$. Thus $P(S=3,Z<0)$ $=1/2 \cdot 0.0668072$. Similarly, by symmetry it follows that $P(S=−3,Z \ge 0)$ $=1/2 \cdot 0.0668072$. Thus the probability of error is $2 \cdot 1/2 \cdot 0.0668072$ $=0.0668072$ and is drastically smaller than the previous scenario.
+    + An error occurs under either of these two events, $S=1,Z<0$ or if $S=−1,Z \ge0$. Now $P(S=1,Z<0)$ $=P(S=1)P(Z<0|S=1)$ $=1/2 \cdot P(N<−1)$. Since $N/2∼\mathcal{N}(0,1)$, $P(N < −1)$ $=P(N/2 < −1/2)= \Phi(−1/2)=0.308538$. Thus $P(S=1,Z<0)$ $=1/2 \cdot 0.308538$. Similarly, by symmetry it follows that $P(S=−1,Z \ge 0)=1/2 \cdot 0.308538$. The probability of error thus is $2 \cdot 1/2 \cdot 0.308538=0.308538$.
+    + Following the same analysis as above, the first error event $P(S=3,Z<0)$ $=P(S=3)P(Z<0|S=3)$ $=1/2 \cdot P(N<−3)$. Since $N/2∼\mathcal{N}(0,1)$, $P(N<−3)$ $=P(N/2<−3/2)$ $=\Phi (−3/2)=0.0668072$. Thus $P(S=3,Z<0)$ $=1/2 \cdot 0.0668072$. Similarly, by symmetry it follows that $P(S=−3,Z \ge 0)$ $=1/2 \cdot 0.0668072$. Thus the probability of error is $2 \cdot 1/2 \cdot 0.0668072$ $=0.0668072$ and is drastically smaller than the previous scenario.
     + If we denote the error probability in the first part by $p(=0.308538)$, on repeated transmission, an error occurs if and only if the incorrect signal is concluded in least 2 of the 3 transmissions. Since the transmission are independent, the probability of error is thus $\binom32 p^2 \cdot (1−p)+\binom33 p^3=0.226844$.
+    + [Homeworklib](https://tinyurl.com/y43rycan)
 
 
 ### Video Links
