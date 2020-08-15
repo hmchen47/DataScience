@@ -33,7 +33,9 @@
   Let  X  be a random variable with pdf $f_X(x) = C x^{−\alpha}, x \ge 1$.
 
   a. If $\alpha = 2$, $C=$?<br/>
-  b. If $\alpha = 3$, $C=$?<br/>
+
+  If $\alpha = 3$,<br/>
+  b. $C=$?<br/>
   c. $E(X)=$?<br/>
 
   Ans: 
