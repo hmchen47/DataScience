@@ -252,10 +252,43 @@
 
 ## 10.1 Markov Inequality
 
+
+0. A mob of 30 meerkats has an average height of 10”, and 10 of them are 30” tall. According to Markov's Inequality this is:<br/>
+  a. Possible<br/>
+  b. Impossible<br/>
+
+  Ans: 
+
+
+1. Which of the following are correct versions of Markov's Inequality for a nonnegative random variable  X :<br/>
+  a. $P(X \ge \alpha \mu) \le \frac{1}{\alpha}$<br/>
+  b. $P(X \ge \alpha \mu ) \le \mu \alpha$<br/>
+  c. $P(X \ge \mu) \le \frac{1}{\alpha}$<br/>
+  d. $P(X \ge \alpha) \le \frac{\mu}{\alpha}$<br/>
+
+  Ans: 
+
+
+2. Markov variations
+
+  Upper bound $P(X \ge 3)$ when $X \ge 2$ and $E[X]=2.5$.
+
+  Ans: 
+
+
+3. a. In a town of 30 families, the average annual family income is `$80,000`. What is the largest number of families that can have income at least `$100,000` according to Markov’s Inequality? (Note: The annual family income can be any non-negative number.)
+
+  b. In the same town of 30 families, the average household size is 2.5. What is the largest number of families that can have at least 4 members according to Markov’s Inequality? (Note the household size can be any positive integer.)
+
+  Ans: 
+
+
+## 10.2 Chebyshev Inequalities
+
 0. Which of the following is correct about Chebyshev's inequality?<br/>
-  a. It only applys to non-negative distribution<br/>
-  b. It only applys to discrete distribution<br/>
-  c. It only applys to continuous distribution<br/>
+  a. It only applies to non-negative distribution<br/>
+  b. It only applies to discrete distribution<br/>
+  c. It only applies to continuous distribution<br/>
   d. None of the above<br/>
 
   Ans: 
@@ -348,7 +381,7 @@
 
 ## 10.4 Moment Generating Functions
 
-0. If $M(t)$ is a moment generating function, then what is $M(0)$?
+0. If $M(t)$ is a moment generating function, then what is $M(0)$?<br/>
   a. 0<br/>
   b. 1<br/>
   c. infinity<br/>
@@ -411,8 +444,9 @@
   
 
 
-7. a. If $M_X(t)=e^{−5(1−e^t)}$, find $Var(X)$.<br/>
-   b. $P(X = 3)$<br/>
+7. If $M_X(t)=e^{−5(1−e^t)}$,<br/>
+  a. find $Var(X)$.<br/>
+  b. $P(X = 3)$<br/>
 
   Ans: 
   
