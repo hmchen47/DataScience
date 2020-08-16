@@ -103,7 +103,7 @@
   a. Possible<br/>
   b. Impossible<br/>
 
-  Ans: <span style="color: magenta;">b</span>
+  Ans: <span style="color: magenta;">b</span><br/>
   Explanation: Impossible. For the average to be 10, the remaining 20 meerkats would need to have height zero.
 
 
@@ -121,12 +121,14 @@
   Upper bound $P(X \ge 3)$ when $X \ge 2$ and $E[X]=2.5$.
 
   Ans: <span style="color: magenta;">0.5</span><br/>
-  Explanation: Let $Y=X−2$. Then $Y \ge 0$ and $E[Y]=E[X]−2=0.5$. By Markov's inequality, $P(X \ge 3) = P(Y \ge 1) \le \frac{E[Y]}{1}=0.5$. [StackExchange](https://tinyurl.com/yc6qj6vs)
+  Explanation:
+    + Let $Y=X−2$. Then $Y \ge 0$ and $E[Y]=E[X]−2=0.5$. By Markov's inequality, $P(X \ge 3) = P(Y \ge 1) \le \frac{E[Y]}{1}=0.5$.
+    + [StackExchange](https://tinyurl.com/yc6qj6vs)
 
 
-3. a. In a town of 30 families, the average annual family income is \$80,000. What is the largest number of families that can have income at least \$100,000 according to Markov’s Inequality? (Note: The annual family income can be any non-negative number.)
+3. a. In a town of 30 families, the average annual family income is `$80,000`. What is the largest number of families that can have income at least `$100,000` according to Markov’s Inequality? (Note: The annual family income can be any non-negative number.)
 
-  b. In the same town of 30 families, the average household size is 2.5. What is the largest number of families that can have at least 4 members according to Markov’s Inequality? (Note the household size can be any postive integer.)
+  b. In the same town of 30 families, the average household size is 2.5. What is the largest number of families that can have at least 4 members according to Markov’s Inequality? (Note the household size can be any positive integer.)
 
   Ans: a. (24); b. (<span style="color: cyan;">15</span>)>br/>
     + This question can be answered using the Meerkat paradigm, or we can convert it to a probability question and use Markov's Inequality. Imagine that you pick one of the 30 families uniformly at random. The expected income is the average over all families, $80,000. The probability that the random family has income at least $100,000 is the number of families with such income, normalized by 30. By Markov's Inequality, this probability is at most  80000/100000=0.8 . Hence the number of families with such income is at most  30⋅0.8=24 .
@@ -298,9 +300,9 @@
 ### Problem Sets
 
 0. Which of the following is correct about Chebyshev's inequality?<br/>
-  a. It only applys to non-negative distribution<br/>
-  b. It only applys to discrete distribution<br/>
-  c. It only applys to continuous distribution<br/>
+  a. It only applies to non-negative distribution<br/>
+  b. It only applies to discrete distribution<br/>
+  c. It only applies to continuous distribution<br/>
   d. None of the above<br/>
 
   Ans: <span style="color: cyan;">d</span><br/>
@@ -341,8 +343,8 @@
   c. 50%<br/>
   d. 75%<br/>
   
-  Ans: <span style="color: cyan;">abcd</span><br/>
-  Explanation: By Chebyshev's Inequality, $P(|X−8| \ge 2) \le \frac{Var(X)}{4}=\frac14$. Hence $P(6 \le X \le 10)=1−P(|X−8| \ge 2) \ge 1−\frac14=\frac34=75%$.  Since the probability is at least 75\%, it is also at least 50\%, etc.
+  Ans: <span style="color: cyan;">bcd</span><br/>
+  Explanation: By Chebyshev's Inequality, $P(|X−8| \ge 2) \le \frac{Var(X)}{4}=\frac14$. Hence $P(6 \le X \le 10)=1−P(|X−8| \ge 2) \ge 1−\frac14=\frac34=75\%$.  Since the probability is at least 75%, it is also at least 50%, etc.
 
 
 5. If $E[X]=15$, $P(X \le 11)=0.2$, and $P(X \ge 19)=0.3$, which of the following is _impossible_?<br/>
@@ -352,7 +354,7 @@
   d. $Var(X) > 7$<br/>
 
   Ans: a<br/>
-  Explanation: According to Chebyshev's inequality, $P(|X−15| \ge 4) \le \frac{Var(X)}{16}$. As $P(|X−15| \ge 4)=P(X \le 11)+P(X \ge 19)=0.5$, we have $Var(X) \ge 8$.
+  Explanation: According to Chebyshev's inequality, $P(|X−15| \ge 4) \le \frac{Var(X)}{16}$. As $P(|X−15| \ge 4)$ $=P(X \le 11)+P(X \ge 19)$ $=0.5$, we have $Var(X) \ge 8$.
 
 
 
@@ -486,7 +488,7 @@
   Ans: True
 
 
-2. Given n iid random varibles $X_1,X_2, \dots ,X_n$ with mean $\mu$, standard deviation $\alpha < \infty$ , and the sample mean $S_n = \frac{1}{n} \sum_{i=1}^n X_i$, is it true that $\lim_{n\to\infty} E[(S_n−\mu)^2]=0$? (True/False)
+2. Given n iid random variables $X_1,X_2, \dots ,X_n$ with mean $\mu$, standard deviation $\alpha < \infty$ , and the sample mean $S_n = \frac{1}{n} \sum_{i=1}^n X_i$, is it true that $\lim_{n\to\infty} E[(S_n−\mu)^2]=0$? (True/False)
 
   Ans: <span style="color: cyan;">True</span><br/>
   Explanation: $\lim_{n\to\infty} E[(S_n−μ)^2) = \lim_{n\to\infty} Var(S_n)= \lim_{n\to\infty} \sigma^2=0$. This means $S_n$ converges to the true mean $\mu$ in mean square sense.
@@ -520,12 +522,12 @@
 
 5. a. Flip a fair coin $n$ times and let $X_n$ be the number of heads. Is it true that $P(|X_n − \frac n 2|>1000)<0.99$? (True/False)
 
-   b. Does the result above contradict with the WLLW? (Yes/No)
+   b. Does the result above contradict with the WLLN? (Yes/No)
 
   Ans: a. (False); b. (No)<br/>
   Explanation:
-    + Very roughly, $|X_n− \\frac n 2| \approx \frac{\sqrt{n}{2}$, which grows as $n$ grows. We cannont guarantee $P(|X_n− \\frac n 2|>1000)<0.99$.
-    + The WLLN shows that $\lim_{n \to \infty} P(|\\frac{X}n}{n}−\\frac12|> \epsilon)=0 \to P(|X_n−\\frac n 2|> \epsilonn)=0$. $\epsilon n$ increases when $n$ increases, but 1000 is not changed.
+    + Very roughly, $|X_n − \frac n 2| \approx \frac{\sqrt{n}}{2}$, which grows as $n$ grows. We cannot guarantee $P(|X_n − \frac n 2|>1000)<0.99$.
+    + The WLLN shows that $\lim_{n \to \infty} P(|\frac{X_n}{n} - \frac{1}{2}| \gt \epsilon)$ $= 0 \quad \Rightarrow P(|X_n - \frac{n}{2}| \gt \epsilon n) = 0$. $\epsilon n$ increases when $n$ increases, but 1000 is not changed.
 
 
 
@@ -576,7 +578,7 @@
     </div>
   + two arbitary values
     + arbitrary values: $p(c_1) = p_1 \quad p(c_2) = p_2$
-    + moment generating fucntion
+    + moment generating function
 
       \[ M(t) = E[e^{tX}] = p_1 e^{c_1 t} + p_2 e^{c_2 t} \]
 
@@ -798,7 +800,7 @@
 
 ### Problem Sets
 
-0. If $M(t)$ is a moment generating function, then what is $M(0)$?
+0. If $M(t)$ is a moment generating function, then what is $M(0)$?<br/>
   a. 0<br/>
   b. 1<br/>
   c. infinity<br/>
@@ -875,8 +877,9 @@
     + False. $3M(0)=3≠1$.
 
 
-7. a. If $M_X(t)=e^{−5(1−e^t)}$, find $Var(X)$.<br/>
-   b. $P(X = 3)$<br/>
+7. If $M_X(t)=e^{−5(1−e^t)}$,<br/>
+  a. find $Var(X)$.<br/>
+  b. $P(X = 3)$<br/>
 
   Ans: a. (5); b. ($5^3/6 \cdot e^{-5}$)<br/>
   Explanation
@@ -1055,15 +1058,20 @@
 
 1. You toss a fair coin $1000$ times and take a step forward if the coin lands head and a step backward if it lands tail. Upper bound the probability that you end up $\ge 100$ steps from your starting point (in either direction) using Chernoff bound (after the final simplification as in the slides).
 
-  Ans: <span style="color: cyan;">0.1745</span>
-  Explanation: The expected number of heads is $\mu = 500$ and you will be off by $\ge 100$ if and only if the humber of heads is $\ge 550$ or $\le 450$. For both the upper and lower bounds, $\delta=0.1$ , and according to the Chernoff bound, the probability is $\le e^{-\frac{\delta^2}{2+\delta}\mu}+e^{-\frac{\delta^2}{2}\mu}\approx 0.1745$. [Theorem for another solution - Lecture 8.1.1 random walk on a line](https://tinyurl.com/yckaxwou) and [Chernoff bound for simple walk on $\Bbb{X}$](https://tinyurl.com/ybpdc78k)
+  Ans: <span style="color: cyan;">0.1745</span><br/>
+  Explanation:
+    + The expected number of heads is $\mu = 500$ and you will be off by $\ge 100$ if and only if the humber of heads is $\ge 550$ or $\le 450$. For both the upper and lower bounds, $\delta=0.1$ , and according to the Chernoff bound, the probability is $\le e^{-\frac{\delta^2}{2+\delta}\mu}+e^{-\frac{\delta^2}{2}\mu}\approx 0.1745$.
+    + [Theorem for another solution - Lecture 8.1.1 random walk on a line](https://tinyurl.com/yckaxwou)
+    + [Chernoff bound for simple walk on $\Bbb{X}$](https://tinyurl.com/ybpdc78k)
 
 
 
 2. A coin is equally likely to be either $B_{1/3}$ or $B_{2/3}$. To figure out the bias, we toss the coin $99$ times and declare $B_{1/3}$ if the number of heads is less than $49.5$ and $B_{2/3}$ otherwise. Bound the error probability using the Chernoff bound derived in lecture video (in its final form, after simplifcation).
 
-  Ans: <span style="color: cyan;">0.07137</span>
-  Explanation: Suppose the coin is $B_{1/3}$. We misclassify it as $B_{2/3}$ if the number of heads is $\ge 50$. From the Chernoff bound, probability of this event may be upper bounded as $P(B_{1/3})\cdot P(H\ge 50|B_{1/3})= \frac12 \cdot P(H\ge (1+17/33)33)\le \frac12 \cdot e^{-\frac{(17/33)^2}{2+17/33}33}$. Similarly if the coin is $B_{2/3}$, the misclassification error is upper bounded as $P(B_{2/3})\cdot P(H\le 49|B_{2/3})= \frac12 \cdot P(H\le (1-17/66)66)\le \frac12 \cdot e^{-\frac{(17/66)^2}{2}66}$. Summing these two probabilities gives the answer. [Another solution](https://tinyurl.com/y8ev2kd8)
+  Ans: <span style="color: cyan;">0.07137</span><br/>
+  Explanation:
+  + Suppose the coin is $B_{1/3}$. We misclassify it as $B_{2/3}$ if the number of heads is $\ge 50$. From the Chernoff bound, probability of this event may be upper bounded as $P(B_{1/3})\cdot P(H\ge 50|B_{1/3})$ $= \frac12 \cdot P(H\ge (1+17/33)33)$ $\le \frac12 \cdot e^{-\frac{(17/33)^2}{2+17/33}33}$. Similarly if the coin is $B_{2/3}$, the misclassification error is upper bounded as $P(B_{2/3})\cdot P(H\le 49|B_{2/3})$ $= \frac12 \cdot P(H\le (1-17/66)66)$ $\le \frac12 \cdot e^{-\frac{(17/66)^2}{2}66}$. Summing these two probabilities gives the answer.
+  + [Another solution](https://tinyurl.com/y8ev2kd8)
 
 
 
@@ -1199,14 +1207,14 @@
   Ans: c
 
 
-1. For  i≥1 , let  Xi∼G1/2  be distributed Geometrically with parameter $1/2$.
+1. For $i \ge 1$, let $X_i \sim G_{1/2}$ be distributed Geometrically with parameter $1/2$.
 
   Define $Y_n=\frac{1}{\sqrt{n}}\sum_{i=1}^n (X_i-2)$
 
   Approximate $P(−1 \le Y_n \le 2)$  with large enough $n$.
 
-  Ans: 0.6787<br/>
-  Explanation: Recall that the Geometric Distribution $G_p$ has mean $\frac 1 p$ and standard deviation $\frac{\sqrt{1−p)}}{p}$.  Since the $X_i \sim G_{1/2}$, their mean is 2 and their standard deviation is $\frac{\sqrt{1/2}{1/2}=\sqrt{2}$.  Let $Z_n = \frac{Y_n}{\sqrt{2}}$. Then by the central limit theorem, for sufficiently large $n$, $Z_n \sim N(0,1)$.  Hence $P(-1\le Y_n\le 2)=P(-1/\sqrt{2}\le Z_n\le \sqrt2)$ $=\Phi(\sqrt2)-\Phi(-1/\sqrt2)$ $=0.9214-0.2398$ $=0.6816$.
+  Ans: 0.6816<br/>
+  Explanation: Recall that the Geometric Distribution $G_p$ has mean $\frac 1 p$ and standard deviation $\frac{\sqrt{(1−p)}}{p}$. Since the $X_i \sim G_{1/2}$, their mean is 2 and their standard deviation is $\frac{\sqrt{1/2}}{1/2}=\sqrt{2}$.  Let $Z_n = \frac{Y_n}{\sqrt{2}}$. Then by the central limit theorem, for sufficiently large $n$, $Z_n \sim N(0,1)$.  Hence $P(-1\le Y_n\le 2)=P(-1/\sqrt{2}\le Z_n\le \sqrt2)$ $=\Phi(\sqrt2)-\Phi(-1/\sqrt2)$ $=0.9214-0.2398$ $=0.6816$.
 
 
 2. A class has 100 students. Each student's score is a random variable with mean $85$ and standard deviation $40$. Use the CLT to approximate the probability that the class average score is below $80$.
@@ -1219,7 +1227,7 @@
 
   a. What is the probability that you wait for less than 9 minutes?  
   
-  b. Assume that you took the shuttle once a day during the past 30 days. What is the approximate probability, according to the CLT, that your average wait time was less than  9  muinutes?
+  b. Assume that you took the shuttle once a day during the past 30 days. What is the approximate probability, according to the CLT, that your average wait time was less than  9  minutes?
 
   Ans: a. (0.5934); b. (0.2912)<br/>
   Explanation: 
