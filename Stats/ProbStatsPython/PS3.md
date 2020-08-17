@@ -490,7 +490,7 @@
   Ans: 
 
 
-1. For  i≥1 , let  Xi∼G1/2  be distributed Geometrically with parameter $1/2$.
+1. For $i \ge 1$, let $X_i \sim G_{1/2}$ be distributed Geometrically with parameter $1/2$.
 
   Define $Y_n=\frac{1}{\sqrt{n}}\sum_{i=1}^n (X_i-2)$
 
@@ -508,7 +508,7 @@
 
   a. What is the probability that you wait for less than 9 minutes?  
   
-  b. Assume that you took the shuttle once a day during the past 30 days. What is the approximate probability, according to the CLT, that your average wait time was less than 9 muinutes?
+  b. Assume that you took the shuttle once a day during the past 30 days. What is the approximate probability, according to the CLT, that your average wait time was less than 9 minutes?
 
   Ans: 
 
@@ -600,7 +600,7 @@
   
 
 
-6. Let $X_1,X_2, \dots,X_n$ be independent samples from a distribution with pdf $f_X(x)=\frac{1}{\theta^2}xe^{−x\theta} (X\ge 0)$. Which of the following is an unbiased estimator for $θ$?<br/>
+6. Let $X_1,X_2, \dots,X_n$ be independent samples from a distribution with pdf $f_X(x)=\frac{1}{\theta^2}xe^{-\frac{x}{\theta}} (X\ge 0)$. Which of the following is an unbiased estimator for $θ$?<br/>
   a. $\overline{X}$<br/>
   b. $\frac{\overline{X}}{2}$<br/>
   c. $\frac{\overline{X}}{3}$<br/>
@@ -640,12 +640,12 @@
 
 1. Let $\overline{X}_n$ and $S_n^2$ be the sample mean and the sample variance of $\{X_1, \dots, X_n\}$. Let $\overline{X}_{n+1}$ and $S^2_{n+1}$ be the sample mean and the sample variance of $\{X_1, \dots, X_n, \overline{X}_n\}$. Which of the following hold
 
-  a) for sample means,<br/>
+  1) for sample means,<br/>
   a. $\overline{X}_n > \overline{X}_{n+1}$<br/>
   b. $\overline{X}_n < \overline{X}_{n+1}$<br/>
   c. $\overline{X}_n = \overline{X}_{n+1}$<br/>
 
-  b) for sample variances?<br/>
+  2) for sample variances?<br/>
   a. $S^2_n > S^2_{n+1}$<br/>
   b. $S^2_n < S^2_{n+1}$<br/>
   c. $S^2_n = S^2_{n+1}$<br/>
