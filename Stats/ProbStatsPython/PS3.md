@@ -772,6 +772,7 @@
 
 # Topic 12: Regression and PCA
 
+
 ## 12.1 Review of Linear Algebra
 
 0. Which is NOT true of an orthonormal basis?	<br/>
@@ -797,7 +798,7 @@
   Ans: 
 
 
-3. An inner product, such as the dot product, always uses two vectors as operands and produces a scalar number as the result.
+3. An inner product, such as the dot product, always uses two vectors as operands and produces a scalar number as the result. (True/False)
 
   Ans: 
 
@@ -829,37 +830,37 @@
 
 2. Let $\vec{a} =(1,0,0)$, $\vec{b} =(0,1,0)$, and $\vec{c} =(0,0,1)$. This is the standard basis that spans $\Bbb{R}^3$. Answer the following questions about this set of vectors:
 
-  a) $\vec{a} +\vec{b} =?$<br/>
+  1) $\vec{a} +\vec{b} =?$<br/>
     <span style="padding-left: 1em">a.</span> (1,1)<br/>
     <span style="padding-left: 1em">b.</span> (0,0,1)<br/>
     <span style="padding-left: 1em">c.</span> (1,1,1)<br/>
     <span style="padding-left: 1em">d.</span> (1,1,0)<br/>
 
-  b) $\vec{a} \cdot \vec{b} =?$<br/>
+  2) $\vec{a} \cdot \vec{b} =?$<br/>
     <span style="padding-left: 1em">a.</span> (0,0,0)<br/>
     <span style="padding-left: 1em">b.</span> 0<br/>
     <span style="padding-left: 1em">c.</span> (1,1,0)<br/>
     <span style="padding-left: 1em">d.</span> 2<br/>
 
-  c) $(\vec{a} \cdot \vec{b} )\vec{c}$ =?<br/>
+  3) $(\vec{a} \cdot \vec{b} )\vec{c}$ =?<br/>
     <span style="padding-left: 1em">a.</span> (0,0,0)<br/>
     <span style="padding-left: 1em">b.</span> 0<br/>
     <span style="padding-left: 1em">c.</span> 1<br/>
     <span style="padding-left: 1em">d.</span> (0,0,1)<br/>
 
-  d) $−\vec{c} =?$<br/>
+  4) $−\vec{c} =?$<br/>
     <span style="padding-left: 1em">a.</span> (0,0,1)<br/>
     <span style="padding-left: 1em">b.</span> (0,0,−1)<br/>
     <span style="padding-left: 1em">c.</span> (1,0,0)<br/>
     <span style="padding-left: 1em">d.</span> Vectors cannot be negative<br/>
 
-  e) $\parallel \vec{a} \parallel = \sqrt{\vec{a} \cdot \vec{a}}$<br/>
+  5) $\parallel \vec{a} \parallel = \sqrt{\vec{a} \cdot \vec{a}}$<br/>
     <span style="padding-left: 1em">a.</span> True<br/>
     <span style="padding-left: 1em">b.</span> False<br/>
     <span style="padding-left: 1em">c.</span> This notation is meaningless<br/>
 
-  f) $\parallel \vec{a} \parallel +\parallel \vec{b} \parallel = ?$<br/>
-    <span style="padding-left: 1em">a.</span> \parallel \vec{c} \parallel  <br/>
+  6) $\parallel \vec{a} \parallel +\parallel \vec{b} \parallel = ?$<br/>
+    <span style="padding-left: 1em">a.</span> $\parallel \vec{c} \parallel$<br/>
     <span style="padding-left: 1em">b.</span> 1 <br/>
     <span style="padding-left: 1em">c.</span> 2 <br/>
     <span style="padding-left: 1em">d.</span> (1,1,0) <br/>
@@ -880,23 +881,23 @@
 
   \[ A = \begin{bmatrix} a_{11} \ a_{12} \\ a_{21} \ a_{22} \end{bmatrix} \]
 
-  a) $4A+4A=$?<br/>
+  1) $4A+4A=$?<br/>
     <span style="padding-left: 1em">a.</span> $4A$<br/>
     <span style="padding-left: 1em">b.</span> $8A$<br/>
     <span style="padding-left: 1em">c.</span> $16A$<br/>
     <span style="padding-left: 1em">d.</span> Cannot add two matrices of the same dimension<br/>
 
-  b) $A-2 = \begin{bmatrix} {a_{11}\!-2} \ {a_{12}\!-2} \\ {a_{21}\!-2} \ {a_{22}\!-2} \end{bmatrix}$ (True/False)
+  2) $A-2 = \begin{bmatrix} {a_{11}\!-2} \ {a_{12}\!-2} \\ {a_{21}\!-2} \ {a_{22}\!-2} \end{bmatrix}$ (True/False)
   
-  c) $A^{−1}= \frac{1}{A}$ (True/False)
+  3) $A^{−1}= \frac{1}{A}$ (True/False)
   
-  d) $(A^\top)I=$?<br/>
+  4) $(A^\top)I=$?<br/>
     <span style="padding-left: 1em">a.</span> $A$ <br/>
     <span style="padding-left: 1em">b.</span> $A^\top$ <br/>
     <span style="padding-left: 1em">c.</span> $1$ <br/>
     <span style="padding-left: 1em">d.</span> $A^{−1}$ <br/>
 
-  e) $(A^\top)^\top=A$ (True/False)
+  5) $(A^\top)^\top=A$ (True/False)
 
   Ans: 
 
@@ -927,7 +928,7 @@
 
 ## 12.3 Solving a System of Linear Equations
 
-0. In the matrix equation, ${\bf A\vec{w}=\vec{b}$,what does the matrix, A, contain?<br/>
+0. In the matrix equation, ${\bf A \vec{w}=\vec{b}}$,what does the matrix, A, contain?<br/>
   a. The x-values of two points<br/>
   b. The slope and y-intercept of the line connecting two points<br/>
   c. The y-values of two points<br/>
@@ -953,7 +954,7 @@
   Ans: 
 
 
-3. Given points $p_1=(2,3)$ and $p_2=(3,0)$, and the equation $A_{\vec{w}} = \vec{b}$ answer the following:
+3. Given points $p_1=(2,3)$ and $p_2=(3,0)$, and the equation ${\bf A \vec{w}} = \vec{b}$ answer the following:
 
   a) Find the coefficient matrix, $A$.<br/>
     <span style="padding-left: 1em;">a.</span> $A = \begin{bmatrix} 1 \ 1 \\ 2 \ 3 \end{bmatrix}$<br/>
