@@ -956,25 +956,25 @@
 
 3. Given points $p_1=(2,3)$ and $p_2=(3,0)$, and the equation ${\bf A \vec{w}} = \vec{b}$ answer the following:
 
-  a) Find the coefficient matrix, $A$.<br/>
+  1) Find the coefficient matrix, $A$.<br/>
     <span style="padding-left: 1em;">a.</span> $A = \begin{bmatrix} 1 \ 1 \\ 2 \ 3 \end{bmatrix}$<br/>
     <span style="padding-left: 1em;">b.</span> $A = \begin{bmatrix} 1 \ 2 \\ 1 \ 3 \end{bmatrix}$<br/>
     <span style="padding-left: 1em;">c.</span> $A = \begin{bmatrix} 1 \ 3 \\ 1 \ 2 \end{bmatrix}$<br/>
     <span style="padding-left: 1em;">d.</span> $A = \begin{bmatrix} 1 \ 3 \\ 2 \ 1 \end{bmatrix}$<br/>
 
-  b) Find the dependent variable vector, $\vec{b}$.<br/>
+  2) Find the dependent variable vector, $\vec{b}$.<br/>
     <span style="padding-left: 1em;">a.</span> $\vec{b} = \begin{bmatrix} 9 \\ {-3} \end{bmatrix}$<br/>
     <span style="padding-left: 1em;">b.</span> $\vec{b} = \begin{bmatrix} 3 \\ { 0} \end{bmatrix}$<br/>
     <span style="padding-left: 1em;">c.</span> $\vec{b} = \begin{bmatrix} 9 \\ {-1} \end{bmatrix}$<br/>
     <span style="padding-left: 1em;">d.</span> $\vec{b} = \begin{bmatrix} 6 \\ { 2} \end{bmatrix}$<br/>
 
-  c) Solve for the parameter vector, $\vec{w}$.<br/>
+  3) Solve for the parameter vector, $\vec{w}$.<br/>
     <span style="padding-left: 1em;">a.</span> $\vec{w} = \begin{bmatrix} 9 \\ -3 \end{bmatrix}$<br/>
     <span style="padding-left: 1em;">b.</span> $\vec{w} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}$<br/>
     <span style="padding-left: 1em;">c.</span> $\vec{w} = \begin{bmatrix} 3 \\ 0 \end{bmatrix}$<br/>
     <span style="padding-left: 1em;">d.</span> $\vec{w} = \begin{bmatrix} -3 \\ 1 \end{bmatrix}$<br/>
 
-  d) Give the equation for the line connecting $p_1$ and $p_2$.<br/>
+  4) Give the equation for the line connecting $p_1$ and $p_2$.<br/>
     <span style="padding-left: 1em;">a.</span> $y = 3x + 9$<br/>
     <span style="padding-left: 1em;">b.</span> $y = x - 3$<br/>
     <span style="padding-left: 1em;">c.</span> $y = -3x+3$<br/>
