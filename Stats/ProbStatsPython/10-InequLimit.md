@@ -576,7 +576,7 @@
         <img src="img/t10-03b.png" style="margin: 0.1em;" alt="Illustration of exponential w/ negative value" title="Illustration of exponential w/ negative value" height=150>
       </a>
     </div>
-  + two arbitary values
+  + two arbitrary values
     + arbitrary values: $p(c_1) = p_1 \quad p(c_2) = p_2$
     + moment generating function
 
