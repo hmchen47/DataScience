@@ -1,6 +1,5 @@
 # Topic13: Hypothesis Testing
 
-
 ## 13.1 Hypothesis Test - Introduction
 
 + Hypotheses
@@ -470,13 +469,13 @@
 
   We know the male students' height is approximately normal, and has standard deviation 4 inches. In a sample of 10 male students, the mean height is 68 inches. Calculate the p value corresponding to the following null hypotheses.
 
-  a) $H_0$: The average height of male students in this college is 70 inches.<br/>
+  1) $H_0$: The average height of male students in this college is 70 inches.<br/>
      $H_1$: The average height of male students in this college is not 70 inches.
 
-  b) $H_0$: The average height of male students in this college is at least 70 inches.<br/>
+  2) $H_0$: The average height of male students in this college is at least 70 inches.<br/>
      $H_1$: The average height of male students in this college less than 70 inches.
 
-  Ans: a. (0.1138); b. (0.056923)<br/>
+  Ans: 1. (0.1138); 2. (0.056923)<br/>
   Explanation: 
     + Since we take a sample of 10 students, the standard deviation of the sample mean is $4/\sqrt{10}$. $P(N(0,4/\sqrt{10}) \le 2)=0.9431$. Hence, $P(|N(0,4/\sqrt{10})|>2)=2(1−0.9431)=0.1138$.
     + $P(N(0,4/\sqrt{10}) \le 2)=0.9431$. Hence, $P(N(0,4/\sqrt{10}) < −2)=(1−0.9431)=0.0569$.
@@ -484,11 +483,11 @@
 
 2. The null hypothesis says that 20% of college students are left-handed, while the alternative hypothesis says that less than 20% of college students are left-handed. If we took a sample of 20 college students and let $X$ be the number of lefties in the sample. Calculate the p values if
 
-  a) $X=1$
+  1) $X=1$
 
-  b) $X=2$
+  2) $X=2$
   
-  Ans: a. (0.06918); b(0.2061)<br/>
+  Ans: 1. (0.06918); 2. (0.2061)<br/>
   Explanation:
     + The p-value is $P(X \le 1) = P(X = 0) + P(X = 1) = 0.069$
     + The p-value is $P(X \le 2) = P(X = 0) + P(X = 1) + P(X = 2) = 0.206$
@@ -511,17 +510,17 @@
 
 4. In the following problem we discuss the test comparing two distribution means with the same variance. Assume $X \sim \mathcal{N}(\mu_1, \sigma^2)$, $Y \sim \mathcal{N}(\mu_2, \sigma^2)$, and they are independent.
 
-  a) What is the variance of $X−Y$?<br/>
+  1) What is the variance of $X−Y$?<br/>
     a. $\sigma^2$<br/>
     b. $2\sigma^2$<br/>
     c. $\sigma^2/2$<br/>
  
-  b) If $\overline{X}$ is the sample mean of $n$ independent random observations of $X$ and  $\overline{Y}$ is the sample mean of $n$ independent random observations of $Y$, what distribution does $\overline{X}-\overline{Y}$ follow?<br/>
+  2) If $\overline{X}$ is the sample mean of $n$ independent random observations of $X$ and  $\overline{Y}$ is the sample mean of $n$ independent random observations of $Y$, what distribution does $\overline{X}-\overline{Y}$ follow?<br/>
     a. $\mathcal{N}(\mu_1-\mu_2,\frac{\sigma^2}{n})$<br/>
     b. $\mathcal{N}(\mu_1-\mu_2,\frac{\sigma^2}{2n})$<br/>
     c. $\mathcal{N}(\mu_1-\mu_2,\frac{2\sigma^2}{n})$<br/>
   
-  c) we now want to test the null hypothesis $H_0$
+  3) we now want to test the null hypothesis $H_0$
 
     + $H_0$: In college, the average GPA of men is equal to the average GPA of women.<br/>
     + $H_1$: In college, the average GPA of men is different from the average GPA of women.<br/>
@@ -532,7 +531,7 @@
   Explanation:
     + $V(X - Y) = V(X) + V(-Y) = 2\sigma^2$
     + $E(\overline{X} - \overline{Y}) = \mu_1 - \mu_2$, and $V(\overline{X} - \overline{Y}) = V(\overline{X}) + V(-\overline{Y}) = \frac{2\sigma^2}{n}$
-    + Let $\overline{X}$ be the men's average GPA, $\overline{Y}$  be the women's average GPA. The p value is $P(|\overline{X}−\overline{Y}| \le |2.9−3.1|)=0.025$. Under the null hypothesis, $\frac{\overline{X} - \overline{Y}}{\sqrt{2\sigma^2 / n}} \sim \mathcal{N} (0, 1)$
+    + Let $\overline{X}$ be the men's average GPA, $\overline{Y}$  be the women's average GPA. The p value is $P(|\overline{X}−\overline{Y}| \ge |2.9−3.1|)=0.025$. Under the null hypothesis, $\frac{\overline{X} - \overline{Y}}{\sqrt{2\sigma^2 / n}} \sim \mathcal{N} (0, 1)$
 
 
 ### Lecture Video
@@ -728,11 +727,11 @@
 
   It is easy to see that $f_\alpha$ is non-negative and integrates to 1, namely is a distribution, over $[0,1]$.
 
-  a) Consider the null hypothesis that $\alpha=0$, namely $f_\alpha$ is uniform, and the alternative hypothesis that $\alpha > 0$. Given a single sample, 0.8, from $f_\alpha$, find the  $p$-value.
+  1) Consider the null hypothesis that $\alpha=0$, namely $f_\alpha$ is uniform, and the alternative hypothesis that $\alpha > 0$. Given a single sample, 0.8, from $f_\alpha$, find the  $p$-value.
 
-  b) Find the lowest outcome for rejecting the null hypothesis with 5% significance level.
+  2) Find the lowest outcome for rejecting the null hypothesis with 5% significance level.
   
-  Ans: a. (0.2); b(0.95); <br/>
+  Ans: 1. (0.2); 2. (0.95); <br/>
   Explanation:
     + Under the null hypothesis, $f_\alpha$  is uniform. The $p$-value is $P_{H_0}(X \ge 0.8) = 1 - 0.8 = 0.2$. [StackExchange](https://tinyurl.com/y35q3wya)
     + To reject the null hypothesis with  5%  significance level, the  p -value should be smaller than  0.05 . Hence the lowest outcome is  0.95 .
@@ -743,14 +742,14 @@
 
   Consider the null hypothesis that a person weighs 100 lbs, and the alternative hypothesis that the weight is lower.
 
-  a) What is the $p$-value (in percentage) of 91?
+  1) What is the $p$-value (in percentage) of 91?
   
-  b) What is the $p$-value (in percentage) of 90?
+  2) What is the $p$-value (in percentage) of 90?
 
-  c) What is the highest weight in lbs for which we can reject the null hypothesis with significance level 10%?
+  3) What is the highest weight in lbs for which we can reject the null hypothesis with significance level 10%?
   
 
-  Ans: a. (5); b. (0); c(92)<br/>
+  Ans: 1. (5); 2. (0); 3. (92)<br/>
   Explanation:
     + Under the null hypothesis, the distribution is uniform. The $p$-value is $1 - \frac{91 - 90}{110 - 90} = 0.05 = 5\%$
     + Under the null hypothesis, the distribution is uniform. The $p$-value is $1 - \frac{90 - 90}{110 - 90} = 0$
@@ -1077,7 +1076,7 @@
   A sample of 10 men's GPA in college has sample mean 2.9, and a sample of 10 women's GPA has sample mean 3.1. We also know the GPAs of men and women have the same  estimated standard deviation  0.2. Calculate the p value.
   
   Ans: 0.03824<br/>
-  Explanation: Let $\overline{X}$ be the men's average GPA, $\overline{Y}$ be the women's average GPA. The p value is $P(|\overline{X}−\overline{Y}|| \ge |2.9−3.1|)=0.0382$, where $\frac{\overline{X}−\overline{Y}}{\sqrt{2s^2/n}$ follows a t-distribution with degree of freedom $2n−2$ under the the null hypothesis. [Follow HT4 pooled scenario, using pooled due to $s_1 = s_2$]
+  Explanation: Let $\overline{X}$ be the men's average GPA, $\overline{Y}$ be the women's average GPA. The p value is $P(|\overline{X}−\overline{Y}|| \ge |2.9−3.1|)=0.0382$, where $\frac{\overline{X}−\overline{Y}}{\sqrt{2s^2/n}}$ follows a t-distribution with degree of freedom $2n−2$ under the the null hypothesis. [Follow HT4 pooled scenario, using pooled due to $s_1 = s_2$]
 
 
 2. The null hypothesis says that a sprinter's reaction time follows a normal distribution with mean at most 0.150 seconds. Six measurements of a sprinter's reaction time show 0.152, 0.154, 0.166, 0.147, 0.161, and 0.159 seconds. What is the p value?
