@@ -15,7 +15,7 @@
   c. I will bet you 20$ to 1$ that my football team would win tomorrow's match.<br/>
   d. The chance that two random people have the same birthday is at least 1/365.<br/>
   
-  Ans: a. (); b. (); c. (); d. () <br/>
+  Ans: a. (Frequentist); b. (<font style="color: cyan;">Bayesian</font>, xFrequentist); c. (Bayesian); d. (<font style="color: cyan;">Frequentist</font>, xBayesian) <br/>
 
 
 2. Which of the following statements hold for all sets A and B?<br/>
@@ -24,22 +24,30 @@
   c. $(A \Delta B)−B= \varnothing$<br/>
   d. $(A\cup B)−(A\cap B)=(A−B) \cup (B−A)$<br/>
   
-  Ans: <br/>
+  Ans: ad<br/>
   Explanation
+    + True.
+    + False. Let $A=\{1\},B=\{2\}$. Then $A \times B=\{(1,2)\},A \cup B=\{1,2\}$.
+    + False. $(A\Delta B) - B = A - B$.
+    + True.
 
 
 3. A bag contains 5 red balls and 5 blue balls. Three balls are drawn randomly without replacement. Find:<br/>
   a. the probability that all 3 balls have the same color, <br/>
   b. the conditional probability that we drew at least one blue ball given that we drew at least one red ball.<br/>
 
-  Ans: <br/>
+  Ans: a. (1/6); b. (<font style="color: cyan;">10/11</font>, x5/11)<br/>
   Explanation
+    + $P(\text{same color}) = \frac{\binom{5}{3} + \binom{5}{3}}{\binom{10}{3}} = \frac{1}{6}$
+    + $P(\text{a least one Blue , at least one Red}) = \frac{\binom{5}{2} \binom{5}{1} + \binom{5}{1} \binom{5}{2}}{\binom{10}{3}}$, $P(\text{at least one Red}) = 1 - \frac{\binom{5}{3}}{\binom{10}{3}}$, $P(\text{a least one Blue | at least one Red})$ $= \frac{P(\text{a least one Blue , at least one Red})}{P(\text{at least one Red})}$ $= \frac{\binom{5}{2} \binom{5}{1} + \binom{5}{1} \binom{5}{2}}{\binom{5}{2} \binom{5}{1} + \binom{5}{1} \binom{5}{2} + \binom{5}{3}}$ $= \frac{10}{11}$
 
 
 4. Students who party before an exam are twice as likely to fail as those who don't party (and presumably study). If 20% of the students partied before the exam, what fraction of the students who failed went partying?
 
-  Ans: <br/>
+  Ans: <font style="color: cyan;">1/3</font>, x2/3, x2/15<br/>
   Explanation:
+    + Let $F$ be the event that a student fail, $P$ be the event that a student partied, $NP$ be the event that a student did not party. We know that $P(F|P) = 2P(F|NP), P(P) = 0.2, P(NP) = 0.8$. $P(P|F) = \frac{P(F|P) P(P)}{P(F)}$ $= \frac{P(F|P)P(P)}{P(F|P)P(P) + P(F|NP)P(NP)}$ $= \frac{1}{3}$
+    + [using Bayes’ Rule to calculate conditional probability](https://tinyurl.com/y3ck6llt)
 
 
 5. Random variables X and Y are distributed according to
@@ -55,13 +63,18 @@
   and $Z=\max\{X,Y\}$. Evaluate:
 
   a. X and Y are independent, (Yes/No) <br/>
-  b. $P(Y≠3)$, <br/>
-  c. $P(X<Y)$, <br/>
+  b. $P(Y \ne 3)$, <br/>
+  c. $P(X &lt Y)$, <br/>
   d. $E[Z]$, <br/>
   e. $V[Z]$. <br/>
 
-  Ans: a. (); b. ()00; c. (); d. (); e. ()<br/>
+  Ans: a. (yes); b. (0.5)00; c. (0.58); d. (2.38); e. (0.4756)<br/>
   Explanation:
+    + $P(XY) = P(X)P(Y)$
+    + $P(Y \ne 3) = 0.12 + 0.08 + 0.18 + 0.12 = 0.5$
+    + $P(X \lt Y) = 0.08 + 0.2 + 0.3 = 0.58$
+    + $P(Z = z) = \begin{cases} 0.12, \quad z = 1, \\ 0.38, \quad z = 2, \\ 0.5, \quad z = 3. \end{cases}$, $E(Z) = \sum_{z = 1}^{3} z \cdot P(Z = z) = 2.38$
+    + $V(Z) = \sum_{z = 1}^{3} (z - E(Z))^2 \cdot P(Z = z) = 0.4756$
 
 
 6. X follows normal distribution $N(\mu,\sigma^2)$ whose pdf satisfies $max_x f(x)=0.0997356$ and cdf satisfies $F(−1)+F(7)=1$. Determine <br/>
@@ -69,8 +82,11 @@
   b. $\sigma,$ <br/>
   c. $P(X \le 0).$ <br/>
 
-  Ans: a. (); b. (); c. ()<br/>
+  Ans: a. (3); b. (4); c. (<font style="color: cyan;">0.2266</font>, x0.7734)<br/>
   Explanation:
+    + As $F(−1)+F(7)=1$, $−1$ and $7$ are symmetric with respect to $\mu$, hence $\mu=3$.
+    + $\frac{1}{\sqrt{2\pi \sigma^2}} = 0.0997356$. hence, $\sigma = 4$
+    + $P(X \le 0) = F(0) = \Phi(\frac{0 - 3}{4}) = 0.2266$
 
 
 7. A hen lays eight eggs weighing 60, 56, 61, 68, 51, 53, 69, and 54 grams, respectively. Use the unbiased estimators discussed in class to estimate the weight distribution's
@@ -78,14 +94,16 @@
   a. mean,
   b. variance.
 
-  Ans: a. (); b. ()<br/>
+  Ans: a. (59); b. (45.7143)<br/>
   Explanation:
+    + $\hat{\mu} = \frac{1}{8}\sum_{i = 1}^{8} x_i$
+    + $S^2 = \frac{1}{7}\sum_{i = 1}^{8} (x_i - \hat{\mu})^2$
 
 
 8. A biologist would like to estimate the average life span of an insect species. She knows that the insect's life span has standard deviation of 1.5 days. According to Chebyshev's Inequality, how large a sample should she choose to be at least 95% certain that the sample average is accurate to within ±0.2 days?
 
-  Ans: <br/>
-  Explanation:
+  Ans: <font style="color: cyan;">1125</font>, x750<br/>
+  Explanation: $P(| X - \mu| \ge 0.2 ) = \frac{\sigma^2}{0.2^2} \ge 0.05$. As $\sigma^2 = \frac{1.5^2}{N}$, where $N$ is the number of samples, we have $N \ge 1125$
 
 
 9. Suppose that an underlying distribution is approximately normal but with unknown variance. You would like to test $H_0:\mu=50$ vs. $H_1:\mu<50$. Calculate the p-value for the following 6 observations: 48.9, 50.1, 46.4, 47.2, 50.7, 48.0.<br/>
@@ -95,8 +113,8 @@
   d. between 0.05 and 0.1<br/>
   e. more than 0.1<br/>
   
-  Ans: <br/>
-  Explanation:
+  Ans: c<br/>
+  Explanation: The sample mean $\overline{X} = 48.55$ , and the sample variance is $S^2=2.78$. Hence the T-test statistics is $T = \frac{\overline{X} - \mu}{S / \sqrt{n}} = -2.13$, where $n=6$. The p values is $P_{H_0}(\overline{X} \le \mu) = F_{n - 1}(T) = 0.0432$
 
 
 10. 20% of the items on a production line are defective. Randomly inspect items, and let X1 be the number of inspections till the first defective item is observed, and X5 be the number of inspections till the fifth defective item is observed. In both cases, X1 and X5 include the defective item itself (e.g. if the items are {good,good,defective},X1 is 3 ). Calculate
@@ -106,8 +124,12 @@
   c. E(X5|X1=4),
   d. V(X5|X1=4).
 
-  Ans: a. (); b. (); c. (), d. ()<br/>
+  Ans: a. (25); b. (100); c. (<font style="color: cyan;">24</font>, x20), d. (80)<br/>
   Explanation:
+    + $E(X_5) = \frac{n}{p} = 25$
+    + $E(X_5) = \frac{n(1 - p)}{p^2} = 100$
+    + eometric distribution is memoryless. $E(X_5 | X_1 = 4) = E(X_4 + 4) = 24$
+    + $V(X_5 | X_1 = 4) = V(X_4 + 4) = V(X_4) = 80$
 
 
 11. (For Fun) Model Selection
@@ -131,8 +153,7 @@
   d. $train(j)$ has a minimum close to $j=k$
   e. if $j>n/2$, $train(j)=0$
 
-  Ans: <br/>
-  Explanation:
+  Ans: <font style="color: cyan;">ace</font>, x1c<br/>
 
 
 ## 14.2 Final Exam Instructions
@@ -141,7 +162,8 @@ All assignments (including the Final Exam) must be submitted by the course end d
 
 Note: It is your responsibility to review and follow all the rules for the exam. All rules in the Online Proctoring Rules for Learners will apply for the final exam and a breach of any of the rules can and will result in a score of 0; however, for this course's final exam the following will be allowed during the exam.
 
-+ Items allowed:
+Items allowed:
+
 + Pencil(s)
 + Pen(s)
 + Three Blank/Clean Sheets Scratch Paper (Letter size).
