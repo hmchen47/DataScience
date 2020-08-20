@@ -16,6 +16,31 @@
   d. The chance that two random people have the same birthday is at least 1/365.<br/>
   
   Ans: a. (Frequentist); b. (<font style="color: cyan;">Bayesian</font>, xFrequentist); c. (Bayesian); d. (<font style="color: cyan;">Frequentist</font>, xBayesian) <br/>
+  Explanation:
+    + [Frequentist and Bayesian statistics — the comparison](https://tinyurl.com/y5gjrre4)
+      + Frequentists don’t attach probabilities to hypotheses or to any fixed but unknown values in general.
+        + However, I know that its value is fixed (not a random one). Therefore, I cannot assign probabilities to the mean being equal to a certain value, or being less/greater than some other value. The most I can do is collect data from a sample of the population and estimate its mean as the value which is most consistent with the data.
+      + Bayesians view probabilities as a more general concept. As a Bayesian, you can use probabilities to represent the uncertainty in any event or hypothesis.
+        + I agree that the mean is a fixed and unknown value, but I see no problem in representing the uncertainty probabilistically. I will do so by defining a probability distribution over the possible values of the mean and use sample data to update this distribution.
+    + [Bayesian and frequentist reasoning in plain English](https://tinyurl.com/y2rpszxc)
+      + Frequentist Reasoning
+        + I can hear the phone beeping. I also have a mental model which helps me identify the area from which the sound is coming. Therefore, upon hearing the beep, I infer the area of my home I must search to locate the phone.
+        + Sampling is infinite and decision rules can be sharp. Data are a repeatable random sample - there is a frequency. Underlying parameters are fixed i.e. they remain constant during this repeatable sampling process.
+        + The frequentist is asked to write reports. He has a big black book of rules. If the situation he is asked to make a report on is covered by his rulebook, he can follow the rules and write a report so carefully worded that it is wrong, at worst, one time in 100 (or one time in 20, or one time in whatever the specification for his report says).
+      + Bayesian Reasoning
+        + I can hear the phone beeping. Now, apart from a mental model which helps me identify the area from which the sound is coming from, I also know the locations where I have misplaced the phone in the past. So, I combine my inferences using the beeps and my prior information about the locations I have misplaced the phone in the past to identify an area I must search to locate the phone.
+        + Unknown quantities are treated probabilistically and the state of the world can always be updated. Data are observed from the realised sample. Parameters are unknown and described probabilistically. It is the data which are fixed.
+        + The Bayesian is asked to make bets, which may include anything from which fly will crawl up a wall faster to which medicine will save most lives, or which prisoners should go to jail. 
+    + [Are you a Bayesian or a Frequentist? (Or Bayesian Statistics 101)](https://tinyurl.com/y57asbsn)
+      + One of the basic differences of Bayesian and Frequentists is how they treat the parameters.
+      + frequentist statistics: the best (maximum likelihood) estimate for p is p=1014, i.e., $p \approx 0.714$. In this case, the probability of two heads is $0.7142 \approx 0.51$ and it makes sense to bet for the event.
+      + Bayesian approach: p is not a value, it's a distribution.
+    + [Bayesian vs frequentist Interpretations of Probability](https://tinyurl.com/y498bmtt)
+      + frequentist approach
+        + the only sense in which probabilities have meaning is as the limiting value of the number of successes in a sequence of trials,
+      + Bayesian approach
+        + interpret probability distributions as quantifying our uncertainty about the worl
+        + meaningfully talk about probability distributions of parameters, since even though the parameter is fixed, our knowledge of its true value may be limited
 
 
 2. Which of the following statements hold for all sets A and B?<br/>
