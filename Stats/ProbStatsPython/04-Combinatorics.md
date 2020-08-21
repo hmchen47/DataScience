@@ -166,8 +166,11 @@
   Ans: a. (48); b. (<span style="color: magenta;">96</span>, x16)<br/>
   Hint: As in the general comment, recall that rotations matter. It may be useful to imagine a round table with 6 chairs, and a single mark on the table, between two specific chairs. Observe that for some configurations of the 6 people, the mark is between two different couples, denoting the mark by `*`, e.g., `*`  $A_2A_1C_1C_2B_2B_1$ where $A,B$, and $C$ represent the different couples, and the because of the circular arrangement  B1  seats next to the `*`. For other configurations, the mark separates two members of the same couple for example `*`$A_1C_1C_2B_2B_1A_2$, where $A_2$ seats next to the *. You can count the number of configurations of each type.<br/>
   Explanation:
-    + There are  3!  ways to decide on the order of the couples, and then  23  ways to determine the order for each couple, hence a total of $3! \cdot 2^3 = 48$  ways.
+    + There are  3!  ways to decide on the order of the couples, and then $2^3$ ways to determine the order for each couple, hence a total of $3! \cdot 2^3 = 48$  ways.
     + Configuration where the mark is between two couples correspond to configurations in a row, hence there are $3! \cdot 2^3=48$ of them. Furthermore each circular shift of such a configuration results in one where the mark separates two members of the same couple. Hence there are also 48 such configurations, and the total number of configurations is $48 \cdot 2=96$.
+    + [Couples sitting at a round table](https://tinyurl.com/yy6xmue7)
+    + [Probability that 3 husbands sit next to their wives round a circular table](https://tinyurl.com/yxjy4ca2)
+    + [Find the number of ways zn of seating n couples around a rectangular table such that no one is allowed to sit next to his or her partner](https://tinyurl.com/y5vrncdy)
 
 
 ### Lecture Video
@@ -246,9 +249,9 @@
 
   Ans: a. (42072307200); b. (78624000); c. (336960000) <br/>
   Explanation:
-    + $36^7 = 42,072,307,200$
-    + Choose 3 from capital letters, and 4 from digits, where the order matters. The result is $P(26, 3) \cdot P(10, 4) = 78,624,000$.
-    + Such plates contain either four letters and three digits, or the other way. The two sets are disjoint. Hence $P(26, 3) \cdot P(10, 4) + P(26, 4) \cdot P(10, 3) = 336,960,000$.
+    + $36^{\underline{7}}=42,072,307,200$
+    + Choose 3 from capital letters, and 4 from digits, where the order matters. The result is $26^{\underline 3}\cdot10^{\underline 4} = P(26, 3) \cdot P(10, 4) = 78,624,000$.
+    + Such plates contain either four letters and three digits, or the other way. The two sets are disjoint. Hence $26^{\underline 3}\cdot10^{\underline 4}+26^{\underline 4}\cdot10^{\underline 3} = P(26, 3) \cdot P(10, 4) + P(26, 4) \cdot P(10, 3) = 336,960,000$.
 
 
 4. A derangement is a permutation of the elements such that none appear in its original position. For example, the only derangements of {1,2,3} are {2,3,1} and {3,1,2}. How many derangements does {1,2,3,4} have?
@@ -393,22 +396,30 @@
   Explanation: It can be deducted from partial permutation, but the order does not matter. It is $(\frac{15}{5}) = \frac{15^5}{5!} = \frac{15!}{5!10!}$.
 
 
-2. In how many ways can you select a group of 2 people out of 5?
+2. 
+  1) In how many ways can you select a group of 2 people out of 5?<br/>
+    a. 10<br/>
+    b. 25<br/>
+    c. 125<br/>
+    d. None of the above<br/>
   
-  In how many ways can you select a group of 3 people out of 5?
+  2) In how many ways can you select a group of 3 people out of 5?<br/>
+    a. 10<br/>
+    b. 25<br/>
+    c. 125<br/>
+    d. None of the above<br/>
 
-  In how many ways can you divide 5 people into two groups, where the first group has 2 people and the second has 3?
+  3) In how many ways can you divide 5 people into two groups, where the first group has 2 people and the second has 3?<br/>
+    a. 10<br/>
+    b. 25<br/>
+    c. 125<br/>
+    d. None of the above<br/>
 
-  a. 10<br/>
-  b. 25<br/>
-  c. 125<br/>
-  d. None of the above<br/>
-
-  Ans: a<br/>
+  Ans: 1. (a); 2. (a); 3. (a)<br/>
   Explanation:
   + binom(5, 2) = 10
   + binom(5, 3) = 10
-  + After we determine the group of 2, the group of 3 is determined as well, hence the answer is binom(5, 2) = 10
+  + After we determine the group of 2, the group of 3 is determined as well, hence the answer is $binom{5}{2} = 10$
 
   
 3. Ten points are placed on a plane, with no three on the same line. Find the number of:<br/>
@@ -451,7 +462,7 @@
   Explanation:
     + This is simply $\binom{52}{5}$.
     + There are 4 suits in total and 13 cards in each suit, hence $4 \cdot \binom{13}{5}$ hands.
-    + One of the 4 suits will appear twice, hence $4 \cdot \binom{13}{2} \cdot \binom{13}{3}$ hands.
+    + One of the 4 suits will appear twice, hence $4 \cdot \binom{13}{2} \cdot 13^3$ hands.
     + First pick 5 out of 13 ranks, then choose their suits. Therefore there are $\binom{13}{5} \cdot 4^5$ hands.
     + [5-Card Poker Hands](https://tinyurl.com/7ybzb5v)
 
@@ -522,11 +533,14 @@
 
   Ans: a. ($4^3$); b. ($3^4$); c. (<span style="color: magenta;">24</span>); d. (<span style="color: magenta;">36</span>)<br/>
   Explanation:
-    + As we saw in the lecture, there are  $|B|^{|A|}=4^33=64$ functions from $A$ to $B$.
+    + As we saw in the lecture, there are  $|B|^{|A|}=4^3=64$ functions from $A$ to $B$.
     + $|A|^{|B|}=3^4=81$
     + There are 4 possible values for $f(1)$. Once $f(1)$ is determined, 3 options for $f(2)$ will keep $f$ one-to-one. And after $f(1)$ and $f(2)$ are determined, two options for $f(3)$ will keep $f$ one-to-one. Hence the total number of one-to-one functions is $4^{\underline{3}} = 4⋅3⋅2 = 24$.
     + If a mapping from $B$ to $A$ is onto, then two elements of $B$ map to a single element in $A$, while the other two elements of $B$ map to the remaining 2 elements of $A$. There are $\binom{4}{2}=6$ ways to choose the two elements with the same image, and then $3!=6$ ways to to associate the pair and two other elements of $B$ with the three elements of $A$. The total number of onto functions from $B$ to $A$ is therefore $6⋅6=36$.
     + alternative for counting surjective function w/ PIE: $n^m + \sum_{i=1}^{n-1} (-1)^i \binom{n}{i} (n-i)^m, \quad |A| = m, |B| = n$
+    + [Counting Bijective, Injective, and Surjective Functions](https://blog.jpolak.org/?p=1773)
+      + Injective Functions $[k]\to[n]$: $P(n, k)$
+      + Surjective Functions $[n]\to [k]$: $S(n,k) = \sum_{j=1}^k \frac{(-1)^{k-j}k!j^n}{j!(k-j)!}$
 
 
 
@@ -981,7 +995,7 @@
   c. 48<br/>
   d. None of the above<br/>
 
-  Ans: <span style="color: magenta;">c</span><br/>
+  Ans: <span style="color: magenta;">c??</span><br/>
   Explanation: The answer is 48. The number of ways to have 2 "2"s, 1 "x", 1 "y" is 12?? ($\binom{4}{1,1,2} = \frac{4!}{1!\,1!\,2!} = 6$) (using multinomial coefficient). Then we multiply it with $2^2 = 4$ and get the answer.
 
 
