@@ -194,7 +194,7 @@
   d. $\{\varnothing\}$<br/>
   e. $\varnothing$<br/>
 
-  Ans: a. (a); b. ({a}); c. (a,{b}); d. ($\varnothing$); e (none)
+  Ans: a. (a); b. ({a}); c. (a,{b}); d. ($\varnothing$ or emptyset); e (none)
 
 
 8. Sets from elements<br/>
@@ -368,9 +368,9 @@
 
   Note: Represent your answers in ascending order, For example the set {1,-1,0} should be written as -1,0,1 (without whitespace).
 
-  a. $\{x \in \Bbb{Z} \mid -2 \leq x < 5\}$
-  b. $\{x \in \Bbb{N} \mid x^2+x-2=0\}$
-  c. $\{x \in \Bbb{R} \mid x^3+x-2=0\} $
+  a. $\{x \in \Bbb{Z} \mid -2 \leq x < 5\}$<br/>
+  b. $\{x \in \Bbb{N} \mid x^2+x-2=0\}$<br/>
+  c. $\{x \in \Bbb{R} \mid x^3+x-2=0\} $<br/>
   
   Ans: a. (-2, -1, 0, 1, 2, 3, 4); b. (1); c. (1)
 
