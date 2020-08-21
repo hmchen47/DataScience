@@ -28,7 +28,7 @@
 ## 1.3 What is Statistics
 
 
-0. If we flip a coin a thousand times and get 507 heads, can we conclude with certainty that the coin is unbiased?
+0. __If we flip a coin a thousand times and get 507 heads, can we conclude with certainty that the coin is unbiased?__
 
   Ans: 
   
@@ -42,7 +42,7 @@
   Ans: 
   
 
-2. A coin is tossed  1000  times and turns up heads  700  times. Is the coin biased?<br/>
+2. __A coin is tossed  1000  times and turns up heads  700  times. Is the coin biased?<br/>__
   a. With high confidence, yes.<br/>
   b. Unclear.<br/>
 
@@ -264,9 +264,9 @@
 
   Note: Represent your answers in ascending order, For example the set {1,-1,0} should be written as -1,0,1 (without whitespace).
 
-  a. $\{x \in \Bbb{Z} \mid -2 \leq x < 5\}$
-  b. $\{x \in \Bbb{N} \mid x^2+x-2=0\}$
-  c. $\{x \in \Bbb{R} \mid x^3+x-2=0\} $
+  a. $\{x \in \Bbb{Z} \mid -2 \leq x < 5\}$<br/>
+  b. $\{x \in \Bbb{N} \mid x^2+x-2=0\}$<br/>
+  c. $\{x \in \Bbb{R} \mid x^3+x-2=0\} $<br/>
   
   Ans: 
   
@@ -638,10 +638,10 @@
   Ans: 
 
 
-3. $|A \cup B \cup C| = |A| + |B| + |C|$ whenever: (True/False)
+3. $|A \cup B \cup C| = |A| + |B| + |C|$ whenever:
 
-  a. $A$ and $B$ are disjoint and $B$ and $C$ are disjoint,<br/>
-  b. $A$ and $B$ are disjoint, $B$ and $C$ are disjoint, and $A$ and $C$ are disjoint.<br/>
+  a. $A$ and $B$ are disjoint and $B$ and $C$ are disjoint, (True/False)<br/>
+  b. $A$ and $B$ are disjoint, $B$ and $C$ are disjoint, and $A$ and $C$ are disjoint. (True/False)<br/>
 
   Ans: 
 
@@ -798,7 +798,7 @@
   Ans: 
 
 
-4. Recall that the power set $\Bbb{P}(S)$ of a set $$  is the collection of all subsets of $S$.
+4. Recall that the power set $\Bbb{P}(S)$ of a set $S$ is the collection of all subsets of $S$.
 
   For $A  = \{1,2,3\}$ and $B=\{x,y\}$, calculate the following cardinalities.<br/>
   a. $|\Bbb{P}(A)|$<br/>
@@ -1056,16 +1056,25 @@
   Ans: 
   
 
-2. In how many ways can you select a group of 2 people out of 5?
+2. 
+  1) In how many ways can you select a group of 2 people out of 5?<br/>
+    a. 10<br/>
+    b. 25<br/>
+    c. 125<br/>
+    d. None of the above<br/>
   
-  In how many ways can you select a group of 3 people out of 5?
+  2) In how many ways can you select a group of 3 people out of 5?<br/>
+    a. 10<br/>
+    b. 25<br/>
+    c. 125<br/>
+    d. None of the above<br/>
 
-  In how many ways can you divide 5 people into two groups, where the first group has 2 people and the second has 3?
+  3) In how many ways can you divide 5 people into two groups, where the first group has 2 people and the second has 3?<br/>
+    a. 10<br/>
+    b. 25<br/>
+    c. 125<br/>
+    d. None of the above<br/>
 
-  a. 10<br/>
-  b. 25<br/>
-  c. 125<br/>
-  d. None of the above<br/>
 
   Ans: 
   
