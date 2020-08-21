@@ -215,10 +215,10 @@
   Explanation: Explanation $|A \cup B| = |A| + |B|$ holds when $A$ and $B$ are disjoint.
 
 
-3. $|A \cup B \cup C| = |A| + |B| + |C|$ whenever: (True/False)
+3. $|A \cup B \cup C| = |A| + |B| + |C|$ whenever:
 
-  a. $A$ and $B$ are disjoint and $B$ and $C$ are disjoint,<br/>
-  b. $A$ and $B$ are disjoint, $B$ and $C$ are disjoint, and $A$ and $C$ are disjoint.<br/>
+  a. $A$ and $B$ are disjoint and $B$ and $C$ are disjoint, (True/False)<br/>
+  b. $A$ and $B$ are disjoint, $B$ and $C$ are disjoint, and $A$ and $C$ are disjoint. (True/False)<br/>
 
   Ans: a. (False); b. (True)<br/>
   Explanation: 
@@ -686,10 +686,10 @@
   b. from $Q$ to $P$.<br/>
 
   Ans: b<br/>
-  Explanation: The number of functions from $Q $to $P $as there are $|P| $possible images for every element of $Q$.
+  Explanation: The number of functions from $Q$ to $P$ as there are $|P|$ possible images for every element of $Q$.
 
 
-4. Recall that the power set $\Bbb{P}(S)$ of a set $$  is the collection of all subsets of $S$.
+4. Recall that the power set $\Bbb{P}(S)$ of a set $S$ is the collection of all subsets of $S$.
 
   For $A  = \{1,2,3\}$ and $B=\{x,y\}$, calculate the following cardinalities.<br/>
   a. $|\Bbb{P}(A)|$<br/>
@@ -910,7 +910,7 @@
   a. start or end with two identical digits, for example 0012345, 1234511, or 2222222,<br/>
   b. contain a substring of $5$ consecutive digits. For example 0034567, 2567892, or 0123456.<br/>
 
-  Ans: a. ($2 \cdot 10^6 - 10^5$); b. (<span style="color: magenta;">$3 \cdot 600 - 2 \cdot 50 -4 + 4$</span>) (<span style="color: magenta;">$3 \cdot 600, 3 \cdot 600 - 3 \cdot 50 + 4, 3 \cdot 600 - 2 \cdot 50 + 4$</span>)<br/>
+  Ans: a. ($2 \cdot 10^6 - 10^5$); b. (<span style="color: magenta;">1700</span>)
   Explanation:
   + $10 \cdot 10^5 = 10^6$ phone numbers start with two identical digits, and the same number end with two identical digits, furthermore $10^2 \cdot 10^3 = 10^5$ numbers start and end with two identical digits. By inclusion-exclusion, the answer is $2 \cdot 10^6 − 10^5 = 1,900,000$.
   + Let  $L$, $M$, and $R$, be the sets of phone numbers whose 5 left, middle, and right digits, respectively, are consecutive. The set of phone numbers with five consecutive digits is  L∪M∪R , and we'll determine its size. $|L|=|M|=|R|=6 \cdot 10^2 = 600$, while $|L \cap M|$ $=|M \cap R|$ $=5 \cdot 10$ $=50$, and $|L \cap R|$ $=|L \cap M \cap R|$ $= 4$. By inclusion-exclusion, $|L \cup M \cup R|$ $=3 \cdot 600−2 \cdot 50−4+4$ $=1700$.
