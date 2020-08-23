@@ -1249,7 +1249,7 @@
   Ans: 
 
 
-4. The correlation coefficient between \(X\) and \(-X\) is 0.
+4. The correlation coefficient between \(X\) and \(-X\) is 0. (True/False)
 
   Ans: 
 
