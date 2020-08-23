@@ -139,6 +139,9 @@
 + Gordan Zitkovic, [Theory of Probability, Parts I and II](https://web.ma.utexas.edu/users/gordanz/lecture_notes_page.html)
 + Gordan Zitkovic, [Introduction to Stochastic Processes](https://web.ma.utexas.edu/users/gordanz/lecture_notes_page.html)
 + Gordan Zitkovic, [Introduction to Mathematical Statistics](https://web.ma.utexas.edu/users/gordanz/lecture_notes_page.html)
++ David Pollard, [Chapter 4: Symmetry](https://tinyurl.com/yyqkqvmz) in [Advanced Probability](https://tinyurl.com/y5pszlfw), 2008
+
+
 
 
 
