@@ -148,7 +148,7 @@
   Ans: a. (1/3); b(0.5)<br/>
   Explanation:
     + $P(2R\mid  \text{ at least 1R })=\frac{P( \text{ 2R } \cap \text{ at least 1R })}{P( \text{ at least 1R })} = \frac{P(2R)}{P(\text{ at least 1R })}= \frac{1/4}{3/4}=\frac{1}{3}$.
-    + $P(2R\mid  \text{ random ball is R} )= P(2R \wedge \text{ random ball is R }) P(\text{ random ball is R })=P(2R)P(\text{ random ball is R })=\frac{1/4}{1/2}=\frac{1}{2}$.
+    + $P(2R\mid  \text{ random ball is R} )$ $= P(2R \wedge \text{ random ball is R }) P(\text{ random ball is R })$ $=P(2R)P(\text{ random ball is R })$ $=\frac{1/4}{1/2}$ $=\frac{1}{2}$.
 
 
 6. Three fair coins are sequentially tossed. Find the probability that all are heads if:<br/>
@@ -167,7 +167,7 @@
   a. all cards in the hand are  ≥7  (7, 8,..., K, Ace), given that the hand contains at least one face card (J, Q, or K),<br/>
   b. there are exactly two suits given that the hand contains exactly one queen.<br/>
 
-  Ans: a. (<span style="color: magenta;">0.0957</span>); b. (0.16153846)<br/>
+  Ans: a. (<span style="color: magenta;">0.0957</span>); b. (0.1562)<br/>
   Explanation:
     + There are where $4 \cdot (13−3)=40$ non-face cards, hence $\tbinom{40}{5}$ hands without face cards. Therefore, of the $\tbinom{52}{5}$ hands, $\binom{52}{5}-\binom{40}{5}$ hands contain a face card.  Similarly, there are $\tbinom{32}{5}$ hands consisting of cards $\geq 7$, of which $\tbinom{20}{5}$ contain no face cards, and $\tbinom{32}{5} − \tbinom{20}{5}$ hands contain a face card. Hence, the requested probability is  $\frac{\tbinom{32}{5} − \tbinom{20}{5}}{\tbinom{52}{5}−\tbinom{40}{5}}=0.0957$
     + There are $4 \cdot \tbinom{48}{4}$ hands with exactly one queen.  To count the number of hands with exactly one queen and two suites, observe that there are 4 ways to choose the queen, then 3 ways to select the other suit, and from the $26−2=24$ non-queens of these two suits, $\tbinom{24}{4}$ ways to select the remaining 4 cards, but of those, $\tbinom{12}{4}$ hands will have all cards of the same suit as the queen. Hence there are $4 \cdot 3 \cdot \left(\tbinom{24}{4}−\tbinom{12}{4}\right)$  ways to select cards with exactly one queen and two suits.  The desired probability is therefore, $\frac{4 \cdot 3 \cdot \left(\tbinom{24}{4}−\tbinom{12}{4}\right)}{4 \cdot \tbinom{48}{4}}=0.156$.
@@ -599,7 +599,11 @@
   d. 4/7<br/>
 
   Ans: d<br/>
-  Explanation: This can be done in two simple ways. First, by symmetry. There are 4 white balls and 3 blue balls. The second ball picked is equally likely to be any of the 7 balls, hence the probability that it is white is 4/7. Second, by total probability. The probability that the second ball is white is the probability that the first is white and the second is white namely $47 \cdot 36$, plus the probability that the first is blue and the second is white, namely $37 \cdot 46$, and $47 \cdot 36+37 \cdot 46=47$. Note that the first, symmetry, argument is easier to extend to the third ball picked etc. But both derivation are of interest, and you may want to use the total-variation for a general case with W white balls and R red balls.
+  Hint: This problem can be solved using basic symmetry agruments, or using total probability discussed in the next section.<br/>
+  Explanation: This can be done in two simple ways.
+    + First, by symmetry. There are 4 white balls and 3 blue balls. The second ball picked is equally likely to be any of the 7 balls, hence the probability that it is white is 4/7.
+    + Second, by total probability. The probability that the second ball is white is the probability that the first is white and the second is white namely $\frac47 \cdot \frac36$, plus the probability that the first is blue and the second is white, namely $\frac37 \cdot \frac46$, and $\frac47 \cdot \frac36+\frac37 \cdot \frac46=\frac47$. Note that the first, symmetry, argument is easier to extend to the third ball picked etc. But both derivation are of interest, and you may want to use the total-variation for a general case with W white balls and R red balls.
+    + [Find probability of specific ball getting selected on second turn](https://tinyurl.com/yya2refb)
 
 
 6. An urn contains  15  white and  20  black balls. The balls are withdrawn randomly, one at a time, until all remaining balls have the same color. Find the probability that:<br/>
@@ -940,7 +944,7 @@
   d. 1/4<br/>
 
   Ans: c<br/>
-  Explanation: Let $F$ and $R$ be the events that Jack picked the fair and rigged coin, respectively, and let  H  be the event that he observed heads. By the "streamlined" Bayes' rule, $P(F\mid H)=\frac{P(F,H)}{P(H)}=\frac{P(F,H)}{P(F,H)+P(R,H)}$. Now, $P(F,H)=P(F) \cdot P(H\mid F)=12 \cdot 12=14$, while $P(R,H)=P(R) \cdot P(H\mid R)=12 \cdot 1=12$. Hence $P(F\mid H)=1/41/4+1/2=13$.
+  Explanation: Let $F$ and $R$ be the events that Jack picked the fair and rigged coin, respectively, and let  H  be the event that he observed heads. By the "streamlined" Bayes' rule, $P(F\mid H)=\frac{P(F,H)}{P(H)}=\frac{P(F,H)}{P(F,H)+P(R,H)}$. Now, $P(F,H)=P(F) \cdot P(H\mid F)=\frac12 \cdot \frac12=\frac14$, while $P(R,H)=P(R) \cdot P(H\mid R)=\frac12 \cdot 1=\frac12$. Hence $P(F\mid H)=1/41/4+1/2=13$.
 
 
 7. It rains in Seattle one out of three days, and the weather forecast is correct two thirds of the time (for both sunny and rainy days). You take an umbrella if and only if rain is forecasted.<br/>
