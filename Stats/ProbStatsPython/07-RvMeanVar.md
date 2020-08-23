@@ -227,7 +227,7 @@
   c. Right continuous.<br/>
   d. None of the above.<br/>
 
-  Ans: b
+  Ans: c
 
 
 1. For the probability mass function, Find:
@@ -242,7 +242,7 @@
   b. $P(X \geq 1)$,<br/>
   c. $P(X \in \Bbb{Z})$.<br/>
 
-  Ans: a. (.1); b. (.4); c. ()<br/>
+  Ans: a. (0.1); b. (0.4); c. (0.6)<br/>
   Explanation
     + $P(X=1)=0.1$ from the figure.
     + $P(X\ge 1)=P(X=1)+P(X=2)=0.4$
@@ -462,8 +462,8 @@
 
   Ans: <span style="color: magenta;">Question 2 first</span><br/>
   Explanation: 
-    + The expected reward if Question  1  is answered first is given by $300\times 0.6\times0.8+200\times 0.6\times 0.2+0=168$
-    + and if Question  2  is chosen to be answered first, $300\times 0.8\times0.6+100\times 0.8\times 0.4+0=176$
+    + The expected reward if Question 1 is answered first is given by $300\times 0.6\times0.8$ $+200\times 0.6\times 0.2$ $+0=168$
+    + and if Question 2 is chosen to be answered first, $300\times 0.8\times0.6$ $+100\times 0.8\times 0.4$ $+0=176$
     + Thus she should choose to answer Question 2 first.
     + [StackExchange](https://tinyurl.com/y98xq579)
 
@@ -486,14 +486,13 @@
   e. $−\$1.00$<br/>
 
   Ans: a<br/>
-  Explanation: Since each time you need to pay `$1` for the game, the question is equivalent to "If you roll an even number, you win `$1`. If you roll an odd number, you lose `$2`." With $P(\text{even}) = P(\text{odd}) = \frac{1}{2}$, the expectation is $1×12+(−2)×12=−0.5$.  [Quora](https://tinyurl.com/y89ctmc4)
+  Explanation: Since each time you need to pay `$1` for the game, the question is equivalent to "If you roll an even number, you win `$1`. If you roll an odd number, you lose `$2`." With $P(\text{even}) = P(\text{odd}) = \frac{1}{2}$, the expectation is $1×\frac12+(−2)×\frac12=−0.5$.  [Quora](https://tinyurl.com/y89ctmc4)
 
 
 5. Choose a random subset of $\{2^1,2^2,\cdots, 2^{10}\}$ by selecting each of the 10 elements independently with probability $1/2$. Find the expected value of the smallest element in the subset (e.g. the subset can be $\{2^1,2^3,2^4,2^7\}$. The smallest element is $2^1$).
 
   Ans: 10<br/>
-  Explanation:
-    + An element $2^j$, $(j\in\{1,\cdots, 10\})$ is the smallest if and only if all elements less than it have not been chosen and $j$ is chosen. The probability of this happening is $1/2^j$. Therefore the expectation is $\sum_{j=1}^{10} 1/2^{j}\cdot 2^j=10.$.
+  Explanation: An element $2^j$, $(j\in\{1,\cdots, 10\})$ is the smallest if and only if all elements less than it have not been chosen and $j$ is chosen. The probability of this happening is $1/2^j$. Therefore the expectation is $\sum_{j=1}^{10} 1/2^{j}\cdot 2^j=10.$.
 
 
 6. An edX assignment has $50$ multiple-choice questions, each with four choices of which one is correct. A student gets $3$ points for solving a question correctly, and loses a point for an incorrect answer. What is the expected score of a student who answers all questions uniformly at random?
@@ -863,7 +862,7 @@
   c. $P(A)$.<br/>
 
   Ans: <span style="color:magenta;">c</span><br/>
-  Explanation $E(I_A(X)) = \displaystyle \sum_{x \in \Omega} I_A(X = x)P(X = x)$ $= \displaystyle \sum_{x \in A} I_A(X = x)P(X = x) + \sum_{x \not\in A} I_A(X = x)P(X = x)$ $ =\displaystyle \sum_{x \in A} P(X = x) + \sum_{x \not\in A} 0$ $= P(A)$
+  Explanation $E(I_A(X)) = \displaystyle \sum_{x \in \Omega} I_A(X = x)P(X = x)$ $= \displaystyle \sum_{x \in A} I_A(X = x)P(X = x)$ $+ \sum_{x \not\in A} I_A(X = x)P(X = x)$ $ =\displaystyle \sum_{x \in A} P(X = x) + \sum_{x \not\in A} 0$ $= P(A)$
 
 
 
@@ -1155,7 +1154,7 @@
     + $E(Y)=E(2^X)=2\times 0.3+4\times 0.5+8\times0.2=4.2$
     + For any random variable $Var(Z)=E(Z^2)-E(Z)^2$. Here, $E(Y^2)=E(2^{2X})=4\times 0.3+16\times 0.5+64\times0.2=22$. Thus, $Var(Y)=22-4.2^2=4.36$
     + 10/7
-    + First, $E(X)=0.3×1+0.5×2+0.2×3=1.9$, $E(X^2)=0.3×1+0.5×4+0.2×9=4.1$ and thus $Var(X)=E(X^2)−E(X)^2=4.1−1.92=0.49$.  Now, by linearity of expectation, $0=E(Z)=aE(X)+b=1.9 \cdot a+b$. Further, we know $1=Var(Z)=Var(aX+b)=a2 \cdot Var(X)=a2 \cdot 0.49$. Solving these two equations gives $|a|=1.42857$, $|b|=2.71485$.
+    + First, $E(X)=0.3×1+0.5×2+0.2×3=1.9$, $E(X^2)=0.3×1+0.5×4+0.2×9=4.1$ and thus $Var(X)=E(X^2)−E(X)^2=4.1−1.9^2=0.49$.  Now, by linearity of expectation, $0=E(Z)=aE(X)+b=1.9 \cdot a+b$. Further, we know $1=Var(Z)$ $=Var(aX+b)$ $=a^2 \cdot Var(X)=a^2 \cdot 0.49$. Solving these two equations gives $|a|=1.42857$, $|b|=2.71485$.
 
 
 4. Consider two games. One with a guaranteed payout $P_1=90$, and the other whose payout $P_2$ is equally likely to be 80 or 120. Find:<br/>
@@ -1537,7 +1536,7 @@
   Ans: a. (4.4722 ); b. (1.97145); c. (1.9444); d. (2.0525)<br/>
   Explanation
     + The distribution of $Z$ is $P(Z=1)=1/36,$ $P(Z=2)=3/36,$ $P(Z=3)=5/36,$ $P(Z=4)=7/36,$ $P(Z=5)=9/36,$ $P(Z=6)=11/36$. The expectation of $Z$ is $E(Z) = \sum_{i = 1}^{6} i \cdot P(Z = i) = \frac{161}{36} = 4.472$
-    + $E(Z) = \sum_{i = 1}^{6} i \cdot P(Z = i) = \frac{161}{36} = 4.472$. The variance of $Z$ is $Var(Z) = E(Z^2) - E^2(Z) = 1.9715$
+    + $E(Z^2) = \sum_{i = 1}^{6} i^2 \cdot P(Z = i) = \frac{791}{36}$. The variance of $Z$ is $Var(Z) = E(Z^2)$ $- E^2(Z)$ $= 1.9715$
     + The distribution of $Z$ is $P(Z=0)=6/36,$ $P(Z=1)=10/36,$ $P(Z=2)=8/36,$ $P(Z=3)=6/36,$ $P(Z=4)=4/36,$ $P(Z=5)=236$.  The expectation of $Z$ is $E(Z) = \sum_{i = 0}^{5} i \cdot P(Z = i) = \frac{35}{18} = 1.9444$
     + $E(Z^2) = \sum_{i = 0}^{5} i^2 \cdot P(Z = i) = \frac{35}{6}$.  The variance of $Z$ is $Var(Z) = E(Z^2) - E^2(Z) = 2.0525$
 
@@ -1651,7 +1650,7 @@
   What is the probability that the ball we remove at the 11th round is blue?
 
   Ans: <span style="color: magenta;">0.348678</span><br/>
-  Explanation: Imagine that the balls are placed in 10 locations 1 to 10. Let $B_i$ be the event that at the final ($11$th) round, the ball in location $i$ is blue. $B_i$ occurs iff the ball in location $i$ was not discarded in any of the previous 10 rounds, hence $P(B_i)=(1−1/10)10=(9/10)^{10}$.  Let $B$ be the event that the final ball, picked at the 11th round, is blue. By the rule of total probability, $P(B)=\sum^{10}_{i=1} \frac{1}{10} P(B_i)=10 \cdot \frac{1}{10} (\frac{9}{10})^{10}=(\frac{9}{10})^{10}=0.3486$. [Quora](https://tinyurl.com/y8fokmw7)
+  Explanation: Imagine that the balls are placed in 10 locations 1 to 10. Let $B_i$ be the event that at the final ($11$th) round, the ball in location $i$ is blue. $B_i$ occurs iff the ball in location $i$ was not discarded in any of the previous 10 rounds, hence $P(B_i)=(1−1/10)^{10}=(9/10)^{10}$.  Let $B$ be the event that the final ball, picked at the 11th round, is blue. By the rule of total probability, $P(B)=\sum^{10}_{i=1} \frac{1}{10} P(B_i)=10 \cdot \frac{1}{10} (\frac{9}{10})^{10}=(\frac{9}{10})^{10}=0.3486$. [Quora](https://tinyurl.com/y8fokmw7)
 
 
 3. $E(X)=2$ and $E(X(X−1))=5$. Find $Var(X)$.
@@ -1962,7 +1961,7 @@
     + True.
 
 
-4. The correlation coefficient between \(X\) and \(-X\) is 0.
+4. The correlation coefficient between \(X\) and \(-X\) is 0. (True/False)
 
   Ans: False<br/>
   Explanation: $\rho_{X, -X} = -1$
