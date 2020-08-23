@@ -1110,9 +1110,9 @@
 
   Ans: a. (0.021128); b. (0.047539); c. (0.4226)<br/>
   <span style="color: magenta;">Explanation</span><br/>
-    + We deal with the 3 cards of the same rank first, and then the 2 remaining cards with different ranks. The are 13 ranks. The number of ways to get 3 cards of a particular rank, (e.g. ace) is $\tbinom{4}{3}=4$. In total the number of ways to get 3 cards of the same rank is $13 \cdot 4$. The remaining 2 cards cannot have the same rank as the one we choose the first step, so there are 12 cards left. Since 4 suits can be chosen for each card, the number of ways in total is  $\tbinom{12}{2}\cdot 4^2$. The answer is $13 \cdot 4 \cdot \tbinom{12}{2} \cdot 42/ \tbinom{52}{5}=0.0211$.
+    + We deal with the 3 cards of the same rank first, and then the 2 remaining cards with different ranks. The are 13 ranks. The number of ways to get 3 cards of a particular rank, (e.g. ace) is $\tbinom{4}{3}=4$. In total the number of ways to get 3 cards of the same rank is $13 \cdot 4$. The remaining 2 cards cannot have the same rank as the one we choose the first step, so there are 12 cards left. Since 4 suits can be chosen for each card, the number of ways in total is  $\tbinom{12}{2}\cdot 4^2$. The answer is $13 \cdot 4 \cdot \tbinom{12}{2} \cdot 4^2/ \tbinom{52}{5}=0.0211$.
     + We first deal with the rank of the 2 pairs, and then the one left over. There are $\tbinom{13}{2}$ ways to choose 2 ranks out of 13. The number of ways get 2 cards of a probability of a particular rank, (e.g. ace), is $\tbinom{4}{2}$. We do the same for both the pair, so the total number of ways is $\tbinom{13}{2} \cdot \tbinom{4}{2}^2$,  For the one left over, there are 11 ranks left that can be chosen, and 4 suit can be chosen for each rank. The number of ways is $11 \cdot 4$. The answer is $\tbinom{13}{2} \cdot \tbinom{4}{2}^2 \cdot 11 \cdot 4/ \tbinom{52}{5}=0.0475$.
-    + We first deal with the rank of the pair, and then the three left over. There are $\tbinom{13}{1}=13$ ways to choose a ranks out of 13. The number of ways get 2 cards of a probability of a particular rank, (e.g. ace), is $\tbinom{4}{2}$. The total number of ways is $13 \cdot \tbinom{4}{2}$, For the one left over, there are 12 ranks left that can be chosen, and 4 suit can be chosen for each rank. The number of ways is $\tbinom{12}{3} \cdot 43$. The answer is $13 \cdot \tbinom{4}{2} \cdot \tbinom{12}{3} \cdot 43/ \tbinom{52}{5}=0.4226$.
+    + We first deal with the rank of the pair, and then the three left over. There are $\tbinom{13}{1}=13$ ways to choose a ranks out of 13. The number of ways get 2 cards of a probability of a particular rank, (e.g. ace), is $\tbinom{4}{2}$. The total number of ways is $13 \cdot \tbinom{4}{2}$, For the one left over, there are 12 ranks left that can be chosen, and 4 suit can be chosen for each rank. The number of ways is $\tbinom{12}{3} \cdot 43$. The answer is $13 \cdot \tbinom{4}{2} \cdot \tbinom{12}{3} \cdot 4^3/ \tbinom{52}{5}=0.4226$.
     + [5-CARD POKER HANDS](https://tinyurl.com/6mh5em)
 
 
@@ -1494,7 +1494,7 @@
   Ans: a. (a, xacd); b. (acd, xabcd)<br/>
   Explanation
     + a)
-      + $A supseteq B \implies P(A)=P(B)+P(A∖B) \geq P(B)$.
+      + $A \supseteq B \implies P(A)=P(B)+P(A∖B) \geq P(B)$.
       + $A$ and $B$ can be nonempty and disjoint with $P(A) \geq P(B)$, then $A$ does not contain $B$.
       + $B$ can be a singleton with higher probability than a set $A$ with two elements.
       + Similar counter-example to 3.
