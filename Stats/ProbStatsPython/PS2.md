@@ -386,19 +386,19 @@
 
 1. Which of the following holds for all events A and B
 
-  1.1 in any probability space:<br/>
-  
-  a. $A \supseteq B \implies P(A) \geq P(B)$<br/>
-  b. $P(A) \geq P(B) \implies A \supseteq B$<br/>
-  c. $|A| \geq |B| \implies P(A) \geq P(B)$<br/>
-  d. $P(A) \geq P(B) \implies |A| \geq |B|$<br/>
+  1) in any probability space:<br/>
 
-  1.2 in any uniform probability space:
+    a. $A \supseteq B \implies P(A) \geq P(B)$<br/>
+    b. $P(A) \geq P(B) \implies A \supseteq B$<br/>
+    c. $|A| \geq |B| \implies P(A) \geq P(B)$<br/>
+    d. $P(A) \geq P(B) \implies |A| \geq |B|$<br/>
 
-  a. $A \supseteq B \implies P(A) \geq P(B)$<br/>
-  b. $P(A) \geq P(B) \implies A \supseteq B$<br/>
-  c. $|A| \geq |B| \implies P(A) \geq P(B)$<br/>
-  d. $P(A) \geq P(B) \implies |A| \geq |B|$<br/>
+  2) in any uniform probability space:
+
+    a. $A \supseteq B \implies P(A) \geq P(B)$<br/>
+    b. $P(A) \geq P(B) \implies A \supseteq B$<br/>
+    c. $|A| \geq |B| \implies P(A) \geq P(B)$<br/>
+    d. $P(A) \geq P(B) \implies |A| \geq |B|$<br/>
   
   Ans: 
 
