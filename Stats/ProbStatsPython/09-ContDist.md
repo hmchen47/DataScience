@@ -1157,7 +1157,7 @@
   b. $F(1/4)$<br/>
   c. $F^{−1}(1/4)$<br/>
 
-  Ans: a. (0.3779); b. (0.7734); c. (-4.01)<br/>
+  Ans: a. (0.378066); b. (0.7734); c. (-4.01)<br/>
   Explanation:
     + We may rewrite $P(−3 < X < 0)=P(−1/3 < (X+2)/3 < 2/3)$. Define $Z=(X+2)/3$. Now $Z=(X+2)/3 \sim Normal(0,1)$. Thus $P(−1/3 < (X+2)/3 < 2/3)=P(−1/3 < Z < 2/3)= \Phi(2/3)− \Phi(−1/3)=0.378066$, where the latter is obtained from a standard Guassian table.
     + $F(1/4) = P(X \le 1/4) = P((X+2)/3 \le 3/4) = P(Z \le 3/4)$. Similar to the above part, we evaluate the latter as $P(Z \le 3/4)= \Phi(3/4)=0.773373$.
