@@ -176,7 +176,7 @@
 
   Ans: a. (0.6); b. (0.6)<br/>
   Explanation:
-    + For a Bernoulli distribution, $E[X^2]=E(X)=p$. Thus $Var(X)=E[X^2]−(E[X])^2=p−p^2=p(1−p)$. Since $0.24=Var(X)=p(1−p)$ and $p \ge 0.5$, we must have $p=0.6$.
+    + For a Bernoulli distribution, $E[X^2]=E(X)=p$. Thus $Var(X)$ $=E[X^2]−(E[X])^2$ $=p−p^2=p(1−p)$. Since $0.24$ $=Var(X)$ $=p(1−p)$ and $p \ge 0.5$, we must have $p=0.6$.
     + $E[X]=p=0.6$.
 
 
@@ -207,7 +207,7 @@
   d. 0001111111<br/>
 
   Ans: a<br/>
-  Explanation: Under $B_{0.3}$, the probability of sequence with $w$ ones and $n−w$ zeros is $0.3^w \cdot 0.7^{(n−w)}=0.7^n \cdot (3/7)^w$, which decreases with $w$. Hence 0000000000 is the most likely sequence with probability $0.7^{10}$, while 1111111111 is least likely with probability $0.3^{10}$. This is also logical as under $B_{0.3}$, every bit is more likely to be a 0 than a 1.
+  Explanation: Under $B_{0.3}$, the probability of sequence with $w$ ones and $n−w$ zeros is $0.3^w \cdot 0.7^{(n−w)}$ $=0.7^n \cdot (3/7)^w$, which decreases with $w$. Hence 0000000000 is the most likely sequence with probability $0.7^{10}$, while 1111111111 is least likely with probability $0.3^{10}$. This is also logical as under $B_{0.3}$, every bit is more likely to be a 0 than a 1.
 
 
 4. Consider ten independent $B_{0.3}$ trials. Which of the following is the most probable?
@@ -246,7 +246,7 @@
 
   Ans: a. (0.08); b. (0.88); c. (0.44); d. (-1)<br/>
   Explanation
-    + $X \cdot Y$ takes values in $\{0,1\}$ hence is Bernoulli. It is $1 \iff X=Y=1$ which happens with probability $0.4 cdot 0.2=0.08$.
+    + $X \cdot Y$ takes values in $\{0,1\}$ hence is Bernoulli. It is $1 \iff X=Y=1$ which happens with probability $0.4 \cdot 0.2=0.08$.
     + $X^Y$ takes values in $\{0,1\}$, hence is Bernoulli. It is $0 \iff X=0$ and $Y=1$, which happens with probability $0.6 \cdot 0.2=0.12$, hence it is 1 with probability 0.88.
     + $|X−Y|$ takes values in $\{0,1\}$, hence is Bernoulli. It is $1 \iff X \neq Y$, which happens with probability $0.6 \cdot 0.2+0.4 \cdot 0.8=0.44$.
     + $X+Y$ takes values in $\{0,1,2\}$, hence is not Bernoulli.
@@ -631,7 +631,7 @@
 
 8. Alice solves every puzzle with probability 0.6, and Bob, with probability 0.5. They are given 7 puzzle and each chooses 5 out of the 7 puzzles randomly and solves them independently. A puzzle is considered solved if at least one of them solves it. What is the probability that all the 7 puzzles are solved?
 
-  Ans: <span style="color: magenta;">0.021</span><br/>
+  Ans: <span style="color: cyan;">0.021p</span><br/>
   Explanation: The probability that all the 7 puzzles are chosen is the probability that Bob chooses the two puzzles Alice did not pick, namely, \(\frac{\binom{5}{3}\binom22}{\binom{7}{5}} = \frac{10}{21}\). Every puzzle they both attempt, they both fail with probability \(0.4\cdot0.5=0.2\), hence at least one solves with probability \(1-0.2=0.8\). It follows that all puzzles are solved with probability \(\frac{10}{21}\cdot 0.6^2 \cdot 0.5^2 \cdot 0.8^3 = 0.0219\).
 
 
@@ -818,7 +818,9 @@
   Explanation: $P(X = k) = \frac{\lambda^k}{k!}e^{-\lambda}$. With $\lambda = 2$, $P(X = 0) = e^{-2} = 0.135$
 
 
-2. The expectation of a Poisson random variable and its variance are (a) equal (b) not equal?
+2. The expectation of a Poisson random variable and its variance are<br/>
+  a. equal<br/>
+  b. not equal<br/>
 
   Ans: a
 
@@ -840,7 +842,7 @@
   b. exactly two typos,<br/>
   c. more than one typo?<br/>
 
-  Ans: a. (0.7165); b. (0.03981); c. (0.04467)<br/>
+  Ans: a. (0.7165); b. (0.03981); c. (0.0446249)<br/>
   Explanation
     + Recall that for a random variable $X \sim Poisson(\lambda)$ its distribution is given by $P(X=i)=e^{-\lambda}\cdot\frac{\lambda^i}{i!}, \, \text{for} \, i>0$. $\lambda=1/3$ here. Thus probability of no typo errors is $P(X=0)=e^{-\lambda}=e^{-1/3}=0.7165313$.
     + Similarly the probability of exactly two typo errors is $P(X=2)=e^{-\lambda}\frac{\lambda^2}{2!}=e^{-1/3}\frac{(1/3)^2}{2!}=0.039807295$
@@ -1276,7 +1278,12 @@ Several of the following questions ask about the number of experiments performed
 
   Ans: <span style="color: magenta;">a</span><br/>
   Explanation: 
-    + Without replacement, the expectation is $\sum_{k=0}^n k\frac{\binom{K}{k} \binom{N-K}{n-k}}{\binom{N}{n}} = \frac{K}{\binom{N}{n}} \sum_{k=1}^{n} \binom{K-1}{k-1}\binom{N-K}{n-k} = \frac{K}{\binom{N}{n}} \underbrace{\sum_{k=0}^{n-1} \binom{K-1}{k}\binom{N-K}{n-1-k}}_{\substack{\text{# of ways to choose } n - 1 \\ \text{ balls} \text{out of } N - 1 \text{ balls}}} = \frac{K}{\binom{N}{n}} \binom{N-1}{n-1} = n\frac{K}{N}$
+    + Without replacement, the expectation is 
+      \[\begin{align*}
+        \sum_{k=0}^n k\frac{\binom{K}{k} \binom{N-K}{n-k}}{\binom{N}{n}} &= \frac{K}{\binom{N}{n}} \sum_{k=1}^{n} \binom{K-1}{k-1}\binom{N-K}{n-k} = \frac{K}{\binom{N}{n}} \underbrace{\sum_{k=0}^{n-1} \binom{K-1}{k}\binom{N-K}{n-1-k}}_{\substack{\text{# of ways to choose } n - 1 \\ \text{ balls} \text{out of } N - 1 \text{ balls}}} \\
+        &= \frac{K}{\binom{N}{n}} \binom{N-1}{n-1} = n\frac{K}{N}
+      \end{align*}\]
+
     + With replacement, the expectation is trivial, which is $n\frac K N$.
     + Hence, the answer does not depend on whether the selection is with or without replacement.
 
