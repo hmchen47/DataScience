@@ -1774,7 +1774,7 @@ Several of the following questions ask about the number of experiments performed
   
 
 
-4. Given $X \sim _{U[a,b]}$ with $E[X]=2$ and $Var(X)=3$, find $a$ and $b$.
+4. Given $X \sim U_{[a,b]}$ with $E[X]=2$ and $Var(X)=3$, find $a$ and $b$.
 
   Ans: 
 
@@ -1861,7 +1861,7 @@ Several of the following questions ask about the number of experiments performed
   Ans: 
 
 
-6. Let $$ be distributed according to the pdf $ke^{−x^2−7x}$. Find $E[X^2]$.
+6. Let $X$ be distributed according to the pdf $ke^{−x^2−7x}$. Find $E[X^2]$.
 
   Ans: 
   
