@@ -1507,7 +1507,9 @@
   Ans: 
 
 
-2. The expectation of a Poisson random variable and its variance are (a) equal (b) not equal?
+2. The expectation of a Poisson random variable and its variance are<br/>
+  a. equal<br/>
+  b. not equal<br/>
 
   Ans: 
 
