@@ -491,7 +491,7 @@
 2. Given n iid random variables $X_1,X_2, \dots ,X_n$ with mean $\mu$, standard deviation $\alpha < \infty$ , and the sample mean $S_n = \frac{1}{n} \sum_{i=1}^n X_i$, is it true that $\lim_{n\to\infty} E[(S_n−\mu)^2]=0$? (True/False)
 
   Ans: <span style="color: cyan;">True</span><br/>
-  Explanation: $\lim_{n \to \infty} E((S_n - \mu)^2) = \lim_{n \to \infty} V(S_n) = \lim_{n \to \infty} \frac{\sigma^2}{} = 0$. This means $S_n$ converges to the true mean $\mu$ in mean square sense.
+  Explanation: $\lim_{n \to \infty} E((S_n - \mu)^2) = \lim_{n \to \infty} V(S_n) = \lim_{n \to \infty} \frac{\sigma^2}{n} = 0$. This means $S_n$ converges to the true mean $\mu$ in mean square sense.
 
 
 3. The height of a person is a random variable with variance $\le 5 \text{ inches }^2$. According to Mr. Chebyshev, how many people do we need to sample to ensure that the sample mean is at most 1 inch away from the distribution mean with probability $\ge 95\%$?
@@ -1229,7 +1229,7 @@
   
   b. Assume that you took the shuttle once a day during the past 30 days. What is the approximate probability, according to the CLT, that your average wait time was less than  9  minutes?
 
-  Ans: a. (0.5934); b. (0.2912)<br/>
+  Ans: a. (0.5934); b. (0.2919)<br/>
   Explanation: 
     + Let $X$ be the wait time. $P(X \le 9) = 1 - e^{-\frac{9}{10}} = 0.5934$
     + Let $X_i$ be the wait time on the $i$-th day, and $\bar{X} = \frac{X_1 + \cdots + X_{30}}{30}$ be the average wait time. As $P(\bar{X} \le \alpha) = \Phi(\frac{\alpha - \mu}{\sigma / \sqrt{n}})$ with $\alpha =9,\mu=10,\sigma=10,n=30$, we have $P(\overline{X} \le 9)=0.2919$
