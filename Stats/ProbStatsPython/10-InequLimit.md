@@ -130,7 +130,7 @@
 
   b. In the same town of 30 families, the average household size is 2.5. What is the largest number of families that can have at least 4 members according to Markov’s Inequality? (Note the household size can be any positive integer.)
 
-  Ans: a. (24); b. (<span style="color: cyan;">15</span>)>br/>
+  Ans: a. (24); b. (<span style="color: cyan;">15</span>)<br/>
     + This question can be answered using the Meerkat paradigm, or we can convert it to a probability question and use Markov's Inequality. Imagine that you pick one of the 30 families uniformly at random. The expected income is the average over all families, $80,000. The probability that the random family has income at least $100,000 is the number of families with such income, normalized by 30. By Markov's Inequality, this probability is at most  80000/100000=0.8 . Hence the number of families with such income is at most  30⋅0.8=24 .
     + Let $X$ be the size of a family picked uniformly at random. Then $X \ge 1$  and $E[X]=2.5$. Define $Y=X−1$. Then $Y \ge 0$ and $E[Y]=E[X]−1=1.5$. By Markov's Inequality $P(X \ge 4)=P(Y \ge 3) \le \frac{1.5}{3}=\frac12$. Hence the fraction of families with at least 4 members is at most $\frac12⋅30=15$.
 
@@ -343,7 +343,7 @@
   c. 50%<br/>
   d. 75%<br/>
   
-  Ans: <span style="color: cyan;">bcd</span><br/>
+  Ans: <span style="color: cyan;">abcd</span><br/>
   Explanation: By Chebyshev's Inequality, $P(|X−8| \ge 2) \le \frac{Var(X)}{4}=\frac14$. Hence $P(6 \le X \le 10)=1−P(|X−8| \ge 2) \ge 1−\frac14=\frac34=75\%$.  Since the probability is at least 75%, it is also at least 50%, etc.
 
 
@@ -491,7 +491,7 @@
 2. Given n iid random variables $X_1,X_2, \dots ,X_n$ with mean $\mu$, standard deviation $\alpha < \infty$ , and the sample mean $S_n = \frac{1}{n} \sum_{i=1}^n X_i$, is it true that $\lim_{n\to\infty} E[(S_n−\mu)^2]=0$? (True/False)
 
   Ans: <span style="color: cyan;">True</span><br/>
-  Explanation: $\lim_{n\to\infty} E[(S_n−μ)^2) = \lim_{n\to\infty} Var(S_n)= \lim_{n\to\infty} \sigma^2=0$. This means $S_n$ converges to the true mean $\mu$ in mean square sense.
+  Explanation: $\lim_{n \to \infty} E((S_n - \mu)^2) = \lim_{n \to \infty} V(S_n) = \lim_{n \to \infty} \frac{\sigma^2}{} = 0$. This means $S_n$ converges to the true mean $\mu$ in mean square sense.
 
 
 3. The height of a person is a random variable with variance $\le 5 \text{ inches }^2$. According to Mr. Chebyshev, how many people do we need to sample to ensure that the sample mean is at most 1 inch away from the distribution mean with probability $\ge 95\%$?
