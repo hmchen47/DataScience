@@ -12,7 +12,7 @@
 
   a. Based on a recent survey, the fraction of the population that prefer sweet to sour is between 73 and 76 percent.<br/>
   b. There is a 20% chance of rain tomorrow.<br/>
-  c. I will bet you 20$ to 1$ that my football team would win tomorrow's match.<br/>
+  c. I will bet you `20$` to `1$` that my football team would win tomorrow's match.<br/>
   d. The chance that two random people have the same birthday is at least 1/365.<br/>
   
   Ans: a. (Frequentist); b. (<font style="color: cyan;">Bayesian</font>, xFrequentist); c. (Bayesian); d. (<font style="color: cyan;">Frequentist</font>, xBayesian) <br/>
@@ -89,11 +89,11 @@
 
   a. X and Y are independent, (Yes/No) <br/>
   b. $P(Y \ne 3)$, <br/>
-  c. $P(X &lt Y)$, <br/>
+  c. $P(X < Y)$, <br/>
   d. $E[Z]$, <br/>
   e. $V[Z]$. <br/>
 
-  Ans: a. (yes); b. (0.5)00; c. (0.58); d. (2.38); e. (0.4756)<br/>
+  Ans: a. (yes); b. (0.5); c. (0.58); d. (2.38); e. (0.4756)<br/>
   Explanation:
     + $P(XY) = P(X)P(Y)$
     + $P(Y \ne 3) = 0.12 + 0.08 + 0.18 + 0.12 = 0.5$
@@ -116,8 +116,8 @@
 
 7. A hen lays eight eggs weighing 60, 56, 61, 68, 51, 53, 69, and 54 grams, respectively. Use the unbiased estimators discussed in class to estimate the weight distribution's
 
-  a. mean,
-  b. variance.
+  a. mean,<br/>
+  b. variance.<br/>
 
   Ans: a. (59); b. (45.7143)<br/>
   Explanation:
@@ -144,10 +144,10 @@
 
 10. 20% of the items on a production line are defective. Randomly inspect items, and let X1 be the number of inspections till the first defective item is observed, and X5 be the number of inspections till the fifth defective item is observed. In both cases, X1 and X5 include the defective item itself (e.g. if the items are {good,good,defective},X1 is 3 ). Calculate
 
-  a. E(X5),
-  b. V(X5),
-  c. E(X5|X1=4),
-  d. V(X5|X1=4).
+  a. E(X5),<br/>
+  b. V(X5),<br/>
+  c. E(X5|X1=4),<br/>
+  d. V(X5|X1=4).<br/>
 
   Ans: a. (25); b. (100); c. (<font style="color: cyan;">24</font>, x20), d. (80)<br/>
   Explanation:
@@ -172,11 +172,11 @@
 
   Which of the following statements is correct?
 
-  a. $train(j)$ is a monotonically non-increasing function.
-  b. $test(j)$ is a monotonically non-increasing function.
-  c. $test(j)$ has a minimum close to $j=k$
-  d. $train(j)$ has a minimum close to $j=k$
-  e. if $j>n/2$, $train(j)=0$
+  a. $train(j)$ is a monotonically non-increasing function.<br/>
+  b. $test(j)$ is a monotonically non-increasing function.<br/>
+  c. $test(j)$ has a minimum close to $j=k$<br/>
+  d. $train(j)$ has a minimum close to $j=k$<br/>
+  e. if $j>n/2$, $train(j)=0$<br/>
 
   Ans: <font style="color: cyan;">ace</font>, x1c<br/>
 
