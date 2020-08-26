@@ -939,7 +939,7 @@
 
   a. Based on a recent survey, the fraction of the population that prefer sweet to sour is between 73 and 76 percent.<br/>
   b. There is a 20% chance of rain tomorrow.<br/>
-  c. I will bet you 20$ to 1$ that my football team would win tomorrow's match.<br/>
+  c. I will bet you `20$` to `1$` that my football team would win tomorrow's match.<br/>
   d. The chance that two random people have the same birthday is at least 1/365.<br/>
   
   Ans: 
@@ -982,7 +982,7 @@
 
   a. X and Y are independent, (Yes/No) <br/>
   b. $P(Y \ne 3)$, <br/>
-  c. $P(X &lt Y)$, <br/>
+  c. $P(X < Y)$, <br/>
   d. $E[Z]$, <br/>
   e. $V[Z]$. <br/>
 
@@ -1001,8 +1001,8 @@
 
 7. A hen lays eight eggs weighing 60, 56, 61, 68, 51, 53, 69, and 54 grams, respectively. Use the unbiased estimators discussed in class to estimate the weight distribution's
 
-  a. mean,
-  b. variance.
+  a. mean,<br/>
+  b. variance.<br/>
 
   Ans: 
 
@@ -1019,16 +1019,15 @@
   d. between 0.05 and 0.1<br/>
   e. more than 0.1<br/>
   
-  Ans: c<br/>
-  Explanation: The sample mean $\overline{X} = 48.55$ , and the sample variance is $S^2=2.78$. Hence the T-test statistics is $T = \frac{\overline{X} - \mu}{S / \sqrt{n}} = -2.13$, where $n=6$. The p values is $P_{H_0}(\overline{X} \le \mu) = F_{n - 1}(T) = 0.0432$
+  Ans: 
 
 
 10. 20% of the items on a production line are defective. Randomly inspect items, and let X1 be the number of inspections till the first defective item is observed, and X5 be the number of inspections till the fifth defective item is observed. In both cases, X1 and X5 include the defective item itself (e.g. if the items are {good,good,defective},X1 is 3 ). Calculate
 
-  a. E(X5),
-  b. V(X5),
-  c. E(X5|X1=4),
-  d. V(X5|X1=4).
+  a. E(X5),<br/>
+  b. V(X5),<br/>
+  c. E(X5|X1=4),<br/>
+  d. V(X5|X1=4).<br/>
 
   Ans: 
   
@@ -1049,11 +1048,11 @@
 
   Which of the following statements is correct?
 
-  a. $train(j)$ is a monotonically non-increasing function.
-  b. $test(j)$ is a monotonically non-increasing function.
-  c. $test(j)$ has a minimum close to $j=k$
-  d. $train(j)$ has a minimum close to $j=k$
-  e. if $j>n/2$, $train(j)=0$
+  a. $train(j)$ is a monotonically non-increasing function.<br/>
+  b. $test(j)$ is a monotonically non-increasing function.<br/>
+  c. $test(j)$ has a minimum close to $j=k$<br/>
+  d. $train(j)$ has a minimum close to $j=k$<br/>
+  e. if $j>n/2$, $train(j)=0$<br/>
 
   Ans: 
 
