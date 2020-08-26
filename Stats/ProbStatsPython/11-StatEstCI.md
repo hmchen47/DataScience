@@ -785,7 +785,7 @@
 
 2. According to the U.S. Department of Agriculture, ten to twenty earthworms per cubic foot is a sign of healthy soil. The soil of a garden is checked by digging 8 holes, each of one-cubic-foot, and counting the earthworms, and the following counts are found: 5, 25, 15, 10, 7, 12, 16, 20. Use the unbiased estimators discussed in the video to estimate<br/>
   a. the true mean,<br/>
-  b. the true variance.<  br/>
+  b. the true variance.<br/>
 
   Ans: a. (13.75); b. (44.5)<br/>
   Explanation:
