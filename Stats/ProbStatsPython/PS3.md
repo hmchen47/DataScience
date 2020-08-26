@@ -893,7 +893,7 @@
   
   2) What is the $p$-value (in percentage) of 90?
 
-  c) What is the highest weight in lbs for which we can reject the null hypothesis with significance level 10%?
+  3) What is the highest weight in lbs for which we can reject the null hypothesis with significance level 10%?
   
 
   Ans: 
@@ -929,7 +929,7 @@
 
 
 
-## 14. Final Exam
+# 14. Final Exam
 
 + [Standard Normal Probability & t-distribution critical values](https://tinyurl.com/y33hyqwu)
 
