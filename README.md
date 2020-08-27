@@ -192,7 +192,7 @@
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Hypothesis </th>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#hypothesis-test"> Overview </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#hypothesis-testing"> Overview </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#">  </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#">  </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#">  </a> </td>
@@ -1034,17 +1034,24 @@
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
     <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#sets"> Sets </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#">  </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#numpy-common-used-functions"> Numpy Common Functions </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#andas-common-used-functions"> Pandas Common Functions </a> </td>
     <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> Random Number Generator </th>
+    <th rowspan="2" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> Related Functions </th>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#random-number-generator"> Random Number Generator </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#random-sampling"> Random Sampling </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#statistics-distributions"> Statistical Distributions </a> </td>
     <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#">  </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#numpy-statistic-functions"> Numpy Statistics </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#numpy-math-related-functions"> Numpy Math </a> </td>
     <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#">  </a> </td>
     <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#">  </a> </td>
   </tr>
+
 
   <!-- Data Science -->
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Data Science </td> </tr>
