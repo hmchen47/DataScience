@@ -67,6 +67,25 @@
   + exponential: `**`
 
 
+## Numpy: common used functions
+
++ [function](../Stats/ProbStatsPython/08-DiscreteDist.md#lecture-notebook-8): `numpy.linspace`
+  + Syntax: `numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0)`
+  + Docstring
+    + Return evenly spaced numbers over a specified interval.
+    + Returns num evenly spaced samples, calculated over the interval [start, stop].
+    + The endpoint of the interval can optionally be excluded.
+
++ [function](../Stats/ProbStatsPython/08-DiscreteDist.md#lecture-notebook-8): `numpy.histogram`
+  + Syntax: `numpy.histogram(a, bins=10, range=None, normed=None, weights=None, density=None)`
+  + Docstring: Compute the histogram of a set of data.
+
++ [function](../Stats/ProbStatsPython/08-DiscreteDist.md#lecture-notebook-8): `numpy.histogram_bin_edges`
+  + Syntax: `numpy.histogram_bin_edges(a, bins=10, range=None, weights=None)`
+  + Docstring: Function to calculate only the edges of the bins used by the histogram function.
+
+
+
 ## Random Number Generator
 
   <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
@@ -188,6 +207,16 @@
     </tr>
     </tbody>
   </table>
+
+
+
+## Pandas: common used functions
+
++ [function](../Stats/ProbStatsPython/08-DiscreteDist.md#lecture-notebook-8): `Series.value_counts`
+  + Syntax: `Series.value_counts(self, normalize=False, sort=True, ascending=False, bins=None, dropna=True)`
+  + Docstring
+    + Return a Series containing counts of unique values.
+    + The resulting object will be in descending order so that the first element is the most frequently-occurring element. Excludes NA values by default.
 
 
 ## Random Sampling
@@ -549,35 +578,6 @@
     </tr>
     </tbody>
   </table>
-
-
-## Numpy: common used functions
-
-+ [function](../Stats/ProbStatsPython/08-DiscreteDist.md#lecture-notebook-8): `numpy.linspace`
-  + Syntax: `numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0)`
-  + Docstring
-    + Return evenly spaced numbers over a specified interval.
-    + Returns num evenly spaced samples, calculated over the interval [start, stop].
-    + The endpoint of the interval can optionally be excluded.
-
-+ [function](../Stats/ProbStatsPython/08-DiscreteDist.md#lecture-notebook-8): `numpy.histogram`
-  + Syntax: `numpy.histogram(a, bins=10, range=None, normed=None, weights=None, density=None)`
-  + Docstring: Compute the histogram of a set of data.
-
-+ [function](../Stats/ProbStatsPython/08-DiscreteDist.md#lecture-notebook-8): `numpy.histogram_bin_edges`
-  + Syntax: `numpy.histogram_bin_edges(a, bins=10, range=None, weights=None)`
-  + Docstring: Function to calculate only the edges of the bins used by the histogram function.
-
-
-
-## Pandas: common used functions
-
-+ [function](../Stats/ProbStatsPython/08-DiscreteDist.md#lecture-notebook-8): `Series.value_counts`
-  + Syntax: `Series.value_counts(self, normalize=False, sort=True, ascending=False, bins=None, dropna=True)`
-  + Docstring
-    + Return a Series containing counts of unique values.
-    + The resulting object will be in descending order so that the first element is the most frequently-occurring element. Excludes NA values by default.
-
 
 
 ## Numpy Statistic Functions
