@@ -26,72 +26,79 @@ In this course you will learn the following topics (some may be added or dropped
 
 ## Lecture Contents
 
-+ Introduction and Course Information
-  + [How This Course is Run](./00-CourseInfo.md#how-this-course-is-run)
-  + [Syllabus](./00-CourseInfo.md#syllabus)
+### Introduction and Course Information
+
++ [How This Course is Run](./00-CourseInfo.md#how-this-course-is-run)
++ [Syllabus](./00-CourseInfo.md#syllabus)
 
 
-+ Topic 1: Introduction to Probability and Statistics
-  + 1.1 [Introduction to Probability and Statistics](./01-Intro.md#11-introduction-to-probability-and-statistics)
-  + 1.2 [What is Probability Theory](./01-Intro.md#12-what-is-probability-theory)
-  + 1.3 [What is Statistics](./01-Intro.md#13-what-is-statistics)
-  + 1.4 [A Puzzle](./01-Intro.md#14-a-puzzle)
-  + 1.5 [History of Probability and Statistics](./01-Intro.md#15-history-of-probability-and-statistics)
-  + [Lecture Notebook 1](./01-Intro.md#lecture-notebook-1)
-  + [Programming Assignment 1](./01-Intro.md#programming-assignment-1)
+### Topic 1: Introduction to Probability and Statistics
+
++ 1.1 [Introduction to Probability and Statistics](./01-Intro.md#11-introduction-to-probability-and-statistics)
++ 1.2 [What is Probability Theory](./01-Intro.md#12-what-is-probability-theory)
++ 1.3 [What is Statistics](./01-Intro.md#13-what-is-statistics)
++ 1.4 [A Puzzle](./01-Intro.md#14-a-puzzle)
++ 1.5 [History of Probability and Statistics](./01-Intro.md#15-history-of-probability-and-statistics)
++ [Lecture Notebook 1](./01-Intro.md#lecture-notebook-1)
++ [Programming Assignment 1](./01-Intro.md#programming-assignment-1)
 
 
-+ Topic 2: Sets
-  + 2.1 [Notation](./02-Sets.md#21-notation)
-  + 2.2 [Basic Sets](./02-Sets.md#21-notation)
-  + 2.3 [Venn Diagrams](./02-Sets.md#23-venn-diagrams)
-  + 2.4 [Relations](./02-Sets.md#24-relations)
-  + 2.5 [Operations](./02-Sets.md#25-operations)
-  + 2.6 [Cartesian Products](./02-Sets.md#26-cartesian-products)
-  + 2.7 [Russell's Paradox](./02-Sets.md#27-russells-paradox)
-  + [Lecture Notebook 2](./02-Sets.md#lecture-notebook-2)
-  + [Programming Assignment 2](./02-Sets.md#programming-assignment-2)
+### Topic 2: Sets
+
++ 2.1 [Notation](./02-Sets.md#21-notation)
++ 2.2 [Basic Sets](./02-Sets.md#21-notation)
++ 2.3 [Venn Diagrams](./02-Sets.md#23-venn-diagrams)
++ 2.4 [Relations](./02-Sets.md#24-relations)
++ 2.5 [Operations](./02-Sets.md#25-operations)
++ 2.6 [Cartesian Products](./02-Sets.md#26-cartesian-products)
++ 2.7 [Russell's Paradox](./02-Sets.md#27-russells-paradox)
++ [Lecture Notebook 2](./02-Sets.md#lecture-notebook-2)
++ [Programming Assignment 2](./02-Sets.md#programming-assignment-2)
 
 
-+ Topic 3: Counting
-  + 3.1 [Counting](./03-Counting.md#31-counting)
-  + 3.2 [Disjoint Unions](./03-Counting.md#32-disjoint-unions)
-  + 3.3 [General Unions](./03-Counting.md#33-general-unions)
-  + 3.4 [Cartesian Products](./03-Counting.md#34-cartesian-products)
-  + 3.5 [Cartesian Powers](./03-Counting.md#35-cartesian-powers)
-  + 3.6 [Variations](./03-Counting.md#36-variations)
-  + 3.7 [Trees](./03-Counting.md#37-trees)
-  + [Matplotlib and Numpy.random Notebook](./03-Counting.md#matplotlib-and-numpyrandom-notebook)
-  + [Lecture Notebook 3](./03-Counting.md#lecture-notebook-3)
-  + [Programming Assignment 3](./03-Counting.md#programming-assignment-3)
+### Topic 3: Counting
+
++ 3.1 [Counting](./03-Counting.md#31-counting)
++ 3.2 [Disjoint Unions](./03-Counting.md#32-disjoint-unions)
++ 3.3 [General Unions](./03-Counting.md#33-general-unions)
++ 3.4 [Cartesian Products](./03-Counting.md#34-cartesian-products)
++ 3.5 [Cartesian Powers](./03-Counting.md#35-cartesian-powers)
++ 3.6 [Variations](./03-Counting.md#36-variations)
++ 3.7 [Trees](./03-Counting.md#37-trees)
++ [Matplotlib and Numpy.random Notebook](./03-Counting.md#matplotlib-and-numpyrandom-notebook)
++ [Lecture Notebook 3](./03-Counting.md#lecture-notebook-3)
++ [Programming Assignment 3](./03-Counting.md#programming-assignment-3)
 
 
-+ Topic 4: Combinatorics
-  + 4.1 [Permutations](./04-Combinatorics.md#41-permutations)
-  + 4.2 [Partial Permutations](./04-Combinatorics.md#42-partial-permutations)
-  + 4.3 [Combinations](./04-Combinatorics.md#43-combinations)
-  + 4.4 [Applications of Binomial Coefficients](./04-Combinatorics.md#44-applications-of-binomial-coefficients)
-  + 4.5 [Properties of Binomial Coefficient](./04-Combinatorics.md#45-properties-of-binomial-coefficient)
-  + 4.6 [Pascal Triangle and Binomial Theorem](./04-Combinatorics.md#46-pascal-triangle-and-binomial-theorem)
-  + 4.7 [Multinomials](./04-Combinatorics.md#47-multinomials)
-  + 4.8 [Stars and Bars](./04-Combinatorics.md#48-stars-and-bars)
-  + [Lecture Notebook 4](./04-Combinatorics.md#lecture-notebook-4)
-  + [Programming Assignment 4](./04-Combinatorics.md#programming-assignment-4)
+### Topic 4: Combinatorics
+
++ 4.1 [Permutations](./04-Combinatorics.md#41-permutations)
++ 4.2 [Partial Permutations](./04-Combinatorics.md#42-partial-permutations)
++ 4.3 [Combinations](./04-Combinatorics.md#43-combinations)
++ 4.4 [Applications of Binomial Coefficients](./04-Combinatorics.md#44-applications-of-binomial-coefficients)
++ 4.5 [Properties of Binomial Coefficient](./04-Combinatorics.md#45-properties-of-binomial-coefficient)
++ 4.6 [Pascal Triangle and Binomial Theorem](./04-Combinatorics.md#46-pascal-triangle-and-binomial-theorem)
++ 4.7 [Multinomials](./04-Combinatorics.md#47-multinomials)
++ 4.8 [Stars and Bars](./04-Combinatorics.md#48-stars-and-bars)
++ [Lecture Notebook 4](./04-Combinatorics.md#lecture-notebook-4)
++ [Programming Assignment 4](./04-Combinatorics.md#programming-assignment-4)
 
 
-+ Topic 5: Probability Introduction
-  + 5.1 [Probability](./05-ProbIntro.md#51-probability)
-  + 5.2 [Distribution Types](./05-ProbIntro.md#52-distribution-types)
-  + 5.3 [Events](./05-ProbIntro.md#53-events)
-  + 5.4 [Repeated Experiments](./05-ProbIntro.md#54-repeated-experiments)
-  + 5.5 [Games of Chance](./05-ProbIntro.md#55-games-of-chance)
-  + 5.6 [Axiomatic Formulation](./05-ProbIntro.md#56-axiomatic-formulation)
-  + 5.7 [Inequalities](./05-ProbIntro.md#57-inequalities)
-  + [Lecture Notebook 5](./05-ProbIntro.md#lecture-notebook-5)
-  + [Programming Assignment 5](./05-ProbIntro.md#programming-assignment-5)
+### Topic 5: Probability Introduction
+
++ 5.1 [Probability](./05-ProbIntro.md#51-probability)
++ 5.2 [Distribution Types](./05-ProbIntro.md#52-distribution-types)
++ 5.3 [Events](./05-ProbIntro.md#53-events)
++ 5.4 [Repeated Experiments](./05-ProbIntro.md#54-repeated-experiments)
++ 5.5 [Games of Chance](./05-ProbIntro.md#55-games-of-chance)
++ 5.6 [Axiomatic Formulation](./05-ProbIntro.md#56-axiomatic-formulation)
++ 5.7 [Inequalities](./05-ProbIntro.md#57-inequalities)
++ [Lecture Notebook 5](./05-ProbIntro.md#lecture-notebook-5)
++ [Programming Assignment 5](./05-ProbIntro.md#programming-assignment-5)
 
 
-+ Topic 6: Conditional Probability
+### Topic 6: Conditional Probability
+
   + 6.1 [Conditional Probability](./06-CondProb.md#61-conditional-probability)
   + 6.2 [Independence](./06-CondProb.md#62-independence)
   + 6.3 [Sequential Probability](./06-CondProb.md#63-sequential-probability)
@@ -174,17 +181,23 @@ In this course you will learn the following topics (some may be added or dropped
 
 
 + Topic13: Hypothesis Testing
-  + 13.1 [Hypothesis Test - Introduction](./13-Hypothesis.md#)
-  + 13.2 [Hypothesis Testing - p-Values](./13-Hypothesis.md#)
-  + 13.3 [Lady Tasting Tea](./13-Hypothesis.md#)
-  + 13.4 [Hypothesis Testing - Z and T Tests](./13-Hypothesis.md#)
-  + [Lecture Notebook 13](./13-Hypothesis.md#)
-  + [Programming Assignment 13](./13-Hypothesis.md#)
+  + 13.1 [Hypothesis Test - Introduction](./13-Hypothesis.md#131-hypothesis-test---introduction)
+  + 13.2 [Hypothesis Testing - p-Values](./13-Hypothesis.md#132-hypothesis-testing---p-values)
+  + 13.3 [Lady Tasting Tea](./13-Hypothesis.md#133-lady-tasting-tea)
+  + 13.4 [Hypothesis Testing - Z and T Tests](./13-Hypothesis.md#134-hypothesis-testing---z-and-t-tests)
+  + [Lecture Notebook 13](./13-Hypothesis.md#lecture-notebook-13)
+  + [Programming Assignment 13](./13-Hypothesis.md#programming-assignment-13)
  
  
-+ Final Exam
-  + [Preparing for the Final Exam](./14-Final.md)
-  + [Final Exam Instructions](./14-Final.md)
+### Topic 14: Final Exam
+
++ 14.0 Problem Sets
+  + [Problem Sets 1~4](./PS1.md)
+  + [Problem Sets 5~9](./PS2.md)
+  + [Problem Sets 10~14](./PS3.md)
++ 14.1 [Preparing for the Final Exam](./14-Final.md#141-preparing-for-the-final-exam)
++ 14.2 [Final Exam Instructions](./14-Final.md#142-final-exam-instructions)
++ 14.3 [Final Exam](./14-Final.md#143-final-exam)
 
 
 
