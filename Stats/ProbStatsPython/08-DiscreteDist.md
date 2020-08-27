@@ -1399,97 +1399,26 @@ Several of the following questions ask about the number of experiments performed
     </tbody>
   </table>
 
-+ `numpy.linspace` 
-  + `numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0)`
++ [`numpy.linspace`](https://tinyurl.com/yc4ne47x)
+  + Syntax: `numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0)`
   + Docstring
     + Return evenly spaced numbers over a specified interval.
     + Returns num evenly spaced samples, calculated over the interval [start, stop].
     + The endpoint of the interval can optionally be excluded.
-  + Parameters
-    + `start`: array_like<br/>
-      The starting value of the sequence.
-    + `stop`: array_like<br/>
-      The end value of the sequence, unless endpoint is set to False. In that case, the sequence consists of all but the last of `num + 1` evenly spaced samples, so that stop is excluded. Note that the step size changes when endpoint is False.
-    + `num`: int, optional<br/>
-      Number of samples to generate. Default is 50. Must be non-negative.
-    + `endpoint`: bool, optional<br/>
-      If True, stop is the last sample. Otherwise, it is not included. Default is True.
-    + `retstep`: bool, optional<br/>
-      If True, return (samples, step), where step is the spacing between samples.
-    + `dtype`: dtype, optional<br/>
-      The type of the output array. If `dtype` is not given, infer the data type from the other input arguments.
-    + `axis`: int, optional<br/>
-      The axis in the result to store the samples. Relevant only if start or stop are array-like. By default (0), the samples will be along a new axis inserted at the beginning. Use -1 to get an axis at the end.
-  + Returns
-    + `samples`: ndarray<br/>
-      There are num equally spaced samples in the closed interval [start, stop] or the half-open interval [start, stop) (depending on whether endpoint is True or False).
-    + `step`: float, optional<br/>
-      Only returned if retstep is True, Size of spacing between samples.
 
-+ `numpy.histogram`
-  + `numpy.histogram(a, bins=10, range=None, normed=None, weights=None, density=None)`
++ [`numpy.histogram`](https://tinyurl.com/y4exrjuz)
+  + Syntax: `numpy.histogram(a, bins=10, range=None, normed=None, weights=None, density=None)`
   + Docstring: Compute the histogram of a set of data.
-  + Parameterrs
-    + `a`: array_like<br/>
-      Input data. The histogram is computed over the flattened array.
-    + `bins`: int or sequence of scalars or str, optional
-      + If bins is an int, it defines the number of equal-width bins in the given range (10, by default). If bins is a sequence, it defines a monotonically increasing array of bin edges, including the rightmost edge, allowing for non-uniform bin widths.
-      + If bins is a string, it defines the method used to calculate the optimal bin width, as defined by `histogram_bin_edges`.
-    + `range`: (float, float), optional<br/>
-      The lower and upper range of the bins. If not provided, range is simply (a.min(), a.max()). Values outside the range are ignored. The first element of the range must be less than or equal to the second. range affects the automatic bin computation as well. While bin width is computed to be optimal based on the actual data within range, the bin count will fill the entire range including portions containing no data.
-    + `weights`: array_like, optional<br/>
-      An array of weights, of the same shape as a. Each value in a only contributes its associated weight towards the bin count (instead of 1). If density is True, the weights are normalized, so that the integral of the density over the range remains 1.
-    + `density`: bool, optional<br/>
-      If False, the result will contain the number of samples in each bin. If True, the result is the value of the probability density function at the bin, normalized such that the integral over the range is 1. Note that the sum of the histogram values will not be equal to 1 unless bins of unity width are chosen; it is not a probability mass function.
-  + Returns
-    + `hist`: array<br/>
-      The values of the histogram. See density and weights for a description of the possible semantics.
-    + `bin_edges`: array of dtype float<br/>
-      Return the bin edges `(length(hist)+1)`.
 
-+ `np.histogram_bin_edges`
-  + `numpy.histogram_bin_edges(a, bins=10, range=None, weights=None)`
++ [`numpy.histogram_bin_edges`](https://tinyurl.com/y5ss3l6l)
+  + Syntax: `numpy.histogram_bin_edges(a, bins=10, range=None, weights=None)`
   + Docstring: Function to calculate only the edges of the bins used by the histogram function.
-  + Parameters
-    + `a`: array_like<br/>
-      Input data. The histogram is computed over the flattened array.
-    + `bins`: int or sequence of scalars or str, optional
-      + If bins is an int, it defines the number of equal-width bins in the given range (10, by default). If bins is a sequence, it defines the bin edges, including the rightmost edge, allowing for non-uniform bin widths.
-      + If bins is a string from the list below, histogram_bin_edges will use the method chosen to calculate the optimal bin width and consequently the number of bins (see Notes for more detail on the estimators) from the data that falls within the requested range. While the bin width will be optimal for the actual data in the range, the number of bins will be computed to fill the entire range, including the empty portions. For visualisation, using the 'auto' option is suggested. Weighted data is not supported for automated bin size selection.
-      + `'auto'`: Maximum of the `'sturges'` and `'fd'` estimators. Provides good all around performance.
-      + `'fd'` (Freedman Diaconis Estimator)
-      + Robust (resilient to outliers) estimator that takes into account data variability and data size.
-      + `'doane'`: An improved version of `Sturges` estimator that works better with non-normal datasets.
-      + `'scott'`: Less robust estimator that that takes into account data variability and data size.
-      + `'stone'`: Estimator based on leave-one-out cross-validation estimate of the integrated squared error. Can be regarded as a generalization of Scott's rule.
-      + `'rice'`: Estimator does not take variability into account, only data size. Commonly overestimates number of bins required.
-      + `'sturges'`: R's default method, only accounts for data size. Only optimal for gaussian data and underestimates number of bins for large non-gaussian datasets.
-      + `'sqrt'`: Square root (of data size) estimator, used by Excel and other programs for its speed and simplicity.
-    + `range`: (float, float), optional <br/>
-      The lower and upper range of the bins. If not provided, range is simply (a.min(), a.max()). Values outside the range are ignored. The first element of the range must be less than or equal to the second. range affects the automatic bin computation as well. While bin width is computed to be optimal based on the actual data within range, the bin count will fill the entire range including portions containing no data.
-    + `weights`: array_like, optional<br/>
-      An array of weights, of the same shape as a. Each value in a only contributes its associated weight towards the bin count (instead of 1). This is currently not used by any of the bin estimators, but may be in the future.
-  + Returns
-    + `bin_edges`: array of dtype float<br/>
-      The edges to pass into histogram
 
-+ `Series.value_counts`
-  + `Series.value_counts(self, normalize=False, sort=True, ascending=False, bins=None, dropna=True)`
++ [`Series.value_counts`](https://tinyurl.com/y5hno3mz)
+  + Syntax: `Series.value_counts(self, normalize=False, sort=True, ascending=False, bins=None, dropna=True)`
   + Docstring
     + Return a Series containing counts of unique values.
     + The resulting object will be in descending order so that the first element is the most frequently-occurring element. Excludes NA values by default.
-  + Parameteers
-    + `normalize`: bool, default False<br/>
-      If True then the object returned will contain the relative frequencies of the unique values.
-    + `sort`: bool, default True<br/>
-      Sort by frequencies.
-    + `ascending`: bool, default False<br/>
-      Sort in ascending order.
-    + `bins`: int, optional<br/>
-      Rather than count values, group them into half-open bins, a convenience for pd.cut, only works with numeric data.
-    + `dropna`: bool, default True<br/>
-      Don't include counts of NaN.
-  + Return: Series
 
 
 
