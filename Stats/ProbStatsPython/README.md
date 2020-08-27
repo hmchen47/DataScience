@@ -168,7 +168,7 @@ In this course you will learn the following topics (some may be added or dropped
 + 11.4 [Unbiased Variance Estimation](./11-StatEstCI.md#114-unbiased-variance-estimation)
 + 11.5 [Estimating Standard Deviation](./11-StatEstCI.md#115-estimating-standard-deviation)
 + 11.6 [Confidence Interval](./11-StatEstCI.md#116-confidence-interval)
-+ 11.7 [Confidence Interval - Sigma Unknown](./11-StatEstCI.md#117-confidence-interval---sigma-unknown)
++ 11.7 [Confidence Interval - Sigma Unknown](./11-StatEstCI.md#117-confidence-interval---sigma-unknown)Explaining 
 + [Lecture Notebook 11](./11-StatEstCI.md#lecture-notebook-11)
 + [Programming Assignment 11](./11-StatEstCI.md#programming-assignment-11)
 
@@ -202,9 +202,9 @@ In this course you will learn the following topics (some may be added or dropped
   + [Problem Sets 1~4](./PS1.md)
   + [Problem Sets 5~9](./PS2.md)
   + [Problem Sets 10~14](./PS3.md)
-+ 14.1 [Preparing for the Final Exam](./14-Final.md#)
-+ 14.2 [Final Exam Instructions](./14-Final.md#)
-+ 14.3 [Final Exam](./14-Final.md#)
++ 14.1 [Preparing for the Final Exam](./14-Final.md#141-preparing-for-the-final-exam)
++ 14.2 [Final Exam Instructions](./14-Final.md#142-final-exam-instructions)
++ 14.3 [Final Exam](./14-Final.md#143-final-exam)
 
 
 
