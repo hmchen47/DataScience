@@ -162,15 +162,15 @@ In this course you will learn the following topics (some may be added or dropped
 
 
 + Topic 12: Regression and PCA
-  + 12.1 [Review of Linear Algebra](./12-RegPCA.md#)
-  + 12.2 [Matrix Notation and Operations](./12-RegPCA.md#)
-  + 12.3 [Solving a System of Linear Equations](./12-RegPCA.md#)
-  + 12.4 [Linear Regression](./12-RegPCA.md#)
-  + 12.5 [Polynomial Regression](./12-RegPCA.md#)
-  + 12.6 [Regression Towards the Mean](./12-RegPCA.md#)
-  + 12.7 [Principle Component Analysis](./12-RegPCA.md#)
-  + [Lecture Notebook 12](./12-RegPCA.md#)
-  + [Programming Assignment 12](./12-RegPCA.md#)
+  + 12.1 [Review of Linear Algebra](./12-RegPCA.md#121-review-of-linear-algebra)
+  + 12.2 [Matrix Notation and Operations](./12-RegPCA.md#122-matrix-notation-and-operations)
+  + 12.3 [Solving a System of Linear Equations](./12-RegPCA.md#12-RegPCA.md#123-solving-a-system-of-linear-equations)
+  + 12.4 [Linear Regression](./12-RegPCA.md#124-linear-regression)
+  + 12.5 [Polynomial Regression](./12-RegPCA.md#125-polynomial-regression)
+  + 12.6 [Regression Towards the Mean](./12-RegPCA.md#126-regression-towards-the-mean)
+  + 12.7 [Principle Component Analysis](./12-RegPCA.md#127-principle-component-analysis)
+  + [Lecture Notebook 12](./12-RegPCA.md#lecture-notebook-12)
+  + [Programming Assignment 12](./12-RegPCA.md#programming-assignment-12)
 
 
 + Topic13: Hypothesis Testing
