@@ -14,66 +14,66 @@
 
 + Intuitive definition
   + $E, F$: events
-  + $\Pr(F \mid  E)$ = probability that $F$ happens given that $E$ happened<br/>
+  + $P(F \mid  E)$ = probability that $F$ happens given that $E$ happened<br/>
     $\hspace{4em}$ = fraction pf $E$ occurrences that F also occurs
-  + e.g., Even = {2, 4, 6}, $\Pr(2 \mid \text{ Even }) = \frac{2}{6} = \frac{1}{3}$
+  + e.g., Even = {2, 4, 6}, $P(2 \mid \text{ Even }) = \frac{2}{6} = \frac{1}{3}$
 
 + Example: fair die
-  + $\Pr(\{4\}) = \Pr(4) = 1/6$
-    + $\Pr( 4 \mid  \geq 3) = \Pr(4 \mid  \{3, 4, 5, 4\}) = \tfrac{1}{4}$
-    + $\Pr(4 \mid  \leq 3) = \Pr(4 \mid  \{1, 2, 3\}) = \tfrac{0}{3} = 0$
-  + $\Pr(\leq 2) = \Pr(\{1, 2\}) = 1/3$
-    + $\Pr(\leq 2 \mid  \leq 4) = \Pr(\{1, 2\} \mid  \{1, 2, 3, 4\}) = \frac{2}{4} = \frac{1}{4}$
-    + $\Pr(\leq 2 \mid  \geq 2) = \Pr(\{1, 2\} \mid  \{2, 3, 4, 5, 6\}) = \frac{1}{5}$
+  + $P(\{4\}) = P(4) = 1/6$
+    + $P( 4 \mid  \geq 3) = P(4 \mid  \{3, 4, 5, 4\}) = \tfrac{1}{4}$
+    + $P(4 \mid  \leq 3) = P(4 \mid  \{1, 2, 3\}) = \tfrac{0}{3} = 0$
+  + $P(\leq 2) = P(\{1, 2\}) = 1/3$
+    + $P(\leq 2 \mid  \leq 4) = P(\{1, 2\} \mid  \{1, 2, 3, 4\}) = \frac{2}{4} = \frac{1}{4}$
+    + $P(\leq 2 \mid  \geq 2) = P(\{1, 2\} \mid  \{2, 3, 4, 5, 6\}) = \frac{1}{5}$
 
 + General events - uniform spaces
   
   \[\begin{align*}
-    \Pr(F \mid  E) & = \Pr(X \in F \mid  X \in E) = \Pr(X \in E \wedge X \in F \mid  X \in E) \\
-    &= \Pr(X \in E \cap F \mid  X \in X \in E) = \Pr(E \cap F \mid  E) \\
+    P(F \mid  E) & = P(X \in F \mid  X \in E) = P(X \in E \wedge X \in F \mid  X \in E) \\
+    &= P(X \in E \cap F \mid  X \in X \in E) = P(E \cap F \mid  E) \\
     &= \frac{|E \cap F|}{|E|}
   \end{align*}\]
 
   + example: fair die again
-    + $\Pr(\text{ Prime } \mid  \text{ Odd }) = \Pr(\{2, 3, 5\} \mid  \{1, 3, 5\}) = \frac{|\{2, 3, 5\} \cap \{1, 3, 5\}|}{|\{1, 3, 5\}|} = \frac{|\{3, 5\}|}{|\{1, 3, 5\}|} = \frac{2}{3}$
-    + $\Pr(\{4\} \mid  \text{ Prime}) = \Pr(\{4\} \mid  \{2, 3, 5\}) = \frac{|\{4\} \cap \{2, 3, 5\}|}{|\{2, 3, 5\}|} = \frac{|\varnothing|}{|\{2, 3, 5\}|} = 0$
+    + $P(\text{ Prime } \mid  \text{ Odd }) = P(\{2, 3, 5\} \mid  \{1, 3, 5\}) = \frac{|\{2, 3, 5\} \cap \{1, 3, 5\}|}{|\{1, 3, 5\}|} = \frac{|\{3, 5\}|}{|\{1, 3, 5\}|} = \frac{2}{3}$
+    + $P(\{4\} \mid  \text{ Prime}) = P(\{4\} \mid  \{2, 3, 5\}) = \frac{|\{4\} \cap \{2, 3, 5\}|}{|\{2, 3, 5\}|} = \frac{|\varnothing|}{|\{2, 3, 5\}|} = 0$
 
 + General spaces
   
   \[\begin{align*}
-    \Pr(F \mid  E) &= \Pr(X \in F \mid  X \in E) \\
-      &= \Pr(X\in E \cap X \in F \mid  X \in E) = \Pr(X \in E \cap F \mid  X \in E) \\
-      &= \frac{n \cdot \Pr(E \cap F)}{n \cdot \Pr(E)} = \frac{\Pr(E \cap F)}{\Pr(E)}
+    P(F \mid  E) &= P(X \in F \mid  X \in E) \\
+      &= P(X\in E \cap X \in F \mid  X \in E) = P(X \in E \cap F \mid  X \in E) \\
+      &= \frac{n \cdot P(E \cap F)}{n \cdot P(E)} = \frac{P(E \cap F)}{P(E)}
   \end{align*}\]
 
   + example: Tetrahedral die = 4-sided die
 
     \[\begin{align*}
-      \Pr(\geq 2 \mid  \leq 3) &= \frac{\Pr(\geq 2 \cap \leq 3)}{\Pr(\leq 3)} = \frac{\Pr(\{2, 3, 4\}) \cap \{1, 2, 3\})}{\Pr(\{1, 2, 3\})} \\
-      &= \frac{\Pr(\{2, 3\})}{\Pr(\{1, 2, 3\})} = \frac{.5}{.6} = \frac{5}{6}
+      P(\geq 2 \mid  \leq 3) &= \frac{P(\geq 2 \cap \leq 3)}{P(\leq 3)} = \frac{P(\{2, 3, 4\}) \cap \{1, 2, 3\})}{P(\{1, 2, 3\})} \\
+      &= \frac{P(\{2, 3\})}{P(\{1, 2, 3\})} = \frac{.5}{.6} = \frac{5}{6}
     \end{align*}\]
 
 + Product rule
 
-  \[ \Pr(F \mid  E) = \frac{\Pr(E \cap F)}{\Pr(E)}  \to \Pr(E \cap F) = \Pr(E) \cdot \Pr(F \mid  E) \]
+  \[ P(F \mid  E) = \frac{P(E \cap F)}{P(E)}  \to P(E \cap F) = P(E) \cdot P(F \mid  E) \]
 
   + example: probability of both red?
     + urn: 1 blue, 2 reds
     + $R_1$: first ball red; $R_2$: second ball red
 
-      \[\Pr(\text{ both red }) = \Pr(R_1) \cdot \Pr(R_2 \mid  R_1) = \frac{2}{3} \cdot \frac{1}{2} \]
+      \[P(\text{ both red }) = P(R_1) \cdot P(R_2 \mid  R_1) = \frac{2}{3} \cdot \frac{1}{2} \]
 
 + General product rule
 
   \[\begin{align*}
-    \Pr(E \cap  F \cap G) &= \Pr((E \cap G) \cap G) = \Pr(E \cap F) \cdot \Pr(G \mid  E \cap F) \\
-    &= \Pr(E) \cdot \Pr(F \mid  E) \cdot \Pr(G \mid  E \cap F)
+    P(E \cap  F \cap G) &= P((E \cap G) \cap G) = P(E \cap F) \cdot P(G \mid  E \cap F) \\
+    &= P(E) \cdot P(F \mid  E) \cdot P(G \mid  E \cap F)
   \end{align*}\]
 
 + Conditionals are probabilities too
-  + Non-negativity: $\Pr(B \mid  A) \geq 0$
-  + Unitarity: $\Pr(\Omega \mid  A) = 1$
-  + Addition: B, C disjoint $\to \Pr(B \cup C \mid  A) = \Pr(B \mid  A) + \Pr(C \mid  A)$
+  + Non-negativity: $P(B \mid  A) \geq 0$
+  + Unitarity: $P(\Omega \mid  A) = 1$
+  + Addition: B, C disjoint $\to P(B \cup C \mid  A) = P(B \mid  A) + P(C \mid  A)$
 
 
 + [Original Slides](https://tinyurl.com/y98gt8qw)
@@ -81,54 +81,54 @@
 
 ### Problem Sets
 
-0. Let A and B be two positive-probability events. Does \Pr(A\mid B)>\Pr(A) imply \Pr(B\mid A)>\Pr(B)?<br/>
+0. Let A and B be two positive-probability events. Does $P(A\mid B)>P(A) \implies P(B\mid A)>P(B)$?<br/>
   a. Yes<br/>
   b. Not necessarily<br/>
 
   Ans: <span style="color: magenta;">a</span><br/>
-  Explanation: Yes. $\Pr(A\mid B)=\Pr(A,B) / \Pr(B)$ and $\Pr(B\mid A)=\Pr(A,B) / \Pr(A)$. Hence, $\Pr(A\mid B)>\Pr(A) \iff \Pr(A,B)>\Pr(A) * \Pr(B) \iff \Pr(B\mid A)>\Pr(B)$.
+  Explanation: Yes. $P(A\mid B)=P(A,B) / P(B)$ and $P(B\mid A)=P(A,B) / P(A)$. Hence, $P(A\mid B)>P(A) \iff P(A,B)>P(A) * P(B) \iff P(B\mid A)>P(B)$.
 
 
-1. Suppose $\Pr(A)>0$. Find $\Pr(B\mid A)$ when:<br/>
+1. Suppose $P(A)>0$. Find $P(B\mid A)$ when:<br/>
   a. $B=A$,<br/>
   b. $B \supseteq A$,<br/>
   c. $B=\Omega$,<br/>
-  d. $B=A \subset $,<br/>
+  d. $B=A^c$,<br/>
   e. $A∩B= \varnothing$,<br/>
   f. $B= \varnothing$.<br/>
 
   Ans: a. (1); b. (1); c. (1); d. (0); d. (0); e. (0)<br/>
   Explanation:
-    + Given that $A$ happens, $B$ must happens. Hence $\Pr(B\mid A)=1$.
+    + Given that $A$ happens, $B$ must happens. Hence $P(B\mid A)=1$.
     + Same as above.
     + Same as above.
-    + Given that $A$ happens, $B$ can never happens. Hence $\Pr(B\mid A)=0$.
+    + Given that $A$ happens, $B$ can never happens. Hence $P(B\mid A)=0$.
     + Same as above.
     + Same as above.
 
 
-2. If \(A\) and \(B\) are disjoint positive-probability events, then \(\Pr(A\mid B)\)=<br/>
-  a. \(\Pr(A)\),<br/>
-  b. \(\Pr(B\mid A)\),<br/>
-  c. \(\Pr(A\cup B)\),<br/>
-  d. \(\Pr(A\cap B)\).<br/>
+2. If \(A\) and \(B\) are disjoint positive-probability events, then \(P(A\mid B)\)=<br/>
+  a. \(P(A)\),<br/>
+  b. \(P(B\mid A)\),<br/>
+  c. \(P(A\cup B)\),<br/>
+  d. \(P(A\cap B)\).<br/>
 
-  Ans: bc<br>
-  Explanation: Since $A$ and $B$ are disjoint, $\Pr(A\mid B)=0$. $\Pr(A\ \cap B)=\Pr(B\mid A)=0$, while $\Pr(A)$ and $\Pr(A∪B)$ are positive as $A$ and $B$ are positive-probability events.
+  Ans: bd<br>
+  Explanation: Since $A$ and $B$ are disjoint, $P(A\mid B)=0$. $P(A\ \cap B)=P(B\mid A)=0$, while $P(A)$ and $P(A∪B)$ are positive as $A$ and $B$ are positive-probability events.
 
 
-3. Given events $A$, $B$ with $\Pr(A)=0.5$, $\Pr(B)=0.7$, and $\Pr(A \cap B)=0.3$ , find:<br/>
-  a. $\Pr(A\mid B)$ ,<br/>
-  b. $\Pr(B\mid A)$ ,<br/>
-  c. $\Pr(A^c\mid B^c)$ ,<br/>
-  d. $\Pr(B^c\mid A^c)$ .<br/>
+3. Given events $A$, $B$ with $P(A)=0.5$, $P(B)=0.7$, and $P(A \cap B)=0.3$ , find:<br/>
+  a. $P(A\mid B)$ ,<br/>
+  b. $P(B\mid A)$ ,<br/>
+  c. $P(A^c\mid B^c)$ ,<br/>
+  d. $P(B^c\mid A^c)$ .<br/>
 
   Ans: a. (3/7); b. (3/5); c. (1/3); d. (1/5)<br/>
   Explanation: 
-    + $\Pr(A\mid B)=\Pr(A \cap B)/\Pr(B)=0.3/0.7=3/7$.
-    + $\Pr(B\mid A)=\Pr(B \cap A)/\Pr(A)=0.3/0.5=3/5$.
-    + $\Pr(A^c\mid B^c)=\Pr(A^c \cap B^c)/\Pr(B^c)=0.1/0.3=1/3$.
-    + $\Pr(B^c\mid A^c)=\Pr(B^c \cap A^c)/\Pr(A^c)=0.1/0.5=1/5$.  
+    + $P(A\mid B)=P(A \cap B)/P(B)=0.3/0.7=3/7$.
+    + $P(B\mid A)=P(B \cap A)/P(A)=0.3/0.5=3/5$.
+    + $P(A^c\mid B^c)=P(A^c \cap B^c)/P(B^c)=0.1/0.3=1/3$.
+    + $P(B^c\mid A^c)=P(B^c \cap A^c)/P(A^c)=0.1/0.5=1/5$.  
 
 
 4. Find the probability that the outcome of a fair-die roll is at least 5, given that it is at least 4.<br/>
@@ -138,7 +138,7 @@
   d. \(\frac{1}{2}\)<br/>
 
   Ans: a<br/>
-  Explanation: $\Pr(\text{at least 5 }\mid \text { at least 4})=\Pr(\text{at least 5 } \cap \text{ at least 4})\Pr(\text{ at least 4 })=\Pr(\text{ at least 5 })\Pr(\text{ at least 4 })=2/3$.
+  Explanation: $P(\text{at least 5 }\mid \text { at least 4})=P(\text{at least 5 } \cap \text{ at least 4})P(\text{ at least 4 })=P(\text{ at least 5 })P(\text{ at least 4 })=2/3$.
 
 
 5. Two balls are painted red or blue uniformly and independently. Find the probability that both balls are red if:<br/>
@@ -147,8 +147,8 @@
 
   Ans: a. (1/3); b(0.5)<br/>
   Explanation:
-    + $\Pr(2R\mid  \text{ at least 1R })=\frac{\Pr( \text{ 2R } \cap \text{ at least 1R })}{\Pr( \text{ at least 1R })} = \frac{\Pr(2R)}{\Pr(\text{ at least 1R })}= \frac{1/4}{3/4}=\frac{1}{3}$.
-    + $\Pr(2R\mid  \text{ random ball is R} )= \Pr(2R \wedge \text{ random ball is R }) \Pr(\text{ random ball is R })=\Pr(2R)\Pr(\text{ random ball is R })=\frac{1/4}{1/2}=\frac{1}{2}$.
+    + $P(2R\mid  \text{ at least 1R })=\frac{P( \text{ 2R } \cap \text{ at least 1R })}{P( \text{ at least 1R })} = \frac{P(2R)}{P(\text{ at least 1R })}= \frac{1/4}{3/4}=\frac{1}{3}$.
+    + $P(2R\mid  \text{ random ball is R} )$ $= P(2R \wedge \text{ random ball is R }) P(\text{ random ball is R })$ $=P(2R)P(\text{ random ball is R })$ $=\frac{1/4}{1/2}$ $=\frac{1}{2}$.
 
 
 6. Three fair coins are sequentially tossed. Find the probability that all are heads if:<br/>
@@ -158,16 +158,16 @@
 
   Ans: a. (0); b. (1/4); c. (1/7)<br/>
   Explanation:
-    + If the first coin is tails, it's impossible for all coins to be heads, hence the probability is 0. More formally, $\Pr(X_1 \cap X_2 \cap X_3\mid \overline{X_3}) = \frac{\Pr(X_1 \cap X_2 \cap X_3 \cap \overline{X_3})}{\Pr(\overline{X_3})= \frac{\Pr(\varnothing)}{\Pr(\overline{X_3})= \frac{0}{1/2}=0$.
-    + First intuitively, if the first coin is heads, then all are heads iff the second and third coins are heads, which by independence of coin flips happens with probability $\frac{1}{2} \cdot \frac{1}{2}=14$.  A bit more formally, let $X_1,X_2,X_3$ be the events that the first, second, and third coin is heads. Then $\Pr(X_1 \cap X_2 \cap X_3\mid X_1)=\frac{\Pr(X_1 \cap X_2 \cap X_3 \cap X_1)}{\Pr(X_1)}=\frac{\Pr(X_1 \cap X_2 \cap X_3)}{\Pr(X_1)}=\frac{1/8}{1/2}=\frac{1}{4}$.
-    + First intuitively, there are seven possible outcome triples where at least one of the coins is heads, and only one of them has all heads. Hence the probability of all heads given that one is heads is $1/7$.  More formally, $\Pr(X_1 \cap X_2 \cap X_3\mid X_1 \cup X_2 \cup X_3)=\frac{\Pr((X_1 \cap X_2 \cap X_3) \cap (X_1 \cup X_2 \cup X_3))}{\Pr(X_1 \cup X_2 \cup X_3)}=\frac{\Pr(X_1 \cap X_2 \cap 3)}{\Pr(X_1 \cup X_2 \cup X_3)}=\frac{1/8}{7/8}=\frac{1}{7}$.
+    + If the first coin is tails, it's impossible for all coins to be heads, hence the probability is 0. More formally, $P(X_1 \cap X_2 \cap X_3\mid \overline{X_3}) $ $= \frac{P(X_1 \cap X_2 \cap X_3 \cap \overline{X_3})}{P(\overline{X_3})}$ $= \frac{P(\varnothing)}{P(\overline{X_3}})$ $= \frac{0}{1/2}=0$.
+    + First intuitively, if the first coin is heads, then all are heads iff the second and third coins are heads, which by independence of coin flips happens with probability $\frac{1}{2} \cdot \frac{1}{2}=14$.  A bit more formally, let $X_1,X_2,X_3$ be the events that the first, second, and third coin is heads. Then $P(X_1 \cap X_2 \cap X_3\mid X_1)=\frac{P(X_1 \cap X_2 \cap X_3 \cap X_1)}{P(X_1)}=\frac{P(X_1 \cap X_2 \cap X_3)}{P(X_1)}=\frac{1/8}{1/2}=\frac{1}{4}$.
+    + First intuitively, there are seven possible outcome triples where at least one of the coins is heads, and only one of them has all heads. Hence the probability of all heads given that one is heads is $1/7$.  More formally, $P(X_1 \cap X_2 \cap X_3\mid X_1 \cup X_2 \cup X_3)=\frac{P((X_1 \cap X_2 \cap X_3) \cap (X_1 \cup X_2 \cup X_3))}{P(X_1 \cup X_2 \cup X_3)}=\frac{P(X_1 \cap X_2 \cap 3)}{P(X_1 \cup X_2 \cup X_3)}=\frac{1/8}{7/8}=\frac{1}{7}$.
 
 
 7. A 5-card poker hand is drawn randomly from a standard 52-card deck. Find the probability that:<br/>
   a. all cards in the hand are  ≥7  (7, 8,..., K, Ace), given that the hand contains at least one face card (J, Q, or K),<br/>
   b. there are exactly two suits given that the hand contains exactly one queen.<br/>
 
-  Ans: a. (<span style="color: magenta;">0.0957</span>); b. (0.16153846)<br/>
+  Ans: a. (<span style="color: magenta;">0.0957</span>); b. (0.1562)<br/>
   Explanation:
     + There are where $4 \cdot (13−3)=40$ non-face cards, hence $\tbinom{40}{5}$ hands without face cards. Therefore, of the $\tbinom{52}{5}$ hands, $\binom{52}{5}-\binom{40}{5}$ hands contain a face card.  Similarly, there are $\tbinom{32}{5}$ hands consisting of cards $\geq 7$, of which $\tbinom{20}{5}$ contain no face cards, and $\tbinom{32}{5} − \tbinom{20}{5}$ hands contain a face card. Hence, the requested probability is  $\frac{\tbinom{32}{5} − \tbinom{20}{5}}{\tbinom{52}{5}−\tbinom{40}{5}}=0.0957$
     + There are $4 \cdot \tbinom{48}{4}$ hands with exactly one queen.  To count the number of hands with exactly one queen and two suites, observe that there are 4 ways to choose the queen, then 3 ways to select the other suit, and from the $26−2=24$ non-queens of these two suits, $\tbinom{24}{4}$ ways to select the remaining 4 cards, but of those, $\tbinom{12}{4}$ hands will have all cards of the same suit as the queen. Hence there are $4 \cdot 3 \cdot \left(\tbinom{24}{4}−\tbinom{12}{4}\right)$  ways to select cards with exactly one queen and two suits.  The desired probability is therefore, $\frac{4 \cdot 3 \cdot \left(\tbinom{24}{4}−\tbinom{12}{4}\right)}{4 \cdot \tbinom{48}{4}}=0.156$.
@@ -181,53 +181,53 @@
 
 
 ## 6.2 Independence
-
+ 
 + Motivation
-  + $\Pr(F \mid  E) > \Pr(F)$
+  + $P(F \mid  E) > P(F)$
     + $E \nearrow$ probability of $F$
-    + e.g., $\Pr(2 \mid  \text{Even}) = 1/3 > 1/6 = \Pr(2)$
-  + $\Pr(F  \mid   E) < \Pr(F)$
+    + e.g., $P(2 \mid  \text{Even}) = 1/3 > 1/6 = P(2)$
+  + $P(F  \mid   E) < P(F)$
     + $E \searrow$ probability of $F$
-    + $\Pr(2 \mid  \text{Odd}) = 0 < 1/6 = \Pr(2)$
-  + $\Pr(F \mid  E) = \Pr(F)$
+    + $P(2 \mid  \text{Odd}) = 0 < 1/6 = P(2)$
+  + $P(F \mid  E) = P(F)$
     + $E$ neither $\nearrow$ nor $\searrow$ probability of $F$
-    + e.g., $\Pr(\text{Even} \mid  \leq 4) = 1/2 = \Pr(\text{Even})$
+    + e.g., $P(\text{Even} \mid  \leq 4) = 1/2 = P(\text{Even})$
     + whether or not $E$ occurs, does not change $\mid Pr(F)$
   + motivation $\to$ intuitive definition $\to$ formal
 
 + Independence - Intuitive
   + informal definition: (independence) Events $E$ and $F$ are <span style="color: magenta;">independent</span> (<span style="color: magenta;">$ E {\perp \!\!\!\! \perp} F$</span>) if occurrence of one does not change the probability  that the other occurs.
-  + more formally, $\Pr(F \mid  E) = \Pr(F)$
+  + more formally, $P(F \mid  E) = P(F)$
   + visual interpretation
-    + $\Pr(F) = \frac{\Pr(F)}{\Pr(\Omega)}$: $F$ as a fraction of $\Omega$
-    + $\Pr(F \mid  E) \triangleq \frac{\Pr(E \cap F)}{\Pr(E)}$: $E \cap F$ as a fraction of $E$
+    + $P(F) = \frac{P(F)}{P(\Omega)}$: $F$ as a fraction of $\Omega$
+    + $P(F \mid  E) \triangleq \frac{P(E \cap F)}{P(E)}$: $E \cap F$ as a fraction of $E$
 
       <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
         <a href="url" ismap target="_blank">
-          <img src="img/t06-01.png" style="margin: 0.1em;" alt="Visual interpretation of $\Pr(F\mid E)$" title="Visual interpretation of $\Pr(F\mid E)$" width=200>
+          <img src="img/t06-01.png" style="margin: 0.1em;" alt="Visual interpretation of $P(F\mid E)$" title="Visual interpretation of $P(F\mid E)$" width=200>
         </a>
       </div>
   
 + Independence - formal
   + informal
 
-    \[ \Pr(F) = \Pr(F \mid  E) \triangleq \dfrac{\Pr(E \cap F)}{\Pr(E)} \]
+    \[ P(F) = P(F \mid  E) \triangleq \dfrac{P(E \cap F)}{P(E)} \]
 
   + two issues:
-    + asymmetric: $\Pr(E \mid  F)$
-    + undefined if $\Pr(E) = 0$
-  + formal definition: (independent) $E$ and $F$ are <span style="color: magenta;">independent</span> if $\Pr(E \cap F) = \Pr(E) \cdot \Pr(F)$, otherwise, <span style="color: magenta;">dependent</span>
-  + symmetric and applied when $\Pr(\varnothing) = 0$
+    + asymmetric: $P(E \mid  F)$
+    + undefined if $P(E) = 0$
+  + formal definition: (independent) $E$ and $F$ are <span style="color: magenta;">independent</span> if $P(E \cap F) = P(E) \cdot P(F)$, otherwise, <span style="color: magenta;">dependent</span>
+  + symmetric and applied when $P(\varnothing) = 0$
   + $\implies$ to intuitive definition
-    + symmetric: $\Pr(F \mid  E) = \Pr(F) \quad \Pr(E \mid  F) = \Pr(E)$
-    + $\Pr(F \mid  \overline{E}) = \Pr(F) \quad \Pr(E \mid  \overline{F}) = \Pr(E)$
+    + symmetric: $P(F \mid  E) = P(F) \quad P(E \mid  F) = P(E)$
+    + $P(F \mid  \overline{E}) = P(F) \quad P(E \mid  \overline{F}) = P(E)$
 
 + Non-surprising independence
   + two coins
-    + $H_1$: first coin heads, $\Pr(H_1) = 1/2$
-    + $H_2$: second coin heads. $\Pr(H_2) = 1/2$
-    + $H_1 \cap H_2$: both coin heads, $\Pr(H_1 \cap H_2) = 1/4$
-    + $\Pr(H_1 \cap H_2) = 1/4 = \Pr(H_1) \cdot \Pr(H_2) \to H_1 {\perp \!\!\! \perp} H_2$
+    + $H_1$: first coin heads, $P(H_1) = 1/2$
+    + $H_2$: second coin heads. $P(H_2) = 1/2$
+    + $H_1 \cap H_2$: both coin heads, $P(H_1 \cap H_2) = 1/4$
+    + $P(H_1 \cap H_2) = 1/4 = P(H_1) \cdot P(H_2) \to H_1 {\perp \!\!\! \perp} H_2$
   + not surprising
     + two separate coins
     + "independent" experiments always
@@ -336,10 +336,10 @@
 
 + Independence of $\Omega$ and $\varnothing$
   + $\Omega {\perp \!\!\!\! \perp}$ of any event
-    + $\forall\,A \;\Pr(\Omega \cap A) = \Pr(A) = \Pr(\Omega) \cdot \Pr(A)$
+    + $\forall\,A \;P(\Omega \cap A) = P(A) = P(\Omega) \cdot P(A)$
     + $A$ occurring doesn't modify likelihood of $\Omega$
   + $\varnothing {\perp \!\!\!\! \perp}$ of any event
-    + $\forall\,A \;\Pr(\varnothing \cap A) = \Pr(\varnothing) = \Pr(\varnothing) \cdot \Pr(A)$
+    + $\forall\,A \;P(\varnothing \cap A) = P(\varnothing) = P(\varnothing) \cdot P(A)$
     + $A$ occurring doesn't modify likelihood of $\varnothing$
 
 
@@ -361,7 +361,7 @@
   b. Dependent<br/>
 
   Ans: a<br/>
-  Explanation: Let $X$ be the outcome of the first die and $Y$ be the outcome of the second die. $\Pr(X=1\mid X+Y=7)=1/6=\Pr(X=1)$. Hence, they are independent.
+  Explanation: Let $X$ be the outcome of the first die and $Y$ be the outcome of the second die. $P(X=1\mid X+Y=7)=1/6=P(X=1)$. Hence, they are independent.
 
 
 2. Of 10 students, 4 take only history, 3 take only math, and 3 take both history and math. If you select a student at random, the event that the student takes history and the event that the student takes math are:<br/>
@@ -369,12 +369,12 @@
   b. Dependent<br/>
 
   Ans: <span style="color: magenta;">b</span><br/>
-  Explanation: Let $H$ be the event that the student takes history, and $M$ the event that the student takes math. Then $\Pr(H)=7/10$, $\Pr(M)=6/10$, and $\Pr(H,M)=3/10$. Since $\Pr(H)\Pr(M) \neq \Pr(H,M)$, the two events are dependent.
+  Explanation: Let $H$ be the event that the student takes history, and $M$ the event that the student takes math. Then $P(H)=7/10$, $P(M)=6/10$, and $P(H,M)=3/10$. Since $P(H)P(M) \neq P(H,M)$, the two events are dependent.
 
 
 3. 4 freshman boys, 6 freshman girls, and 6 sophomore boys go on a trip. How many sophomore girls must join them if a student's gender and class are to be independent when a student is selected at random?
 
-  Ans:9 <br/>
+  Ans: 9 <br/>
   Explanation: 
     + First, let's do it the formal but hard way. Let $SG$ denote the number of sophomore girls. Then the total number of students is $4+6+6+SG=16+SG$.  If a student is selected at random, the probability that the student is a freshman is $4+616+SG$, the probability that a random student is a boy is $\frac{4+6}{16+SG}$, and the probability that the student is both a freshman and boy is $\frac{4}{16+SG}$. If the student's gender and class are independent, then by the product rule, the probability of the intersection is the product of the probabilities, hence $\frac{4}{16+SG}=\frac{4+6}{16+SG} \cdot \frac{4+6}{16+SG}$, hence $100=4 \cdot (16+SG)$, or $SG=9$.
     + Another way to see this is to observe that if the gender and class are independent, then the fraction of girls that are freshmen, namely $\frac{6}{6+SG}$ should be the same as the fraction of boys that are freshmen, namely $\frac{4}{4+6}=2/5$. Therefore $\frac{6}{6+SG}=2/5$, or $SG=9$. 
@@ -388,8 +388,8 @@
 
   Ans: ab<br/>
   Explanation: Intuitively: $A$ is independent of the null event because occurrence of $A$ doesn't change the 0 probability of the null event. Similarly $A$ is independent of $\Omega$ because occurrence of $A$ does not change the probability 1 of $\Omega$.  If $A$ has probability strictly between 0 and 1, then its occurrence changes the probability of both itself and $A^c$, implying dependence. Mathematically:
-    + True. $\Pr(\varnothing\mid A)=0=\Pr(\varnothing)$.
-    + True. $\Pr(A\mid \Omega)=\Pr(A \cap \Omega)\Pr(\Omega)=\Pr(A)\Pr(\Omega)=\Pr(A)$.
+    + True. $P(\varnothing\mid A)=0=P(\varnothing)$.
+    + True. $P(A\mid \Omega)=P(A \cap \Omega)P(\Omega)=P(A)P(\Omega)=P(A)$.
     + False.
     + False.
 
@@ -401,10 +401,10 @@
 
   Ans: ad<br/>
   Explanation
-    + True. If $A$ and $B^c$ are independent, $1−\Pr(B\mid A)=\Pr(B^c\mid A)=\Pr(B^c)=1−\Pr(B)$, which implies $\Pr(B\mid A)=\Pr(B)$.
+    + True. If $A$ and $B^c$ are independent, $1−P(B\mid A)=P(B^c\mid A)=P(B^c)=1−P(B)$, which implies $P(B\mid A)=P(B)$.
     + False.
     + False.
-    + True. For $\varnothing$, $\Pr(\varnothing\mid A)=0=\Pr(\varnothing)$. For $\Omega$, $\Pr(A\mid \Omega)=\frac{\Pr(A \cap\Omega)}{\Pr(\Omega)}=\frac{\Pr(A)}{\Pr(\Omega)}=\Pr(A)$. $\varnothing$ and $\Omega$ are independent with any sets.
+    + True. For $\varnothing$, $P(\varnothing\mid A)=0=P(\varnothing)$. For $\Omega$, $P(A\mid \Omega)=\frac{P(A \cap\Omega)}{P(\Omega)}=\frac{P(A)}{P(\Omega)}=P(A)$. $\varnothing$ and $\Omega$ are independent with any sets.
 
 6. When rolling two dice, which of the following events are independent of the event that the first die is 4:<br/>
   a. the second is 2,<br/>
@@ -414,24 +414,24 @@
 
   Ans: acd<br/>
   Explanation: Let  X  be the outcome of the first dice, and  Y  be the second one.
-    + True.  $\Pr(X=4\mid Y=2)=\Pr(X=4)=1/6$.
-    + False. $\Pr(X+Y=6\mid X=4)=1/6 .  \Pr(X+Y=6)=5/36 .  \Pr(X+Y=6) \neq \Pr(X+Y=6\mid Y=4)$.
-    + True.  $\Pr(X+Y=6\mid X=4)=1/6=\Pr(X+Y=7)$.
-    + True.  $\Pr(X+Y \text{ is even } \mid X=4)=\Pr(Y \text{ is even })=1/2=\Pr(X+Y \text{ is even })$.
+    + True.  $P(X=4\mid Y=2)=P(X=4)=1/6$.
+    + False. $P(X+Y=6\mid X=4)=1/6 .  P(X+Y=6)=5/36 .  P(X+Y=6) \neq P(X+Y=6\mid Y=4)$.
+    + True.  $P(X+Y=6\mid X=4)=1/6=P(X+Y=7)$.
+    + True.  $P(X+Y \text{ is even } \mid X=4)=P(Y \text{ is even })=1/2=P(X+Y \text{ is even })$.
 
 
 7. Roll two dice, and let $F_e$ be the event that the first die is even, $S_4$ the event that the second die is 4, and $\Sigma_o$ the event that the sum of the two dice is odd. Which of the following events are independent:<br/>
   a. $F_e$ and $S_4$,<br/>
   b. $F_e$ and $\Sigma_o$,<br/>
   c. $S_4$ and $\Sigma_o$,<br/>
-  d. $F_e$, $S_4$, and $\Sigma_o$ (mutually independent)$?<br/>
+  d. $F_e$, $S_4$, and $\Sigma_o$ (mutually independent)?<br/>
   
   Ans: abc<br/>
   Explanation
-    + True.  $\Pr(F_e,S_4)=1/12, \Pr(F_e)=1/2, \Pr(S4)=1/6$. As $\Pr(F_e,S_4)= \Pr(F_e)\Pr(S_4)$, $F_e$ and $S_4$ are independent.
-    + True.  $\Pr(F_e,\Sigma_o)=1/4, \Pr(F_e)=1/2, \Pr(\Sigma_o)=1/2$. As $\Pr(F_e,\Sigma_o) = \Pr(F_e) \Pr(\Sigma_o)$, $F_e$ and $\Sigma_o$ are independent.
-    + True.  $\Pr(S_4,\Sigma_o)=1/12, \Pr(S4)=1/6, \Pr(\Sigma_o)=1/2$. As $\Pr(S_4,\Sigma_o)= \Pr(S_4) \Pr(\Sigma_o)$, $S_4$ and $\Sigma_o$ are independent.
-    + False. $\Pr(F_e,S_4,\Sigma_o)=0 \neq \Pr(F_e) \Pr(S_4) \Pr(\Sigma_o)$.
+    + True.  $P(F_e,S_4)=1/12, P(F_e)=1/2, P(S4)=1/6$. As $P(F_e,S_4)= P(F_e)P(S_4)$, $F_e$ and $S_4$ are independent.
+    + True.  $P(F_e,\Sigma_o)=1/4, P(F_e)=1/2, P(\Sigma_o)=1/2$. As $P(F_e,\Sigma_o) = P(F_e) P(\Sigma_o)$, $F_e$ and $\Sigma_o$ are independent.
+    + True.  $P(S_4,\Sigma_o)=1/12, P(S4)=1/6, P(\Sigma_o)=1/2$. As $P(S_4,\Sigma_o)= P(S_4) P(\Sigma_o)$, $S_4$ and $\Sigma_o$ are independent.
+    + False. $P(F_e,S_4,\Sigma_o)=0 \neq P(F_e) P(S_4) P(\Sigma_o)$.
 
 
 8. Two dice are rolled. Let $F_3$ be the event that the first die is 3, $S_4$ the event that the second die is 4, and $\Sigma_7$ the event that the sum is 7. Which of the following are independent:<br/>
@@ -442,10 +442,10 @@
 
   Ans: abc<br/>
   Explanation
-    + True.  $\Pr(F_3,S_4)=1/36, \Pr(F_3)=1/6, \Pr(S_4)=1/6$. As $\Pr(F_3,S_4)=\Pr(F_3)\Pr(S_4)$, $F_3$ and $S_4$ are independent.
-    + True.  $\Pr(F_3,\Sigma_7)=1/36, \Pr(F_3)=1/6, \Pr(\Sigma_7)=1/6$. As $\Pr(F_3,\Sigma_7)=\Pr(F_3)\Pr(\Sigma_7)$, $F_3$ and $\Sigma_7$ are independent.
-    + True.  $\Pr(S_4,\Sigma_7)=1/36, \Pr(S_4)=1/6, \Pr(\Sigma_7)=1/6$. As $\Pr(S_4,\Sigma_7)=\Pr(S_4)\Pr(\Sigma_7)$, $S_4$ and $\Sigma_7$ are independent.
-    + False. $\Pr(F_3,S_4,\Sigma_7)=1/36 \neq \Pr(F_3) \Pr(S_4) \Pr(\Sigma_7)=\frac{1}{6}\frac{1}{6}\frac{1}{6}=1/216$.
+    + True.  $P(F_3,S_4)=1/36, P(F_3)=1/6, P(S_4)=1/6$. As $P(F_3,S_4)=P(F_3)P(S_4)$, $F_3$ and $S_4$ are independent.
+    + True.  $P(F_3,\Sigma_7)=1/36, P(F_3)=1/6, P(\Sigma_7)=1/6$. As $P(F_3,\Sigma_7)=P(F_3)P(\Sigma_7)$, $F_3$ and $\Sigma_7$ are independent.
+    + True.  $P(S_4,\Sigma_7)=1/36, P(S_4)=1/6, P(\Sigma_7)=1/6$. As $P(S_4,\Sigma_7)=P(S_4)P(\Sigma_7)$, $S_4$ and $\Sigma_7$ are independent.
+    + False. $P(F_3,S_4,\Sigma_7)=1/36 \neq P(F_3) P(S_4) P(\Sigma_7)=\frac{1}{6}\frac{1}{6}\frac{1}{6}=1/216$.
 
 
 ### Lecture Video
@@ -460,34 +460,34 @@
 + Product / chain rule
   + conditional probability
 
-    \[ \Pr(F \mid  E) = \frac{\Pr(E \cap F)}{\Pr(E)} \to \Pr(E \cap F) = \Pr(E) \cdot \Pr(F \mid  E) \]
+    \[ P(F \mid  E) = \frac{P(E \cap F)}{P(E)} \to P(E \cap F) = P(E) \cdot P(F \mid  E) \]
 
   + helping to calculate regular (not conditional) probabilities
 
 + Sequential selections
   + urn: 1 blue, 2 red balls
   + draw 2 balls w/o replacement
-  + task: $\Pr(\text{ both red }) = ?$
+  + task: $P(\text{ both red }) = ?$
   + Solution:
     + $R_i$: $i$-th ball is red
-    + $\Pr(\text{both red}) = \Pr(R_1, R_2) = \Pr(R_1) \cdot \Pr(R_2 \mid  R_1) = \frac{2}{3} \cdot \frac{1}{2} = \frac{1}{3}$
+    + $P(\text{both red}) = P(R_1, R_2) = P(R_1) \cdot P(R_2 \mid  R_1) = \frac{2}{3} \cdot \frac{1}{2} = \frac{1}{3}$
 
 + General product rule
 
   \[\begin{align*}
-    \Pr(E \cap F \cap G) &=  \Pr((E \cap F) \cap G) = \Pr(E \cap F) \cdot \Pr(G \mid  E \cap F) \\
-    &= \Pr(E) \cdot \Pr(D \mid  E) \cdot \Pr(G \mid  E \cap F)
+    P(E \cap F \cap G) &=  P((E \cap F) \cap G) = P(E \cap F) \cdot P(G \mid  E \cap F) \\
+    &= P(E) \cdot P(D \mid  E) \cdot P(G \mid  E \cap F)
   \end{align*}\]
 
   + example: odd ball
     + $n-1$ red balls and one blue ball
     + pick $n$ balls w/o replacement
-    + $\Pr(\text{last ball is blue}) = ?$
+    + $P(\text{last ball is blue}) = ?$
       + $R_i$: $i$-th ball is red
       + $R^i = R_1, R_2, \cdots, R_i$
 
         \[\begin{align*}
-          \Pr(\text{last ball blue}) &= \Pr(R_1)\Pr(R_2 \mid  R_1)\Pr(R_3 \mid  R^2) \cdots \Pr(R_{n-1} \mid  R^{n-2}) \\
+          P(\text{last ball blue}) &= P(R_1)P(R_2 \mid  R_1)P(R_3 \mid  R^2) \cdots P(R_{n-1} \mid  R^{n-2}) \\
           &= \frac{n-1}{n}\frac{n-2}{n-1}\frac{n-3}{n-2} \cdots \frac{2}{3}\frac{1}{2} = \frac{1}{n}
         \end{align*}\]
 
@@ -509,7 +509,7 @@
     + set of all possible birthdays sequences: $\Omega = \{1, 2, \dots, 365\}^n \to |\Omega| = 365^n$
     + individual birthday uniform $\to \Omega$ uniform
     + $B_n = \{\text{sequences w/ repetition}\}$
-    + $\Pr(\text{ repetition }) = |B_n| / |\Omega| \to$ evaluating $|B_n|$ involved
+    + $P(\text{ repetition }) = |B_n| / |\Omega| \to$ evaluating $|B_n|$ involved
   + complement
     + $B_n$: $n$ people w/ birthday repetition
     + $B_n^c$: $n$ people, no two share a birthday
@@ -519,7 +519,7 @@
     + among $n$ people
 
       \[\begin{align*}
-        \Pr\left(\substack{\text{ no two people}\\ \text{share a birthday}}\right) &= \frac{364}{365} \cdot \frac{363}{365} \cdots \frac{365-n+1}{365} = \prod_{i=1}^{n-1} \left(1 - \frac{i}{365}\right) \quad (1-x \leq e^{-x})\\
+        P\left(\substack{\text{ no two people}\\ \text{share a birthday}}\right) &= \frac{364}{365} \cdot \frac{363}{365} \cdots \frac{365-n+1}{365} = \prod_{i=1}^{n-1} \left(1 - \frac{i}{365}\right) \quad (1-x \leq e^{-x})\\
         &\leq \prod_{i=1}^{n-1} e^{-\frac{i}{365}} = \exp\left( -\frac{1}{365} \cdot \sum_{i=1}^{n-1} i \right) = \exp\left( -\frac{n(n-1)}{2 \cdot 365} \right) \\
         &\approx \exp\left( -\frac{n^2}{2 \cdot 365} \right) = 0.5
       \end{align*}\]
@@ -540,7 +540,7 @@
 
 ### Problem Sets
 
-0. The equality $\Pr(A \cap B)=\Pr(A)\Pr(B)$ holds whenever the events A and B are<br/>
+0. The equality $P(A \cap B)=P(A)P(B)$ holds whenever the events A and B are<br/>
   a. independent<br/>
   b. disjoint<br/>
   c. intersecting<br/>
@@ -572,10 +572,11 @@
   c. What is the probability of observing 7 red and 9 black balls?<br/>
 
   Ans: a. (1/60); b. (1/6); c. (1/17)<br/>
+  Hint: (Part b) Note that any sequence with 3 red and 2 black balls, e.g. r,r,r,b,b is observed with the same probability.
   <span style="color: magenta;">Explanation</br>
-    + $\Pr(r,b,b,r,r)=\Pr(r) \cdot \Pr(b\mid r) \cdot \Pr(b\mid r,b) \cdot \Pr(r\mid r,b,b) \cdot \Pr(r\mid r,b,b,r)=1/2 \cdot 1/3 \cdot2/4 \cdot 2/5 \cdot 3/6=160=0.01666 \cdots$
+    + $P(r,b,b,r,r)$ $=P(r) \cdot P(b\mid r) \cdot P(b\mid r,b) \cdot P(r\mid r,b,b) \cdot P(r\mid r,b,b,r)$ $=1/2 \cdot 1/3 \cdot2/4 \cdot 2/5 \cdot 3/6$ $=1/60=0.01667$
     + any sequence with 3 red and 2 black balls, e.g. r,r,r,b,b is observed with the same probability.
-    + t can be verified that for any sequence with $n_r$ red balls and $n_b$ black balls, the probability $p=n_r! \cdot n_b!/(n_r+n_b+1)!$.  Hence the probability of observing $n_r$ red balls and $n_b$ black balls is <span style="color: cyan;">$\tfrac{n_r! \cdot n_b!}{(n_r+n_b+1)!} \tbinom{n_r+n_b}{n_b}=\frac{1}{n_r+n_b+1}$</span>.
+    + It can be verified that for any sequence with $n_r$ red balls and $n_b$ black balls, the probability $p=n_r! \cdot n_b!/(n_r+n_b+1)!$.  Hence the probability of observing $n_r$ red balls and $n_b$ black balls is <span style="color: cyan;">$\tfrac{n_r! \cdot n_b!}{(n_r+n_b+1)!} \tbinom{n_r+n_b}{n_b}=\frac{1}{n_r+n_b+1}$</span>.
     + [StackExchange](https://tinyurl.com/yc8x5e6j)
 
 
@@ -598,7 +599,11 @@
   d. 4/7<br/>
 
   Ans: d<br/>
-  Explanation: This can be done in two simple ways. First, by symmetry. There are 4 white balls and 3 blue balls. The second ball picked is equally likely to be any of the 7 balls, hence the probability that it is white is 4/7. Second, by total probability. The probability that the second ball is white is the probability that the first is white and the second is white namely $47 \cdot 36$, plus the probability that the first is blue and the second is white, namely $37 \cdot 46$, and $47 \cdot 36+37 \cdot 46=47$. Note that the first, symmetry, argument is easier to extend to the third ball picked etc. But both derivation are of interest, and you may want to use the total-variation for a general case with W white balls and R red balls.
+  Hint: This problem can be solved using basic symmetry agruments, or using total probability discussed in the next section.<br/>
+  Explanation: This can be done in two simple ways.
+    + First, by symmetry. There are 4 white balls and 3 blue balls. The second ball picked is equally likely to be any of the 7 balls, hence the probability that it is white is 4/7.
+    + Second, by total probability. The probability that the second ball is white is the probability that the first is white and the second is white namely $\frac47 \cdot \frac36$, plus the probability that the first is blue and the second is white, namely $\frac37 \cdot \frac46$, and $\frac47 \cdot \frac36+\frac37 \cdot \frac46=\frac47$. Note that the first, symmetry, argument is easier to extend to the third ball picked etc. But both derivation are of interest, and you may want to use the total-variation for a general case with W white balls and R red balls.
+    + [Find probability of specific ball getting selected on second turn](https://tinyurl.com/yya2refb)
 
 
 6. An urn contains  15  white and  20  black balls. The balls are withdrawn randomly, one at a time, until all remaining balls have the same color. Find the probability that:<br/>
@@ -606,6 +611,7 @@
   b. there are 5 remaining balls.<br/>
 
   Ans: a. (<span style="color: magenta;">3/7</span>); b. (<span style="color: magenta;">0.0300463</span>)<br/>
+  Hint: If you drew all balls, with what probability would the last be white?<br/>
   Explanation:
     + [StackExchange](https://tinyurl.com/y7v3tury)
 
@@ -616,9 +622,12 @@
         <a href="https://tinyurl.com/y7v3tury" ismap target="_blank">
           <img src="https://i.stack.imgur.com/KAla7.jpg" style="margin: 0.1em;" alt="Derivative of probability w/ remaining while balls" title="Derivative of probability w/ remaining while balls" width=450>
         </a>
+        <a href="https://tinyurl.com/y7v3tury" ismap target="_blank">
+          <img src="https://i.stack.imgur.com/c3YtL.jpg" style="margin: 0.1em;" alt="Derivative of probability w/ remaining while balls" title="Derivative of probability w/ remaining while balls" width=450>
+        </a>
       </div>
 
-    + Let $S$ be the sequence of balls you draw, for example $S$ could be $BWWBW \cdot$), with $B$ being a black ball, $W$ being a white ball. $S$ is of length $35$.  The remaining colors will be all white iff the last ball of $S$ is white, which happens with probability $15/35$.
+    + Let $S$ be the sequence of balls you draw, for example $S$ could be $BWWBW \cdots$, with $B$ being a black ball, $W$ being a white ball. $S$ is of length $35$.  The remaining colors will be all white iff the last ball of $S$ is white, which happens with probability $15/35$.
     + Since there are five balls left, the last five balls need to be of the same color, and the ball just before them, of a different color. That is, the last 6 positions of $S$ should be either $BWWWWW$ or $WBBBBB$. Hence, the answer is $(\tbinom{29}{10}+\tbinom{29}{15})/\tbinom{35}{15}=0.03$.
 
 
@@ -651,12 +660,12 @@
   + add probabilities
 
 + Law of total probability
-  + $\exists\, E, F$ events, $\Pr(F) = ?$
+  + $\exists\, E, F$ events, $P(F) = ?$
   + $F = (E \cap F) \cup (E^c \cap F)$ s.t.
 
     \[\begin{align*}
-      \Pr(F) &= \Pr()E \cap F) + \Pr(E^c \cap F)  \quad (\text{Product rule}) \\
-      &= \Pr(E) \cdot \Pr(F \mid  E) + \Pr(E^c) \cdot \Pr(F \mid  E^c)
+      P(F) &= P()E \cap F) + P(E^c \cap F)  \quad (\text{Product rule}) \\
+      &= P(E) \cdot P(F \mid  E) + P(E^c) \cdot P(F \mid  E^c)
     \end{align*}\]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -667,12 +676,12 @@
 
   + example: 2 fair coins
     + $H_i$: coin $i$ w/ h
-    + $\exists H$: at least one h, e.g., {hh, ht, th, tt} $\Pr(\exists H) = \frac{|\exists H|}{|\Omega|} = \frac{3}{4}$
-    + $\Pr(\exists H) = ?$
+    + $\exists H$: at least one h, e.g., {hh, ht, th, tt} $P(\exists H) = \frac{|\exists H|}{|\Omega|} = \frac{3}{4}$
+    + $P(\exists H) = ?$
 
       \[\begin{align*}
-        \Pr(\exists H) &= \Pr(H_1 \cap \exists H) + \Pr(H_1^c \cap \exists H) \\
-        &= \Pr(H_1) \cdot \Pr(\exists H \mid  H_1) + \Pr(H_1^c) \cdot \Pr(\exists H \mid  H_1^c)\\
+        P(\exists H) &= P(H_1 \cap \exists H) + P(H_1^c \cap \exists H) \\
+        &= P(H_1) \cdot P(\exists H \mid  H_1) + P(H_1^c) \cdot P(\exists H \mid  H_1^c)\\
         &= 1/2 \cdot 1 + 1/2 \cdot 1/2 = 3/4
       \end{align*}\]
 
@@ -680,7 +689,7 @@
   + Let $E_1, E_2, \dots, E_n$ partition $\Omega$
   + $F = \displaystyle \biguplus_{i=1}^n (E_i \cap F)$ s.t.
 
-    \[ \Pr(F) = \sum_{i=1}^n \Pr(E_i \cap F) = \sum_{i=1}^n \Pr(E_i) \cdot \Pr(F \mid  E_i) \]
+    \[ P(F) = \sum_{i=1}^n P(E_i \cap F) = \sum_{i=1}^n P(E_i) \cdot P(F \mid  E_i) \]
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/yd7pzjew" ismap target="_blank">
@@ -691,11 +700,11 @@
   + example: 3 dice
     + $D_i$: outcome of die $i$
     + $S = D_1 + D_2$: sum of 2 dice
-    + $\Pr(S = 5) = ?$
+    + $P(S = 5) = ?$
 
       \[\begin{align*}
-        \Pr(S=5) &= \sum_{i=1}^4 \Pr(D_1 = i) \cdot \Pr(D_2 = 5 - i \mid  D_1 = i) \\
-        &= \sum_{i=1}^4 \Pr(D_1 = i) \cdot \Pr(D_2 = 5-i) \\
+        P(S=5) &= \sum_{i=1}^4 P(D_1 = i) \cdot P(D_2 = 5 - i \mid  D_1 = i) \\
+        &= \sum_{i=1}^4 P(D_1 = i) \cdot P(D_2 = 5-i) \\
         &= 4 \cdot \tfrac{1}{36} = 1/9
       \end{align*}\]
 
@@ -705,8 +714,8 @@
   + what is the overall fraction of defective iPhones?
 
     \[\begin{align*}
-      \Pr(D) &= \Pr(F_1 \cap D) + \Pr(F_2 \cap D) + \Pr(F_2 \cap D) \\
-      &= \Pr(F_1) \Pr(D \mid  F_1) + \Pr(F_2) \Pr(D \mid  F_2) + \Pr(F_3) \Pr(D \mid  F_3) \\
+      P(D) &= P(F_1 \cap D) + P(F_2 \cap D) + P(F_2 \cap D) \\
+      &= P(F_1) P(D \mid  F_1) + P(F_2) P(D \mid  F_2) + P(F_3) P(D \mid  F_3) \\
       & = .5 \times .04 + .3 \times .1 + .2 \times .05 = .02 + .03 + .01  = 0.06
     \end{align*}\]
 
@@ -748,15 +757,19 @@
 3. Let $A$ and $B$ be two random subsets of $\{1,2,3,4\}$. What is the probability that $A \subseteq B$?
 
   Ans: $81/16^2$<br/>
-  Explanation: This can be calculated via total probability, conditioning on the possible sizes of $A$ from 0 to 4, namely $(\tbinom{4}{0}2^0+\tbinom{4}{1}2^1+ \cdots+\tbinom{4}{4}2^44)/(2^4)^2=0.3164$.  A cleaner derivation is to observe that $A \subseteq  B \iff$ for every element $x$, $x \in A \implies x \in B$, namely $x \notin A$ and $x \notin B$, or $x \notin A$ and $x \in B$, or $x \in A$ and $x \in B$. (Just $x \in A$ and $x \notin B$ is excluded.) Since any given $x$ is in $A$ and $B$ independently at random, the probability that this holds for $x$ is $3/4$, and the probability that it holds for all four elements is $(3/4)^4=0.3164$.
+  Explanation: 
+    + This can be calculated via total probability, conditioning on the possible sizes of $A$ from 0 to 4, namely $(\tbinom{4}{0}2^0+\tbinom{4}{1}2^1+ \cdots+\tbinom{4}{4}2^4 )/(2^4)^2=0.3164$.  A cleaner derivation is to observe that $A \subseteq  B \iff$ for every element $x$, $x \in A \implies x \in B$, namely $x \notin A$ and $x \notin B$, or $x \notin A$ and $x \in B$, or $x \in A$ and $x \in B$. (Just $x \in A$ and $x \notin B$ is excluded.) Since any given $x$ is in $A$ and $B$ independently at random, the probability that this holds for $x$ is $3/4$, and the probability that it holds for all four elements is $(3/4)^4=0.3164$.
+    + [StackExchange](https://tinyurl.com/yxdy3ym8)
 
 
 4. Eight equal-strength players, including Alice and Bob, are randomly split into $4$ pairs, and each pair plays a game (i.e. 4 games in total), resulting in four winners. What is the probability that exactly one of Alice and Bob will be among the four winners?
 
   Ans: 4/7<br/>
   Explanation: Here are two ways of solving the problem. One using total probability, the other by symmetry.
-    + Total Probability.<br/>Let $E$ be the desired event that exactly one of Alice or Bob is a winner. We divide the sample space into two disjoint events, $E_1$, $E_2$. $E_1$ is the event that Alice and Bob play against each other and $E_2$ is the complimentary event that Alice and Bob play against other players. Since Alice is equally likely to play with any of the seven other players, $\Pr(E_1)=1/7$, hence $\Pr(E_2)=6/7$. Now $\Pr(E\mid E_1)=1$, while $\Pr(E\mid E_2)=1/2$ since Alice and Bob each play an independent game where the probability of winning is $1/2$. Therefore $\Pr(E)=\Pr(E_1) \cdot \Pr(E\mid E_1)+\Pr(E_2) \cdot \Pr(E\mid E_2)=1/7 \cdot 1+6/7 \cdot 1/2=4/7$.
-    + Symmetry.<br/>In the end, 4 of the 8 players will be declared winners. There are $\tbinom{8}{4}$ such 4-winner "quartets", all equally likely.  The number of "quartets" that contain exactly one of Alice and Bob is $\tbinom{2}{1} \cdot \tbinom{6}{3}$.  Hence the probability that this occurs is $\frac{\tbinom{2}{1} \cdot \tbinom{6}{3}}{\tbinom{8}{4}}=47$.
+    + Total Probability.<br/>Let $E$ be the desired event that exactly one of Alice or Bob is a winner. We divide the sample space into two disjoint events, $E_1$, $E_2$. $E_1$ is the event that Alice and Bob play against each other and $E_2$ is the complimentary event that Alice and Bob play against other players. Since Alice is equally likely to play with any of the seven other players, $P(E_1)=1/7$, hence $P(E_2)=6/7$. Now $P(E\mid E_1)=1$, while $P(E\mid E_2)=1/2$ since Alice and Bob each play an independent game where the probability of winning is $1/2$. Therefore $P(E)=P(E_1) \cdot P(E\mid E_1)+P(E_2) \cdot P(E\mid E_2)=1/7 \cdot 1+6/7 \cdot 1/2=4/7$.
+    + Symmetry.<br/>In the end, 4 of the 8 players will be declared winners. There are $\tbinom{8}{4}$ such 4-winner "quartets", all equally likely.  The number of "quartets" that contain exactly one of Alice and Bob is $\tbinom{2}{1} \cdot \tbinom{6}{3}$.  Hence the probability that this occurs is $\frac{\tbinom{2}{1} \cdot \tbinom{6}{3}}{\tbinom{8}{4}}=\frac 4 7$.
+    + [Quora - Jacob Miller](https://tinyurl.com/y5t329ze)
+    + [Brainly](https://brainly.com/question/15019135)
 
 
 
@@ -774,36 +787,36 @@
   + alive today $\to$ born after 1800 $\gets ?$
 
 + Forward - backward
-  + at times: $\Pr(F \mid  E)$ - easy $\quad \Pr(E \mid  F)$ - hard
+  + at times: $P(F \mid  E)$ - easy $\quad P(E \mid  F)$ - hard
   + example:
     + 2 coins
       + $H_i$: coin $i$ is h; $\exists H$: at least one h
-      + $\Pr(\exists H \mid  H_1) = 1$
-      + $\Pr(H_1 \mid  \exists H) ?$
+      + $P(\exists H \mid  H_1) = 1$
+      + $P(H_1 \mid  \exists H) ?$
     + 2 dice
       + $D_i$: face of die $i$; $S = D_1 + D_2$: sum of 2 faces
-      + $\Pr(S=5 \mid  D_1 = 2) = \Pr(D_2 = 3) = 1/6$
-      + $\Pr(D_1 = 2 \mid  S = 5) ?$
-  + Bayes' rule: method for converting $\Pr(F \mid  E)$ to $\Pr(E \mid  F)$
+      + $P(S=5 \mid  D_1 = 2) = P(D_2 = 3) = 1/6$
+      + $P(D_1 = 2 \mid  S = 5) ?$
+  + Bayes' rule: method for converting $P(F \mid  E)$ to $P(E \mid  F)$
 
 + Bayes' rule
-  + given $\Pr(F \mid  E)$ (and a bit more, e.g., $\Pr(E), \Pr(F)$) determining $\Pr(E \mid  F)$
+  + given $P(F \mid  E)$ (and a bit more, e.g., $P(E), P(F)$) determining $P(E \mid  F)$
 
-    \[ \Pr(E \mid  F) = \frac{\Pr(E) \cdot \Pr(F \mid  E)}{\Pr(F)} \]
+    \[ P(E \mid  F) = \frac{P(E) \cdot P(F \mid  E)}{P(F)} \]
 
   + $\mu$-proof
 
-    \[ \Pr(E \mid  F) = \frac{\Pr(E \cap F)}{\Pr(F)} = \frac{\Pr(E) \cdot \Pr(F \mid  E)}{\Pr(F)} \]
+    \[ P(E \mid  F) = \frac{P(E \cap F)}{P(F)} = \frac{P(E) \cdot P(F \mid  E)}{P(F)} \]
 
   + another view
 
-    \[ \Pr(F) \cdot \Pr(E \mid  F) = \Pr(E \cap F) = \Pr(E) \cdot \Pr(F \mid  E) \]
+    \[ P(F) \cdot P(E \mid  F) = P(E \cap F) = P(E) \cdot P(F \mid  E) \]
 
   + proof
 
     \[\begin{align*}
-      \Pr(F \mid  E) = \frac{\beta}{\alpha + \beta} \quad & \quad \Pr(E \mid  F) = \frac{\beta}{\beta+\gamma} \\\\
-      \Pr(E \mid  F) = \frac{\beta}{\beta + \gamma} = \frac{\beta}{\alpha + \beta} \cdot& \frac{\alpha + \beta}{\beta + \gamma} = \frac{\Pr(F \mid  E) \cdot \Pr(E)}{\Pr(F)}
+      P(F \mid  E) = \frac{\beta}{\alpha + \beta} \quad & \quad P(E \mid  F) = \frac{\beta}{\beta+\gamma} \\\\
+      P(E \mid  F) = \frac{\beta}{\beta + \gamma} = \frac{\beta}{\alpha + \beta} \cdot& \frac{\alpha + \beta}{\beta + \gamma} = \frac{P(F \mid  E) \cdot P(E)}{P(F)}
     \end{align*}\]
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -817,33 +830,33 @@
   + $H_i$: coin $i$ h; $\exists H$: at least one h
   + set interpretation: $H_1 = \{hh, ht\}, \quad \exists H = \{hh, ht, th\}$
 
-    \[ \Pr(H_1 \mid  \exists H) = \frac{|H_1 \cap \exists H|}{|\exists H|} \]
+    \[ P(H_1 \mid  \exists H) = \frac{|H_1 \cap \exists H|}{|\exists H|} \]
 
   + probability
 
-    \[ \Pr(H_1 \mid  \exists H) = \Pr(\exists H \mid  H_1) \cdot \frac{\Pr(H_1)}{\Pr(\exists H)} = 1 \cdot \frac{1/2}{3/4} = 2/3 \]
+    \[ P(H_1 \mid  \exists H) = P(\exists H \mid  H_1) \cdot \frac{P(H_1)}{P(\exists H)} = 1 \cdot \frac{1/2}{3/4} = 2/3 \]
 
     where
 
-    \[ \Pr(\exists H \mid  H_1) = 1 \qquad \Pr(H_1) = 1/2 \qquad \Pr(\exists H) = 3/4 \]
+    \[ P(\exists H \mid  H_1) = 1 \qquad P(H_1) = 1/2 \qquad P(\exists H) = 3/4 \]
 
 + Example: two fair dice
   + $D_i$: outcome of die $i$
   + $S = D_1 + D_2$: sum of 2 dice
-  + $\Pr(D_1 = 2 \mid  S = 5)?$
+  + $P(D_1 = 2 \mid  S = 5)?$
   + probability
 
-    \[ \Pr(D_1 = 2 \mid  S = 5) = \frac{\Pr(S=5 \mid  D_1=2) \cdot \Pr(D_1 = 2)}{\Pr(S=5)} = \frac{\tfrac{1}{6} \cdot \tfrac{1}{6}}{1/9} = \frac{1}{4} \]
+    \[ P(D_1 = 2 \mid  S = 5) = \frac{P(S=5 \mid  D_1=2) \cdot P(D_1 = 2)}{P(S=5)} = \frac{\tfrac{1}{6} \cdot \tfrac{1}{6}}{1/9} = \frac{1}{4} \]
 
     where
 
-    \[ \Pr(S=5 \mid  D_1 = 2) = \Pr(D_2=3 \mid  D_1=2) = \Pr(D_2=3) = \frac{1}{6} \\ \Pr(D_1 = 2) = \tfrac{1}{6} \quad \Pr(S=5) = \tfrac{1}{9} \]
+    \[ P(S=5 \mid  D_1 = 2) = P(D_2=3 \mid  D_1=2) = P(D_2=3) = \frac{1}{6} \\ P(D_1 = 2) = \tfrac{1}{6} \quad P(S=5) = \tfrac{1}{9} \]
 
   + set interpretation
     + $S = 5 = \{(1, 4), (2, 3), (3, 2), (4, 1)\}$
     + $D_1 = 2 =\{(2, 3)\}$
 
-    \[ \Pr(D_1 = 2 \mid  S = 5) = \frac{|D_1 = 2 \cap S = 5|}{|S = 5|} \]
+    \[ P(D_1 = 2 \mid  S = 5) = \frac{|D_1 = 2 \cap S = 5|}{|S = 5|} \]
 
 + Example: Foxconn
   + Foxconn has 3 factories producing 50%, 30%, and 20% of its iPhones
@@ -851,21 +864,21 @@
   + Overall fraction of defective phones?
 
     \[\begin{align*}
-      \Pr(D) &= \Pr(F_1 \cap D) + \Pr(F_2 \cap D) + \Pr(F_2 \cap D) \\
-      &= \Pr(F_1) \Pr(D \mid  F_1) + \Pr(F_2) \Pr(D \mid  F_2) + \Pr(F_3) \Pr(D \mid  F_3) \\
+      P(D) &= P(F_1 \cap D) + P(F_2 \cap D) + P(F_2 \cap D) \\
+      &= P(F_1) P(D \mid  F_1) + P(F_2) P(D \mid  F_2) + P(F_3) P(D \mid  F_3) \\
       & = .5 \times .04 + .3 \times .1 + .2 \times .05 = .02 + .03 + .01  = 0.06
     \end{align*}\]
 
   + probability of factories w/ a given defective
 
     \[
-      \Pr(F_1 \mid  D) = \frac{\Pr(D \mid  F_1) \cdot \Pr(F_1)}{\Pr(D)} = \frac{.04 \cdot .5}{.06} = \frac{.02}{.06} = \frac{1}{3} \\
-      \Pr(D \mid  F_1) = .04 \qquad \Pr(F_1) = .5 \qquad \Pr(D) = .06 \\
-      \Pr(F_2 \mid  D) = \frac{.1 \cdot .3}{.06} = \frac{.03}{.06} = \frac{1}{2} \qquad \Pr(F_3 \mid  D) = \frac{.05 \cdot .2}{.06} = \frac{.01}{.06} = \frac{1}{6}
+      P(F_1 \mid  D) = \frac{P(D \mid  F_1) \cdot P(F_1)}{P(D)} = \frac{.04 \cdot .5}{.06} = \frac{.02}{.06} = \frac{1}{3} \\
+      P(D \mid  F_1) = .04 \qquad P(F_1) = .5 \qquad P(D) = .06 \\
+      P(F_2 \mid  D) = \frac{.1 \cdot .3}{.06} = \frac{.03}{.06} = \frac{1}{2} \qquad P(F_3 \mid  D) = \frac{.05 \cdot .2}{.06} = \frac{.01}{.06} = \frac{1}{6}
     \]
 
   + conditional probabilities add to 1
-  + conditional order determined by both $\Pr(F_i)$ and $\Pr(D \mid  F_i)$
+  + conditional order determined by both $P(F_i)$ and $P(D \mid  F_i)$
 
 
 + [Original Slides](https://tinyurl.com/y77gn7y3)
@@ -889,7 +902,7 @@
   d. 0.01%<br/>
 
   Ans: <span style="color: magenta;">b</span><br/>
-  Explanation: Let $H$ and $D$  be the events that you Have and Don't have the disease, respectively, and let $S$ be the event that the result is positive.  By the streamlined version of Bayes' Rule, $\Pr(H\mid S) = \frac{\Pr(H,S)}{\Pr(S)} = \frac{\Pr(H,S)}{\Pr(H,S) + \Pr(D,S)}$.  Now, $\Pr(H,S) =$ $\Pr(H) \cdot \Pr(S\mid H)=$ $0.0001 \cdot 0.99 \approx 0.0001$, and $\Pr(D,S) = \Pr(D) \cdot \Pr(S\mid D) = 0.9999 \cdot 0.01≈0.01$.  Hence $\Pr(H\mid S) = \frac{0.0001}{0.0001+0.01}≈0.01$.
+  Explanation: Let $H$ and $D$  be the events that you Have and Don't have the disease, respectively, and let $S$ be the event that the result is positive.  By the streamlined version of Bayes' Rule, $P(H\mid S) = \frac{P(H,S)}{P(S)} = \frac{P(H,S)}{P(H,S) + P(D,S)}$.  Now, $P(H,S) =$ $P(H) \cdot P(S\mid H)=$ $0.0001 \cdot 0.99 \approx 0.0001$, and $P(D,S) = P(D) \cdot P(S\mid D) = 0.9999 \cdot 0.01≈0.01$.  Hence $P(H\mid S) = \frac{0.0001}{0.0001+0.01}≈0.01$.
 
 
 2. A car manufacturer has three factories producing 21%, 35%, and 44% of its cars, respectively. Of these cars, 7%, 6%, and 2%, respectively, are defective. A car is chosen at random from the manufacturer’s supply.<br/>
@@ -898,20 +911,20 @@
 
   Ans: a. (0.0455); b. (0.33)<br/>
   Explanation: 
-    + Let $F_1,F_2,F_3$ be the events that the care is made by the first, second, and third factory, respectively, and let  D  be the event that the car is defective. By the law of total probability, $\Pr(D)=\Pr(F_1) \cdot \Pr(D\mid F_1)+\Pr(F_2) \cdot \Pr(D\mid F_2)+\Pr(F_3) \cdot \Pr(D\mid F_3)= $ $0.21 \cdot 0.07+0.35 \cdot 0.06+0.44 \cdot 0.02=0.0445$.
-    + By Bayes' Rule and using $\Pr(D)$ from above, $\Pr(F_1\mid D)=\Pr(F_1) \cdot \Pr(D\mid F_1)\Pr(D)=0.21 \cdot 0.070.0445=0.3303$.
+    + Let $F_1,F_2,F_3$ be the events that the care is made by the first, second, and third factory, respectively, and let  D  be the event that the car is defective. By the law of total probability, $P(D)=P(F_1) \cdot P(D\mid F_1)+P(F_2) \cdot P(D\mid F_2)+P(F_3) \cdot P(D\mid F_3)= $ $0.21 \cdot 0.07+0.35 \cdot 0.06+0.44 \cdot 0.02=0.0445$.
+    + By Bayes' Rule and using $P(D)$ from above, $P(F_1\mid D)=P(F_1) \cdot P(D\mid F_1)P(D)=0.21 \cdot 0.070.0445=0.3303$.
 
 
 3. A college graduate is applying for a job and has 3 interviews. She passes the first, second, and third interviews with probabilities 0.9, 0.8, and 0.7, respectively. If she fails any interview, she cannot proceed with subsequent interview(s) and will not get the job. If she didn’t get the job, what is the probability that she failed the second interview?
 
-  Ans: <span style="color: magenta;">0.3629</span>
-  Explanation: Let $F$, $S$, and $T$ denote the events that the applicant passed the first, second, and third interviews, respectively. The probability that she failed the second interview given that she didn't get the job is  $\Pr(\overline{S}\mid  \overline{FST})=\Pr(\overline{FS} \mid  \overline{FST}) =$  $\Pr(\overline{FS}\nabla \overline{FST}) \Pr(\overline{FST})$ $= \Pr(\overline{FS}) \Pr(\overline{FST})= $ $0.9 \cdot 0.21−0.9 \cdot 0.8 \cdot 0.7$, where the first equality follows as the applicant fails the second interview iff she passes the first interview and fails the second. [EstackExchange](https://tinyurl.com/ya73scpb)
+  Ans: <span style="color: magenta;">0.3629</span><br/>
+  Explanation: Let $F$, $S$, and $T$ denote the events that the applicant passed the first, second, and third interviews, respectively. The probability that she failed the second interview given that she didn't get the job is  $P(\overline S\mid \overline{FST})$ $=P(F\overline S\mid \overline{FST})$ $=\frac{P(F\overline S\land\overline{FST})}{P(\overline{FST})}$ $=\frac{P(F\overline S)}{P(\overline{FST})}$ $=\frac{0.9\cdot 0.2}{1-0.9\cdot0.8\cdot0.7}$, where the first equality follows as the applicant fails the second interview iff she passes the first interview and fails the second. [EstackExchange](https://tinyurl.com/ya73scpb)
 
 
 4. An ectopic pregnancy is twice as likely to develop when a pregnant woman is a smoker than when she is a nonsmoker. If 32% of women of childbearing age are smokers, what fraction of women having ectopic pregnancies are smokers?
 
   Ans: <span style="color: magenta;">0.4848</span><br/>
-  Explanation: Let $S$ and $E$ denote the events that a pregnant woman is a smoker, and has an ectopic pregnancy, respectively. We are told that $\Pr(S)=.32$ and $\Pr(E\mid S^c)=.5 \cdot \Pr(E\mid S)$. By Bayes' Rule, $\Pr(S\mid E)=\Pr(E\mid S) \cdot \Pr(S)\Pr(E\mid S) \cdot \Pr(S)+\Pr(E\mid S^c) \cdot \Pr(S^c)=$ $\Pr(E\mid S) \cdot \Pr(S)\Pr(E\mid S) \cdot \Pr(S)+.5 \cdot \Pr(E\mid S) \cdot \Pr(S^c)=$ $\Pr(S)\Pr(S)+.5 \cdot \Pr(S^c)=.32.32+.5 \cdot (1−.32)=1633$. [Waterloo](https://ece.uwaterloo.ca/~oamin/Tut3.pdf)
+  Explanation: Let $S$ and $E$ denote the events that a pregnant woman is a smoker, and has an ectopic pregnancy, respectively. We are told that $P(S)=.32$ and $P(E\mid S^c)=.5 \cdot P(E\mid S)$. By Bayes' Rule, $P(S\mid E)$ $=\frac{P(E\mid S)\cdot P(S)}{P(E\mid S)\cdot P(S)+P(E\mid \overline S)\cdot P(\overline S)}$ $=\frac{P(E\mid S)\cdot P(S)}{P(E\mid S)\cdot P(S)$ $+.5\cdot P(E\mid S)\cdot P(\overline S)}$ $=\frac{P(S)}{P(S)$ $+.5\cdot P(\overline S)}$ $=\frac{.32}{.32+.5\cdot(1-.32)}$ $=\frac{16}{33}.$. [Waterloo](https://ece.uwaterloo.ca/~oamin/Tut3.pdf)
 
 
 5. Each of Alice, Bob, and Chuck shoots at a target once, and hits it independently with probabilities 1/6, 1/4, and 1/3, respectively. If only one shot hit the target, what is the probability that Alice's shot hit the target?<br/>
@@ -921,7 +934,7 @@
   d. 15/31<br/>
 
   Ans: b<br/>
-  Explanation: Let $A$, $B$, and $C$, be the events that Alice, Bob, and Chuck hit the target, respectively, and let $E=AB^cC^c \cap A^cBC^c \cup A^cB^cC$ be the event that only one shot hit the target. Then $\Pr(E)=16 \cdot 34 \cdot 23+56 \cdot 14 \cdot 23+56 \cdot 34 \cdot 13=3172$. By Bayes' Rule, $\Pr(A\mid E)=\frac{\Pr(AE)}{\Pr(E)}=\frac{\Pr(AB^cC^c)}{\Pr(E)}=\frac{6/72}{31/72}=6/31$.
+  Explanation: Let $A$, $B$, and $C$, be the events that Alice, Bob, and Chuck hit the target, respectively, and let $E=AB^cC^c \cap A^cBC^c \cup A^cB^cC$ be the event that only one shot hit the target. Then $P(E)=16 \cdot 34 \cdot 23+56 \cdot 14 \cdot 23+56 \cdot 34 \cdot 13=3172$. By Bayes' Rule, $P(A\mid E)=\frac{P(AE)}{P(E)}=\frac{P(AB^cC^c)}{P(E)}=\frac{6/72}{31/72}=6/31$.
 
 
 6. Jack has two coins in his pocket, one fair, and one "rigged" with heads on both sides. Jack randomly picks one of the two coins, flips it, and observes heads. What is the probability that he picked the fair coin?<br/>
@@ -931,7 +944,7 @@
   d. 1/4<br/>
 
   Ans: c<br/>
-  Explanation: Let $F$ and $R$ be the events that Jack picked the fair and rigged coin, respectively, and let  H  be the event that he observed heads. By the "streamlined" Bayes' rule, $\Pr(F\mid H)=\frac{\Pr(F,H)}{\Pr(H)}=\frac{\Pr(F,H)}{\Pr(F,H)+\Pr(R,H)}$. Now, $\Pr(F,H)=\Pr(F) \cdot \Pr(H\mid F)=12 \cdot 12=14$, while $\Pr(R,H)=\Pr(R) \cdot \Pr(H\mid R)=12 \cdot 1=12$. Hence $\Pr(F\mid H)=1/41/4+1/2=13$.
+  Explanation: Let $F$ and $R$ be the events that Jack picked the fair and rigged coin, respectively, and let  H  be the event that he observed heads. By the "streamlined" Bayes' rule, $P(F\mid H)=\frac{P(F,H)}{P(H)}=\frac{P(F,H)}{P(F,H)+P(R,H)}$. Now, $P(F,H)=P(F) \cdot P(H\mid F)=\frac12 \cdot \frac12=\frac14$, while $P(R,H)=P(R) \cdot P(H\mid R)=\frac12 \cdot 1=\frac12$. Hence $P(F\mid H)=1/41/4+1/2=13$.
 
 
 7. It rains in Seattle one out of three days, and the weather forecast is correct two thirds of the time (for both sunny and rainy days). You take an umbrella if and only if rain is forecasted.<br/>
@@ -940,21 +953,21 @@
 
   Ans: a. (1/9); b. (2/9)<br/>
   Explanation: 
-    + Let $R$ be the event that it rains, and $C$ the event that the forecast is correct. We are told that $\Pr(R)=1/3$ and $\Pr(C\mid R)=\Pr(C\mid R^c)=2/3$. The probability you are caught in the rain without an umbrella is $\Pr(R∧C^c)=\Pr(R) \cdot \Pr(C^c\mid R)=1/3 \cdot 1/3=1/9$.
-    + The probability you are carry and umbrella and it does not rain is $\Pr(R^c∧C^c)=\Pr(R^c) \cdot \Pr(C^c\mid R^c)=2/3 \cdot 1/3=2/9$.
+    + Let $R$ be the event that it rains, and $C$ the event that the forecast is correct. We are told that $P(R)=1/3$ and $P(C\mid R)=P(C\mid R^c)=2/3$. The probability you are caught in the rain without an umbrella is $P(R∧C^c)=P(R) \cdot P(C^c\mid R)=1/3 \cdot 1/3=1/9$.
+    + The probability you are carry and umbrella and it does not rain is $P(R^c∧C^c)=P(R^c) \cdot P(C^c\mid R^c)=2/3 \cdot 1/3=2/9$.
     + [StackExchange 1](https://tinyurl.com/y8muf6ye), [StackExchange 2](https://tinyurl.com/y8bxt2ew)
 
 
-8. On any night, there is a 92% chance that an burglary attempt will trigger the alarm, and a  1%  chance of a false alarm, namely that the alarm will go off when there is no burglary. The chance that a house will be burglarized on a given night is  1/1000 . What is the chance of a burglary attempt if you wake up at night to the sound of your alarm?
+8. On any night, there is a 92% chance that an burglary attempt will trigger the alarm, and a 1% chance of a false alarm, namely that the alarm will go off when there is no burglary. The chance that a house will be burglarized on a given night is 1/1000. What is the chance of a burglary attempt if you wake up at night to the sound of your alarm?
 
-  Ans: 0.09125<br/>
-  Explanation: Let $A$ be the event of triggering alarm, $B$ be the event of an burglary attempt, $NB$ be the event of no attempts. As $\Pr(A\mid B)=0.92,\Pr(A\mid NB)=0.01,\Pr(B)=0.001$. Following Bayes rule $\Pr(B\mid A)=0.084$.
+  Ans: <font style="color: cyan">0.084</font><br/>
+  Explanation: Let $A$ be the event of triggering alarm, $B$ be the event of an burglary attempt, $NB$ be the event of no attempts. As $P(A\mid B)=0.92,P(A\mid NB)=0.01,P(B)=0.001$. Following Bayes rule $P(B\mid A) = \frac{P(A\mid B) P(B)}{P(A)} = \frac{P(A\mid B) P(B)}{P(A\mid B) P(B) + P(A\mid NB) P(NB)} = 0.084$.
 
 
 9. An urn labeled "heads" has  5  white and  7  black balls, and an urn labeled "tails" has  3  white and  12  black balls. Flip a fair coin, and randomly select on ball from the "heads" or "tails" urn according to the coin outcome. Suppose a white ball is selected, what is the probability that the coin landed tails?
 
   Ans: 12/37<br/>
-  Explanation: Let $H$ and $T$ be the events that the coin turnd up heads and tails, and let $W$ be the event of selecting a white ball. $\Pr(H)=\Pr(T)=0.5,\Pr(W\mid H)=5/12,\Pr(W\mid T)=3/15$. Following Bayesian rule $\Pr(T\mid W)=12/37$.
+  Explanation: Let $H$ and $T$ be the events that the coin turnd up heads and tails, and let $W$ be the event of selecting a white ball. $P(H)=P(T)=0.5,P(W\mid H)=5/12,P(W\mid T)=3/15$. Following Bayesian rule $P(T\mid W)=12/37$. [Math UConn](https://tinyurl.com/yy69563z)
 
 
 10. A car manufacturer receives its air conditioning units from 3 suppliers. 20% of the units come from supplier A, 30% from supplier B, and 50% from supplier C. 10% of the units from supplier A are defective, 8% of units from supplier B are defective, and 5% of units from supplier C are defective. If a unit is selected at random and is found to be defective.
@@ -973,17 +986,17 @@
   d. 0.75<br/>
 
   Ans: b<br/>
-  Explanation: Let $S$ and $C$ be the events that a person smokes, and has cancer, respectively. Then $\Pr(C\mid S)=\Pr(S\mid C)\Pr(C))\Pr(S)=0.225$.
+  Explanation: Let $S$ and $C$ be the events that a person smokes, and has cancer, respectively. Then $P(C\mid S)=P(S\mid C)P(C))P(S)=0.225$.
 
 
-12. A fair coin with $\Pr(heads)=0.5$ and a biased coin with $\Pr(heads)=0.75$ are placed in an urn. One of the two coins is picked at random and tossed twice. Find the probability:<br/>
+12. A fair coin with $P(heads)=0.5$ and a biased coin with $P(heads)=0.75$ are placed in an urn. One of the two coins is picked at random and tossed twice. Find the probability:<br/>
   a. of observing two heads,<br/>
   b. that the biased coin was picked if two heads are observed.<br/>
 
   Ans: a. (13/32); b. (9/13)<br/>
   Explanation:
-    + Let $F,B$, and $T$, be the events that the coin is Fair, Biased, and we observe Two heads, respectively. By the law of total probability, $\Pr(T)=\Pr(F) \cdot \Pr(T\mid F)+\Pr(B) \cdot \Pr(T\mid B)=1/2 \cdot 1/4+1/2 \cdot \tbinom{3}{4}^2=13/32$.
-    + $\Pr(B\mid T)=\Pr(B,T)\Pr(T)=\Pr(B) \cdot \Pr(T\mid B)\Pr(T)=\frac{1/2 \cdot (3/4)^2}{13/32}=\frac{1/2 \cdot (3/4)^2}{13/32}=9/13$.
+    + Let $F,B$, and $T$, be the events that the coin is Fair, Biased, and we observe Two heads, respectively. By the law of total probability, $P(T)=P(F) \cdot P(T\mid F)+P(B) \cdot P(T\mid B)=1/2 \cdot 1/4+1/2 \cdot \tbinom{3}{4}^2=13/32$.
+    + $P(B\mid T)=P(B,T)P(T)=P(B) \cdot P(T\mid B)P(T)=\frac{1/2 \cdot (3/4)^2}{13/32}=\frac{1/2 \cdot (3/4)^2}{13/32}=9/13$.
 
 
 
@@ -1026,7 +1039,7 @@
   d. 0.6666<br/>
 
   Ans: b<br/>
-  Explanation: One of the urns is picked at random, hence $\Pr(A)=\Pr(B)=0.5$.  $\Pr(A\mid white)=\Pr(white\mid A)\Pr(A)\Pr(white)=\Pr(white\mid A)\Pr(A)\Pr(white\mid A)\Pr(A)+\Pr(white\mid B)\Pr(B)=\frac{\frac{w_A}{w_A+r_A}}{\frac{w_A}{w_A+r_A}+\frac{w_B}{w_B+r_B}}$
+  Explanation: One of the urns is picked at random, hence $P(A)=P(B)=0.5$.  $P(A\mid white)=P(white\mid A)P(A)P(white)=P(white\mid A)P(A)P(white\mid A)P(A)+P(white\mid B)P(B)=\frac{\frac{w_A}{w_A+r_A}}{\frac{w_A}{w_A+r_A}+\frac{w_B}{w_B+r_B}}$
 
   ```python
   def conditional__probability(rA, wA, rB, wB):

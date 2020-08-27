@@ -27,24 +27,24 @@
   + explicit $\to$ implicit $\to$ descriptive: compact & expressive $\to$ ambiguous
 
 + Common sets
-  + integers: $\mathbb{Z}$ = {..., -2, -2, 0, 1, 2, ...}
-  + natural: $\mathbb{N}$ = {0, 1, 2, ...}
-  + positive: \mathbb{P}$ = (1, 2, 3, ...)
-  + rationals: $\mathbb{Q}$ = {integer ratios $m/n, \; n \neq 0$}
-  + Reals: $\mathbb{R}$ = { ... Google ...}
+  + integers: $\Bbb{Z}$ = {..., -2, -2, 0, 1, 2, ...}
+  + natural: $\Bbb{N}$ = {0, 1, 2, ...}
+  + positive: \Bbb{P}$ = (1, 2, 3, ...)
+  + rationals: $\Bbb{Q}$ = {integer ratios $m/n, \; n \neq 0$}
+  + Reals: $\Bbb{R}$ = { ... Google ...}
   + convention:
     + set: Upper case, e.g., A
     + elements: lower case;, e.g., a
 
 + Membership
   + if element $x$ is in a set $A$, it is a <span style="color: magenta; font-weigh: bold;">member</span> of, or <span style="color: magenta; font-weigh: bold;">belongs</span> to $A$, denoted $x \in A$
-    + e.g., $0 \in \{0, 1\}, \;1 \in \{0, 1\}, \;\pi \in \mathbb{R}$
+    + e.g., $0 \in \{0, 1\}, \;1 \in \{0, 1\}, \;\pi \in \Bbb{R}$
   + Equivalently, $A$ <span style="color: magenta; font-weigh: bold;">contains</span> $x$, written $A \ni x$
-    + e.g., $\{0, 1\} \ni 0, \;\{0, 1\} \ni 1, \;\mathbb{R} \ni \pi$
+    + e.g., $\{0, 1\} \ni 0, \;\{0, 1\} \ni 1, \;\Bbb{R} \ni \pi$
   + If $x$ is <span style="color: magenta; font-weigh: bold;">not</span> in $A$, then $x$ is <span style="color: magenta; font-weigh: bold;">not a member</span>, or does <span style="color: magenta; font-weigh: bold;">not belong</span> to $A$, denoted $x \notin A$
-    + e.g., $2 \notin \{0, 1\}, \;\pi \notin \mathbb{Q}$
+    + e.g., $2 \notin \{0, 1\}, \;\pi \notin \Bbb{Q}$
   + Equivalently, $A$ does <span style="color: magenta; font-weigh: bold;">not contain</span> $x$, $A \not\ni x$
-    + e.g., $\{0, 1\} \not\ni 2, \;\mathbb{Q} \not\ni \pi$
+    + e.g., $\{0, 1\} \not\ni 2, \;\Bbb{Q} \not\ni \pi$
 
 + Don't matter
   + order: $\{0, 1 \} = \{1, 0 \}$
@@ -55,8 +55,8 @@
 + Special sets
   + empty set: containing no elements, $\varnothing$ or $\{ \}$, e.g., $\forall\, x, \,x \in \varnothing$, $\forall$- All, every
   + universal set: all possible elements, $\Omega$, e.g., $\forall\,x, \;x \in \Omega$
-    + $\Omega$: considering only relevant elements, e.g., integers - $\Omega = \mathbb{Z}$, "prime" = 2, 3, 5, ...
-    + $\Omega$ depending on application, e.g., temperature - $\Omega = \mathbb{R}$, text - $\Omega = \{\text{words}\}$
+    + $\Omega$: considering only relevant elements, e.g., integers - $\Omega = \Bbb{Z}$, "prime" = 2, 3, 5, ...
+    + $\Omega$ depending on application, e.g., temperature - $\Omega = \Bbb{R}$, text - $\Omega = \{\text{words}\}$
   + only one $\varnothing$: set w/o elements
 
 + Set definition in Python
@@ -103,18 +103,18 @@
   Explanation: Empty set has no elements. No zero, no zilch, no nada - nothing!
 
 
-1. The empty set $\varnothing$ is unique.<br/>
-   The universal set $\Omega$ is unique.
+1. a) The empty set $\varnothing$ is unique.<br/>
+   b) The universal set $\Omega$ is unique.
 
-  Ans: True/False<br/>
-  Explanation: $varnothing$ is the unique set having no elements.  $\Omega$ varies. It can be  \mathbb{R}, \mathbb{C}, etc.
+  Ans: a. (True); b .(False)<br/>
+  Explanation: $varnothing$ is the unique set having no elements.  $\Omega$ varies. It can be  \Bbb{R}, \Bbb{C}, etc.
 
 
 2. Which of the following hold?<br/>
   a. $0 \in \{0, 1\}$<br/>
   b. $a \in \{A, B\}$<br/>
   c. $\{a, b\} \in \{\{a, b\}, c\}$<br/>
-  d. $a \in \{{a, b}, c\}$<br/>
+  d. $a \in \{\{a, b\}, c\}$<br/>
   e. $\{a\} \in \{a\}$<br/>
 
   Ans: ac<br/>
@@ -125,13 +125,13 @@
     + False. $a$ is an element of $\{a, b\}$, not of $\{\{a, b\}, c\}$ .
     + False. $\{a\}$ has only one element $a$, not the set $\{a\}$. More about that in the next lecture.
 
-3. Recall that $\varnothing$ is the empty set. How many elements do the following sets have?
-  a. $\varnothing$
-  b. $\{\varnothing\}$
-  c. $\{\varnothing, \varnothing\}$
-  d. $\{\{\varnothing\}, \varnothing\}$
+3. Recall that $\varnothing$ is the empty set. How many elements do the following sets have?<br/>
+  a. $\varnothing$<br/>
+  b. $\{\varnothing\}$<br/>
+  c. $\{\varnothing, \varnothing\}$<br/>
+  d. $\{\{\varnothing\}, \varnothing\}$<br/>
 
-  Ans: a - 0, b - 1, c - 1, d - 2<br/>
+  Ans: a (0); b (1), c (1), d (2)<br/>
   Explanation:
     + a. 0, the empty set has no elements.
     + b. 1, just the empty set.
@@ -139,14 +139,14 @@
     + d. 2, $\varnothing$ and $\{\varnothing\}$.
 
 
-4. How many elements do the following sets have?
-  a. $\{a\}$
-  b. $\{a, a\}$
-  c. $\{a, \varnothing\}$
-  d. $\{\{a\}, a\}$
-  e. $\{\{\{a\}\}\}$
+4. How many elements do the following sets have?<br/>
+  a. $\{a\}$<br/>
+  b. $\{a, a\}$<br/>
+  c. $\{a, \varnothing\}$<br/>
+  d. $\{\{a\}, a\}$<br/>
+  e. $\{\{\{a\}\}\}$<br/>
 
-  Ans: a - 1, b - 1, c - 2, d - 2, e - 1<br/>
+  Ans: a (1); b (1); c (2); d (2); e (1)<br/>
   Explanation:
     + $\{a\}$ has one element, $a$.
     + As we mentioned $\{a, a\} = \{a\}$, hence both sets have one element.
@@ -160,7 +160,7 @@
   c. $\{\{a, b\}, \{b, a\}, \{a, b, a\}\}$<br/>
   d. $\{a, b, \{a, b\}\}$<br/>
 
-  Ans: 1 - 2, b - 1, c - 1, d - 3<br/>
+  Ans: a (2); b (1); c (1); d (3)<br/>
   Explanation:
     + The elements are $a$ and $b$, hence 2.
     + There is a single element, the set $\{a, b\}$, hence 1.
@@ -194,7 +194,7 @@
   d. $\{\varnothing\}$<br/>
   e. $\varnothing$<br/>
 
-  Ans: a - (a); b - ({a}); c - (a,{b}); d - ($\varnothing$); e - (none)
+  Ans: a. (a); b. ({a}); c. (a,{b}); d. ($\varnothing$ or emptyset); e (none)
 
 
 8. Sets from elements<br/>
@@ -206,16 +206,16 @@
   b. $a, a$<br/>
   c. $\{a\}$<br/>
   d. $\{a, b\}, \{b, a\}$<br/>
-  e. $a,{b}$<br/>
+  e. $a,\{b\}$<br/>
   f. $\varnothing$<br/>
   g. no elements<br/>
 
-  Ans: <br/>
+  Ans: a. ({a}); b. ({a}); c. ({{a,b}} or {{b,a}}); d. ({a,{b}} or {{b},a}); e. ({$\varnothing$} or {emptyset}); f. ($\varnothing$ or emptyset)<br/>
   Explanation:
     + a. {a}
-    + b. {{a}}
-    + c. {{a,b}}  or {{b,a}}
-    + d. {a,{b}}  or {{b},a}
+    + b. {a}
+    + c. {{a,b}} or {{b,a}}
+    + d. {a,{b}} or {{b},a}
     + e. {$\varnothing$}  or {emptyset}
     + f. $\varnothing$ or emptyset
 
@@ -233,56 +233,56 @@
 + Sets within sets
   + specify a set within a universal, or any other set
     + $\{ x \in A \,{\color{Magenta}{|}}\, \dots\} = \{\text{element } x \text{ in } A {\color{Magenta}{\text{ such that }}} \dots \}$ or $\{ x \in A {\color{Magenta}{:}} \dots\}$
-    + e.g., $\mathbb{N} = \{x \in \mathbb{Z} \,|\, x \geq 0\}, \mathbb{P} = \{x \in \mathbb{N} \,|\, x > 0\}$
+    + e.g., $\Bbb{N} = \{x \in \Bbb{Z} \,|\, x \geq 0\}, \Bbb{P} = \{x \in \Bbb{N} \,|\, x > 0\}$
   + solutions to equations
-    + $\{x \in \mathbb{R} \,|\, x^2 \geq 0\} = \mathbb{R}$
-    + $\{x \in \mathbb{R} \,:\, x^2 = 1\} = \{-1, 1\}$
-    + $\{x \in \mathbb{R} \,|\, x^2 = 0\} = \{0\} \gets$ a single-element set is a <span style="color: Magenta;">singleton</span>
-    + $\{ x \in \mathbb{R} \,|\, x^2 = -1\} = \varnothing$
-    + $\{x \in \mathbb{C} \,|\, x^2 = -1\} = \{i, -i \}$
+    + $\{x \in \Bbb{R} \,|\, x^2 \geq 0\} = \Bbb{R}$
+    + $\{x \in \Bbb{R} \,:\, x^2 = 1\} = \{-1, 1\}$
+    + $\{x \in \Bbb{R} \,|\, x^2 = 0\} = \{0\} \gets$ a single-element set is a <span style="color: Magenta;">singleton</span>
+    + $\{ x \in \Bbb{R} \,|\, x^2 = -1\} = \varnothing$
+    + $\{x \in \Bbb{C} \,|\, x^2 = -1\} = \{i, -i \}$
 
 + Integer intervals
-  + integers from $m$ to $n$, inclusive: $\{m, \dots, n\} = \{i \in \mathbb{Z} \,|\, m \leq i \leq n\}$
-    + e.g., $\{3, \dots, 5\} = \{i \in \mathbb{Z} \,|\, 3 \leq i \leq 5\} = \{3, 4, 5\}$
-    + e.g., $\{3, \dots, 4\} = \{i \in \mathbb{Z} \,|\, 3 \leq i \leq 4\} = \{3, 4\}$
-    + e.g., $\{3, \dots, 3\} = \{i \in \mathbb{Z} \,|\, 3 \leq i \leq 3\} = \{3\}$
-    + e.g., $\{3, \dots, 2\} = \{i \in \mathbb{Z} \,|\, 3 \leq i \leq 2\} = \varnothing$
+  + integers from $m$ to $n$, inclusive: $\{m, \dots, n\} = \{i \in \Bbb{Z} \,|\, m \leq i \leq n\}$
+    + e.g., $\{3, \dots, 5\} = \{i \in \Bbb{Z} \,|\, 3 \leq i \leq 5\} = \{3, 4, 5\}$
+    + e.g., $\{3, \dots, 4\} = \{i \in \Bbb{Z} \,|\, 3 \leq i \leq 4\} = \{3, 4\}$
+    + e.g., $\{3, \dots, 3\} = \{i \in \Bbb{Z} \,|\, 3 \leq i \leq 3\} = \{3\}$
+    + e.g., $\{3, \dots, 2\} = \{i \in \Bbb{Z} \,|\, 3 \leq i \leq 2\} = \varnothing$
   + convention: $[n] = \{1, \dots, n\}$
 
 + Real intervals
-  + $[a, b] = \{x \in \mathbb{R} \,|\, a \leq x \leq b\}$, e.g. [3, 5]
-  + $(a, b) = \{x \in \mathbb{R} \,|\, a < x < b\}$, e.g., (3. 5)
-  + $[a, b) = \{x \in \mathbb{R} \,|\, a \leq x < b\}$, e.g., [3, 5)
-  + $(a, b] = \{x \in \mathbb{R} \,|\, a < x \leq b\}$, e.g., (3, 5]
+  + $[a, b] = \{x \in \Bbb{R} \,|\, a \leq x \leq b\}$, e.g. [3, 5]
+  + $(a, b) = \{x \in \Bbb{R} \,|\, a < x < b\}$, e.g., (3. 5)
+  + $[a, b) = \{x \in \Bbb{R} \,|\, a \leq x < b\}$, e.g., [3, 5)
+  + $(a, b] = \{x \in \Bbb{R} \,|\, a < x \leq b\}$, e.g., (3, 5]
   + `( )`: not in set; `[ ]`: in set
   + singleton: $[3, 3] = \{3\}$
   + $[3, 2] = [3. 3) = (3, 3] = \varnothing$
 
 + Divisibility
-  + $\exists\, m, n \in \mathbb{Z}$, if $n = c \cdot m$ for some $c \in \mathbb{Z}$, we say that <span style="color: magenta;">n is a multiple of $m$</span>, or <span style="color: magenta;">$m$ divides $n$</span> and written <span style="color: magenta;">$m \,|\, n$</span>
+  + $\exists\, m, n \in \Bbb{Z}$, if $n = c \cdot m$ for some $c \in \Bbb{Z}$, we say that <span style="color: magenta;">n is a multiple of $m$</span>, or <span style="color: magenta;">$m$ divides $n$</span> and written <span style="color: magenta;">$m \,|\, n$</span>
     + $\underbrace{6}_{n} = \underbrace{2}_{c} \cdot \underbrace{3}_{m} \to \underbrace{3}_{m}\,|\,\underbrace{6}_{n}$
     + $\underbrace{-8}_{n} = \underbrace{(-2)}_{c} \cdot \underbrace{4}_{m} \to \underbrace{4}_{m} \,|\, \underbrace{-8}_{n}$
     + $0 = 0 \cdot (-2) \to -2 | 0$
   + if no such $c$ exists, <span style="color: magenta;">$m$ does not divide $n$</span>, or <span style="color: magenta;">$n$ is not a multiple of $m$</span>, denoted <span style="color: magenta;">$m \nmid n$</span>
-    + $\not\exists\, c \in \mathbb{Z} \textrm{ s.t. } 4 = c \cdot 3 \to 3 \nmid 3$
+    + $\not\exists\, c \in \Bbb{Z} \textrm{ s.t. } 4 = c \cdot 3 \to 3 \nmid 3$
     + $0 \nmid n \;\forall\, n \neq 0$
 
 + Quiz
   + Multiples:
     + $3 \,|\, ? \to \{\dots, -6, -3, 0, 3, 6, \dots\}$
-    + $1 \,|\, ? \to \mathbb{Z}$
+    + $1 \,|\, ? \to \Bbb{Z}$
     + $0 \,|\, ? \to 0$
   + Divisors
     + $? \,|\, 4 \to \pm 1, \pm 2, \pm 4$
-    + $? \,|\, 0 \to \mathbb{Z}$
+    + $? \,|\, 0 \to \Bbb{Z}$
     + $? \,|\, \forall\, n\neq 0 \to \pm 1, \pm n$
 
 + Set of multiples
-  + integer multiples of $m$: $\exists\, m \in \mathbb{Z},\; _m\mathbb{Z} \stackrel{\text{def}}{=} \{ i \in \mathbb{Z}: m \,|\, i\}$
-    + even number: $_2\mathbb{Z} = \{\dots, -4, -2, 0, 2, 4, \dots\} \stackrel{\text{def}}{=} \mathbb{E}$
-    + ${}_1\mathbb{Z} = \{\dots, -2, -1, 0, 1, 2, \dots\} = \mathbb{Z}$
-    + ${}_0\mathbb{Z} = \{0\}$
-  + multiplies of $m$ in {1..n}: $\exists\; m\in \mathbb{Z}, n \in \mathbb{P}, {}_m[n] \stackrel{\text{def}}{=} \{i \in [n]: m \,|\, i\}$
+  + integer multiples of $m$: $\exists\, m \in \Bbb{Z},\; _m\Bbb{Z} \stackrel{\text{def}}{=} \{ i \in \Bbb{Z}: m \,|\, i\}$
+    + even number: $_2\Bbb{Z} = \{\dots, -4, -2, 0, 2, 4, \dots\} \stackrel{\text{def}}{=} \Bbb{E}$
+    + ${}_1\Bbb{Z} = \{\dots, -2, -1, 0, 1, 2, \dots\} = \Bbb{Z}$
+    + ${}_0\Bbb{Z} = \{0\}$
+  + multiplies of $m$ in {1..n}: $\exists\; m\in \Bbb{Z}, n \in \Bbb{P}, {}_m[n] \stackrel{\text{def}}{=} \{i \in [n]: m \,|\, i\}$
     + $_3[13] = \{i \in \{i, \dots, 13\}: 3\,|\,i\} = \{3, 6, 9, 12\}$
     + $_7[13] = \{7\},\; _1[13] = [13],\; _{14}[13] =\, _0[13] = \varnothing$
 
@@ -310,10 +310,10 @@
   Explanation: The real interval [2,4) contains the infinitely many points 2, 2.1, 2.11, 2.111, .... (and more..).
 
 
-1. Which of the following define a set unambiguously?{br/>}
+1. Which of the following define a set unambiguously?<br>
   a. $\{3, 4, 5, 7\}$<br/>
   b. {negative primes}<br/>
-  c. $\{x \in \mathbb{R} \,∣\, x^2 \cdot y > 100}\ $<br/>
+  c. $\{x \in \Bbb{R} \mid x^2 \cdot y > 100\}$<br/>
   d. {good drivers in San Diego}<br/>
 
   Ans: ab<br/>
@@ -326,19 +326,18 @@
 
 2. Which of the following are true?<br/>
   a. $0 \in $ {Even numbers} <br/>
-  b. $0.5 \in \mathbb{N}$<br/>
-  c. $\{-1\} \in \{x \in \mathbb{R}∣x^2 = 1\}$<br/>
-  d. $0.5 \in \{x \in \mathbb{Z} \,∣\, 2x^2 + x - 1 = 0\}$<br/>
-  e. $\varnothing \in \mathbb{Q}$<br/>
-  f. unanswered<br/>
+  b. $0.5 \in \Bbb{N}$<br/>
+  c. $\{-1\} \in \{x \in \Bbb{R}∣x^2 = 1\}$<br/>
+  d. $0.5 \in \{x \in \Bbb{Z} \mid 2x^2 + x - 1 = 0\}$<br/>
+  e. $\varnothing \in \Bbb{Q}$<br/>
 
   Ans: a<br/>
   Explanation:
   + a. True.
   + b. False.  0.5 is not an integer to begin with.
-  + c. False.  {-1} is a set. $\{-1\} \subset \{x \in \mathbb{R} \,∣\, x^2=1]}$
+  + c. False.  {-1} is a set. $\{-1\} \subset \{x \in \Bbb{R} \mid x^2=1]\}$
   + d. False.  0.5  is not integer.
-  + e. <span style="color: magenta;">False.</span>  $\varnothing \subset \mathbb{Q}$.
+  + e. <span style="color: magenta;">False.</span>  $\varnothing \subset \Bbb{Q}$.
 
 
 3. Which of the following hold?<br/>
@@ -369,11 +368,11 @@
 
   Note: Represent your answers in ascending order, For example the set {1,-1,0} should be written as -1,0,1 (without whitespace).
 
-  a. $\{x \in \mathbb{Z} \,∣\, -2 \leq x < 5\}$
-  b. $\{x \in \mathbb{N} \,∣\, x^2+x-2=0\}$
-  c. $\{x \in \mathbb{R} \,∣\, x^3+x-2=0\} $
+  a. $\{x \in \Bbb{Z} \mid -2 \leq x < 5\}$<br/>
+  b. $\{x \in \Bbb{N} \mid x^2+x-2=0\}$<br/>
+  c. $\{x \in \Bbb{R} \mid x^3+x-2=0\} $<br/>
   
-  Ans: a - (-2, -1, 0, 1, 2, 3, 4); b - (1); c - (1)
+  Ans: a. (-2, -1, 0, 1, 2, 3, 4); b. (1); c. (1)
 
 
 
@@ -496,7 +495,7 @@
   + A has an element that's not in B $\implies$ A is <span style="color: magenta;">not a subset</span> of B, denote $A {\color{Magenta}{\nsubseteq}} B$, or $B {\color{Magenta}{\nsupseteq}} A$
     + e.g., $\{0, 1\} \nsubseteq \{1, 2\}$, $\{1, 2\} \nsupseteq \{0, 1\}$
   + Remarks
-    + $\mathbb{P} \subseteq \mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}$
+    + $\Bbb{P} \subseteq \Bbb{N} \subseteq \Bbb{Z} \subseteq \Bbb{Q} \subseteq \Bbb{R}$
     + $\varnothing \subseteq A \subseteq A \subseteq \Omega$
     + $\subseteq$ is <span style="color: magenta;">transitive</span>: $A \subseteq B \wedge B \subseteq C \implies A \subseteq B$
     + $A \subseteq B \wedge B \subseteq A \implies A = B$
@@ -596,8 +595,8 @@
 
 
 4. Which of the following set pairs are equal?<br/>
-  a. $\{x \in \mathbb{R} \,∣\, x^2-4x+3=0\}$ and {3,1,3}<br/>
-  b. $\{x \in \mathbb{Q} \,∣\, x2=10\}$ and $\varnothing$ <br/>
+  a. $\{x \in \Bbb{R} \mid x^2-4x+3=0\}$ and {3,1,3}<br/>
+  b. $\{x \in \Bbb{Q} \mid x^2=10\}$ and $\varnothing$ <br/>
   c. {0} and {$\varnothing$}<br/>
   d. { letters in word _little_ }  and  { letters in word _title_ }<br/>
 
@@ -628,12 +627,12 @@
     + a. False. $R \neq Y$.
     + b. True.  $R \cap Y \neq \varnothing$.
     + c. False. $R ⊂\not\in Y$.
-    + d. True.  $Y \not\in \mathbb{R}$.
+    + d. True.  $Y \not\in \Bbb{R}$.
     + e. False. $R \cap Y \neq \varnothing$.
 
 
 6. Which of the following are subsets of  A=[2,4)? <br/>
-  a. $B = \{x \in \mathbb{R} \,∣\, x+3>6\}$<br/>
+  a. $B = \{x \in \Bbb{R} \mid x+3>6\}$<br/>
   b. $C = \{2,3,4\}$<br/>
   c. $D = (2,4)$<br/>
   d. $E = \varnothing$<br/>
@@ -646,22 +645,22 @@
     + d. True.
 
 
-7. Recall that $\mathbb{P}(S)$ is the collection of all subsets of $S$, and let $\mathbb{Q}(S)$ be the collection of all proper subsets of $S$.
+7. Recall that $\Bbb{P}(S)$ is the collection of all subsets of $S$, and let $\Bbb{Q}(S)$ be the collection of all proper subsets of $S$.
 
   Which of the following hold for every set $S$?<br/>
-  a. $\mathbb{P}(S) \subseteq \mathbb{Q}(S)$<br/>
-  b. $\mathbb{P}(S) \supseteq \mathbb{Q}(S)$<br/>
-  c. $\mathbb{P}(S) \supset \mathbb{Q}(S)$<br/>
-  d. $\mathbb{P}(S) = \mathbb{Q}(S)$<br/>
+  a. $\Bbb{P}(S) \subseteq \Bbb{Q}(S)$<br/>
+  b. $\Bbb{P}(S) \supseteq \Bbb{Q}(S)$<br/>
+  c. $\Bbb{P}(S) \supset \Bbb{Q}(S)$<br/>
+  d. $\Bbb{P}(S) = \Bbb{Q}(S)$<br/>
 
   Ans: b<span style="color: magenta;">c</span><br/>
-  Explanation: The collection of subsets $\mathbb{Q}(S)$ is $\mathbb{P}(S)$ minus $S$ itself. Hence ⊃ and ⊇ hold, while the rest do not.
+  Explanation: The collection of subsets $\Bbb{Q}(S)$ is $\Bbb{P}(S)$ minus $S$ itself. Hence ⊃ and ⊇ hold, while the rest do not.
 
 
 8. Which of the following set pairs intersect?<br/>
   a. {1,2,3} and {2,4,6} <br/>
   b. { prime numbers } and { even numbers }<br/>
-  c. $\{x \in \mathbb{R} \,∣\, x^2 \leq 4\}$  and  [2,7)<br/>
+  c. $\{x \in \Bbb{R} \mid x^2 \leq 4\}$  and  [2,7)<br/>
   d. $\varnothing$ and $\varnothing$ <br/>
   e. {$\varnothing$,1,2}  and $\varnothing$<br/>
 
@@ -723,8 +722,8 @@
   + examples
     + $\Omega = \{0, 1\}$ s.t. $\{0\}^c = \{1\},\; \{0, 1\}^c = \varnothing,\; \varnothing^c = \{0, 1\}$
     + $\Omega = \{0, 1, 2\}$ s.t. $\{0\}^c = \{1, 2\} \gets A^c$ depending on both $A$ and $\Omega$
-    + $\Omega = \mathbb{Z}$ s.t. $\{\dots, -2, -1\}^c = \mathbb{N}$
-    + $\mathbb{E}$ (even) s.t. $\mathbb{E}^c = \{\dots, -3, -1, 1, 3, \dots\} \stackrel{\text{def}}{=} \mathbb{O}$ (odd)
+    + $\Omega = \Bbb{Z}$ s.t. $\{\dots, -2, -1\}^c = \Bbb{N}$
+    + $\Bbb{E}$ (even) s.t. $\Bbb{E}^c = \{\dots, -3, -1, 1, 3, \dots\} \stackrel{\text{def}}{=} \Bbb{O}$ (odd)
 
 + Set identities
   + relations that hold for all sets
@@ -747,13 +746,13 @@
   + examples
     + $\{0, 1\} \cup \{1, 2\} = \{0, 1, 2\}$, $\{0, 1\} \cup \{2\} = \{0, 1, 2\}$
     + $[0, 2] \cup [1, 3] = [0, 3]$, $(0, 1) \cup \{1\} = (0, 1]$
-    + $\mathbb{E} \cup \mathbb{O} = \mathbb{Z}$
+    + $\Bbb{E} \cup \Bbb{O} = \Bbb{Z}$
 
 + Multiple sets
   + $A \cup B \cup C = \{ x \in \Omega: x \in A \vee x \in B \vee x \in X\}$
     + e.g., $\{0, 1\} \cup \{1, 2\} \cup \{2, 3\} = \{0, 1, 2, 3\}$
   + generally, $\bigcup_{i=1}^t A_i = \{x: \exists\, 1\leq i \leq t, \, x \in A\}$
-    + e.g., $\bigcup_{i=-\infty}^\infty \{i\} = \mathbb{Z}$
+    + e.g., $\bigcup_{i=-\infty}^\infty \{i\} = \Bbb{Z}$
   + similarly, $\bigcap_{i=1}^t A_i = \{x: \exists\, 1\leq i \leq t, \, x \in A\}$
 
 + Law of sets
@@ -878,9 +877,9 @@
 
   Ans: d<br>
   Explanation:
-    - 1 and 3 are Flase as if $C$ is the universal set then equality holds regardless of $A$ and $B$.
-    - 2 is False as if A={1}, B={2}, C={3}  then $A \cap B = A \cap C = \varnothing$  while and  $A \neq B$.
-    - 4 is correct. While the proof is simple, it is a bit tedious. 
+    - a and c are Flase as if $C$ is the universal set then equality holds regardless of $A$ and $B$.
+    - b is False as if A={1}, B={2}, C={3}  then $A \cap B = A \cap C = \varnothing$  while and  $A \neq B$.
+    - d is correct. While the proof is simple, it is a bit tedious. 
       - You can show that if the equality $A \Delta C = B \Delta C$ holds, then $A \subseteq B$. Then by symmetry, $B \subseteq A$, and hence $A=B$.
       - To show that $A \subseteq B$ , assume that $a$ is any element of $A$ and consider two cases: $a \in C$ and $a \not\in C$. You can show that in both cases the equality implies $a \in B$.
 
@@ -895,19 +894,19 @@
 
   Ans: 3 <br/>
   Explanation:
-    + 1. $A \cap B$.
-    + 2. $A \Delta B$.
-    + 4. $A - B$.
+    + 1) $A \cap B$.
+    + 2) $A \Delta B$.
+    + 4) $A - B$.
 
 
 6. For any two sets $A$ and $B$, add $\subseteq$ or $\supseteq$ to make the following statements true.<br/>
-  a. $A \cap B _____ A$<br/>
-  b. $A \cup B _____ A$<br/>
-  c. $A -    B _____ A$<br/>
-  d. $A \cap B _____ A \cup B$<br/>
-  e. $A -    B _____ A \Delta B$<br/>
+  a. $A \cap B$ `_____` $A$<br/>
+  b. $A \cup B$ `_____` $A$<br/>
+  c. $A -    B$ `_____` $A$<br/>
+  d. $A \cap B$ `_____` $A \cup B$<br/>
+  e. $A -    B$ `_____` $A \Delta B$<br/>
 
-  Ans: a. ($\subseteq$); b. ($supseteq$); c. ($\subseteq$); d. ($\subseteq$); e. ($\subseteq$)
+  Ans: a. ($\subseteq$); b. ($\supseteq$); c. ($\subseteq$); d. ($\subseteq$); e. ($\subseteq$)
 
 
 7. What does the red area in the following Venn Diagram represent?
@@ -918,7 +917,7 @@
     </a>
   </div>
 
-  a. $(A \cup B) - (A \cap )$<br/>
+  a. $(A \cup B) - (A \cap B)$<br/>
   b. $(A \cap B)^c$<br/>
   c. $A \cup B$<br/>
   d. $A \cap B$<br/>
@@ -937,9 +936,9 @@
 
   Ans: 1<br/>
   Explanation
-    + 2. $A \cap B$.
-    + 3. $A \cup B$.
-    + 4. $(A \Delta B)^c$.
+    + 2) $A \cap B$.
+    + 3) $A \cup B$.
+    + 4) $(A \Delta B)^c$.
 
 
 9. Let $A \neq \varnothing$. Which of the following is different from the others?<br/>
@@ -986,8 +985,8 @@
 + Cartesian products
   + the <span style="color: magenta;">Cartesian product</span> of $A$ and $B$ is the set $A \,{\color{Magenta}{\times}} B$ of ordered pairs $(a, b)$ where $a \in A$ and $b \in B$
   + Definition: (Cartesian product) $A \times B = \{(a, b) | a \in A,\, b \in B\}$
-  + Cartesian plane: $\mathbb{R}^2 = \{(x, y) \,|\, x, y \in \mathbb{R}\}, \; \mathbb{R} \times \mathbb{R} = \mathbb{R}^2$
-  + Rectangle: $A, B \subseteq \mathbb{R} \text{ s.t. } A \times B \subseteq \mathbb{R}^2$
+  + Cartesian plane: $\Bbb{R}^2 = \{(x, y) \,|\, x, y \in \Bbb{R}\}, \; \Bbb{R} \times \Bbb{R} = \Bbb{R}^2$
+  + Rectangle: $A, B \subseteq \Bbb{R} \text{ s.t. } A \times B \subseteq \Bbb{R}^2$
   + example: $A = [0, 2], B = [1, 4] \text{ s.t. } A \times B = \{(x, y) = x \in [0, 2], y \in [1. 4]\}$
 
 + Discrete sets
@@ -1097,11 +1096,11 @@
 
   Ans: a<br/>
   Explanation
-    + 1. The left set contains no elements, hence it is the empty set too. For the remaining options, the left and right sets may differ. Consider A={1} .
-    + 2. The left set contains no elements, but the right set contains 1.
-    + 3. $A^2 = \{(1,1)\}$ and does not contain the element 1.
-    + 4. $A^2 = \{(1,1)\}$ and does not contain the set $A$.
-    + 5. Note that to define $A^c$ we need to define the universal set, say {1,2},then the left set contains (1,2) while the right set does not.
+    + The left set contains no elements, hence it is the empty set too. For the remaining options, the left and right sets may differ. Consider A={1} .
+    + The left set contains no elements, but the right set contains 1.
+    + $A^2 = \{(1,1)\}$ and does not contain the element 1.
+    + $A^2 = \{(1,1)\}$ and does not contain the set $A$.
+    + Note that to define $A^c$ we need to define the universal set, say {1,2},then the left set contains (1,2) while the right set does not.
 
 
 3. Which of the following statements hold for all sets A, B and C?<br/>
@@ -1111,15 +1110,15 @@
 
   Ans: c<br/>
   Explanation
-    + 1 does not hold whenever $A$ and $B$ are nonempty and different.
-    + 2 does not hold as the left set is a subset of $A$ while the right set is typically not.
-    + 3 holds as $(x,y)$ is in the left set $\iff x \in A, y \in B$, and $y \in C, \iff (x,y)$ is in the right set.
+    + does not hold whenever $A$ and $B$ are nonempty and different.
+    + does not hold as the left set is a subset of $A$ while the right set is typically not.
+    + holds as $(x,y)$ is in the left set $\iff x \in A, y \in B$, and $y \in C, \iff (x,y)$ is in the right set.
 
 
 4. Add $\subseteq, \supseteq$, or $\in$ in the blanks to make the following statements true.<br/>
-  a. $\{(x,y) \,∣\, x^2 + y^2 \leq 1\} \times \{x \,∣\, -1 \leq x \leq 1\}$ `_____` $\{(x,y,z) \,∣\, x^2 + y^2 + z^2 \leq 1\}$<br/>
-  b. $(1,2,3)$ `_____` $\{(x,y) \,∣\, y = 2x\} \times \{x \,∣\, |x| \leq 3 \}$<br/>
-  c. $\{(x,y,z) \,∣\, \max\{|x|,|y|,|z|\} \leq 1\}$ `_____` $\{x \,∣\, -1 \leq x \leq 1\} \times \{(x,y) \,∣\, x^2 + y^2 \leq 1\}$<br/>
+  a. $\{(x,y) \mid x^2 + y^2 \leq 1\} \times \{x \mid -1 \leq x \leq 1\}$ `_____` $\{(x,y,z) \mid x^2 + y^2 + z^2 \leq 1\}$<br/>
+  b. $(1,2,3)$ `_____` $\{(x,y) \mid y = 2x\} \times \{x \mid |x| \leq 3 \}$<br/>
+  c. $\{(x,y,z) \mid \max\{|x|,|y|,|z|\} \leq 1\}$ `_____` $\{x \mid -1 \leq x \leq 1\} \times \{(x,y) \mid x^2 + y^2 \leq 1\}$<br/>
 
   Ans: a. ($\supseteq$); b. ($\in$); c. ($\supseteq$)<br/>
   Explanaition: Draw those sets in a 3-D coordinate system can help you visualize them.

@@ -7,7 +7,7 @@
   + probability
     + distribution $\to$ samples
     + $\mu = \sum x p(x) \to$ average of many samples $\sim \mu$
-    + $X \ge 0 \to \Pr(X \ge 2 \mu) \le 0.5$ (Markov's inequality)
+    + $X \ge 0 \to P(X \ge 2 \mu) \le 0.5$ (Markov's inequality)
   + statistics
     + samples $\to$ distribution
     + samples $\to$ parameters $\mu, \sigma$
@@ -75,13 +75,13 @@
 1. $225$ iPhones go on sale on black Friday, and 100 customers are in line to buy them. If the random number of iPhones that each customer wishes to buy is distributed Poisson with mean 2, approximate the probability that all 100 customers get their desired number of iPhones?
 
   Ans: 0.96145<br/>
-  Explanation: The total iPhone demand may be expressed as a sum $S=X_1+...+X_{100}$, where each $X_i$ is distributed $Poission(2)$, denoting the number of iPhones demanded by the $i$th customer. By the central limit theorem, $S=X_1+...+X_{100}$ is distributed approximately $N(200,200)$. Therefore we may approximate the probability as $\Pr(S\le 225)=\Pr(\frac{S-200}{\sqrt{200}}\le \frac{25}{\sqrt{200}})\approx \Phi(\frac{25}{\sqrt{200}})=0.9615$
+  Explanation: The total iPhone demand may be expressed as a sum $S=X_1+...+X_{100}$, where each $X_i$ is distributed $Poission(2)$, denoting the number of iPhones demanded by the $i$th customer. By the central limit theorem, $S=X_1+...+X_{100}$ is distributed approximately $N(200,200)$. Therefore we may approximate the probability as $P(S\le 225)=P(\frac{S-200}{\sqrt{200}}\le \frac{25}{\sqrt{200}})\approx \Phi(\frac{25}{\sqrt{200}})=0.9615$
 
 
 2. The number of years a Bulldog lives is a random variable with mean 9 and standard deviation 3, while for Chihuahuas, the mean is 15 and the standard deviation is 4. Approximate the probability the that in a kennel of 100 Bulldogs and 100 Chihuahuas, the average Chihuahua lives at least 7 years longer than the average Bulldog.
 
   Ans: 0.02275<br/>
-  Explanation: Let $B_i$, $C_i$, $i \in \{1,...,100\}$ denote the number of years the $i$th Bulldog, Chihuahua lives respectively, hence $B_i \sim N(9,9),C_i \sim N(15,16)$. Then, by the central limit theorem, the difference in average lifetime, $D= \sum^{100}_{i=1} \frac{C_i - B_i}{100}$ is distributed $N(6,25/100)$. Therefore $\Pr(D\ge 7)$ $=\Pr(\frac{D-6}{\sqrt{25/100}}\ge\frac{1}{\sqrt{25/100}})$ $\approx 1-\Phi(\sqrt{100/25})$ $=1-\Phi(2)=0.0228$
+  Explanation: Let $B_i$, $C_i$, $i \in \{1,...,100\}$ denote the number of years the $i$th Bulldog, Chihuahua lives respectively, hence $B_i \sim N(9,9),C_i \sim N(15,16)$. Then, by the central limit theorem, the difference in average lifetime, $D= \sum^{100}_{i=1} \frac{C_i - B_i}{100}$ is distributed $N(6,25/100)$. Therefore $P(D\ge 7)$ $=P(\frac{D-6}{\sqrt{25/100}}\ge\frac{1}{\sqrt{25/100}})$ $\approx 1-\Phi(\sqrt{100/25})$ $=1-\Phi(2)=0.0228$
 
 
 
@@ -301,7 +301,7 @@
   Explanation: Denote the distribution mean as $\mu$
     + True. $E[X_1] = \mu$
     + True. $E[\frac{1}{n}\sum_{i=1}^n X_i] = \frac{1}{n} E[\sum_{i=1}^n X_i] = \frac{1}{n} n\mu = \mu$
-    + False. $E\left[\sqrt{\frac{1}{n}\sum_{i=1}^n X_i^2}\right] \ne \mu$$
+    + False. $E\left[\sqrt{\frac{1}{n}\sum_{i=1}^n X_i^2}\right] \ne \mu$
 
 
 3. As the sample size $n$ grows, the sample mean estimates the distribution mean better. Because<br/>
@@ -309,7 +309,8 @@
   b. its variance decreases,<br/>
   c. none of the above.<br/>
 
-  Ans: $Var(\frac{1}{n} \sum_{i = 1}^{n} X_i) = \frac{V(X)}{n}$.  The variance of the sample mean decreases as $n$ grows.
+  Ans: b<br/>
+  Explanation: $Var(\frac{1}{n} \sum_{i = 1}^{n} X_i) = \frac{V(X)}{n}$.  The variance of the sample mean decreases as $n$ grows.
 
 
 4. A sample of size $n$ has sample mean $20.20$. After adding a new observed value $21$, the sample mean increases to $20.25$. What is $n$?
@@ -324,13 +325,13 @@
   Explanation: Let the total sum of samples be $S$. Clearly, $S=40 \cdot 3.15+45 \cdot 3.20+50 \cdot 2.76=408$. The sample mean is thus $\overline{X}=\frac{S}{n}=408/135=3.022222222$.
 
 
-6. Let $X_1,X_2, \dots,X_n$ be independent samples from a distribution with pdf $f_X(x)=\frac{1}{\theta^2}xe^{−x\theta} (X\ge 0)$. Which of the following is an unbiased estimator for $θ$?<br/>
+6. Let $X_1,X_2, \dots,X_n$ be independent samples from a distribution with pdf $f_X(x)=\frac{1}{\theta^2}xe^{-\frac{x}{\theta}} (X\ge 0)$. Which of the following is an unbiased estimator for $θ$?<br/>
   a. $\overline{X}$<br/>
   b. $\frac{\overline{X}}{2}$<br/>
   c. $\frac{\overline{X}}{3}$<br/>
   d. $\frac{\overline{X}}{6}$<br/>
 
-  Ans: <span style="color: cyan;">b<br/>
+  Ans: <span style="color: cyan;">b</span><br/>
   Explanation: By linearity of expectation, $E(\bar{X})=E(X_1)=\int_{0}^{\infty}x\frac1{\theta^2}xe^{-\frac x\theta}dx=2\theta$. Thus $E[\frac{\bar{X}}{2}]=\theta$  and is therefore an unbiased estimator for $\theta$.
 
 
@@ -340,8 +341,10 @@
   c. $\frac{2n+1}{4n}$<br/>
   d. $\frac{2n}{4n−1}$<br/>
 
-  Ans: <span style="color: cyan;">a<br/>
-  Explanation: Consider $M_n$. For some $m \in (0,W)$, $M_n \le m$ if and only if $X_i \le m \;\forall\,i$. This gives $\Pr(M_n \le m)=\Pr(X_1 \le m \cap \dots  \cap X_n \le m)=\prod^n_{i=1}P(X_i \le m)=(\frac m W)^n$. Differentiating the previous expression w.r.t. $m$, the density of $M_n$ is given by $f_{M_n}(m)=\frac{nm^{n−1}}{W^n}$. Thus $E(M_n)=\int^W_0 z \cdot f_{M_n}(z)dz= \int^W_0 z \cdot \frac{nz^{n−1}}{W^n}dz=\frac{n}{n+1} \cdot W$. Therefore $\frac{n+1}{2n} \cdot M_n$ is an unbiased estimator for $W/2$. [Solved Problems - problem 3](https://tinyurl.com/yaqnslkx)
+  Ans: <span style="color: cyan;">a</span><br/>
+  Explanation:
+    + Consider $M_n$. For some $m \in (0,W)$, $M_n \le m$ if and only if $X_i \le m \;\forall\,i$. This gives $P(M_n \le m)=P(X_1 \le m \cap \dots  \cap X_n \le m)=\prod^n_{i=1}P(X_i \le m)=(\frac m W)^n$. Differentiating the previous expression w.r.t. $m$, the density of $M_n$ is given by $f_{M_n}(m)=\frac{nm^{n−1}}{W^n}$. Thus $E(M_n)$ $=\int^W_0 z \cdot f_{M_n}(z)dz$ $= \int^W_0 z \cdot \frac{nz^{n−1}}{W^n}dz$ $=\frac{n}{n+1} \cdot W$. Therefore $\frac{n+1}{2n} \cdot M_n$ is an unbiased estimator for $W/2$.
+    + [Solved Problems - problem 3](https://tinyurl.com/yaqnslkx)
 
 
 8. Let $X$ be distributed $Poisson(λ)$. Which of the following is an unbiased estimator for $λ^2$.<br/>
@@ -350,7 +353,7 @@
   c. $2X^2−X$<br/>
   d. $3X^2−2X$<br/>
 
-  Ans: <span style="color: cyan;">b<br/>
+  Ans: <span style="color: cyan;">b</span><br/>
   Explanation: For $X$ that is distributed $Poisson(\lambda)$, we know that $E[X]=Var(X)=\lambda$. Thus $E[X^2]=Var(X)+E^2[X]=λ+λ^2$ and therefore $E(X^2−X)=\lambda^2$.
 
 
@@ -441,7 +444,7 @@
   + determining exact difference?
 
 + Example: Bernoulli
-  + r.v.'s: $B_p \;\; \Pr(1) = p \; \Pr(0) = 1 - p = q \quad \sigma^2 = pq$
+  + r.v.'s: $B_p \;\; P(1) = p \; P(0) = 1 - p = q \quad \sigma^2 = pq$
   + number of samples: $n=2$
     + samples: $x_1, x_2$
     + sample mean: $\overline{x} = \frac{x_1+ x_2}{2}$
@@ -451,7 +454,7 @@
       <thead>
       <tr style="font-size: 1.2em;">
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$X_1, X_2$</th>
-        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$\Pr(X_1, X_2)$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$P(X_1, X_2)$</th>
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$\overline{X}$</th>
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$S^2$</th>
       </tr>
@@ -504,17 +507,17 @@
 
 1. Let $\overline{X}_n$ and $S_n^2$ be the sample mean and the sample variance of $\{X_1, \dots, X_n\}$. Let $\overline{X}_{n+1}$ and $S^2_{n+1}$ be the sample mean and the sample variance of $\{X_1, \dots, X_n, \overline{X}_n\}$. Which of the following hold
 
-  a) for sample means,<br/>
+  1) for sample means,<br/>
   a. $\overline{X}_n > \overline{X}_{n+1}$<br/>
   b. $\overline{X}_n < \overline{X}_{n+1}$<br/>
   c. $\overline{X}_n = \overline{X}_{n+1}$<br/>
 
-  b) for sample variances?<br/>
+  2) for sample variances?<br/>
   a. $S^2_n > S^2_{n+1}$<br/>
   b. $S^2_n < S^2_{n+1}$<br/>
   c. $S^2_n = S^2_{n+1}$<br/>
 
-  Ans: a. (c); b. (a)<br/>
+  Ans: 1. (c); 2. (a)<br/>
   Explanation:
     + $\overline{X}_{n+1}=\frac{\sum_{i=1}^{n}X_i+\overline{X}_n}{n+1}$ $=\frac{n\cdot\overline{X}_n+\overline{X}_n}{n+1}=\overline{X}_n$.
     + ${S}^2_{n+1}=\frac{\sum_{i=1}^{n}(X_i-\overline{X}_{n+1})^2+(\overline{X}_n-\overline{X}_{n+1})^2}{n}$ $=\frac{\sum_{i=1}^{n}(X_i-\overline{X}_{n})^2+(\overline{X}_n-\overline{X}_{n})^2}{n}$ $< \frac{\sum_{i=1}^{n}(X_i-\overline{X}_{n})^2}{n-1}$ $={S}^2_{n}$.
@@ -528,7 +531,7 @@
   e. $\frac{n−1}{mn} \sigma^2$<br/>
   f. $\frac{m−1}{mn} \sigma^2$<br/>
 
-  Ans: <span style="color:cyan;">f<br/>
+  Ans: <span style="color:cyan;">f</span><br/>
   Explanation: According to WLLN, $V(\overline{X}_i) = \frac{\sigma^2}{n}$. $E(\overline{S}^2) = \frac{m - 1}{m} V(\overline{X}_i) = \frac{m - 1}{mn}\sigma^2$
 
 
@@ -538,7 +541,7 @@
   c. the sample variance increases by 5,<br/>
   d. the sample variance stays the same.<br/>
 
-  Ans: <span style="color:cyan;">ad<br/>
+  Ans: <span style="color:cyan;">ad</span><br/>
   Explanation: Let $y_i=x_i+5$.
   + True. $\bar{y} = \frac{1}{n} \sum_{i = 1}^{n} y_i = \frac{1}{n} \sum_{i = 1}^{n} (x_i + 5) = \frac{1}{n} \sum_{i = 1}^{n} x_i + 5 = \bar{x} + 5$
   + False
@@ -603,7 +606,7 @@
   + easier to understand and explain
 
 + Example: Bernoulli (revisit)
-  + r.v.'s: $B_p \;\; \Pr(1) = p \; \Pr(0) = 1 - p = q \quad \sigma^2 = pq$
+  + r.v.'s: $B_p \;\; P(1) = p \; P(0) = 1 - p = q \quad \sigma^2 = pq$
   + number of samples: $n=2$
     + samples: $x_1, x_2$
     + sample mean: $\overline{x} = \frac{x_1+ x_2}{2}$
@@ -615,7 +618,7 @@
       \end{align*}\]
 
 + Example: Bernoulli (alternative)
-  + r.v.'s: $B_p \;\; \Pr(1) = p \; \Pr(0) = 1 - p = q \quad \sigma^2 = E[(X - \mu)^2] = p(1-p) = pq$
+  + r.v.'s: $B_p \;\; P(1) = p \; P(0) = 1 - p = q \quad \sigma^2 = E[(X - \mu)^2] = p(1-p) = pq$
   + simplified calculation: $n = 2 \to X_1, X_2$
 
   \[\begin{align*}
@@ -782,9 +785,9 @@
 
 2. According to the U.S. Department of Agriculture, ten to twenty earthworms per cubic foot is a sign of healthy soil. The soil of a garden is checked by digging 8 holes, each of one-cubic-foot, and counting the earthworms, and the following counts are found: 5, 25, 15, 10, 7, 12, 16, 20. Use the unbiased estimators discussed in the video to estimate<br/>
   a. the true mean,<br/>
-  b. the true variance.<  br/>
+  b. the true variance.<br/>
 
-  Ans: a. (12.75); b. (44.5)<br/>
+  Ans: a. (13.75); b. (44.5)<br/>
   Explanation:
   + If $X_i, 1 \le i \le 8$  denotes the samples, the unbiased estimator for the true mean is given by $\overline{X} = \sum^8_{i=1} Xi /n=110/8=13.75$. Python functon - [statistics.mena(x)](https://docs.python.org/3/library/statistics.html#statistics.mean)
   + The unbiased estimator for the true variance is given by $S=\sum_{i=1}^8 (X_i-\overline{X})^2/(n-1)=311.5/7=44.5$.  Python function: unbiased sample variance - [statistics.variance(x)](https://docs.python.org/3/library/statistics.html#statistics.variance), population variance - [statistics.pvariance(x)](https://docs.python.org/3/library/statistics.html#statistics.pvariance)
@@ -901,7 +904,7 @@
 
     \[\begin{align*}
       E\left[ \widehat{\sigma}\left(X_1, X_2\right) \right] &= \sum_{x_1, x_2} p(x_1, x_2) \widehat{\sigma}(x_1, x_2) \\
-      &= \Pr(0, 0)\widehat{\sigma}(0, 0) + \Pr(0, 1)\widehat{\sigma}(0, 1) + \Pr(1, 0)\widehat{\sigma}(1, 0) + \Pr(1, 1)\widehat{\sigma}(1, 1)\\
+      &= P(0, 0)\widehat{\sigma}(0, 0) + P(0, 1)\widehat{\sigma}(0, 1) + P(1, 0)\widehat{\sigma}(1, 0) + P(1, 1)\widehat{\sigma}(1, 1)\\
       &= (1-p)^2\widehat{\sigma}(0,0) + (1-p)p\widehat{\sigma}(0, 1) + p(1-p)\widehat{\sigma}(1, 0) + p^2\widehat{\sigma}(1, 1)
     \end{align*}\]
 
@@ -990,10 +993,10 @@
   + point prediction
     + $Z = 0$: highest probability, unbiased
     + precise
-    + wrong: $\Pr(Z=0) = 0$
+    + wrong: $P(Z=0) = 0$
   + interval
 
-    \[ -a \le Z \le a \quad \Pr(-a \le Z \le a) > 0 \to \Pr(-a \le Z \le a) = ? \]
+    \[ -a \le Z \le a \quad P(-a \le Z \le a) > 0 \to P(-a \le Z \le a) = ? \]
 
 + Interval probability
   + r.v.: $Z \sim N(0, 1)$
@@ -1025,7 +1028,7 @@
 
 + 68-95-99.7 rule
 
-  \[ \Pr(-a \le Z \le a) = 2 \Phi(a) -1 \]
+  \[ P(-a \le Z \le a) = 2 \Phi(a) -1 \]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/yaofkz54" ismap target="_blank">
@@ -1033,15 +1036,15 @@
     </a>
   </div>
 
-  + $a = 1$: $\Pr(-1 \le Z \le 1) = 2 \cdot 0.8413 - 1 = 0.682$
-  + $a = 2$: $\Pr(-2 \le Z \le 2) = 2 \cdot 0.9772 - 1 = 0.9544$
-  + $a = 3$: $\Pr(-3 \le Z \le 3) = 2 \cdot 0.9987 - 1 = 0.9974$
+  + $a = 1$: $P(-1 \le Z \le 1) = 2 \cdot 0.8413 - 1 = 0.682$
+  + $a = 2$: $P(-2 \le Z \le 2) = 2 \cdot 0.9772 - 1 = 0.9544$
+  + $a = 3$: $P(-3 \le Z \le 3) = 2 \cdot 0.9987 - 1 = 0.9974$
 
 + Intervals $\to$ Probability
   + $p$: given desired probability
-  + finding $a$ s.t. $\Pr(-a \le Z \le a) = p$
+  + finding $a$ s.t. $P(-a \le Z \le a) = p$
   
-    \[ p = \Pr(-a \le Z \le a) = 2\Phi(a) -1 \to \Phi(a) = \frac{1+p}{2} \implies a = \Phi^{-1}\left(\frac{1+p}{2}\right) \]
+    \[ p = P(-a \le Z \le a) = 2\Phi(a) -1 \to \Phi(a) = \frac{1+p}{2} \implies a = \Phi^{-1}\left(\frac{1+p}{2}\right) \]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/yb3dyuhl" ismap target="_blank">
@@ -1066,8 +1069,8 @@
 
       \[ a = \Phi^{-1}\left(\frac{1+p}{2}\right) = \Phi^{-1}(0.975) \approx 1.96 \]
 
-    + verification: $\Pr(-1.96 \le Z \le 1.96) \approx 0.95$
-    + 68-97.5-99 rule: $\Pr(-2 \le Z \le 2) \approx 0.95$<br/><br/>
+    + verification: $P(-1.96 \le Z \le 1.96) \approx 0.95$
+    + 68-97.5-99 rule: $P(-2 \le Z \le 2) \approx 0.95$<br/><br/>
 
     <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
       <thead>
@@ -1095,8 +1098,8 @@
   + standard normal distribution: $Z \stackrel{\text{def}}{=} \frac{X - \mu}{\sigma} \;\;\sim N_{0, 1}$
 
     \[\begin{align*}
-      \Pr(\underbrace{\mu - a\sigma \le X \le \mu+a\sigma}_{\substack{X \text{ within "a" stdev}\\\text{from its mean}}}) &= \Pr(-a\sigma \le X - \mu \le a \sigma) = \Pr\left(-a \le \frac{X - \mu}{\sigma} \le a\right) \\
-      &= \Pr(\underbrace{-a \le Z \le a}_{\substack{Z \text{ within "a" stdev}\\\text{from its mean}}})
+      P(\underbrace{\mu - a\sigma \le X \le \mu+a\sigma}_{\substack{X \text{ within "a" stdev}\\\text{from its mean}}}) &= P(-a\sigma \le X - \mu \le a \sigma) = P\left(-a \le \frac{X - \mu}{\sigma} \le a\right) \\
+      &= P(\underbrace{-a \le Z \le a}_{\substack{Z \text{ within "a" stdev}\\\text{from its mean}}})
     \end{align*}\]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -1109,7 +1112,7 @@
     + r.v.: $X \sim N(1, 4) \quad p = 0.95$
     + parameters: $\mu = 1 \quad \sigma = 2$
 
-      \[ 0.95 \approx \Pr(-1.96 \le Z \le 1.96) = \Pr(\mu - 1.96 \sigma \le X \le \mu + 1.96 \sigma) = \Pr(-2.92 \le X \le 4.96) \]
+      \[ 0.95 \approx P(-1.96 \le Z \le 1.96) = P(\mu - 1.96 \sigma \le X \le \mu + 1.96 \sigma) = P(-2.92 \le X \le 4.96) \]
 
 
 + Confidence intervals
@@ -1248,7 +1251,7 @@
 
   Ans: ad<br/>
   Explanation: 
-  + As $\Pr(−a \le Z \le a)= \text{confidence level}$, when confidence level increase, the the length of the interval $(−a,a)$ will increase.
+  + As $P(−a \le Z \le a)= \text{confidence level}$, when confidence level increase, the the length of the interval $(−a,a)$ will increase.
   + When sample size decreases, the variance increases, and probability under the original interval decreases. Since the confidence level is not changed, the length of the confidence interval will increase.
 
 
@@ -1280,7 +1283,7 @@
   + r.v. w/ standard normal: $Z \sim N(0, 1)$
 
     \[\begin{align*}
-      p &= \Pr(|Z| \le z_p) = \Pr(-z_p \le Z \le z_p) \\
+      p &= P(|Z| \le z_p) = P(-z_p \le Z \le z_p) \\
       &= \Phi(z_p) - \Phi(-z+p) = \Phi(z_p) - (1- \Phi(z_p)) = 2 \Phi(z_p) -1
     \end{align*}\]
 
@@ -1290,7 +1293,7 @@
 
   + example
 
-    \[ z_{0.9} = \Phi^{-1}\left(\frac{1+0.9}{2} \right) = \Phi^{-1}(0.95) = 1.645 \to \Pr(|Z| \le 1.645) = 0.9  \]
+    \[ z_{0.9} = \Phi^{-1}\left(\frac{1+0.9}{2} \right) = \Phi^{-1}(0.95) = 1.645 \to P(|Z| \le 1.645) = 0.9  \]
 
 + Sample mean $\mathrel{\dot\sim}$ Normal
   + r.v.'s: $X_1, X_2, \dots, X_n$ iid w/ known $\sigma$ and unknown $\mu$
@@ -1301,10 +1304,10 @@
     \[ \frac{\overbrace{\overline{X} - \mu}^{\text{mean } 0}}{\underbrace{\sigma_{\overline{X}}}_{\text{stdev } 1}} = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \quad\underbrace{\mathrel{\dot\sim}}_{\text{CLT}}\quad N(0, 1) \]
 
 + Confidence interval
-  + standard normal: $Z \sim N(0, 1) \quad \Pr(|Z| \le z_p) = p$
+  + standard normal: $Z \sim N(0, 1) \quad P(|Z| \le z_p) = p$
   + normalized standard normal: $\frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \mathrel{\dot\sim} N(0, 1)$
 
-    \[ \Pr\left( \left|\frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \right| \le z_p \right) \approx p \implies \Pr\left( |\overline{X} - \mu | \le z_p \frac{\sigma}{\sqrt{n}} \right) \approx p \]
+    \[ P\left( \left|\frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \right| \le z_p \right) \approx p \implies P\left( |\overline{X} - \mu | \le z_p \frac{\sigma}{\sqrt{n}} \right) \approx p \]
 
   + with probability $\approx p$
 
@@ -1389,9 +1392,9 @@
 
 + Confidence interval for t distribution
   + $T_\nu$: student's t-distribution, $\nu$ degrees of freedom
-  + t-statistic (critical value $t_{p, \nu}): \Pr(|T_\nu| \le t_{p, \nu}) = p$
+  + t-statistic (critical value $t_{p, \nu}): P(|T_\nu| \le t_{p, \nu}) = p$
   
-    \[ p = \Pr(|T_\nu| \le t_{p, \nu}) = \Pr(-t_{p, \nu} \le T_\nu \le t_{p, \nu}) = 2 F(T_{p, \nu}) - 1 \]
+    \[ p = P(|T_\nu| \le t_{p, \nu}) = P(-t_{p, \nu} \le T_\nu \le t_{p, \nu}) = 2 F(T_{p, \nu}) - 1 \]
 
   + CDF of $T_\nu$: $F(t_{p, \nu}) = \frac{1+p}{2}$
   + critical value: $t_{p, \nu} = F^{-1} \left(\frac{1+p}{2}\right)$
@@ -1413,7 +1416,7 @@
   + t-distribution, $\nu$ degrees of freedom
   + t-statistic: $\frac{\overline{X} - \mu}{s/\sqrt{n}} \sim f_{n-1}(t)$
 
-    \[ \Pr\left(\left|\frac{\overline{X} - \mu}{s/\sqrt{n}} \right| \le t_{p, n-1}\right) = p \implies \Pr\left(\left|\overline{X} - \mu\right| \le t_{p, n-1} \frac{s}{\sqrt{n}}\right) = p \]
+    \[ P\left(\left|\frac{\overline{X} - \mu}{s/\sqrt{n}} \right| \le t_{p, n-1}\right) = p \implies P\left(\left|\overline{X} - \mu\right| \le t_{p, n-1} \frac{s}{\sqrt{n}}\right) = p \]
 
   + w/ probability $p$
 
@@ -1460,7 +1463,7 @@
   c. If we take a new sample point, it falls into this interval 95% of the time<br/>
   d. Non of the above<br/>
 
-  Ans: <span style="color: cyan;">a
+  Ans: <span style="color: cyan;">a</span>
   
 
 1. Student's t-distribution can be used to form confidence intervals only when the samples are normal distributed. (True/False)
@@ -1471,7 +1474,7 @@
 2. To find the average SAT verbal score in a class, six students are sampled and their scores are 560, 610, 500, 470, 660, and 640. Assuming that students' SAT verbal scores follow normal distribution, what is the upper limit for the confidence interval of the distribution mean with confidence level 90%?
 
   Ans: 636.5572<br/>
-  Explanation: Let $X_i,1 \le i \le 6$ denote the samples. Here the sample mean $\overline{X} = \sum^6_{i=1} X_i/6=3440/6=573.333$. The sample variance $s^2= \sim^6_{i=1} (X_i−\overline{X})^2/(6−1)=29533.33333/5=5906.667$.  Since the data is assumed to be generated from a normal distribution, the $90\%$ confidence interval for the mean $\mu$ is given by $[\overline{X} − \frac{t_{0.9,5}s}{\sqrt{6}, \overline{X} + \frac{t_{0.9,5}s}{\sqrt{6}]$. Using the fact that $t_{0.9,5}=2.015$,  $\overline{X}+t_{0.9,5} \frac{s}{\sqrt{6}=573.333+2.015 \frac{\sqrt{5906.667}}{\sqrt{6}}=636.542$ (A tolerance of $\pm 0.5$ about 636.5 is an acceptable answer).
+  Explanation: Let $X_i,1 \le i \le 6$ denote the samples. Here the sample mean $\overline{X} = \sum^6_{i=1} X_i/6=3440/6=573.333$. The sample variance $s^2$ $= \sim^6_{i=1} (X_i−\overline{X})^2/(6−1)$ $=29533.33333/5$ $=5906.667$.  Since the data is assumed to be generated from a normal distribution, the $90\%$ confidence interval for the mean $\mu$ is given by $[\overline{X}$ $− \frac{t_{0.9,5}s}{\sqrt{6}}, \overline{X}$ $+ \frac{t_{0.9,5}s}{\sqrt{6}}]$. Using the fact that $t_{0.9,5}=2.015$,  $\overline{X}+t_{0.9,5} \frac{s}{\sqrt{6}}$ $=573.333+2.015 \frac{\sqrt{5906.667}}{\sqrt{6}}$ $=636.542$ (A tolerance of $\pm 0.5$ about 636.5 is an acceptable answer).
 
 
 3. a. What is the critical $t$ for a 92% confidence interval with a sample size 10?<br/>
@@ -1500,430 +1503,7 @@
 
 + [Lecture Python code for Statistics](src/Topic11_Lecture.py)
 
-+ Numpy statistics functions<br/><br/>
-
-  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y79873lp">Order statistics</a></caption>
-    <thead>
-    <tr style="font-size: 1.2em;">
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.amin.html#numpy.amin" title="numpy.amin"><code>amin</code></a>(a[,&nbsp;axis,&nbsp;out,&nbsp;keepdims,&nbsp;initial,&nbsp;where])</p></td>
-      <td><p>Return the minimum of an array or minimum along an axis.</p></td>
-    </tr>
-    <tr >
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.amax.html#numpy.amax" title="numpy.amax"><code>amax</code></a>(a[,&nbsp;axis,&nbsp;out,&nbsp;keepdims,&nbsp;initial,&nbsp;where])</p></td>
-      <td><p>Return the maximum of an array or maximum along an axis.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nanmin.html#numpy.nanmin" title="numpy.nanmin"><code>nanmin</code></a>(a[,&nbsp;axis,&nbsp;out,&nbsp;keepdims])</p></td>
-      <td><p>Return minimum of an array or minimum along an axis, ignoring any NaNs.</p></td>
-    </tr>
-    <tr >
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nanmax.html#numpy.nanmax" title="numpy.nanmax"><code>nanmax</code></a>(a[,&nbsp;axis,&nbsp;out,&nbsp;keepdims])</p></td>
-      <td><p>Return the maximum of an array or maximum along an axis, ignoring any NaNs.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.ptp.html#numpy.ptp" title="numpy.ptp"><code>ptp</code></a>(a[,&nbsp;axis,&nbsp;out,&nbsp;keepdims])</p></td>
-      <td><p>Range of values (maximum - minimum) along an axis.</p></td>
-    </tr>
-    <tr >
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.percentile.html#numpy.percentile" title="numpy.percentile"><code>percentile</code></a>(a,&nbsp;q[,&nbsp;axis,&nbsp;out,&nbsp;…])</p></td>
-      <td><p>Compute the q-th percentile of the data along the specified axis.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nanpercentile.html#numpy.nanpercentile" title="numpy.nanpercentile"><code>nanpercentile</code></a>(a,&nbsp;q[,&nbsp;axis,&nbsp;out,&nbsp;…])</p></td>
-      <td><p>Compute the qth percentile of the data along the specified axis, while ignoring nan values.</p></td>
-    </tr>
-    <tr >
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.quantile.html#numpy.quantile" title="numpy.quantile"><code>quantile</code></a>(a,&nbsp;q[,&nbsp;axis,&nbsp;out,&nbsp;overwrite_input,&nbsp;…])</p></td>
-      <td><p>Compute the q-th quantile of the data along the specified axis.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nanquantile.html#numpy.nanquantile" title="numpy.nanquantile"><code>nanquantile</code></a>(a,&nbsp;q[,&nbsp;axis,&nbsp;out,&nbsp;…])</p></td>
-      <td><p>Compute the qth quantile of the data along the specified axis, while ignoring nan values.</p></td>
-    </tr>
-    </tbody>
-  </table>
-
-  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y8ustxop">Averages and variances</a></caption>
-    <thead>
-    <tr style="font-size: 1.2em;">
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.median.html#numpy.median" title="numpy.median"><code>median</code></a>(a[,&nbsp;axis,&nbsp;out,&nbsp;overwrite_input,&nbsp;keepdims])</p></td>
-      <td><p>Compute the median along the specified axis.</p></td>
-    </tr>
-    <tr >
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.average.html#numpy.average" title="numpy.average"><code>average</code></a>(a[,&nbsp;axis,&nbsp;weights,&nbsp;returned])</p></td>
-      <td><p>Compute the weighted average along the specified axis.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.mean.html#numpy.mean" title="numpy.mean"><code>mean</code></a>(a[,&nbsp;axis,&nbsp;dtype,&nbsp;out,&nbsp;keepdims])</p></td>
-      <td><p>Compute the arithmetic mean along the specified axis.</p></td>
-    </tr>
-    <tr >
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.std.html#numpy.std" title="numpy.std"><code>std</code></a>(a[,&nbsp;axis,&nbsp;dtype,&nbsp;out,&nbsp;ddof,&nbsp;keepdims])</p></td>
-      <td><p>Compute the standard deviation along the specified axis.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.var.html#numpy.var" title="numpy.var"><code>var</code></a>(a[,&nbsp;axis,&nbsp;dtype,&nbsp;out,&nbsp;ddof,&nbsp;keepdims])</p></td>
-      <td><p>Compute the variance along the specified axis.</p></td>
-    </tr>
-    <tr >
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nanmedian.html#numpy.nanmedian" title="numpy.nanmedian"><code>nanmedian</code></a>(a[,&nbsp;axis,&nbsp;out,&nbsp;overwrite_input,&nbsp;…])</p></td>
-      <td><p>Compute the median along the specified axis, while ignoring NaNs.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nanmean.html#numpy.nanmean" title="numpy.nanmean"><code>nanmean</code></a>(a[,&nbsp;axis,&nbsp;dtype,&nbsp;out,&nbsp;keepdims])</p></td>
-      <td><p>Compute the arithmetic mean along the specified axis, ignoring NaNs.</p></td>
-    </tr>
-    <tr >
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nanstd.html#numpy.nanstd" title="numpy.nanstd"><code>nanstd</code></a>(a[,&nbsp;axis,&nbsp;dtype,&nbsp;out,&nbsp;ddof,&nbsp;keepdims])</p></td>
-      <td><p>Compute the standard deviation along the specified axis, while ignoring NaNs.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nanvar.html#numpy.nanvar" title="numpy.nanvar"><code>nanvar</code></a>(a[,&nbsp;axis,&nbsp;dtype,&nbsp;out,&nbsp;ddof,&nbsp;keepdims])</p></td>
-      <td><p>Compute the variance along the specified axis, while ignoring NaNs.</p></td>
-    </tr>
-    </tbody>
-  </table>
-
-  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/yc6sbejm">Correlating</a></caption>
-    <thead>
-    <tr style="font-size: 1.2em;">
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.corrcoef.html#numpy.corrcoef" title="numpy.corrcoef"><code>corrcoef</code></a>(x[,&nbsp;y,&nbsp;rowvar,&nbsp;bias,&nbsp;ddof])</p></td>
-      <td><p>Return Pearson product-moment correlation coefficients.</p></td>
-    </tr>
-    <tr >
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.correlate.html#numpy.correlate" title="numpy.correlate"><code>correlate</code></a>(a,&nbsp;v[,&nbsp;mode])</p></td>
-      <td><p>Cross-correlation of two 1-dimensional sequences.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.cov.html#numpy.cov" title="numpy.cov"><code>cov</code></a>(m[,&nbsp;y,&nbsp;rowvar,&nbsp;bias,&nbsp;ddof,&nbsp;fweights,&nbsp;…])</p></td>
-      <td><p>Estimate a covariance matrix, given data and weights.</p></td>
-    </tr>
-    </tbody>
-  </table>
-
-  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y7vdpd8f">Histograms</a></caption>
-    <thead>
-    <tr style="font-size: 1.2em;">
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.histogram.html#numpy.histogram" title="numpy.histogram"><code>histogram</code></a>(a[,&nbsp;bins,&nbsp;range,&nbsp;normed,&nbsp;weights,&nbsp;…])</p></td>
-      <td><p>Compute the histogram of a set of data.</p></td>
-    </tr>
-    <tr >
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.histogram2d.html#numpy.histogram2d" title="numpy.histogram2d"><code>histogram2d</code></a>(x,&nbsp;y[,&nbsp;bins,&nbsp;range,&nbsp;normed,&nbsp;…])</p></td>
-      <td><p>Compute the bi-dimensional histogram of two data samples.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.histogramdd.html#numpy.histogramdd" title="numpy.histogramdd"><code>histogramdd</code></a>(sample[,&nbsp;bins,&nbsp;range,&nbsp;normed,&nbsp;…])</p></td>
-      <td><p>Compute the multidimensional histogram of some data.</p></td>
-    </tr>
-    <tr >
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.bincount.html#numpy.bincount" title="numpy.bincount"><code>bincount</code></a>(x[,&nbsp;weights,&nbsp;minlength])</p></td>
-      <td><p>Count number of occurrences of each value in array of non-negative ints.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.histogram_bin_edges.html#numpy.histogram_bin_edges" title="numpy.histogram_bin_edges"><code>histogram_bin_edges</code></a>(a[,&nbsp;bins,&nbsp;range,&nbsp;weights])</p></td>
-      <td><p>Function to calculate only the edges of the bins used by the <a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.histogram.html#numpy.histogram" title="numpy.histogram"><code>histogram</code></a> function.</p></td>
-    </tr>
-    <tr >
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.digitize.html#numpy.digitize" title="numpy.digitize"><code>digitize</code></a>(x,&nbsp;bins[,&nbsp;right])</p></td>
-      <td><p>Return the indices of the bins to which each value in input array belongs.</p></td>
-    </tr>
-    </tbody>
-  </table>
-
-
-+ Numpy Math related functions<br/><br/>
-
-  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y8ustxop">Sums, products, differences</a></caption>
-    <thead>
-    <tr style="font-size: 1.2em;">
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.prod.html#numpy.prod" title="numpy.prod"><code>prod</code></a>(a[,&nbsp;axis,&nbsp;dtype,&nbsp;out,&nbsp;keepdims,&nbsp;…])</p></td>
-      <td><p>Return the product of array elements over a given axis.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.sum.html#numpy.sum" title="numpy.sum"><code>sum</code></a>(a[,&nbsp;axis,&nbsp;dtype,&nbsp;out,&nbsp;keepdims,&nbsp;…])</p></td>
-      <td><p>Sum of array elements over a given axis.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nanprod.html#numpy.nanprod" title="numpy.nanprod"><code>nanprod</code></a>(a[,&nbsp;axis,&nbsp;dtype,&nbsp;out,&nbsp;keepdims])</p></td>
-      <td><p>Return the product of array elements over a given axis treating Not a Numbers (NaNs) as ones.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nansum.html#numpy.nansum" title="numpy.nansum"><code>nansum</code></a>(a[,&nbsp;axis,&nbsp;dtype,&nbsp;out,&nbsp;keepdims])</p></td>
-      <td><p>Return the sum of array elements over a given axis treating Not a Numbers (NaNs) as zero.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.cumprod.html#numpy.cumprod" title="numpy.cumprod"><code>cumprod</code></a>(a[,&nbsp;axis,&nbsp;dtype,&nbsp;out])</p></td>
-      <td><p>Return the cumulative product of elements along a given axis.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.cumsum.html#numpy.cumsum" title="numpy.cumsum"><code>cumsum</code></a>(a[,&nbsp;axis,&nbsp;dtype,&nbsp;out])</p></td>
-      <td><p>Return the cumulative sum of the elements along a given axis.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nancumprod.html#numpy.nancumprod" title="numpy.nancumprod"><code>nancumprod</code></a>(a[,&nbsp;axis,&nbsp;dtype,&nbsp;out])</p></td>
-      <td><p>Return the cumulative product of array elements over a given axis treating Not a Numbers (NaNs) as one.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nancumsum.html#numpy.nancumsum" title="numpy.nancumsum"><code>nancumsum</code></a>(a[,&nbsp;axis,&nbsp;dtype,&nbsp;out])</p></td>
-      <td><p>Return the cumulative sum of array elements over a given axis treating Not a Numbers (NaNs) as zero.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.diff.html#numpy.diff" title="numpy.diff"><code>diff</code></a>(a[,&nbsp;n,&nbsp;axis,&nbsp;prepend,&nbsp;append])</p></td>
-      <td><p>Calculate the n-th discrete difference along the given axis.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.ediff1d.html#numpy.ediff1d" title="numpy.ediff1d"><code>ediff1d</code></a>(ary[,&nbsp;to_end,&nbsp;to_begin])</p></td>
-      <td><p>The differences between consecutive elements of an array.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.gradient.html#numpy.gradient" title="numpy.gradient"><code>gradient</code></a>(f,&nbsp;\*varargs[,&nbsp;axis,&nbsp;edge_order])</p></td>
-      <td><p>Return the gradient of an N-dimensional array.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.cross.html#numpy.cross" title="numpy.cross"><code>cross</code></a>(a,&nbsp;b[,&nbsp;axisa,&nbsp;axisb,&nbsp;axisc,&nbsp;axis])</p></td>
-      <td><p>Return the cross product of two (arrays of) vectors.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.trapz.html#numpy.trapz" title="numpy.trapz"><code>trapz</code></a>(y[,&nbsp;x,&nbsp;dx,&nbsp;axis])</p></td>
-      <td><p>Integrate along the given axis using the composite trapezoidal rule.</p></td>
-    </tr>
-    </tbody>
-  </table>
-
-  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y9k56ajb">Exponents and logarithms</a></caption>
-    <thead>
-    <tr style="font-size: 1.2em;">
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.exp.html#numpy.exp" title="numpy.exp"><code >exp</code></a>(x,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;order,&nbsp;…])</p></td>
-      <td><p>Calculate the exponential of all elements in the input array.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.expm1.html#numpy.expm1" title="numpy.expm1"><code >expm1</code></a>(x,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;order,&nbsp;…])</p></td>
-      <td><p>Calculate <code class="docutils literal notranslate"><span class="pre">exp(x) <span class="pre">- <span class="pre">1</code> for all elements in the array.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.exp2.html#numpy.exp2" title="numpy.exp2"><code >exp2</code></a>(x,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;order,&nbsp;…])</p></td>
-      <td><p>Calculate <em class="xref py py-obj">2**p</em> for all <em class="xref py py-obj">p</em> in the input array.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.log.html#numpy.log" title="numpy.log"><code >log</code></a>(x,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;order,&nbsp;…])</p></td>
-      <td><p>Natural logarithm, element-wise.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.log10.html#numpy.log10" title="numpy.log10"><code >log10</code></a>(x,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;order,&nbsp;…])</p></td>
-      <td><p>Return the base 10 logarithm of the input array, element-wise.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.log2.html#numpy.log2" title="numpy.log2"><code >log2</code></a>(x,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;order,&nbsp;…])</p></td>
-      <td><p>Base-2 logarithm of <em class="xref py py-obj">x</em>.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.log1p.html#numpy.log1p" title="numpy.log1p"><code >log1p</code></a>(x,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;order,&nbsp;…])</p></td>
-      <td><p>Return the natural logarithm of one plus the input array, element-wise.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.logaddexp.html#numpy.logaddexp" title="numpy.logaddexp"><code >logaddexp</code></a>(x1,&nbsp;x2,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;…])</p></td>
-      <td><p>Logarithm of the sum of exponentiations of the inputs.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.logaddexp2.html#numpy.logaddexp2" title="numpy.logaddexp2"><code >logaddexp2</code></a>(x1,&nbsp;x2,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;…])</p></td>
-      <td><p>Logarithm of the sum of exponentiations of the inputs in base-2.</p></td>
-    </tr>
-    </tbody>
-  </table>
-
-  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y8eygfus">Arithmetic operations</a></caption>
-    <thead>
-    <tr style="font-size: 1.2em;">
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.add.html#numpy.add" title="numpy.add"><code>add</code></a>(x1,&nbsp;x2,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;order,&nbsp;…])</p></td>
-      <td><p>Add arguments element-wise.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.reciprocal.html#numpy.reciprocal" title="numpy.reciprocal"><code>reciprocal</code></a>(x,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;…])</p></td>
-      <td><p>Return the reciprocal of the argument, element-wise.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.positive.html#numpy.positive" title="numpy.positive"><code>positive</code></a>(x,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;order,&nbsp;…])</p></td>
-      <td><p>Numerical positive, element-wise.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.negative.html#numpy.negative" title="numpy.negative"><code>negative</code></a>(x,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;order,&nbsp;…])</p></td>
-      <td><p>Numerical negative, element-wise.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.multiply.html#numpy.multiply" title="numpy.multiply"><code>multiply</code></a>(x1,&nbsp;x2,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;…])</p></td>
-      <td><p>Multiply arguments element-wise.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.divide.html#numpy.divide" title="numpy.divide"><code>divide</code></a>(x1,&nbsp;x2,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;…])</p></td>
-      <td><p>Returns a true division of the inputs, element-wise.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.power.html#numpy.power" title="numpy.power"><code>power</code></a>(x1,&nbsp;x2,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;…])</p></td>
-      <td><p>First array elements raised to powers from second array, element-wise.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.subtract.html#numpy.subtract" title="numpy.subtract"><code>subtract</code></a>(x1,&nbsp;x2,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;…])</p></td>
-      <td><p>Subtract arguments, element-wise.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.true_divide.html#numpy.true_divide" title="numpy.true_divide"><code>true_divide</code></a>(x1,&nbsp;x2,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;…])</p></td>
-      <td><p>Returns a true division of the inputs, element-wise.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.floor_divide.html#numpy.floor_divide" title="numpy.floor_divide"><code>floor_divide</code></a>(x1,&nbsp;x2,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;…])</p></td>
-      <td><p>Return the largest integer smaller or equal to the division of the inputs.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.float_power.html#numpy.float_power" title="numpy.float_power"><code>float_power</code></a>(x1,&nbsp;x2,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;…])</p></td>
-      <td><p>First array elements raised to powers from second array, element-wise.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.fmod.html#numpy.fmod" title="numpy.fmod"><code>fmod</code></a>(x1,&nbsp;x2,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;…])</p></td>
-      <td><p>Return the element-wise remainder of division.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.mod.html#numpy.mod" title="numpy.mod"><code>mod</code></a>(x1,&nbsp;x2,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;order,&nbsp;…])</p></td>
-      <td><p>Return element-wise remainder of division.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.modf.html#numpy.modf" title="numpy.modf"><code>modf</code></a>(x[,&nbsp;out1,&nbsp;out2],&nbsp;/&nbsp;[[,&nbsp;out,&nbsp;where,&nbsp;…])</p></td>
-      <td><p>Return the fractional and integral parts of an array, element-wise.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.remainder.html#numpy.remainder" title="numpy.remainder"><code>remainder</code></a>(x1,&nbsp;x2,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;…])</p></td>
-      <td><p>Return element-wise remainder of division.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.divmod.html#numpy.divmod" title="numpy.divmod"><code>divmod</code></a>(x1,&nbsp;x2[,&nbsp;out1,&nbsp;out2],&nbsp;/&nbsp;[[,&nbsp;out,&nbsp;…])</p></td>
-      <td><p>Return element-wise quotient and remainder simultaneously.</p></td>
-    </tr>
-    </tbody>
-  </table>
-
-  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y9aqcrsx">Miscellaneous</a></caption>
-    <thead>
-    <tr style="font-size: 1.2em;">
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
-      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.convolve.html#numpy.convolve" title="numpy.convolve"><code>convolve</code></a>(a,&nbsp;v[,&nbsp;mode])</p></td>
-      <td><p>Returns the discrete, linear convolution of two one-dimensional sequences.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.clip.html#numpy.clip" title="numpy.clip"><code>clip</code></a>(a,&nbsp;a_min,&nbsp;a_max[,&nbsp;out])</p></td>
-      <td><p>Clip (limit) the values in an array.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.sqrt.html#numpy.sqrt" title="numpy.sqrt"><code>sqrt</code></a>(x,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;order,&nbsp;…])</p></td>
-      <td><p>Return the non-negative square-root of an array, element-wise.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.cbrt.html#numpy.cbrt" title="numpy.cbrt"><code>cbrt</code></a>(x,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;order,&nbsp;…])</p></td>
-      <td><p>Return the cube-root of an array, element-wise.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.square.html#numpy.square" title="numpy.square"><code>square</code></a>(x,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;order,&nbsp;…])</p></td>
-      <td><p>Return the element-wise square of the input.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.absolute.html#numpy.absolute" title="numpy.absolute"><code>absolute</code></a>(x,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;order,&nbsp;…])</p></td>
-      <td><p>Calculate the absolute value element-wise.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.fabs.html#numpy.fabs" title="numpy.fabs"><code>fabs</code></a>(x,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;order,&nbsp;…])</p></td>
-      <td><p>Compute the absolute values element-wise.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.sign.html#numpy.sign" title="numpy.sign"><code>sign</code></a>(x,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;order,&nbsp;…])</p></td>
-      <td><p>Returns an element-wise indication of the sign of a number.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.heaviside.html#numpy.heaviside" title="numpy.heaviside"><code>heaviside</code></a>(x1,&nbsp;x2,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;…])</p></td>
-      <td><p>Compute the Heaviside step function.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.maximum.html#numpy.maximum" title="numpy.maximum"><code>maximum</code></a>(x1,&nbsp;x2,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;…])</p></td>
-      <td><p>Element-wise maximum of array elements.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.minimum.html#numpy.minimum" title="numpy.minimum"><code>minimum</code></a>(x1,&nbsp;x2,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;…])</p></td>
-      <td><p>Element-wise minimum of array elements.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.fmax.html#numpy.fmax" title="numpy.fmax"><code>fmax</code></a>(x1,&nbsp;x2,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;…])</p></td>
-      <td><p>Element-wise maximum of array elements.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.fmin.html#numpy.fmin" title="numpy.fmin"><code>fmin</code></a>(x1,&nbsp;x2,&nbsp;/[,&nbsp;out,&nbsp;where,&nbsp;casting,&nbsp;…])</p></td>
-      <td><p>Element-wise minimum of array elements.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.nan_to_num.html#numpy.nan_to_num" title="numpy.nan_to_num"><code>nan_to_num</code></a>(x[,&nbsp;copy,&nbsp;nan,&nbsp;posinf,&nbsp;neginf])</p></td>
-      <td><p>Replace NaN with zero and infinity with large finite numbers (default behaviour) or with the numbers defined by the user using the <a href="constants.html#numpy.nan" title="numpy.nan"><code>nan</code></a>,  <em class="xref py py-obj">posinf</em> and/or <em class="xref py py-obj">neginf</em> keywords.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.real_if_close.html#numpy.real_if_close" title="numpy.real_if_close"><code>real_if_close</code></a>(a[,&nbsp;tol])</p></td>
-      <td><p>If input is complex with all imaginary parts close to zero, return  real parts.</p></td>
-    </tr>
-    <tr>
-      <td><p><a href="https://het.as.utexas.edu/HET/Software/Numpy/reference/generated/numpy.interp.html#numpy.interp" title="numpy.interp"><code>interp</code></a>(x,&nbsp;xp,&nbsp;fp[,&nbsp;left,&nbsp;right,&nbsp;period])</p></td>
-      <td><p>One-dimensional linear interpolation.</p></td>
-    </tr>
-    </tbody>
-  </table>
++ [Numpy statistics functions](https://numpy.org/doc/stable/reference/routines.statistics.html)
 
 
 ## Programming Assignment 11

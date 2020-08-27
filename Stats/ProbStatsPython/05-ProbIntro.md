@@ -66,7 +66,7 @@
   + <span style="color: magenta;">outcomes</span>: possible experiment results
   + <span style="color: magenta;">sample space</span>: set of possible outcomes, denoted <span style="color: magenta;">$\Omega, S \text{ or } U$</span>
 
-    <table style="font-family: arial,helvetica,sans-serif; width: 20vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <table style="font-family: arial,helvetica,sans-serif; width: 30vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
       <thead>
       <tr style="font-size: 1.2em;">
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Experiment</th>
@@ -84,7 +84,7 @@
 
 + Two sample-space types
   + <span style="color: magenta;">discrete</span>: finite or countable infinite sample space
-    + e.g., $\{h, t\}, \{1, 2, \dots, 6\}, \Bbb{N}, \Bbb{Z}, \{words\}, \{cities\}, \{people\}$
+    + e.g., $\{h, t\}, \{1, 2, \dots, 6\}, \Bbb{N}, \Bbb{Z}, \{\text{words}\}, \{\text{cities}\}, \{\text{people}\}$
   + <span style="color: magenta;">continuous</span>: uncountably infinite sample space
     + e.g., $\Bbb{R}, [0, 1], \{\text{temperatures}\}, \underbrace{\{\text{salaries}\}, \{\text{prices}\}}_{\text{upgraded}}$
   + discrete space: easier to understand, visualize, analyze; important; first
@@ -104,7 +104,7 @@
       + after: $X = \begin{cases} \text{h} & \text{get h} \\ \text{t} & \text{get t} \end{cases}$
 
 + Probability of an outcome
-  + the <span style="color: magenta;">probability</span>, or <span style="color: magenta;">likelihood</span>, of an outcome $x \in \Omega$, denoted <span style="color: magenta;">$P(x), \Pr(x)$</span>, or <span style="color: magenta;">$P(X = x), \Pr(X = x)$</span>, is the fraction of times $x$ will occur when experiment is repeated many times
+  + the <span style="color: magenta;">probability</span>, or <span style="color: magenta;">likelihood</span>, of an outcome $x \in \Omega$, denoted <span style="color: magenta;">$P(x)$</span>, or <span style="color: magenta;">$P(X = x)$</span>, is the fraction of times $x$ will occur when experiment is repeated many times
   + fair coin
     + as \# experiment $\to \infty$, fraction of heads (or tails) $\to 1/2$
     + heads w/ probability $1/2$: $P(h) = 1/2 \quad P(X=h) = 1/2$
@@ -118,7 +118,7 @@
   + $n$ experiments
   + $x \in \Omega \quad n_x =$ \# times x appeared
 
-    \[ \Pr(x) = \lim_{n \to \infty} \frac{n_x}{n} \]
+    \[ P(x) = \lim_{n \to \infty} \frac{n_x}{n} \]
 
     \[\begin{array}{ccccc}
       0 \leq n_x \leq n &\to& 0 \leq \frac{n_x}{n} \leq 1 &\to& 0 \leq p(x) \leq 1 \\\\
@@ -126,14 +126,14 @@
     \end{array}\]
 
 + Probability distribution function
-  + $P(x)$: the fraction of times outcome $x$ occurs, e.g., $\Pr(h) = 1/2, \Pr(1) = 1/6$
+  + $P(x)$: the fraction of times outcome $x$ occurs, e.g., $P(h) = 1/2, P(1) = 1/6$
   + viewed over the whole sample space $\to$ a pattern merges
-    + coin: $\Pr(h) = 1/2, \Pr(t) = 1/2$
-    + die: $\Pr(1) = 1/6, \dots, \Pr(6) = 1/6$
-    + rain: $\Pr(\text{rain}) = 10\%, \Pr(\text{no rain}) = 90\%$
-  + <span style="color: magenta;">Probability distribution function (PDF)</span>: $\Pr$ mapping outcome in $\Omega$ to nonnegative values that sum to 1
+    + coin: $P(h) = 1/2, P(t) = 1/2$
+    + die: $P(1) = 1/6, \dots, P(6) = 1/6$
+    + rain: $P(\text{rain}) = 10\%, P(\text{no rain}) = 90\%$
+  + <span style="color: magenta;">Probability distribution function (PDF)</span>: $P$ mapping outcome in $\Omega$ to nonnegative values that sum to 1
   
-    \[ \Pr: \Omega \to \Bbb{R} , \; \Pr(x) \geq 0 \text{ s.t. } \sum_{x\in \Omega} \Pr(x) = 1 \]
+    \[ P: \Omega \to \Bbb{R} , \; P(x) \geq 0 \;\text{ s.t. }\; \sum_{x\in \Omega} P(x) = 1 \]
 
   + sample space $\Omega$ + distribution $P$ = probability space
 
@@ -148,7 +148,7 @@
   b. An even number.<br/>
   c. A positive number.<br/>
 
-  Ans: <span style="color: magenta;">b</span>
+  Ans: <span style="color: magenta;">b</span><br/>
   Explanation: The outcome of dice is certainly real and positive, but it may or may not be even, so it is random.
 
 1. Which of the following outcomes are random (not certain) after throwing a six-sided dice?<br/>
@@ -172,7 +172,7 @@
   c. The sequence "head, tail, head, head, head, head" is an outcome in the sample space.<br/>
   d. The sample space of the experiment is {head, tail}.<br/>
 
-  Ans: <span style="color: magenta;">c</span>
+  Ans: <span style="color: magenta;">c</span><br/>
   Explanation
     + False. The outcome is random and the coin may be fair.
     + False. In this experiment 1 out of 6 outcomes was "tail", but the coin's "tail" probability may differ.
@@ -194,15 +194,15 @@
     + e.g., Rain: P(rain) = 10%, P(no rain) = 190%
   + uniform (equiprobable) spaces: uniform distribution
     + all outcomes are equally likely
-    + $\forall\, x \in \Omega \quad \Pr(x) = p$
-    + $1 = \sum_{x \in \Omega} \Pr(x) = \sum_{x \in \Omega} p = |\Omega| \cdot p$
+    + $\forall\, x \in \Omega \quad P(x) = p$
+    + $1 = \sum_{x \in \Omega} P(x) = \sum_{x \in \Omega} p = |\Omega| \cdot p$
     + $p = 1 / |\Omega|$
   + example
     + $\sum_{x \in \{3,5\}} x^2 = 3^2 + 5^2 = 34$
     + $\sum_{x \in \{3,5\}} x = 3 + 5 = 8$
     + $\sum_{x \in \{3,5\}} p = p + p = 2p$
     + $\sum_{x \in \Omega} p = p + p + \cdots + p = |\Omega|$
-    + fair coin: $\Pr(h) = P(t) = p \quad 1 = \Pr(h) + \Pr(t) = 2 \cdot p \quad p = 1/2$
+    + fair coin: $P(h) = P(t) = p \quad 1 = P(h) + P(t) = 2 \cdot p \quad p = 1/2$
   + drastically simplified probability specification
   + uniform spaces: every outcome w/ probability $1/|\Omega|$
   + all you need to know is $|\Omega|$
@@ -212,21 +212,21 @@
   + $\Omega = \{ \text{heads}, \text{tails}\} = \{h, t\}$
   + $|\Omega| = 2$
   + flip, or toss
-  + equally likely: $U \to \Pr(h) = \Pr(t)$
-  + $\Pr(h) = \Pr(t) = \frac{1}{|\Omega|} = \frac{1}{2}$
+  + equally likely: $U \to P(h) = P(t)$
+  + $P(h) = P(t) = \frac{1}{|\Omega|} = \frac{1}{2}$
 
 + Example: Fair die
   + sample space: $\Omega = \{1, 2, 3, 4, 5, 6\}$
   + $|\Omega| = 6$
   + roll
-  + equally likely: $U \to \Pr(1) = \cdots = \Pr(6)$
-  + $\Pr(1) = \cdots = \Pr(6) = \frac{1}{\Omega} = \frac{1}{6}$
+  + equally likely: $U \to P(1) = \cdots = P(6)$
+  + $P(1) = \cdots = P(6) = \frac{1}{\Omega} = \frac{1}{6}$
 
 + Example: deck of cards
   + sample space: $\Omega = \{ \text{cards }\}$
   + $|\Omega| = 52$
   + draw a card
-  + equally likely: $U \to \Pr(3C) = \cdots = \Pr(QH) = \frac{1}{\Omega} = \frac{1}{52}$
+  + equally likely: $U \to P(3C) = \cdots = P(QH) = \frac{1}{\Omega} = \frac{1}{52}$
 
 + Non-uniform
   + uniform, equiprobable, spaces, e.g., coin, die, cards
@@ -241,7 +241,7 @@
     + assumption: different probabilities
     + easy to remember
       + 4 faces
-      + $\Pr(1) = .1, \;\Pr(2) = .2 \;\Pr(3) = .3 \;\Pr(4) = .4$
+      + $P(1) = .1, \;P(2) = .2 \;P(3) = .3 \;P(4) = .4$
     + conveniently, add to 1
     + probability distribution
 
@@ -249,14 +249,14 @@
   + random notation may be confusing at first
   + which expressions are valid?
     + valid expression
-      + $\Pr(x)$ specify $x$, e.g., for $\forall\, x, \Pr(x) = 1/4$
-      + $\Pr(X=3)$ w/ fair die: 1/6
-      + $\Pr(3) \stackrel{def}{=} P(X=3)$
+      + $P(x)$ specify $x$, e.g., for $\forall\, x, P(x) = 1/4$
+      + $P(X=3)$ w/ fair die: 1/6
+      + $P(3) \stackrel{def}{=} P(X=3)$
     + possible, but less common, make sure it's what you mean
-      + $\Pr(1 = 3): 0$
-      + $\Pr(X)$: random value
+      + $P(1 = 3): 0$
+      + $P(X)$: random value
     + even less likely, probably wrong
-      + $\Pr(x=3)$
+      + $P(x=3)$
 
 
 + [original Slides](https://tinyurl.com/y84vwcva)
@@ -417,8 +417,8 @@
     </table>
 
 + Event probability
-  + $\Pr(E)$: probability of event $E$
-  + $\Pr(X \in E)$: probability that $E$ occurs
+  + $P(E)$: probability of event $E$
+  + $P(X \in E)$: probability that $E$ occurs
   + fraction of experiments where $E$ occurs, as \# experiments grows
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -427,20 +427,20 @@
       </a>
     </div>
 
-  + task: $\Pr(E)$ = fraction
+  + task: $P(E)$ = fraction
     + \# experiments 12 $\to \infty$
     + general distributions and events
 
-+ $\Pr(X) \to \Pr(E)$
++ $P(X) \to P(E)$
   + related probability of event to probability of its elements (outcomes)
   + general event $E$
     + \# times E occurs = sum of \# times its elements occur
 
     \[\begin{align*}
-      \Pr(E) &= \text{ fraction of times $E$ occurs} \\
+      P(E) &= \text{ fraction of times $E$ occurs} \\
       &= \text{ sum of fraction of times its elements occur} \\
       &= \text{ sum of its element probabilities} \\\\
-      \Pr(E) &= \Pr(X \in E) = \sum_{x \in E} \Pr(x)
+      P(E) &= P(X \in E) = \sum_{x \in E} P(x)
     \end{align*}\]
 
   + example: Tetrahedral die
@@ -456,7 +456,7 @@
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">2</th>
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">3</th>
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">4</th>
-        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">$\Pr(E)$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">$P(E)$</th>
       </tr>
       </thead>
       <tbody>
@@ -490,10 +490,10 @@
 + Uniform spaces
   + equiprobable spaces
   + simple formula for probability of
-    + outcome: $\Pr(x) = 1/|\Omega|$
+    + outcome: $P(x) = 1/|\Omega|$
     + event
 
-      \[ \Pr(E) = \sum_{x \in E} \Pr(x) = \sum_{x \in E} \dfrac{1}{|\Omega|} = \dfrac{\sum_{x \in E} 1}{|\Omega|} = \frac{|E|}{|\Omega|} \]
+      \[ P(E) = \sum_{x \in E} P(x) = \sum_{x \in E} \dfrac{1}{|\Omega|} = \dfrac{\sum_{x \in E} 1}{|\Omega|} = \frac{|E|}{|\Omega|} \]
 
   + example: die
     + $\Omega = \{1, 2, 3, 4, 5 6\} \to |\Omega| = 6$
@@ -504,7 +504,7 @@
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Event</th>
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Set</th>
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$|Event|$</th>
-        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\Pr(Event) = \frac{|Event|}{6}$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$P(Event) = \frac{|Event|}{6}$</th>
       </tr>
       </thead>
       <tbody>
@@ -515,18 +515,18 @@
 
 + Dos and Don'ts
   + Valid expression
-    + $\Pr(X \in \text{ Even})$: die - $\Pr(X \in \{2, 4, 6\}= 3/6 = 1/2$
-    + $\Pr(\text{ Even }) \,\stackrel{def}{=} \Pr(X \in \text{ Even })$
+    + $P(X \in \text{ Even})$: die - $P(X \in \{2, 4, 6\}= 3/6 = 1/2$
+    + $P(\text{ Even }) \,\stackrel{def}{=} P(X \in \text{ Even })$
   + less likely
-    + $\Pr(3 \in \text{ Even }) = 0$
+    + $P(3 \in \text{ Even }) = 0$
       + 3 is a (constant) random variable, so possible
       + the r.v. 3 is never in Even, so probability is 0
-    + $\Pr( 4 \in \text{ Even }) = 1$
+    + $P( 4 \in \text{ Even }) = 1$
       + less common
       + check that you meant it
-  + unlikely: $\Pr( x \in \text{ Even })$
+  + unlikely: $P( x \in \text{ Even })$
     + previous anomaly on steriods, what is x?
-    + $\forall\, x \in \{3, 7\}, \Pr(x \in \text{ Even })=0$, double check meant it
+    + $\forall\, x \in \{3, 7\}, P(x \in \text{ Even })=0$, double check meant it
 
 
 
@@ -646,10 +646,10 @@
   Explanation: The number of ways to pick 3 balls is $\tbinom{6}{3}=20$. 8 of them have their sum as a multiple of 3.
 
 
-9. A standard poker deck has 52 cards, of 13 ranks $\{A,2, \dots ,10,J,Q,K\}$  and 4 suits $\{diamonds,clubs,hearts,spades\}$. What is the probability that a hand of five cards contains:
-  a. a queen of hearts,
-  b. at least one queen,
-  c. at least one heart?
+9. A standard poker deck has 52 cards, of 13 ranks $\{A,2, \dots ,10,J,Q,K\}$  and 4 suits $\{diamonds,clubs,hearts,spades\}$. What is the probability that a hand of five cards contains:<br/>
+  a. a queen of hearts,<br/>
+  b. at least one queen,<br/>
+  c. at least one heart?<br/>
 
   Ans: a. (5/52); b. (0.3412); c. (0.7785)<br/>
   Explanation:
@@ -693,13 +693,13 @@
     + coin 1 = {h, t}, coin 2 = {h, t}
     + $\Omega = \{hh, ht, th, tt\} = \{h, t\}^2$
   + probability
-    + coin 1: $\Pr(\{h\}) = 1/2, \;\Pr(\{t\}) = 1/2$
-    + coin 2: $\Pr(\{h\}) = 1/2, \;\Pr(\{t\}) = 1/2$
-    + $\Pr(\{h, h\}) = 1/4, \;\Pr(\{h, t\}) = 1/4, \;\Pr(\{t, h\}) = 1/4, \;\Pr(\{t, t\}) = 1/4$
+    + coin 1: $P(\{h\}) = 1/2, \;P(\{t\}) = 1/2$
+    + coin 2: $P(\{h\}) = 1/2, \;P(\{t\}) = 1/2$
+    + $P(\{h, h\}) = 1/4, \;P(\{h, t\}) = 1/4, \;P(\{t, h\}) = 1/4, \;P(\{t, t\}) = 1/4$
     + Cartesian power: $|\Omega| = 2^2 = 4$
     + 1 coin w/ $U \to$ 2 coins w/ $U$
 
-    \[ \Pr(\text{hh}) = \Pr(\text{ht}) = \Pr(\text{th}) = \Pr(\text{tt}) = 1/|\Omega| = 1/4 \]
+    \[ P(\text{hh}) = P(\text{ht}) = P(\text{th}) = P(\text{tt}) = 1/|\Omega| = 1/4 \]
 
 + Example: two dice
   + fair, independent experiments
@@ -707,26 +707,26 @@
     + dice 1 = {1, 2, ..., 6}, dice 2 ={1, 2, ..., 6}
     + two dice: $\Omega = \{11, 12, \dots, 66\} = \{1, \dots, 6\} \to |\Omega| = 6^2 = 36$
   + probability
-    + die 1: $\Pr(1) = \Pr(2) = \cdots = \Pr{6} =1/6$
-    + die 2: $\Pr(1) = \Pr(2) = \cdots = \Pr{6} =1/6$
-    + two dice: $\Pr(11) = \Pr(12) = \cdots = \Pr(66) = 1/36$
+    + die 1: $P(1) = P(2) = \cdots = P{6} =1/6$
+    + die 2: $P(1) = P(2) = \cdots = P{6} =1/6$
+    + two dice: $P(11) = P(12) = \cdots = P(66) = 1/36$
     + 1 die w/ $U \to$ 2 dice w/ $U$
-    + $\Pr(11) = \Pr(12) = \Pr(21) = \cdots = \Pr(66) = 1/|\Omega| = 1/36$
+    + $P(11) = P(12) = P(21) = \cdots = P(66) = 1/|\Omega| = 1/36$
 
 + Events
   + probability of event
 
-    \[ \Pr(E) = \Pr(X \in E) = \sum_{x \in E} \Pr(x) \]
+    \[ P(E) = P(X \in E) = \sum_{x \in E} P(x) \]
 
-  + uniform space: $U \to \Pr(E) = |E|/|\Omega|$
+  + uniform space: $U \to P(E) = |E|/|\Omega|$
   + example: 2 coins
     + $|\Omega| = 2^2 = 4$
-    + $\Pr(\text{ Different outcomes }) = \Pr(\{\text{hh, tt} \}) = 2/|\Omega| = 2/4 = 1/2$
-    + $\Pr(\text{ At least one h}) = \Pr(\{\text{ ht, th, hh }\}) = 3/|\Omega| = 3/4$
+    + $P(\text{ Different outcomes }) = P(\{\text{hh, tt} \}) = 2/|\Omega| = 2/4 = 1/2$
+    + $P(\text{ At least one h}) = P(\{\text{ ht, th, hh }\}) = 3/|\Omega| = 3/4$
   + example: 3 coins
     + $|\Omega| = 2^3 = 8$
-    + $\Pr(\text{ Alternating }) = \Pr(\{\text{ hth, tht }\}) = 2/8 = 1/4$
-    + $\Pr(\text{ odd # h's }) = \Pr(\{\text{ htt, tht, tth, hhh }\}) = 4/8 = 1/2$
+    + $P(\text{ Alternating }) = P(\{\text{ hth, tht }\}) = 2/8 = 1/4$
+    + $P(\text{ odd # h's }) = P(\{\text{ htt, tht, tth, hhh }\}) = 4/8 = 1/2$
 
 + Sampling
   + many sources of randomness, e\.g., coin, die, ...
@@ -772,7 +772,7 @@
   + outcome: $\Omega = \{\text{ yy }, \,\text{ yb }, \,\text{ by }, \,\text{ bb } \}$
   + probabilities
     + $|\Omega| = 4$
-    + uniform space: $U \to \Pr(\text{ yy }) = \Pr(\text{ yb }) = \Pr(\text{ by }) = \Pr(\text{ bb }) = 1/4$
+    + uniform space: $U \to P(\text{ yy }) = P(\text{ yb }) = P(\text{ by }) = P(\text{ bb }) = 1/4$
 
 + Example: balls in a jar without replacement
   + activity
@@ -783,7 +783,7 @@
   + selection without replacement
   + second selection - from a <span style="color: magenta;">subset</span>
   + probabilities
-    + $\Pr(\text{ yy }) = \Pr(\text{ bb }) = 0, \;\Pr(\text{ yb }) = \Pr(\text{ by }) = 1/2$
+    + $P(\text{ yy }) = P(\text{ bb }) = 0, \;P(\text{ yb }) = P(\text{ by }) = 1/2$
     + $|\Omega| = 2$
 
 + Example: drawing cards
@@ -796,8 +796,8 @@
     + $|\Omega| = 6^{\underline{2}} = 6 \cdot 5 = 30$
   + probabilities
     + $i = j$ unable to happen
-    + $i\neq j, \; \Pr(i, j) = 1/6 \cdot 1/5 = 1/30$
-    + $\Pr(i, j) = 1/|\Omega| = 1/30$
+    + $i\neq j, \; P(i, j) = 1/6 \cdot 1/5 = 1/30$
+    + $P(i, j) = 1/|\Omega| = 1/30$
 
 + Replacement summary
   + 2 selections
@@ -852,7 +852,7 @@
         <td style="text-align: center;">Uniform</td>
       </tr>
       <tr>
-        <td style="text-align: center;">$\Pr(\text{ element })$</td>
+        <td style="text-align: center;">$P(\text{ element })$</td>
         <td style="text-align: center;">$1 / \Omega_1$</td>
         <td style="text-align: center;">$1 / |\Omega_1|^2$</td>
         <td style="text-align: center;">$1 / \left(|\Omega_1| \cdot (|\Omega_1| - 1) \right)$</td>
@@ -861,7 +861,7 @@
     </table>
 
 + Order not matter
-  + order matters: card $\Pr(5) = 1/6 \to \Pr(3) = 1/5$, stock $10 \to 50 \neq 50 \to 10$
+  + order matters: card $P(5) = 1/6 \to P(3) = 1/5$, stock $10 \to 50 \neq 50 \to 10$
   + sometimes order not matter: voting order in elections
   + when order not matter
     + tuple of outcome $\to$ set of outcomes
@@ -875,11 +875,11 @@
   + equivalently, 2 dice
   + order
     + $\gets$, matter:
-      + $\Pr(1, 1) = \Pr(1, 2) = \cdots = \Pr(6, 5) = \Pr(6, 6) = 1/36$
+      + $P(1, 1) = P(1, 2) = \cdots = P(6, 5) = P(6, 6) = 1/36$
       + remaining uniform
     + $\to$, not matter
-      + $\Pr(\{1, 2\}) = \Pr(\{(1, 2), (2,1)\}) = \Pr(1, 2) + \Pr(2, 1) = 2/36$
-      + $\Pr(\{1, 1\}) = \Pr(1, 1) = 1/36$
+      + $P(\{1, 2\}) = P(\{(1, 2), (2,1)\}) = P(1, 2) + P(2, 1) = 2/36$
+      + $P(\{1, 1\}) = P(1, 1) = 1/36$
       + not uniform
   + sanity check
     + $\sum$ Probabilities = 1
@@ -889,10 +889,10 @@
   + 2 cards $\in \{1, \dots, 6\}$ sequentially w/o replacement
   + order:
     + $\gets$, matter:
-      + $i \neq j, \,\Pr(i, j) = 1/6 \cdot 1/5 = 1/30$
+      + $i \neq j, \,P(i, j) = 1/6 \cdot 1/5 = 1/30$
       + remaining unifrom
     + $\to$, not matter:
-      + $\Pr(\{1, 2\}) = \Pr(\{(1, 2), (2, 1)\}) = \Pr(1, 2) + \Pr(2, 1) = 2/30$
+      + $P(\{1, 2\}) = P(\{(1, 2), (2, 1)\}) = P(1, 2) + P(2, 1) = 2/30$
       + $\{1, 1\}$ not happened
       + remaining uniform
   + sanity check
@@ -902,7 +902,7 @@
     + select both cards simultaneously
     + $\Omega = \{\{1, 2\}, \{1, 3\}, \dots, \{5, 6\}\} = \binom{[6]}{2}$
     + $|\Omega| = \binom{[6]}{2} = 15$, uniform space
-    + $\Pr(\{1, 2\}) = 1/15$
+    + $P(\{1, 2\}) = 1/15$
     + sequential simultaneous same
 
 + Example: poker hand probabilities
@@ -914,7 +914,7 @@
       |\Omega| = \binom{52}{5} = \frac{52!}{5! \cdot 47!} = \frac{52 \cdot 51 \cdot 50 \cdot 49 \cdot 48}{5 \cdot 4 \cdot 3 \cdot 2 \cdot 1} &= 2,598,960 \approx 2.6 \text{ million}
     \end{align*}\]
   + all hands equally likely $\to$ equiprobable
-  + $\Pr(\{2\spadesuit, 4\clubsuit, A\diamondsuit, A\heartsuit, A\spadesuit\}) \stackrel{U}{\approx} 1/2.6 \text{ M }$
+  + $P(\{2\spadesuit, 4\clubsuit, A\diamondsuit, A\heartsuit, A\spadesuit\}) \stackrel{U}{\approx} 1/2.6 \text{ M }$
 
 
 
@@ -972,7 +972,7 @@
   Explanation
     + The 5 engineers and 3 artists can line up in $\tbinom{8}{3}$ ways, each corresponding to one choice of the the 3 artist locations out of the total 8. Note that all these arrangements are equally likely, hence this space is uniform.
     + If the first and last are engineers, then there are 6 locations left, and the number of ways to choose the locations of the artists is $\tbinom{6}{3}$.
-    + Hence the probability that the first and last are engineers is $\tbinom{6}{3}/\tbinom{8}{3}=6⋅5⋅4/8⋅7⋅6=5/14$.
+    + Hence the probability that the first and last are engineers is $\tbinom{6}{3}/\tbinom{8}{3}=6\cdot 5\cdot 4/8\cdot 7\cdot 6=5/14$.
     + In the sequential probability section we will see an easier way to find the answer.
 
 
@@ -1025,11 +1025,11 @@
 + Probabilities
   + individual outcomes
     + $\Omega = \{0, 1, \dots, 36\} \to |\Omega| = 37$
-    + $\Pr(0) = \Pr(1) = \cdots = \Pr(36) = \frac{1}{|\Omega|} = \frac{1}{37} \gets$  should be 1/36 but 1/37 because of 0
+    + $P(0) = P(1) = \cdots = P(36) = \frac{1}{|\Omega|} = \frac{1}{37} \gets$  should be 1/36 but 1/37 because of 0
   + events
-    + Even = {2, 4,..., 36} $\to |\text{Even}| = 18 \to \Pr(\text{Even}) = \frac{|\text{Even}|}{|\Omega|} = \frac{18}{37} \gets$ should be half but slightly smaller because of 0
-    + $|\text{Odd}| = |\text{Red}| = |\text{Black}| = |\text{1 to 18}| = |\text{19 to 36}| = 18 \to \Pr(\dots) = 18/37$
-    + $|\text{1 to 12}| = \cdots = |(x)_3 = 0| = 12 \to \Pr(\dots) = 12/37$
+    + Even = {2, 4,..., 36} $\to |\text{Even}| = 18 \to P(\text{Even}) = \frac{|\text{Even}|}{|\Omega|} = \frac{18}{37} \gets$ should be half but slightly smaller because of 0
+    + $|\text{Odd}| = |\text{Red}| = |\text{Black}| = |\text{1 to 18}| = |\text{19 to 36}| = 18 \to P(\dots) = 18/37$
+    + $|\text{1 to 12}| = \cdots = |(x)_3 = 0| = 12 \to P(\dots) = 12/37$
   
 + Win or lose?
   + how much can you expect to make on Roulette?
@@ -1085,7 +1085,7 @@
   a. $\frac{4}{52}$<br/>
   b. $\frac{13}{52}$<br/>
   c. $\tbinom{13}{4}/\tbinom{52}{4}$<br/>
-  d. $\tbinom{4}{1}⋅\tbinom{13}{4}/(\tbinom{52}{4}$<br/>
+  d. $\tbinom{4}{1}\cdot \tbinom{13}{4}/\tbinom{52}{4}$<br/>
 
   Ans: d<br/>
   Explanation: There are $\tbinom{4}{1}$ ways to choose the suit (e.g. hearts) and $\tbinom{13}{4}$ ways to draw 4 cards from this suit. Yet the total number of ways to draw 4 cards is $\tbinom{52}{4}$. Hence, the probability is $4 \tbinom{13}{4} / \tbinom{52}{4}$.
@@ -1108,11 +1108,11 @@
   b. two pairs (two pairs of same-rank cards),<br/>
   c. one pair (a pair of same-rank cards, and three cards of three different ranks).<br/>
 
-  Ans: a. (0.021128); b. (0.047539); c. ()<br/>
+  Ans: a. (0.021128); b. (0.047539); c. (0.4226)<br/>
   <span style="color: magenta;">Explanation</span><br/>
-    + We deal with the 3 cards of the same rank first, and then the 2 remaining cards with different ranks. The are 13 ranks. The number of ways to get 3 cards of a particular rank, (e.g. ace) is $\tbinom{4}{3}=4$. In total the number of ways to get 3 cards of the same rank is $13 \cdot 4$. The remaining 2 cards cannot have the same rank as the one we choose the first step, so there are 12 cards left. Since 4 suits can be chosen for each card, the number of ways in total is  \tbinom{12}{2}⋅4^22$. The answer is $13 \cdot 4 \cdot \tbinom{12}{2} \cdot 42/ \tbinom{52}{5}=0.0211$.
+    + We deal with the 3 cards of the same rank first, and then the 2 remaining cards with different ranks. The are 13 ranks. The number of ways to get 3 cards of a particular rank, (e.g. ace) is $\tbinom{4}{3}=4$. In total the number of ways to get 3 cards of the same rank is $13 \cdot 4$. The remaining 2 cards cannot have the same rank as the one we choose the first step, so there are 12 cards left. Since 4 suits can be chosen for each card, the number of ways in total is  $\tbinom{12}{2}\cdot 4^2$. The answer is $13 \cdot 4 \cdot \tbinom{12}{2} \cdot 4^2/ \tbinom{52}{5}=0.0211$.
     + We first deal with the rank of the 2 pairs, and then the one left over. There are $\tbinom{13}{2}$ ways to choose 2 ranks out of 13. The number of ways get 2 cards of a probability of a particular rank, (e.g. ace), is $\tbinom{4}{2}$. We do the same for both the pair, so the total number of ways is $\tbinom{13}{2} \cdot \tbinom{4}{2}^2$,  For the one left over, there are 11 ranks left that can be chosen, and 4 suit can be chosen for each rank. The number of ways is $11 \cdot 4$. The answer is $\tbinom{13}{2} \cdot \tbinom{4}{2}^2 \cdot 11 \cdot 4/ \tbinom{52}{5}=0.0475$.
-    + We first deal with the rank of the pair, and then the three left over. There are $\tbinom{13}{1}=13$ ways to choose a ranks out of 13. The number of ways get 2 cards of a probability of a particular rank, (e.g. ace), is $\tbinom{4}{2}$. The total number of ways is $13 \cdot \tbinom{4}{2}$, For the one left over, there are 12 ranks left that can be chosen, and 4 suit can be chosen for each rank. The number of ways is $\tbinom{12}{3} \cdot 43$. The answer is $13 \cdot \tbinom{4}{2} \cdot \tbinom{12}{3} \cdot 43/ \tbinom{52}{5}=0.4226$.
+    + We first deal with the rank of the pair, and then the three left over. There are $\tbinom{13}{1}=13$ ways to choose a ranks out of 13. The number of ways get 2 cards of a probability of a particular rank, (e.g. ace), is $\tbinom{4}{2}$. The total number of ways is $13 \cdot \tbinom{4}{2}$, For the one left over, there are 12 ranks left that can be chosen, and 4 suit can be chosen for each rank. The number of ways is $\tbinom{12}{3} \cdot 43$. The answer is $13 \cdot \tbinom{4}{2} \cdot \tbinom{12}{3} \cdot 4^3/ \tbinom{52}{5}=0.4226$.
     + [5-CARD POKER HANDS](https://tinyurl.com/6mh5em)
 
 
@@ -1133,8 +1133,8 @@
 
   Ans: a. (0.048265); b. (<span style="color: magenta;">0.04072398</span>); c. (27/50)<br/>
   Explanation
-    + The possible combinations that sum to 21 are (A, 10), (A, J), (A, Q), (A, K). The number of them is 16⋅4. The answer is $16⋅4/\tbinom{(52}{2}=0.0483$.
-    + The possible combinations that sum to 10 are (2, 8), (3, 7), (4, 6), (5, 5). The number of them is $3 \cdot 4^2 + \tbinom{4}{2}$. The answer is $(3⋅4⋅4+ \tbinom{4}{2})/\tbinom{52}{2}=0.0407$.
+    + The possible combinations that sum to 21 are (A, 10), (A, J), (A, Q), (A, K). The number of them is $16\cdot 4$. The answer is $16\cdot 4/\tbinom{52}{2}=0.0483$.
+    + The possible combinations that sum to 10 are (2, 8), (3, 7), (4, 6), (5, 5). The number of them is $3 \cdot 4^2 + \tbinom{4}{2}$. The answer is $(3\cdot 4\cdot 4 + \tbinom{4}{2})/\tbinom{52}{2}=0.0407$.
     + To exceed 21, the third card belongs to { A, 8, 9, 10, J, Q, K }. As one 10 was drawn, $4 \cdot 7−1=27$ choices are left. The answer is $27/50=0.54$.
 
 
@@ -1149,7 +1149,7 @@
     + Each roll differs from "1" with probability 5/6, hence "1" does not appear in any roll with probability $(5/6)^3$ , because they are independent, and "1" does appear with probability $1−(5/6)^3=0.4213$.
     + There are $6^3$ possible ordered outcomes. By the "Partial Permutations" lecture, there are $6^{\underline{3}}$ distinct-element sequences of length 3 over $1 \dots 6$. Hence the probability is $6^{\underline{3}}/6^3=0.5556$.
     + There are four increasing sequences (starting with 1...4), hence $4/6^3=0.0185$.
-    + Adding the permutations to part 2, the number of sequences is $4 \cdot 3!$. Hence, the answer is $4 \cdot 3!/6^3=1/9=0.1111$.
+    + Adding the permutations to part 2, the number of sequences is $4 \cdot 3!$. Hence, the answer is $4 \cdot 3!/6^3$ $=1/9$ $=0.1111$.
 
 
 7. An instructor assigns 10 problems and says that the final exam will consist of a random selection of 5 of them. If a student knows how to solve 7 of the problems, what is the probability that he or she will answer correctly<br/>
@@ -1188,11 +1188,11 @@
 + Three axioms
   + Non-negative: 
   
-    \[ \forall\, A, \Pr(A) \geq 0 \]
+    \[ \forall\, A, P(A) \geq 0 \]
 
   + Unitary: 
   
-    \[ \Pr(\Omega) = 1 \]
+    \[ P(\Omega) = 1 \]
 
   + Addition rule:
 
@@ -1213,43 +1213,43 @@
   + complement rule for counting: $|A^c| = |\Omega| - |A|$
   + proof:
     + $A \cup A^c = \Omega$
-    + $\Pr(A) + \Pr(A^c) = \Pr(A \cup A^c) = \Pr(\Omega) = 1$
-  + complement rule for probability: $\Pr(A^c) = 1 - \Pr(A)$
+    + $P(A) + P(A^c) = P(A \cup A^c) = P(\Omega) = 1$
+  + complement rule for probability: $P(A^c) = 1 - P(A)$
 
 + Subtraction rule - nested sets
-  + complement rule: $A \subseteq \Omega, \Pr(A^c) = 1 - \Pr(A) \text{ s.t. } \Pr(\Omega - A) = \Pr(\Omega) - \Pr(A)$
-  + generalize: $A \subseteq B \implies \Pr(B-A) = \Pr(B) - \Pr(A)$
+  + complement rule: $A \subseteq \Omega, P(A^c) = 1 - P(A) \text{ s.t. } P(\Omega - A) = P(\Omega) - P(A)$
+  + generalize: $A \subseteq B \implies P(B-A) = P(B) - P(A)$
   + proof:
     + $A \subseteq B \implies B = A \cup (B-A)$
-    + $\Pr(B) = \Pr(A \cup (B-A)) = \Pr(A) + \Pr(B-A)$
-  + subtraction rule for nested sets: $\Pr(B-A) = \Pr(B) - \Pr(A)$
+    + $P(B) = P(A \cup (B-A)) = P(A) + P(B-A)$
+  + subtraction rule for nested sets: $P(B-A) = P(B) - P(A)$
 
 + Subtraction rule - general sets
-  + Nested: $A \subseteq B \;\text{ s.t. }\; \Pr(B-A) = \Pr(B) - \Pr(A)$
-  + general: $\forall\, A, B \;\text{ s.t. }\; \Pr(B-A) = \Pr(B) - \Pr(A \cap B)$
+  + Nested: $A \subseteq B \;\text{ s.t. }\; P(B-A) = P(B) - P(A)$
+  + general: $\forall\, A, B \;\text{ s.t. }\; P(B-A) = P(B) - P(A \cap B)$
   + proof:
     + $B - A = B - (A \cap B),\; A \cap B \subseteq B$
-    + $\Pr(B-A) = \Pr(B - (A \cap B)) = \Pr(B) - \Pr(A \cap B)$
+    + $P(B-A) = P(B - (A \cap B)) = P(B) - P(A \cap B)$
 
 + Inclusion-exclusion
-  + $\Pr(A \cup B) = \Pr(A) + \Pr(B) - \Pr(A \cap B)$
+  + $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
   + proof:
     + $A \cup B = A \cup (B-A)$
-    + $\Pr(A \cup B) = \Pr(A \cup B-A) = \Pr(A) + \Pr(B-A) = \Pr(A) + \Pr(B) - \Pr(A \cap B)$
+    + $P(A \cup B) = P(A \cup B-A) = P(A) + P(B-A) = P(A) + P(B) - P(A \cap B)$
 
 + More sets
-  + two sets: $\Pr(A \cup B) = \Pr(A) + \Pr(B) - \Pr(A \cap B)$
+  + two sets: $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
   + three sets: 
   
     \[\begin{align*}
-      \Pr(A \cup B \cup C) &= \Pr(A) + \Pr(B) + \Pr(C) \\
-      &\hspace{1.0em} - \Pr(A \cap B) - \Pr(A \cap B) - \Pr(B \cap C) \\
-      &\hspace{1.0em} + \Pr(A \cap B \cap C)
+      P(A \cup B \cup C) &= P(A) + P(B) + P(C) \\
+      &\hspace{1.0em} - P(A \cap B) - P(A \cap B) - P(B \cap C) \\
+      &\hspace{1.0em} + P(A \cap B \cap C)
     \end{align*}\]
 
   + n sets
 
-    \[ \Pr\left(\bigcup_{i=1}^n A_i \right) = \sum_{1 \leq i \leq n} \Pr(A_i) - \sum_{1\leq i < j \leq n} \Pr(A_i \cap A_j) + \cdots + (-1)^{n-1} \Pr\left( \bigcap_{i=1}^n A_i \right) \]
+    \[ P\left(\bigcup_{i=1}^n A_i \right) = \sum_{1 \leq i \leq n} P(A_i) - \sum_{1\leq i < j \leq n} P(A_i \cap A_j) + \cdots + (-1)^{n-1} P\left( \bigcap_{i=1}^n A_i \right) \]
 
 
 + [Original Slides](https://tinyurl.com/yafgbra7)
@@ -1351,7 +1351,7 @@
 
 7. Let $X$ be distributed over $\Omega=\{1,2,\dots,100\}$ with $P(X=i)=\frac{i}{k}$ for some integer $k$. Find:<br/>
   a. $k$<br/>
-  b. $|E|$ where $E={x|x \in \Omega, x \text{ is multiples of 3}\}$,<br/>
+  b. $|E|$ where $E=\{x|x \in \Omega, x \text{ is multiples of 3}\}$,<br/>
   c. $P(E)$ .<br/>
 
   Ans: a. (5050); b. (33); c. (0.333267)<br/>
@@ -1388,32 +1388,32 @@
 ## 5.7 Inequalities
 
 + Probability of null event
-  + $\Pr(\Omega) = 1$
-  + what about $\Pr(\varnothing)?$
-    + $\Omega = \varnothing \cup \Omega \to \Pr(\Omega) = \Pr(\varnothing \cup \Omega) = \Pr(\varnothing) + \Pr(\Omega)$
-    + $\Pr(\varnothing) = 0$
+  + $P(\Omega) = 1$
+  + what about $P(\varnothing)?$
+    + $\Omega = \varnothing \cup \Omega \to P(\Omega) = P(\varnothing \cup \Omega) = P(\varnothing) + P(\Omega)$
+    + $P(\varnothing) = 0$
   + the null event has nil probability
 
 + Probability value range
-  + $0 \leq \Pr(A) \leq 1$
-  + $\Pr(A) \geq 0 \quad$ show: $\Pr(A) \leq 1$
+  + $0 \leq P(A) \leq 1$
+  + $P(A) \geq 0 \quad$ show: $P(A) \leq 1$
     + $A \cup A^c = \Omega$
-    + $\Pr(A) \leq \Pr(A) + \Pr(A^c) = \Pr(A \cup A^c) = \Pr(\Omega) = 1$
-    + $\Pr(A) \leq 1$
+    + $P(A) \leq P(A) + P(A^c) = P(A \cup A^c) = P(\Omega) = 1$
+    + $P(A) \leq 1$
   + probability always between 0 and 1
 
 + Subset
-  + $A \subseteq B \to \Pr(A) \leq \Pr(B)$
+  + $A \subseteq B \to P(A) \leq P(B)$
   + proof
     + $A \subseteq B \to B = A \cup (B - A)$
-    + $\Pr(B) = \Pr(A \cup (B - A)) = \Pr(A) + \Pr(B-A) \geq \Pr(A)$
+    + $P(B) = P(A \cup (B - A)) = P(A) + P(B-A) \geq P(A)$
 
 + Union
-  + $\max(\Pr(A), \Pr(B)) \leq \Pr(A \cup B) \leq \Pr(A) + \Pr(B)$
+  + $\max(P(A), P(B)) \leq P(A \cup B) \leq P(A) + P(B)$
   + proof
-    + left $\leq$: $A, B \subseteq A \cup B \to \Pr(A), \Pr(B) \leq \Pr(A \cup B)$
-    + right $\leq$: $\Pr(A \cup B) = \Pr(A) + \Pr(B) - \Pr(A \cap B)$
-  + Union bound: $\Pr(A \cup B) \leq \Pr(A) + \Pr(B) \to$ very useful
+    + left $\leq$: $A, B \subseteq A \cup B \to P(A), P(B) \leq P(A \cup B)$
+    + right $\leq$: $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+  + Union bound: $P(A \cup B) \leq P(A) + P(B) \to$ very useful
 
 + The Linda problem
   + statement: Linda is 31 years old, single, outspoken, and very bright. She majored in philosophy. As a student, she was deeply concerned with issues of discrimination and social justice, and also participated in anti-nuclear demonstrations.
@@ -1424,7 +1424,7 @@
   + survey: 88 UBC students answered 85% bank teller & activist more likely
     + B - bank teller
     + A - active in feminist movement
-  + $\Pr(B)$ vs. $\Pr(B \cap A) \quad B \supseteq (B \cap A): \Pr(B) \geq \Pr(B \cap A)$
+  + $P(B)$ vs. $P(B \cap A) \quad B \supseteq (B \cap A): P(B) \geq P(B \cap A)$
   + irrational concept of probability
 
 + Related questions
@@ -1436,7 +1436,7 @@
     + more likely?
       + A. Björn will lose first set
       + B. Björn will lose first set but win match
-    + Survey: 72% choose B $\to$ again $B \subseteq A \to \Pr(B) \leq \Pr(A)$
+    + Survey: 72% choose B $\to$ again $B \subseteq A \to P(B) \leq P(A)$
   + 1981: reach final, won first set, lost match to John McEnroe
   + 1983: age 26, retired
 
@@ -1477,28 +1477,28 @@
 
 1. Which of the following holds for all events A and B
 
-  1.1 in any probability space:<br/>
+  a) in any probability space:<br/>
   
   a. $A \supseteq B \implies P(A) \geq P(B)$<br/>
   b. $P(A) \geq P(B) \implies A \supseteq B$<br/>
   c. $|A| \geq |B| \implies P(A) \geq P(B)$<br/>
   d. $P(A) \geq P(B) \implies |A| \geq |B|$<br/>
 
-  1.2 in any uniform probability space:
+  b) in any uniform probability space:
 
   a. $A \supseteq B \implies P(A) \geq P(B)$<br/>
   b. $P(A) \geq P(B) \implies A \supseteq B$<br/>
   c. $|A| \geq |B| \implies P(A) \geq P(B)$<br/>
   d. $P(A) \geq P(B) \implies |A| \geq |B|$<br/>
   
-  Ans: 1.1 (xacd, a); 1.2 (xabcd, acd)<br/>
+  Ans: a. (a, xacd); b. (acd, xabcd)<br/>
   Explanation
-    + 1.1
-      + $A supseteq B \implies P(A)=P(B)+P(A∖B) \geq P(B)$.
+    + a)
+      + $A \supseteq B \implies P(A)=P(B)+P(A∖B) \geq P(B)$.
       + $A$ and $B$ can be nonempty and disjoint with $P(A) \geq P(B)$, then $A$ does not contain $B$.
       + $B$ can be a singleton with higher probability than a set $A$ with two elements.
       + Similar counter-example to 3.
-    + 1.2
+    + b)
       + Follows from the result for general spaces.
       + Similar counter-example to part a.
       + I uniform sample spaces $S$, for any event $E$, $P(E)=|E|/|S|$, hence $|A| \geq |B| \implies P(A) \geq P(B)$.
@@ -1511,7 +1511,7 @@
   c. If $P(A)+P(B)>1$, then $A \cap B \neq \varnothing$<br/>
   d. If $P(A)+P(B)>1$, then $P(A \cup B)=1$<br/>
 
-  Ans: xbc, c<br/>
+  Ans: c, xbc<br/>
   Explanation: Let  Ω={1,2,3} , and  P(1)=P(2)=0.1,P(3)=0.8 .
     + False. Let $A=B=\{1,2\}$. $|A|+|B|=4>|Ω|$, but $P(A \cup B)=0.2$.
     + False. Let $A=B=\{1,2\}$. $|A|+|B|=4>|Ω|$, but $P(A)+P(B)=0.4$.

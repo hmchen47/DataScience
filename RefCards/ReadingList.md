@@ -8,7 +8,9 @@
 + K. He & G.Meeden, [Selecting the Number of Bins in a Histogram: A Decision Theoretic Approach](../AppliedDS-UMich/2-InfoVis/p01-HistBins.md)
 
 
-## Statistics
+## Statistics and Probability
+
+
 
 ### Study Design
 
@@ -19,6 +21,7 @@
 ### Bayesian Approaches
 
 + D. Spiegelhalter, K. Abrams, J. Myles, [An Overview of the Bayesian Approach](../Notes/p01-Bayesian.md), Chapter 3 in Bayesian Approaches to Clinical Trials and Health-Care Evaluation, 2004+ S. Ghosh, [Basics of Bayesian Methods](../Notes/p03-BayesianBasics.md), in "Methods in molecular biology" (Clifton, N.J.) 620:155-78, 2010
++ H. Liu and L. Wasserman, [Bayesian Inference](../Notes/p05-BayesInf.md) in [36-708 Statistical Methods for Machine Learning](http://www.stat.cmu.edu/~larry/=sml/)
 
 
 
@@ -48,7 +51,7 @@
 ### Application - Social Networks
 
 + David Easley and Jon Kleinberg, [Power Laws and Rich-Get-Richer Phenomena](../AppliedDS-UMich/5-SocialNet/p1-PowerLaw.md), Chapter 18 in [Networks, Crowds, and Markets: Reasoning About a Highly Connected World](http://www.cs.cornell.edu/home/kleinber/networks-book/)
-+ David Easley and Jon Kleinberg, [The Small-World Phenomenon](../AppliedDS-UMich/5-SocialNet/The Small-World Phenomenon), Chapter 20 in [Networks, Crowds, and Markets: Reasoning About a Highly Connected World](http://www.cs.cornell.edu/home/kleinber/networks-book/)
++ David Easley and Jon Kleinberg, [The Small-World Phenomenon](../AppliedDS-UMich/5-SocialNet/p3-SmallWorld.md), Chapter 20 in [Networks, Crowds, and Markets: Reasoning About a Highly Connected World](http://www.cs.cornell.edu/home/kleinber/networks-book/)
 
 
 
@@ -129,6 +132,20 @@
 + ME Tipping, CM Bishop, [Probabilistic principal component analysis](https://publications.aston.ac.uk/id/eprint/38367/1/NCRG_97_010.pdf), 1999
 + H Abdi, LJ Williams, [Principal component analysis](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.149.8828&rep=rep1&type=pdf), 2010
 + J Shlens, [A tutorial on principal component analysis](https://arxiv.org/pdf/1404.1100&sa=U&ved=2ahUKEwi57Mfr0ZDpAhWtF6YKHfSxAck4ChAWMAZ6BAgEEAE&usg=AOvVaw2ccduDFnmcXvF-iGE-VXIM), 2014
++ Farhad Malik, [Understanding Statistics And Probability](https://towardsdatascience.com/@farhadmalik)
+  + [Understanding Statistics And Probability: Bayesian Inference](https://tinyurl.com/y4gepghk)
+  + [Statistical Inference For Data Scientists](https://tinyurl.com/y5xu8m3c)
+  + [Chi-Squared, Student-T, And F Distributions](https://tinyurl.com/yyvmqhzt)
+  + [Markov Chains](https://tinyurl.com/y4m2eu8w)
+  + [Central Limit Theorem And Convergence For Data Scientists](https://tinyurl.com/y3hxtu2v)
+  + [The Essentials Of Probability For Data Scientists](https://tinyurl.com/y26czmyj)
++ Gordan Zitkovic, [Theory of Probability, Parts I and II](https://web.ma.utexas.edu/users/gordanz/lecture_notes_page.html)
++ Gordan Zitkovic, [Introduction to Stochastic Processes](https://web.ma.utexas.edu/users/gordanz/lecture_notes_page.html)
++ Gordan Zitkovic, [Introduction to Mathematical Statistics](https://web.ma.utexas.edu/users/gordanz/lecture_notes_page.html)
++ David Pollard, [Chapter 4: Symmetry](https://tinyurl.com/yyqkqvmz) in [Advanced Probability](https://tinyurl.com/y5pszlfw), 2008
+
+
+
 
 
 ### Machine Learning
@@ -138,6 +155,9 @@
 + Trevor Hastie and Rob Tibshirani, [introduction to machine learning](https://www.r-bloggers.com/in-depth-introduction-to-machine-learning-in-15-hours-of-expert-videos/)
 
 + Lukas Spranger, [Awesome Machine Learning and AI Courses](https://tinyurl.com/y5phkqwj)
+
++ Farhad Malik, [End To End Guide For Machine Learning Project](https://tinyurl.com/y4vey39z), Dec 28, 2018
+
 
 
 ### Neural Networks

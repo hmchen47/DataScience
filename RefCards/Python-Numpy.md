@@ -3,7 +3,7 @@
 
 ## Array Basics
 
-+ `ndarray` attributes
++ [`ndarray` attributes](https://tinyurl.com/yxk9g7ee)
   + `T`: ndarray
       Transpose of the array.
   + `data`: buffer<br/>
