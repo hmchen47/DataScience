@@ -174,12 +174,12 @@ In this course you will learn the following topics (some may be added or dropped
 
 
 + Topic13: Hypothesis Testing
-  + 13.1 [Hypothesis Test - Introduction](./13-Hypothesis.md#)
-  + 13.2 [Hypothesis Testing - p-Values](./13-Hypothesis.md#)
-  + 13.3 [Lady Tasting Tea](./13-Hypothesis.md#)
-  + 13.4 [Hypothesis Testing - Z and T Tests](./13-Hypothesis.md#)
-  + [Lecture Notebook 13](./13-Hypothesis.md#)
-  + [Programming Assignment 13](./13-Hypothesis.md#)
+  + 13.1 [Hypothesis Test - Introduction](./13-Hypothesis.md#131-hypothesis-test---introduction)
+  + 13.2 [Hypothesis Testing - p-Values](./13-Hypothesis.md#132-hypothesis-testing---p-values)
+  + 13.3 [Lady Tasting Tea](./13-Hypothesis.md#133-lady-tasting-tea)
+  + 13.4 [Hypothesis Testing - Z and T Tests](./13-Hypothesis.md#134-hypothesis-testing---z-and-t-tests)
+  + [Lecture Notebook 13](./13-Hypothesis.md#lecture-notebook-13)
+  + [Programming Assignment 13](./13-Hypothesis.md#programming-assignment-13)
  
  
 + Final Exam
