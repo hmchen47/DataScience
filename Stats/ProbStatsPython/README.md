@@ -99,95 +99,102 @@ In this course you will learn the following topics (some may be added or dropped
 
 ### Topic 6: Conditional Probability
 
-  + 6.1 [Conditional Probability](./06-CondProb.md#61-conditional-probability)
-  + 6.2 [Independence](./06-CondProb.md#62-independence)
-  + 6.3 [Sequential Probability](./06-CondProb.md#63-sequential-probability)
-  + 6.4 [Total Probability](./06-CondProb.md#64-total-probability)
-  + 6.5 [Bayes' Rule](./06-CondProb.md#65-bayes-rule)
-  + [Lecture Notebook 6](./06-CondProb.md#lecture-notebook-6)
-  + [Programming Assignment 6](./06-CondProb.md#programming-assignment-6)
++ 6.1 [Conditional Probability](./06-CondProb.md#61-conditional-probability)
++ 6.2 [Independence](./06-CondProb.md#62-independence)
++ 6.3 [Sequential Probability](./06-CondProb.md#63-sequential-probability)
++ 6.4 [Total Probability](./06-CondProb.md#64-total-probability)
++ 6.5 [Bayes' Rule](./06-CondProb.md#65-bayes-rule)
++ [Lecture Notebook 6](./06-CondProb.md#lecture-notebook-6)
++ [Programming Assignment 6](./06-CondProb.md#programming-assignment-6)
 
 
-+ Topic 7: Random Variables, Expectation, and Variance
-  + 7.1 [Random Variables](./07-RvMeanVar.md#71-random-variables)
-  + 7.2 [Cumulative Distribution Function](./07-RvMeanVar.md#72-cumulative-distribution-function)
-  + 7.3 [Expectation](./07-RvMeanVar.md#73-expectation)
-  + 7.4 [Variable Modifications](./07-RvMeanVar.md#74-variable-modifications)
-  + 7.5 [Expectation of Functions of Random Variables](./07-RvMeanVar.md#75-expectation-of-functions-of-random-variables)
-  + 7.6 [Variance](./07-RvMeanVar.md#76-variance)
-  + 7.7 [Two Variables](./07-RvMeanVar.md#77-two-variables)
-  + 7.8 [Linearity of Expectations](./07-RvMeanVar.md#78-linearity-of-expectations)
-  + 7.9 [Covariance](./07-RvMeanVar.md#79-covariance)
-  + [Lecture Notebook 7](./07-RvMeanVar.md#lecture-notebook-7)
-  + [Programming Assignment 7](./07-RvMeanVar.md#programming-assignment-7)
+###  Topic 7: Random Variables, Expectation, and Variance
+
++ 7.1 [Random Variables](./07-RvMeanVar.md#71-random-variables)
++ 7.2 [Cumulative Distribution Function](./07-RvMeanVar.md#72-cumulative-distribution-function)
++ 7.3 [Expectation](./07-RvMeanVar.md#73-expectation)
++ 7.4 [Variable Modifications](./07-RvMeanVar.md#74-variable-modifications)
++ 7.5 [Expectation of Functions of Random Variables](./07-RvMeanVar.md#75-expectation-of-functions-of-random-variables)
++ 7.6 [Variance](./07-RvMeanVar.md#76-variance)
++ 7.7 [Two Variables](./07-RvMeanVar.md#77-two-variables)
++ 7.8 [Linearity of Expectations](./07-RvMeanVar.md#78-linearity-of-expectations)
++ 7.9 [Covariance](./07-RvMeanVar.md#79-covariance)
++ [Lecture Notebook 7](./07-RvMeanVar.md#lecture-notebook-7)
++ [Programming Assignment 7](./07-RvMeanVar.md#programming-assignment-7)
 
 
-+ Topic 8: Discrete Distribution Families
-  + 8.0 [Introduction](./08-DiscreteDist.md#80-introduction)
-  + 8.1 [Bernoulli Distribution](./08-DiscreteDist.md#81-bernoulli-distribution)
-  + 8.2 [Binomial Distribution](./08-DiscreteDist.md#82-binomial-distribution)
-  + 8.3 [Poisson Distribution](./08-DiscreteDist.md#83-poisson-distribution)
-  + 8.4 [Geometric Distribution](./08-DiscreteDist.md#84-geometric-distribution)
-  + 8.5 [Geometric Distribution Example](./08-DiscreteDist.md#85-geometric-distribution-example)
-  + [Lecture Notebook 8](./08-DiscreteDist.md#lecture-notebook-8)
-  + [Programming Assignment 8](./08-DiscreteDist.md#programming-assignment-8)
+### Topic 8: Discrete Distribution Families
+
++ 8.0 [Introduction](./08-DiscreteDist.md#80-introduction)
++ 8.1 [Bernoulli Distribution](./08-DiscreteDist.md#81-bernoulli-distribution)
++ 8.2 [Binomial Distribution](./08-DiscreteDist.md#82-binomial-distribution)
++ 8.3 [Poisson Distribution](./08-DiscreteDist.md#83-poisson-distribution)
++ 8.4 [Geometric Distribution](./08-DiscreteDist.md#84-geometric-distribution)
++ 8.5 [Geometric Distribution Example](./08-DiscreteDist.md#85-geometric-distribution-example)
++ [Lecture Notebook 8](./08-DiscreteDist.md#lecture-notebook-8)
++ [Programming Assignment 8](./08-DiscreteDist.md#programming-assignment-8)
 
 
-+ Topic 9: Continuous Distribution Families
-  + 9.1 [Continuous Distributions](./09-ContDist.md#91-continuous-distributions)
-  + 9.2 [Functions of Random Variables](./09-ContDist.md#92-functions-of-random-variables)
-  + 9.3 [Uniform Distribution](./09-ContDist.md#93-uniform-distribution)
-  + 9.4 [Exponential Distribution](./09-ContDist.md#94-exponential-distribution)
-  + 9.5 [Gaussian Distribution](./09-ContDist.md#95-gaussian-distribution)
-  + 9.6 [Gaussian Distribution - Probabilities](./09-ContDist.md#96-gaussian-distribution---probabilities)
-  + [Lecture Notebook 9](./09-ContDist.md#lecture-notebook-9)
-  + [Programming Assignment 9](./09-ContDist.md#programming-assignment-9)
+### Topic 9: Continuous Distribution Families
+
++ 9.1 [Continuous Distributions](./09-ContDist.md#91-continuous-distributions)
++ 9.2 [Functions of Random Variables](./09-ContDist.md#92-functions-of-random-variables)
++ 9.3 [Uniform Distribution](./09-ContDist.md#93-uniform-distribution)
++ 9.4 [Exponential Distribution](./09-ContDist.md#94-exponential-distribution)
++ 9.5 [Gaussian Distribution](./09-ContDist.md#95-gaussian-distribution)
++ 9.6 [Gaussian Distribution - Probabilities](./09-ContDist.md#96-gaussian-distribution---probabilities)
++ [Lecture Notebook 9](./09-ContDist.md#lecture-notebook-9)
++ [Programming Assignment 9](./09-ContDist.md#programming-assignment-9)
 
 
-+ Topic 10: Inequalities and Limit Theorems
-  + 10.1 [Markov Inequality](./10-InequLimit.md#101-markov-inequality)
-  + 10.2 [Chebyshev Inequalities](./10-InequLimit.md#102-chebyshev-inequalities)
-  + 10.3 [Law of Large Numbers](./10-InequLimit.md#103-law-of-large-numbers)
-  + 10.4 [Moment Generating Functions](./10-InequLimit.md#104-moment-generating-functions)
-  + 10.5 [Chernoff Bound](./10-InequLimit.md#105-chernoff-bound)
-  + 10.6 [Central Limit Theorem](./10-InequLimit.md#106-central-limit-theorem)
-  + 10.7 [Central Limit Theorem Proof](./10-InequLimit.md#107-central-limit-theorem-proof)
-  + [Lecture Notebook 10](./10-InequLimit.md#lecture-notebook-10)
-  + [Programming Assignment 10](./10-InequLimit.md#programming-assignment-10)
+### Topic 10: Inequalities and Limit Theorems
+
++ 10.1 [Markov Inequality](./10-InequLimit.md#101-markov-inequality)
++ 10.2 [Chebyshev Inequalities](./10-InequLimit.md#102-chebyshev-inequalities)
++ 10.3 [Law of Large Numbers](./10-InequLimit.md#103-law-of-large-numbers)
++ 10.4 [Moment Generating Functions](./10-InequLimit.md#104-moment-generating-functions)
++ 10.5 [Chernoff Bound](./10-InequLimit.md#105-chernoff-bound)
++ 10.6 [Central Limit Theorem](./10-InequLimit.md#106-central-limit-theorem)
++ 10.7 [Central Limit Theorem Proof](./10-InequLimit.md#107-central-limit-theorem-proof)
++ [Lecture Notebook 10](./10-InequLimit.md#lecture-notebook-10)
++ [Programming Assignment 10](./10-InequLimit.md#programming-assignment-10)
 
 
-+ Topic 11: Statistics, Parameter Estimation and Confidence Interval
-  + 11.1 [Statistics](./11-StatEstCI.md#111-statistics)
-  + 11.2 [Mean and Variance Estimation](./11-StatEstCI.md#112-mean-and-variance-estimation)
-  + 11.3 [Variance Estimation](./11-StatEstCI.md#113-variance-estimation)
-  + 11.4 [Unbiased Variance Estimation](./11-StatEstCI.md#114-unbiased-variance-estimation)
-  + 11.5 [Estimating Standard Deviation](./11-StatEstCI.md#115-estimating-standard-deviation)
-  + 11.6 [Confidence Interval](./11-StatEstCI.md#116-confidence-interval)
-  + 11.7 [Confidence Interval - Sigma Unknown](./11-StatEstCI.md#117-confidence-interval---sigma-unknown)
-  + [Lecture Notebook 11](./11-StatEstCI.md#lecture-notebook-11)
-  + [Programming Assignment 11](./11-StatEstCI.md#programming-assignment-11)
+### Topic 11: Statistics, Parameter Estimation and Confidence Interval
+
++ 11.1 [Statistics](./11-StatEstCI.md#111-statistics)
++ 11.2 [Mean and Variance Estimation](./11-StatEstCI.md#112-mean-and-variance-estimation)
++ 11.3 [Variance Estimation](./11-StatEstCI.md#113-variance-estimation)
++ 11.4 [Unbiased Variance Estimation](./11-StatEstCI.md#114-unbiased-variance-estimation)
++ 11.5 [Estimating Standard Deviation](./11-StatEstCI.md#115-estimating-standard-deviation)
++ 11.6 [Confidence Interval](./11-StatEstCI.md#116-confidence-interval)
++ 11.7 [Confidence Interval - Sigma Unknown](./11-StatEstCI.md#117-confidence-interval---sigma-unknown)
++ [Lecture Notebook 11](./11-StatEstCI.md#lecture-notebook-11)
++ [Programming Assignment 11](./11-StatEstCI.md#programming-assignment-11)
 
 
-+ Topic 12: Regression and PCA
-  + 12.1 [Review of Linear Algebra](./12-RegPCA.md#121-review-of-linear-algebra)
-  + 12.2 [Matrix Notation and Operations](./12-RegPCA.md#122-matrix-notation-and-operations)
-  + 12.3 [Solving a System of Linear Equations](./12-RegPCA.md#12-RegPCA.md#123-solving-a-system-of-linear-equations)
-  + 12.4 [Linear Regression](./12-RegPCA.md#124-linear-regression)
-  + 12.5 [Polynomial Regression](./12-RegPCA.md#125-polynomial-regression)
-  + 12.6 [Regression Towards the Mean](./12-RegPCA.md#126-regression-towards-the-mean)
-  + 12.7 [Principle Component Analysis](./12-RegPCA.md#127-principle-component-analysis)
-  + [Lecture Notebook 12](./12-RegPCA.md#lecture-notebook-12)
-  + [Programming Assignment 12](./12-RegPCA.md#programming-assignment-12)
+### Topic 12: Regression and PCA
+
++ 12.1 [Review of Linear Algebra](./12-RegPCA.md#121-review-of-linear-algebra)
++ 12.2 [Matrix Notation and Operations](./12-RegPCA.md#122-matrix-notation-and-operations)
++ 12.3 [Solving a System of Linear Equations](./12-RegPCA.md#12-RegPCA.md#123-solving-a-system-of-linear-equations)
++ 12.4 [Linear Regression](./12-RegPCA.md#124-linear-regression)
++ 12.5 [Polynomial Regression](./12-RegPCA.md#125-polynomial-regression)
++ 12.6 [Regression Towards the Mean](./12-RegPCA.md#126-regression-towards-the-mean)
++ 12.7 [Principle Component Analysis](./12-RegPCA.md#127-principle-component-analysis)
++ [Lecture Notebook 12](./12-RegPCA.md#lecture-notebook-12)
++ [Programming Assignment 12](./12-RegPCA.md#programming-assignment-12)
 
 
-+ Topic13: Hypothesis Testing
-  + 13.1 [Hypothesis Test - Introduction](./13-Hypothesis.md#131-hypothesis-test---introduction)
-  + 13.2 [Hypothesis Testing - p-Values](./13-Hypothesis.md#132-hypothesis-testing---p-values)
-  + 13.3 [Lady Tasting Tea](./13-Hypothesis.md#133-lady-tasting-tea)
-  + 13.4 [Hypothesis Testing - Z and T Tests](./13-Hypothesis.md#134-hypothesis-testing---z-and-t-tests)
-  + [Lecture Notebook 13](./13-Hypothesis.md#lecture-notebook-13)
-  + [Programming Assignment 13](./13-Hypothesis.md#programming-assignment-13)
- 
+### Topic13: Hypothesis Testing
+
++ 13.1 [Hypothesis Test - Introduction](./13-Hypothesis.md#131-hypothesis-test---introduction)
++ 13.2 [Hypothesis Testing - p-Values](./13-Hypothesis.md#132-hypothesis-testing---p-values)
++ 13.3 [Lady Tasting Tea](./13-Hypothesis.md#133-lady-tasting-tea)
++ 13.4 [Hypothesis Testing - Z and T Tests](./13-Hypothesis.md#134-hypothesis-testing---z-and-t-tests)
++ [Lecture Notebook 13](./13-Hypothesis.md#lecture-notebook-13)
++ [Programming Assignment 13](./13-Hypothesis.md#programming-assignment-13)
+
  
 ### Topic 14: Final Exam
 
