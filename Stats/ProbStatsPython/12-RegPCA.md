@@ -1318,45 +1318,7 @@
 
 ### Numpy `ndarray` attributes
 
-+ `ndarray` attributes
-  + `T`: ndarray
-      Transpose of the array.
-  + `data`: buffer<br/>
-      The array's elements, in memory.
-  + `dtype`: dtype object<br/>
-      Describes the format of the elements in the array.
-  + `flags`: dict<br/>
-      Dictionary containing information related to memory use, e.g., 'C_CONTIGUOUS', 'OWNDATA', 'WRITEABLE', etc.
-  + `flat`: numpy.flatiter object<br/>
-      Flattened version of the array as an iterator.  The iterator allows assignments, e.g., `x.flat = 3` (See `ndarray.flat` for assignment examples; TODO).
-  + `imag`: ndarray<br/>
-      Imaginary part of the array.
-  + `real`: ndarray<br/>
-      Real part of the array.
-  + `size`: int<br/>
-      Number of elements in the array.
-  + `itemsize`: int<br/>
-      The memory use of each array element in bytes.
-  + `nbytes`: int<br/>
-      The total number of bytes required to store the array data,
-      i.e., `itemsize * size`.
-  + `ndim`: int<br/>
-      The array's number of dimensions.
-  + `shape`: tuple of ints<br/>
-      Shape of the array.
-  + `strides`: tuple of ints<br/>
-    + The step-size required to move from one element to the next in memory. For example, a contiguous `(3, 4)` array of type
-      `int16` in C-order has strides `(8, 2)`.  This implies that to move from element to element in memory requires jumps of 2 bytes.
-    + To move from row-to-row, one needs to jump 8 bytes at a time
-      (`2 * 4`).
-  + `ctypes`: ctypes object<br/>
-      Class containing properties of the array needed for interaction
-      with ctypes.
-  + `base`: ndarray<br/>
-      If the array is a view into another array, that array is its `base`
-      (unless that array is also a view).  The `base` array is where the
-      array data is actually stored.
-
++ [`ndarray` attributes](https://tinyurl.com/yxk9g7ee)
 
 + [Numpy Array Creating routines](https://tinyurl.com/y4gtmu83)
 
