@@ -16,18 +16,21 @@
 
 ## Machine Learning
 
-  + [Machine Learning - Stanford, Andrew Ng](./ML/ML-Stanford/README.md)
-  + [Machine Learning & Neural Networks - Hinton](./ML/MLNN-Hinton/README.md)
++ [Machine Learning - Stanford, Andrew Ng](./ML/ML-Stanford/README.md)
++ [Machine Learning & Neural Networks - Hinton](./ML/MLNN-Hinton/README.md)
 
 
 ## Statistics
+
++ [Probability and Statistics in Data Science using Python - edX](./Stats/ProbStatsPython/README.md)
+
 
 ## Misc
 
 
 ## Reference Cards
 
-### Statistics
+### Probability and Statistics
 
 <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse;">
   <thead>
@@ -38,12 +41,21 @@
   </thead>
   <tbody>
   <tr>
+<<<<<<< HEAD
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Help Cards </td> </tr>
     <th style="padding: 0.3em; width: 10vw; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
     <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Stat-HelpCards.md#statistics-notation"> Notations </a> </td>
     <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Stat-HelpCards.md#naming-scenarios-for-inference"> Inference Scenarios </a> </td>
     <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Stat-HelpCards.md#chi-square-tests"> $\chi^2$ Test </a> </td>
     <td style="padding: 0.3em; width: 10vw;"> <a href="">  </a> </td>
+=======
+    <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Statistics Help Cards </td> </tr>
+    <th style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
+    <td style="padding: 0.3em; width: 10%;"> <a href="./RefCards/Stat-HelpCards.md#statistics-notation"> Notations </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="./RefCards/Stat-HelpCards.md#naming-scenarios-for-inference"> Inference Scenarios </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="./RefCards/Stat-HelpCards.md#chi-square-tests"> $\chi^2$ Test </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="">  </a> </td>
+>>>>>>> pspy
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Basic Formula </th>
@@ -84,23 +96,118 @@
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
   </tr>
-  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Basics </td> </tr>
+
+  <!-- Probability -->
+  </tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Probability </td> </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Basics </th>
+    <td style="padding: 0.3em; width: 10%;"> <a href="./RefCards/Prob-Basics.md#basic-concepts"> Concepts </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="./RefCards/Prob-Basics.md#tree-structure"> Tree </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="./RefCards/Prob-Basics.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="./RefCards/Prob-Basics.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Sets &amp; Counting </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#basic-sets"> Basics </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#set-relations"> Relations </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#set-operations"> Operations </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#set-counting"> Counting </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#disjoint-unions"> Disjoint Union </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#general-union"> General Union </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#cartesian-products"> Cartesian Product </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#cartesian-power"> Cartesian Power </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Probability </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#probability"> Basics </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#uniform-space"> Uniform Space </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#events"> Events </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#experiments"> Experiments </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#probability-axioms"> Axioms </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#inequalities"> Inequalities </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#conditional-probability"> Conditional </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#independence"> Independence </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#sequential-probability"> Sequential </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#total-probability"> Total </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#bayes-rule"> Bayes' Rule </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Random Variables </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#discrete-random-variables"> Discrete R.V. </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#continuous-random-variables"> Continuous R.V. </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#function-of-random-variables"> Functions of R.V. </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#cumulative-distribution-function"> CDF </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#expectation"> Expectation </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#variance"> Variance </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#modification"> Modification </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#expectation-of-functions-of-random-variables"> Expectation of Functions of R.V. </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#multivariate"> Multivariate </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#linearity-of-expectation"> Linearity </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#covariance"> Covariance </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Prob-Basics.md#">  </a></td>
+  </tr>
+
+  <!-- Statistics Basics -->
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Statistics Basics </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#basic-concepts"> Terminology </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#advanced-concepts"> Advanced Concepts </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#regularity-condition"> Regularity Conditions </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#statistical-inference"> Inference </a></td>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#bias-and-variance"> Bias &amp; Variance </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#margin-of-error"> Margin of Error </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#analysis-methodologies"> Analysis </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#multiple-distributions"> Multiple Distributions </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#hypothesis-test"> Hypothesis Test </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#multiple-distributions"> Multiple Distributions </a> </td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#">  </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Inference </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#statistical-inference"> Overview </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#mean-estimation"> Mean </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#variance-estimation"> Variance </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#unbiased-variance-estimation"> Unbiased Variance </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#standard-deviation-estimation"> Standard Deviation </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#confidence-interval-w-known-22342"> CI w/ known $\sigma$ </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#confidence-interval-w-unknown-31675"> CI w/ unknown $\sigma$ </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#">  </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Hypothesis </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#hypothesis-testing"> Overview </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Basics.md#">  </a> </td>
+  </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="3" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Distributions </th>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#elationship-of-distribution"> Relationship </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#tables-of-common-continuous-distributions"> Common Continuous </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#tables-of-common-continuous-distributions"> Common Discrete </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#bernoulli-distribution"> Bernoulli </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
@@ -108,6 +215,18 @@
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#beta-distribution"> Beta </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#beta-binomial-distribution"> Beta-Binomial </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#dirichlet-distribution"> Dirichlet </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#poisson-distribution"> Poisson </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#geometric-distribution"> Geometric </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#uniform-distribution"> Uniform </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#exponential-distribution"> Exponential </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#gaussian-distribution"> Gaussian </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#">  </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#wishart-distribution"> Wishart </a></td>
@@ -119,7 +238,7 @@
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-StudyDesign.md#overview"> Overview </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-StudyDesign.md#study-design-for-cohort-studies"> Cohort </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-StudyDesign.md#cast-control-studies"> Case-Control </a></td>
-    <td style="padding: 0.3em;"> <a href=".">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-StudyDesign.md#">  </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
@@ -128,6 +247,8 @@
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
   </tr>
+
+  <!-- Bayesian approaches -->
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Bayesian Approaches </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="4" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
@@ -214,6 +335,8 @@
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
   </tr>
+
+  <!-- Numerical methods -->
   <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Numerical Methods </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Basics </th>
@@ -925,7 +1048,8 @@
 </table>  
 
 
-### [Data Science with Python](./RefCards/PythonDS.md)
+### Python for Data Science
+
 
 <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse;">
   <thead>
@@ -935,93 +1059,137 @@
   </tr>
   </thead>
   <tbody>
+
+  <!-- Common Functions -->
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Common Functions </td> </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> Import Data </th>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="/RefCards/">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  Matplotlib </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#official-pyplot-api"> Official Pyplot API </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#environment-and-module"> Environment & Modules </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#classes"> Classes </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md0official-docs#"> Official Docs </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#methods-4"> Methods </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#line-style-or-marker"> Line Style & Marker </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#color-abbreviations"> Color abbreviations </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Seaborn </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#seaborn-api"> Seaborn API </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/Python-Visual.md#">  </a> </td>
+  </tr>
+
+  <!-- Probability & Statistics -->
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Probability &amp; Statistics </td> </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#sets"> Sets </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#numpy-common-used-functions"> Numpy Common Functions </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#andas-common-used-functions"> Pandas Common Functions </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="2" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> Related Functions </th>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#random-number-generator"> Random Number Generator </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#random-sampling"> Random Sampling </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#statistics-distributions"> Statistical Distributions </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#numpy-statistic-functions"> Numpy Statistics </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#numpy-math-related-functions"> Numpy Math </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Python-ProbStat.md#">  </a> </td>
+  </tr>
+
+
+  <!-- Data Science -->
+  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Data Science </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="./RefCards/PythonDS.md#general"> General </a></th>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/PythonDS.md#open-cvs-file"> Open CSV File </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/PythonDS.md#methods"> Methods </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/PythonDS.md#open-cvs-file"> Open CSV File </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/PythonDS.md#methods"> Methods </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#date-and-times"> Date & Time </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#import-files"> Import Files </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#attributes"> Attributes </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#methods-1"> Methods </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#import-files"> Import Files </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#attributes"> Attributes </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#methods-1"> Methods </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#scipy"> SciPy </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#import-files-1"> Import Files </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#statistical-module"> Statistical Module </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#import-files-1"> Import Files </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#statistical-module"> Statistical Module </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="rowspan: 2; padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#numpy"> Numpy </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#import-file"> Import Files </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#general-1"> General </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#array-creation"> Array Creation </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#combining-array"> Combining Array </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#import-file"> Import Files </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#general-1"> General </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#array-creation"> Array Creation </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#combining-array"> Combining Array </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#array-operations"> Array Operations </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#math-functions"> Math Functions </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#indexingslicing"> Indexing/Slicing </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#random-number-generator"> Random Number Generator </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#array-operations"> Array Operations </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#math-functions"> Math Functions </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#indexingslicing"> Indexing/Slicing </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#random-number-generator"> Random Number Generator </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#date-and-times"> Pandas </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#import-file-1"> Import File </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#general-2"> General </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#timestamp"> Timestamp </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#import-file-1"> Import File </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#general-2"> General </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#timestamp"> Timestamp </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#matplotlib"> DataFrame </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#class"> Class </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#load-file"> Loading File </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#attributes-1"> Attributes </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#indexing--slicing"> Indexing/Slicing </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#class"> Class </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#load-file"> Loading File </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#attributes-1"> Attributes </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#indexing--slicing"> Indexing/Slicing </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#methods-3"> Methods </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#matplotlib"> Matplotlib </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#official-pyplot-api"> Official Pyplot API </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#environment-and-module"> Environment & Modules </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#classes"> Classes </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md0official-docs#"> Official Docs </a> </td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#methods-4"> Methods </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#line-style-or-marker"> Line Style & Marker </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#color-abbreviations"> Color abbreviations </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-  </tr>
-  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#seaborn"> Seaborn </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#seaborn-api"> Seaborn API </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#methods-3"> Methods </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#">  </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> <a href="RefCards/PythonDS.md#">  </a> </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/PythonDS.md#">  </a> </td>
   </tr>
   </tbody>
 </table>

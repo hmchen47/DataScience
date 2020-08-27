@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 # Data Science and Machine Learning Books
+=======
+# Machine Learning Books
+
+>>>>>>> pspy
 
 ## 24 Best (and Free) Books To Understand Machine Learning
 

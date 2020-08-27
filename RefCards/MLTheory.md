@@ -73,6 +73,24 @@
 
     \[J(\theta) = J(\theta_0, \theta_1, \ldots, \theta_n) = \displaystyle \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})^2\]
 
++ [Linear regression](../Stats/ProbStatsPython/12-RegPCA.md#127-principle-component-analysis)
+  + square difference btw the line $(w_0, w_1)$ and the points $\langle (x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\rangle$ to be 
+  
+    \[ \sum_{i=1}^n \left( f_{w_0, w_1}(x_i) - y_i \right)^2 \]
+
+  + __least squares__ solution: the values of $w_0, w_1$ to minimize the square difference
+  + Python: using `numpy.linalg` to find the minimum
+  + defining the problem using `np.linalg` w/ matrix notation
+    + ${\bf A_{n \times 2}}$: coefficient matrix
+    + ${\bf y}$: ordinate or dependent variable vector
+    + ${\bf w}$: parameter vector
+  + the difference as a vector ${\bf d}$
+
+    \[ {\bf d} = {\bf A w - y} \]
+
+  + minimizing the square difference
+
+    \[ \parallel {\bf d} \parallel_2^2 = \sum_{i=1}^n d_i^2 \]
 
 
 #### Cost Function: Linear Regression
@@ -1222,6 +1240,15 @@
   + PCA to minimize the orthogonal distance
     + minimize the projection distance between point and the given line
     + no specific value to predict and all variables treat equally
+
++ [No preferred coordinate](../Stats/ProbStatsPython/12-RegPCA.md#127-principle-component-analysis)
+  + supervised learning: predicting $x \to y$ or $y \to x$, both $x$ and $y$ labeled
+  + unsupervised learning: fit a line w/o making a choice btw $x \to y$ and $y \to x$
+  + PCA: using unsupervised learning to find the optimal linear function
+  + regresssion and PCA 
+    + both minimizing RMS (root mean square)
+    + w/ different definitions of error
+
 
 
 
