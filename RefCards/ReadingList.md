@@ -8,7 +8,9 @@
 + K. He & G.Meeden, [Selecting the Number of Bins in a Histogram: A Decision Theoretic Approach](../AppliedDS-UMich/2-InfoVis/p01-HistBins.md)
 
 
-## Statistics
+## Statistics and Probability
+
+
 
 ### Study Design
 
@@ -19,6 +21,7 @@
 ### Bayesian Approaches
 
 + D. Spiegelhalter, K. Abrams, J. Myles, [An Overview of the Bayesian Approach](../Notes/p01-Bayesian.md), Chapter 3 in Bayesian Approaches to Clinical Trials and Health-Care Evaluation, 2004+ S. Ghosh, [Basics of Bayesian Methods](../Notes/p03-BayesianBasics.md), in "Methods in molecular biology" (Clifton, N.J.) 620:155-78, 2010
++ H. Liu and L. Wasserman, [Bayesian Inference](../Notes/p05-BayesInf.md) in [36-708 Statistical Methods for Machine Learning](http://www.stat.cmu.edu/~larry/=sml/)
 
 
 
@@ -48,7 +51,7 @@
 ### Application - Social Networks
 
 + David Easley and Jon Kleinberg, [Power Laws and Rich-Get-Richer Phenomena](../AppliedDS-UMich/5-SocialNet/p1-PowerLaw.md), Chapter 18 in [Networks, Crowds, and Markets: Reasoning About a Highly Connected World](http://www.cs.cornell.edu/home/kleinber/networks-book/)
-+ David Easley and Jon Kleinberg, [The Small-World Phenomenon](../AppliedDS-UMich/5-SocialNet/The Small-World Phenomenon), Chapter 20 in [Networks, Crowds, and Markets: Reasoning About a Highly Connected World](http://www.cs.cornell.edu/home/kleinber/networks-book/)
++ David Easley and Jon Kleinberg, [The Small-World Phenomenon](../AppliedDS-UMich/5-SocialNet/p3-SmallWorld.md), Chapter 20 in [Networks, Crowds, and Markets: Reasoning About a Highly Connected World](http://www.cs.cornell.edu/home/kleinber/networks-book/)
 
 
 
