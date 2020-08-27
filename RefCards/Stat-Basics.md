@@ -106,6 +106,32 @@
     + how to do it
     + how well can do it
 
++ Frequesntist vs. Bayesian Statistics
+  + [Frequentist and Bayesian statistics — the comparison](https://tinyurl.com/y5gjrre4)
+    + Frequentists don’t attach probabilities to hypotheses or to any fixed but unknown values in general.
+      + However, I know that its value is fixed (not a random one). Therefore, I cannot assign probabilities to the mean being equal to a certain value, or being less/greater than some other value. The most I can do is collect data from a sample of the population and estimate its mean as the value which is most consistent with the data.
+    + Bayesians view probabilities as a more general concept. As a Bayesian, you can use probabilities to represent the uncertainty in any event or hypothesis.
+      + I agree that the mean is a fixed and unknown value, but I see no problem in representing the uncertainty probabilistically. I will do so by defining a probability distribution over the possible values of the mean and use sample data to update this distribution.
+  + [Bayesian and frequentist reasoning in plain English](https://tinyurl.com/y2rpszxc)
+    + Frequentist Reasoning
+      + I can hear the phone beeping. I also have a mental model which helps me identify the area from which the sound is coming. Therefore, upon hearing the beep, I infer the area of my home I must search to locate the phone.
+      + Sampling is infinite and decision rules can be sharp. Data are a repeatable random sample - there is a frequency. Underlying parameters are fixed i.e. they remain constant during this repeatable sampling process.
+      + The frequentist is asked to write reports. He has a big black book of rules. If the situation he is asked to make a report on is covered by his rulebook, he can follow the rules and write a report so carefully worded that it is wrong, at worst, one time in 100 (or one time in 20, or one time in whatever the specification for his report says).
+    + Bayesian Reasoning
+      + I can hear the phone beeping. Now, apart from a mental model which helps me identify the area from which the sound is coming from, I also know the locations where I have misplaced the phone in the past. So, I combine my inferences using the beeps and my prior information about the locations I have misplaced the phone in the past to identify an area I must search to locate the phone.
+      + Unknown quantities are treated probabilistically and the state of the world can always be updated. Data are observed from the realised sample. Parameters are unknown and described probabilistically. It is the data which are fixed.
+      + The Bayesian is asked to make bets, which may include anything from which fly will crawl up a wall faster to which medicine will save most lives, or which prisoners should go to jail. 
+  + [Are you a Bayesian or a Frequentist? (Or Bayesian Statistics 101)](https://tinyurl.com/y57asbsn)
+    + One of the basic differences of Bayesian and Frequentists is how they treat the parameters.
+    + frequentist statistics: the best (maximum likelihood) estimate for p is p=1014, i.e., $p \approx 0.714$. In this case, the probability of two heads is $0.7142 \approx 0.51$ and it makes sense to bet for the event.
+    + Bayesian approach: p is not a value, it's a distribution.
+  + [Bayesian vs frequentist Interpretations of Probability](https://tinyurl.com/y498bmtt)
+    + frequentist approach
+      + the only sense in which probabilities have meaning is as the limiting value of the number of successes in a sequence of trials,
+    + Bayesian approach
+      + interpret probability distributions as quantifying our uncertainty about the worl
+      + meaningfully talk about probability distributions of parameters, since even though the parameter is fixed, our knowledge of its true value may be limited
+
 
 
 
@@ -723,9 +749,9 @@
     \[ f_X(x) = \int_c^d f(x, y) dy, \qquad f_Y(y) = \int_a^b f(x, y) dx \]
 
 
-## Hypothesis Test
+## Hypothesis Testing
 
-+ [Neyman-Pearson lemma
++ Neyman-Pearson lemma
   + performing a hypothesis test btw two simple hypotheses, $H_0: \theta = \theta_0$ and  $H_1: \theta = \theta_1$
   + using the likelihood ratio test  w/ threshold $\eta$
   + rejecting $H_0$ in favor of $H_1$ at a significance level of
@@ -755,6 +781,371 @@
     + reject $H_0$ if $\sum_{i=1}^n (x_i - \mu)^2$ is sufficient large
     + the rejection threshold depending on the size of the test
     + $\therefore$ test statistic w/ a scaled $\chi^2$ distributed random variable $\implies$ obtaining an exact critical value $\eta$
+
+
++ [Hypotheses](../Stats/ProbStatsPython/13-Hypothesis.md#131-hypothesis-test---introduction): assumptions (statements) about <font style="color: magenta; font-wight: bold;">parameters</font> of
+  + distribution
+  + population
+
++ [Hypotheses types](../Stats/ProbStatsPython/13-Hypothesis.md#131-hypothesis-test---introduction)
+  + simple: parameters taking a single specific value
+  + composite: parameter taking one of several values
+  + one-sided: $\mu \le 2.3, \mu > 4.5$
+  + two-sided: $\mu \le 2.3 \text{ or } > 4.5, \mu < 2.3 \text{ or } > 2.3, \mu \ne 2.3$
+
++ [Null and Alternative Hypotheses](../Stats/ProbStatsPython/13-Hypothesis.md#131-hypothesis-test---introduction)
+  + null hypothesis
+    + more often
+    + assumption believed to be true
+    + Status quo
+    + notation: $H_0$
+  + alternative hypothesis
+    + complementary view
+    + notation: $H_1$ or $H_A$
+  + $H_A$ often complement or "one-side complement" of $H_0$
+
++ [Procedure: How to test](../Stats/ProbStatsPython/13-Hypothesis.md#131-hypothesis-test---introduction)
+  + design experiment
+  + gather data
+  + data consistent w/ null hypothesis?
+    + no: reject null in favor of alternative
+    + yes: do not reject null
+  + equivalently, strong evidence for alternative hypothesis?
+    + yes: reject null in favor of alternative
+    + no: do not reject null
+  + conservative
+    + reject null (status quo)
+    + only if stronger evidence against it
+    + two analogies
+
++ [Test vs. trial](../Stats/ProbStatsPython/13-Hypothesis.md#131-hypothesis-test---introduction)
+  + hypothesis test: strong evidence for alternative hypothesis?
+    + yes: reject null in favor of alternative
+    + no: do not reject null
+  + legal trial: strong incriminating evidence? presumed innocence
+    + guilty: innocent = null
+    + not guilty: reject only by strong evidence
+
++ [Test vs. Myth](../Stats/ProbStatsPython/13-Hypothesis.md#131-hypothesis-test---introduction)
+  + hypothesis test: strong evidence for alternative hypothesis?
+    + yes: reject null in favor of alternative
+    + no: do not reject null
+  + myth: strong evidence for myth?
+    + yes: accept
+    + no: keep default belief
+
++ [Testing hypotheses](../Stats/ProbStatsPython/13-Hypothesis.md#131-hypothesis-test---introduction)
+  + test: design experiment
+  + test statistic
+  + $P_{H_0}(T=t)$: determine distribution of $T$ under $H_0$
+  + observe data: calculate value $t$ of the test statistic $T$
+  + $P_{H_0}(t)$ value:
+    + large $t$ toward $H_0 \to$ accept $H_0$
+    + small $t$ toward $H_A \to$ reject $H_0$ in favor of $H_A$
+
++ [Test statistic](https://tinyurl.com/vkvx9b8)
+  + a random variable that is calculated from sample data and used in a hypothesis test
+  + determining whether to reject the null hypothesis
+  + comparing data with what is expected under the null hypothesis
+  + used to calculate the p-value
+  + measuring the degree of agreement between a sample of data and the null hypothesis
+  + containing information about the data relevant for deciding whether to reject the null hypothesis
+  + <font style="color: cyan;">null distribution</font>: the sampling distribution of the test statistic under the null hypothesis
+  + When the data show strong evidence against the assumptions in the null hypothesis, the magnitude of the test statistic becomes too large or too small depending on the alternative hypothesis.
+  + the test's p-value small enough to reject the null hypothesis
+  + Different hypothesis tests using different test statistics based on the probability model assumed in the null hypothesis (hypothesis test $\to$ test statistic)
+    + z-test $\to$ z-statistic
+    + t-tests $\to$ t-statistic
+    + ANOVA $\to$ F-statistic
+    + $\chi^2$-tests $\to \chi^2$ statistic
+
++ [1-sided and 2-sided $H_a$](../Stats/ProbStatsPython/13-Hypothesis.md#131-hypothesis-test---introduction)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y4k2be2r" ismap target="_blank">
+      <img src="img/t13-01.png" style="margin: 0.1em;" alt="Hypothesis testing: 1-sided alternative hypothesis" title="Hypothesis testing: 1-sided alternative hypothesis" height=200>
+      <img src="img/t13-02.png" style="margin: 0.1em;" alt="Hypothesis testing: 2-sided alternative hypothesis" title="Hypothesis testing: 2-sided alternative hypothesis" height=200>
+    </a>
+    <a href="https://tinyurl.com/y2jyy58c" ismap target="_blank">
+      <img src="https://tinyurl.com/yxvv7trj" style="margin: 0.1em;" alt="Summary of the Different Tests. Note that in a one-tailed test, when H1 involves values that are greater than μ_X, we have a right-tail test. Similarly, when H1 involves values that are less than μ_X, we have a left-tail test. For example, an alternative hypothesis of the type H1 : μ_X > 100 is a right-tail test while an alternative hypothesis of the type H1 : μ_X < 100 is a left-tail test." title="Summary of the Different Tests" height=200>
+    </a>
+  </div>
+
++ [Nomencalture](../Stats/ProbStatsPython/13-Hypothesis.md#132-hypothesis-testing---p-values)
+  + $H_A$ is true, allowed statements
+    + reject $H_0$ in favor of $H_A$
+    + reject $H_0$
+    + <font style="color: cyan;">accept $H_A$</font>
+  + $H_0$ is true, allowed statements
+    + do not reject $H_0$
+    + data not significant
+    + $H_0$ plausible
+    + <font style="text-decoration: line-through;">accept $H_0$</font>
+    + (reluctantly) <font style="color: cyan;">retain $H_0$</font>
+
++ [Significance level](../Stats/ProbStatsPython/13-Hypothesis.md#132-hypothesis-testing---p-values)
+  + reject null (status quo) hypothesis $H_0$ only if strong evidence for alternative $H_A$
+  + precise probabilistic formulation
+  + $\alpha$: significant level, typically 5%, 1%
+  + if $H_0$ is true, accept $H_A$ w/ probability $\le \alpha$ (Type-I error)
+  
+    \[ P_{H_0}(\text{accept} H_A) \le \alpha \]
+
+  + two methods
+    + critical values
+    + p-values
+
+
+
+
+
+## Critical Value and p-value
+
++ [Critical value](../Stats/ProbStatsPython/13-Hypothesis.md#131-hypothesis-test---introduction)
+  + a point on the test distribution compared to the test statistic to determine whether to reject the null hypothesis
+  + the absolute value of test statistic is greater than the critical value $\implies$ statistical significance and reject the null hypothesis
+  + corresponding to $\alpha$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/tq5prhd" ismap target="_blank">
+      <img src="https://tinyurl.com/y4qu4g4s" style="margin: 0.1em;" alt="Figure A shows that results of a one-tailed Z-test are significant if the test statistic is equal to or greater than 1.64, the critical value in this case. The shaded area is 5% (α) of the area under the curve." title="Figure A shows that results of a one-tailed Z-test are significant if the test statistic is equal to or greater than 1.64, the critical value in this case. The shaded area is 5% (α) of the area under the curve." height=150>
+      <img src="https://tinyurl.com/y2gyrtne" style="margin: 0.1em;" alt="Figure B shows that results of a two-tailed Z-test are significant if the absolute value of the test statistic is equal to or greater than 1.96, the critical value in this case. The two shaded areas sum to 5% (α) of the area under the curve." title="Figure B shows that results of a two-tailed Z-test are significant if the absolute value of the test statistic is equal to or greater than 1.96, the critical value in this case. The two shaded areas sum to 5% (α) of the area under the curve." height=150>
+    </a>
+  </div>
+
++ [Critical value](../Stats/ProbStatsPython/13-Hypothesis.md#132-hypothesis-testing---p-values)
+  + critical value: $x_\alpha$ as a threshold
+    + $X \ge x_\alpha \to$ accept $H_A$
+    + $X < x_\alpha \to$ retain $H_0$
+  + $x_\alpha \gets$ significance level $\alpha$
+  + $\alpha$: upper bound on $P_{H_0}(\text{accept } H_A)$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
+      <img src="../Stats/ProbStatsPython/img/t13-03.png" style="margin: 0.1em;" alt="Bernoulli distribution w/ p=0.5, n=20 as x_α = 16 for significance level α = 5%" title="Bernoulli distribution w/ p=0.5, n=20 as x_α = 16 for significance level α = 5%" width=200>
+    </a>
+  </div>
+
++ [Finding $x_\alpha$](../Stats/ProbStatsPython/13-Hypothesis.md#132-hypothesis-testing---p-values)
+  + significance level $\alpha$
+    + typical $\alpha = 5\%, 1\%$
+    + $P_{H_0} (X \ge x\alpha) = P_{H_0}(\text{falsely accept } H_A) \le \alpha$
+  + requirement: $P_{H_0}( X \ge x_\alpha) \le \alpha$
+    + $x_\alpha$ large: almost never declare $H_A$
+    + smallest $x$ s.t. $P_{H_0}(X \ge x) \le \alpha$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
+      <img src="img/t13-11.png" style="margin: 0.1em;" alt="Bernoulli distribution w/ p=0.5, n=20 as x_α = 16 for significance level α = 5% and the area of probability" title="Bernoulli distribution w/ p=0.5, n=20 as x_α = 16 for significance level α = 5% and the area of probability" width=250>
+    </a>
+  </div>
+
++ [Room for improvement](../Stats/ProbStatsPython/13-Hypothesis.md#132-hypothesis-testing---p-values)
+  + get around finding smallest $x$ for accepting $H_A$? $\to$ critical value
+  + find a rule just for $X$ itself? $\to$ p-value
+
++ [p (probability) value](../Stats/ProbStatsPython/13-Hypothesis.md#132-hypothesis-testing---p-values)
+  + p values of $x$
+    + accept $H_A$: $P_{H_0}(X \ge x) \le 5\% \to x \ge x_{5\%}$
+    + retain $H_0$: $P_{H_0}(X > x) > 5\% \to x < x_{5\%}$
+  + same $H_0$ and $H_A$ regions as in critical values
+  + intuitively $P$ under $H_0$ small $\to H_A$ more likely
+
++ [Critical value for 2-sided $H_A$](../Stats/ProbStatsPython/13-Hypothesis.md#132-hypothesis-testing---p-values)
+  + critical value $x_\alpha$: $x$ close to 10 s.t. $P_{H_0}(|X - 10| \ge |x - 10|) \le \alpha$
+  + testing
+    + $|X - 10| \ge |x - 10|$: accept $H_A$
+    + $|X - 10| < |x - 10|$: retain $H_0$
+  
+    \[ P_{H_0} (\text{type-I error}) = P_{H_0}(|X - 10| \ge |x_{\alpha} -10|) \le \alpha \]
+
+  + $x_\alpha$ closest to 10 minimizes type-II error
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y4s4tdt5" ismap target="_blank">
+      <img src="img/t13-08.png" style="margin: 0.1em;" alt="Example of critical value" title="Example of critical value" width=250>
+    </a>
+  </div>
+
++ [p values for 2-sided $H_A$](../Stats/ProbStatsPython/13-Hypothesis.md#132-hypothesis-testing---p-values)
+  + p value of $x$
+    + $P_{H_0}(X \text{ is at least as far from 10 as } x)$
+    + $P_{H_0}(|X - 10| \ge |x - 10|)$
+  + low p-value
+    + low $H_0$ prob of outcome $x$ or further towards $H_A$
+    + $x$ less likely to be generated under $H_0$
+  + higher p-value
+    + high $H_0$ prob of outcome $x$ or further towards $H_A$
+    + $x$ more likely to be generated under $H_0$
+
++ [General p-value](../Stats/ProbStatsPython/13-Hypothesis.md#132-hypothesis-testing---p-values)
+  + p value of statistic $t$ of $T$: $P_{H_0}(T \text{ is $t$ or further towards } H_A)$
+  + significance level: $\alpha$
+  + p-value
+    + $\le \alpha$: accep $H_A$
+    + $> \alpha$: retain $H_0$
+
++ [p-value $\to$ hypothesis test](../Stats/ProbStatsPython/13-Hypothesis.md#133-lady-tasting-tea)
+  + hypotheses: $H_0: $ Lady guesses randomly $\quad H_A: $ correct w. prob. > 0.5
+  + significance level: 5%
+    + Prob. type_I error $\le 5\%$
+    + $P_{H_0}(\text{accept } H_A) \le 5\%$
+  + p value of $c$
+    + $P_{H_0}( C \ge c) > 5\%$: outcome likely under $H_0$ $\to$ retain $H_0$
+    + $P_{H_0}( C \ge c) \le 5\%$: unlikely under $H_0$ $\to$ accept $H_A$<br/><br/>
+
++ [1-sided vs. 2-sided alternatives](../Stats/ProbStatsPython/13-Hypothesis.md#134-hypothesis-testing---z-and-t-tests)
+  + same level and score:
+    + significance level = 5%
+    + z-score = -1.8623
+  + different results:
+    + 1-sided $H_A$: accept $H_A$
+    + 2-sided $H_A$: retain $H_0$
+  + p-value = $P_{H_0}$(observed value or one more towards $H_A$)
+    + &le; 5%: accept $H_A$
+    + &gt; 5%: retain $H_0$
+
+    <table style="font-family: Arial,Helvetica,sans-serif; width: 44vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+      <thead>
+      <tr style="font-size: 1.2em;">
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$H_A$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">p-value</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\%$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">vs. $5\%$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Prob.</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Hypothesis</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td style="text-align: center;">one-sided</td> <td style="text-align: center;">$P(Z < -1.86)$</td> <td style="text-align: center;">3.13%</td> <td style="text-align: center;">&lt;</td> <td style="text-align: center;">Low</td> <td style="text-align: center;">$H_A$</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">Two-sided</td> <td style="text-align: center;">$P(|Z| > 1.86)$</td> <td style="text-align: center;">6.26%</td> <td style="text-align: center;">&gt;</td> <td style="text-align: center;">High</td> <td style="text-align: center;">$H_0$</td>
+      </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+## z-test
+
++ [z-test](../Stats/ProbStatsPython/13-Hypothesis.md#134-hypothesis-testing---z-and-t-tests)
+  + hypotheses: $H_0: \mu_Z = 0 \text{ as } Z \;\dot\sim\; \mathcal{N}(0, 1) \quad H_A: \mu_Z > 0$
+  + significance level $\alpha$
+    + $\alpha = 5\%, 1\%$
+    + ensuring $P_{H_o}(\text{accept } H_A) \le \alpha \gets$ (type-I Error)
+  + critical value $z_\alpha$ w/ $P(Z \ge z\alpha) = \alpha$
+    + right-tailed normal distribution w/ critical value $z_\alpha$ (see diagram)
+    + $Z \ge z_\alpha$: accept $H_A$
+    + $Z < z_\alpha$: retain $H_0$
+  + p-value of $z$: $P_{H_0}(\text{accept } H_A) = P(Z \ge z_\alpha) = \alpha$
+    + $P(Z \ge z) \le \alpha: z \ge z_\alpha \to$ accept $H_A$
+    + $P(Z \ge z) > \alpha: z < z_\alpha \to$ retain $H_0$
+  + computationally $P(Z \ge z) = 1 - \Phi(z)$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yxafyms4" ismap target="_blank">
+      <img src="../Stats/ProbStatsPython/img/t13-14.png" style="margin: 0.1em;" alt="Z-test on right-tailed normal distribution" title="Z-test on right-tailed normal distribution" width=250>
+    </a>
+  </div>
+
++ [1-tailed & 2-tailed tests](../Stats/ProbStatsPython/13-Hypothesis.md#134-hypothesis-testing---z-and-t-tests)
+  + $H_0$ also applied to 
+    + $H_0: \text{ mean } \le \mu$ also applied to right-tailed normal distribution
+    + $H_0: \text{ mean } \ge \mu$ also applied to left-tailed normal distribution
+  + p-value
+    + one-tailed (left tail): $P(Z \le z)$
+    + one-tailed (right tail): $P(Z \ge z)$
+    + 2-tailed: $P(|Z| \ge z)$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y2jyy58c" ismap target="_blank">
+      <img src="https://tinyurl.com/yxvv7trj" style="margin: 0.1em;" alt="Summary of the Different Tests. Note that in a one-tailed test, when H1 involves values that are greater than μ_X, we have a right-tail test. Similarly, when H1 involves values that are less than μ_X, we have a left-tail test. For example, an alternative hypothesis of the type H1 : μ_X > 100 is a right-tail test while an alternative hypothesis of the type H1 : μ_X < 100 is a left-tail test." title="Summary of the Different Tests" height=200>
+    </a>
+  </div>
+
++ [Relation to confidence intervals](../Stats/ProbStatsPython/13-Hypothesis.md#134-hypothesis-testing---z-and-t-tests)
+  + hypothesis testing $\iff$ 95% confidence interval
+  + hypothesis testing
+    + hypotheses: $H_0: \text{ mean } = \mu \quad H_A: \text{ 2-sided, mean } \ne \mu$
+    + z-test: $Z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}}$
+    + significance level: 5%
+      + accept $H_A$
+      + $|Z| \ge 1.96$
+  + 95% confidence interval
+
+    \[ \left( \overline{X} - z_{95\%} \frac{\sigma}{\sqrt{n}}, \overline{X} + z_{95\%} \frac{\sigma}{\sqrt{n}} \right) \]
+
+    + $\mu \notin \text{ confidence interval } \iff 0 \notin (Z - z_{95\%}, Z + z_{95\%}) \iff |Z| \ge 1.96$
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yxafyms4" ismap target="_blank">
+      <img src="../Stats/ProbStatsPython/img/t13-13a.png" style="margin: 0.1em;" alt="z-test of 2-sided H_A w/ 5% significance level " title="z-test of 2-sided H_A w/ 5% significance level " height=150>
+      <img src="../Stats/ProbStatsPython/img/t13-13b.png" style="margin: 0.1em;" alt="95% confidence interval" title="95% confidence interval" height=150>
+    </a>
+  </div>
+
+
+
+
+
+
+## t-test
+
++ [Unknown $\sigma$](../Stats/ProbStatsPython/13-Hypothesis.md#134-hypothesis-testing---z-and-t-tests)
+  + r.v.'s: $X_1, X_2, \dots, X_n \;\; {\perp \!\!\!\! \perp} \sim \mathcal{N}_{\mu. \sigma}$
+  + sample mean: $\overline{X} = \frac 1 n (X_1 + \cdots + X_n)$
+  + sample variance (Bessel corrected): $s^2 = \frac{1}{n-1} \sum_{i=1}^n \left( X_i - \overline{X} \right)^2$
+  + student's t-distribution: $n-1$ degree of freedom
+
+    \[ T_{n-1} = \frac{\overline{X} - \mu}{s/\sqrt{n}} \]
+
++ [t-test](../Stats/ProbStatsPython/13-Hypothesis.md#134-hypothesis-testing---z-and-t-tests)
+  + test statistic: $T = \frac{\overline{X} - \mu}{s/\sqrt{n}}$
+  + under $H_0$:
+    + $T \sim f_{n-1}(t)$
+    + student's t-distribution w/ $n-1$ DoF
+  + calculate p-value for t-distribution
+
++ [z-test and t-test](../Stats/ProbStatsPython/13-Hypothesis.md#134-hypothesis-testing---z-and-t-tests)
+
+  <table style="font-family: Arial,Helvetica,Sans-Serif; width: 40vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;"></th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">z-test</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">t-test</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td style="text-align: center;">stdev $\sigma$</td> <td style="text-align: center;">Known</td> <td style="text-align: center;">Unknown</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">test statistic</td> <td style="text-align: center;">$Z = \frac{\overline{X}-\mu}{\sigma\sqrt{n}}$</td> <td style="text-align: center;">$T = \frac{\overline{X}-\mu}{s\sqrt{n}}$</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td style="text-align: center;">typical sample size $n$</td> <td style="text-align: center;">any</td> <td style="text-align: center;">small</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">population dist.</td> <td style="text-align: center;">$n < 15 \to X \sim \mathcal{N}$<br/>$n > 30 \to X \sim$ any</td> <td style="text-align: center;">$\sim \mathcal{N}$</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td style="text-align: center;">dist. used for p-value</td> <td style="text-align: center;">normal</td> <td style="text-align: center;">student-t w/ $n-1$ DOF</td>
+    </tr>
+    </tbody>
+  </table>
+
+  + as sample size $n$ increased: $t \to z$
+
 
 
 

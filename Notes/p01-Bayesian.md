@@ -1,6 +1,6 @@
 # An Overview of the Bayesian Approach
 
-Book title: [Bayesian Approaches to Clinical Trials and Health-Care Evaluation](http://93.174.95.29/main/791000/1c3cccffb374be94e8940aa087c433c0/%28Statistic%20in%20practice%29%20David%20J.%20Spiegelhalter%2C%20Keith%20R.%20Abrams%2C%20Jonathan%20P.%20Myles%20-%20Bayesian%20Approaches%20to%20Clinical%20Trials%20and%20Health-Care%20Evaluation-Wiley%20%282004%29.pdf)
+Book title: [Bayesian Approaches to Clinical Trials and Health-Care Evaluation](https://tinyurl.com/y6sapzru)
 
 Author: David J. Spiegelhalter, Keith R. Abrams, Jonathan P. Myles
 

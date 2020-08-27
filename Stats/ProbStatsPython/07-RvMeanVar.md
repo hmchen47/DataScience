@@ -2,7 +2,7 @@
 
 
 ## 7.1 Random Variables
-
+ 
 + Motivation
   + basic: coin, dice, cards, dominoes, marbles, ...
   + applications $\to$ numbers
@@ -140,26 +140,26 @@
   a. A random variable $X$ defines an event.<br/>
   b. For a random variable $X$ and a fixed real number  a , "$X \leq a$" defines an event.<br/>
   c. Random variables for the same sample space must be same.<br/>
-  d. For a random variable $X$, possible values for $\Pr(X=x)$ include 0, 0.5 and 1.<br/>
+  d. For a random variable $X$, possible values for $P(X=x)$ include 0, 0.5 and 1.<br/>
 
   Ans: bd<br/>
   Explanation: Recall either the informal definition of a random variable as a real-valued random experiment, or the more formal one as a function that maps the sample set $\Omega$ to real numbers $R$. Therefore:
     + False. A random variable does not define an event.
     + True. "$X\leq a$" is the set of outcomes that are at most a.
     + False. A fair coin and a biased coin are two different variables with the same sample space \(\{h,t\}).
-    + True. $0 \leq \Pr(X=x) \leq 1$, hence both 0,0.5 and 1 are possible.
+    + True. $0 \leq P(X=x) \leq 1$, hence both 0,0.5 and 1 are possible.
 
 
 3. An urn contains 20 balls numbered 1 through 20. Three of the balls are selected from the run randomly without replacement, and $X$ denotes the largest number selected.<br/>
   a. How many values can $X$ take?<br/>
-  b. What is $\Pr(X=18)$?<br/>
-  c. What is $\Pr(X \geq 17)$?<br/>
+  b. What is $P(X=18)$?<br/>
+  c. What is $P(X \geq 17)$?<br/>
 
   Ans: a. (18); b. (0.1192); c. (0.50877)<br/>
   Explanation: 
     + 1 and 2 are impossible, the remaining 18 outcomes can occur.
-    + 18 is fixed, while the other 2 balls should selected from 1 to 17. $\Pr(X = 18) = \binom{17}{2}/\binom{20}{3}=0.119$.
-    + $\Pr(X \ge 17) = \Pr(X = 17) + \Pr(X = 18) + \Pr(X = 19) + \Pr(X = 20) =$ $\frac{\binom{16}{2} + \binom{17}{2} + \binom{18}{2} + \binom{19}{2}}{\binom{20}{3}} =$ $0.508$
+    + 18 is fixed, while the other 2 balls should selected from 1 to 17. $P(X = 18) = \binom{17}{2}/\binom{20}{3}=0.119$.
+    + $P(X \ge 17) = P(X = 17) + P(X = 18) + P(X = 19) + P(X = 20) =$ $\frac{\binom{16}{2} + \binom{17}{2} + \binom{18}{2} + \binom{19}{2}}{\binom{20}{3}} =$ $0.508$
 
 
 ### Lecture Video
@@ -183,8 +183,8 @@
   + cumulative distribution function (cdf): $F: \Bbb{R} \to \Bbb{R}$
 
     \[\begin{align*}
-      F(x) &\stackrel{\text{def}}{=}\, \Pr(X \in (-\infty, x]) \\
-      &\stackrel{\text{def}}{=}\, \Pr(X \leq x) = \sum_{u \leq x} p(u)
+      F(x) &\stackrel{\text{def}}{=}\, P(X \in (-\infty, x]) \\
+      &\stackrel{\text{def}}{=}\, P(X \leq x) = \sum_{u \leq x} p(u)
     \end{align*}\]
 
   + $X$ discrete, still $F$ defined over $\Bbb{R}$
@@ -196,7 +196,7 @@
 
   + CDF
 
-    \[ F(x) = \Pr(X \leq x) = \sum_{u \leq x} p(u) \]
+    \[ F(x) = P(X \leq x) = \sum_{u \leq x} p(u) \]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="url" ismap target="_blank">
@@ -211,9 +211,9 @@
   + right-continuous: $\displaystyle \lim_{x \searrow a} F(x) = F(a)$
 
 + Interval probabilities
-  + by definition: $\Pr(X \leq a) = F(a)$
-  + $\Pr(X > a) = 1 - \Pr(X \leq a) = 1 - F(a)$
-  + $\Pr(a < X \leq b) = \Pr((X \leq b) - (X \leq a)) = \Pr(X \leq b) - \Pr(X \leq a) = F(b) - F(a)$
+  + by definition: $P(X \leq a) = F(a)$
+  + $P(X > a) = 1 - P(X \leq a) = 1 - F(a)$
+  + $P(a < X \leq b) = P((X \leq b) - (X \leq a)) = P(X \leq b) - P(X \leq a) = F(b) - F(a)$
 
 
 + [Original Slides](https://tinyurl.com/yazqvt68)
@@ -227,7 +227,7 @@
   c. Right continuous.<br/>
   d. None of the above.<br/>
 
-  Ans: b
+  Ans: c
 
 
 1. For the probability mass function, Find:
@@ -238,15 +238,15 @@
     </a>
   </div>
 
-  a. $\Pr(X = 1)$,<br/>
-  b. $\Pr(X \geq 1)$,<br/>
-  c. $\Pr(X \in \Bbb{Z})$.<br/>
+  a. $P(X = 1)$,<br/>
+  b. $P(X \geq 1)$,<br/>
+  c. $P(X \in \Bbb{Z})$.<br/>
 
-  Ans: a. (.1); b. (.4); c. ()<br/>
+  Ans: a. (0.1); b. (0.4); c. (0.6)<br/>
   Explanation
-    + $\Pr(X=1)=0.1$ from the figure.
-    + $\Pr(X\ge 1)=\Pr(X=1)+\Pr(X=2)=0.4$
-    + $\Pr(X\in \mathbb{Z})=\Pr(X=-1)+\Pr(X=0)+\Pr(X=1)+\Pr(X=2)=0.6$
+    + $P(X=1)=0.1$ from the figure.
+    + $P(X\ge 1)=P(X=1)+P(X=2)=0.4$
+    + $P(X\in \mathbb{Z})=P(X=-1)+P(X=0)+P(X=1)+P(X=2)=0.6$
 
 
 2. Recall that the "floor" of a real number $x$, denoted $\lfloor x \rfloor$, is the largest integer $\leq x$.  
@@ -256,24 +256,24 @@
   is a cumulative distribution function (cdf) for some fixed number $k$. Find:<br/>
   a. $k$,<br/>
   b. $x_{min}$ (the smallest number with non-zero probability),<br/>
-  c. $\Pr(X=4)$,<br/>
-  d. $\Pr(2 < X \leq 5)$.<br/>
+  c. $P(X=4)$,<br/>
+  d. $P(2 < X \leq 5)$.<br/>
 
   Ans: a. (1); b. (2); c. (1/12); d. (3/10)<br/>
   Explanation
     + Observe that $F(x)=0$ for $x<1$, and since $k=1$, also $F(1)=0$, hence the smallest number with non-zero probability is 2.
-    + $\Pr(X = 4) = F(4) - F(3) = \frac{3}{4} - \frac{2}{3} = \frac{1}{12}$
-    + $\Pr(2\lt X\le 5) = F(5) - F(2) = \frac{4}{5} - \frac{1}{2} = \frac{3}{10}$
+    + $P(X = 4) = F(4) - F(3) = \frac{3}{4} - \frac{2}{3} = \frac{1}{12}$
+    + $P(2\lt X\le 5) = F(5) - F(2) = \frac{4}{5} - \frac{1}{2} = \frac{3}{10}$
 
 
-3. Flip a coin with heads probability 0.6 repeatedly till it lands on tails, and let $X$ be the total number of flips, for example, for h, h, t, $X=3$. Find:
-  a. $\Pr(X\le 3)$
-  b. $\Pr(X\ge 5)$
+3. Flip a coin with heads probability 0.6 repeatedly till it lands on tails, and let $X$ be the total number of flips, for example, for h, h, t, $X=3$. Find:<br/>
+  a. $P(X\le 3)$<br/>
+  b. $P(X\ge 5)$<br/>
 
   Ans: a. (0.784); b.(0.1296)<br/>
   Explanation
-    + $\Pr(X \le 3) = \Pr(X = 1) + \Pr(X = 2) + \Pr(X = 3)$ $= 0.4 + 0.6 \times 0.4 + 0.6 \times 0.6 \times 0.4 = 0.784$
-    + $\Pr(X\ge 5) = 1 - \Pr(X \lt 5) = 1 - \Pr(X \le 4) = 1 - (\Pr(X \le 3) + \Pr(X = 4))$ $ = 1 - (\Pr(X \le 3) + 0.6 \times 0.6 \times 0.6 \times 0.4) = 0.1296$
+    + $P(X \le 3) = P(X = 1) + P(X = 2) + P(X = 3)$ $= 0.4 + 0.6 \times 0.4 + 0.6 \times 0.6 \times 0.4 = 0.784$
+    + $P(X\ge 5) = 1 - P(X \lt 5) = 1 - P(X \le 4) = 1 - (P(X \le 3) + P(X = 4))$ $ = 1 - (P(X \le 3) + 0.6 \times 0.6 \times 0.6 \times 0.4) = 0.1296$
 
 
 
@@ -335,14 +335,14 @@
   + w/ $n \to \infty$ samples, $x$ appear $\to p(x) \cdot n$ times
   + expectation / mean
 
-    \[ E(X) \,\stackrel{\text{def}}{=}\, \sum_x \Pr(x) \cdot x = \frac{\sum_x [\Pr(x) \cdot n] \cdot n}{n} \]
+    \[ E(X) \,\stackrel{\text{def}}{=}\, \sum_x P(x) \cdot x = \frac{\sum_x [P(x) \cdot n] \cdot n}{n} \]
 
   + $E(x)$ also denoted $EX, \mu_x, \mu$
   + not random, constant, property of the distribution
   + example: fair die
 
     \[\begin{align*}
-      E(x) &= \sum_{i=1}^6 \Pr(i) \cdot i = \sum_{i=1}^6 \frac{1}{6} \cdot i \\
+      E(x) &= \sum_{i=1}^6 P(i) \cdot i = \sum_{i=1}^6 \frac{1}{6} \cdot i \\
       &= \frac{1+2+\cdots +6}{6} = \frac{1}{6} \frac{(1+6) \cdot 6}{2} = \frac{7}{2} = 3.5
     \end{align*}\]
 
@@ -355,7 +355,7 @@
   + $X$: number of heads
   + $E(X) = ?$
   
-    \[ \sum \Pr(x) \cdot x = 1/8 \cdot 0 + 3/8 \cdot 1 + 3/8 \cdot 2 + 1/8 \cdot 3 = 1.5 \]
+    \[ \sum P(x) \cdot x = 1/8 \cdot 0 + 3/8 \cdot 1 + 3/8 \cdot 2 + 1/8 \cdot 3 = 1.5 \]
 
   + \# heads ranges from 0 to 3, on average 1.5
 
@@ -458,12 +458,12 @@
   Explanation: An expectation of a distribution is a constant, which can be deducted by the distribution.
 
 
-2. A quiz-show contestant is presented with two questions, question 1 and question 2, and she can choose which question to answer first. If her initial answer is incorrect, she is not allowed to answer the other question. If the rewards for correctly answering question 1 and 2 are \$200 and \$100 respectively, and the contestant is 60% and 80% certain of answering question 1 and 2, which question should she answer first as to maximize the expected reward?
+2. A quiz-show contestant is presented with two questions, question 1 and question 2, and she can choose which question to answer first. If her initial answer is incorrect, she is not allowed to answer the other question. If the rewards for correctly answering question 1 and 2 are `$200` and `$100` respectively, and the contestant is 60% and 80% certain of answering question 1 and 2, which question should she answer first as to maximize the expected reward?
 
   Ans: <span style="color: magenta;">Question 2 first</span><br/>
   Explanation: 
-    + The expected reward if Question  1  is answered first is given by $300\times 0.6\times0.8+200\times 0.6\times 0.2+0=168$
-    + and if Question  2  is chosen to be answered first, $300\times 0.8\times0.6+100\times 0.8\times 0.4+0=176$
+    + The expected reward if Question 1 is answered first is given by $300\times 0.6\times0.8$ $+200\times 0.6\times 0.2$ $+0=168$
+    + and if Question 2 is chosen to be answered first, $300\times 0.8\times0.6$ $+100\times 0.8\times 0.4$ $+0=176$
     + Thus she should choose to answer Question 2 first.
     + [StackExchange](https://tinyurl.com/y98xq579)
 
@@ -475,18 +475,18 @@
   d. 7.692<br/>
 
   Ans: a<br/>
-  Explanation: Create 100 random variables $X1,X2, \dots ,X100$, each of which is a binary number, with 1 denotes we get a black king and 0 otherwise. It is easy to show that $E[X_i]=2/52$.  The times we expect to draw a black king can be calculated using $E[X_1 + X_2 + \cdots + X_{100}] = E[X_1] + E[X_2] + \cdots + E[X_{100}] = \frac{200}{52} = 3.846$
+  Explanation: Create 100 random variables $X_1,X_2, \dots ,X_{100}$, each of which is a binary number, with 1 denotes we get a black king and 0 otherwise. It is easy to show that $E[X_i]=2/52$. The times we expect to draw a black king can be calculated using $E[X_1 + X_2 + \cdots + X_{100}] = E[X_1] + E[X_2] + \cdots + E[X_{100}] = \frac{200}{52} = 3.846$
 
 
 4. Each time you play a die rolling game you must pay `$1`. If you roll an even number, you win `$2`. If you roll an odd number, you lose additional `$1`. What is the expected value of your winnings?<br/>
-  a. `−$0.50`<br/>
-  b. `+$0.50`<br/>
-  c. `+$0.00`<br/>
-  d. `+$1.00`<br/>
-  e. `−$1.00`<br/>
+  a. $−\$0.50$<br/>
+  b. $+\$0.50$<br/>
+  c. $+\$0.00$<br/>
+  d. $+\$1.00$<br/>
+  e. $−\$1.00$<br/>
 
   Ans: a<br/>
-  Explanation: Since each time you need to pay `$1` for the game, the question is equivalent to "If you roll an even number, you win `$1`. If you roll an odd number, you lose `$2`." With $\Pr(\text{even}) = \Pr(\text{odd}) = \frac{1}{2}$, the expectation is $1×12+(−2)×12=−0.5$.  [Quora](https://tinyurl.com/y89ctmc4)
+  Explanation: Since each time you need to pay `$1` for the game, the question is equivalent to "If you roll an even number, you win `$1`. If you roll an odd number, you lose `$2`." With $P(\text{even}) = P(\text{odd}) = \frac{1}{2}$, the expectation is $1×\frac12+(−2)×\frac12=−0.5$.  [Quora](https://tinyurl.com/y89ctmc4)
 
 
 5. Choose a random subset of $\{2^1,2^2,\cdots, 2^{10}\}$ by selecting each of the 10 elements independently with probability $1/2$. Find the expected value of the smallest element in the subset (e.g. the subset can be $\{2^1,2^3,2^4,2^7\}$. The smallest element is $2^1$).
@@ -504,36 +504,36 @@
 7. Which of the following statements are true for a random variable $X$?<br/>
   a. $E(X)$ must be in the range $(0,1)$<br/>
   b. $E(X)$ can take a value that $X$ does not take<br/>
-  c. $\Pr(X\le E(X))=1/2$<br/>
+  c. $P(X\le E(X))=1/2$<br/>
   d. $E(X)=\frac12 (x_{\text{max}}+x_{\text{min}})$<br/>
 
   Ans: b<br/>
   Explanation: 
     + False.
     + True. For random variable $X$ uniformly distributed over $\{−1,1\}$, the expectation is $E(X)=0$, which cannot be taken by $X$.
-    + False. For random variable $X$ uniformly distributed over $\{−1,0,1\}$, the expectation is $E(X)=0$. Then $\Pr(X \le E(X))=\Pr(X \le 0)=\frac23$.
+    + False. For random variable $X$ uniformly distributed over $\{−1,0,1\}$, the expectation is $E(X)=0$. Then $P(X \le E(X))=P(X \le 0)=\frac23$.
     + False. For random variable $X$ uniformly distributed over $\{−2,0,1\}$, the expectation is $E(X)=−\frac13 \neq \frac12 (x_{max}+x_{min})=−0.5$.
 
 
-8. A bag contains five balls numbered 1 to 5. Randomly draw two balls from the bag and let $X$ denote the sum of the numbers.
-  a. What is $\Pr(X \le 5)$?
-  b. What is $E(X)$?
+8. A bag contains five balls numbered 1 to 5. Randomly draw two balls from the bag and let $X$ denote the sum of the numbers.<br/>
+  a. What is $P(X \le 5)$?<br/>
+  b. What is $E(X)$?<br/>
 
   Ans: a. (0.4); b. (6)<br/>
   Explanation:
-    + The total number of ways to draw balls is $\tbinom52=10$. There are 4 ways to draw 2 balls with sum smaller or equal to 5 (i.e. $(1,2),(1,3),(1,4),(2,3)$).  Thus $\Pr(X \le 5)= \frac{4}{10}=0.4$.
-    + ind out the distribution of $X$, which is $\Pr(X = 3) = 0.1,$ $\Pr(X = 4) = 0.1,$ $ \Pr(X = 5) = 0.2,$ $\Pr(X = 6) = 0.2,$ $\Pr(X = 7) = 0.2,$ $\Pr(X = 8) = 0.1,$ $\Pr(X = 9) = 0.1$.  The expectation is $E(X) = 0.1 \times 3 + 0.1 \times 4+ 0.2 \times 5 + 0.2 \times 6 + 0.2 \times 7 + 0.1 \times 8 + 0.1 \times 9 = 6$
+    + The total number of ways to draw balls is $\tbinom52=10$. There are 4 ways to draw 2 balls with sum smaller or equal to 5 (i.e. $(1,2),(1,3),(1,4),(2,3)$).  Thus $P(X \le 5)= \frac{4}{10}=0.4$.
+    + Find out the distribution of $X$, which is $P(X = 3) = 0.1,$ $P(X = 4) = 0.1,$ $ P(X = 5) = 0.2,$ $P(X = 6) = 0.2,$ $P(X = 7) = 0.2,$ $P(X = 8) = 0.1,$ $P(X = 9) = 0.1$.  The expectation is $E(X) = 0.1 \times 3 + 0.1 \times 4+ 0.2 \times 5 + 0.2 \times 6 + 0.2 \times 7 + 0.1 \times 8 + 0.1 \times 9 = 6$
 
 9. A player flips two fair coins. The player wins `$3` if 2 heads occur and `$1` if 1 head occurs. How much money (in `$`) should the player lose when no heads occur for the game to be fair (expected gain is 0)?
 
   Ans: 5<br/>
-  Explanation: The probability distribution is $\Pr(\text{2 heads}) = \Pr(\text{no heads}) = \frac{1}{4}, \Pr(\text{1 head}) = \frac{1}{2}$.  Suppose the the player loses `$x` when no heads occur. To make the game fair, $E(X) = \frac{1}{4} \times 3 + \frac{1}{2} \times 1 + \frac{1}{4} \times (-x) = 0$. Hence we have $x=5$.
+  Explanation: The probability distribution is $P(\text{2 heads}) = P(\text{no heads}) = \frac{1}{4}, P(\text{1 head}) = \frac{1}{2}$.  Suppose the the player loses `$x` when no heads occur. To make the game fair, $E(X) = \frac{1}{4} \times 3 + \frac{1}{2} \times 1 + \frac{1}{4} \times (-x) = 0$. Hence we have $x=5$.
 
 
 10. There are 3 classes with 20, 22 and 25 students in each class for a total of 67 students. Choose one out of the 67 students is uniformly at random, and let $X$ denote the number of students in his or her class. What is $E(X)$?
 
   Ans: 22.5224<br/>
-  Explanation: $\Pr(\text{from the class with 20 students}) = \frac{20}{67},$ $\Pr(\text{from the class with 22 students}) = \frac{22}{67},$ $\Pr(\text{from the class with 25 students}) = \frac{25}{67}$. Hence, $E(X) = 20\cdot\frac{20}{67}+22\cdot\frac{22}{67}+25\cdot\frac{25}{67}=22.5224$
+  Explanation: $P(\text{from the class with 20 students}) = \frac{20}{67},$ $P(\text{from the class with 22 students}) = \frac{22}{67},$ $P(\text{from the class with 25 students}) = \frac{25}{67}$. Hence, $E(X) = 20\cdot\frac{20}{67}+22\cdot\frac{22}{67}+25\cdot\frac{25}{67}=22.5224$
 
 
 
@@ -565,7 +565,7 @@
 + Translation
   + <span style="color: cyan;">add constant</span> $b$ to $X$ = <span style="color: cyan;">translate</span> $X$ by $b$
   + $Y = X +b$
-  + $\Pr(Y=y) = \Pr(X+b = y) = \Pr(X=y-b)$
+  + $P(Y=y) = P(X+b = y) = P(X=y-b)$
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/ycssyss3" ismap target="_blank">
@@ -577,7 +577,7 @@
 + Scaling
   + multiplying $X$ by a constant $b$
   + <span style="color: cyan;">scale</span> $X$ by a factor $b$, $Y = b \cdot X$
-  + $\Pr(Y=y) = \Pr(bX = y) = \Pr(X = y/b)$
+  + $P(Y=y) = P(bX = y) = P(X = y/b)$
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/ycssyss3" ismap target="_blank">
@@ -645,7 +645,7 @@
       </a>
     </div>
 
-  \[ \Pr(Y=y) = \Pr(g(X) = y) = \Pr(X \in g^{-1}(y)) = \sum_{x \in g^{-1}(y)} \Pr(X=x) \]
+  \[ P(Y=y) = P(g(X) = y) = P(X \in g^{-1}(y)) = \sum_{x \in g^{-1}(y)} P(X=x) \]
 
 
 + [Original Slides](https://tinyurl.com/ycssyss3)
@@ -653,7 +653,7 @@
 
 ### Problem Sets
 
-0. Let X be a random variable. For a fixed real function g, g(X) is also a random variable.
+0. Let X be a random variable. For a fixed real function g, g(X) is also a random variable. (yes/no)
 
   Ans: <span style="color: magenta;">yes</span>
 
@@ -701,16 +701,16 @@
   \end{align*}\]
 
   \[\begin{align*}
-    \Pr(Y = 0) &= \Pr(X^2 = 0) = \Pr(X = 0) = \frac15 \\
-    \Pr(Y = 1) &= \Pr(X^2 = 1) = \Pr(X \in \{-1, 1\}) = \frac25 \\
-    \Pr(Y = 4) &= \Pr(X^2 = 4) = \Pr(X \in \{-2, 2\}) = \frac25 \\\\
+    P(Y = 0) &= P(X^2 = 0) = P(X = 0) = \frac15 \\
+    P(Y = 1) &= P(X^2 = 1) = P(X \in \{-1, 1\}) = \frac25 \\
+    P(Y = 4) &= P(X^2 = 4) = P(X \in \{-2, 2\}) = \frac25 \\\\
     E(Y) &= \frac15 \cdot 0 + \frac25 \cdot 1 + \frac25 \cdot 4 = \frac{10}{5} = 2
   \end{align*}\]
 
   + Alternative formulation
 
     \[\begin{align*}
-      E(Y) &= \sum_y y \cdot \Pr(Y=y) = \sum_y y \cdot \Pr(X \in g^{-1}(y)) = \sum_y y \sum_{x \in g^{-1}(y)} p(x) \\
+      E(Y) &= \sum_y y \cdot P(Y=y) = \sum_y y \cdot P(X \in g^{-1}(y)) = \sum_y y \sum_{x \in g^{-1}(y)} p(x) \\
       &= \sum_y \sum_{x \in g^{-1}(y)} y \cdot p(x) = \sum_y \sum_{x \in g^{-1}(y)} g(x) \cdot p(x) = \sum_x g(x) \cdot p(x)
     \end{align*}\]
 
@@ -725,12 +725,12 @@
   + Visualization
 
     \[\begin{align*}
-      E(Y) &= \sum_y y \cdot \Pr(Y=y) = \sum_y y \cdot \Pr(X \in g^{-1}(y)) = \sum_y y \sum_{x \in g^{-1}(y)} p(x)\\
+      E(Y) &= \sum_y y \cdot P(Y=y) = \sum_y y \cdot P(X \in g^{-1}(y)) = \sum_y y \sum_{x \in g^{-1}(y)} p(x)\\
       &= \sum_y \sum_{x \in g^{-1}(y)} y \cdot p(x) = \sum_y \sum_{x \in g^{-1}(y)} g(x) \cdot p(x) = \sum_x g(x) \cdot p(x)
     \end{align*}\]
 
     + diagram:
-      + three red circles: $\sum_y y \cdot \Pr(Y=y) \to$ sum by $y$
+      + three red circles: $\sum_y y \cdot P(Y=y) \to$ sum by $y$
       + $\sum_y y \sum_{x \in g^{-1}(y)} p(x)$
         + lowest red circle: $y_1(p_1 + p_5)$
         + middle red circle: $y_2(p_2 + p_4)$
@@ -798,21 +798,21 @@
 
 1. Let $X$ be distributed over the set $\Bbb{N}$ of non-negative integers, with pmf
 
-  \[ \Pr(X=i)= \frac{\alpha}{2^i} \]
+  \[ P(X=i)= \frac{\alpha}{2^i} \]
   
   a. $\alpha$<br/>
   b. $E[X]$<br/>
 
   For $Y = X \mod 3$, find<br/>
-  c. $\Pr(Y=1)$<br/>
+  c. $P(Y=1)$<br/>
   d. $E[Y]$<br/>
 
   Ans: a. (1/2); b. (1); c. (2/7); d. (4/7)<br/>
   <span style="color: magenta;">Explanation</span>
-    + Since the total probability must sum to 1, We must have $1=\sum_{i=0}^{\infty}\Pr(X=i)=\sum_{i=0}^{\infty}\frac{\alpha}{2^i}= \alpha \cdot \sum_{i=0}^{\infty} \frac{1}{2^i} = \alpha\cdot 2$. Thus $\alpha=1/2$.
-    + y definition, $E(X)=\sum_{i=0}^{\infty}i\cdot \Pr(X=i)=\sum_{i=1}^{\infty}i.\frac{\alpha}{2^i}$. This may be re-written to give $2E(X)=\sum_{i=0}^{\infty}(i+1).\frac{\alpha}{2^i}$. Subtracting the former from the latter we have $E(X)=\sum_{i=0}^{\infty}\frac{\alpha}{2^i}=2\cdot \alpha=1$.
-    + $\Pr(Y=1) = \sum_{j=0}^{\infty} \Pr(X = 3j + 1) =$ $\sum_{j=0}^{\infty}\frac{\alpha}{2^{3j+1}} = $ $1/2\cdot\sum_{j=0}^{\infty}\frac{\alpha}{8^{j}} = $ $1/2\cdot\alpha \cdot 8/7 =2/7$
-    + First note that $\Pr(Y=2) = \sum_{j=0}^{\infty} \Pr(X = 3j + 2) =$ $\sum_{j=0}^{\infty}\frac{\alpha}{2^{3j+2}} = $ $1/4\cdot\sum_{j=0}^{\infty}\frac{\alpha}{8^{j}} =$ $1/4\cdot\alpha\cdot8/7 = $ $1/7$. Now $E(Y)=1\cdot \Pr(Y=1)+2\cdot \Pr(Y=2)=2/7+2\cdot 1/7=4/7$
+    + Since the total probability must sum to 1, We must have $1=\sum_{i=0}^{\infty}P(X=i)=\sum_{i=0}^{\infty}\frac{\alpha}{2^i}= \alpha \cdot \sum_{i=0}^{\infty} \frac{1}{2^i} = \alpha\cdot 2$. Thus $\alpha=1/2$.
+    + y definition, $E(X)=\sum_{i=0}^{\infty}i\cdot P(X=i)=\sum_{i=1}^{\infty}i.\frac{\alpha}{2^i}$. This may be re-written to give $2E(X)=\sum_{i=0}^{\infty}(i+1).\frac{\alpha}{2^i}$. Subtracting the former from the latter we have $E(X)=\sum_{i=0}^{\infty}\frac{\alpha}{2^i}=2\cdot \alpha=1$.
+    + $P(Y=1) = \sum_{j=0}^{\infty} P(X = 3j + 1) =$ $\sum_{j=0}^{\infty}\frac{\alpha}{2^{3j+1}} = $ $1/2\cdot\sum_{j=0}^{\infty}\frac{\alpha}{8^{j}} = $ $1/2\cdot\alpha \cdot 8/7 =2/7$
+    + First note that $P(Y=2) = \sum_{j=0}^{\infty} P(X = 3j + 2) =$ $\sum_{j=0}^{\infty}\frac{\alpha}{2^{3j+2}} = $ $1/4\cdot\sum_{j=0}^{\infty}\frac{\alpha}{8^{j}} =$ $1/4\cdot\alpha\cdot8/7 = $ $1/7$. Now $E(Y)=1\cdot P(Y=1)+2\cdot P(Y=2)=2/7+2\cdot 1/7=4/7$
 
 
 2. Which of the following statements hold for all finite-expectation random variables $X,Y$ and all fixed numbers $a,b \in \Bbb{R}$? <br/>
@@ -842,11 +842,11 @@
 
   The coffeeshop will never order more than $w−1$ croissants, hence $r \leq w−1$. If customers wish to buy $1 \le i \le r−1$ croissants, their sale will bring in  $i \cdot s$ dollars, and if customers wish to buy more than $r$ croissants, their sale will fetch $r \cdot s$ dollars. Hence the expected revenue from selling the croissants is
 
-  \[ \sum_{i=0}^{r-1} \frac{i \cdot s}{w} + \sum_{i=r}^{w-1} \frac{r \cdot s}{w} = \frac{s}{w} \cdot \frac{r \cdot (r-1)}{2} + \frac{s}{w} \cdot (w - r) \cdot r = \frac{s}{w} \cdot (-\frac{r^2}{2} + (w - \frac12) \cdot r) \]
+  \[ \sum_{i=0}^{r-1} \frac{i \cdot s}{w} + \sum_{i=r}^{w-1} \frac{r \cdot s}{w} = \frac{s}{w} \cdot \frac{r \cdot (r-1)}{2} + \frac{s}{w} \cdot (w - r) \cdot r = \frac{s}{w} \cdot \left(-\frac{r^2}{2} + (w - \frac12) \cdot r\right) \]
 
   The coffeeshop spends $b \cdot r$ to purchase the croissants, hence their profit is $\frac{s}{w} \cdot (-\frac{r2}{2} + (w--\frac12)\cdot r) - b \cdot r$
 
-  We would like to find the value of $r$ maximizing the equation. Since it is quadratic in $r$ with a negative leading coefficient, the profit is maximized when the derivative is 0, namely $-\frac{s}{w} \cdot r + \frac{s}{w} (w - \frac12) - b = 0$, or $r=w \cdot 1−\frac{b}{s})−\frac12$.
+  We would like to find the value of $r$ maximizing the equation. Since it is quadratic in $r$ with a negative leading coefficient, the profit is maximized when the derivative is 0, namely $-\frac{s}{w} \cdot r + \frac{s}{w} (w - \frac12) - b = 0$, or $r=w \cdot (1−\frac{b}{s})−\frac12$.
 
   In our case, $w=50$, $b=1$, and $s=4$, hence the expected profit is highest when $r=50 \cdot (1−\frac14)−\frac12=37$.
 
@@ -859,10 +859,10 @@
 
   a. always 0 or 1,<br/>
   b. $E(X)$,<br/>
-  c. $\Pr(A)$.<br/>
+  c. $P(A)$.<br/>
 
   Ans: <span style="color:magenta;">c</span><br/>
-  Explanation $E(I_A(X)) = \displaystyle \sum_{x \in \Omega} I_A(X = x)\Pr(X = x) =$ $\displaystyle \sum_{x \in A} I_A(X = x)\Pr(X = x) + \sum_{x \not\in A} I_A(X = x)\Pr(X = x) =$ $\displaystyle \sum_{x \in A} \Pr(X = x) + \sum_{x \not\in A} 0 = \Pr(A)$
+  Explanation $E(I_A(X)) = \displaystyle \sum_{x \in \Omega} I_A(X = x)P(X = x)$ $= \displaystyle \sum_{x \in A} I_A(X = x)P(X = x)$ $+ \sum_{x \not\in A} I_A(X = x)P(X = x)$ $ =\displaystyle \sum_{x \in A} P(X = x) + \sum_{x \not\in A} 0$ $= P(A)$
 
 
 
@@ -1123,7 +1123,7 @@
   Explanation: Variance measures how far a set of (random) numbers are spread out from their average value. 3 is the broadest one.
 
 
-2. A random variable $X$ is distributed over $\{−1,0,1\}$ according to the p.m.f. $\Pr(X=x)=|x|+15$.<br/>
+2. A random variable $X$ is distributed over $\{−1,0,1\}$ according to the p.m.f. $P(X = x)=\frac{|x|+1}{5}$.<br/>
   a. Find its expectation $E(X)$<br/>
   b. and variance $Var(X)$<br/>
 
@@ -1138,7 +1138,7 @@
   \[\begin{array}{c|ccc}
     x & 1 & 2 & 3 \\
     \hline
-    \Pr(x) & 0.3 & 0.5 & 0.2\\
+    P(x) & 0.3 & 0.5 & 0.2\\
   \end{array} \]
 
   If $Y=2^X$, what are<br/>
@@ -1154,7 +1154,7 @@
     + $E(Y)=E(2^X)=2\times 0.3+4\times 0.5+8\times0.2=4.2$
     + For any random variable $Var(Z)=E(Z^2)-E(Z)^2$. Here, $E(Y^2)=E(2^{2X})=4\times 0.3+16\times 0.5+64\times0.2=22$. Thus, $Var(Y)=22-4.2^2=4.36$
     + 10/7
-    + First, $E(X)=0.3×1+0.5×2+0.2×3=1.9$, $E(X2)=0.3×1+0.5×4+0.2×9=4.1$ and thus $Var(X)=E(X2)−E(X)2=4.1−1.92=0.49$.  Now, by linearity of expectation, $0=E(Z)=aE(X)+b=1.9 \cdot a+b$. Further, we know $1=Var(Z)=Var(aX+b)=a2 \cdot Var(X)=a2 \cdot 0.49$. Solving these two equations gives $|a|=1.42857$, $|b|=2.71485$.
+    + First, $E(X)=0.3×1+0.5×2+0.2×3=1.9$, $E(X^2)=0.3×1+0.5×4+0.2×9=4.1$ and thus $Var(X)=E(X^2)−E(X)^2=4.1−1.9^2=0.49$.  Now, by linearity of expectation, $0=E(Z)=aE(X)+b=1.9 \cdot a+b$. Further, we know $1=Var(Z)$ $=Var(aX+b)$ $=a^2 \cdot Var(X)=a^2 \cdot 0.49$. Solving these two equations gives $|a|=1.42857$, $|b|=2.71485$.
 
 
 4. Consider two games. One with a guaranteed payout $P_1=90$, and the other whose payout $P_2$ is equally likely to be 80 or 120. Find:<br/>
@@ -1164,10 +1164,10 @@
   d. $Var(P_2)$<br/>
   e. Which of games 1 and 2 maximizes the `risk-adjusted reward' $E(P_i)-\sqrt{\text{Var}(P_i)}$?
 
-  Ans: a. (90); b. (100); c. (0); d. (); e. (1)<br/>
+  Ans: a. (90); b. (100); c. (0); d. (400); e. (1)<br/>
   Explanation
-    + The distribution of $P_1$ is $\Pr(P_1=90)=1$. Hence, $E(P1)=1×90=90$.
-    + The distribution of $P_2$ is $\Pr(P_2=80)=\Pr(P_2=120)=1/2$. Hence, $E(P_2)=1/2×80+1/2×120=100$.
+    + The distribution of $P_1$ is $P(P_1=90)=1$. Hence, $E(P1)=1×90=90$.
+    + The distribution of $P_2$ is $P(P_2=80)=P(P_2=120)=1/2$. Hence, $E(P_2)=1/2×80+1/2×120=100$.
     + By definition, $Var(P_1)=1×(90−90)2=0$.
     + By definition, $Var(P_2)=12×(80−100)2+12×(120−100)2=400$.
     + By definition, $E(P_1)-\sqrt{\text{Var}(P_1)} = 90$, $E(P_2)-\sqrt{\text{Var}(P_2)} = 80$
@@ -1187,19 +1187,19 @@
     + True. Standard deviation is defined by $\sqrt{Var(X)}$, which is also non-negative.
     + True. Adding a constant $a$ to random variance $X$ will not affect its variance. $Var(X + a) = E((X + a - E(X + a))^2) =$ $E((X + a - E(X) - a)^2) =$ $E((X - E(X))^2) =$ $Var(X)$
     + False. When $Var(X)=0$, this does not hold.
-    + False. Consider two random variables $X,Y$ with pmf, $\Pr(X= x) = \begin{cases} \frac12 & x = -1\\ \frac12 & x=1 \end{cases}$, and$\Pr(Y=y) = \begin{cases} \frac18 & y = -2 \\ \frac34 & y=0 \\ \frac18 & y=2 \end{cases}$.  Now $E(X) = E(Y) = 0, Var(X) = Var(Y) = 1$.  However, $X \neq Y$
+    + False. Consider two random variables $X,Y$ with pmf, $P(X= x) = \begin{cases} \frac12 & x = -1\\ \frac12 & x=1 \end{cases}$, and$P(Y=y) = \begin{cases} \frac18 & y = -2 \\ \frac34 & y=0 \\ \frac18 & y=2 \end{cases}$.  Now $E(X) = E(Y) = 0, Var(X) = Var(Y) = 1$.  However, $X \neq Y$
     + True, as $E(X^2)=Var(X)+E^2 [X]$, if $E(X)=E(Y)$ and $Var(X)=Var(Y)$, then $E(X^2)=E(Y^2)$.
 
 
 6. We say $X_A$ is an indicator variable for event $A$: $X_A=1$ if A occurs, $X_A=0$ if $A$ does not occur. 
   
-  If $\Pr(A)=0.35$, what is:<br/>
-  a. $E(XA)$?<br/>
+  If $P(A)=0.35$, what is:<br/>
+  a. $E(X_A)$?<br/>
   b. $Var(X_A)$?<br/>
 
   Ans: a. (0.35); b. (0.2275)<br/>
   Explanation
-    + The distribution of $X_A$ is $\Pr(X_A=1)=\Pr(A)=0.35, \Pr(X_A=0)=1−\Pr(A)=0.65$. The spectation is $E(X_A)=0.35×1+0.65×0=0.35$
+    + The distribution of $X_A$ is $P(X_A=1)=P(A)=0.35, P(X_A=0)=1−P(A)=0.65$. The spectation is $E(X_A)=0.35×1+0.65×0=0.35$
     + The variance of $X_A$ is $Var(X_A)=0.35×(1−0.35)2+0.65×(0−0.35)2=0.2275$
 
 
@@ -1209,14 +1209,14 @@
 
   Ans: a. (2.9167); b. (1.7078)<br/>
   Explanation
-    + The expectation of $X$ is $E(X)=3.5$. The variance of $X$ is $\text{Var}(X) = \frac{1}{6} \times (1 - 3.5)^2 + \frac{1}{6} \times (2 - 3.5)^2 + \frac{1}{6} \times (3 - 3.5)^2 + \frac{1}{6} \times (4 - 3.5)^2 + \frac{1}{6} \times (5 - 3.5)^2 + \frac{1}{6} \times (6 - 3.5)^2 = \frac{35}{12}$
+    + The expectation of $X$ is $E(X)=3.5$. The variance of $X$ is $\text{Var}(X)$ $= \frac{1}{6} \times (1 - 3.5)^2$ $+ \frac{1}{6} \times (2 - 3.5)^2$ $+ \frac{1}{6} \times (3 - 3.5)^2$ $+ \frac{1}{6} \times (4 - 3.5)^2$ $+ \frac{1}{6} \times (5 - 3.5)^2$ $+ \frac{1}{6} \times (6 - 3.5)^2$ $= \frac{35}{12}$
     + The standard deviation of $X$ is $\sigma_X = \sqrt{\text{Var}(X)} = 1.7078$
 
 
 8. Let $X$ and $Y$ be independent random variables with expectations 1 and 2, and variances 3 and 4, respectively. Find the variance of $Var(XY)$.
 
   Ans: 28<br/>
-  Explanation: $E(X^2)=Var(X)+(EX)^2=3+12=4$ and $E(Y^2)=Var(Y)+(EY)^2=4+22=8$. Hence $Var(XY)=E((XY)2)−E^2(XY)=E(X^2 \cdot Y^2)−(EX \cdot EY)^2 =$ $E(X^2) \cdot E(Y^2)−(EX)^2 \cdot (EY)^2=4 \cdot 8−(1 \cdot 2)2=28$.
+  Explanation: $E(X^2)=Var(X)+(EX)^2=3+1^2=4$ and $E(Y^2)$ $=Var(Y)+(EY)^2$ $=4+2^2$ $=8$. Hence $Var(XY)=E((XY)^2)−E^2(XY)$ $=E(X^2 \cdot Y^2)−(EX \cdot EY)^2$ $= E(X^2) \cdot E(Y^2)−(EX)^2 \cdot (EY)^2$ $=4 \cdot 8−(1 \cdot 2)^2$ $=28$.
 
 
 
@@ -1275,7 +1275,7 @@
     + story: two independent fair coins
     + symbolic: $U, V \sim B(\frac12) \quad U {\perp \!\!\!\! \perp} V$
     + ways to indicate distribution
-      + explicit: $\Pr(u, v) \stackrel{\text{def}}{=} \Pr(U = u, V = v) = \frac14 \quad \forall\, \{u, v\} \in \{0, 1\}$
+      + explicit: $P(u, v) \stackrel{\text{def}}{=} P(U = u, V = v) = \frac14 \quad \forall\, \{u, v\} \in \{0, 1\}$
       + table:
 
         <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -1344,7 +1344,7 @@
   + $X, Y$: random variables
   + joint distribution: probability of every possible $(x, y)$ pair
 
-    \[ p(x, y) \stackrel{\text{def}}{=} \Pr(X = x, Y=y) \]
+    \[ p(x, y) \stackrel{\text{def}}{=} P(X = x, Y=y) \]
 
   + properties
     + $\forall\, x, y, \;p(x, y) \ge 0$
@@ -1360,8 +1360,8 @@
     </div>
 
     \[\begin{align*}
-      \Pr(X \le Y) &= \Pr(X=0, Y=0) + \Pr(X = 0, Y = 1) + \Pr(X=1, Y=1) \\
-      &= \Pr(0, 0) + \Pr(0, 1) + \Pr(1, 1) = 0.1 + 0.2 + 0.4 = 0.7
+      P(X \le Y) &= P(X=0, Y=0) + P(X = 0, Y = 1) + P(X=1, Y=1) \\
+      &= P(0, 0) + P(0, 1) + P(1, 1) = 0.1 + 0.2 + 0.4 = 0.7
     \end{align*}\]
 
 + Quiz: find a simple description of following events and their probability
@@ -1373,8 +1373,8 @@
   + $\max(X, Y)=1$
 
 + Marginals
-  + margin of $X$: $\Pr(x) \stackrel{\text{def}}{=} P_x(x) \stackrel{\text{def}}{=} \Pr(X = x) = \sum_y p(x, y)$
-  + margin of $Y$: $\Pr(y) \stackrel{\text{def}}{=} P_Y(y) \stackrel{\text{def}}{=} \Pr(Y = y) = \sum_x p(x, y)$
+  + margin of $X$: $P(x) \stackrel{\text{def}}{=} P_x(x) \stackrel{\text{def}}{=} P(X = x) = \sum_y p(x, y)$
+  + margin of $Y$: $P(y) \stackrel{\text{def}}{=} P_Y(y) \stackrel{\text{def}}{=} P(Y = y) = \sum_x p(x, y)$
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
@@ -1383,8 +1383,8 @@
     </div>
 
     \[\begin{align*}
-      \Pr(X=0) &= \Pr(X=0, Y=0) + \Pr(X=0, Y= 1) \qquad (\text{rule of total probability}) \\
-      &= \Pr(0, 0) + \Pr(0, 1) = .1 + .2 = .3
+      P(X=0) &= P(X=0, Y=0) + P(X=0, Y= 1) \qquad (\text{rule of total probability}) \\
+      &= P(0, 0) + P(0, 1) = .1 + .2 = .3
     \end{align*}\]
 
 + Join matters
@@ -1401,7 +1401,7 @@
     </div>
 
 + Conditionals
-  + $\Pr(X \mid y) = \frac{p(x, y)}{p(y)} \quad \Pr(y \mid x) = \frac{p(x, y)}{p(x)}$
+  + $P(X \mid y) = \frac{p(x, y)}{p(y)} \quad P(y \mid x) = \frac{p(x, y)}{p(x)}$
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/y8ge2yda" ismap target="_blank">
@@ -1410,10 +1410,10 @@
     </div>
 
     \[\begin{align*}
-      \Pr(Y=0 \mid X=0) &= \tfrac{\Pr(X=0, Y=0)}{\Pr(X=0)} = \tfrac{0.1}{0.3} = \tfrac13 \\
-      \Pr(Y=1 \mid X=0) &= \tfrac{\Pr(X=0, Y=1)}{\Pr(X=0)} = \tfrac{0.2}{0.3} = \tfrac23 \\
-      \Pr(X=0 \mid Y=0) &= \tfrac{\Pr(X=0, Y=0)}{\Pr(Y=0)} = \tfrac{0.1}{0.4} = \tfrac14 \\
-      \Pr(X=1 \mid Y=0) &= 1 - \Pr(X=0, Y=0) = 1 - \tfrac14 = \tfrac34
+      P(Y=0 \mid X=0) &= \tfrac{P(X=0, Y=0)}{P(X=0)} = \tfrac{0.1}{0.3} = \tfrac13 \\
+      P(Y=1 \mid X=0) &= \tfrac{P(X=0, Y=1)}{P(X=0)} = \tfrac{0.2}{0.3} = \tfrac23 \\
+      P(X=0 \mid Y=0) &= \tfrac{P(X=0, Y=0)}{P(Y=0)} = \tfrac{0.1}{0.4} = \tfrac14 \\
+      P(X=1 \mid Y=0) &= 1 - P(X=0, Y=0) = 1 - \tfrac14 = \tfrac34
     \end{align*}\]
 
 + Independence
@@ -1472,36 +1472,36 @@
   Explanation: The answer is 3x4=12.
 
 
-1. Which of the following hold for all Independent random variables, $X$ and $Y$?
-  a. $\Pr(X=x|Y=y) = \Pr(X=x)$<br/>
-  b. $\Pr(X=x|Y=y) = \Pr(Y=y|X=x)$<br/>
+1. Which of the following hold for all Independent random variables, $X$ and $Y$?<br/>
+  a. $P(X=x|Y=y) = P(X=x)$<br/>
+  b. $P(X=x|Y=y) = P(Y=y|X=x)$<br/>
 
   Ans: a<br/>
-  Explanation: If two random variables are independent, by definition, $\Pr(X=x,Y=y)=\Pr(X=x)\Pr(Y=y)$. Since $\Pr(X=x,Y=y)=\Pr(X=x|Y=y)\Pr(Y=y)$, we have $\Pr(X=x|Y=y)=\Pr(X=x)$.
+  Explanation: If two random variables are independent, by definition, $P(X=x,Y=y)=P(X=x)P(Y=y)$. Since $P(X=x,Y=y)=P(X=x|Y=y)P(Y=y)$, we have $P(X=x|Y=y)=P(X=x)$.
 
 
-2. A joint probabilty mass table is given as follows:
+2. A joint probability mass table is given as follows:
 
   \[ \begin{array}{|c|c|c|} \hline X\backslash Y & 0 & 1\\ \hline 0 & 0.15 & 0.25\\ \hline 1 & 0.45 & 0.15\\ \hline \end{array}  \]
 
-  1) Choose the correct marginal PMFs for $X$ and $Y$.<br/>
-    a. $\begin{array}{|c|c|c|} \hline x,y & \Pr(x) & \Pr(y)\\ \hline 0 & 0.15 & 0.45\\ \hline 1 & 0.25 & 0.5\\ \hline \end{array}$<br/>
-    b. $\begin{array}{|c|c|c|} \hline x,y & \Pr(x) & \Pr(y)\\ \hline 0 & 0.4 & 0.6\\ \hline 1 & 0.6 & 0.4\\ \hline \end{array}$<br/>
-    c. $\begin{array}{|c|c|c|} \hline x,y & \Pr(x) & \Pr(y)\\ \hline 0 & 0.6 & 0.4\\ \hline 1 & 0.4 & 0.6\\ \hline \end{array}$<br/>
+  a) Choose the correct marginal PMFs for $X$ and $Y$.<br/>
+    a. $\begin{array}{|c|c|c|} \hline x,y & P(x) & P(y)\\ \hline 0 & 0.15 & 0.45\\ \hline 1 & 0.25 & 0.5\\ \hline \end{array}$<br/>
+    b. $\begin{array}{|c|c|c|} \hline x,y & P(x) & P(y)\\ \hline 0 & 0.4 & 0.6\\ \hline 1 & 0.6 & 0.4\\ \hline \end{array}$<br/>
+    c. $\begin{array}{|c|c|c|} \hline x,y & P(x) & P(y)\\ \hline 0 & 0.6 & 0.4\\ \hline 1 & 0.4 & 0.6\\ \hline \end{array}$<br/>
 
-  2) Find $\Pr(X=0|Y=0)$.<br/>
+  b) Find $P(X=0|Y=0)$.<br/>
     a. 0.250 <br/>
     b. 0.375 <br/>
     c. 0.667 <br/>
     d. 1<br/>
 
-  3) Find $\Pr(Y=1|X=0)$.<br/>
+  c) Find $P(Y=1|X=0)$.<br/>
     a. 0.375<br/>
     b. 0.417<br/>
     c. 0.625<br/>
     d. 0.750<br/>
 
-  Ans: 1) b; 2) a; 3) c
+  Ans: a. (b); b. (a); c. (c)
 
 
 3. Given independent random variables $X$ and $Y$ with the following joint distribution. Find $a, b$
@@ -1510,22 +1510,22 @@
 
   Ans: a = 0.4, b = 0.28<br/>
   Explanation
-    + $\Pr(X=1)=1−\Pr(X=0)=0.3$, $\Pr(Y=1)=1−\Pr(Y=0)=1−a$. By independence of $X$ and $Y$, $\Pr(X=1,Y=1)=0.18=\Pr(X=1) \cdot \Pr(Y=1)=0.3 \cdot (1−a)$. Thus $a=0.4$.
-    + $b=\Pr(X=0,Y=0)=\Pr(X=0) \cdot \Pr(Y=0)=\Pr(X=0) \cdot a=0.7×0.4=0.28$.
+    + $P(X=1)=1−P(X=0)=0.3$, $P(Y=1)=1−P(Y=0)=1−a$. By independence of $X$ and $Y$, $P(X=1,Y=1)=0.18=P(X=1) \cdot P(Y=1)=0.3 \cdot (1−a)$. Thus $a=0.4$.
+    + $b=P(X=0,Y=0)=P(X=0) \cdot P(Y=0)=P(X=0) \cdot a=0.7×0.4=0.28$.
 
 
 4. Which equation accurately describes the marginal PMFs for the random variables, $X$ and $Y$?<br/>
-  a. $\Pr(X = x) = \sum_{x}p(X = x, Y = y), \quad \Pr(Y = y) = \sum_{y}p(X = x, Y = y)$<br/>
-  b. $\Pr(X = x) = \sum_{y}p(X = x, Y = y), \quad \Pr(Y = y) = \sum_{x}p(X = x, Y = y)$<br/>
-  c. $\Pr(X = x) = \sum_{x}p(Y = y), \quad \Pr(Y = y) = \sum_{y}p(X = x)$<br/>
-  d. $\Pr(X = x) = \sum_{y}p(X = x), \quad \Pr(Y = y) = \sum_{x}p(Y = y)$<br/>
+  a. $P(X = x) = \sum_{x}p(X = x, Y = y), \quad P(Y = y) = \sum_{y}p(X = x, Y = y)$<br/>
+  b. $P(X = x) = \sum_{y}p(X = x, Y = y), \quad P(Y = y) = \sum_{x}p(X = x, Y = y)$<br/>
+  c. $P(X = x) = \sum_{x}p(Y = y), \quad P(Y = y) = \sum_{y}p(X = x)$<br/>
+  d. $P(X = x) = \sum_{y}p(X = x), \quad P(Y = y) = \sum_{x}p(Y = y)$<br/>
 
   Ans: b
 
 
 5. Roll two fair six-sided dice, and let $X$, $Y$ denote the first and the second numbers.
 
-  1) If $Z=\max{X,Y}$, find<br/>
+  1) If $Z=\max\{X,Y\}$, find<br/>
     a. $E(Z)$<br/>
     b. $Var(Z)$<br/>
 
@@ -1535,10 +1535,10 @@
 
   Ans: a. (4.4722 ); b. (1.97145); c. (1.9444); d. (2.0525)<br/>
   Explanation
-    + The distribution of $Z$ is $\Pr(Z=1)=1/36,$ $\Pr(Z=2)=3/36,$ $\Pr(Z=3)=5/36,$ $\Pr(Z=4)=7/36,$ $\Pr(Z=5)=9/36,$ $\Pr(Z=6)=11/36$. The expectation of $Z$ is $E(Z) = \sum_{i = 1}^{6} i \cdot \Pr(Z = i) = \frac{161}{36} = 4.472$
-    + $E(Z) = \sum_{i = 1}^{6} i \cdot \Pr(Z = i) = \frac{161}{36} = 4.472$. The variance of $Z$ is $Var(Z) = E(Z^2) - E^2(Z) = 1.9715$
-    + The distribution of $Z$ is $\Pr(Z=0)=6/36,$ $\Pr(Z=1)=10/36,$ $\Pr(Z=2)=8/36,$ $\Pr(Z=3)=6/36,$ $\Pr(Z=4)=4/36,$ $\Pr(Z=5)=236$.  The expectation of $Z$ is $E(Z) = \sum_{i = 0}^{5} i \cdot \Pr(Z = i) = \frac{35}{18} = 1.9444$
-    + $E(Z^2) = \sum_{i = 0}^{5} i^2 \cdot \Pr(Z = i) = \frac{35}{6}$.  The variance of $Z$ is $Var(Z) = E(Z^2) - E^2(Z) = 2.0525$
+    + The distribution of $Z$ is $P(Z=1)=1/36,$ $P(Z=2)=3/36,$ $P(Z=3)=5/36,$ $P(Z=4)=7/36,$ $P(Z=5)=9/36,$ $P(Z=6)=11/36$. The expectation of $Z$ is $E(Z) = \sum_{i = 1}^{6} i \cdot P(Z = i) = \frac{161}{36} = 4.472$
+    + $E(Z^2) = \sum_{i = 1}^{6} i^2 \cdot P(Z = i) = \frac{791}{36}$. The variance of $Z$ is $Var(Z) = E(Z^2)$ $- E^2(Z)$ $= 1.9715$
+    + The distribution of $Z$ is $P(Z=0)=6/36,$ $P(Z=1)=10/36,$ $P(Z=2)=8/36,$ $P(Z=3)=6/36,$ $P(Z=4)=4/36,$ $P(Z=5)=236$.  The expectation of $Z$ is $E(Z) = \sum_{i = 0}^{5} i \cdot P(Z = i) = \frac{35}{18} = 1.9444$
+    + $E(Z^2) = \sum_{i = 0}^{5} i^2 \cdot P(Z = i) = \frac{35}{6}$.  The variance of $Z$ is $Var(Z) = E(Z^2) - E^2(Z) = 2.0525$
 
 
 
@@ -1556,12 +1556,12 @@
   + $g: \Bbb{R} \times \Bbb{R} \to \Bbb{R}$
   + $g(X, Y)$: new random variable
 
-    \[ \Pr(g(X, Y) = z) = \Pr((X, Y) \in g^{-1}(z)) = \sum_{(x, y) \in g^{-1}(z)} p(x, y) \]
+    \[ P(g(X, Y) = z) = P((X, Y) \in g^{-1}(z)) = \sum_{(x, y) \in g^{-1}(z)} p(x, y) \]
 
 + Two unconscious statisticians
 
   \[\begin{align*}
-    E_g(X) &= \sum_x z \cdot \Pr(g(x) = z) = \sum_x z \sum_{x \in g^{-1}(z)} p(x) \\
+    E_g(X) &= \sum_x z \cdot P(g(x) = z) = \sum_x z \sum_{x \in g^{-1}(z)} p(x) \\
     &= \sum_x \sum_{x \in g^{-1}(z)} z \cdot p(x) = \sum_z \sum_{x \in g^{-1}(z)} g(x)p(x) \\
     &= \sum_x g(x)p(x)\\
   \end{align*}\]
@@ -1578,7 +1578,7 @@
 
   + expection of sum = sum of expectations
   + example
-    + $\Pr(1, 0) = .05,$ $\Pr(1, 1) = .15,$ $\Pr(1, 3) = .30,$ $\Pr(3, 0) = .15,$ $\Pr(3, 1) = .25,$ $\Pr(3, 3) = .10$
+    + $P(1, 0) = .05,$ $P(1, 1) = .15,$ $P(1, 3) = .30,$ $P(3, 0) = .15,$ $P(3, 1) = .25,$ $P(3, 3) = .10$
     + $Pr(X= 1) = 0.5$, $Pr(X= 3) = 0.5$, $Pr(Y= 0) = 0.2$, $Pr(Y= 1) = 0.4$, $Pr(Y= 3) = 0.4$
     + $E[Y] = .5 \cdot 1 + .5 \cdot 3 = 2$
     + $E[X] = .2 \cdot 0 + .4 \cdot 1 + .4 \cdot 4 = 2.0$
@@ -1599,8 +1599,8 @@
   + $H$: \# students who caught their own hat, i.e., $H = \displaystyle \sum_{i=1}^n \mathbf{1}_i, \quad \mathbf{1}_i \sim$ Bernoulli
 
     \[\begin{align*}
-      \Pr(\mathbf{1}_i = 1) &= \frac{\text{# permutations of $(\sigma_1, \cdots, \sigma_n)$ when $\sigma_i = i$}}{\text{# permutations of  $(\sigma_1, \cdots, \sigma_n)$}} = \frac{(n-1)!}{n!} = \frac{1}{n} \\\\
-      E[\mathbf{1}_i] &= \Pr(\mathbf{1}_i) = \frac{1}{n} \\\\
+      P(\mathbf{1}_i = 1) &= \frac{\text{# permutations of $(\sigma_1, \cdots, \sigma_n)$ when $\sigma_i = i$}}{\text{# permutations of  $(\sigma_1, \cdots, \sigma_n)$}} = \frac{(n-1)!}{n!} = \frac{1}{n} \\\\
+      E[\mathbf{1}_i] &= P(\mathbf{1}_i) = \frac{1}{n} \\\\
       E[H] &= E\left[ \sum_{i=1}^n \mathbf{1}_i \right] = \sum_{i=1}^n E(\mathbf{1}_i) = \sum_{i=1}^n \frac{1}{n} = 1
     \end{align*}\]
 
@@ -1650,7 +1650,7 @@
   What is the probability that the ball we remove at the 11th round is blue?
 
   Ans: <span style="color: magenta;">0.348678</span><br/>
-  Explanation: Imagine that the balls are placed in 10 locations 1 to 10. Let $B_i$ be the event that at the final ($11$th) round, the ball in location $i$ is blue. $B_i$ occurs iff the ball in location $i$ was not discarded in any of the previous 10 rounds, hence $\Pr(B_i)=(1−1/10)10=(9/10)10$.  Let $B$ be the event that the final ball, picked at the 11th round, is blue. By the rule of total probability, $\Pr(B)=\sum^{10}_{i=1} \frac{1}{10} \Pr(B_i)=10 \cdot \frac{1}{10} (\frac{9}{10})^{10}=(\frac{9}{10})^{10}=0.3486$. [Quora](https://tinyurl.com/y8fokmw7)
+  Explanation: Imagine that the balls are placed in 10 locations 1 to 10. Let $B_i$ be the event that at the final ($11$th) round, the ball in location $i$ is blue. $B_i$ occurs iff the ball in location $i$ was not discarded in any of the previous 10 rounds, hence $P(B_i)=(1−1/10)^{10}=(9/10)^{10}$.  Let $B$ be the event that the final ball, picked at the 11th round, is blue. By the rule of total probability, $P(B)=\sum^{10}_{i=1} \frac{1}{10} P(B_i)=10 \cdot \frac{1}{10} (\frac{9}{10})^{10}=(\frac{9}{10})^{10}=0.3486$. [Quora](https://tinyurl.com/y8fokmw7)
 
 
 3. $E(X)=2$ and $E(X(X−1))=5$. Find $Var(X)$.
@@ -1929,9 +1929,10 @@
   b. Independent \(\Rightarrow\) uncorrelated<br/>
 
   Ans: b<br/>
+  Hint: Two random variables $X$ and $Y$ are uncorrelated if their covariance is 0, or equivalently, if $E(XY)=E(X) \cdot E(Y)$. If you are not sure of the answer, check the poll..
   Explanation
-    + False. Let random variable $X$ have the distribution $\Pr(X=−1)=\Pr(X=1)=1/4, \Pr(X=0)=1/2$, and $Y=X^2$ . We can solve that $Cov(X,Y)=E(XY)−E(X)E(Y)=0$, while $X$ and $Y$ are not independent.
-    + True. If two random variables $X$ and $Y$ are independent, then $E(XY)= \sum_x \sum_y xy \Pr(X=x,Y=y)=$ $\sum_x \sum_y yxy\Pr(X=x)\Pr(Y=y)=$ $\sum_x x\Pr(X=x) \sum_y y\Pr(Y=y) =E(X)E(Y)$.
+    + False. Let random variable $X$ have the distribution $P(X=−1)=P(X=1)=1/4, P(X=0)=1/2$, and $Y=X^2$ . We can solve that $Cov(X,Y)=E(XY)−E(X)E(Y)=0$, while $X$ and $Y$ are not independent.
+    + True. If two random variables $X$ and $Y$ are independent, then $E(XY)= \sum_x \sum_y xy P(X=x,Y=y)=$ $\sum_x \sum_y yxyP(X=x)P(Y=y)=$ $\sum_x xP(X=x) \sum_y yP(Y=y) =E(X)E(Y)$.
 
 
 2. Which of the following hold for all uncorrelated random variables \(X\) and \(Y\)?<br/>
@@ -1960,7 +1961,7 @@
     + True.
 
 
-4. The correlation coefficient between \(X\) and \(-X\) is 0.
+4. The correlation coefficient between \(X\) and \(-X\) is 0. (True/False)
 
   Ans: False<br/>
   Explanation: $\rho_{X, -X} = -1$
@@ -2003,7 +2004,7 @@
 
 9. Flip a coin thrice (3 times), and let $X$ and $Y$ denote the number of heads in the first two flips, and in the last two flips, respectively. For example, if the coins turn up h,h,t then $X=2$ and $Y=1$, while if they turn up t,t,h then $X=0$ and $Y=1$. Find:<br/>
   a. $Cov(X,Y)$,<br/>
-  b. $\rho{X,Y}$.<br/>
+  b. $\rho_{X,Y}$.<br/>
 
   Ans: a. (1/4); b. (1/2) <br/>
   Explanation: 

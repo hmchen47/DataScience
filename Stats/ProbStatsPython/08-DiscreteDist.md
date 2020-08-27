@@ -95,7 +95,7 @@
   + $X \sim B_p \quad p(0) = 1-p \quad p(1) = p$
   + $E[X] = \sum p(x) \cdot x = (1-p) \cdot 0 + p \cdot 1$
     + e.g. $X \sim B_{.8} \to E[X] = 0.8$
-  + $E[X] = \Pr(X=1)$
+  + $E[X] = P(X=1)$
   + fraction of times expect to see 1
 
 + Variance
@@ -115,12 +115,12 @@
   + much of $B_p$ importance stems from multiple trials
   + most common type of Bernoulli distribution: independent ${\perp \!\!\!\! \perp}$
     + $0 \le p \le 1\quad X_1, X_2, X_3 \sim B_p \to {\perp \!\!\!\! \perp}$
-    + $q \stackrel{\text{def}}{=} 1-p\quad \Pr(110) = p^2q = \Pr(101) = \Pr(011)$
+    + $q \stackrel{\text{def}}{=} 1-p\quad P(110) = p^2q = P(101) = P(011)$
   + generally, $X_1, X_2, \cdots, X_n \sim B_p \to  {\perp \!\!\!\! \perp}$
     + $x^n = x_1, x_2, \cdots, x_n \in \{0, 1\}^n$
     + $n_0$ = number of 0's; &nbsp;&nbsp;&nbsp;&nbsp;  $n_1$ = number of 1's
-    + $\Pr(x_1, \dots, x_n) = p^{n_1} q^{n_0}$
-    + e.g., $\Pr(10101) = p^{n_1} q^{n_0} = p^3 q^2$
+    + $P(x_1, \dots, x_n) = p^{n_1} q^{n_0}$
+    + e.g., $P(10101) = p^{n_1} q^{n_0} = p^3 q^2$
 
 + Typical samples
 
@@ -176,7 +176,7 @@
 
   Ans: a. (0.6); b. (0.6)<br/>
   Explanation:
-    + For a Bernoulli distribution, $E[X^2]=E(X)=p$. Thus $Var(X)=E[X^2]−(E[X])^2=p−p^2=p(1−p)$. Since $0.24=Var(X)=p(1−p)$ and $p \ge 0.5$, we must have $p=0.6$.
+    + For a Bernoulli distribution, $E[X^2]=E(X)=p$. Thus $Var(X)$ $=E[X^2]−(E[X])^2$ $=p−p^2=p(1−p)$. Since $0.24$ $=Var(X)$ $=p(1−p)$ and $p \ge 0.5$, we must have $p=0.6$.
     + $E[X]=p=0.6$.
 
 
@@ -187,11 +187,17 @@
   Ans: ab<br/>
   Explanation
     + True. It is trivial.
-    + True. Let  $X \sim B_p_x, Y \sim B_p_y$.
+    + True. Let  $X \sim B_{p_x}, Y \sim B_{p_y}$.
 
-      If $X$ and $Y$ are uncorrelated, $\text{Cov}(X, Y) = E(XY) - E(X)E(Y) \\ = \sum_{x = 0}^{1} \sum_{y = 0}^{1} xy\Pr(X = x, Y = y) - p_{x}p_{y} \\ = \Pr(X = 1, Y = 1) - p_{x}p_{y} \\ = \Pr(X = 1 | Y = 1)\Pr(Y = 1) - p_{x}p_{y} \\ = (\Pr(X = 1 | Y = 1) - p_{x})p_{y} \\ = 0$.
+      If $X$ and $Y$ are uncorrelated, 
+      
+        \[\begin{align*}
+          \text{Cov}(X, Y) &= E(XY) - E(X)E(Y) = \sum_{x = 0}^{1} \sum_{y = 0}^{1} xyP(X = x, Y = y) - p_{x}p_{y} \\ 
+          &= P(X = 1, Y = 1) - p_{x}p_{y} = P(X = 1 | Y = 1)P(Y = 1) - p_{x}p_{y} \\ 
+          &= (P(X = 1 | Y = 1) - p_{x})p_{y} = 0
+        \end{align*}\]
 
-      Hence, $\Pr(X=1 \mid Y=1)=p_x=\Pr(X=1)$ and similarly $\Pr(Y=1 \mid X=1)=p_y=\Pr(Y=1)$. From that, we have $\Pr(X = 0 | Y = 1) = \frac{\Pr(Y = 1 | X = 0)\Pr(X = 0)}{\Pr(Y = 1)} =$ $1 - p_{x} = \Pr(X = 0) \implies$ $\Pr(Y = 1 | X = 0) = p_{y} = \Pr(Y = 1)$, and similarly $\Pr(X=1|Y=0)=p_x=\Pr(X=1)$. Thus, $X$ and $Y$ are independent.
+      Hence, $P(X=1 \mid Y=1)=p_x=P(X=1)$ and similarly $P(Y=1 \mid X=1)=p_y=P(Y=1)$. From that, we have $P(X = 0 | Y = 1) = \frac{P(Y = 1 | X = 0)P(X = 0)}{P(Y = 1)} =$ $1 - p_{x} = P(X = 0) \implies$ $P(Y = 1 | X = 0) = p_{y} = P(Y = 1)$, and similarly $P(X=1|Y=0)=p_x=P(X=1)$. Thus, $X$ and $Y$ are independent.
 
 
 3. Consider ten independent $B_{0.3}$ trials. Which of the following is the most probable?<br/>
@@ -201,7 +207,7 @@
   d. 0001111111<br/>
 
   Ans: a<br/>
-  Explanation: Under $B_{0.3}$, the probability of sequence with $w$ ones and $n−w$ zeros is $0.3^w \cdot 0.7^{(n−w)}=0.7^n \cdot (3/7)^w$, which decreases with $w$. Hence 0000000000 is the most likely sequence with probability $0.7^{10}$, while 1111111111 is least likely with probability $0.3^{10}$. This is also logical as under $B_{0.3}$, every bit is more likely to be a 0 than a 1.
+  Explanation: Under $B_{0.3}$, the probability of sequence with $w$ ones and $n−w$ zeros is $0.3^w \cdot 0.7^{(n−w)}$ $=0.7^n \cdot (3/7)^w$, which decreases with $w$. Hence 0000000000 is the most likely sequence with probability $0.7^{10}$, while 1111111111 is least likely with probability $0.3^{10}$. This is also logical as under $B_{0.3}$, every bit is more likely to be a 0 than a 1.
 
 
 4. Consider ten independent $B_{0.3}$ trials. Which of the following is the most probable?
@@ -218,13 +224,13 @@
 
 5. Bernoulli modifications
 
-  Let $X \sim B_{0.2}$. Find the Bernoulli parameter for the following random variables. Write $−1$ if they are not Bernoulli.
-  a. $X^2$,
-  b. $+\sqrt{X}$,
-  c. $1 − X$,
-  d. $−X$.
+  Let $X \sim B_{0.2}$. Find the Bernoulli parameter for the following random variables. Write $−1$ if they are not Bernoulli.<br/>
+  a. $X^2$,<br/>
+  b. $+\sqrt{X}$,<br/>
+  c. $1 − X$,<br/>
+  d. $−X$.<br/>
 
-  Ans: a. (0.2); b. (0.2); c. (0.2); d. (-1)<br/>
+  Ans: a. (0.2); b. (0.2); c. (0.8); d. (-1)<br/>
   Explanation
     + Since $X \in \{0,1\}$, we have $X^2=X$.
     + Since $X \in \{0,1\}$, we have $+\sqrt{X}=X$.
@@ -234,13 +240,13 @@
 
 6. Let $X \sim B_{0.4}$, $Y \sim B_{0.2}$, and they are independent. Find the Bernoulli parameter for the following random variables. Write $−1$ if they are not Bernoulli.<br/>
   a. $X \cdot Y$,<br/>
-  b. $XY$, recall that $0^ 0=1$,<br/>
+  b. $X^Y$, recall that $0^ 0=1$,<br/>
   c. $|X−Y|$,<br/>
   d. $X+Y$.<br/>
 
   Ans: a. (0.08); b. (0.88); c. (0.44); d. (-1)<br/>
   Explanation
-    + $X \cdot Y$ takes values in $\{0,1\}$ hence is Bernoulli. It is $1 \iff X=Y=1$ which happens with probability $0.4 cdot 0.2=0.08$.
+    + $X \cdot Y$ takes values in $\{0,1\}$ hence is Bernoulli. It is $1 \iff X=Y=1$ which happens with probability $0.4 \cdot 0.2=0.08$.
     + $X^Y$ takes values in $\{0,1\}$, hence is Bernoulli. It is $0 \iff X=0$ and $Y=1$, which happens with probability $0.6 \cdot 0.2=0.12$, hence it is 1 with probability 0.88.
     + $|X−Y|$ takes values in $\{0,1\}$, hence is Bernoulli. It is $1 \iff X \neq Y$, which happens with probability $0.6 \cdot 0.2+0.4 \cdot 0.8=0.44$.
     + $X+Y$ takes values in $\{0,1,2\}$, hence is not Bernoulli.
@@ -261,13 +267,13 @@
 
 
 8. Let $X$ be the number of heads when flipping four coins with heads probabilities 0.3, 0.4, 0.7, and 0.8. Find:<br/>
-  a. $\Pr(X=1)$,<br/>
+  a. $P(X=1)$,<br/>
   b. $E(X)$,<br/>
   c. $Var(X)$.<br/>
 
-  Ans: a. (); b. (); c. ()<br/>
+  Ans: a. (0.1872); b. (2.2); c. (0.82)<br/>
   Explanation
-    + $\Pr(X = 1) = 0.3 \cdot 0.6 \cdot 0.3 \cdot 0.2 + 0.7 \cdot 0.4 \cdot 0.3 \cdot 0.2 +$ $0.7 \cdot 0.6 \cdot 0.7 \cdot 0.2 +$ $0.7 \cdot 0.6 \cdot 0.3 \cdot 0.8 =$ $0.1872$
+    + $P(X = 1) = 0.3 \cdot 0.6 \cdot 0.3 \cdot 0.2 + 0.7 \cdot 0.4 \cdot 0.3 \cdot 0.2 +$ $0.7 \cdot 0.6 \cdot 0.7 \cdot 0.2 +$ $0.7 \cdot 0.6 \cdot 0.3 \cdot 0.8 =$ $0.1872$
     + $E[X] = 0.3 + 0.4 + 0.7 + 0.8 = 2.2$
     + $Var(X) = 0.21 + 0.24 + 0.21 + 0.16 = 0.82$
 
@@ -277,7 +283,7 @@
   Every light bulb is defective with 2% probability. What is the probability that a package of 8 bulbs will not suffice for a project requiring 7?
 
   Ans: 0.01034<br/>
-  Explanation: Let $X \sim B(0.02,8)$ be the number of defective bulbs in a package. The box will not suffice if there are 2 or more defective bulbs, which happens with probability. $\Pr(X \gt 1) = 1 - \Pr(X = 0) - \Pr(X = 1) =$ $1 - \binom{8}{0} \cdot (1-0.02)^8 - \binom{8}{1} \cdot (1-0.02)^7 \cdot 0.02 = 0.0103.$
+  Explanation: Let $X \sim B(0.02,8)$ be the number of defective bulbs in a package. The box will not suffice if there are 2 or more defective bulbs, which happens with probability. $P(X \gt 1) = 1 - P(X = 0) - P(X = 1) =$ $1 - \binom{8}{0} \cdot (1-0.02)^8 - \binom{8}{1} \cdot (1-0.02)^7 \cdot 0.02 = 0.0103.$
 
 
 
@@ -300,7 +306,7 @@
     + using $B_{p, n}$ as generalized $B_p$
     + $B_{p, n}$: natural for Poisson Binomial 
   + example: $n$ independent coin flips
-    + $\Pr(\text{heads}) = p$
+    + $P(\text{heads}) = p$
     + $B_{p, n}$: distribution of \# heads
     + e.g., $B_{\frac13, 5} \quad B_{.2, 10}$
   + no confusion: $n \in \Bbb{N}, \;0 \le p \le 1$
@@ -356,7 +362,7 @@
 
 + Simulation: Typical distributions
   + $n= 20 \to b_{p, 20}(k)$
-  + coin: $\Pr(\text{heads}) = p \quad$ 20 flips $\Pr(k, \text{ heads})$
+  + coin: $P(\text{heads}) = p \quad$ 20 flips $P(k, \text{ heads})$
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/yajcj3dk" ismap target="_blank">
@@ -377,20 +383,20 @@
   + each question, student selects one of the 4 answers randomly
   + $X$ = \# correct answer $\sim B_{\frac14, 6}$
   + passing: $\ge 4$ correct answers
-  + $\Pr(\text{passing}) = ?$
+  + $P(\text{passing}) = ?$
 
     \[\begin{align*}
-      \Pr(4) &= \tbinom64 \cdot (\tfrac14)^4 \cdot (\tfrac34)^2 \approx 0.0329 \\
-      \Pr(5) &= \tbinom65 \cdot (\tfrac14)^5 \cdot (\tfrac34)^1 \approx 0.00439 \\
-      \Pr(6) &= \tbinom66 \cdot (\tfrac14)^6 \cdot (\tfrac34)^0 \approx 0.000244 \\
-      \Pr(\ge 4) &= \Pr(4) + \Pr(5) + \Pr(6) \approx 0.03759
+      P(4) &= \tbinom64 \cdot (\tfrac14)^4 \cdot (\tfrac34)^2 \approx 0.0329 \\
+      P(5) &= \tbinom65 \cdot (\tfrac14)^5 \cdot (\tfrac34)^1 \approx 0.00439 \\
+      P(6) &= \tbinom66 \cdot (\tfrac14)^6 \cdot (\tfrac34)^0 \approx 0.000244 \\
+      P(\ge 4) &= P(4) + P(5) + P(6) \approx 0.03759
     \end{align*}\]
 
 + Interpretation as a Sum
   + $B_{p, n}$: a sum of $n\;B_p$
   + $X_1, \cdots, X_n \sim B_p\quad {\perp \!\!\!\! \perp}$
   + $X \stackrel{\text{def}}{=} \sum_{i=1}^n X_i$
-  + $\Pr(X=k) = \Pr(\text{exactly } k \text{ of } X_1, \cdots, X_n \text{ are } 1) = \binom n k p^k q^{n-k} = b_{p, n}(k)$
+  + $P(X=k) = P(\text{exactly } k \text{ of } X_1, \cdots, X_n \text{ are } 1) = \binom n k p^k q^{n-k} = b_{p, n}(k)$
   + $X \sim B_{p, n}$
   + applied to mean and variance
 
@@ -414,7 +420,7 @@
 + Example: Voting
   + for simplicity odd \# voters: $2n+1$
   + each equally likely D or R
-  + $\Pr(\text{voter makes a difference}) = \Pr(\text{other 2n voters equally split})$
+  + $P(\text{voter makes a difference}) = P(\text{other 2n voters equally split})$
 
     \[\begin{align*}
       b_{p, n}(k) &= \binom n k p^k q^{n-k} = \binom{2n}{n} \frac{1}{2^n} \cdot \frac{1}{2^n} = \frac{(2n)!}{n! \cdot n! \cdot 2^n \cdot 2^n} \\\\
@@ -443,9 +449,9 @@
       <tr style="font-size: 1.2em;">
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$X_1$</th>
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$X_2$</th>
-        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$\Pr$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$P$</th>
         <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$X$</th>
-        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$\Pr(X)$</th>
+        <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$P(X)$</th>
       </tr>
       </thead>
       <tbody>
@@ -526,22 +532,22 @@
 1. There are 5 traffic signals between your home and work. Each is red with probability 0.35, independently of all others. Find:
 
   1) the probability of encountering no red lights,<br/>
-  a. 2.26%<br/>
-  b. 5.2%<br/>
-  c. 11.6%<br/>
-  d. 17.5%<br/>
+    a. 2.26%<br/>
+    b. 5.2%<br/>
+    c. 11.6%<br/>
+    d. 17.5%<br/>
 
   2) the probability of encountering only red lights,<br/>
-  a. 0.03%<br/>
-  b. 0.52%<br/>
-  c. 1.16%<br/>
-  d. 16.4%<br/>
+    a. 0.03%<br/>
+    b. 0.52%<br/>
+    c. 1.16%<br/>
+    d. 16.4%<br/>
 
   3) the expected number of red lights you will encounter?<br/>
-  a. 0.75 <br/>
-  b. 1.42 <br/>
-  c. 1.75 <br/>
-  d. 2.25 <br/>
+    a. 0.75 <br/>
+    b. 1.42 <br/>
+    c. 1.75 <br/>
+    d. 2.25 <br/>
 
   Ans: 1. (c); 2. (b); c. (c)<br/>
   Explanation
@@ -577,9 +583,9 @@
 
   Ans: a. (0.13824); b (0.23328); c. (0.5)<br/>
   Explanation
-    + The number of heads, $H$ is distributed as $H \sim Binomial(6,0.6)$. Thus the probability here is $\Pr(H=2)=\binom62 0.6^2 c\dot 0.44=0.13824$.
-    + The number of tails, $T$ is distributed as $T \sim Binomial(6,0.4)$. Thus the probability here is $\Pr(T=0)+\Pr(T=1) = \binom60 0.6^6+\binom61 0.4^1\cdot 0.6^5 = 0.23328$
-    + Using the distribution of $H$, the probability here is $\Pr(H=0)+\Pr(H=2)+\Pr(H=4)+\Pr(H=6)$ $=\binom60 0.4^6+\binom62 0.6^2\cdot 0.4^4+\binom64 0.6^4\cdot 0.4^2+\binom66 0.6^6=0.50032$
+    + The number of heads, $H$ is distributed as $H \sim Binomial(6,0.6)$. Thus the probability here is $P(H=2)=\binom62 0.6^2 \cdot 0.4^4=0.13824$.
+    + The number of tails, $T$ is distributed as $T \sim Binomial(6,0.4)$. Thus the probability here is $P(T=0)+P(T=1) = \binom60 0.6^6+\binom61 0.4^1\cdot 0.6^5 = 0.23328$
+    + Using the distribution of $H$, the probability here is $P(H=0)+P(H=2)+P(H=4)+P(H=6)$ $=\binom60 0.4^6+\binom62 0.6^2\cdot 0.4^4+\binom64 0.6^4\cdot 0.4^2+\binom66 0.6^6=0.50032$
 
 
 4. A Binomial distribution $B_{p,n}$, where $p \neq 0$, has the same mean and standard deviation, namely $\mu=σ$.
@@ -601,18 +607,18 @@
     + $E[X]=np=7$.
     + $Var(X)=np(1−p)=2.1$.
     + $\sigma_X = \sqrt{Var(X)} = 1.4491$
-    + $\Pr(X = 7) = \underset{x}{\max} \Pr(X = x)$
+    + $P(X = 7) = \underset{x}{\max} P(X = x)$
 
 6. Ten balls are randomly dropped into four urns. Let $X$ be the number of balls dropped into one pre-selected urn. Find:<br/>
-  a. $\Pr(X=0)$,<br/>
-  b. $\Pr(X=1)$,<br/>
+  a. $P(X=0)$,<br/>
+  b. $P(X=1)$,<br/>
   c. $E(X)$,<br/>
   d. $Var(X)$.<br/>
 
   Ans: a. (0.05631); b. (0.1877); c. (2.5); d. (1.875)<br/>
   Explanation
-    + Clearly $X$ is distributed $B_{1/4,10}$. Hence $\Pr(X=0)=\binom{10}0\cdot(1/4)^0\cdot(3/4)^{10}=(3/4)^{10}=0.056$
-    + $\Pr(X = 1) = \binom{10}1 \cdot (1/4)^1 \cdot (3/4)^9=0.188$
+    + Clearly $X$ is distributed $B_{1/4,10}$. Hence $P(X=0)=\binom{10}0\cdot(1/4)^0\cdot(3/4)^{10}=(3/4)^{10}=0.056$
+    + $P(X = 1) = \binom{10}1 \cdot (1/4)^1 \cdot (3/4)^9=0.188$
     + $E(X) = np = 10\cdot\frac14=\frac52.$
     + $Var(X)= np(1-p) = 10\cdot\frac14\frac34=\frac{30}{16}=\frac{15}{8}$
 
@@ -625,7 +631,7 @@
 
 8. Alice solves every puzzle with probability 0.6, and Bob, with probability 0.5. They are given 7 puzzle and each chooses 5 out of the 7 puzzles randomly and solves them independently. A puzzle is considered solved if at least one of them solves it. What is the probability that all the 7 puzzles are solved?
 
-  Ans: <span style="color: magenta;">0.021</span><br/>
+  Ans: <span style="color: cyan;">0.021p</span><br/>
   Explanation: The probability that all the 7 puzzles are chosen is the probability that Bob chooses the two puzzles Alice did not pick, namely, \(\frac{\binom{5}{3}\binom22}{\binom{7}{5}} = \frac{10}{21}\). Every puzzle they both attempt, they both fail with probability \(0.4\cdot0.5=0.2\), hence at least one solves with probability \(1-0.2=0.8\). It follows that all puzzles are solved with probability \(\frac{10}{21}\cdot 0.6^2 \cdot 0.5^2 \cdot 0.8^3 = 0.0219\).
 
 
@@ -670,7 +676,7 @@
     <thead>
     <tr style="font-size: 1.2em;">
       <th rowspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$\lambda$</th>
-      <th rowspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$\Pr_{\lambda} (k)$</th>
+      <th rowspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">$P_{\lambda} (k)$</th>
       <th rowspan="2" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Main Component Approx.</th>
       <th colspan="4" style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">$k$</th>
     </tr>
@@ -775,10 +781,10 @@
 
 + Approximation example
   + factory producing 200 times, each defective w/ probability 1%
-  + $\Pr(3 \text{ defective})?$
+  + $P(3 \text{ defective})?$
     + Binomial (precise): $B_{0.01, 200}(3) = \binom{200}{3} (0.01)^3(0.99)^{197} \approx 0.181$
     + Poisson (approximation): $\lambda = 200 \cdot 0.01 = 2 \quad P_2(3) = e^{-2}\frac{2^3}{3!} \approx 0.18$
-  + $\Pr(\text{some defective})?$
+  + $P(\text{some defective})?$
     + $B_{0.01, 200}(0) = \binom{200}{0} (0.99)^{200} \approx 0.134 \quad B_{0.01, 200}(\ge 1) = 1 - 0.134 \approx 0.866$
     + $P_2(0) = e^{-2} \frac{2^0}{0!} = e^{-2} \approx 0.135 \quad P_2(\ge 1) = 1- 0.135 \approx 0.865$
 
@@ -812,7 +818,9 @@
   Explanation: $P(X = k) = \frac{\lambda^k}{k!}e^{-\lambda}$. With $\lambda = 2$, $P(X = 0) = e^{-2} = 0.135$
 
 
-2. The expectation of a Poisson random variable and its variance are (a) equal (b) not equal?
+2. The expectation of a Poisson random variable and its variance are<br/>
+  a. equal<br/>
+  b. not equal<br/>
 
   Ans: a
 
@@ -834,7 +842,7 @@
   b. exactly two typos,<br/>
   c. more than one typo?<br/>
 
-  Ans: a. (0.7165); b. (0.03981); c. (0.04467)<br/>
+  Ans: a. (0.7165); b. (0.03981); c. (0.0446249)<br/>
   Explanation
     + Recall that for a random variable $X \sim Poisson(\lambda)$ its distribution is given by $P(X=i)=e^{-\lambda}\cdot\frac{\lambda^i}{i!}, \, \text{for} \, i>0$. $\lambda=1/3$ here. Thus probability of no typo errors is $P(X=0)=e^{-\lambda}=e^{-1/3}=0.7165313$.
     + Similarly the probability of exactly two typo errors is $P(X=2)=e^{-\lambda}\frac{\lambda^2}{2!}=e^{-1/3}\frac{(1/3)^2}{2!}=0.039807295$
@@ -855,7 +863,7 @@
 
 7. Assume the number of tropical storms making landfall in the Philippines each year follows Poisson distribution with parameter $9$. What is the probability that there are less than $6$ tropical storms making landfall in Philippines in one year?
 
-  Ans: 0.1156
+  Ans: 0.1156<br/>
   Explanation: Follows from summing the corresponding Poisson probabilities under $\lambda=9$.
 
 
@@ -873,8 +881,8 @@
 
 9. A vendor sells merchandise through Amazon and Ebay. On Ebay she sells an average rate of 2 items per day, while on Amazon the daily average is 3. Both sales follow a Poisson distribution and are independent of each other. What is the probability that she sells 5 items on a given day?
 
-  Ans: 0.1665<br/>
-  Explanation: You can solve this the hard way, namely $P_3(0) \cdot P_2(5)+P_3(1) \cdot P_2(4)+ \cdots +P_3(5) \cdot P_2(0)$.  Or note that the sum of independent $P_{\lambda_1}$ and a  $P_{\lambda_2}$ random variables is a $P_{\lambda_1+\lambda_2}$ random variable, the total number of items the vendor sells is a $P_{2+3}=P_5$ variable and $P_5(5)=\frac{e^{−5} \cdot 5}^5}{5!}$.
+  Ans: 0.17546<br/>
+  Explanation: You can solve this the hard way, namely $P_3(0) \cdot P_2(5)+P_3(1) \cdot P_2(4)+ \cdots +P_3(5) \cdot P_2(0)$.  Or note that the sum of independent $P_{\lambda_1}$ and a  $P_{\lambda_2}$ random variables is a $P_{\lambda_1+\lambda_2}$ random variable, the total number of items the vendor sells is a $P_{2+3}=P_5$ variable and $P_5(5) = \frac{e^{-5} \cdot 5^5}{5!}$.
 
 
 ### Lecture Video
@@ -931,8 +939,8 @@
   + or till failure nowadays
 
 + Axioms
-  + probability: $\Pr(n) = pq^{n-1} \quad n \ge 1 \quad q = 1-p$
-  + non-negative: $\Pr(n) \ge 0$
+  + probability: $P(n) = pq^{n-1} \quad n \ge 1 \quad q = 1-p$
+  + non-negative: $P(n) \ge 0$
   + unitary
 
     \[ \sum_{n=1}^\infty p(1-p)^{n-1} = p \sum_{i=0}^\infty (1-p)^i = p \cdot \frac{1}{1 - (1-p)} = \frac p p = 1 \]
@@ -941,9 +949,9 @@
   
   $n \in \Bbb{N} \quad X > n \iff X_1 = \cdots = X_n =0$
   
-  \[ \Pr(X > n) = \Pr(X_1 = \cdots = X_n = 0) = q^n \]
+  \[ P(X > n) = P(X_1 = \cdots = X_n = 0) = q^n \]
 
-  \[F(n) = \Pr(X \le n) = 1 - \Pr(X > n) = 1 - q^n \]
+  \[F(n) = P(X \le n) = 1 - P(X > n) = 1 - q^n \]
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/avarkvc" ismap target="_blank">
@@ -952,22 +960,22 @@
   </div>
 
 + Expectation via "Right" CDF
-  + $x \in \Bbb{N} \quad P_k = \Pr(X = k)$
+  + $x \in \Bbb{N} \quad P_k = P(X = k)$
   + general expectation:
 
     \[\begin{align*}
       E[X] &= \sum_{k=0}^\infty kP_k = P_1 + 2 P_2 + 3 P_3 + \cdots \\
-      &= \Pr(X \ge 1) + \Pr(X \ge 2) + \Pr(X \ge 3) + \cdots
+      &= P(X \ge 1) + P(X \ge 2) + P(X \ge 3) + \cdots
     \end{align*}\]
 
   + geometric distribution
 
-    \[ E[X] = \sum_{k=1}^\infty \Pr(X \ge k) = \sum_{i=0}^\infty \Pr(X > i) = \sum_{i=0}^\infty \frac{1}{1-q} = \frac{1}{p} \]
+    \[ E[X] = \sum_{k=1}^\infty P(X \ge k) = \sum_{i=0}^\infty P(X > i) = \sum_{i=0}^\infty \frac{1}{1-q} = \frac{1}{p} \]
 
 + Variance
 
   \[\begin{align*}
-    E[X(X-1)] &= \sum_{n=1}^\infty n(n-1) \cdot \Pr(X=n) = p\sum_{n=1}^\infty n(n-1)q^{n-1} \\
+    E[X(X-1)] &= \sum_{n=1}^\infty n(n-1) \cdot P(X=n) = p\sum_{n=1}^\infty n(n-1)q^{n-1} \\
     &= pq \sum_{n=2}^\infty \frac{d^2}{dq^2} q^n = pq \frac{d^2}{dq^2} \sum_{n=2}^\infty q^n \\
     & = pq \frac{d^2}{dq^2} (\frac{1}{1-q} -1 -q) \hspace{4em}\left( \frac{1}{1-q} \right)^\prime = \frac{1}{(1-q)^2} \\
     &= pq \frac{2}{(1-q)^3} = \frac{2q}{p^2} \hspace{6em}\left( \frac{1}{(1-q)^2} \right)^\prime = \frac{2}{(1-q)^3}\\
@@ -979,7 +987,7 @@
 
 + Example: fair coin
   + $X \sim G_{\frac12}$
-  + $\Pr(X = k) = g_{0.5}(k) = (\frac12)^{k-1} \cdot \frac12 = \frac{1}{2^k}$
+  + $P(X = k) = g_{0.5}(k) = (\frac12)^{k-1} \cdot \frac12 = \frac{1}{2^k}$
   + $E[X] = \frac1q = 2$
   + $Var(X) = \frac{q}{p^2} = 2$
 
@@ -988,43 +996,43 @@
   + something a bit more "odd"
   + probability that a Geometric random variable is even
 
-    \[ \Pr(1) = p \quad \Pr(2) = p \cdot q = q \cdot \Pr(1) \]
+    \[ P(1) = p \quad P(2) = p \cdot q = q \cdot P(1) \]
 
 + Memoryless
   + Definition: (memoryless) a distribution over $\Bbb{P} = \{1, 2, \dots\}$ is a <span style="color: magenta; font-weight: bold;">memoryless</span> if $\forall\, n \ge 0, m > 1$
 
-    \[ \Pr(X = n+m \mid X > n) = \Pr(X=m) \]
+    \[ P(X = n+m \mid X > n) = P(X=m) \]
 
-  + e.g., $\Pr(X = 12 \mid X > 10) = \Pr(X=2)$
+  + e.g., $P(X = 12 \mid X > 10) = P(X=2)$
   + after observing or any number of samples, process behaves as at the start
 
 + Geometric and Memoryless
   + Geometric $\to$ Memoryless
 
     \[\begin{align*}
-      \Pr(X = n+m \mid X > n) & = \frac{\Pr(X=n+m, X > n)}{\Pr(X > n)} = \frac{\Pr(X=n+m)}{\Pr(X>n)} \\
-      &= \frac{p \cdot q^{n+m-1}}{q^n} = p \cdot q^{m-1} = \Pr(X=m)
+      P(X = n+m \mid X > n) & = \frac{P(X=n+m, X > n)}{P(X > n)} = \frac{P(X=n+m)}{P(X>n)} \\
+      &= \frac{p \cdot q^{n+m-1}}{q^n} = p \cdot q^{m-1} = P(X=m)
     \end{align*}\]
 
     + all geometric distributions are memoryless
   + Memory $\to$ Geometric
     + any discrete memoryless distribution over $\Bbb{P}$ is geometric
-    + $p \stackrel{\text{def}}{=} \Pr(X=1) \quad q \stackrel{\text{def}}{=} 1 - p = \Pr(X > 1)$
+    + $p \stackrel{\text{def}}{=} P(X=1) \quad q \stackrel{\text{def}}{=} 1 - p = P(X > 1)$
 
     \[\begin{align*}
-      \forall\, n \ge 1, \;\; \Pr(X=n+1) &= \Pr(X>1 \wedge X = n+1) \\
-      &= \Pr(X > 1) \cdot \Pr(X=n+1 \mid X > 1) = q \cdot \Pr(X=n)
+      \forall\, n \ge 1, \;\; P(X=n+1) &= P(X>1 \wedge X = n+1) \\
+      &= P(X > 1) \cdot P(X=n+1 \mid X > 1) = q \cdot P(X=n)
     \end{align*}\]
 
-    + Hence, $\Pr(X=2) = qp, \;\;\Pr(X=3) = q^2p, \dots$
-    + $\Pr(X=n) = q^{n-1}q \to$ Geometric
+    + Hence, $P(X=2) = qp, \;\;P(X=3) = q^2p, \dots$
+    + $P(X=n) = q^{n-1}q \to$ Geometric
 
 + $r$ successes
-  + Geometric: $\Pr(X=n) = \Pr(\text{first success at n'th trial})$
+  + Geometric: $P(X=n) = P(\text{first success at n'th trial})$
   + generalized geometric: $n \ge r$
 
     \[\begin{align*}
-      \Pr(\text{r'th success at n'th trial}) &= \Pr(r-1 \text{ successes in } n-1 \text{ trial}) \cdot \Pr(\text{n'th trial is success})\\
+      P(\text{r'th success at n'th trial}) &= P(r-1 \text{ successes in } n-1 \text{ trial}) \cdot P(\text{n'th trial is success})\\
        &= b_{n-1, p}(r-1) \cdot p = \binom{n-1}{r-1} p^{r-1} q^{n-r} p \\
       &= \binom{n-1}{r-1} p^r q^{n-r}
     \end{align*}\]
@@ -1033,12 +1041,12 @@
   + a.k.a. negative binomial distribution
 
 + Summary
-  + pmf: $\Pr(n) = p q^{n-1} \quad n \ge 1 \quad q = 1 - p$
+  + pmf: $P(n) = p q^{n-1} \quad n \ge 1 \quad q = 1 - p$
   + memoryless
   + mean: $E[X] = \frac 1 p$
   + variance: $Var(X) = \frac{q}{p^2}$
   + standard deviation: $\sigma = \frac{\sqrt{q}}{p}$
-  + $r$ successes: $\Pr(\text{r'th success at n'th trial}) = \binom{n-1}{r-1} p^r q^{n-r}$
+  + $r$ successes: $P(\text{r'th success at n'th trial}) = \binom{n-1}{r-1} p^r q^{n-r}$
 
 
 + [Original Slides](https://tinyurl.com/y73cv4pe)
@@ -1080,15 +1088,22 @@ Several of the following questions ask about the number of experiments performed
 
 
 3. A $G_p$ random variable is odd with probability<br/>
-  a. $\frac{1−p}{2−p$}$,<br/>
+  a. $\frac{1−p}{2−p}$,<br/>
   b. $\frac{p}{2−p}$,<br/>
   c. $\frac{1}{2−p}$,<br/>
   d. $p+(1−p)^2 \cdot p$.<br/>
 
   Ans: c<br/>
+  Hints:
+    + There are two natural ways to find the probability that $X \sim G_p$ is odd. You may want to try both. One is "brute force", by adding the probabilities that $X=1,3,5, \dots$. The other is by relating $P(X \text{ is even})$ to $P(X \text{ is odd})$.
+    + For the brute-force way, recall that $1+q+q^2+ \cdots=\frac{1}{1−q}$. If you use the second method, first show that $P(X\text{ is even})=(1-p)\cdot P(X\text{ is odd})$.
+
   Explanation: There are two natural ways to find the probability that $X \sim G_p$ is odd.
-    + The first is "brute force". Recall that $1+q+q^2+ \cdots =$ $\frac1{1-q}$. Hence, $P(X \text{ is odd})=P(X=1)+P(X=3)+\ldots=$ $p+{\overline p}^2\cdot p+{\overline p}^4\cdot p+\ldots=$ $\frac{p}{1-{\overline p}^2}=$ $\frac{p}{1-(1-p)^2}=$ $\frac{p}{2p-p^2}=\frac1{2-p}$
+    + The first is "brute force". Recall that $1+q+q^2+ \cdots =$ $\frac1{1-q}$. Hence, $P(X \text{ is odd})$ $=P(X=1)+P(X=3)+\ldots$ $= p+{\overline p}^2\cdot p+{\overline p}^4\cdot p+\ldots$ $= \frac{p}{1-{\overline p}^2}=$ $\frac{p}{1-(1-p)^2}=$ $\frac{p}{2p-p^2}=\frac1{2-p}$
     + The second method is by relating $(P(X \text{ is even})$, $P(X\text{ is even})=$ $P(X\text{ is even}\cap X\gt 1)=$ $P(X\gt 1)\cdot P(X \text{ is even}\mid {X \gt 1})=$ $P(X \gt 1)\cdot P(X \text{ is odd})$. $X$  is even or odd, hence $1=P(X\text{ is odd})+(1-p)\cdot P(X\text{ is odd})=$ $(2-p)\cdot P(X\text{ is odd})$.  Hence, $P(X\text{ is odd})=\frac1{2-p}$
+    + [Probability  X  is odd in a geometric distribution - StackExchange](https://tinyurl.com/y6987gfj)
+    + [ the probability that a geometric random variable X is an even number - StackExchange](https://tinyurl.com/y4dbaau2)
+    + [Probability that a geometric random variable is even - StackExchange](https://tinyurl.com/y57k6do5)
 
 
 4. Find the expected number of coin tosses till the third heads appears, (e.g., for  h,t,h,t,h , five coins were tossed).
@@ -1145,26 +1160,26 @@ Several of the following questions ask about the number of experiments performed
     \[ X \sim G_{0.2} \qquad E[X] = \frac{1}{.2} = 5 \]
 
   + Home grown entrepreneur
-  + dad will fund up to three startups $\Pr(\text{success})?$
+  + dad will fund up to three startups $P(\text{success})?$
     + one of first three startups succeeds
-    + $\Pr(X \le 3) = F(3) = 1 - (0.8)^3 \approx 0.49$
+    + $P(X \le 3) = F(3) = 1 - (0.8)^3 \approx 0.49$
 
   + Cry uncle
     + even wealthier uncle funds next three startups (4, 5, 6)
-    + $\Pr(\text{success w/ uncle if dad's help did not suffice})?$
+    + $P(\text{success w/ uncle if dad's help did not suffice})?$
 
       \[\begin{align*}
-        \Pr(C \in \{4, 5, 6\} \mid X > 3) &= \Pr(4 \mid X > 3) + \Pr(5 \mid X > 3) + \Pr(6 \mid X > 3) \\
-        &= \Pr(1) + \Pr(2) + \Pr(3) = \Pr(X \le 3) \approx 49\%
+        P(C \in \{4, 5, 6\} \mid X > 3) &= P(4 \mid X > 3) + P(5 \mid X > 3) + P(6 \mid X > 3) \\
+        &= P(1) + P(2) + P(3) = P(X \le 3) \approx 49\%
       \end{align*}\]
 
-    + $\Pr(\text{success w/ uncle})?$
+    + $P(\text{success w/ uncle})?$
       + 1, 2 ,3 failed but one of 4, 5, 6 succeeded
 
       \[\begin{align*}
-        \Pr(3 < X \le 6) &= \Pr(X > 3 \cap X  \le 6) = \Pr(X > 3) \cdot \Pr(X \le 6 \mid X > 3) \\
-          &= (0.8)^3 \cdot 0.49 \approx 25\% \hspace{4em} \left(\Pr(X_1, X_2, X_3 \text{ failed}) = q^3\right)\\
-        \Pr(3 < X \le 6) &= F(6) - F(3) = (1-0.8^6) - (1 - 0.8^3)\\
+        P(3 < X \le 6) &= P(X > 3 \cap X  \le 6) = P(X > 3) \cdot P(X \le 6 \mid X > 3) \\
+          &= (0.8)^3 \cdot 0.49 \approx 25\% \hspace{4em} \left(P(X_1, X_2, X_3 \text{ failed}) = q^3\right)\\
+        P(3 < X \le 6) &= F(6) - F(3) = (1-0.8^6) - (1 - 0.8^3)\\
           &= 0.8^3 - 0.8^6 \approx 25\%
       \end{align*}\]
 
@@ -1173,7 +1188,7 @@ Several of the following questions ask about the number of experiments performed
   + $r^X$: fraction of company you keep w/ $r = 0.5$
 
     \[\begin{align*}
-      E[r^X] &= \sum_{k=1}^\infty r^k \Pr(X=k) = \sum_{k=1}^\infty p q^{k-1} r^k = pr \sum_{i=0}^\infty (qr)^i \\
+      E[r^X] &= \sum_{k=1}^\infty r^k P(X=k) = \sum_{k=1}^\infty p q^{k-1} r^k = pr \sum_{i=0}^\infty (qr)^i \\
         &= \frac{pr}{1-qr} = \frac{0.2 \cdot 0.5}{1 - 0.8 \cdot 0.5} = \frac{0.1}{1-0.4} = \frac{0.1}{0.6} \approx 16.67\%
     \end{align*}\]
 
@@ -1251,8 +1266,8 @@ Several of the following questions ask about the number of experiments performed
 
 2. A production line has a 5% defective rate, and its products are inspected one-by-one until the first defect is found. Given that the first 10 inspections do not find any defect, what is the probability that the number of inspections is at most 20?
 
-  Ans: $1 - 0.9{10} = 04013$<br/>
-  Explanation: Let $D$ be the event of interest here. Further let  E  denote the event that any 10 consecutive inspections find a defect. Since the inspections here are independent, the required probability $P(D)=P(E)$.  Now if $\overline{E}$ denotes the compliment of event $E$, $\Pr(\overline{E})=1−P(E)=(1−0.05)^{10}$ since in $\overline{E}$ we require that no defective item be discovered in each of the 10 inspections. Thus $P(D)=P(E)=1−0.9510$.
+  Ans: $1 - 0.95^{10} = 04013$<br/>
+  Explanation: Let $D$ be the event of interest here. Further let  E  denote the event that any 10 consecutive inspections find a defect. Since the inspections here are independent, the required probability $P(D)=P(E)$.  Now if $\overline{E}$ denotes the compliment of event $E$, $P(\overline{E})=1−P(E)=(1−0.05)^{10}$ since in $\overline{E}$ we require that no defective item be discovered in each of the 10 inspections. Thus $P(D)=P(E)=1−0.95^{10}$.
 
 
 3. A bag contains $K$ blue balls and $N−K$ red balls. Find the expected number of blue balls observed when $n$ balls are randomly drawn. Does the answer depend on whether the selection is with or without replacement?<br/>
@@ -1263,7 +1278,12 @@ Several of the following questions ask about the number of experiments performed
 
   Ans: <span style="color: magenta;">a</span><br/>
   Explanation: 
-    + Without replacement, the expectation is $\sum_{k=0}^n k\frac{\binom{K}{k} \binom{N-K}{n-k}}{\binom{N}{n}} = \frac{K}{\binom{N}{n}} \sum_{k=1}^{n} \binom{K-1}{k-1}\binom{N-K}{n-k} = \frac{K}{\binom{N}{n}} \underbrace{\sum_{k=0}^{n-1} \binom{K-1}{k}\binom{N-K}{n-1-k}}_{\substack{\text{# of ways to choose } n - 1 \\ \text{ balls} \text{out of } N - 1 \text{ balls}}} = \frac{K}{\binom{N}{n}} \binom{N-1}{n-1} = n\frac{K}{N}$
+    + Without replacement, the expectation is 
+      \[\begin{align*}
+        \sum_{k=0}^n k\frac{\binom{K}{k} \binom{N-K}{n-k}}{\binom{N}{n}} &= \frac{K}{\binom{N}{n}} \sum_{k=1}^{n} \binom{K-1}{k-1}\binom{N-K}{n-k} = \frac{K}{\binom{N}{n}} \underbrace{\sum_{k=0}^{n-1} \binom{K-1}{k}\binom{N-K}{n-1-k}}_{\substack{\text{# of ways to choose } n - 1 \\ \text{ balls} \text{out of } N - 1 \text{ balls}}} \\
+        &= \frac{K}{\binom{N}{n}} \binom{N-1}{n-1} = n\frac{K}{N}
+      \end{align*}\]
+
     + With replacement, the expectation is trivial, which is $n\frac K N$.
     + Hence, the answer does not depend on whether the selection is with or without replacement.
 
@@ -1379,97 +1399,26 @@ Several of the following questions ask about the number of experiments performed
     </tbody>
   </table>
 
-+ `numpy.linspace` 
-  + `numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0)`
++ [`numpy.linspace`](https://tinyurl.com/yc4ne47x)
+  + Syntax: `numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0)`
   + Docstring
     + Return evenly spaced numbers over a specified interval.
     + Returns num evenly spaced samples, calculated over the interval [start, stop].
     + The endpoint of the interval can optionally be excluded.
-  + Parameters
-    + `start`: array_like<br/>
-      The starting value of the sequence.
-    + `stop`: array_like<br/>
-      The end value of the sequence, unless endpoint is set to False. In that case, the sequence consists of all but the last of `num + 1` evenly spaced samples, so that stop is excluded. Note that the step size changes when endpoint is False.
-    + `num`: int, optional<br/>
-      Number of samples to generate. Default is 50. Must be non-negative.
-    + `endpoint`: bool, optional<br/>
-      If True, stop is the last sample. Otherwise, it is not included. Default is True.
-    + `retstep`: bool, optional<br/>
-      If True, return (samples, step), where step is the spacing between samples.
-    + `dtype`: dtype, optional<br/>
-      The type of the output array. If `dtype` is not given, infer the data type from the other input arguments.
-    + `axis`: int, optional<br/>
-      The axis in the result to store the samples. Relevant only if start or stop are array-like. By default (0), the samples will be along a new axis inserted at the beginning. Use -1 to get an axis at the end.
-  + Returns
-    + `samples`: ndarray<br/>
-      There are num equally spaced samples in the closed interval [start, stop] or the half-open interval [start, stop) (depending on whether endpoint is True or False).
-    + `step`: float, optional<br/>
-      Only returned if retstep is True, Size of spacing between samples.
 
-+ `numpy.histogram`
-  + `numpy.histogram(a, bins=10, range=None, normed=None, weights=None, density=None)`
++ [`numpy.histogram`](https://tinyurl.com/y4exrjuz)
+  + Syntax: `numpy.histogram(a, bins=10, range=None, normed=None, weights=None, density=None)`
   + Docstring: Compute the histogram of a set of data.
-  + Parameterrs
-    + `a`: array_like<br/>
-      Input data. The histogram is computed over the flattened array.
-    + `bins`: int or sequence of scalars or str, optional
-      + If bins is an int, it defines the number of equal-width bins in the given range (10, by default). If bins is a sequence, it defines a monotonically increasing array of bin edges, including the rightmost edge, allowing for non-uniform bin widths.
-      + If bins is a string, it defines the method used to calculate the optimal bin width, as defined by `histogram_bin_edges`.
-    + `range`: (float, float), optional<br/>
-      The lower and upper range of the bins. If not provided, range is simply (a.min(), a.max()). Values outside the range are ignored. The first element of the range must be less than or equal to the second. range affects the automatic bin computation as well. While bin width is computed to be optimal based on the actual data within range, the bin count will fill the entire range including portions containing no data.
-    + `weights`: array_like, optional<br/>
-      An array of weights, of the same shape as a. Each value in a only contributes its associated weight towards the bin count (instead of 1). If density is True, the weights are normalized, so that the integral of the density over the range remains 1.
-    + `density`: bool, optional<br/>
-      If False, the result will contain the number of samples in each bin. If True, the result is the value of the probability density function at the bin, normalized such that the integral over the range is 1. Note that the sum of the histogram values will not be equal to 1 unless bins of unity width are chosen; it is not a probability mass function.
-  + Returns
-    + `hist`: array<br/>
-      The values of the histogram. See density and weights for a description of the possible semantics.
-    + `bin_edges`: array of dtype float<br/>
-      Return the bin edges `(length(hist)+1)`.
 
-+ `np.histogram_bin_edges`
-  + `numpy.histogram_bin_edges(a, bins=10, range=None, weights=None)`
++ [`numpy.histogram_bin_edges`](https://tinyurl.com/y5ss3l6l)
+  + Syntax: `numpy.histogram_bin_edges(a, bins=10, range=None, weights=None)`
   + Docstring: Function to calculate only the edges of the bins used by the histogram function.
-  + Parameters
-    + `a`: array_like<br/>
-      Input data. The histogram is computed over the flattened array.
-    + `bins`: int or sequence of scalars or str, optional
-      + If bins is an int, it defines the number of equal-width bins in the given range (10, by default). If bins is a sequence, it defines the bin edges, including the rightmost edge, allowing for non-uniform bin widths.
-      + If bins is a string from the list below, histogram_bin_edges will use the method chosen to calculate the optimal bin width and consequently the number of bins (see Notes for more detail on the estimators) from the data that falls within the requested range. While the bin width will be optimal for the actual data in the range, the number of bins will be computed to fill the entire range, including the empty portions. For visualisation, using the 'auto' option is suggested. Weighted data is not supported for automated bin size selection.
-      + `'auto'`: Maximum of the `'sturges'` and `'fd'` estimators. Provides good all around performance.
-      + `'fd'` (Freedman Diaconis Estimator)
-      + Robust (resilient to outliers) estimator that takes into account data variability and data size.
-      + `'doane'`: An improved version of `Sturges` estimator that works better with non-normal datasets.
-      + `'scott'`: Less robust estimator that that takes into account data variability and data size.
-      + `'stone'`: Estimator based on leave-one-out cross-validation estimate of the integrated squared error. Can be regarded as a generalization of Scott's rule.
-      + `'rice'`: Estimator does not take variability into account, only data size. Commonly overestimates number of bins required.
-      + `'sturges'`: R's default method, only accounts for data size. Only optimal for gaussian data and underestimates number of bins for large non-gaussian datasets.
-      + `'sqrt'`: Square root (of data size) estimator, used by Excel and other programs for its speed and simplicity.
-    + `range`: (float, float), optional <br/>
-      The lower and upper range of the bins. If not provided, range is simply (a.min(), a.max()). Values outside the range are ignored. The first element of the range must be less than or equal to the second. range affects the automatic bin computation as well. While bin width is computed to be optimal based on the actual data within range, the bin count will fill the entire range including portions containing no data.
-    + `weights`: array_like, optional<br/>
-      An array of weights, of the same shape as a. Each value in a only contributes its associated weight towards the bin count (instead of 1). This is currently not used by any of the bin estimators, but may be in the future.
-  + Returns
-    + `bin_edges`: array of dtype float<br/>
-      The edges to pass into histogram
 
-+ `Series.value_counts`
-  + `Series.value_counts(self, normalize=False, sort=True, ascending=False, bins=None, dropna=True)`
++ [`Series.value_counts`](https://tinyurl.com/y5hno3mz)
+  + Syntax: `Series.value_counts(self, normalize=False, sort=True, ascending=False, bins=None, dropna=True)`
   + Docstring
     + Return a Series containing counts of unique values.
     + The resulting object will be in descending order so that the first element is the most frequently-occurring element. Excludes NA values by default.
-  + Parameteers
-    + `normalize`: bool, default False<br/>
-      If True then the object returned will contain the relative frequencies of the unique values.
-    + `sort`: bool, default True<br/>
-      Sort by frequencies.
-    + `ascending`: bool, default False<br/>
-      Sort in ascending order.
-    + `bins`: int, optional<br/>
-      Rather than count values, group them into half-open bins, a convenience for pd.cut, only works with numeric data.
-    + `dropna`: bool, default True<br/>
-      Don't include counts of NaN.
-  + Return: Series
 
 
 

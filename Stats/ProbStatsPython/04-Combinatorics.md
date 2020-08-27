@@ -106,7 +106,7 @@
   c. 24<br/>
   d. 36<br/>
 
-  Ans: 2<br/>
+  Ans: c<br/>
   Explanation: 4! = 24
 
 
@@ -119,7 +119,7 @@
   Ans: b
 
 
-2. Which of the following are true for all $n,m \in \mathbb{N}$ and $n \geq 1$.<br/>
+2. Which of the following are true for all $n,m \in \Bbb{N}$ and $n \geq 1$.<br/>
   a. $n! = n \cdot (n−1)! $<br/>
   b. $(n⋅m)! = n! \cdot m! $<br/>
   c. $(n+m)! = n! + m! $<br/>
@@ -163,10 +163,14 @@
   a. in a row,<br/>
   b. in a circle?<br/>
 
-  Ans: a. (48); b. (96, <span style="color: magenta;">16<span>)<br/>
+  Ans: a. (48); b. (<span style="color: magenta;">96</span>, x16)<br/>
+  Hint: As in the general comment, recall that rotations matter. It may be useful to imagine a round table with 6 chairs, and a single mark on the table, between two specific chairs. Observe that for some configurations of the 6 people, the mark is between two different couples, denoting the mark by `*`, e.g., `*`  $A_2A_1C_1C_2B_2B_1$ where $A,B$, and $C$ represent the different couples, and the because of the circular arrangement  B1  seats next to the `*`. For other configurations, the mark separates two members of the same couple for example `*`$A_1C_1C_2B_2B_1A_2$, where $A_2$ seats next to the *. You can count the number of configurations of each type.<br/>
   Explanation:
-    + There are  3!  ways to decide on the order of the couples, and then  23  ways to determine the order for each couple, hence a total of $3! \cdot 2^3 = 48$  ways.
-    + Configuration where the mark is between two couples correspond to configurations in a row, hence there are $3! \cdot 23=48$ of them. Furthermore each circular shift of such a configuration results in one where the mark separates two members of the same couple. Hence there are also 48 such configurations, and the total number of configurations is $48 \cdot 2=96$.
+    + There are  3!  ways to decide on the order of the couples, and then $2^3$ ways to determine the order for each couple, hence a total of $3! \cdot 2^3 = 48$  ways.
+    + Configuration where the mark is between two couples correspond to configurations in a row, hence there are $3! \cdot 2^3=48$ of them. Furthermore each circular shift of such a configuration results in one where the mark separates two members of the same couple. Hence there are also 48 such configurations, and the total number of configurations is $48 \cdot 2=96$.
+    + [Couples sitting at a round table](https://tinyurl.com/yy6xmue7)
+    + [Probability that 3 husbands sit next to their wives round a circular table](https://tinyurl.com/yxjy4ca2)
+    + [Find the number of ways zn of seating n couples around a rectangular table such that no one is allowed to sit next to his or her partner](https://tinyurl.com/y5vrncdy)
 
 
 ### Lecture Video
@@ -245,19 +249,20 @@
 
   Ans: a. (42072307200); b. (78624000); c. (336960000) <br/>
   Explanation:
-    + $36^7 = 42,072,307,200$
-    + Choose 3 from capital letters, and 4 from digits, where the order matters. The result is $P(26, 3) \cdot P(10, 4) = 78,624,000$.
-    + Such plates contain either four letters and three digits, or the other way. The two sets are disjoint. Hence $P(26, 3) \cdot P(10, 4) + P(26, 4) \cdot P(10, 3) = 336,960,000$.
+    + $36^{\underline{7}}=42,072,307,200$
+    + Choose 3 from capital letters, and 4 from digits, where the order matters. The result is $26^{\underline 3}\cdot10^{\underline 4} = P(26, 3) \cdot P(10, 4) = 78,624,000$.
+    + Such plates contain either four letters and three digits, or the other way. The two sets are disjoint. Hence $26^{\underline 3}\cdot10^{\underline 4}+26^{\underline 4}\cdot10^{\underline 3} = P(26, 3) \cdot P(10, 4) + P(26, 4) \cdot P(10, 3) = 336,960,000$.
 
 
 4. A derangement is a permutation of the elements such that none appear in its original position. For example, the only derangements of {1,2,3} are {2,3,1} and {3,1,2}. How many derangements does {1,2,3,4} have?
 
   Ans: 9<br/>
+  Hint: Let $F_1$ be the set of permutations of $\{1,2,3,4\}$, where 1 is in location 1, for example 1324. Similarly let $F_2$  be the set of permutations where 2 is in location 2, for example 3214, etc. Use inclusion exclusion to calculate $F_1\cup F_2\cup F_3\cup F_4$. Then observe that the the question asks for the complement of this set.<br/>
   Explanation:
     + Let $F_1$ be the set of permutations of {1,2,3,4}, where 1 is in location 1, for example 1324. Similarly let $F_2$ be the set of permutations where 2 is in location 2, for example 3214, etc.
     + Then $F_1 \cup F_2 \cup F_3 \cup F_4$ is the set of all 4-permutations where at least one element remains in its initial location. The set of permutations where no elements appears in its initial location is the complement of this set.
-    + Note that $\sum_i |F_i|= P(4, 3)$ (1 location is fixed, so 3-permutation), $\sum_i\sum_j |F_i \cap F_j|= P(4, 2)$ , $\sum_i \sum_j \sum_k |F_i \cap F_j \cap F_k| = P(4,1)$, and $|F_1 \cap F_2 \cap F_3 \cap F_4| = P(4, 0)$.
-    + Hence by inclusion exclusion, $|F_1 \cup F_2 \cup F_3 \cup F_4|= P(4, 3) − P(4, 2) + P(4, 1) − P(4, 0) = 24−12+4−1=15$.
+    + Note that $\sum_{i}|F_i| = 4^{\underline{3}}$ $= P(4, 3)$ (1 location is fixed, so 3-permutation), $\sum_{i} \sum_{j} |F_i\cap F_j|$ $= 4^{\underline{2}}$ $= P(4, 2)$ , $\sum_{i} \sum_{j} \sum_{k} |F_i\cap F_j\cap F_k|$ $= 4^{\underline{1}}$ $= P(4, 1)$, and $|F_1\cap F_2\cap F_3\cap F_4|$ $= 4^{\underline{0}}$ $= P(4, 0)$.
+    + Hence by inclusion exclusion, $|F_1\cup F_2\cup F_3\cup F_4|$ $= 4^{\underline3}-4^{\underline2}+4^{\underline1}-4^{\underline0}$ $=24-12+4-1$ $=15$.
     + It follows that the number of derangements is $4!−15=9$.
 
 
@@ -391,22 +396,30 @@
   Explanation: It can be deducted from partial permutation, but the order does not matter. It is $(\frac{15}{5}) = \frac{15^5}{5!} = \frac{15!}{5!10!}$.
 
 
-2. In how many ways can you select a group of 2 people out of 5?
+2. 
+  1) In how many ways can you select a group of 2 people out of 5?<br/>
+    a. 10<br/>
+    b. 25<br/>
+    c. 125<br/>
+    d. None of the above<br/>
   
-  In how many ways can you select a group of 3 people out of 5?
+  2) In how many ways can you select a group of 3 people out of 5?<br/>
+    a. 10<br/>
+    b. 25<br/>
+    c. 125<br/>
+    d. None of the above<br/>
 
-  In how many ways can you divide 5 people into two groups, where the first group has 2 people and the second has 3?
+  3) In how many ways can you divide 5 people into two groups, where the first group has 2 people and the second has 3?<br/>
+    a. 10<br/>
+    b. 25<br/>
+    c. 125<br/>
+    d. None of the above<br/>
 
-  a. 10<br/>
-  b. 25<br/>
-  c. 125<br/>
-  d. None of the above<br/>
-
-  Ans: a<br/>
+  Ans: 1. (a); 2. (a); 3. (a)<br/>
   Explanation:
   + binom(5, 2) = 10
   + binom(5, 3) = 10
-  + After we determine the group of 2, the group of 3 is determined as well, hence the answer is binom(5, 2) = 10
+  + After we determine the group of 2, the group of 3 is determined as well, hence the answer is $binom{5}{2} = 10$
 
   
 3. Ten points are placed on a plane, with no three on the same line. Find the number of:<br/>
@@ -449,8 +462,9 @@
   Explanation:
     + This is simply $\binom{52}{5}$.
     + There are 4 suits in total and 13 cards in each suit, hence $4 \cdot \binom{13}{5}$ hands.
-    + One of the 4 suits will appear twice, hence $4 \cdot \binom{13}{2} \cdot \binom{13}{3}$ hands.
+    + One of the 4 suits will appear twice, hence $4 \cdot \binom{13}{2} \cdot 13^3$ hands.
     + First pick 5 out of 13 ranks, then choose their suits. Therefore there are $\binom{13}{5} \cdot 4^5$ hands.
+    + [5-Card Poker Hands](https://tinyurl.com/7ybzb5v)
 
 
 7. A company employs 4 men and 3 women. How many teams of three employees have at most one woman?<br/>
@@ -483,9 +497,9 @@
   c. no two blue balls are adjacent.<br/>
 
   Ans: a. (3628800); b. (4838400); c. (33868800)<br/>
-    + There are 6 ways to place 7 red balls adjacent. Hence the number of ways is  6×7!×5!=3628800 .
-    + There are 8 ways to place 5 red balls adjacent. Hence the number of ways is  8×7!×5!=4838400 .
-    + First, decide on the locations of the red and blue balls. Arrange all 7 red balls in a line, we can then choose 5 out of the 8 gaps (including those at the beginning and end) to place the blue balls. Since the balls are distinct we can permute the blue balls, and the red balls, for a total of  (85)7!5!  arrangements.
+    + There are 6 ways to place 7 red balls adjacent. Hence the number of ways is $6 × 7! × 5!=3628800$.
+    + There are 8 ways to place 5 red balls adjacent. Hence the number of ways is $8 × 7! × 5!=4838400$.
+    + First, decide on the locations of the red and blue balls. Arrange all 7 red balls in a line, we can then choose 5 out of the 8 gaps (including those at the beginning and end) to place the blue balls. Since the balls are distinct we can permute the blue balls, and the red balls, for a total of $\binom{8}{5} 7!5!$ arrangements.
 
 
 10. For the set {1,2,3,4,5,6,7} find the number of:<br/>
@@ -519,11 +533,14 @@
 
   Ans: a. ($4^3$); b. ($3^4$); c. (<span style="color: magenta;">24</span>); d. (<span style="color: magenta;">36</span>)<br/>
   Explanation:
-    + As we saw in the lecture, there are  $|B|^{|A|}=4^33=64$ functions from $A$ to $B$.
+    + As we saw in the lecture, there are  $|B|^{|A|}=4^3=64$ functions from $A$ to $B$.
     + $|A|^{|B|}=3^4=81$
     + There are 4 possible values for $f(1)$. Once $f(1)$ is determined, 3 options for $f(2)$ will keep $f$ one-to-one. And after $f(1)$ and $f(2)$ are determined, two options for $f(3)$ will keep $f$ one-to-one. Hence the total number of one-to-one functions is $4^{\underline{3}} = 4⋅3⋅2 = 24$.
     + If a mapping from $B$ to $A$ is onto, then two elements of $B$ map to a single element in $A$, while the other two elements of $B$ map to the remaining 2 elements of $A$. There are $\binom{4}{2}=6$ ways to choose the two elements with the same image, and then $3!=6$ ways to to associate the pair and two other elements of $B$ with the three elements of $A$. The total number of onto functions from $B$ to $A$ is therefore $6⋅6=36$.
     + alternative for counting surjective function w/ PIE: $n^m + \sum_{i=1}^{n-1} (-1)^i \binom{n}{i} (n-i)^m, \quad |A| = m, |B| = n$
+    + [Counting Bijective, Injective, and Surjective Functions](https://blog.jpolak.org/?p=1773)
+      + Injective Functions $[k]\to[n]$: $P(n, k)$
+      + Surjective Functions $[n]\to [k]$: $S(n,k) = \sum_{j=1}^k \frac{(-1)^{k-j}k!j^n}{j!(k-j)!}$
 
 
 
@@ -584,7 +601,7 @@
   c. 60<br/>
   d. 150<br/>
 
-  Ans: 150<br/>
+  Ans: d<br/>
   Explanation: $\binom{6}{2} \cdot \binom{5}{2} = 15 \times 10 = 150$
 
 
@@ -710,7 +727,7 @@
   Explanation: As $\binom{n+2}{5}= \frac{(n+2)(n+1)}{5⋅4}\binom{n}{3}$, $\frac{n+2)(n+1)}{5⋅4}=12$. Hence $n=14$.
 
 
-3. Which of the following is the expansion of  (x+y)3 ?<br/>
+3. Which of the following is the expansion of $(x+y)^3$?<br/>
   a. $x^3+y^3$<br/>
   b. $x^3+x^2y+xy^2+y^3$<br/>
   c. $x^3+6xy+y^3$<br/>
@@ -978,8 +995,8 @@
   c. 48<br/>
   d. None of the above<br/>
 
-  Ans: <span style="color: magenta;">48</span><br/>
-  Explanation: The answer is 48. The number of ways to have 2 "2"s, 1 "x", 1 "y" is 12 (using multinomial coefficient). Then we multiply it with $2^2 = 4$ and get the answer.
+  Ans: <span style="color: magenta;">c??</span><br/>
+  Explanation: The answer is 48. The number of ways to have 2 "2"s, 1 "x", 1 "y" is 12?? ($\binom{4}{1,1,2} = \frac{4!}{1!\,1!\,2!} = 6$) (using multinomial coefficient). Then we multiply it with $2^2 = 4$ and get the answer.
 
 
 1. In how many ways can you give three baseball tickets, three soccer tickets, and three opera tickets, all general admission, to nine friend so each gets one ticket?
@@ -1029,7 +1046,7 @@
   Explanation: 
     + We have 4 "E"s, 2 "R"s, and 1 "F". The answer is $\tbinom{7}{1,2,4} =105$.
     + Suppose the 2 "R"s are not separated. Then we have 4 "E"s, 1 "RR", 1 "F". The number of them is $\tbinom{6}{1,1,4}$. The number of angrams where two "R"'s are separated $105 − \tbinom{6}{1,1,4}=75$.
-    + There are only 3 words that do not contain "EE" (i.e. "EREREFE", "EREFERE", "EFERERE") $105−btbinom{3}{1}=102$.
+    + There are only 3 words that do not contain "EE" (i.e. "EREREFE", "EREFERE", "EFERERE") $105−\tbinom{3}{1}=102$.
     + Fixing "R" in the first postions, we now have 4"E"s, 1 "R", 1 "F". The number of them $\tbinom{6}{1,1,4}=30$.
 
 
@@ -1192,24 +1209,26 @@
   b. the first urn has at least  1  red ball and at least  2  blue balls,<br/>
   c. each urn has at least 1 ball?<br/>
 
-  Ans: a. (81796); b. (); c. ()<br/>
+  Ans: a. (81796); b. (36300); c. (65094)<br/>
+  Hint: Let $(a,b,c,d)$ be the number of balls you put into the 4 urns respectively. Then $(4,3,2,1)$ and $(1,2,3,4)$ are different.<br/>
   <span style="color: magenta;">Explanation:</span>
     + $\tbinom{13}{3} \cdot \tbinom{13}{3}$, by combining stars and bars for both balls evaluated separately. [StackExchange](https://tinyurl.com/y8myez2v)
     + First place 1 red ball and 2 blue balls in the first urn, and then repeat the above part with 9 red balls and 8 blue balls, resulting in $\tbinom{12}{3} \cdot \tbinom{11}{3}$
-    + There are  $\tbinom{12}{2}^2$ ways to place the balls so that urn 1 is empty, $\tbinom{11}{1}^2$ ways so that urns 1 and 2 are empty and $\tbinom{10}{0}^2=1$ so that urns 1 2 and 3 are empty. By inclusion exclusion, there are  $\tbinom{4}{1} \tbinom{12}{2}^2 − \tbinom{4}{2}\tbinom{11}{1}^2+ \tbinom{4}{3}\tbinom{10}{0}^2$ placements where at least one urn is empty. And by the complement rule, the answer is $\tbinom{13}{3}^2−\tbinom{4}{1}\tbinom{12}{2}^2+\tbinom{4}{2}\tbinom{11}{1}^2−\tbinom{4}{3}\tbinom{10}{0}^2=65,094$. [StackExchange](https://tinyurl.com/y7w3h6t2)
+    + There are  $\tbinom{12}{2}^2$ ways to place the balls so that urn 1 is empty, $\tbinom{11}{1}^2$ ways so that urns 1 and 2 are empty and $\tbinom{10}{0}^2=1$ so that urns 1 2 and 3 are empty. By inclusion exclusion, there are  $\tbinom{4}{1} \tbinom{12}{2}^2$ $− \tbinom{4}{2}\tbinom{11}{1}^2$ $+ \tbinom{4}{3}\tbinom{10}{0}^2$ placements where at least one urn is empty. And by the complement rule, the answer is $\tbinom{13}{3}^2$ $−\tbinom{4}{1}\tbinom{12}{2}^2$ $+\tbinom{4}{2}\tbinom{11}{1}^2$ $−\tbinom{4}{3}\tbinom{10}{0}^2$ $=65,094$. [StackExchange](https://tinyurl.com/y7w3h6t2)
 
 
 3. How many 6-digit sequences are:<br/>
   a. strictly ascending, as 024579 or 135789, but not 011234,<br/>
   b. ascending (not necessarily strictly), as 023689, 033588, or 222222.<br/>
 
-  Ans: a. (210); b. (5005)<br/>
+  Ans: a. (<font style="color: magenta;">210</font>); b. (<font style="color: magenta;">5005</font>)<br/>
+  Hint: For the first part, the number of striclty assending 6-digit sequences is the number of ways to choose 6 digits without repetition.<br/>
   Explanation
-    + Every six-digit strictly asending sequence corresponts to 6 distinct digits. There are $\tbinom(10}{6}=210$ ways to choose them. [StackExchange](https://tinyurl.com/ycw6teu5)
-    + Every six-digit (not necessarily striclty) assending sequence corresponds to a collection of 6 digits, possibly with repetition. Let $x_i$  denote the number of times digit i is included in the number. Using stars and bars, the number of ways of assigning $x_0+x_1+ \cdots + x_9=6$ is $\tbinom{6+10−1}{6}=5005$. [StackExchange](https://tinyurl.com/yb5zfhvv)
+    + Every six-digit strictly asending sequence corresponts to 6 distinct digits. There are $\tbinom{10}{6}=210$ ways to choose them. [StackExchange](https://tinyurl.com/ycw6teu5)
+    + Every six-digit (not necessarily striclty) assending sequence corresponds to a collection of 6 digits, possibly with repetition. Let $x_i$  denote the number of times digit i is included in the number. Using stars and bars, the number of ways of assigning $x_0+x_1+ \cdots + x_9=6$ is $\tbinom{6+10−1}{10-1}=5005$. [StackExchange](https://tinyurl.com/yb5zfhvv)
 
 
-4. How many terms are there in the expansion of  (x+y+z)10  ?
+4. How many terms are there in the expansion of $(x+y+z)^{10}$?
 
   Ans: 66 <br/>
   Explanation: Any coefficient corresponds to a term of the form  xa1ya2za3  with $a_1+a_2+a_3=10$ such that $a_i \geq 0$. The number of possible solutions to this problem is given by $\tbinom{12}{2}=66$.
