@@ -875,7 +875,7 @@
     \[\begin{align*}
       f_Y(y) &= \left.\frac{1}{(ax+b)^\prime} f_X(x) \right|_{y=ax+b} \qquad \left( x = \frac{y - b}{a} \right) \\
       &= \frac 1 a \frac{1}{\sqrt{2\pi \sigma^2}} e^{-\frac{\left(\frac{y-b}{a} - \mu\right)^2}{2\sigma^2}} = \frac{1}{\sqrt{2\pi(a\sigma)^2}} e^{- \frac{(y - (a\mu +b))^2}{2(a\sigma)^2}}\\\\
-      Y &\sim \mathcal{N}eft(a\mu+b, (a\sigma)^2\right)
+      Y &\sim \mathcal{N}\left(a\mu+b, (a\sigma)^2\right)
     \end{align*}\]
 
 + Standard Normal distribution
