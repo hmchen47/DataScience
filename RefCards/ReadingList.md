@@ -21,7 +21,7 @@
 
 
 
-## Statistics
+## Probability & Statistics
 
 ### Study Design
 
@@ -53,6 +53,7 @@
 + Martin Zinkevich, [Rules of Machine Learning: Best Practices for ML Engineering](../AppliedDS-UMich/3-AML/p4-MLRules.md)
 + Maytal Saar-Tsechansky and Foster Provost, [Handling Missing Values when Applying Classification Models](../AppliedDS-UMich/3-AML/p5-Missing.md)
 + [Graphs](../AppliedDS-UMich/5-SocialNet/p2-Graphs.md)
+
 
 
 ### Machine Learning Models
@@ -110,6 +111,7 @@
 
 
 
+---------------------------------------------------------------------
 
 ## Reading List
 
@@ -170,6 +172,7 @@
 
 + Farhad Malik, [End To End Guide For Machine Learning Project](https://tinyurl.com/y4vey39z), Dec 28, 2018
 
++ Cem Sazara, [Natural Language Processing](https://tinyurl.com/y22gq94l) w/ [Video](https://tinyurl.com/y4j4kp53)
 
 
 ### Neural Networks
