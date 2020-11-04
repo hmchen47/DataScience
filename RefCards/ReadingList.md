@@ -125,6 +125,8 @@
 
 ### Probability and Statistics
 
++ David Colquhoun, [The reproducibility of research and the misinterpretation of p-values](https://tinyurl.com/y5h7pbhu), R Soc Open Sci., 2017 
++ Regina L. Nuzzo, [The Inverse Fallacy and Interpreting P Values](https://tinyurl.com/y5dj9r6y), 2015
 + Prof. John Tsitsiklis and Prof. Patrick Jaillet, [Introduction to Probability](https://ocw.mit.edu/resources/res-6-012-introduction-to-probability-spring-2018/), 2018
 + Professor A.J. Hildebrand, [Math 370X: Actuarial Problem solving, Spring 2008](https://faculty.math.illinois.edu/~hildebr/370/)
 + Alexandros Psomas, David Dinh, Fan Ye, [Discrete Mathematics and Probability Theory](https://inst.eecs.berkeley.edu/~cs70/su16/)
