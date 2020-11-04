@@ -20,7 +20,7 @@
 + [Machine Learning & Neural Networks - Hinton](./ML/MLNN-Hinton/README.md)
 
 
-## Statistics
+## Mathematics
 
 + [Probability and Statistics in Data Science using Python - edX](./Stats/ProbStatsPython/README.md)
 
@@ -41,21 +41,12 @@
   </thead>
   <tbody>
   <tr>
-<<<<<<< HEAD
-  <tr> <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Help Cards </td> </tr>
-    <th style="padding: 0.3em; width: 10vw; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Stat-HelpCards.md#statistics-notation"> Notations </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Stat-HelpCards.md#naming-scenarios-for-inference"> Inference Scenarios </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/Stat-HelpCards.md#chi-square-tests"> $\chi^2$ Test </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="">  </a> </td>
-=======
     <td colspan="5" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Statistics Help Cards </td> </tr>
     <th style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
     <td style="padding: 0.3em; width: 10%;"> <a href="./RefCards/Stat-HelpCards.md#statistics-notation"> Notations </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="./RefCards/Stat-HelpCards.md#naming-scenarios-for-inference"> Inference Scenarios </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="./RefCards/Stat-HelpCards.md#chi-square-tests"> $\chi^2$ Test </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="">  </a> </td>
->>>>>>> pspy
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Basic Formula </th>
