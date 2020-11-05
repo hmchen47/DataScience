@@ -101,10 +101,10 @@ from matplotlib.colors import ListedColormap
 <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 60vw;">
   <thead>
   <tr style="border-bottom: double black;">
-    <th style="width: 10vw; font-size: 1.2em; border-right: double back; background-color: #4CAF50; color: darkblue; font-size: 1.4em;"> Character </th>
-    <th style="width: 20vw; text-align: left; font-size: 1.2em; background-color: #4CAF50; color: darkblue; font-size: 1.4em; border-right: double white;"> Description </th>
-    <th style="width: 10vw; font-size: 1.2em; border-right: double back; background-color: #4CAF50; color: darkblue; font-size: 1.4em;"> Character </th>
-    <th style="width: 20vw; text-align: left; font-size: 1.2em; background-color: #4CAF50; color: darkblue; font-size: 1.4em;"> Description </th>
+    <th style="width: 10vw; font-size: 1.3em; border-right: double back; background-color: #4CAF50; color: darkblue; font-size: 1.4em;"> Character </th>
+    <th style="width: 20vw; text-align: left; font-size: 1.3em; background-color: #4CAF50; color: darkblue; font-size: 1.4em; border-right: double white;"> Description </th>
+    <th style="width: 10vw; font-size: 1.3em; border-right: double back; background-color: #4CAF50; color: darkblue; font-size: 1.4em;"> Character </th>
+    <th style="width: 20vw; text-align: left; font-size: 1.3em; background-color: #4CAF50; color: darkblue; font-size: 1.4em;"> Description </th>
   </tr>
   </thead>
   <tbody>
@@ -196,10 +196,10 @@ from matplotlib.colors import ListedColormap
 <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 40vw;">
   <thead>
   <tr style="border-bottom: double black;">
-    <th style="width: 10vw; font-size: 1.2em; border-right: double back; background-color: #4CAF50; color: darkblue; font-size: 1.4em;"> Character </th>
-    <th style="width: 10vw; text-align: left; font-size: 1.2em; background-color: #4CAF50; color: darkblue; font-size: 1.4em; border-right: double white;"> Color </th>
-    <th style="width: 10vw; font-size: 1.2em; border-right: double back; background-color: #4CAF50; color: darkblue; font-size: 1.4em;"> Character </th>
-    <th style="width: 10vw; text-align: left; font-size: 1.2em; background-color: #4CAF50; color: darkblue; font-size: 1.4em;"> Color </th>
+    <th style="width: 10vw; font-size: 1.3em; border-right: double back; background-color: #4CAF50; color: darkblue; font-size: 1.4em;"> Character </th>
+    <th style="width: 10vw; text-align: left; font-size: 1.3em; background-color: #4CAF50; color: darkblue; font-size: 1.4em; border-right: double white;"> Color </th>
+    <th style="width: 10vw; font-size: 1.3em; border-right: double back; background-color: #4CAF50; color: darkblue; font-size: 1.4em;"> Character </th>
+    <th style="width: 10vw; text-align: left; font-size: 1.3em; background-color: #4CAF50; color: darkblue; font-size: 1.4em;"> Color </th>
   </tr>
   </thead>
   <tbody>
@@ -260,72 +260,267 @@ import seaborn as sns
 
 ### [seaborn API][045]
 
-| API | Description | Link |
-|-----|-------------|------|
-| __Axis grids__ | | |
-| `FacetGrid(data[, row, col, hue, col_wrap, ...])` | Subplot grid for plotting conditional relationships. | [Link](https://seaborn.pydata.org/generated/seaborn.FacetGrid.html#seaborn.FacetGrid) |
-| `factorplot([x, y, hue, data, row, col, ...])` | Draw a categorical plot onto a FacetGrid. | [Link](https://seaborn.pydata.org/generated/seaborn.factorplot.html#seaborn.factorplot) |
-| `lmplot(x, y, data[, hue, col, row, palette, ...])` | Plot data and regression model fits across a FacetGrid. | [Link](https://seaborn.pydata.org/generated/seaborn.lmplot.html#seaborn.lmplot) |
-| `PairGrid(data[, hue, hue_order, palette, ...])` | Subplot grid for plotting pairwise relationships in a dataset. | [Link](https://seaborn.pydata.org/generated/seaborn.PairGrid.html#seaborn.PairGrid) |
-| `pairplot(data[, hue, hue_order, palette, ...])` | Plot pairwise relationships in a dataset. | [Link](https://seaborn.pydata.org/generated/seaborn.pairplot.html#seaborn.pairplot), [Seaborn][048] |
-| `JointGrid(x, y[, data, size, ratio, space, ...])` | Grid for drawing a bivariate plot with marginal univariate plots. | [Link](https://seaborn.pydata.org/generated/seaborn.JointGrid.html#seaborn.JointGrid) |
-| `jointplot(x, y[, data, kind, stat_func, ...])` | Draw a plot of two variables with bivariate and univariate graphs. | [Link](https://seaborn.pydata.org/generated/seaborn.jointplot.html#seaborn.jointplot), [Seaborn][048] |
-| __Categorical plots__ | | |
-| `stripplot([x, y, hue, data, order, ...])` | Draw a scatterplot where one variable is categorical. | [Link](https://seaborn.pydata.org/generated/seaborn.stripplot.html#seaborn.stripplot) |
-| `swarmplot([x, y, hue, data, order, ...])` | Draw a categorical scatterplot with non-overlapping points. | [Link](https://seaborn.pydata.org/generated/seaborn.swarmplot.html#seaborn.swarmplot), [Seaborn][048] |
-| `boxplot([x, y, hue, data, order, hue_order, ...])` | Draw a box plot to show distributions with respect to categories. | [Link](https://seaborn.pydata.org/generated/seaborn.boxplot.html#seaborn.boxplot) |
-| `violinplot([x, y, hue, data, order, ...])` | Draw a combination of boxplot and kernel density estimate. | [Link](https://seaborn.pydata.org/generated/seaborn.violinplot.html#seaborn.violinplot), [Seaborn][048] |
-| `lvplot([x, y, hue, data, order, hue_order, ...])` | Draw a letter value plot to show distributions of large datasets. | [Link](https://seaborn.pydata.org/generated/seaborn.lvplot.html#seaborn.lvplot) |
-| `pointplot([x, y, hue, data, order, ...])` | Show point estimates and confidence intervals using scatter plot glyphs. | [Link](https://seaborn.pydata.org/generated/seaborn.pointplot.html#seaborn.pointplot) |
-| `barplot([x, y, hue, data, order, hue_order, ...])` | Show point estimates and confidence intervals as rectangular bars. | [Link](https://seaborn.pydata.org/generated/seaborn.barplot.html#seaborn.barplot) |
-| `countplot([x, y, hue, data, order, ...])` | Show the counts of observations in each categorical bin using bars. | [Link](https://seaborn.pydata.org/generated/seaborn.countplot.html#seaborn.countplot) |
-| __Distribution plots__ | | |
-| `distplot(a[, bins, hist, kde, rug, fit, ...])` | Flexibly plot a univariate distribution of observations. | [Link](https://seaborn.pydata.org/generated/seaborn.distplot.html#seaborn.distplot), [Seaborn][048] |
-| `kdeplot(data[, data2, shade, vertical, ...])` | Fit and plot a univariate or bivariate kernel density estimate. | [Link](https://seaborn.pydata.org/generated/seaborn.kdeplot.html#seaborn.kdeplot), [Seaborn][048] |
-| `rugplot(a[, height, axis, ax])` | Plot datapoints in an array as sticks on an axis. | [Link](https://seaborn.pydata.org/generated/seaborn.rugplot.html#seaborn.rugplot) |
-| __Regression plots__ | | |
-| `regplot(x, y[, data, x_estimator, x_bins, ...])` | Plot data and a linear regression model fit. | [Link](https://seaborn.pydata.org/generated/seaborn.regplot.html#seaborn.regplot) |
-| `residplot(x, y[, data, lowess, x_partial, ...])` | Plot the residuals of a linear regression. | [Link](https://seaborn.pydata.org/generated/seaborn.residplot.html#seaborn.residplot) |
-| __Matrix plots__ | | |
-| `heatmap(data[, vmin, vmax, cmap, center, ...])` | Plot rectangular data as a color-encoded matrix. | [Link](https://seaborn.pydata.org/generated/seaborn.heatmap.html#seaborn.heatmap) |
-| `clustermap(data[, pivot_kws, method, ...])` | Plot a matrix dataset as a hierarchically-clustered heatmap. | [Link](https://seaborn.pydata.org/generated/seaborn.clustermap.html#seaborn.clustermap) |
-| __Timeseries plots__ | | |
-| `tsplot(data[, time, unit, condition, value, ...])` | Plot one or more timeseries with flexible representation of uncertainty. | [Link](https://seaborn.pydata.org/generated/seaborn.tsplot.html#seaborn.tsplot) |
-| __Miscellaneous plots__ | | |
-| `palplot(pal[, size])` | Plot the values in a color palette as a horizontal array. | [Link](https://seaborn.pydata.org/generated/seaborn.palplot.html#seaborn.palplot) |
-| __Style frontend__ | | |
-| `set([context, style, palette, font, ...])` | Set aesthetic parameters in one step. | [Link](https://seaborn.pydata.org/generated/seaborn.set.html#seaborn.set) |
-| `axes_style([style, rc])` | Return a parameter dict for the aesthetic style of the plots. | [Link](https://seaborn.pydata.org/generated/seaborn.axes_style.html#seaborn.axes_style) |
-| `set_style([style, rc])` | Set the aesthetic style of the plots. | [Link](https://seaborn.pydata.org/generated/seaborn.set_style.html#seaborn.set_style) |
-| `plotting_context([context, font_scale, rc])` | Return a parameter dict to scale elements of the figure. | [Link](https://seaborn.pydata.org/generated/seaborn.plotting_context.html#seaborn.plotting_context), [Seaborn][048] |
-| `set_context([context, font_scale, rc])` | Set the plotting context parameters. | [Link](https://seaborn.pydata.org/generated/seaborn.set_context.html#seaborn.set_context) |
-| `set_color_codes([palette])` | Change how matplotlib color shorthands are interpreted. | [Link](https://seaborn.pydata.org/generated/seaborn.set_color_codes.html#seaborn.set_color_codes) |
-| `reset_defaults()` | Restore all RC params to default settings. | [Link](https://seaborn.pydata.org/generated/seaborn.reset_defaults.html#seaborn.reset_defaults) |
-| `reset_orig()` | Restore all RC params to original settings (respects custom rc). | [Link](https://seaborn.pydata.org/generated/seaborn.reset_orig.html#seaborn.reset_orig) |
-| __Color palettes__ | | |
-| `set_palette(palette[, n_colors, desat, ...])` | Set the matplotlib color cycle using a seaborn palette. | [Link](https://seaborn.pydata.org/generated/seaborn.set_palette.html#seaborn.set_palette) |
-| `color_palette([palette, n_colors, desat])` | Return a list of colors defining a color palette. | [Link](https://seaborn.pydata.org/generated/seaborn.color_palette.html#seaborn.color_palette) |
-| `husl_palette([n_colors, h, s, l])` | Get a set of evenly spaced colors in HUSL hue space. | [Link](https://seaborn.pydata.org/generated/seaborn.husl_palette.html#seaborn.husl_palette) |
-| `hls_palette([n_colors, h, l, s])` | Get a set of evenly spaced colors in HLS hue space. | [Link](https://seaborn.pydata.org/generated/seaborn.hls_palette.html#seaborn.hls_palette) |
-| `cubehelix_palette([n_colors, start, rot, ...])` | Make a sequential palette from the cubehelix system. | [Link](https://seaborn.pydata.org/generated/seaborn.cubehelix_palette.html#seaborn.cubehelix_palette) |
-| `dark_palette(color[, n_colors, reverse, ...])` | Make a sequential palette that blends from dark to color. | [Link](https://seaborn.pydata.org/generated/seaborn.dark_palette.html#seaborn.dark_palette) |
-| `light_palette(color[, n_colors, reverse, ...])` | Make a sequential palette that blends from light to color. | [Link](https://seaborn.pydata.org/generated/seaborn.light_palette.html#seaborn.light_palette) |
-| `diverging_palette(h_neg, h_pos[, s, l, sep, ...])` | Make a diverging palette between two HUSL colors. | [Link](https://seaborn.pydata.org/generated/seaborn.diverging_palette.html#seaborn.diverging_palette) |
-| `blend_palette(colors[, n_colors, as_cmap, input])` | Make a palette that blends between a list of colors. | [Link](https://seaborn.pydata.org/generated/seaborn.blend_palette.html#seaborn.blend_palette) |
-| `xkcd_palette(colors)` | Make a palette with color names from the xkcd color survey. | [Link](https://seaborn.pydata.org/generated/seaborn.xkcd_palette.html#seaborn.xkcd_palette) |
-| `crayon_palette(colors)` | Make a palette with color names from Crayola crayons. | [Link](https://seaborn.pydata.org/generated/seaborn.crayon_palette.html#seaborn.crayon_palette) |
-| `mpl_palette(name[, n_colors])` | Return discrete colors from a matplotlib palette. | [Link](https://seaborn.pydata.org/generated/seaborn.mpl_palette.html#seaborn.mpl_palette) |
-| __Palette widgets__ | | |
-| `choose_colorbrewer_palette(data_type[, as_cmap])` | Select a palette from the ColorBrewer set. | [Link](https://seaborn.pydata.org/generated/seaborn.choose_colorbrewer_palette.html#seaborn.choose_colorbrewer_palette) |
-| `choose_cubehelix_palette([as_cmap])` | Launch an interactive widget to create a sequential cubehelix palette. | [Link](https://seaborn.pydata.org/generated/seaborn.choose_cubehelix_palette.html#seaborn.choose_cubehelix_palette) |
-| `choose_light_palette([input, as_cmap])` | Launch an interactive widget to create a light sequential palette. | [Link](https://seaborn.pydata.org/generated/seaborn.choose_light_palette.html#seaborn.choose_light_palette) |
-| `choose_dark_palette([input, as_cmap])` | Launch an interactive widget to create a dark sequential palette. | [Link](https://seaborn.pydata.org/generated/seaborn.choose_dark_palette.html#seaborn.choose_dark_palette) |
-| `choose_diverging_palette([as_cmap])` | Launch an interactive widget to choose a diverging color palette. | [Link](https://seaborn.pydata.org/generated/seaborn.choose_diverging_palette.html#seaborn.choose_diverging_palette) |
-| __Utility functions__ | | |
-| `despine([fig, ax, top, right, left, bottom, ...])` | Remove the top and right spines from plot(s). | [Link](https://seaborn.pydata.org/generated/seaborn.despine.h) |
-| `desaturate(color, prop)` | Decrease the saturation channel of a color by some percent. | [Link](https://seaborn.pydata.org/generated/seaborn.desaturate.html#seaborn.desaturate) |
-| `saturate(color)` | Return a fully saturated color with the same hue. | [Link](https://seaborn.pydata.org/generated/seaborn.saturate.html#seaborn.saturate) |
-| `set_hls_values(color[, h, l, s])` | Independently manipulate the h, l, or s channels of a color. | [Link](https://seaborn.pydata.org/generated/seaborn.set_hls_values.html#seaborn.set_hls_values) |
+
+<table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 55vw;" cellspacing="0" cellpadding="5" border="1">
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://seaborn.pydata.org/api.html">Seaborn API reference</a></caption>
+  <thead>
+  <tr style="font-size: 1.3em;">
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:5%;">Method</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:20%;">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan="2" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.3em; background-color: lightgrey; color: gray;"><a href="https://seaborn.pydata.org/api.html#relational-plots"> Relational plots </a></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.relplot.html#seaborn.relplot" title="seaborn.relplot"><code class="xref py py-obj docutils literal notranslate">relplot</code></a>(*[,&nbsp;x,&nbsp;y,&nbsp;hue,&nbsp;size,&nbsp;style,&nbsp;data,&nbsp;…])</p></td>
+  <td><p>Figure-level interface for drawing relational plots onto a FacetGrid.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.scatterplot.html#seaborn.scatterplot" title="seaborn.scatterplot"><code class="xref py py-obj docutils literal notranslate">scatterplot</code></a>(*[,&nbsp;x,&nbsp;y,&nbsp;hue,&nbsp;style,&nbsp;size,&nbsp;…])</p></td>
+  <td><p>Draw a scatter plot with possibility of several semantic groupings.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.lineplot.html#seaborn.lineplot" title="seaborn.lineplot"><code class="xref py py-obj docutils literal notranslate">lineplot</code></a>(*[,&nbsp;x,&nbsp;y,&nbsp;hue,&nbsp;size,&nbsp;style,&nbsp;data,&nbsp;…])</p></td>
+  <td><p>Draw a line plot with possibility of several semantic groupings.</p></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.3em; background-color: lightgrey; color: gray;"><a href="https://seaborn.pydata.org/api.html#distribution-plots"> Distribution plots </a></td> 
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.displot.html#seaborn.displot" title="seaborn.displot"><code class="xref py py-obj docutils literal notranslate">displot</code></a>([data,&nbsp;x,&nbsp;y,&nbsp;hue,&nbsp;row,&nbsp;col,&nbsp;…])</p></td>
+  <td><p>Figure-level interface for drawing distribution plots onto a FacetGrid.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-obj docutils literal notranslate">histplot</code></a>([data,&nbsp;x,&nbsp;y,&nbsp;hue,&nbsp;weights,&nbsp;stat,&nbsp;…])</p></td>
+  <td><p>Plot univariate or bivariate histograms to show distributions of datasets.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-obj docutils literal notranslate">kdeplot</code></a>([x,&nbsp;y,&nbsp;shade,&nbsp;vertical,&nbsp;kernel,&nbsp;bw,&nbsp;…])</p></td>
+  <td><p>Plot univariate or bivariate distributions using kernel density estimation.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.ecdfplot.html#seaborn.ecdfplot" title="seaborn.ecdfplot"><code class="xref py py-obj docutils literal notranslate">ecdfplot</code></a>([data,&nbsp;x,&nbsp;y,&nbsp;hue,&nbsp;weights,&nbsp;stat,&nbsp;…])</p></td>
+  <td><p>Plot empirical cumulative distribution functions.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.rugplot.html#seaborn.rugplot" title="seaborn.rugplot"><code class="xref py py-obj docutils literal notranslate">rugplot</code></a>([x,&nbsp;height,&nbsp;axis,&nbsp;ax,&nbsp;data,&nbsp;y,&nbsp;hue,&nbsp;…])</p></td>
+  <td><p>Plot marginal distributions by drawing ticks along the x and y axes.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.distplot.html#seaborn.distplot" title="seaborn.distplot"><code class="xref py py-obj docutils literal notranslate">distplot</code></a>([a,&nbsp;bins,&nbsp;hist,&nbsp;kde,&nbsp;rug,&nbsp;fit,&nbsp;…])</p></td>
+  <td><p>DEPRECATED: Flexibly plot a univariate distribution of observations.</p></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.3em; background-color: lightgrey; color: gray;"><a href="https://seaborn.pydata.org/api.html#categorical-plots"> Categorical plots </a></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.catplot.html#seaborn.catplot" title="seaborn.catplot"><code class="xref py py-obj docutils literal notranslate">catplot</code></a>(*[,&nbsp;x,&nbsp;y,&nbsp;hue,&nbsp;data,&nbsp;row,&nbsp;col,&nbsp;…])</p></td>
+  <td><p>Figure-level interface for drawing categorical plots onto a <a href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate">FacetGrid</code></a>.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.stripplot.html#seaborn.stripplot" title="seaborn.stripplot"><code class="xref py py-obj docutils literal notranslate">stripplot</code></a>(*[,&nbsp;x,&nbsp;y,&nbsp;hue,&nbsp;data,&nbsp;order,&nbsp;…])</p></td>
+  <td><p>Draw a scatterplot where one variable is categorical.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.swarmplot.html#seaborn.swarmplot" title="seaborn.swarmplot"><code class="xref py py-obj docutils literal notranslate">swarmplot</code></a>(*[,&nbsp;x,&nbsp;y,&nbsp;hue,&nbsp;data,&nbsp;order,&nbsp;…])</p></td>
+  <td><p>Draw a categorical scatterplot with non-overlapping points.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.boxplot.html#seaborn.boxplot" title="seaborn.boxplot"><code class="xref py py-obj docutils literal notranslate">boxplot</code></a>(*[,&nbsp;x,&nbsp;y,&nbsp;hue,&nbsp;data,&nbsp;order,&nbsp;…])</p></td>
+  <td><p>Draw a box plot to show distributions with respect to categories.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.violinplot.html#seaborn.violinplot" title="seaborn.violinplot"><code class="xref py py-obj docutils literal notranslate">violinplot</code></a>(*[,&nbsp;x,&nbsp;y,&nbsp;hue,&nbsp;data,&nbsp;order,&nbsp;…])</p></td>
+  <td><p>Draw a combination of boxplot and kernel density estimate.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.boxenplot.html#seaborn.boxenplot" title="seaborn.boxenplot"><code class="xref py py-obj docutils literal notranslate">boxenplot</code></a>(*[,&nbsp;x,&nbsp;y,&nbsp;hue,&nbsp;data,&nbsp;order,&nbsp;…])</p></td>
+  <td><p>Draw an enhanced box plot for larger datasets.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.pointplot.html#seaborn.pointplot" title="seaborn.pointplot"><code class="xref py py-obj docutils literal notranslate">pointplot</code></a>(*[,&nbsp;x,&nbsp;y,&nbsp;hue,&nbsp;data,&nbsp;order,&nbsp;…])</p></td>
+  <td><p>Show point estimates and confidence intervals using scatter plot glyphs.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.barplot.html#seaborn.barplot" title="seaborn.barplot"><code class="xref py py-obj docutils literal notranslate">barplot</code></a>(*[,&nbsp;x,&nbsp;y,&nbsp;hue,&nbsp;data,&nbsp;order,&nbsp;…])</p></td>
+  <td><p>Show point estimates and confidence intervals as rectangular bars.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.countplot.html#seaborn.countplot" title="seaborn.countplot"><code class="xref py py-obj docutils literal notranslate">countplot</code></a>(*[,&nbsp;x,&nbsp;y,&nbsp;hue,&nbsp;data,&nbsp;order,&nbsp;…])</p></td>
+  <td><p>Show the counts of observations in each categorical bin using bars.</p></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.3em; background-color: lightgrey; color: gray;"><a href="https://seaborn.pydata.org/api.html#regression-plots"> Regression plots </a></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.lmplot.html#seaborn.lmplot" title="seaborn.lmplot"><code class="xref py py-obj docutils literal notranslate">lmplot</code></a>(*[,&nbsp;x,&nbsp;y,&nbsp;data,&nbsp;hue,&nbsp;col,&nbsp;row,&nbsp;…])</p></td>
+  <td><p>Plot data and regression model fits across a FacetGrid.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.regplot.html#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-obj docutils literal notranslate">regplot</code></a>(*[,&nbsp;x,&nbsp;y,&nbsp;data,&nbsp;x_estimator,&nbsp;…])</p></td>
+  <td><p>Plot data and a linear regression model fit.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.residplot.html#seaborn.residplot" title="seaborn.residplot"><code class="xref py py-obj docutils literal notranslate">residplot</code></a>(*[,&nbsp;x,&nbsp;y,&nbsp;data,&nbsp;lowess,&nbsp;…])</p></td>
+  <td><p>Plot the residuals of a linear regression.</p></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.3em; background-color: lightgrey; color: gray;"><a href="https://seaborn.pydata.org/api.html#matrix-plots"> Matrix plots </a></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-obj docutils literal notranslate">heatmap</code></a>(data,&nbsp;*[,&nbsp;vmin,&nbsp;vmax,&nbsp;cmap,&nbsp;center,&nbsp;…])</p></td>
+  <td><p>Plot rectangular data as a color-encoded matrix.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.clustermap.html#seaborn.clustermap" title="seaborn.clustermap"><code class="xref py py-obj docutils literal notranslate">clustermap</code></a>(data,&nbsp;*[,&nbsp;pivot_kws,&nbsp;method,&nbsp;…])</p></td>
+  <td><p>Plot a matrix dataset as a hierarchically-clustered heatmap.</p></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.3em; background-color: lightgrey; color: gray;"><a href="https://seaborn.pydata.org/api.html#facet-grids"> Multi-plot grids: Facet grids </a></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-obj docutils literal notranslate">FacetGrid</code></a>(data,&nbsp;*[,&nbsp;row,&nbsp;col,&nbsp;hue,&nbsp;…])</p></td>
+  <td><p>Multi-plot grid for plotting conditional relationships.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.map.html#seaborn.FacetGrid.map" title="seaborn.FacetGrid.map"><code class="xref py py-obj docutils literal notranslate">FacetGrid.map</code></a>(self,&nbsp;func,&nbsp;*args,&nbsp;**kwargs)</p></td>
+  <td><p>Apply a plotting function to each facet’s subset of the data.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.map_dataframe.html#seaborn.FacetGrid.map_dataframe" title="seaborn.FacetGrid.map_dataframe"><code class="xref py py-obj docutils literal notranslate">FacetGrid.map_dataframe</code></a>(self,&nbsp;func,&nbsp;*args,&nbsp;…)</p></td>
+  <td><p>Like <code class="docutils literal notranslate">.map</code> but passes args as strings and inserts data in kwargs.</p></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.3em; background-color: lightgrey; color: gray;"><a href="https://seaborn.pydata.org/api.html#pair-grids"> Multi-plot grids: Pair grids </a></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-obj docutils literal notranslate">pairplot</code></a>(data,&nbsp;*[,&nbsp;hue,&nbsp;hue_order,&nbsp;palette,&nbsp;…])</p></td>
+  <td><p>Plot pairwise relationships in a dataset.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-obj docutils literal notranslate">PairGrid</code></a>(data,&nbsp;*[,&nbsp;hue,&nbsp;hue_order,&nbsp;palette,&nbsp;…])</p></td>
+  <td><p>Subplot grid for plotting pairwise relationships in a dataset.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.PairGrid.map.html#seaborn.PairGrid.map" title="seaborn.PairGrid.map"><code class="xref py py-obj docutils literal notranslate">PairGrid.map</code></a>(self,&nbsp;func,&nbsp;**kwargs)</p></td>
+  <td><p>Plot with the same function in every subplot.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.PairGrid.map_diag.html#seaborn.PairGrid.map_diag" title="seaborn.PairGrid.map_diag"><code class="xref py py-obj docutils literal notranslate">PairGrid.map_diag</code></a>(self,&nbsp;func,&nbsp;**kwargs)</p></td>
+  <td><p>Plot with a univariate function on each diagonal subplot.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.PairGrid.map_offdiag.html#seaborn.PairGrid.map_offdiag" title="seaborn.PairGrid.map_offdiag"><code class="xref py py-obj docutils literal notranslate">PairGrid.map_offdiag</code></a>(self,&nbsp;func,&nbsp;**kwargs)</p></td>
+  <td><p>Plot with a bivariate function on the off-diagonal subplots.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.PairGrid.map_lower.html#seaborn.PairGrid.map_lower" title="seaborn.PairGrid.map_lower"><code class="xref py py-obj docutils literal notranslate">PairGrid.map_lower</code></a>(self,&nbsp;func,&nbsp;**kwargs)</p></td>
+  <td><p>Plot with a bivariate function on the lower diagonal subplots.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.PairGrid.map_upper.html#seaborn.PairGrid.map_upper" title="seaborn.PairGrid.map_upper"><code class="xref py py-obj docutils literal notranslate">PairGrid.map_upper</code></a>(self,&nbsp;func,&nbsp;**kwargs)</p></td>
+  <td><p>Plot with a bivariate function on the upper diagonal subplots.</p></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.3em; background-color: lightgrey; color: gray;"><a href="https://seaborn.pydata.org/api.html#joint-grids"> Multi-plot grids: Joint grids </a></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-obj docutils literal notranslate">jointplot</code></a>(*[,&nbsp;x,&nbsp;y,&nbsp;data,&nbsp;kind,&nbsp;color,&nbsp;…])</p></td>
+  <td><p>Draw a plot of two variables with bivariate and univariate graphs.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-obj docutils literal notranslate">JointGrid</code></a>(*[,&nbsp;x,&nbsp;y,&nbsp;data,&nbsp;height,&nbsp;ratio,&nbsp;…])</p></td>
+  <td><p>Grid for drawing a bivariate plot with marginal univariate plots.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.JointGrid.plot.html#seaborn.JointGrid.plot" title="seaborn.JointGrid.plot"><code class="xref py py-obj docutils literal notranslate">JointGrid.plot</code></a>(self,&nbsp;joint_func,&nbsp;…)</p></td>
+  <td><p>Draw the plot by passing functions for joint and marginal axes.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.JointGrid.plot_joint.html#seaborn.JointGrid.plot_joint" title="seaborn.JointGrid.plot_joint"><code class="xref py py-obj docutils literal notranslate">JointGrid.plot_joint</code></a>(self,&nbsp;func,&nbsp;**kwargs)</p></td>
+  <td><p>Draw a bivariate plot on the joint axes of the grid.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.JointGrid.plot_marginals.html#seaborn.JointGrid.plot_marginals" title="seaborn.JointGrid.plot_marginals"><code class="xref py py-obj docutils literal notranslate">JointGrid.plot_marginals</code></a>(self,&nbsp;func,&nbsp;**kwargs)</p></td>
+  <td><p>Draw univariate plots on each marginal axes.</p></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.3em; background-color: lightgrey; color: gray;"><a href="https://seaborn.pydata.org/api.html#themes"> Themes </a></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.set_theme.html#seaborn.set_theme" title="seaborn.set_theme"><code class="xref py py-obj docutils literal notranslate">set_theme</code></a>([context,&nbsp;style,&nbsp;palette,&nbsp;font,&nbsp;…])</p></td>
+  <td><p>Set multiple theme parameters in one step.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.axes_style.html#seaborn.axes_style" title="seaborn.axes_style"><code class="xref py py-obj docutils literal notranslate">axes_style</code></a>([style,&nbsp;rc])</p></td>
+  <td><p>Return a parameter dict for the aesthetic style of the plots.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.set_style.html#seaborn.set_style" title="seaborn.set_style"><code class="xref py py-obj docutils literal notranslate">set_style</code></a>([style,&nbsp;rc])</p></td>
+  <td><p>Set the aesthetic style of the plots.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.plotting_context.html#seaborn.plotting_context" title="seaborn.plotting_context"><code class="xref py py-obj docutils literal notranslate">plotting_context</code></a>([context,&nbsp;font_scale,&nbsp;rc])</p></td>
+  <td><p>Return a parameter dict to scale elements of the figure.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.set_context.html#seaborn.set_context" title="seaborn.set_context"><code class="xref py py-obj docutils literal notranslate">set_context</code></a>([context,&nbsp;font_scale,&nbsp;rc])</p></td>
+  <td><p>Set the plotting context parameters.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.set_color_codes.html#seaborn.set_color_codes" title="seaborn.set_color_codes"><code class="xref py py-obj docutils literal notranslate">set_color_codes</code></a>([palette])</p></td>
+  <td><p>Change how matplotlib color shorthands are interpreted.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.reset_defaults.html#seaborn.reset_defaults" title="seaborn.reset_defaults"><code class="xref py py-obj docutils literal notranslate">reset_defaults</code></a>()</p></td>
+  <td><p>Restore all RC params to default settings.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.reset_orig.html#seaborn.reset_orig" title="seaborn.reset_orig"><code class="xref py py-obj docutils literal notranslate">reset_orig</code></a>()</p></td>
+  <td><p>Restore all RC params to original settings (respects custom rc).</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.set.html#seaborn.set" title="seaborn.set"><code class="xref py py-obj docutils literal notranslate">set</code></a>(*args,&nbsp;**kwargs)</p></td>
+  <td><p>Alias for <a href="https://seaborn.pydata.org/generated/seaborn.set_theme.html#seaborn.set_theme" title="seaborn.set_theme"><code class="xref py py-func docutils literal notranslate">set_theme()</code></a>, which is the preferred interface.</p></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.3em; background-color: lightgrey; color: gray;"><a href="https://seaborn.pydata.org/api.html#color-palettes"> Color palettes </a></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.set_palette.html#seaborn.set_palette" title="seaborn.set_palette"><code class="xref py py-obj docutils literal notranslate">set_palette</code></a>(palette[,&nbsp;n_colors,&nbsp;desat,&nbsp;…])</p></td>
+  <td><p>Set the matplotlib color cycle using a seaborn palette.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-obj docutils literal notranslate">color_palette</code></a>([palette,&nbsp;n_colors,&nbsp;desat,&nbsp;…])</p></td>
+  <td><p>Return a list of colors or continuous colormap defining a palette.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.husl_palette.html#seaborn.husl_palette" title="seaborn.husl_palette"><code class="xref py py-obj docutils literal notranslate">husl_palette</code></a>([n_colors,&nbsp;h,&nbsp;s,&nbsp;l,&nbsp;as_cmap])</p></td>
+  <td><p>Get a set of evenly spaced colors in HUSL hue space.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.hls_palette.html#seaborn.hls_palette" title="seaborn.hls_palette"><code class="xref py py-obj docutils literal notranslate">hls_palette</code></a>([n_colors,&nbsp;h,&nbsp;l,&nbsp;s,&nbsp;as_cmap])</p></td>
+  <td><p>Get a set of evenly spaced colors in HLS hue space.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.cubehelix_palette.html#seaborn.cubehelix_palette" title="seaborn.cubehelix_palette"><code class="xref py py-obj docutils literal notranslate">cubehelix_palette</code></a>([n_colors,&nbsp;start,&nbsp;rot,&nbsp;…])</p></td>
+  <td><p>Make a sequential palette from the cubehelix system.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.dark_palette.html#seaborn.dark_palette" title="seaborn.dark_palette"><code class="xref py py-obj docutils literal notranslate">dark_palette</code></a>(color[,&nbsp;n_colors,&nbsp;reverse,&nbsp;…])</p></td>
+  <td><p>Make a sequential palette that blends from dark to <code class="docutils literal notranslate">color</code>.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.light_palette.html#seaborn.light_palette" title="seaborn.light_palette"><code class="xref py py-obj docutils literal notranslate">light_palette</code></a>(color[,&nbsp;n_colors,&nbsp;reverse,&nbsp;…])</p></td>
+  <td><p>Make a sequential palette that blends from light to <code class="docutils literal notranslate">color</code>.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.diverging_palette.html#seaborn.diverging_palette" title="seaborn.diverging_palette"><code class="xref py py-obj docutils literal notranslate">diverging_palette</code></a>(h_neg,&nbsp;h_pos[,&nbsp;s,&nbsp;l,&nbsp;sep,&nbsp;…])</p></td>
+  <td><p>Make a diverging palette between two HUSL colors.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.blend_palette.html#seaborn.blend_palette" title="seaborn.blend_palette"><code class="xref py py-obj docutils literal notranslate">blend_palette</code></a>(colors[,&nbsp;n_colors,&nbsp;as_cmap,&nbsp;input])</p></td>
+  <td><p>Make a palette that blends between a list of colors.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.xkcd_palette.html#seaborn.xkcd_palette" title="seaborn.xkcd_palette"><code class="xref py py-obj docutils literal notranslate">xkcd_palette</code></a>(colors)</p></td>
+  <td><p>Make a palette with color names from the xkcd color survey.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.crayon_palette.html#seaborn.crayon_palette" title="seaborn.crayon_palette"><code class="xref py py-obj docutils literal notranslate">crayon_palette</code></a>(colors)</p></td>
+  <td><p>Make a palette with color names from Crayola crayons.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.mpl_palette.html#seaborn.mpl_palette" title="seaborn.mpl_palette"><code class="xref py py-obj docutils literal notranslate">mpl_palette</code></a>(name[,&nbsp;n_colors,&nbsp;as_cmap])</p></td>
+  <td><p>Return discrete colors from a matplotlib palette.</p></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.3em; background-color: lightgrey; color: gray;"><a href="https://seaborn.pydata.org/api.html#palette-widgets"> Palette widgets </a></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.choose_colorbrewer_palette.html#seaborn.choose_colorbrewer_palette" title="seaborn.choose_colorbrewer_palette"><code class="xref py py-obj docutils literal notranslate">choose_colorbrewer_palette</code></a>(data_type[,&nbsp;as_cmap])</p></td>
+  <td><p>Select a palette from the ColorBrewer set.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.choose_cubehelix_palette.html#seaborn.choose_cubehelix_palette" title="seaborn.choose_cubehelix_palette"><code class="xref py py-obj docutils literal notranslate">choose_cubehelix_palette</code></a>([as_cmap])</p></td>
+  <td><p>Launch an interactive widget to create a sequential cubehelix palette.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.choose_light_palette.html#seaborn.choose_light_palette" title="seaborn.choose_light_palette"><code class="xref py py-obj docutils literal notranslate">choose_light_palette</code></a>([input,&nbsp;as_cmap])</p></td>
+  <td><p>Launch an interactive widget to create a light sequential palette.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.choose_dark_palette.html#seaborn.choose_dark_palette" title="seaborn.choose_dark_palette"><code class="xref py py-obj docutils literal notranslate">choose_dark_palette</code></a>([input,&nbsp;as_cmap])</p></td>
+  <td><p>Launch an interactive widget to create a dark sequential palette.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.choose_diverging_palette.html#seaborn.choose_diverging_palette" title="seaborn.choose_diverging_palette"><code class="xref py py-obj docutils literal notranslate">choose_diverging_palette</code></a>([as_cmap])</p></td>
+  <td><p>Launch an interactive widget to choose a diverging color palette.</p></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.3em; background-color: lightgrey; color: gray;"><a href="https://seaborn.pydata.org/api.html#utility-functions"> Utility functions </a></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.load_dataset.html#seaborn.load_dataset" title="seaborn.load_dataset"><code class="xref py py-obj docutils literal notranslate">load_dataset</code></a>(name[,&nbsp;cache,&nbsp;data_home])</p></td>
+  <td><p>Load an example dataset from the online repository (requires internet).</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.get_dataset_names.html#seaborn.get_dataset_names" title="seaborn.get_dataset_names"><code class="xref py py-obj docutils literal notranslate">get_dataset_names</code></a>()</p></td>
+  <td><p>Report available example datasets, useful for reporting issues.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.get_data_home.html#seaborn.get_data_home" title="seaborn.get_data_home"><code class="xref py py-obj docutils literal notranslate">get_data_home</code></a>([data_home])</p></td>
+  <td><p>Return a path to the cache directory for example datasets.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.despine.html#seaborn.despine" title="seaborn.despine"><code class="xref py py-obj docutils literal notranslate">despine</code></a>([fig,&nbsp;ax,&nbsp;top,&nbsp;right,&nbsp;left,&nbsp;bottom,&nbsp;…])</p></td>
+  <td><p>Remove the top and right spines from plot(s).</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.desaturate.html#seaborn.desaturate" title="seaborn.desaturate"><code class="xref py py-obj docutils literal notranslate">desaturate</code></a>(color,&nbsp;prop)</p></td>
+  <td><p>Decrease the saturation channel of a color by some percent.</p></td>
+  </tr>
+  <tr class="row-even"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.saturate.html#seaborn.saturate" title="seaborn.saturate"><code class="xref py py-obj docutils literal notranslate">saturate</code></a>(color)</p></td>
+  <td><p>Return a fully saturated color with the same hue.</p></td>
+  </tr>
+  <tr class="row-odd"><td><p><a href="https://seaborn.pydata.org/generated/seaborn.set_hls_values.html#seaborn.set_hls_values" title="seaborn.set_hls_values"><code class="xref py py-obj docutils literal notranslate">set_hls_values</code></a>(color[,&nbsp;h,&nbsp;l,&nbsp;s])</p></td>
+  <td><p>Independently manipulate the h, l, or s channels of a color.</p></td>
+  </tr>
+  </tbody>
+</table><br/>
 
 
 ----------------------
