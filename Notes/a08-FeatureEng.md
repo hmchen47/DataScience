@@ -53,6 +53,100 @@ The set of articles in this series:
     + typical ML pipeline: completing feature engineering then feature selection
   
 
+## 2. Variables Types
+
++ Variables
+  + any characteristic, number, or quantity measured or counted
+  + major types of variables
+    + numerical variables
+    + categorical variables
+    + datetime variables
+    + mixed variables
+  + get the type of each variable from a Pandas dataframe
+
+    ```python
+    # import the pandas library
+    import pandas as pd
+
+    # read data
+    data_df = pd.read_csv("dataset.csv")
+    ```
+
++ Numerical variables
+  + (predictably) numbers
+  + categories of numerical variables
+    + continuous variables
+    + discrete variables
+  + continuous variables
+    + an uncountable set of values
+    + probably containing any value within a given range
+    + visualization
+      + density plot
+      + histogram
+      + box plot
+      + scatter plot
+    + [example](src/a08-ex01-VisualNumerical.py):
+
+      <figure style="margin: 0.5em; text-align: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+          onclick="window.open('https://tinyurl.com/y6egl9qc')"
+          src    ="https://miro.medium.com/max/875/1*9N8ljqnCENz_IRr14dkmVg.png"
+          alt    ="Visualization of continuous numerical variables: (a) box plot, (b) histogram, (c) density plot, & (d) scatter plot"
+          title  ="Visualization of continuous numerical variables: (a) box plot, (b) histogram, (c) density plot, & (d) scatter plot"
+        />
+      </figure>
+
+  + discrete variables
+    + a finite number of values
+    + integers, counts
+    + visualization
+      + count plot
+      + pie chart
+    + [example](src/a08-ex02-DiscreteVars.py)
+
+      <figure style="margin: 0.5em; text-align: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+          onclick="window.open('https://tinyurl.com/y6egl9qc')"
+          src    ="https://tinyurl.com/yxkpt2jp"
+          alt    ="Visualization of discrete numerical variables: (a) density plot, (b) histogram"
+          title  ="Visualization of discrete numerical variables: (a) density plot, (b) histogram"
+        />
+      </figure>
+
++ Categorical variables
+  + selected from a group of categories
+  + a.k.a. labels
+  + categories
+    + ordinal variables
+    + nominal variables
+  + ordinal variables
+    + variables existed within meaningfully ordered categories
+    + examples
+      + student grades on an exame (A, B, C, or F)
+      + days of the week (Sunday, Monday, Tuesday, ...)
+  + nominal variables
+    + not a natural order in the labels
+    + e.g., country of birth - categorical but order not matter
+  + in some scenarios, categorical variables coded as numbers when the data was recorded
+
++ Dates and Times
+  + particular type of categorical variable
+  + containing __dates__, __time__, or __data and time__
+  + usually not working w/ datetimme variables in their raw format
+    + date variables containing a considerable number of different categories
+    + able to extract much more infroamtion from datetime variables by pre-processing them correctly
+  + date variables
+    + containing dates not present in the dataset used to train the learning model
+    + containing dates placed in the future, w.r.t. the dates in the training dataset
+  
++ Mixed variables
+  + containing both numbers and labels
+  + occurring in a given dataset, especially when filling its values
+  + example
+    + a number of something, e.g., the income, or the number of children
+    + number not able to be retrieved for a variety of reasons, e.g., survey of income of a person
+    + returning a label to represent the reason behind the issue, e.g., ERROR_OMMIT for client omit to answer
+
 
 
 
