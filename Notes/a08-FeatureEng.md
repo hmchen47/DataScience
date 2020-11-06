@@ -88,7 +88,7 @@ The set of articles in this series:
     + [example](src/a08-ex01-VisualNumerical.py):
 
       <figure style="margin: 0.5em; text-align: center;">
-        <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 25 vw;"
           onclick="window.open('https://tinyurl.com/y6egl9qc')"
           src    ="https://miro.medium.com/max/875/1*9N8ljqnCENz_IRr14dkmVg.png"
           alt    ="Visualization of continuous numerical variables: (a) box plot, (b) histogram, (c) density plot, & (d) scatter plot"
@@ -105,7 +105,7 @@ The set of articles in this series:
     + [example](src/a08-ex02-DiscreteVars.py)
 
       <figure style="margin: 0.5em; text-align: center;">
-        <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
           onclick="window.open('https://tinyurl.com/y6egl9qc')"
           src    ="https://tinyurl.com/yxkpt2jp"
           alt    ="Visualization of discrete numerical variables: (a) density plot, (b) histogram"
@@ -132,21 +132,21 @@ The set of articles in this series:
 + Dates and Times
   + particular type of categorical variable
   + containing __dates__, __time__, or __data and time__
-  + usually not working w/ datetimme variables in their raw format
+  + usually __not working__ w/ datetime variables in their __raw format__
     + date variables containing a considerable number of different categories
-    + able to extract much more infroamtion from datetime variables by pre-processing them correctly
-  + date variables
+    + able to extract much more informa tion from datetime variables by pre-processing them correctly
+  + date variable issues
     + containing dates not present in the dataset used to train the learning model
     + containing dates placed in the future, w.r.t. the dates in the training dataset
   
 + Mixed variables
   + containing both numbers and labels
   + occurring in a given dataset, especially when filling its values
-  + example
-    + a number of something, e.g., the income, or the number of children
+  + example 
     + number not able to be retrieved for a variety of reasons, e.g., survey of income of a person
     + returning a label to represent the reason behind the issue, e.g., ERROR_OMMIT for client omit to answer
 
 
+## 
 
 
