@@ -298,4 +298,22 @@ The set of articles in this series:
 
 
 
+## 4. Imputing Missing Values
+
++ Data imputation
+  + the act replacing missing data w/ statistical estimates of missing values
+  + goal: producing a complete dataset to use in the process of training ML models
+  + python library: `feature-engine` to simply the process of imputing missing values
+  + classification of methods
+    + numerical variable
+      + mean or median imputation
+      + arbitrary value imputation
+      + end of tail imputation
+    + categorical variables
+      + frequent category imputation
+      + add a missing category
+    + both
+      + complete case analysis
+      + add a missing indicator
+      + random sample imputation
 
