@@ -317,3 +317,37 @@ The set of articles in this series:
       + add a missing indicator
       + random sample imputation
 
++ Mean and median imputation
+  + replacing all occurrences of missing values (NA) within a variable w/ the mean and median of the variable
+  + scenario
+    + suitable for numerical variables
+    + missing completely at random (MCAR)
+    + more than 5% of the variable containing missing data
+  + applied to both training and test sets
+  + considerations
+    + normal distribution: the mean and median approximately the same
+    + skewed distribution: median as a better representation
+  + assumption
+    + missing data at random
+    + missing observations most likely like the majority of the observations in the variable
+  + pros
+    + easy to implement
+    + easy way of obtaining complete datasets
+    + used in production
+  + example
+    + data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">36.2</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">36.2</span>), (50 $\to$ 50)
+    + python code
+
+      ```python
+      from sklearn.impute import SimpleImputer
+
+      # create the imputer, the strategy can be mean and median
+      imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
+
+      # apply the transformation to the train and test
+      train_df = imputer.transform(train_df)
+      test_df = imputer.transform(test_df)
+      ```
+
+
+
