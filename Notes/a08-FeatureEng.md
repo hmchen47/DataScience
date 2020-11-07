@@ -163,12 +163,12 @@ The set of articles in this series:
   + basically just the absence of data
   + data missing for multiple reasons
     + lost: forgotten, omitted, lost, or not stored properly
-    + not exist: e.g., a variable created from the division of 2 variables, and the denominator takes 0
+    + not exist: e.g., a variable created from the di vision of 2 variables, and the denominator takes 0
   + many features not mandatory
   + solution: missing data imputation techniques
   + issues:
     + probably distort the original variable distribution
-    + alert the way variables interact w/ each other
+    + alter the way variables interact w/ each other
     + affect the machine learning model's performance $\gets$ many models make assumptions about the variable distribution
   + carefully choosing the right missing data imputation technique
   + main mechanisms lead to missing data
