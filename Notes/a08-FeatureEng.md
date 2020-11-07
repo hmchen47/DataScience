@@ -330,10 +330,14 @@ The set of articles in this series:
   + assumption
     + missing data at random
     + missing observations most likely like the majority of the observations in the variable
-  + pros
+  + advantages
     + easy to implement
     + easy way of obtaining complete datasets
     + used in production
+  + limitations
+    + distortion of the original variable distribution and variance
+    + distortion of the covariance w/ the remaining dataset variable
+    + the higher the percentage of missing values, the higher the distortions
   + example
     + data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">36.2</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">36.2</span>), (50 $\to$ 50)
     + python code
@@ -348,6 +352,41 @@ The set of articles in this series:
       train_df = imputer.transform(train_df)
       test_df = imputer.transform(test_df)
       ```
+
++ Arbitrary value imputation
+  + replacing all occurrences of missing values (NA) within a variable w/ an arbitrary value
+  + arbitrary value different from the mean and median and not within the normal values of the variable
+  + typical arbitrary values: 0, 999, -999, (or other combinations of 9s) or -1 (positive distribution)
+  + scenarios
+    + suitable for numerical and categorical variables
+  + assumptions
+    + no missing data at random
+  + advangtages
+    + easy to implement
+    + a fast way to obtain complete datasets
+    + used in production, i.e., during model deployment
+    + capturing the importance of a value being "missing", if existed
+  + limitations
+    + distortion of the original variable distribution and variance
+    + distortion of the covariance w/ the remaining dataset variable
+    + arbitrary value at the end of the distribution $\to$ mask or create outliers
+    + carefully not choose an arbitrary value too similar to the mean or median (or any other typical value of the variable distribution)
+    + the higher the percentage of NA, the higher the distortion
+  + example: using 999 as an arbitrary value
+
+    ```python
+    from sklearn.impute import SimpleImputer
+
+    # create the imputer, w/ fill value 999 as the arbitrary value
+    imputer = SimpleImputer(missing_values=np.nan, strategy='constant', fill_value=999)
+
+    # apply the transformation tot eh train and test
+    train_df = imputer.transform(train_df)
+    test_df = imputer.transform(test_df)
+    ```
+
+
+
 
 
 
