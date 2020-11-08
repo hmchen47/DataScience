@@ -460,6 +460,37 @@ The set of articles in this series:
       test_df = imputer.transform(test_df)
       ```
 
++ Missing category imputation
+  + treating missing data as an additional label or category of the variable
+  + create a new label or category by filling the missing observations w/ a Missing category
+  + most widely used method of missing data imputation for categories variables
+  + advantages
+    + easy to implement
+    + fast way of obtaining complete datasets
+    + integrated into production
+    + capturing the importance of "missingness"
+    + no assumption mad on the data
+  + limitations
+    + small number of missing data $\to$ creating an additional category just adding another rare label to the variable
+  + example: fill missing data w/ a new category, "Missing"
+    + data (Gender): (Male $\to$ Male), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">Missing</span>), (Female $\to$ Female), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">Missing</span>), (Femal $\to$ Female)
+    + python code
+
+      ```python
+      from sklearn.impute import SimpleImputer
+
+      # create the imputer, w/ most frequent as strategy to fill missing data
+      imputer = SimpleImnputer(missing_value=np.nan, strategy='constant', fill_value="Missing")
+
+      # fit the imputer to the train data
+      # make sure to select only the categorical variable in the following train and test sets
+      imputer.fit(train_df)
+
+      # apply the transformation to the train and test
+      train_df = imputer.transform(train_df)
+      test_df = imputer.transform(test_df)
+      ```
+
 
 
 
