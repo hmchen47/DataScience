@@ -491,6 +491,33 @@ The set of articles in this series:
       test_df = imputer.transform(test_df)
       ```
 
++ Complete case analysis
+  + discarding observations where values in any of the variables are missing
+  + keep only those observations for which there's information in all of the dataset variables
+  + observations w/ any missing data excluded
+  + scenario
+    + missing data complete at random (MCAR)
+    + no more than 5% of the total dataset containg missing data
+  + assumption
+    + missing data at random
+  + advantages
+    + simple to implement
+    + no data manipulation required
+    + preserving the distribution of the variables
+  + limitation
+    + excluding a significant fraction of the original dataset (if missing data significant)
+    + excluding informative observations for the analysis (if data not missing at random)
+    + create a biased dataset if the complete cases differ from hte original data (if MAR or MNAR)
+    + using in production $\to$ not knowing how to handle missing data
+  + example:
+    + data (Gender): (Male $\to$ Male), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ ), (Female $\to$ Female), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ ), (Femal $\to$ Female)
+    + python code
+
+      ```python
+      # read data and apply the method
+      data.dropna(inplace=True)
+      ```
+
 
 
 
