@@ -405,7 +405,8 @@ The set of articles in this series:
       + upper limit = 75th Quantile + IQR x 3
       + lower limit = 25th Quantile - IQR x 3
     + selected value for imputation: upper limit or lower limit
-  + example: data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">50</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">50</span>), (50 $\to$ 50)
+  + example:
+    + data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">50</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">50</span>), (50 $\to$ 50)
     + python code
 
       ```python
@@ -420,6 +421,43 @@ The set of articles in this series:
       # transform the data
       train_t_df = imputer.transform(train_df)
       test_t_df = imputer.transform(test_t_df)
+      ```
+
++ Frequent category imputation
+  + a.k.a. mode imputation
+  + replacing all occurrences of missing values (NA) within a variable w/ the mode, or the most frequent value
+  + scenario
+    + suitable for numerical and categorical variables
+    + in practice, using the technique w/ categorical variables
+    + using w/ data as missing complete at random (MCAR)
+    + no more than 5% of the variable contains missing data
+  + applied only to train and test sets
+  + assumption
+    + missing data at random
+    + missing observations most likely like the majority of the observations (i.e., the mode)
+  + advantages
+    + easy to implement
+    + a fast way to obtain a complete dataset
+    + used in production
+  + limitations
+    + distort the relation of the most frequent label w/ other variables within dataset
+    + may lead to an over-representation of the most frequent label if a lot of missing observations existed
+  + example:
+    + data (Gender): (Male $\to$ Male), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">Male</span>), (Female $\to$ Female), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">Male</span>), (Femal $\to$ Female)
+    + python code
+
+      ```python
+      from sklearn.impute import SimpleImputer
+
+      # create the imputer, w/ the most frequent as strategy to fill missing
+      imputer = SimpleImputer(missing_values=np.nan, strategy='most_frequent')
+
+      # fit the imputer to  the train data
+      imputer.fit(trai_df)
+
+      # apply the transformation to the train and test
+      train_df = imputer.transform(train_df)
+      test_df = imputer.transform(test_df)
       ```
 
 
