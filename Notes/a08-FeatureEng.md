@@ -339,7 +339,7 @@ The set of articles in this series:
     + distortion of the covariance w/ the remaining dataset variable
     + the higher the percentage of missing values, the higher the distortions
   + example
-    + data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">36.2</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">36.2</span>), (50 $\to$ 50)
+    + data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">36.2</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">36.2</span>), (50 $\to$ 50)
     + python code
 
       ```python
@@ -373,7 +373,7 @@ The set of articles in this series:
     + carefully not choose an arbitrary value too similar to the mean or median (or any other typical value of the variable distribution)
     + the higher the percentage of NA, the higher the distortion
   + example: using 999 as an arbitrary value
-    + data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">99</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">99</span>), (50 $\to$ 50)
+    + data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">99</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">99</span>), (50 $\to$ 50)
     + python code
 
     ```python
@@ -406,7 +406,7 @@ The set of articles in this series:
       + lower limit = 25th Quantile - IQR x 3
     + selected value for imputation: upper limit or lower limit
   + example:
-    + data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">50</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">50</span>), (50 $\to$ 50)
+    + data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">50</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">50</span>), (50 $\to$ 50)
     + python code
 
       ```python
@@ -443,7 +443,7 @@ The set of articles in this series:
     + distort the relation of the most frequent label w/ other variables within dataset
     + may lead to an over-representation of the most frequent label if a lot of missing observations existed
   + example:
-    + data (Gender): (Male $\to$ Male), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">Male</span>), (Female $\to$ Female), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">Male</span>), (Femal $\to$ Female)
+    + data (Gender): (Male $\to$ Male), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Male</span>), (Female $\to$ Female), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Male</span>), (Femal $\to$ Female)
     + python code
 
       ```python
@@ -473,7 +473,7 @@ The set of articles in this series:
   + limitations
     + small number of missing data $\to$ creating an additional category just adding another rare label to the variable
   + example: fill missing data w/ a new category, "Missing"
-    + data (Gender): (Male $\to$ Male), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">Missing</span>), (Female $\to$ Female), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">Missing</span>), (Femal $\to$ Female)
+    + data (Gender): (Male $\to$ Male), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Missing</span>), (Female $\to$ Female), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Missing</span>), (Femal $\to$ Female)
     + python code
 
       ```python
@@ -518,7 +518,52 @@ The set of articles in this series:
       data.dropna(inplace=True)
       ```
 
++ Missing indicator
+  + an additional binary variable indicating whether the data was missing for an observation (1) or not (0)
+  + goal: capture observations where data is missing
+  + used together w/ methods assuming MAR
+    + mean, median, mode imputation
+    + random sample imputation
+  + scenario
+    + suitable for categorical and numberic variables
+  + assumptions
+    + NOT missing at random
+    + predictive missing data
+  + advantages
+    + easy to implement
+    + capture the importance of missing data
+    + integrated into production
+  + limitations
+    + expanding the feature space
+    + original variable still requiring to be imputed
+    + many missing indicators may end up being identical or very highly corrrelated
+  + example:
+    + data (Gender $\to$ Gender, Missing): (Male $\to$ Male, <span style="color: pink;">False</span>), (Male $\to$ <span style="color: pink;">Male</span>), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Female, True</span>), (Female $\to$ <span style="color: pink;">Female</span>), (Male $\to$ <span style="color: pink;">Male</span>), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Male, True</span>), (Femal $\to$ <span style="color: pink;">Female</span>)
+    + python code
 
+      ```python
+      from sklearn.imput import MissingIndicator
+
+      # create the object w/ missing only columns
+      indicator = MissingIndicator(error_on_new=True, features='missing-only')
+      indicator.fit(train_df)
+
+      # print the column of the missing data
+      print(train_df.columns[indicator.features_])
+
+      # create a column name for each of the new Missing indicators
+      indicator_columns = [column + '_NA_IND' for column in train_df.columns[indicator.features_]]
+      indicator_df = pd.DataFrame(temporary, columns=indicator_columns)
+
+      # create the final train data
+      train_df = pd.concat([train_df.reset_index(), indicator_df], axis=1)
+
+      # now the same for the test set
+      temporary = indicator.transform(test_df)
+      indicator_df = pd.DataFrame(temporary, columns=indicator_columns)
+
+      # create the final test data
+      test = pd.concat([X_test.reset_index(), indicator_df], axis=1)
 
 
 
