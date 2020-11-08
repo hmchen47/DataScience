@@ -566,5 +566,36 @@ The set of articles in this series:
       test = pd.concat([X_test.reset_index(), indicator_df], axis=1)
 
 
++ Random sample imputation
+  + taking a random observaton from the pool of available observations of the variable and using those randomly selected values to fill in the missing one
+  + scenario:
+    + suitable for numerical and categorical variables
+  + assumptions
+    + missing data at random
+    + replacing the missing values within the same distribution of the original value
+  + advantages
+    + easy to implement
+    + a fast way of obtaining complete dataset
+    + used in production
+    + preserving the variance of the variable
+  + limitations
+    + randomness
+    + relationship btw imputed variables and other variables probably affected if a lot of missing values
+    + requiring massive memory for deployment to store the original training set to extract values from and replace the missing values w/ the randomly selected values
+  + example:
+    + data (Gender, Age): ((Male, 29) $\to$ (Male, 29)), ((Male, <span style="color: pink;">NA</span>) $\to$ (Male, <span style="color: lightgreen;">34</span>)), (<span style="color: pink;">NA</span>,(<span style="color: pink;">NA</span>, 43) $\to$ (<span style="color: lightgreen;">Female</span>, 43)), ((Female, 25) $\to$ (Femal, 25)), ((Male, 34) $\to$ (Male, 34)), ((<span style="color: pink;">NA</span>, 50) $\to$ (<span style="color: lightgreen;">Male</span>, 50)), ((Femal, <span style="color: pink;">NA</span>) $\to$ (Female, <span style="color: lightgreen;">25</span>))
+    + python code
 
+      ```python
+      from feature_engine.missing_data_imputer import  RandomSampleImputer
+
+      # create the imputer
+      imputer = RandomSampleImputer(random_state=29)
+
+      # fit the imputer to the train set
+      imputer.fit(train_df)
+
+      # transform the data
+      train_t_df = imputer.transform(train_df)
+      test_t_df = imputer.transform(test_df)
 
