@@ -361,7 +361,7 @@ The set of articles in this series:
     + suitable for numerical and categorical variables
   + assumptions
     + no missing data at random
-  + advangtages
+  + advantages
     + easy to implement
     + a fast way to obtain complete datasets
     + used in production, i.e., during model deployment
@@ -373,6 +373,8 @@ The set of articles in this series:
     + carefully not choose an arbitrary value too similar to the mean or median (or any other typical value of the variable distribution)
     + the higher the percentage of NA, the higher the distortion
   + example: using 999 as an arbitrary value
+    + data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">99</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">99</span>), (50 $\to$ 50)
+    + python code
 
     ```python
     from sklearn.impute import SimpleImputer
@@ -384,6 +386,41 @@ The set of articles in this series:
     train_df = imputer.transform(train_df)
     test_df = imputer.transform(test_df)
     ```
+
++ End of tail imputation
+  + roughly equivalent to arbitrary value imputation
+  + automatically selecting the arbitrary values at the end of the variable distributions
+  + scenarios
+    + suitable for numerical variables
+  + ways to select arbitrary values
+    + normal distribution: using the $\mu \pm 3 \cdot \text{s.d.}$
+    + skewed distribution: using the IQR proximity rule
+  + replacing missing data calculated only on the train set
+  + normal distribution
+    + most of the observation (~99%) of a normally-distributed variable lie within $\pm 3 \times$ s.d.
+    + the selected value = $\mu \pm 3 \times$ s.d.
+  + skewed distribution
+    + general approach: calculate the quantiles and the inter-quantile range (IQR)
+      + IQR = 75th Quantile - 25th Quantile
+      + upper limit = 75th Quantile + IQR x 3
+      + lower limit = 25th Quantile - IQR x 3
+    + selected value for imputation: upper limit or lower limit
+  + example: data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">50</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lighgreen;">50</span>), (50 $\to$ 50)
+    + python code
+
+      ```python
+      from feature_engine.missing_imputers import EndTailImputer
+
+      # create the imputer
+      imputer = EngTailImputer(distribution='gaussian', tail='right')
+
+      # fit the imputer to the train set
+      imputer.fit(train_df)
+
+      # transform the data
+      train_t_df = imputer.transform(train_df)
+      test_t_df = imputer.transform(test_t_df)
+      ```
 
 
 
