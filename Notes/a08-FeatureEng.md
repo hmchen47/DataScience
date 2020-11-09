@@ -601,3 +601,27 @@ The set of articles in this series:
       train_t_df = imputer.transform(train_df)
       test_t_df = imputer.transform(test_df)
 
+
+## 5. Encoding Categorical Variables
+
++ Categorical encoding
+  + permanently replacing category strings w/ numerical representations
+  + goal: producing variables used to train machine learning models and build predictive features from categories
+  + techniques for data transformation
+    + traditional techniques
+      + one-hot encoding
+      + count or frequency encoding
+    + monotonic relationship
+      + ordered label encoding
+      + mean encoding
+      + probability ratio encoding
+      + weight of evidence
+    + alternative techniques
+      + rare labels encoding
+      + binary encoding
+  + Python library: category_encoders - containing a lot of basic and advanced methods for categorical variable encoding
+  + typical sample data (Color, Target): (Yellow, 0), (Yellow, 1), (Blue, 1), (Yellow, 1), (Red, 1), (Yellow, 0), (Red, 1), (Red, 1), (Yellow, 1), (Blue, 0)
+
+
+
+
