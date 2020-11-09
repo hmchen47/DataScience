@@ -601,7 +601,6 @@ The set of articles in this series:
       train_t_df = imputer.transform(train_df)
       test_t_df = imputer.transform(test_df)
 
-
 ## 5. Encoding Categorical Variables
 
 + Categorical encoding
@@ -621,6 +620,60 @@ The set of articles in this series:
       + binary encoding
   + Python library: category_encoders - containing a lot of basic and advanced methods for categorical variable encoding
   + typical sample data (Color, Target): (Yellow, 0), (Yellow, 1), (Blue, 1), (Yellow, 1), (Red, 1), (Yellow, 0), (Red, 1), (Red, 1), (Yellow, 1), (Blue, 0)
+
++ One-hot encoding
+  + consisting of encoding each categorical variable w/ a set of boolean variables, that take values of __0__ or __1__
+  + the value indicating if a category is present for each observation
+  + multiple variants
+  + one-hot encoding into $k-1$ variables
+    + creating $k-1$ binary variables, where $k$ is the number of distinct categories
+    + using one less dimension and still represent the data fully
+    + e.g., medical test w/ $k=2$ (positive/negative), creating only one ($k - 1 =1$) binary variable
+    + most ML algorithms considering the entire dataset while training
+    + encoding categorical variables into $k-1$ binary values better $\to$ avoid introducing redundant information
+  + one-hot encoding into $k$ variables:
+    + occasions better to encode variables into $k$ variables
+      + building tree-based algorithms
+      + making feature selection w/ recursive algorithms
+      + interested in determining the importance of every single category
+    + data example:
+
+      <figure style="margin: 0.5em; text-align: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+          onclick="window.open('https://tinyurl.com/y6yq38cg')"
+          src    ="https://tinyurl.com/yysvncj6"
+          alt    ="Example of one-hot encoding into $k$ variables"
+          title  ="Example of one-hot encoding into $k$ variables"
+        />
+      </figure>
+
+  + one-hot encoding of most frequent categories
+    + only considering the most frequent categories in a variable
+    + avoid overextending the feature space
+  + advantages
+    + not assuming the distribution of categories of the categories variable
+    + keeping all the information of the categorical variable
+    + suitable for linear models
+  + limitation
+    + expanding the feature space
+    + not adding extra information while encoding
+    + many dummy variables probably identical $\to$ introducing redundant information
+  + example
+
+    ```python
+    # import the pandas library
+    import pandas as pd
+
+    # read dataset
+    data_df = pd.read_csv("dataset.csv")
+
+    # perform one hot encoding w/ k
+    data_with_k_df = pd.get_dummies(data_df)
+
+    # perform one hot encoding w/ k-1, it automatically drop the first
+    data_with_k_one_df = pd.get_dummies(data_df, drop_first=True)
+    ```
+
 
 
 
