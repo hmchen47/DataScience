@@ -1186,6 +1186,75 @@
 </table>
 
 
+### scikit-learn API Reference
+
+<table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse; width: 60vw;">
+  <thead>
+  <tr style="border-bottom: double black;">
+    <th style="min-width: 15%; font-size: 1.6em; border-right: double back; text-align: center; background-color: #4CAF50; padding: 0.3em; color: darkblue; width: 10%;"> Topic </th>
+    <th colspan="4" style="text-align: center; font-size: 1.6em; background-color: #4CAF50; padding: 0.3em;  color: darkblue; width: 40%"> Sub-topics </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan="9" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> scikit-learn</th>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnbase-base-classes-and-utility-functions"> Base Classes </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearncalibration-probability-calibration"> Probability Calibration </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearncluster-clustering"> Clustering </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearncompose-composite-estimators"> Comosite Estimators </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearncovariance-covariance-estimators"> Covariance Estimators </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearncross_decomposition-cross-decomposition"> Cross Decomposition </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearndatasets-datasets"> Datasets </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearndecomposition-matrix-decomposition"> Matrix Decompsition </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearndiscriminant_analysis-discriminant-analysis"> Discriminant Analysis </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearndummy-dummy-estimators"> Dummy Estimators </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnensemble-ensemble-methods"> Ensemble Methods </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnexceptions-exceptions-and-warnings"> Exceptions & Warnings </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnexperimental-experimental"> Experimental </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnfeature_extraction-feature-extraction"> Feature Extraction </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnfeature_selection-feature-selection"> Feature Selection </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearngaussian_process-gaussian-processes"> Gaussian Process </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnimpute-impute"> Impute </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnisotonic-isotonic-regression"> Isotonic Regression </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnkernel_approximation-kernel-approximation"> Kernel Approximation </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnlinear_model-linear-models"> Linear Models </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnmanifold-manifold-learning"> Manifold Learning </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnmetrics-metrics"> Metrics </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnmixture-gaussian-mixture-models"> Mixture Models </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnmodel_selection-model-selection"> Model Selection </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnmulticlass-multiclass-and-multilabel-classification"> Multiclass & Multilabel Classification </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnnaive_bayes-naive-bayes"> Naive Bayes </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnneighbors-nearest-neighbors"> Nearest Neighbors </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnneural_network-neural-network-models"> Neural network Models </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnpipeline-pipeline"> Pipeline </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnpreprocessing-preprocessing-and-normalization"> Preprocessing & Normalization </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnrandom_projection-random-projection"> Random Projection </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnsemi_supervised-semi-supervised-learning"> Semi-Supervised Learning </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnsvm-support-vector-machines"> Support Vector Machines </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearntree-decision-trees"> Decision Trees </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#sklearnutils-utilities"> Utilities </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="./RefCards/ML-SklearnAPI.md#">  </a> </td>
+  </tr>
+  </tbody>
+</table><br/><br/>
+
+
 + [Machine Learning with Python](./RefCards/PythonML.md)
 
 + [Data Science with Python - UC Berkeley](./RefCards/DataScience-UCB.md)
