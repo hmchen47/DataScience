@@ -303,7 +303,9 @@ The set of articles in this series:
 + Data imputation
   + the act replacing missing data w/ statistical estimates of missing values
   + goal: producing a complete dataset to use in the process of training ML models
-  + python library: `feature-engine` to simply the process of imputing missing values
+  + python library:
+    + `sklearn.impute`: transformers for missing value imputation
+    + `feature-engine`: simplify the process of imputing missing values
   + classification of methods
     + numerical variable
       + mean or median imputation
@@ -340,7 +342,7 @@ The set of articles in this series:
     + the higher the percentage of missing values, the higher the distortions
   + example
     + data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">36.2</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">36.2</span>), (50 $\to$ 50)
-    + python code
+    + Python code
 
       ```python
       from sklearn.impute import SimpleImputer
@@ -374,7 +376,7 @@ The set of articles in this series:
     + the higher the percentage of NA, the higher the distortion
   + example: using 999 as an arbitrary value
     + data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">99</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">99</span>), (50 $\to$ 50)
-    + python code
+    + Python code
 
     ```python
     from sklearn.impute import SimpleImputer
@@ -382,7 +384,7 @@ The set of articles in this series:
     # create the imputer, w/ fill value 999 as the arbitrary value
     imputer = SimpleImputer(missing_values=np.nan, strategy='constant', fill_value=999)
 
-    # apply the transformation tot eh train and test
+    # apply the transformation to the train and test
     train_df = imputer.transform(train_df)
     test_df = imputer.transform(test_df)
     ```
@@ -407,7 +409,7 @@ The set of articles in this series:
     + selected value for imputation: upper limit or lower limit
   + example:
     + data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">50</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">50</span>), (50 $\to$ 50)
-    + python code
+    + Python code
 
       ```python
       from feature_engine.missing_imputers import EndTailImputer
@@ -444,7 +446,7 @@ The set of articles in this series:
     + may lead to an over-representation of the most frequent label if a lot of missing observations existed
   + example:
     + data (Gender): (Male $\to$ Male), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Male</span>), (Female $\to$ Female), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Male</span>), (Femal $\to$ Female)
-    + python code
+    + Python code 
 
       ```python
       from sklearn.impute import SimpleImputer
@@ -453,7 +455,7 @@ The set of articles in this series:
       imputer = SimpleImputer(missing_values=np.nan, strategy='most_frequent')
 
       # fit the imputer to  the train data
-      imputer.fit(trai_df)
+      imputer.fit(train_df)
 
       # apply the transformation to the train and test
       train_df = imputer.transform(train_df)
@@ -474,7 +476,7 @@ The set of articles in this series:
     + small number of missing data $\to$ creating an additional category just adding another rare label to the variable
   + example: fill missing data w/ a new category, "Missing"
     + data (Gender): (Male $\to$ Male), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Missing</span>), (Female $\to$ Female), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Missing</span>), (Femal $\to$ Female)
-    + python code
+    + Python code
 
       ```python
       from sklearn.impute import SimpleImputer
@@ -491,14 +493,14 @@ The set of articles in this series:
       test_df = imputer.transform(test_df)
       ```
 
-+ Complete case analysis
++ Complete case analysis (CCA)
   + discarding observations where values in any of the variables are missing
   + keep only those observations for which there's information in all of the dataset variables
   + observations w/ any missing data excluded
   + scenario
     + missing data complete at random (MCAR)
-    + no more than 5% of the total dataset containg missing data
-  + assumption
+    + no more than 5% of the total dataset containing missing data
+  + assumption 
     + missing data at random
   + advantages
     + simple to implement
@@ -507,11 +509,11 @@ The set of articles in this series:
   + limitation
     + excluding a significant fraction of the original dataset (if missing data significant)
     + excluding informative observations for the analysis (if data not missing at random)
-    + create a biased dataset if the complete cases differ from hte original data (if MAR or MNAR)
-    + using in production $\to$ not knowing how to handle missing data
+    + create a biased dataset if the complete cases differ from the original data (if MAR or MNAR)
+    + used  in production $\to$ not knowing how to handle missing data
   + example:
     + data (Gender): (Male $\to$ Male), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ ), (Female $\to$ Female), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ ), (Femal $\to$ Female)
-    + python code
+    + Python code
 
       ```python
       # read data and apply the method
@@ -538,8 +540,8 @@ The set of articles in this series:
     + original variable still requiring to be imputed
     + many missing indicators may end up being identical or very highly corrrelated
   + example:
-    + data (Gender $\to$ Gender, Missing): (Male $\to$ Male, <span style="color: pink;">False</span>), (Male $\to$ <span style="color: pink;">Male</span>), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Female, True</span>), (Female $\to$ <span style="color: pink;">Female</span>), (Male $\to$ <span style="color: pink;">Male</span>), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Male, True</span>), (Femal $\to$ <span style="color: pink;">Female</span>)
-    + python code
+    + data (Gender $\to$ Gender, Missing): (Male $\to$ Male, <span style="color: pink;">False</span>), (Male $\to$ Male, <span style="color: pink;">False</span>), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Female, True</span>), (Female $\to$ Female, <span style="color: pink;">False</span>), (Male $\to$ Male, <span style="color: pink;">False</span>), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Male, True</span>), (Femal $\to$ Female, <span style="color: pink;">False</span>)
+    + Python code
 
       ```python
       from sklearn.imput import MissingIndicator
@@ -583,8 +585,8 @@ The set of articles in this series:
     + relationship btw imputed variables and other variables probably affected if a lot of missing values
     + requiring massive memory for deployment to store the original training set to extract values from and replace the missing values w/ the randomly selected values
   + example:
-    + data (Gender, Age): ((Male, 29) $\to$ (Male, 29)), ((Male, <span style="color: pink;">NA</span>) $\to$ (Male, <span style="color: lightgreen;">34</span>)), (<span style="color: pink;">NA</span>,(<span style="color: pink;">NA</span>, 43) $\to$ (<span style="color: lightgreen;">Female</span>, 43)), ((Female, 25) $\to$ (Femal, 25)), ((Male, 34) $\to$ (Male, 34)), ((<span style="color: pink;">NA</span>, 50) $\to$ (<span style="color: lightgreen;">Male</span>, 50)), ((Femal, <span style="color: pink;">NA</span>) $\to$ (Female, <span style="color: lightgreen;">25</span>))
-    + python code
+    + data (Gender, Age): ((Male, 29) $\to$ (Male, 29)), ((Male, <span style="color: pink;">NA</span>) $\to$ (Male, <span style="color: lightgreen;">34</span>)), (  (<span style="color: pink;">NA</span>, 43) $\to$ (<span style="color: lightgreen;">Female</span>, 43)), ((Female, 25) $\to$ (Femal, 25)), ((Male, 34) $\to$ (Male, 34)), ((<span style="color: pink;">NA</span>, 50) $\to$ (<span style="color: lightgreen;">Male</span>, 50)), ((Femal, <span style="color: pink;">NA</span>) $\to$ (Female, <span style="color: lightgreen;">25</span>))
+    + Python code
 
       ```python
       from feature_engine.missing_data_imputer import  RandomSampleImputer
