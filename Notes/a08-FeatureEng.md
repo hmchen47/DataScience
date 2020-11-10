@@ -861,6 +861,17 @@ The set of articles in this series:
     + WOE < 0: the probability of the target being 1 is more significant
   + creating an excellent visual representation of the variable
   + observation: category favoring the target being 0 or 1
+  + data example
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+        onclick="window.open('https://tinyurl.com/y6yq38cg')"
+        src    ="https://tinyurl.com/y22c9oep"
+        alt    ="Example of Weight of evidence encoding (WOE)"
+        title  ="Example of Weight of evidence encoding (WOE)"
+      />
+    </figure>
+
   + advantages
     + creating a monotonic relationship btw the target and the variables
     + ordering the categories on the 'logistic' scale, nature for logistic regression
@@ -896,8 +907,61 @@ The set of articles in this series:
       test_df[variable] = test_dff[variable].map(ratio_mapping)
     ```
 
++ Probability ratio encoding
+  + suitable for classification problems only, where the target is binary
+  + similar to WOE, but not applying the natural logrithm
+  + each category, the mean of the target = 1
+    + $P(1)$: the probability of the target being 1
+    + $P(0)$: the probability of the target being 0
+  + calculating the ratio = P(1)/P(0) and replacing the categories by that ratio
+  + data example
 
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick="window.open('https://tinyurl.com/y6yq38cg')"
+        src    ="https://tinyurl.com/y3q7kzew"
+        alt    ="Example of Probability ratio encoding"
+        title  ="Example of Probability ratio encoding"
+      />
+    </figure>
 
+  + advantages
+    + capturing information within the category, and therefore creating more predictive features
+    + creating a montonic relationship btw the variables and the target, suitable for linear mdoels
+    + not expanding the feature space
+  + limitations
+    + likely to cause overfitting
+    + not defined when the denominator is 0
+  + Python code
+
+    ```python
+    import pandas as pd
+    import numpy as np
+
+    # get data
+    data_df = pd.read_csv("dataset.csv")
+
+    # get target variable anme
+    target = "your target variable name"
+
+    # loop over all the categorical variables
+    for variable in train_df.columns:
+      # calculating the mean of target for each category
+      # probability of events or p(1)
+      dataframe = pd.DataFrame(train_df.groupby([variable])[target].mean())
+
+      # calculating the non target probability
+      # probability of non-events or p(0)
+      dataframe['non-target'] = 1 - dataframe[target]
+
+      # calculating the ratio
+      dataframe['ratio'] = dataframe[target] / dataframe['non-target']
+      ratio_mapping = dataframe['ratio'].to_dict()
+
+      # applying the probability ratio encoding
+      train_df[variable] = train_df[variable].map(ratio_maooing)
+      test_df[variable] = test_df[variable].map(ratio_mapping)
+    ```
 
 
 
