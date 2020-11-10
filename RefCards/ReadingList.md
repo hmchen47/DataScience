@@ -18,6 +18,19 @@
 
 + Pier Paolo Ippolito, [Feature Selection Techniques](../Notes/a02-FeatureEng.md)
 + Aishwarya Singh, [6 Powerful Feature Engineering Techniques For Time Series Data (using Python)](../Notes/a03-FeatureEngTech.md)
++ Younes Charfaoui, Hands-on with Feature Engineering Techniques, 2018
+  + [Broad Introduction](../Notes/a08-FeatureEng.md#1-broad-introduction)
+  + [Variable Types](../Notes/a08-FeatureEng.md#2-variables-types)
+  + [Common Issues in Datasets](../Notes/a08-FeatureEng.md#3-common-issues-in-datasets)
+  + [Imputing Missing Values](../Notes/a08-FeatureEng.md#)
+  + [Categorical Variables Encoding](../Notes/a08-FeatureEng.md#)
+  + [Transforming Variables](../Notes/a08-FeatureEng.md#)
+  + [Variables Discretization](../Notes/a08-FeatureEng.md#)
+  + [Handling Outliers](../Notes/a08-FeatureEng.md#)
+  + [Feature Scaling](../Notes/a08-FeatureEng.md#)
+  + [Handling Time-Date and Mixed Variables](../Notes/a08-FeatureEng.md#)
+  + [Advanced Feature Engineering Methods](../Notes/a08-FeatureEng.md#)
+
 
 
 
