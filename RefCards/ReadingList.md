@@ -19,17 +19,17 @@
 + Pier Paolo Ippolito, [Feature Selection Techniques](../Notes/a02-FeatureEng.md)
 + Aishwarya Singh, [6 Powerful Feature Engineering Techniques For Time Series Data (using Python)](../Notes/a03-FeatureEngTech.md)
 + Younes Charfaoui, Hands-on with Feature Engineering Techniques, 2018
-  + [Broad Introduction](../Notes/a08-FeatureEng.md#1-broad-introduction)
-  + [Variable Types](../Notes/a08-FeatureEng.md#2-variables-types)
-  + [Common Issues in Datasets](../Notes/a08-FeatureEng.md#3-common-issues-in-datasets)
-  + [Imputing Missing Values](../Notes/a08-FeatureEng.md#)
-  + [Categorical Variables Encoding](../Notes/a08-FeatureEng.md#)
-  + [Transforming Variables](../Notes/a08-FeatureEng.md#)
-  + [Variables Discretization](../Notes/a08-FeatureEng.md#)
-  + [Handling Outliers](../Notes/a08-FeatureEng.md#)
-  + [Feature Scaling](../Notes/a08-FeatureEng.md#)
-  + [Handling Time-Date and Mixed Variables](../Notes/a08-FeatureEng.md#)
-  + [Advanced Feature Engineering Methods](../Notes/a08-FeatureEng.md#)
+  + 01. [Broad Introduction](../Notes/a08-FeatureEng.md#1-broad-introduction)
+  + 02. [Variable Types](../Notes/a08-FeatureEng.md#2-variables-types)
+  + 03. [Common Issues in Datasets](../Notes/a08-FeatureEng.md#3-common-issues-in-datasets)
+  + 04. [Imputing Missing Values](../Notes/a08-FeatureEng.md#)
+  + 05. [Categorical Variables Encoding](../Notes/a08-FeatureEng.md#)
+  + 06. [Transforming Variables](../Notes/a08-FeatureEng.md#)
+  + 07. [Variables Discretization](../Notes/a08-FeatureEng.md#)
+  + 08. [Handling Outliers](../Notes/a08-FeatureEng.md#)
+  + 09. [Feature Scaling](../Notes/a08-FeatureEng.md#)
+  + 10. [Handling Time-Date and Mixed Variables](../Notes/a08-FeatureEng.md#)
+  + 11. [Advanced Feature Engineering Methods](../Notes/a08-FeatureEng.md#)
 
 
 
