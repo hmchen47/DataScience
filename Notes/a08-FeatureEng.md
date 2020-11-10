@@ -1003,5 +1003,47 @@ The set of articles in this series:
         test_df[variable], 'Rare')
     ```
 
++ Binary encoding
+  + using binary code
+  + procedure
+    + converting each integer to binary code
+    + each binary digits gets one column in the dataset
+  + $n$ unique categories $\implies$ binary encoding results in the only $\log_2 n$ features
+  + advantages
+    + straightforward to implement
+    + not expanding the feature space too much
+  + limitations
+    + exposing the loss of info during encoding
+    + lacking the human-readable sense
+  + data example
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick="window.open('https://tinyurl.com/y6yq38cg')"
+        src    ="https://tinyurl.com/y2uazs6q"
+        alt    ="Example of binary encoding"
+        title  ="Example of binary encoding"
+      />
+    </figure>
+
+  + Python code
+
+    ```python
+    import pandas as pd
+    from category_encoders import BinaryEncoder
+
+    # get data
+    data_df = pd.read_csv("dataset.csv")
+
+    # split into x and y
+    x_train_df = data_df.drop('target', axis=1)
+    y_train_df = data_df['target']
+
+    # create an encoder object - it will apply on all strings column
+    binary = BinaryEncoder()
+
+    # fit and transform to get encoded data
+    binary.fit_transform(x_train_df, y_train_df)
+    ```
 
 
