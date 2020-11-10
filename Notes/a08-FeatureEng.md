@@ -760,3 +760,49 @@ The set of articles in this series:
       test_df[variable].map(count_map)
     ```
 
++ Ordered label encoding
+  + replacing categories w/ integers from 1 to n
+  + $n$: the number of distinct categories in the variable (the cardinality)
+  + using the target mean information of each category to decide how to assign these numbers
+  + data example
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick="window.open('https://tinyurl.com/y6yq38cg')"
+        src    ="https://tinyurl.com/y2tm9sm8"
+        alt    ="Example of ordered label encoding"
+        title  ="Example of ordered label encoding"
+      />
+    </figure>
+
+  + advantages
+    + straightforward to implement
+    + not expanding the feature space
+    + creating a monotonic relationship btw categories and the target
+  + limitation: probably leading to overfitting
+  + Python code
+
+    ```python
+    import pandas as pd
+
+    # get data
+    data_df = pd.read_csv("dataset.csv")
+
+    # get your target variable name
+    target = "your target variable name"
+
+    # generate the order list of labels, then apply it to the variable
+    for variable in train.columns:
+      labels = train_df.groupby([variable])[target].mean().sort_values().index
+      mappings = {x: i for i, x in enumerate(labels, 0)}
+
+      # apply the encoding to the train and test sets
+      train_df[variable] = train_df[variable].map(mapping)
+      test_df[variable] = test_df[variable].map(mapping)
+    ```
+
+
+
+
+
+
