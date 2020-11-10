@@ -717,7 +717,7 @@ The set of articles in this series:
       test_df[variable] = test_df[variable].map(ordinal_mapping)
 
     # check that data contains only
-    for variable in data.columns:
+    for variable in data_df.columns:
       mappings = create_category_mapping(data_df, variable)
       label_encode(train_df, test_df, variable, mappings)
     ```
@@ -754,7 +754,7 @@ The set of articles in this series:
 
     # loop to find the different count of categories in a dict
     # and apply them to the variable in the train and test set
-    for variable in train.columns:
+    for variable in train_df.columns:
       count_dict = train[variable].value_counts().to_dict()
       train_df[variable].map(count_map)
       test_df[variable].map(count_map)
@@ -838,7 +838,7 @@ The set of articles in this series:
     target = "your target variable name"
 
     # loop over the categorical columns to apply the encoding
-    for variable in train.columns:
+    for variable in train_df.columns:
       # create dictionary of category: mean values
       dict = train_df.groupby([variable])[target].mean().to_dict()
 
@@ -846,6 +846,56 @@ The set of articles in this series:
       train_df[variable] = train_df[variable].map(dict)
       test_df[variable] = test_df[variable].map(dict)
     ```
+
++ Weight of evidence encoding (WOE)
+  + used to encode categorical variables for classification
+  + apply the natural logarithm ($\ln$) of the probability that the target equals 1 divided by the probability of the target values 0
+  + math formula
+
+    \[ \text{WOE} = |\ln(p(1)/p(0))| \]
+
+    + $p(1)$: the probability of the target being 1
+    + $p(0)$: the probability of the target being 0
+  + WOE value
+    + WOE > 0: the probability of the target being 0 is more significant
+    + WOE < 0: the probability of the target being 1 is more significant
+  + creating an excellent visual representation of the variable
+  + observation: category favoring the target being 0 or 1
+  + advantages
+    + creating a monotonic relationship btw the target and the variables
+    + ordering the categories on the 'logistic' scale, nature for logistic regression
+    + comparing the transformed variables because they are on the same scale $\to$ determine which one is more predictive
+  + limitations
+    + probably lead to overfitting
+    + not defined when the denominator is 0
+  + Python code
+
+    ```python
+    import pandas as pd
+    import numpy as np
+
+    # get data
+    data_df = pd.read_csv("dataset.csv")
+
+    # get target variable name
+    target = "your target variable name"
+
+    # loop over all the categorical variables
+    for variable in train_df.columns:
+      # calculating the mean of target for each category
+      # probability of events or P(1)
+      dataframe = pd.DataFrame(train_df.groupby([variable])[target].mena())
+
+      # calculating the non target probability
+      # probability of non-events or p(0)
+      dataframe['ratio'] =np.log(dataframe[target] / dataframe['non-target'])
+      ratio_mapping = dataframe['ratio'].to_dict()
+
+      # applying the WOE
+      train_df[variable] = train_df[variable].map(ratio_mapping)
+      test_df[variable] = test_dff[variable].map(ratio_mapping)
+    ```
+
 
 
 
