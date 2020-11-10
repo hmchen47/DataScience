@@ -674,7 +674,53 @@ The set of articles in this series:
     data_with_k_one_df = pd.get_dummies(data_df, drop_first=True)
     ```
 
++ Integer (Label) Encoding
+  + replacing the categories w/ digits from $1$ to $n$ (or $0$ to $n-1$, depending on the implementation)
+  + $n$: the number of the variable's distinct categories (the cardinality)
+  + the number assigned arbitrary
+  + data example:
 
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick="window.open('https://tinyurl.com/y6yq38cg')"
+        src    ="https://tinyurl.com/y23xs9ug"
+        alt    ="Example of integer (label) encoding"
+        title  ="Example of integer (label) encoding"
+      />
+    </figure>
+
+  + advantages
+    + straightforward to implement
+    + not expanding the feature space
+    + working well enough w/ tree-based algorithms
+    + allowing agile benchmarking of ML models
+  + limitations
+    + not adding extra information while encoding
+    + not suitable for linear models
+    nor handling new categories in the test set automatically
+    + creating an order relationship btw the categories
+  + Python code
+
+    ```python
+    import pandas as pd
+
+    # get data
+    data_df = pd.read_csv("dataset.csv")
+
+    # function to find the different enumeration of variable
+    def create_category_mapping(daat_df, variable):
+      return {K: i for i, k in enumerate(data_df[variable].unique(), 0)}
+
+    # function to apply the encoding on the variable
+    def label_encode(train_df, test_df, variable, ordinal_mapping):
+      train_df[variable] = train_df[variable].map(orfinal_mapping)
+      test_df[variable] = test_df[variable].map(ordinal_mapping)
+
+    # check that data contains only
+    for variable in data.columns:
+      mappings = create_category_mapping(data_df, variable)
+      label_encode(train_df, test_df, variable, mappings)
+    ```
 
 
 
