@@ -722,5 +722,41 @@ The set of articles in this series:
       label_encode(train_df, test_df, variable, mappings)
     ```
 
++ Count or frequency encoding
+  + replacing categories w/ the count or percentage that show each category in the dataset
+  + capturing the representation of each label in the dataset
+  + example: 
 
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick="window.open('https://tinyurl.com/y6yq38cg')"
+        src    ="https://tinyurl.com/y2d2llys"
+        alt    ="Example of count or frequency encoding"
+        title  ="Example of count or frequency encoding"
+      />
+    </figure>
+
+  + advantages
+    + straightforward to implement
+    + not expanding the feature space
+    + working well w/ tree-based algorithms
+  + limitations
+    + not suitable for linear models
+    + not handling new categories in the test set automatically
+    + losing valuable information if there are two different categories w/ the same amount of observations count
+  + Python code
+
+    ```python
+    import pandas as pd
+
+    # get data
+    data_df = pd.read_csv("dataset.csv")
+
+    # loop to find the different count of categories in a dict
+    # and apply them to the variable in the train and test set
+    for variable in train.columns:
+      count_dict = train[variable].value_counts().to_dict()
+      train_df[variable].map(count_map)
+      test_df[variable].map(count_map)
+    ```
 
