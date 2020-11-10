@@ -728,7 +728,7 @@ The set of articles in this series:
   + example: 
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
         onclick="window.open('https://tinyurl.com/y6yq38cg')"
         src    ="https://tinyurl.com/y2d2llys"
         alt    ="Example of count or frequency encoding"
@@ -801,6 +801,51 @@ The set of articles in this series:
       test_df[variable] = test_df[variable].map(mapping)
     ```
 
++ Mean (target) encoding
+  + replacing the category w/ the mean target value for that category
+  + procedure
+    + grouping each category alone
+    + for each group, calculating the mean of the target in the corresponding observations
+    + assigning mean to that category
+    + encoded the category w/ the mean of the target
+  + data example
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick="window.open('https://tinyurl.com/y6yq38cg')"
+        src    ="https://tinyurl.com/yxsnfdfq"
+        alt    ="Example of Mean (target) encoding"
+        title  ="Example of Mean (target) encoding"
+      />
+    </figure>
+
+  + advantages
+    + straightforward to implement
+    + not expanding the feature space
+    + creating a monotonic relationship btw categories and the target
+  + limitations
+    + probably leading to overfitting
+    + probably leading to a possible loss of value if two categories have the same mean as the target
+  + Python code
+
+    ```python
+    import pandas as pd
+
+    # get data 
+    data_df = pd.read_csv("dataset.csv")
+
+    # get target variable name
+    target = "your target variable name"
+
+    # loop over the categorical columns to apply the encoding
+    for variable in train.columns:
+      # create dictionary of category: mean values
+      dict = train_df.groupby([variable])[target].mean().to_dict()
+
+      # apply the encoding to the train and test sets
+      train_df[variable] = train_df[variable].map(dict)
+      test_df[variable] = test_df[variable].map(dict)
+    ```
 
 
 
