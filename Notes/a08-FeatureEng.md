@@ -963,5 +963,45 @@ The set of articles in this series:
       test_df[variable] = test_df[variable].map(ratio_mapping)
     ```
 
++ Rare label encoding
+  + rare label: appearing only in a tiny proportion of the observations in a dataset
+  + causing some issues, especially w/ overfitting and generation
+  + solution: group those rare labels into a new category like other or rare
+  + data example
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick="window.open('https://tinyurl.com/y6yq38cg')"
+        src    ="https://tinyurl.com/yyxdzpt2"
+        alt    ="Example of rare label encoding"
+        title  ="Example of rare label encoding"
+      />
+    </figure>
+
+  + Python code
+
+    ```python
+    import pandas as pd
+    import numpy as np
+
+    # get dat
+    data_df = pd.read_csv("dataset.csv")
+
+    # define threshold here
+    threshold = 0.05
+
+    # loop over all the categorical variables
+    for variable in train_df.columns:
+      # locate all the categories that are not rare
+      counts = train_df.groupby([variable])[variable].count() / len(train_df)
+      frequent_labels = [x for x in counts.loc[counts > threshold].index.values]
+
+      # change the rare category names w/ the word rare, and thus encoding it
+      train_df[variable] = np.where(train_df[variable].isin(frequent_labels), \
+        train_df[variable], 'Rare')
+      test_df[variable] = np.where(test_df[variable].isin(frequent_labels), \
+        test_df[variable], 'Rare')
+    ```
+
 
 
