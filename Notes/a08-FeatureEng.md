@@ -1055,4 +1055,37 @@ The set of articles in this series:
     binary.fit_transform(x_train_df, y_train_df)
     ```
 
+## 6. Transforming Variables
+
++ Transforming variables
+  + assumption of linear and logistic regression: normal distribution w/ variable
+  + in practice, real datasets following more a skewed distribution
+  + purpose:
+    + mapping skewed distribution to a normal distribution
+    + increasing the performance of models
+  + tools to estimate normality: histogram and Q-Q plot
+  + most common-used methods
+    + logarithm transformation
+    + square root transformation
+    + reciprocal transformation
+    + exponential or power transformation
+    + Box-Cox transformation
+    + Yeo-Johson transformation
+  + common Python code for transformations
+
+    ```python
+    # import the library
+    import pandas as pd
+    import numpy as np
+    from sklearn.preprocessing import FunctionTransformer
+
+    # load data
+    data_df = pd.read_csv("daatset.csv")
+
+    # create columns variables to hold the columns that need transformation
+    cols = ['col1', 'col2', 'col3', ...]
+    ```
+
+
+
 
