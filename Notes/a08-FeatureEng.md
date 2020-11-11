@@ -1119,7 +1119,7 @@ The set of articles in this series:
   + simplest and most popular among the different types of transformations
   + involving a substantial transformation that significantly affects distribution shape
   + making extremely skewed distribution less skewed, especially for right-skewed distributions
-  + constraint: only for strictly positive numbers
+  + constraint: only for __strictly positive__ numbers
   + Python code
 
     ```python
@@ -1129,6 +1129,25 @@ The set of articles in this series:
     # apply the transformation to data
     data_new_df = logarithm_transformer.transformer(data_df[cols])
     ```
+
++ Square root transformation
+  + formula: $f(x) = \sqrt{x}$
+  + simple transformation w/ average effect on distribution shape
+  + weaker than logarithmic transformation
+  + used for reducing right-skewed distributions
+  + advantage: able to apply to zero values
+  + constrain: only for positive numbers
+  + Python code
+
+    ```python
+    #create the fucntion transformaer object w/ square root transformation
+    sqrt_transformer = FunctionTransformer(np.sqrt, validate=True)
+
+    # apply the transformation to data
+    data_new = sqrt_transformer.transformer(data_df[cols])
+    ```
+  
+  + alternative: cubic root fucntion
 
 
 
