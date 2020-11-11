@@ -1186,5 +1186,30 @@ The set of articles in this series:
     data_new_df = exponential_transformer.transform(data_df[cols])
     ```
 
++ Box-Cox transformation
+  + formula
+
+    \[ x_i^{(\lambda)} = \begin{cases} 
+      \frac{x_i^{\lambda}-1}{\lambda} & \text{if } \lambda \ne 0, \\ 
+      \ln(x_i) & \text{if } \lambda = 0
+    \end{cases} \]
+
+  + one of the most successful transformations
+  + evolution of the exponential transformation by looking through various exponents instead of trying them manually
+  + process
+    + searching and evaluating all the other transformations and choosing the best one
+    + hyperparameter ($\lambda$): varying over the range (-5, 5)
+    + examining all values of $\lambda$
+    + choosing the optimal value (resulting in the best approximation to a normal distribution)
+  + constraint: only for positive number
+  + Python code
+
+    ```python
+    # create the power transformer object w/ method 'box-cox'
+    boxcox_transformer = PowerTransformer(method='box-cox', standardize=False)
+
+    # apply the transformation to data
+    daat_new_df = boxcox_transformer.transfor(data[cols])
+    ```
 
 
