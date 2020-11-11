@@ -1167,5 +1167,24 @@ The set of articles in this series:
   
   + alternative; negative reciprocal fucntion
 
++ Exponential or Power transformation
+  + formula
+
+    \[ \begin{align*} f(x) &= x^2 \\ g(x) &= x^3 \\ h(x) &= x^n \\ k(x) &= \exp(x) \end{align*} \]
+
+  + a reasonable effect on distribution shape
+  + applying power transformation (power of two usually) to reduce left skewness
+  + using any exponent in the transformation, even using the $\exp()$ fucntion
+  + Python code
+
+    ```python
+    # create he fucntion transformer object w/ exponent transformation
+    # using x^3 is arbitrary here, able to choose any exponent
+    exponential_transformer = FunctionTransformer(lambda x: x**(3), validate=True)
+
+    # apply the transformation to data
+    data_new_df = exponential_transformer.transform(data_df[cols])
+    ```
+
 
 
