@@ -602,7 +602,7 @@ The set of articles in this series:
       test_t_df = imputer.transform(test_df)
 
 ## 5. Encoding Categorical Variables
-
+ 
 + Categorical encoding
   + permanently replacing category strings w/ numerical representations
   + goal: producing variables used to train machine learning models and build predictive features from categories
@@ -619,7 +619,16 @@ The set of articles in this series:
       + rare labels encoding
       + binary encoding
   + Python library: category_encoders - containing a lot of basic and advanced methods for categorical variable encoding
-  + typical sample data (Color, Target): (Yellow, 0), (Yellow, 1), (Blue, 1), (Yellow, 1), (Red, 1), (Yellow, 0), (Red, 1), (Red, 1), (Yellow, 1), (Blue, 0)
+  + typical sample data (Color, Target): 
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 1 0vw;"
+        onclick="window.open('https://tinyurl.com/y6yq38cg')"
+        src    ="https://tinyurl.com/y6ccmhqp"
+        alt    ="Example of categorical encoding"
+        title  ="Example of categorical encoding"
+      />
+    </figure>
 
 + One-hot encoding
   + consisting of encoding each categorical variable w/ a set of boolean variables, that take values of __0__ or __1__
@@ -639,7 +648,7 @@ The set of articles in this series:
     + data example:
 
       <figure style="margin: 0.5em; text-align: center;">
-        <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 4 0vw;"
           onclick="window.open('https://tinyurl.com/y6yq38cg')"
           src    ="https://tinyurl.com/yysvncj6"
           alt    ="Example of one-hot encoding into $k$ variables"
@@ -651,14 +660,14 @@ The set of articles in this series:
     + only considering the most frequent categories in a variable
     + avoid overextending the feature space
   + advantages
-    + not assuming the distribution of categories of the categories variable
+    + not assuming the distribution of categories of the categorical variable
     + keeping all the information of the categorical variable
     + suitable for linear models
-  + limitation
+  + limitations
     + expanding the feature space
     + not adding extra information while encoding
     + many dummy variables probably identical $\to$ introducing redundant information
-  + example
+  + Python code
 
     ```python
     # import the pandas library
@@ -681,7 +690,7 @@ The set of articles in this series:
   + data example:
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 4 0vw;"
         onclick="window.open('https://tinyurl.com/y6yq38cg')"
         src    ="https://tinyurl.com/y23xs9ug"
         alt    ="Example of integer (label) encoding"
@@ -708,12 +717,12 @@ The set of articles in this series:
     data_df = pd.read_csv("dataset.csv")
 
     # function to find the different enumeration of variable
-    def create_category_mapping(daat_df, variable):
+    def create_category_mapping(data_df, variable):
       return {K: i for i, k in enumerate(data_df[variable].unique(), 0)}
 
     # function to apply the encoding on the variable
     def label_encode(train_df, test_df, variable, ordinal_mapping):
-      train_df[variable] = train_df[variable].map(orfinal_mapping)
+      train_df[variable] = train_df[variable].map(ordinal_mapping)
       test_df[variable] = test_df[variable].map(ordinal_mapping)
 
     # check that data contains only
@@ -728,7 +737,7 @@ The set of articles in this series:
   + example: 
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
         onclick="window.open('https://tinyurl.com/y6yq38cg')"
         src    ="https://tinyurl.com/y2d2llys"
         alt    ="Example of count or frequency encoding"
@@ -767,7 +776,7 @@ The set of articles in this series:
   + data example
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
         onclick="window.open('https://tinyurl.com/y6yq38cg')"
         src    ="https://tinyurl.com/y2tm9sm8"
         alt    ="Example of ordered label encoding"
@@ -792,7 +801,7 @@ The set of articles in this series:
     target = "your target variable name"
 
     # generate the order list of labels, then apply it to the variable
-    for variable in train.columns:
+    for variable in train_df.columns:
       labels = train_df.groupby([variable])[target].mean().sort_values().index
       mappings = {x: i for i, x in enumerate(labels, 0)}
 
@@ -811,7 +820,7 @@ The set of articles in this series:
   + data example
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
         onclick="window.open('https://tinyurl.com/y6yq38cg')"
         src    ="https://tinyurl.com/yxsnfdfq"
         alt    ="Example of Mean (target) encoding"
@@ -895,7 +904,7 @@ The set of articles in this series:
     for variable in train_df.columns:
       # calculating the mean of target for each category
       # probability of events or P(1)
-      dataframe = pd.DataFrame(train_df.groupby([variable])[target].mena())
+      dataframe = pd.DataFrame(train_df.groupby([variable])[target].mean())
 
       # calculating the non target probability
       # probability of non-events or p(0)
@@ -917,7 +926,7 @@ The set of articles in this series:
   + data example
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
         onclick="window.open('https://tinyurl.com/y6yq38cg')"
         src    ="https://tinyurl.com/y3q7kzew"
         alt    ="Example of Probability ratio encoding"
@@ -959,7 +968,7 @@ The set of articles in this series:
       ratio_mapping = dataframe['ratio'].to_dict()
 
       # applying the probability ratio encoding
-      train_df[variable] = train_df[variable].map(ratio_maooing)
+      train_df[variable] = train_df[variable].map(ratio_mapping)
       test_df[variable] = test_df[variable].map(ratio_mapping)
     ```
 
@@ -970,7 +979,7 @@ The set of articles in this series:
   + data example
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
         onclick="window.open('https://tinyurl.com/y6yq38cg')"
         src    ="https://tinyurl.com/yyxdzpt2"
         alt    ="Example of rare label encoding"
@@ -1004,7 +1013,7 @@ The set of articles in this series:
     ```
 
 + Binary encoding
-  + using binary code
+  + using binary code 
   + procedure
     + converting each integer to binary code
     + each binary digits gets one column in the dataset
@@ -1018,7 +1027,7 @@ The set of articles in this series:
   + data example
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
         onclick="window.open('https://tinyurl.com/y6yq38cg')"
         src    ="https://tinyurl.com/y2uazs6q"
         alt    ="Example of binary encoding"
