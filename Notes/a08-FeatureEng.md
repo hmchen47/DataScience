@@ -1086,6 +1086,24 @@ The set of articles in this series:
     cols = ['col1', 'col2', 'col3', ...]
     ```
 
++ Q-Q plot
+  + variable following a normal distribution $\implies$ the variable's values falls in a 45-degree line against the theoretical quantiles
+  + Python code
+
+    ```python
+    # impoert the libraries
+    import matplotlib.pyplot as plt
+    import scipy.stats as stats
+    import pandas as pd
+
+    # read data
+    data_df = pd.read_csv("dataset.csv")
+
+    # create and show the plot
+    stats.probplot(data_df["variable"], dist="norm", plot=plt)
+    plt.show()
+    ```
+
 
 
 
