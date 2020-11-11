@@ -1149,7 +1149,23 @@ The set of articles in this series:
   
   + alternative: cubic root fucntion
 
++ Reciprocal transformation
+  + formula: $f(x) = \frac{1}{x}$
+  + a powerful transforamtion w/ a radical effect
+  + positive reciprocal: reversing the order among values of the same sign $\to$ large values $\to$ smaller
+  + negative reciprocal: preserving the order among values of the same ign
+  + constraint: not defined for zero
+  + Python code
 
+    ```python
+    #create the function transformer object w/ reciprocal transformation
+    reciprocol_transformer = FunctionTransformer(np.reciprocol, validate=True)
+
+    # apply the transformation to data
+    data_new_df = reciprocol_transformer.transform(data_df[cols])
+    ```
+  
+  + alternative; negative reciprocal fucntion
 
 
 
