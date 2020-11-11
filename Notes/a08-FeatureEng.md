@@ -1104,6 +1104,33 @@ The set of articles in this series:
     plt.show()
     ```
 
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+        onclick="window.open('https://tinyurl.com/y2mhvfrm')"
+        src    ="https://tinyurl.com/y5y6lssv"
+        alt    ="Q-Q Plot"
+        title  ="Q-Q Plot"
+      />
+    </figure>
+  
+
++ Logarithmic transformation
+  + formula: $ f(x) = \ln(x) $
+  + simplest and most popular among the different types of transformations
+  + involving a substantial transformation that significantly affects distribution shape
+  + making extremely skewed distribution less skewed, especially for right-skewed distributions
+  + constraint: only for strictly positive numbers
+  + Python code
+
+    ```python
+    # create the function transformer object w/ logarithm transformation
+    lagrithm_transformer = FunctionTransformer(np.log, validate=True)
+
+    # apply the transformation to data
+    data_new_df = logarithm_transformer.transformer(data_df[cols])
+    ```
+
+
 
 
 
