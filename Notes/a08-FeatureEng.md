@@ -1273,8 +1273,7 @@ The set of articles in this series:
     data_df = pd.read_csv("dataset.csv")
 
     # create the discretizer object w/ strategy uniform and 8 bins
-    discretizer = KBinsDiscretizer(n_bins=8, encode='ordinal' \
-      strategy='uniform')
+    discretizer = KBinsDiscretizer(n_bins=8, encode='ordinal' strategy='uniform')
 
     # fit the discretizer to the train set
     discretizer.fit(train)
@@ -1303,8 +1302,7 @@ The set of articles in this series:
     data_df = pd.read_csv("dataset.csv")
 
     # create the discretizer object w/ strategy quantile adn 8 bins
-    discretizer = KBinsDiscretizer(n_bins=8, encode='ordinal', \
-      strategy='quantile')
+    discretizer = KBinsDiscretizer(n_bins=8, encode='ordinal', strategy='quantile')
 
     # fit the discretizer to the train set
     discterizer.fit(data_df)
@@ -1313,6 +1311,45 @@ The set of articles in this series:
     train_df = discretizer.transformer(train_df)
     test_df = discretizer.transformer(test_df)
     ```
+
++ K-means discretization
+  + consisting of applying k-means clustering to the continuous variable
+  + bin = cluster
+  + reviewing the k-mean algorithms
+    1. creating $K$ random points, center of cluster
+    2. associating every data point w/ the closest center (using some distance metric, like Euclidean distance)
+    3. re-computing each center position in the center of its associated points
+    4. repeat step 2 & 3 until convergence
+  + tutorials about k-means
+    + [Mathematics behind K-means](https://tinyurl.com/yy34qu7y)
+    + [K-Means using Sklearn and Python](https://tinyurl.com/yybc7swq)
+    + [Visualizing K-means](https://tinyurl.com/y32ru3yn)
+  + considerations
+    + not improving the values spread
+    + handling outliers, though outliers may influence the centroid
+    + creating a discrete variable
+    + useful when combined w/ categorical encodings
+  + Python snippet
+
+    ```python
+    import pandas as pd
+    from sklearn.preprocessing import KBinDiscretizer
+
+    # load data
+    data_df = pd.read_csv("dataset.csv")
+
+    # create the discretizer object w/ strategy quantile and 8 bins
+    discretizer = KBinsDiscretizer(n_bins=6, encode='ordinal', strategy='kmeans')
+
+    # fit the discretizer to the train set
+    discretizer.fit(data_df)
+
+    # apply the discretization
+    train_df = discretizer.transformer(data_df)
+    test_df = discretizer.transformer(test_df)
+    ```
+
+
 
 
 
