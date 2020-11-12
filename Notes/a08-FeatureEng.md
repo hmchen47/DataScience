@@ -1251,6 +1251,40 @@ The set of articles in this series:
     + other
       + custom discretization
 
++ Equal-width discretizatoin
+  + the most simple form of discretization
+  + dividing the range of possible values into $N$ bins of the same width
+  + width of intervals: $\text{width} = \frac{\max \min}{N}$
+  + $N$ parameter:
+    + the number of intervals
+    + determined exprimentally - no rules of thumb here
+  + considerations
+    + not improving the values spread
+    + handling outliers
+    + creating a discrete variable
+    + useful when combined w/ categorical encoding
+  + Python code
+
+    ```python
+    import pandas as pd
+    from sklearn.preprocessing import KBinsDiscretizer
+
+    # load data
+    data_df = pd.read_csv("dataset.csv")
+
+    # create the discretizer object w/ strategy uniform and 8 bins
+    discretizer = KBinsDiscretizer(n_bins=8, encode='ordinal' \
+      strategy='uniform')
+
+    # fit the discretizer to the train set
+    discretizer.fit(train)
+
+    # apply the discretization
+    train_df = discretizer.transform(train_df)
+    test_df = discretizer.transform(test_df)
+    ```
+
+
 
 
 
