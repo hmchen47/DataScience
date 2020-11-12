@@ -1396,6 +1396,22 @@ The set of articles in this series:
     + treating numbers as categories, applying any of the encoding technique that creates a montone relationship w/ the target
   + advantageous way of encoding bins: treating bins as categories to use an encoding technique that creates a monotone relationship w/ the target
 
++ Custom discretization
+  + engineering variables in a custom environment (i.e., for a particular business use case)
+  + determining the intervals where the variable divided so that it make sense for the business
+  + example: Age divided into groups like [0-10] as kids, [10-25] as teenagers, and so on
+  + Python snippet
+
+    ```python
+    import pandas as pd
+
+    # bins intervals
+    labels = ['0-10', '10-25', '25-65', '>65']
+
+    # discretization w/ pandas
+    train_df['age'] = pf.cut(train_df.age, bins=bins, labels=labels, include_lowest=True)
+    test_df['age'] = pf.cut(test_df.age, bins=bins, labels=labels, include_lowest=True)
+    ```
 
 
 
