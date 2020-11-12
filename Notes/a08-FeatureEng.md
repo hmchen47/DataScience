@@ -1284,7 +1284,35 @@ The set of articles in this series:
     test_df = discretizer.transform(test_df)
     ```
 
++ Equal-frequency discretization
+  + dividing the scope of possible values of the variable into $N$ bins
+  + each bin holding the same number (or approximately the same number) of observation
+  + considerations
+    + the interval boundaries corresponding to quantiles
+    + improving the value spread
+    + handling outliers
+    + disturbing the relationship w/ the target
+    + useful when combined w/ categorical encoding
+  + Python code
 
+    ```python
+    import pandas as pd
+    from sklearn.preprocessing import KBinsDiscretizer
+
+    # load data
+    data_df = pd.read_csv("dataset.csv")
+
+    # create the discretizer object w/ strategy quantile adn 8 bins
+    discretizer = KBinsDiscretizer(n_bins=8, encode='ordinal', \
+      strategy='quantile')
+
+    # fit the discretizer to the train set
+    discterizer.fit(data_df)
+
+    # apply the discretization
+    train_df = discretizer.transformer(train_df)
+    test_df = discretizer.transformer(test_df)
+    ```
 
 
 
