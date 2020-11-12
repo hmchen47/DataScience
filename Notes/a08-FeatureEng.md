@@ -342,7 +342,7 @@ The set of articles in this series:
     + the higher the percentage of missing values, the higher the distortions
   + example
     + data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">36.2</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">36.2</span>), (50 $\to$ 50)
-    + Python code
+    + Python snippet
 
       ```python
       from sklearn.impute import SimpleImputer
@@ -376,7 +376,7 @@ The set of articles in this series:
     + the higher the percentage of NA, the higher the distortion
   + example: using 999 as an arbitrary value
     + data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">99</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">99</span>), (50 $\to$ 50)
-    + Python code
+    + Python snippet
 
     ```python
     from sklearn.impute import SimpleImputer
@@ -409,7 +409,7 @@ The set of articles in this series:
     + selected value for imputation: upper limit or lower limit
   + example:
     + data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">50</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">50</span>), (50 $\to$ 50)
-    + Python code
+    + Python snippet
 
       ```python
       from feature_engine.missing_imputers import EndTailImputer
@@ -446,7 +446,7 @@ The set of articles in this series:
     + may lead to an over-representation of the most frequent label if a lot of missing observations existed
   + example:
     + data (Gender): (Male $\to$ Male), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Male</span>), (Female $\to$ Female), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Male</span>), (Femal $\to$ Female)
-    + Python code 
+    + Python snippet 
 
       ```python
       from sklearn.impute import SimpleImputer
@@ -476,7 +476,7 @@ The set of articles in this series:
     + small number of missing data $\to$ creating an additional category just adding another rare label to the variable
   + example: fill missing data w/ a new category, "Missing"
     + data (Gender): (Male $\to$ Male), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Missing</span>), (Female $\to$ Female), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Missing</span>), (Femal $\to$ Female)
-    + Python code
+    + Python snippet
 
       ```python
       from sklearn.impute import SimpleImputer
@@ -513,7 +513,7 @@ The set of articles in this series:
     + used  in production $\to$ not knowing how to handle missing data
   + example:
     + data (Gender): (Male $\to$ Male), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ ), (Female $\to$ Female), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ ), (Femal $\to$ Female)
-    + Python code
+    + Python snippet
 
       ```python
       # read data and apply the method
@@ -541,7 +541,7 @@ The set of articles in this series:
     + many missing indicators may end up being identical or very highly corrrelated
   + example:
     + data (Gender $\to$ Gender, Missing): (Male $\to$ Male, <span style="color: pink;">False</span>), (Male $\to$ Male, <span style="color: pink;">False</span>), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Female, True</span>), (Female $\to$ Female, <span style="color: pink;">False</span>), (Male $\to$ Male, <span style="color: pink;">False</span>), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Male, True</span>), (Femal $\to$ Female, <span style="color: pink;">False</span>)
-    + Python code
+    + Python snippet
 
       ```python
       from sklearn.imput import MissingIndicator
@@ -586,7 +586,7 @@ The set of articles in this series:
     + requiring massive memory for deployment to store the original training set to extract values from and replace the missing values w/ the randomly selected values
   + example:
     + data (Gender, Age): ((Male, 29) $\to$ (Male, 29)), ((Male, <span style="color: pink;">NA</span>) $\to$ (Male, <span style="color: lightgreen;">34</span>)), (  (<span style="color: pink;">NA</span>, 43) $\to$ (<span style="color: lightgreen;">Female</span>, 43)), ((Female, 25) $\to$ (Femal, 25)), ((Male, 34) $\to$ (Male, 34)), ((<span style="color: pink;">NA</span>, 50) $\to$ (<span style="color: lightgreen;">Male</span>, 50)), ((Femal, <span style="color: pink;">NA</span>) $\to$ (Female, <span style="color: lightgreen;">25</span>))
-    + Python code
+    + Python snippet
 
       ```python
       from feature_engine.missing_data_imputer import  RandomSampleImputer
@@ -667,7 +667,7 @@ The set of articles in this series:
     + expanding the feature space
     + not adding extra information while encoding
     + many dummy variables probably identical $\to$ introducing redundant information
-  + Python code
+  + Python snippet
 
     ```python
     # import the pandas library
@@ -708,7 +708,7 @@ The set of articles in this series:
     + not suitable for linear models
     nor handling new categories in the test set automatically
     + creating an order relationship btw the categories
-  + Python code
+  + Python snippet
 
     ```python
     import pandas as pd
@@ -753,7 +753,7 @@ The set of articles in this series:
     + not suitable for linear models
     + not handling new categories in the test set automatically
     + losing valuable information if there are two different categories w/ the same amount of observations count
-  + Python code
+  + Python snippet
 
     ```python
     import pandas as pd
@@ -789,7 +789,7 @@ The set of articles in this series:
     + not expanding the feature space
     + creating a monotonic relationship btw categories and the target
   + limitation: probably leading to overfitting
-  + Python code
+  + Python snippet
 
     ```python
     import pandas as pd
@@ -835,7 +835,7 @@ The set of articles in this series:
   + limitations
     + probably leading to overfitting
     + probably leading to a possible loss of value if two categories have the same mean as the target
-  + Python code
+  + Python snippet
 
     ```python
     import pandas as pd
@@ -888,7 +888,7 @@ The set of articles in this series:
   + limitations
     + probably lead to overfitting
     + not defined when the denominator is 0
-  + Python code
+  + Python snippet
 
     ```python
     import pandas as pd
@@ -941,7 +941,7 @@ The set of articles in this series:
   + limitations
     + likely to cause overfitting
     + not defined when the denominator is 0
-  + Python code
+  + Python snippet
 
     ```python
     import pandas as pd
@@ -987,7 +987,7 @@ The set of articles in this series:
       />
     </figure>
 
-  + Python code
+  + Python snippet
 
     ```python
     import pandas as pd
@@ -1035,7 +1035,7 @@ The set of articles in this series:
       />
     </figure>
 
-  + Python code
+  + Python snippet
 
     ```python
     import pandas as pd
@@ -1071,7 +1071,7 @@ The set of articles in this series:
     + exponential or power transformation
     + Box-Cox transformation
     + Yeo-Johson transformation
-  + common Python code for transformations
+  + common Python snippet for transformations
 
     ```python
     # import the library
@@ -1088,7 +1088,7 @@ The set of articles in this series:
 
 + Q-Q plot
   + variable following a normal distribution $\implies$ the variable's values fall in a 45-degree line against the theoretical quantiles
-  + Python code
+  + Python snippet
 
     ```python
     # import the libraries
@@ -1120,7 +1120,7 @@ The set of articles in this series:
   + involving a substantial transformation that significantly affects distribution shape
   + making extremely skewed distribution less skewed, especially for right-skewed distributions
   + constraint: only for __strictly positive__ numbers
-  + Python code
+  + Python snippet
 
     ```python
     # create the function transformer object w/ logarithm transformation
@@ -1137,7 +1137,7 @@ The set of articles in this series:
   + used for reducing right-skewed distributions
   + advantage: able to apply to zero values
   + constrain: only for positive numbers
-  + Python code
+  + Python snippet
 
     ```python
     #create the fucntion transformaer object w/ square root transformation
@@ -1155,7 +1155,7 @@ The set of articles in this series:
   + positive reciprocal: reversing the order among values of the same sign $\to$ large values $\to$ smaller
   + negative reciprocal: preserving the order among values of the same ign
   + constraint: not defined for zero
-  + Python code
+  + Python snippet
 
     ```python
     #create the function transformer object w/ reciprocal transformation
@@ -1175,7 +1175,7 @@ The set of articles in this series:
   + a reasonable effect on distribution shape
   + applying power transformation (power of two usually) to reduce left skewness
   + using any exponent in the transformation, even using the $\exp()$ fucntion
-  + Python code
+  + Python snippet
 
     ```python
     # create the fucntion transformer object w/ exponent transformation
@@ -1202,7 +1202,7 @@ The set of articles in this series:
     + examining all values of $\lambda$
     + choosing the optimal value (resulting in the best approximation to a normal distribution)
   + constraint: only for positive number
-  + Python code
+  + Python snippet
 
     ```python
     # create the power transformer object w/ method 'box-cox'
@@ -1224,7 +1224,7 @@ The set of articles in this series:
 
   + an adjustment to the Box-Cox transformation
   + able to apply to negative numbers
-  + Python code
+  + Python snippet
 
     ```python
     # create the power transformer object w/ method 'yeo-johnson'
@@ -1263,7 +1263,7 @@ The set of articles in this series:
     + handling outliers
     + creating a discrete variable
     + useful when combined w/ categorical encoding
-  + Python code
+  + Python snippet
 
     ```python
     import pandas as pd
@@ -1292,7 +1292,7 @@ The set of articles in this series:
     + handling outliers
     + disturbing the relationship w/ the target
     + useful when combined w/ categorical encoding
-  + Python code
+  + Python snippet
 
     ```python
     import pandas as pd
@@ -1349,6 +1349,45 @@ The set of articles in this series:
     test_df = discretizer.transformer(test_df)
     ```
 
++ Discretization w/ Descision Trees
+  + consisting of a decision tree to identify the optimal bins
+  + a decision tree making a decision $\to$ assigning an observation to one of $N$ end leaves
+  + generating a discrete output, the predictions at each of its $N$ leaves
+  + procedure
+    + training a decision tree of limited depth (2, 3, or 4) using only the variable to discretize and the target
+    + replacing the variable's value w/ the output returned by the tree
+  + considerations
+    + not improving the values spread
+    + handling outliers since trees are robust to outliers
+    + creating a discrete variable
+    + prone to overfitting
+    + cost some time to tune the parameters effectively (e.g., tree depth, the minimum nimber of samples in one partition minimum info gain)
+    + observations within each bin more similar to each other
+    + creating a monotonic relationship
+  + Python snippet
+
+    ```python
+    import panadas as pd
+    from sklearn.proprecessing import DecisionTreeClassifier
+
+    # load data
+    data_df = pd.read_csv("dataset.csv")
+
+    # create variables for the target and the variable to discretize
+    x_variable = train_df['variable']
+    target = trained_df['target']
+
+    # build the decision tree w/ max depth of choice
+    # {depth pf 2 will create two splits, and 4 different bins for discretization}
+    descision_tree = DecisionTreeClassifier(max_depth=2)
+
+    # start the learning process
+    decision_tree.fit(x_variable, target)
+
+    # apply the discretization tot the variable
+    train_df['variable'] = decision_tree.predict_proba(train_df['variable'].to_frame()[:, 1])
+    test_df['variable'] = decision_tree.predict_prob(test_df['variable'].to_frame()[:, 1])
+    ```
 
 
 
