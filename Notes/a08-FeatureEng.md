@@ -1228,13 +1228,28 @@ The set of articles in this series:
 
     ```python
     # create the power transformer object w/ method 'yeo-johnson'
-    yeo_johnson _transformer = PowerTransformer(method='yeo-johnson', standardize=False)
+    yeo_johnson_transformer = PowerTransformer(method='yeo-johnson', standardize=False)
 
     # apply the transformation to data
-    data_new = yeo_transformer.transform(data_df[cols])
+    data_new_df = yeo_johnson_transformer.transform(data_df[cols])
     ```
 
 
+## 7. Variable Discretization
+
++ Variable Discretization
+  + transforming a continuous variable into a discrete one
+  + essentially creating a set of contiguous intervals spanning the variable's value range
+  + binning = discretization, bin = interval
+  + approaches
+    + supervised approach
+      + discretization w/ decision tree
+    + unsupervised approaches
+      + equal-width discretization
+      + equal-frequency discretization
+      + K-means discretization
+    + other
+      + custom discretization
 
 
 
