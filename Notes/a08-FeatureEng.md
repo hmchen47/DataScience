@@ -1212,4 +1212,31 @@ The set of articles in this series:
     daat_new_df = boxcox_transformer.transfor(data[cols])
     ```
 
++ Yeo-Johnson transformation
+  + formula
+
+    \[ x_i^{(\lambda)} = \begin{cases}
+      [(x_i + 1)^\lambda - 1] / \lambda & \text{if } \lambda \ne 0, x_i \ge 0, \\
+      \ln(x_i) + 1 & \text{if } \lambda = 0, x_i \ge 0, \\
+      [(x_i + 1)^{2-\lambda} - 1]/(2-\lambda) & \text{if } \lambda \ne 2, x_i < 0, \\
+      -\ln(-x_i + 1) & \text{if } \lambda = 2, x_i < 0
+    \end{cases} \]
+
+  + an adjustment to the Box-Cox transformation
+  + able to apply to negative numbers
+  + Python code
+
+    ```python
+    # create the power transformer object w/ method 'yeo-johnson'
+    yeo_johnson _transformer = PowerTransformer(method='yeo-johnson', standardize=False)
+
+    # apply the transformation to data
+    data_new = yeo_transformer.transform(data_df[cols])
+    ```
+
+
+
+
+
+
 
