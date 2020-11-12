@@ -1065,7 +1065,7 @@ The set of articles in this series:
     + increasing the performance of models
   + tools to estimate normality: histogram and Q-Q plot
   + most common-used methods
-    + logarithm transformation
+    + logarithmic transformation
     + square root transformation
     + reciprocal transformation
     + exponential or power transformation
@@ -1080,18 +1080,18 @@ The set of articles in this series:
     from sklearn.preprocessing import FunctionTransformer
 
     # load data
-    data_df = pd.read_csv("daatset.csv")
+    data_df = pd.read_csv("dataset.csv")
 
     # create columns variables to hold the columns that need transformation
     cols = ['col1', 'col2', 'col3', ...]
     ```
 
 + Q-Q plot
-  + variable following a normal distribution $\implies$ the variable's values falls in a 45-degree line against the theoretical quantiles
+  + variable following a normal distribution $\implies$ the variable's values fall in a 45-degree line against the theoretical quantiles
   + Python code
 
     ```python
-    # impoert the libraries
+    # import the libraries
     import matplotlib.pyplot as plt
     import scipy.stats as stats
     import pandas as pd
@@ -1114,7 +1114,7 @@ The set of articles in this series:
     </figure>
   
 
-+ Logarithmic transformation
++ Logarithmic transformation 
   + formula: $ f(x) = \ln(x) $
   + simplest and most popular among the different types of transformations
   + involving a substantial transformation that significantly affects distribution shape
@@ -1178,7 +1178,7 @@ The set of articles in this series:
   + Python code
 
     ```python
-    # create he fucntion transformer object w/ exponent transformation
+    # create the fucntion transformer object w/ exponent transformation
     # using x^3 is arbitrary here, able to choose any exponent
     exponential_transformer = FunctionTransformer(lambda x: x**(3), validate=True)
 
@@ -1209,7 +1209,7 @@ The set of articles in this series:
     boxcox_transformer = PowerTransformer(method='box-cox', standardize=False)
 
     # apply the transformation to data
-    daat_new_df = boxcox_transformer.transfor(data[cols])
+    data_new_df = boxcox_transformer.transfor(data_df[cols])
     ```
 
 + Yeo-Johnson transformation
