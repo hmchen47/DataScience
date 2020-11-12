@@ -1349,7 +1349,7 @@ The set of articles in this series:
     test_df = discretizer.transformer(test_df)
     ```
 
-+ Discretization w/ Descision Trees
++ Discretization w/ Decision Trees
   + consisting of a decision tree to identify the optimal bins
   + a decision tree making a decision $\to$ assigning an observation to one of $N$ end leaves
   + generating a discrete output, the predictions at each of its $N$ leaves
@@ -1388,6 +1388,13 @@ The set of articles in this series:
     train_df['variable'] = decision_tree.predict_proba(train_df['variable'].to_frame()[:, 1])
     test_df['variable'] = decision_tree.predict_prob(test_df['variable'].to_frame()[:, 1])
     ```
+
++ Using the newly-created discrete variable
+  + usually encoding w/ ordinal, i.e., integer encoding as 1, 2, 3, tec.
+  + two major methods
+    + using the value of the interval straight away if using intervals as numbers
+    + treating numbers as categories, applying any of the encoding technique that creates a montone relationship w/ the target
+  + advantageous way of encoding bins: treating bins as categories to use an encoding technique that creates a monotone relationship w/ the target
 
 
 
