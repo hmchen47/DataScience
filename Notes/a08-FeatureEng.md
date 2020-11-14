@@ -1257,7 +1257,7 @@ The set of articles in this series:
   + width of intervals: $\text{width} = \frac{\max - \min}{N}$
   + $N$ parameter:
     + the number of intervals
-    + determined exprimentally - no rules of thumb here
+    + determined experimentally - no rules of thumb here
   + considerations
     + not improving the values spread
     + handling outliers
@@ -1413,5 +1413,69 @@ The set of articles in this series:
     test_df['age'] = pd.cut(test_df.age, bins=bins, labels=labels, include_lowest=True)
     ```
 
+## 8. Handling Outliers
+
++ Outliers
+  + a data point significantly different from the remaining data
+  + an observation deviating so much from the other observations
+  + arousing suspicion that a different mechanism produced it
+  + handling outliers
+    + trimming: simply removing the outliers deom dataset
+    + imputing: treating outliers as missing data and applying missing data imputation techniques
+    + discretizaton: placing outliers in edge bins w/ higher or lower values of the distribution
+    + censoring: capping the variable distribution at the maximum and minimum values
+
++ Detecting Outliers
+  + techniques to detect
+    + using visualization plots like box plot and scatter plot
+      + box plot: black points as outliers
+      + scatter plot: most points located in center but one far from center might eb outlier
+
+      <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+        <a href="https://tinyurl.com/y4rljbj3" ismap target="_blank">
+          <img style="margin: 0.1em;" height=150
+            src  ="https://tinyurl.com/yxblyfx8"
+            alt  ="Example of Box plot"
+            title="Example of Box plot"
+          >
+          <img style="margin: 0.1em;" height=150
+            src  ="https://miro.medium.com/max/464/1*Fh1snT0LP1WP586tV1WImA.png"
+            alt  ="Example of scatter plot"
+            title="Example of scatter plot"
+          >
+        </a>
+      </div>
+
+    + using a normal distribution (mean and s.d.)
+      + about 99.7% of the data lie within 3 s.d. of the mean
+
+      <figure style="margin: 0.5em; text-align: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+          onclick="window.open('https://tinyurl.com/y4rljbj3')"
+          src    ="https://tinyurl.com/y4zdoyry"
+          alt    ="Example of normal distribution w/ standard deviations"
+          title  ="Example of normal distribution w/ standard deviations"
+        />
+      </figure>
+
+  + inter-quantal range proximity rule
+    + used to build boxplot graphs
+    + dividing data into four parts and each part is a quartile
+    + IQR: the difference between the 3rd quantile Q3 (75%) and the 1st quantile or Q1 (25%)
+    + outliers defined w/ IQR
+      + below Q1 - 1.5 x IQR
+      + above Q3 + 1.5 x IQR
+
+      <figure style="margin: 0.5em; text-align: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+          onclick="window.open('https://tinyurl.com/y4rljbj3')"
+          src    ="https://tinyurl.com/yyj72x5m"
+          alt    ="Example of IQR from Wikipedia"
+          title  ="Example of IQR from Wikipedia"
+        />
+      </figure>
 
 
+
+
+  
