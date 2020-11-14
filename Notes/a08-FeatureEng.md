@@ -1505,7 +1505,7 @@ The set of articles in this series:
       # remove outliers from data
       data_df = data_df.loc[~(outliers,)]
 
-+ Censoring
++ Censoring outliers
   + setting the maximum and/or the minimum of the distribution at any arbitrary value
   + values bigger or smaller than the arbitrarily chosen value are replaced by the value
   + concerns about capping
@@ -1589,6 +1589,11 @@ The set of articles in this series:
       data_df[variable] = np.where(data_df[variable] > upper, upper, \
         np.where(data_df[variable] < lower, lower, data_df[variable]))
     ```
+
++ Imputing outliers
+  + treating outliers as missing data
+  + refer to  [imputing variable techniques](#4-imputing-missing-values)
+
 
 
 
