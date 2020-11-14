@@ -1013,7 +1013,7 @@ The set of articles in this series:
     ```
 
 + Binary encoding
-  + using binary code 
+  + using binary code
   + procedure
     + converting each integer to binary code
     + each binary digits gets one column in the dataset
@@ -1254,7 +1254,7 @@ The set of articles in this series:
 + Equal-width discretizatoin
   + the most simple form of discretization
   + dividing the range of possible values into $N$ bins of the same width
-  + width of intervals: $\text{width} = \frac{\max \min}{N}$
+  + width of intervals: $\text{width} = \frac{\max - \min}{N}$
   + $N$ parameter:
     + the number of intervals
     + determined exprimentally - no rules of thumb here
@@ -1301,7 +1301,7 @@ The set of articles in this series:
     # load data
     data_df = pd.read_csv("dataset.csv")
 
-    # create the discretizer object w/ strategy quantile adn 8 bins
+    # create the discretizer object w/ strategy quantile and 8 bins
     discretizer = KBinsDiscretizer(n_bins=8, encode='ordinal', strategy='quantile')
 
     # fit the discretizer to the train set
@@ -1328,7 +1328,7 @@ The set of articles in this series:
     + not improving the values spread
     + handling outliers, though outliers may influence the centroid
     + creating a discrete variable
-    + useful when combined w/ categorical encodings
+    + useful when combined w/ categorical encoding
   + Python snippet
 
     ```python
@@ -1338,7 +1338,7 @@ The set of articles in this series:
     # load data
     data_df = pd.read_csv("dataset.csv")
 
-    # create the discretizer object w/ strategy quantile and 8 bins
+    # create the discretizer object w/ strategy kmeans and 8 bins
     discretizer = KBinsDiscretizer(n_bins=6, encode='ordinal', strategy='kmeans')
 
     # fit the discretizer to the train set
@@ -1375,16 +1375,16 @@ The set of articles in this series:
 
     # create variables for the target and the variable to discretize
     x_variable = train_df['variable']
-    target = trained_df['target']
+    target = train_df['target']
 
     # build the decision tree w/ max depth of choice
     # {depth pf 2 will create two splits, and 4 different bins for discretization}
-    descision_tree = DecisionTreeClassifier(max_depth=2)
+    decision_tree = DecisionTreeClassifier(max_depth=2)
 
     # start the learning process
     decision_tree.fit(x_variable, target)
 
-    # apply the discretization tot the variable
+    # apply the discretization to the variable
     train_df['variable'] = decision_tree.predict_proba(train_df['variable'].to_frame()[:, 1])
     test_df['variable'] = decision_tree.predict_prob(test_df['variable'].to_frame()[:, 1])
     ```
@@ -1398,7 +1398,7 @@ The set of articles in this series:
 
 + Custom discretization
   + engineering variables in a custom environment (i.e., for a particular business use case)
-  + determining the intervals where the variable divided so that it make sense for the business
+  + determining the intervals where the variable divided so that it makes sense for the business
   + example: Age divided into groups like [0-10] as kids, [10-25] as teenagers, and so on
   + Python snippet
 
@@ -1409,10 +1409,9 @@ The set of articles in this series:
     labels = ['0-10', '10-25', '25-65', '>65']
 
     # discretization w/ pandas
-    train_df['age'] = pf.cut(train_df.age, bins=bins, labels=labels, include_lowest=True)
-    test_df['age'] = pf.cut(test_df.age, bins=bins, labels=labels, include_lowest=True)
+    train_df['age'] = pd.cut(train_df.age, bins=bins, labels=labels, include_lowest=True)
+    test_df['age'] = pd.cut(test_df.age, bins=bins, labels=labels, include_lowest=True)
     ```
-
 
 
 
