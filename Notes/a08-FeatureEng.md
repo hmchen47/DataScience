@@ -1505,6 +1505,90 @@ The set of articles in this series:
       # remove outliers from data
       data_df = data_df.loc[~(outliers,)]
 
++ Censoring
+  + setting the maximum and/or the minimum of the distribution at any arbitrary value
+  + values bigger or smaller than the arbitrarily chosen value are replaced by the value
+  + concerns about capping
+    + not removing data
+    + distorting the distributions of the variables
+  + arbitrarily replacing the outliers
+
+    ```python
+    import pandas as pd
+    import numpy as np
+
+    # load data
+    data_df = pd.read_csv("dataset.csv')
+
+    for variable in data_df.columns:
+      # create boundaries (age for example)
+      lower = 10
+      upper = 89
+
+      # replacing the outliers
+      data_df[variable] = np.where(data_df[variable] > upper, upper\
+        np.where(data_df[variable] < lower, data[variable]))
+    ```
+
+  + inter-quantal range proximity rule
+
+    ```python
+    import pandas as pd
+    import numpy as np
+
+    #load data
+    data_df = pd.read_csv("dataset.csv")
+
+    for variable in data_df.columns:
+      # calculate the IQR
+      IQR = data_df[variable].quantile(0.75) - daat_df[variable].quantile(0.25)
+
+      # calculate the boundaries
+      lower = data_df[variable].quantile(0.25) - (IQR * 1.5)
+      upper = data_df[variable].quantile(0.75) - (IQR + 1.5)
+
+      # replacing the outliers
+      data_df[variable] = np.where(data_df[variable] > upper, upper. \
+        np.where(data_df[variable] < lower, lower, data_df[variable]))
+    ```
+
+  + Gaussian approximation
+
+    ```python
+    import pandas as pd
+    import numpy as np
+
+    # load data
+    data_df = pd.read_csv("dataset.csv")
+
+    for wariable in data_df.columns:
+      # calculate the boundaries
+      lower = data_df[variable].mean() - 3 * data_df[variable].std()
+      upper = data_df[variable].mean() + 3 * data_df[variable].std()
+
+      # replacing the outliers
+      data_df[variable] = np.where(dat_df[variable] > upper, upper, \
+        np.where(data_df[variable]< lower, lower, data_df[variable]))
+    ```
+
+  + using quantiles
+
+    ```python
+    import pandas as pd
+    import numpy as np
+
+    # load data
+    data_df = pd.read_csv("dataset.csv")
+
+    for variable in data_df.columns:
+      # calculate the boundaries
+      lower = data_df[variable].quantile(0.10)
+      upper = data_df[variable].quantile(0.90)
+
+      # replacing the outliers
+      data_df[variable] = np.where(data_df[variable] > upper, upper, \
+        np.where(data_df[variable] < lower, lower, data_df[variable]))
+    ```
 
 
 
