@@ -1594,7 +1594,9 @@ The set of articles in this series:
   + treating outliers as missing data
   + refer to  [imputing variable techniques](#4-imputing-missing-values)
 
-
++ Transforming outliers
+  + applying some mathematical transformations, such as log transformation
+  + refer to [transforming variables](#6-transforming-variables)
 
 
   
