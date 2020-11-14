@@ -1475,6 +1475,36 @@ The set of articles in this series:
         />
       </figure>
 
++ Trimming outliers
+  + merely removing outliers from the dataset
+  + deciding on a metric to determine outliers
+  + considerations
+    + fast method
+    + removing a significant amount of data
+  + Python snippet
+
+    ```python
+    import pandas as pd
+    import numpy as np
+
+    # load data
+    data_df = pd.read_csv("dataset.csv")
+
+    for variable in data_df.columns:
+      # calculate the IQR
+      IQR = data[variable].quantile(0.75) - data_df[variable].quantile(0.25)
+
+      # calculate the boundaries
+      lower = data_df[variable].quantile(0.25) - (IQR * 1.5)
+      upper = data_df[variable].quantile(0.75) - (IQR * 1.5)
+
+      # find the outlier
+      outliwers = np.where(data_df[variable] > upper, True, \
+        np.where(data_df[variable] < lower, True, False))
+
+      # remove outliers from data
+      data_df = data_df.loc[~(outliers,)]
+
 
 
 
