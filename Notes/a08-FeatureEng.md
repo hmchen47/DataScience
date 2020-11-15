@@ -1790,6 +1790,39 @@ The set of articles in this series:
     test_scaled_df = max_abs.transform(test_df)
     ```
 
++ Scaling to vector unit norm
+  + scale to vector unit norm
+  + scaling formula:
+
+    \[ \overline{x} = \frac{X}{\|X\|} \]
+  
+  + the distance measure for unit norm
+    + [Euclidean distance](https://en.wikipedia.org/wiki/Euclidean_distance) (L2 norm): $L2(X) = \sqrt{x_1^2 + x_2^2 + \cdots + x_n^2}$
+    + [Manhattan distance](https://en.wikipedia.org/wiki/Taxicab_geometry) (L1 norm): $L1(X) = |x_1| + |x_2| + \cdots + |x_n|$
+  + characteristics
+    + the length of the resulting vector is 1
+    + normalizing the feature vector and not the observation vector
+    + sensitive to outlier
+    + recommended for text classification and clustering
+  + Python snippet
+
+    ```python
+    import pandas as pd
+    from sklearn.preprocessing import Normalizer
+
+    # load data
+    data_df = pd.read_csv("dataset.csv")
+
+    # create the scaler object w/ your preferred norm
+    vec_norm = Normalizer(norm='l2')
+
+    # fit the scaler tot he train data
+    vec_norm.fit(train_df)
+
+    # transform train and test data
+    train_scaled_df = vec_norm.transform(train_df)
+    test_scaled_df = vec_norm.transform(test_df)
+    ```
 
 
 
