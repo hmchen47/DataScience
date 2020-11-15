@@ -1695,7 +1695,37 @@ The set of articles in this series:
     test_scaled_df = scaler.transform(test_df)
     ```
 
++ Robust scaling (scaling to median and IQR)
+  + using median instead of mean
+  + formula
 
+    \[ \overline{x} = \frac{X - \text{median}(X)}{Q3(x) - Q1(x)} \]
+
+  + characteristics
+    + centering the median at 0
+    + resulted variance varying across variables
+    + not preserving the shape of the original distribution
+    + minimum and maximum values varying
+    + robust to outliers
+  + Python snippet
+
+    ```python
+    import pandas as pd
+    from sklearn.preprocessing import RobustScaler
+
+    # load data
+    data_df = pd.read_csv("dataset.csv")
+
+    # create the scaler object
+    robust = RobustScaler()
+
+    # fit the scaler tot he train data
+    robust.fit(train_df)
+
+    # transform train and test
+    train_scaled_df = robust.transform(train_df)
+    test_scaled_df = robust.transform(test_df)
+    ```
 
 
 
