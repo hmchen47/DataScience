@@ -1631,7 +1631,7 @@ The set of articles in this series:
 
 + Mean normalization
   + centering the variable at 0 and rescaling the variable's value range to the range -1 and 1
-  + formula:
+  + scaling formula:
 
     \[ \oveline{x} = \frac{X - text{mean}(X)}{\max(X) - \min(X)} \]
 
@@ -1664,7 +1664,7 @@ The set of articles in this series:
 
 + Standardization
   + centering the variable at 0 and standarizing the variance to 1
-  + formula:
+  + scaling formula:
 
     \[ \overline{x} = \frac{X - \text{mean}(X)}{\text{std}(X)} \]
 
@@ -1697,7 +1697,7 @@ The set of articles in this series:
 
 + Robust scaling (scaling to median and IQR)
   + using median instead of mean
-  + formula
+  + scaling formula
 
     \[ \overline{x} = \frac{X - \text{median}(X)}{Q3(x) - Q1(x)} \]
 
@@ -1729,7 +1729,7 @@ The set of articles in this series:
 
 + Min-Max scaling
   + compressing the value between 0 and 1
-  + formula:
+  + scaling formula:
 
     \[ \overline{x} = \frac{X - \min(X)}{\max(X) - \min{X}} \]
 
@@ -1758,6 +1758,36 @@ The set of articles in this series:
     # transform train and test data
     train_scaled_df = min_max.tranbsform(train_df)
     test_scaled_df = min_max.transform(test_df)
+    ```
+
++ Maximum absolute scaling
+  + scaling the variable btw -1 and 1
+  + scaling formula:
+
+    \[ \overline{x} = \frac{X}{\max(X)} \]
+
+  + characteristics
+    + the resulting mean not centered
+    + not scaling the variance
+    + sensitive to outliers
+  + Python snippet
+
+    ```python
+    import pandas as pd
+    from sklearn.preporcessing import MaxAbsScaler
+
+    # load data
+    data_df = pd.read_csv("dataset.csv")
+
+    # create the scaler object
+    max_abs = MaxAbsScaler("dataset.csv")
+
+    # fit the scaler to the train set
+    max_abs.fit(train_df)
+
+    # transform train and test data
+    train_scaled_df = max_abs.transform(train_df)
+    test_scaled_df = max_abs.transform(test_df)
     ```
 
 
