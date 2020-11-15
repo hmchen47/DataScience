@@ -1633,7 +1633,7 @@ The set of articles in this series:
   + centering the variable at 0 and rescaling the variable's value range to the range -1 and 1
   + formula:
 
-    \[ \longbar{x} = \frac{X - \]text{mean}(X)}{\max(X) - \min(X)} \]
+    \[ \oveline{x} = \frac{X - text{mean}(X)}{\max(X) - \min(X)} \]
 
   + not normalizing the variable distribution
   + characteristics
@@ -1661,6 +1661,43 @@ The set of articles in this series:
     train_scaled_df = (train_df - means) / max_min
     test_scaled_df = (test - means) / max_min
     ```
+
++ Standardization
+  + centering the variable at 0 and standarizing the variance to 1
+  + formula:
+
+    \[ \overline{x} = \frac{X - \text{mean}(X)}{\text{std}(X)} \]
+
+  + nor normalized the variable distribution
+  + characteristics
+    + scaling the variance at 1
+    + centering the mean at 0
+    + preserving the shape of the original distribution
+    + preversing outliers if existed
+    + minimum nad maximum values varying
+  + Python snippet
+
+    ```python
+    import pandas as pd
+    import sklearn.preprocessing import StandardScaler
+
+    # load data
+    data_df = pd.read_csv("dataset.csv")
+
+    # create the scaler object
+    scaler = StandardScaler()
+
+    # fit the scaler to the train data
+    scaler.fit(train_df)
+
+    # transform train and test
+    train_scaled_df = scaler.transform(train_df)
+    test_scaled_df = scaler.transform(test_df)
+    ```
+
+
+
+
 
 
 
