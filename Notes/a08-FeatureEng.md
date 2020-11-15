@@ -1599,6 +1599,37 @@ The set of articles in this series:
   + refer to [transforming variables](#6-transforming-variables)
 
 
+## 9. Feature Scaling
+
++ Feature scaling
+  + methods used to normalize the range if values of independent variables
+  + ways to set the feature value range within a similar scale
+  + concerns
+    + the scale of the variable directly influencing the regression coefficient
+    + variable w/ a more significant magnitude dominate over the ones w/ a smaller magnitude range
+    + gradient descent converges faster when features are on the same scales
+    + feature scaling helps decrease the time to find support vectore of SVMs
+    + Euclidean distances are senstivie to feature magnitude
+  + algorithms sensitive to feature mangitude
+    + linear and logistic regression
+    + Neural networks
+    + support vectore machine
+    + KNN
+    + K-means clustering
+    + linear discriminant analysis (LDA)
+    + principle component analysis (PCA)
+  + algorithm insentive to feature magnitude
+    + classification and regression trees
+    + random forest
+    + gradient boosted trees
+  + scaling methods
+    + mean normalization
+    + standardization
+    + robust to maximum and minimum
+    + scale to absolute maximum
+    + scale ti unit norm
+
+
 
 
   
