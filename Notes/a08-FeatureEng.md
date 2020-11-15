@@ -1727,6 +1727,42 @@ The set of articles in this series:
     test_scaled_df = robust.transform(test_df)
     ```
 
++ Min-Max scaling
+  + compressing the value between 0 and 1
+  + formula:
+
+    \[ \overline{x} = \frac{X - \min(X)}{\max(X) - \min{X}} \]
+
+  + not normalizing the variable distribution
+  + characteristics
+    + not centering the mean at 0
+    + making the variance vary across variables
+    + not maintaining the shape of the original distribution
+    + maximum and minimum values in the range of [0, 1]
+    + sensitive to outliers
+  + Python snippet
+
+    ```python
+    import pandas as pd
+    from sklearn.preprocessing import MinMaxScaler
+
+    # load data
+    data_df = pd.read_csv("dataset.csv")
+
+    # create the scaler object
+    min_max = MinMaxScaler()
+
+    # fit the scaler to the train data
+    min_max.fit(train_df)
+
+    # transform train and test data
+    train_scaled_df = min_max.tranbsform(train_df)
+    test_scaled_df = min_max.transform(test_df)
+    ```
+
+
+
+
 
 
 
