@@ -1629,6 +1629,38 @@ The set of articles in this series:
     + scale to absolute maximum
     + scale ti unit norm
 
++ Mean normalization
+  + centering the variable at 0 and rescaling the variable's value range to the range -1 and 1
+  + formula:
+
+    \[ \longbar{x} = \frac{X - \]text{mean}(X)}{\max(X) - \min(X)} \]
+
+  + not normalizing the variable distribution
+  + characteristics
+    + centering the mean at 0
+    + different resulting variance
+    + modifying the shape of original distribution
+    + normalizing the minimum and maximum values w/ the range [-1, 1]
+    + preserving outliers if existed
+  + Python snippet
+
+    ```python
+    import pandas as pd
+    import numpy as np
+
+    # load data
+    data_df = pd.read_csv("dataset.csv")
+
+    # claculate the means
+    means = train_df.mean(axis=0)
+
+    # calculate max - min
+    max_min = train_df.max(axis=0) - train_df.min(axis=0)
+
+    # apply the transformation to data
+    train_scaled_df = (train_df - means) / max_min
+    test_scaled_df = (test - means) / max_min
+    ```
 
 
 
