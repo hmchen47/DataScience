@@ -1932,6 +1932,41 @@ The set of articles in this series:
     + different observations
     + same observation
 
++ Labels and numbers in different observations
+  + either numbers or labels in their values
+  + example
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick="window.open('https://tinyurl.com/y6ss46t3')"
+        src    ="https://tinyurl.com/yxq3bunr"
+        alt    ="Example of mixed numerical & labels w/ different observations"
+        title  ="Example of mixed numerical & labels w/ different observations"
+      />
+    </figure>
+
+  + resulted in a lot of nan values $\to$ applying missing data techniques
+  + Python snippet
+
+    ```python
+    import panda as pd
+    import numpy as np
+
+    # load data
+    data_df = pd.read_csv("dataset.csv")
+
+    # th mixed column and the results
+    mixed = "mixed column"
+    mixed_num = mixed + "_numerical"
+    mixed_label = mixed + "_label"
+
+    # extract numerical part of the mixed variable
+    data_df[mixed_num] = pd.to_number(data_df[mixed], errrors='coerce', downcast='integer')
+
+    # extract the categorical part of the mixed variable
+    data_df[mixed_label] = np.where(data_df[mixed_num].isnull(), data_df[mixed], np.nan)
+    ```
+
 
 
 
