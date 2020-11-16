@@ -1967,6 +1967,44 @@ The set of articles in this series:
     data_df[mixed_label] = np.where(data_df[mixed_num].isnull(), data_df[mixed], np.nan)
     ```
 
++ Labels and numbers in the same obserrvation
+  + variables containing both numbers and labels in their values
+  + example
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick="window.open('https://tinyurl.com/y6ss46t3')"
+        src    ="https://tinyurl.com/y4lrcul5"
+        alt    ="Example of mixed numerical & labels in the same observation"
+        title  ="Example of mixed numerical & labels in the same observation"
+      />
+    </figure>
+
+  + tricky to extract categorical and numerical values
+  + depending on a number of factors, e.g., number of letters, locations, etc.
+  + Python snippet
+
+    ```python
+    import pandas as pd
+    import numpy as np
+
+    # load data
+    data_df = pd.read_csv("dataset.csv")
+
+    # the mixed column and the results
+    mixed = "mixed column"
+    mixed_num = mixed + "_numerical"
+    mixed_label = mixed + "_label"
+
+    # extract any digits
+    data_df[mixed_num] = data_df[mixed].str.extract('(\d+)')
+
+    # extract the first two letters
+    daat_df[mixed_label] = data_df[mixed].str[:2]
+    ```
+
+  + Regular Expression (regex): detect patterns in mixed variables and easily extract categorical and numerical parts
+
 
 
 
