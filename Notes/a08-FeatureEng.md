@@ -1880,7 +1880,51 @@ The set of articles in this series:
       - data['second_payment']).dt.days
     ```
 
+  + time variables
 
+    ```python
+    import panadas as pd
+    import numpy as np
+
+    # load data
+    data_df = pd.read_csv('data_csv')
+
+    # example of 'payment' data feature
+    # convert the feature to datetime feature type
+    data_df['payment_datetime'] = pd.to_datetime(data_df['payment'])
+
+    # extracting the hour (0 to 23)
+    data_df['payment_hour] = data_df['payment_datetime'].dt.hour
+
+    # extracting the minutes (0 to 59)
+    data_df['payment_minute'] = data_df['payment_datetime'].dt.minute
+
+    # extracting the seconds (0 to 59)
+    data_df['payment_second'] = data_df['payment_datatime'].dt.second
+
+    # extracting the Unix time stamp (number of seconds since January 1st, 1970, at UTC)
+    data_df['payment_unix_timestamp'] = (data_df['payment_datetime] \
+      - pd.TimeStamp("1970-01-01")) // pd.Timedelta('1s')
+
+    # extracting the business hour (for example, from 8AM to 12 PM) (0 or 1)
+    data_df['payment_business'] = np.where(\
+      data_df['payment_hour'].isin([8, 9, 10, 12]), 1, 0)
+
+    # calculating differences
+    payment_difference = data_df['first_payment'] - data_df['second_payment']
+
+    # extracting the payment difference in seconds
+    data_df['payment_difference_seconds'] = payment_difference / np.timedelta64(1, 's')
+
+    # extracting the payment difference in mimutes
+    data_df['payment_difference_minutes'] = payment_difference / np.timedelta64(1, 'm')
+
+    # extracting the payment difference in hours
+    data_df['payment_difference_hours'] = payment_difference / np.timedelta64(1, 'h')
+
+    # extracting the payment difference in milliseconds
+    data_df['payment_difference_milliseconds'] = payment_difference / np.timedelta64(1, 'ms')
+    ```
 
 
   
