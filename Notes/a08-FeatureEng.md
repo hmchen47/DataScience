@@ -706,7 +706,7 @@ The set of articles in this series:
   + limitations
     + not adding extra information while encoding
     + not suitable for linear models
-    nor handling new categories in the test set automatically
+    + not handling new categories in the test set automatically
     + creating an order relationship btw the categories
   + Python snippet
 
@@ -1367,7 +1367,7 @@ The set of articles in this series:
   + Python snippet
 
     ```python
-    import panadas as pd
+    import paandas as pd
     from sklearn.proprecessing import DecisionTreeClassifier
 
     # load data
@@ -1602,23 +1602,23 @@ The set of articles in this series:
 ## 9. Feature Scaling
 
 + Feature scaling
-  + methods used to normalize the range if values of independent variables
+  + methods used to normalize the range w/ values of independent variables
   + ways to set the feature value range within a similar scale
   + concerns
     + the scale of the variable directly influencing the regression coefficient
     + variable w/ a more significant magnitude dominate over the ones w/ a smaller magnitude range
     + gradient descent converges faster when features are on the same scales
-    + feature scaling helps decrease the time to find support vectore of SVMs
-    + Euclidean distances are senstivie to feature magnitude
-  + algorithms sensitive to feature mangitude
+    + feature scaling helps decrease the time to find support vector of SVMs
+    + Euclidean distances are sensitive to feature magnitude
+  + algorithms sensitive to feature magnitude
     + linear and logistic regression
     + Neural networks
-    + support vectore machine
+    + support vector machine
     + KNN
     + K-means clustering
     + linear discriminant analysis (LDA)
     + principle component analysis (PCA)
-  + algorithm insentive to feature magnitude
+  + algorithm insensitive to feature magnitude
     + classification and regression trees
     + random forest
     + gradient boosted trees
@@ -1627,13 +1627,13 @@ The set of articles in this series:
     + standardization
     + robust to maximum and minimum
     + scale to absolute maximum
-    + scale ti unit norm
+    + scale to unit norm
 
 + Mean normalization
   + centering the variable at 0 and rescaling the variable's value range to the range -1 and 1
   + scaling formula:
 
-    \[ \oveline{x} = \frac{X - text{mean}(X)}{\max(X) - \min(X)} \]
+    \[ \overline{x} = \frac{X - \text{mean}(X)}{\max(X) - \min(X)} \]
 
   + not normalizing the variable distribution
   + characteristics
@@ -1668,13 +1668,13 @@ The set of articles in this series:
 
     \[ \overline{x} = \frac{X - \text{mean}(X)}{\text{std}(X)} \]
 
-  + nor normalized the variable distribution
+  + not normalized the variable distribution
   + characteristics
     + scaling the variance at 1
     + centering the mean at 0
     + preserving the shape of the original distribution
     + preversing outliers if existed
-    + minimum nad maximum values varying
+    + minimum and maximum values varying
   + Python snippet
 
     ```python
@@ -1813,17 +1813,16 @@ The set of articles in this series:
     # load data
     data_df = pd.read_csv("dataset.csv")
 
-    # create the scaler object w/ your preferred norm
+    # create the scaler object w/ preferred norm
     vec_norm = Normalizer(norm='l2')
 
-    # fit the scaler tot he train data
+    # fit the scaler to the train data
     vec_norm.fit(train_df)
 
     # transform train and test data
     train_scaled_df = vec_norm.transform(train_df)
     test_scaled_df = vec_norm.transform(test_df)
     ```
-
 
 
 
