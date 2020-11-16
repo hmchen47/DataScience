@@ -1926,5 +1926,13 @@ The set of articles in this series:
     data_df['payment_difference_milliseconds'] = payment_difference / np.timedelta64(1, 'ms')
     ```
 
++ Engineering mixed variables types
+  + solution: extracting the categorical part in one variable and the numerical part in a different variable
+  + two special formats in a mixed variable
+    + different observations
+    + same observation
+
+
+
 
   
