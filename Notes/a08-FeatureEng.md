@@ -1967,7 +1967,7 @@ The set of articles in this series:
     data_df[mixed_label] = np.where(data_df[mixed_num].isnull(), data_df[mixed], np.nan)
     ```
 
-+ Labels and numbers in the same obserrvation
++ Labels and numbers in the same observation
   + variables containing both numbers and labels in their values
   + example
 
@@ -2005,7 +2005,59 @@ The set of articles in this series:
 
   + Regular Expression (regex): detect patterns in mixed variables and easily extract categorical and numerical parts
 
++ Cyclical feature problem
+  + cyclical or periodic data
+    + data following a cycle
+    + e.g., hours, minutes, seconds, days of the month, days of weeks, and months
+  + preserving the cyclical info in datasets for models to learn accurate and behave correctly
+  + one solution: projecting the cyclical feature on a circle, specifically the __unit circle__
+  + unit circle: using $\cos$ and $\sin$ functions to express the periodicity
+  + the $\sin$ and $\cos$ as new created features to transform the cyclical feature
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y6ss46t3" ismap target="_blank">
+        <img style="margin: 0.1em;" height=250
+          src  ="https://tinyurl.com/y5oputjk"
+          alt  ="Concepts of cyclical features"
+          title="Concepts of cyclical features"
+        >
+        <img style="margin: 0.1em;" height=250
+          src  ="https://tinyurl.com/y6x2vdy3"
+          alt  ="The extracted 24-hours result after applying the transformation"
+          title="The extracted 24-hours result after applying the transformation"
+        >
+      </a>
+    </div>
+
+  + Python snippet
+
+    ```python
+    import pandas as pd
+    import numpy as np
+
+    data_df = pd.read_csv("dataset.csv")
+
+    # using the previous hours and minutes feature
+
+    # creating cyclical hour feature
+    data_df['payment_hour_sin'] = np.sin(data_df['payment_hour'] * (2. * np.pi / 24.))
+    data_df['payment_hour_cos'] = np.cos(data_df['payment_hour'] * (2. * np.pi / 24.))
+
+    # creating cyclical minute feature
+    data_df['payment_minute_sin'] = np.sin(data_df['payment_minute'] * (2. * np.pi / 24.))
+    data_df['payment_minute_cos'] = np.cos(data_df['payment_minute'] * (2. * np.pi / 24.))
+
+    # creating cyclical hour feature (we subtract 1 to make range 0 to 11)
+    data_df['payment_minute_sin'] = np.sin((data_df['payment_minute'] - 1) * (2. * np.pi / 24.))
+    data_df['payment_minute_cos'] = np.cos((data_df['payment_minute'] - 1) * (2. * np.pi / 24.))
+
+    # creating cyclical month days feature
+    data_df['payment_day_sin'] = np.sin((data_df['payment_day'] - 1) * (2. * np.pi / 31.))
+    data_df['payment_day_cos'] = np.cos((data_df['payment_day'] - 1) * (2. * np.pi / 31.))
+    ```
 
 
 
-  
+
+
+
