@@ -1824,7 +1824,61 @@ The set of articles in this series:
     test_scaled_df = vec_norm.transform(test_df)
     ```
 
+## 10. Handling Data-Time and Mixed Variable
 
++ Engineering vriables of dta and time
+  + data and time: good resource of information
+  + each number corresponding to a specific part of the data and time
+  + date-time varables in many formats, e.g.,
+    + time of birth: 19:45:57
+    + birthday date: 16-08-1995, 16-04-1997
+    + invoice date: 03-06-2020 19:47:29
+  + data variable
+
+    ```python
+    import pandas as pd
+    import numpy as np
+
+    # load data
+    data_df = pd.read_csv("dataset.csv")
+
+    # example of 'payment' date feature
+    # convert the feature to datetime feature type
+    data_df['payment_day'] = pd.to_datetime(data_df['payment'])
+
+    # extracting the day in numerical format (1 to 31)
+    data_df['payment_day'] = data_df['payment_day'].dt.day
+
+    # extracting the day of the week (0 to 6)
+    datd_df['payment_dayofweek'] = data_df['payment_day'].dt.dayofweek
+
+    # extracting the day of the week (Thursday, Wednesday, ...)
+    data_df['payment_dayofweek_name'] = data_df['payment_datetime'].dt.weekday_name
+
+    # extracting the month (1 to 12)
+    data_df['payment_month'] = data_df['payment_datetime'].dt.month
+
+    # extracting the year
+    data_df['payment_year'] = data_df['payment_datetime'].dt.year
+
+    # extracting the week of the year (1 to 52)
+    data_df['payment_week'] = data_df['payment_datetime'].dt.week
+
+    # extracting the quater (1 to 4)
+    data_df['payment_quarter'] = data_df['payment_datetime'].dt.quarter
+
+    # extracting the semester (1 to 2)
+    data_df['payment_semester'] = np.where(\
+      data_df['payment_datetime'].isin([1, 2]), 1, 2)
+
+    # extracting if the day is weekend (True or false)
+    data_df['payment_weekend'] = np.where(data_df[\
+      'payment_dayofweek_name'].isin(['Sunady', 'Saturday']), 1, 0)
+
+    # extracting the difference in days btw 2 payments
+    data_df['payment_different'] = (data_df['first_payment'] \
+      - data['second_payment']).dt.days
+    ```
 
 
 
