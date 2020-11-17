@@ -2182,6 +2182,46 @@ The set of articles in this series:
     test_t_df = imputer.transform(test_df)
     ```
 
+### 11.3 Advanced Outlier detection
+
++ Density-Based Spatial Clustering of Application w/ Noise (DBSCAN)
+  + a clustering algorithm used to group points in the same clusters
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick="window.open('https://tinyurl.com/y4op33zr')"
+        src    ="https://tinyurl.com/yxqyud99"
+        alt    ="Example of DBSCAN"
+        title  ="Example of DBSCAN"
+      />
+    </figure>
+
+  + choosing two htperparameters
+    + a positive number `epsilon` for the distances btw points: the maximum distance btw two examples for one to be considered in the neighborhood of the other
+    + a natural number `min_samples`: serving as the number of samples in a neighborhood for a point to be considered as a core point
+  + algorithm
+    1. randomly selecting a point not assigned to a cluster
+    2. determining if it belongs to a cluster by seeing if there are at least `min_sample` points around it within `epsilon` distance
+    3. creating a cluster of this point w/ all other samples within `epsilon` distance to it
+    4. finding all points that are within `epsilon` distance of each point in that cluster and adding them to the same cluster
+    5. finding all points that are within `epsilon` distance of all recently added points and adding these to the same cluster
+    6. repeating steps 1~5
+  + all points not reachable from any other point aare considered __outliers__
+  + Python snippet
+
+    ```python
+    from sklearn.cluster import DBSCAN
+    import pandas as pd
+
+    dat_df = pd.read_csv("dataset.csv")
+
+    # create the isolation forest
+    outlier_detection = DBSCAN(eps=0.2, metric="euclidean", min_samples=5, n_jobs=-1)
+
+    # fit and predict the outliers
+    outliers_cluster = outlier_detection.fit_predict(data_df)
+    ```
+
 
 
 
