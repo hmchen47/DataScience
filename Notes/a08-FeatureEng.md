@@ -2057,7 +2057,34 @@ The set of articles in this series:
     ```
 
 
+## 11. Advanced Methods
 
+### 11.1 Advanced Categorical Encoding
+
++ Catboost encoder
+  + similar to target encoding
+  + replacing the category w/ the mean target value for that category
+  + the order of observations in the dataset
+  + the target probability: calculated only from the rows before it
+  + similar to leave-one-out encoding but calculated the values
+  + procedure
+    + repeating training numerous times on shuffled copies of the dataset
+    + averaging the results
+  + Python snippet
+
+    ```python
+    import pandas as pd
+    from category_encoder import CatBoostEncoder
+
+    data_df = pd.read_csv("dataset.csv")
+
+    # create the encoder
+    encoder = CatBootEncoder(return_df=True)
+
+    # fit and transform the data
+    new_x_train_df = encoder.fit_transform(x_train_df, y_train_df)
+    new_y_train_df = encoder.fit_transform(x_test_df, y_test_df)
+    ```
 
 
 
