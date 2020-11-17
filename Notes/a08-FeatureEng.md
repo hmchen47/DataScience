@@ -1824,16 +1824,16 @@ The set of articles in this series:
     test_scaled_df = vec_norm.transform(test_df)
     ```
 
-## 10. Handling Data-Time and Mixed Variable
+## 10. Handling Date-Time and Mixed Variable
 
-+ Engineering vriables of dta and time
-  + data and time: good resource of information
-  + each number corresponding to a specific part of the data and time
++ Engineering variables of date and time
+  + date and time: good resource of information
+  + each number corresponding to a specific part of the date and time
   + date-time varables in many formats, e.g.,
     + time of birth: 19:45:57
     + birthday date: 16-08-1995, 16-04-1997
     + invoice date: 03-06-2020 19:47:29
-  + data variable
+  + date variable
 
     ```python
     import pandas as pd
@@ -1877,7 +1877,7 @@ The set of articles in this series:
 
     # extracting the difference in days btw 2 payments
     data_df['payment_different'] = (data_df['first_payment'] \
-      - data['second_payment']).dt.days
+      - data_df['second_payment']).dt.days
     ```
 
   + time variables
@@ -1894,7 +1894,7 @@ The set of articles in this series:
     data_df['payment_datetime'] = pd.to_datetime(data_df['payment'])
 
     # extracting the hour (0 to 23)
-    data_df['payment_hour] = data_df['payment_datetime'].dt.hour
+    data_df['payment_hour'] = data_df['payment_datetime'].dt.hour
 
     # extracting the minutes (0 to 59)
     data_df['payment_minute'] = data_df['payment_datetime'].dt.minute
@@ -1903,10 +1903,10 @@ The set of articles in this series:
     data_df['payment_second'] = data_df['payment_datatime'].dt.second
 
     # extracting the Unix time stamp (number of seconds since January 1st, 1970, at UTC)
-    data_df['payment_unix_timestamp'] = (data_df['payment_datetime] \
+    data_df['payment_unix_timestamp'] = (data_df['payment_datetime'] \
       - pd.TimeStamp("1970-01-01")) // pd.Timedelta('1s')
 
-    # extracting the business hour (for example, from 8AM to 12 PM) (0 or 1)
+    # extracting the business hour (for example, from 8AM to 12PM) (0 or 1)
     data_df['payment_business'] = np.where(\
       data_df['payment_hour'].isin([8, 9, 10, 12]), 1, 0)
 
@@ -1955,7 +1955,7 @@ The set of articles in this series:
     # load data
     data_df = pd.read_csv("dataset.csv")
 
-    # th mixed column and the results
+    # the  mixed column and the results
     mixed = "mixed column"
     mixed_num = mixed + "_numerical"
     mixed_label = mixed + "_label"
@@ -2044,12 +2044,12 @@ The set of articles in this series:
     data_df['payment_hour_cos'] = np.cos(data_df['payment_hour'] * (2. * np.pi / 24.))
 
     # creating cyclical minute feature
-    data_df['payment_minute_sin'] = np.sin(data_df['payment_minute'] * (2. * np.pi / 24.))
-    data_df['payment_minute_cos'] = np.cos(data_df['payment_minute'] * (2. * np.pi / 24.))
+    data_df['payment_minute_sin'] = np.sin(data_df['payment_minute'] * (2. * np.pi / 60.))
+    data_df['payment_minute_cos'] = np.cos(data_df['payment_minute'] * (2. * np.pi / 60.))
 
     # creating cyclical hour feature (we subtract 1 to make range 0 to 11)
-    data_df['payment_minute_sin'] = np.sin((data_df['payment_minute'] - 1) * (2. * np.pi / 24.))
-    data_df['payment_minute_cos'] = np.cos((data_df['payment_minute'] - 1) * (2. * np.pi / 24.))
+    data_df['payment_hour_sin'] = np.sin((data_df['payment_hour'] - 1) * (2. * np.pi / 12.))
+    data_df['payment_hour_cos'] = np.cos((data_df['payment_hour'] - 1) * (2. * np.pi / 12.))
 
     # creating cyclical month days feature
     data_df['payment_day_sin'] = np.sin((data_df['payment_day'] - 1) * (2. * np.pi / 31.))
