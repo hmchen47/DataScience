@@ -2107,6 +2107,34 @@ The set of articles in this series:
     new_x_test_df = encoder.transform(x_test_df, y_test_df)
     ```
 
++ James-Stein encoder
+  + another example of a target-based encoder, defined for normal distribution
+  + shrinking the average toward the overall average
+  + intended to improve the estimation of the category's mean target by shrinking them towards a more median average
+  + getting the mean target for category $k$
+
+    \[ \overhat{x}^k = (1 - B) * \fracPn^+}{n} + B * \frac{y^+}{y} \]
+
+    + $\frac{n^+}{n}$: the estimation of the category's mean target
+    + $\frac{y^+}{y}$: the central average of the mean target
+    + $B$: a hyperparameter, representing the power of shrinking
+  + Python snipet
+
+    ```python
+    import pandas as pd
+    from category_encoders import JamesSteinEncoder
+
+    data_df = pd.read_csv("dataset.csv")
+
+    # create the encoder
+    encoder = JamesSteinEncoder(return_df=True)
+
+    # fit and transform the data
+    new_x_train_df = encoder.fit_transform(x_train_df, y_train_df)
+    new_x_test_df = encoder.transform(x_test_df, y_test_df)
+    ```
+
+
 
 
 
