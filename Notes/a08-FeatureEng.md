@@ -2222,6 +2222,45 @@ The set of articles in this series:
     outliers_cluster = outlier_detection.fit_predict(data_df)
     ```
 
++ Isolation forests
+  + built on the foundationof decision trees and using tree assemble methods
+  + algorithm examining how quickly a point can be isolated
+  + normal point: more partition to isolate
+  + outliers
+    + isolated quickly in the first splits
+    + less frequent than regular observations
+    + lying further away from the regul;ar observations in the feature space
+    + w/ random partitioning identified closer to the root of the tree
 
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick="window.open('https://tinyurl.com/y4op33zr')"
+        src    ="https://tinyurl.com/y5hmnhgk"
+        alt    ="Example of isolated forest"
+        title  ="Example of isolated forest"
+      />
+    </figure>
+
+  + Pythoon snippet
+
+    ```python
+    from sklearn.ensemble import IsolatedForest
+    import pandas as pd
+
+    data_df = pd.read_csv("dataset.csv")
+
+    # create the isolation forest
+    outlier_dection = IsolatonForest()
+
+    # fit and predict the outliers
+    outliers = outlier_detection.fit_predict(data_df)
+
+    #### OPTIONAL ####
+    # get index of outliers
+    outliers_index = np.where(outliers == -1, True, False)
+
+    # remove outliers from data
+    data_df = data_df.loc[~(outliers_index, )]
+    ```
 
 
