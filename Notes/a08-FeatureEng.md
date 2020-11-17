@@ -2319,4 +2319,14 @@ The set of articles in this series:
     + entites: multiple entities result in an EntitySet
     + feature primitives: Deep Feature Synthesis applied to EntitySet - transfrmations or aggregations like count or average
 
+### 11.5 Engineering geospatial data
+
++ geospatial feature
+  + represented as longitude and latitude
+  + features influcing predictive model's results by a large margin if well-engineered
+  + procedure
+    + visualizing the features to obtain valuable insight
+    + exploring different methods to extract and design new features
+
+
 
