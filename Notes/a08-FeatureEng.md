@@ -2263,4 +2263,40 @@ The set of articles in this series:
     data_df = data_df.loc[~(outliers_index, )]
     ```
 
++ Local outlier factor (LOF)
+  + measuring the local variation of density of a given sample taking just its neighbors into considerations and not the global data distribution
+  + outlier: the density around that points is significantly different from the density around its neighbors
+  + algorithm
+    1. calculating the distances btw a randomly selected point and every other point
+    2. finding the farest $k$ cloest point (`k-th` nearest-neighbor)
+    3. fidning the other $k$ closest points, like a normal KNN
+    4. calculating the point density (local reachability density) using the inverse of the average distance btw that point and its neighbors (the lower the density, the farther the point is from its neighbors)
+    5. calculating the LOF, essentially the average local reachability density of the neighbors divided by the point's own local reachability density
+  + imterpretation of the final LOF score
+    + LOF(k) of 1: similar density as neighbors
+    + LOF(k) < 1: higher density than neighbors (inlier)
+    + LOF(k) > 1: lower density than neighbors (outlier)
+  + Python snippet
+
+    ```python
+    from sklearn.neighbor import LocalOutlierFactor
+    import pandas as pd
+
+    data_df = pd.read_csv("dataset.csv")
+
+    # create the isolation forest
+    outlier_detection = LocalOutlierFactor()
+
+    # fit and predict the outliers
+    outliers = outlier_detection.fit_predict(data_df)
+
+    #### OPTIONAL ####
+    # get index of outliers
+    outliers_index = np.where(outliers == -1, True, False)
+
+    # remove outliers from data
+    data_df = data_df.loc[~(outliers_index, )]
+    ```
+
+
 
