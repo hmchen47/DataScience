@@ -2329,4 +2329,13 @@ The set of articles in this series:
     + exploring different methods to extract and design new features
 
 
+### 11.6 Resampling imblanced data
+
++ resampling
+  + issue: classes not represented equally
+  + causing problems for some algorithms
+  + resampling engineering and reducing this effect on machine lerning algorithms
+
+
+
 
