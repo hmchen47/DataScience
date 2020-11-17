@@ -2086,5 +2086,27 @@ The set of articles in this series:
     new_y_train_df = encoder.fit_transform(x_test_df, y_test_df)
     ```
 
++ Leave-one-out encoder (LOO/LOOE)
+  + an example of target-based encoding
+  + preventing target data leakage, unlike other target-based methods
+  + consisting of calculating the mean target of a given category $k$ for obbservation $j$ w/o using the corresponding target of $j$
+  + calculating the per-category means w/ the typical yarget encoder
+  + Python snippet
+
+    ```python
+    import panadas as pd
+    from category_encoder import LeaveOneOutEncoder
+
+    data_df = pd.read_csv("dayaset.csv")
+
+    # create the encoder
+    encoder = LeaveOneOutEncoder(return_df=True)
+
+    # fit and transform the data
+    new_x_train_df = encoder.fit_transform(x_train_df, y_train_df)
+    new_x_test_df = encoder.transform(x_test_df, y_test_df)
+    ```
+
+
 
 
