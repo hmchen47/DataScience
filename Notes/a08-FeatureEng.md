@@ -2232,14 +2232,20 @@ The set of articles in this series:
     + lying further away from the regul;ar observations in the feature space
     + w/ random partitioning identified closer to the root of the tree
 
-    <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-        onclick="window.open('https://tinyurl.com/y4op33zr')"
-        src    ="https://tinyurl.com/y5hmnhgk"
-        alt    ="Example of isolated forest"
-        title  ="Example of isolated forest"
-      />
-    </figure>
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://tinyurl.com/y4op33zr" ismap target="_blank">
+        <img style="margin: 0.1em;" height=250
+          src  ="https://tinyurl.com/y5hmnhgk"
+          alt  ="Isolated forest - Visulization"
+          title="Isolated forest - Visulization"
+        >
+        <img style="margin: 0.1em;" height=250
+          src  ="https://tinyurl.com/y4943eac"
+          alt  ="Isolated forest - Tree View"
+          title="Isolated forest - Tree View"
+        >
+      </a>
+    </div>
 
   + Pythoon snippet
 
@@ -2298,5 +2304,19 @@ The set of articles in this series:
     data_df = data_df.loc[~(outliers_index, )]
     ```
 
+### 11.4 Automated feature engineering
+
++ Deep feature synthesis
+  + automatically generating features for relational dataset
+  + relationships in the data to a base field
+  + sequentially applying mathematical functions along that path to create the final feature
+
++ Featuretools
+  + an open-source framework for implementing automated feature engineering
+  + a comprehensive tool intended to make the feature generation process fast-forward
+  + components
+    + deep feature synthesis: the backbone of featuretools
+    + entites: multiple entities result in an EntitySet
+    + feature primitives: Deep Feature Synthesis applied to EntitySet - transfrmations or aggregations like count or average
 
 
