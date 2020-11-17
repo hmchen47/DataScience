@@ -1,134 +1,6 @@
-# Reading Notes for Data Science
+# Reading List for Data Science
 
-## General Topics
-
-### Recommended books, articles and courses
-
-+ Daniel Smith, Lionbridge, [10 Free Top Notch Machine Learning Courses](../Notes/a07-MLBooks.md#10-best-machine-learning-textbooks-that-all-data-scientists-should-read)
-+ Reashikaa Verma, [24 Best (and Free) Books To Understand Machine Learning](../Notes/a07-MLBooks.md#24-best-and-free-books-to-understand-machine-learning)
-+ Vincent Granville, [19 Great Articles About Natural Language Processing (NLP)](../Notes/a04-19NLP.md#19-great-articles-about-natural-language-processing-nlp)
-
-
-### Visualization
-
-+ K. He & G.Meeden, [Selecting the Number of Bins in a Histogram: A Decision Theoretic Approach](../AppliedDS-UMich/2-InfoVis/p01-HistBins.md)
-
-
-### Feature Engineering
-
-+ Pier Paolo Ippolito, [Feature Selection Techniques](../Notes/a02-FeatureEng.md)
-+ Aishwarya Singh, [6 Powerful Feature Engineering Techniques For Time Series Data (using Python)](../Notes/a03-FeatureEngTech.md)
-+ Younes Charfaoui, Hands-on with Feature Engineering Techniques, 2018
-  + 01. [Broad Introduction](../Notes/a08-FeatureEng.md#1-broad-introduction)
-  + 02. [Variable Types](../Notes/a08-FeatureEng.md#2-variables-types)
-  + 03. [Common Issues in Datasets](../Notes/a08-FeatureEng.md#3-common-issues-in-datasets)
-  + 04. [Imputing Missing Values](../Notes/a08-FeatureEng.md#)
-  + 05. [Categorical Variables Encoding](../Notes/a08-FeatureEng.md#)
-  + 06. [Transforming Variables](../Notes/a08-FeatureEng.md#)
-  + 07. [Variables Discretization](../Notes/a08-FeatureEng.md#)
-  + 08. [Handling Outliers](../Notes/a08-FeatureEng.md#)
-  + 09. [Feature Scaling](../Notes/a08-FeatureEng.md#)
-  + 10. [Handling Time-Date and Mixed Variables](../Notes/a08-FeatureEng.md#)
-  + 11. [Advanced Feature Engineering Methods](../Notes/a08-FeatureEng.md#)
-
-
-
-
-## Probability & Statistics
-
-### Study Design
-
-+ Song JW, Chung KC. [Observational studies: cohort and case-control studies](../Notes/p02-Observational.md). Plast Reconstr Surg. 2010;126(6):2234–2242
-
-
-
-### Bayesian Approaches
-
-+ D. Spiegelhalter, K. Abrams, J. Myles, [An Overview of the Bayesian Approach](../Notes/p01-Bayesian.md), Chapter 3 in Bayesian Approaches to Clinical Trials and Health-Care Evaluation, 2004+ S. Ghosh, [Basics of Bayesian Methods](../Notes/p03-BayesianBasics.md), in "Methods in molecular biology" (Clifton, N.J.) 620:155-78, 2010
-+ J. Martin Bland and Douglas G. Altman, [Bayesians and frequentists](../Notes/a05-Bayesian.md)
-+ Magdalena Szumilas, [Explaining Odds Ratios](/Notes/a06-OddsRatios.md)
-+ H. Liu and L. Wasserman, "Bayesian Inference" [Part A](../Notes/p04a-Bayesian.md), [Part B](../Notes/p04b-Bayesian.md), and [Part C](../Notes/p04c-Bayesian.md)
-
-
-
-## Artificial Intelligence
-
-
-
-
-## Machine Learning
-
-### General Topics for ML
-
-+ Pedro Domingos, [A Few Useful Things to Know about Machine Learning](../AppliedDS-UMich/3-AML/p0-UsefulThings.md)
-+ Ron Kohavi, Randal M. Henne, and Dan Sommerfield, [Practical Guide to Controlled Experiments on the Web: Listen to Your Customers not to the HiPPO](../AppliedDS-UMich/3-AML/p1-ControlledExp.md)
-+ S. Kaufman, S. Rosset, & C. Perlich, [Leakage in Data Mining: Formulation, Detection, and Avoidance](../AppliedDS-UMich/3-AML/p3-Leakage.md)
-+ Martin Zinkevich, [Rules of Machine Learning: Best Practices for ML Engineering](../AppliedDS-UMich/3-AML/p4-MLRules.md)
-+ Maytal Saar-Tsechansky and Foster Provost, [Handling Missing Values when Applying Classification Models](../AppliedDS-UMich/3-AML/p5-Missing.md)
-+ [Graphs](../AppliedDS-UMich/5-SocialNet/p2-Graphs.md)
-
-
-
-### Machine Learning Models
-
-
-
-
-### Application - Social Networks
-
-+ David Easley and Jon Kleinberg, [Power Laws and Rich-Get-Richer Phenomena](../AppliedDS-UMich/5-SocialNet/p1-PowerLaw.md), Chapter 18 in [Networks, Crowds, and Markets: Reasoning About a Highly Connected World](http://www.cs.cornell.edu/home/kleinber/networks-book/)
-+ David Easley and Jon Kleinberg, [The Small-World Phenomenon](../AppliedDS-UMich/5-SocialNet/p3-SmallWorld.md), Chapter 20 in [Networks, Crowds, and Markets: Reasoning About a Highly Connected World](http://www.cs.cornell.edu/home/kleinber/networks-book/)
-
-
-
-## Neural Networks
-
-### General Topics for Neural Networks
-
-+ Matthew Stewart, [Introduction to Neural Networks](../ML/MLNN-Hinton/a01-IntroNN.md)
-+ Matthew Stewart, [Intermediate Topics in Neural networks](../ML/MLNN-Hinton/a02-IntermediateNN.md)
-+ Matthew Stewart, [Neural Network Optimization](../ML/MLNN-Hinton/a03-Optimization.md)
-+ Matthew Stewart, [Simple Guide to Hyperparameter Tuning in Neural Networks](../ML/MLNN-Hinton/a04-Hyperparameter.md)
-+ Matthew Stewart, [Neural Style Transfer and Visualization of Convolutional Networks](../ML/MLNN-Hinton/a05-VisualCNN.md)
-+ Random Nerd, [Delta Learning Rule & Gradient Descent | Neural Networks](../ML/MLNN-Hinton/a06-DeltaRule.md)
-+ Drew Rollins, [Delta Function](../ML/MLNN-Hinton/a07-DeltaFunc.md)
-
-
-### Activation Functions
-
-+ Chris McCormick, [Deep Learning Tutorial - Softmax Regression](../ML/MLNN-Hinton/a08-SoftmaxReg.md)
-+ [Softmax Classifier](../ML/MLNN-Hinton/a09-SoftmaxClass.md) in CS231n Convolutional Neural Networks for Visual Recognition, Stanford University
-
-
-
-### Convolution Neural Networks
-
-+ Adit Deshpande, [A Beginner's Guide To Understanding Convolutional Neural Networks](../ML/MLNN-Hinton/a10-CNNsGuide.md)
-
-
-
-### Deep Learning
-
-+ Adit Deshpande, [The 9 Deep Learning Papers You Need to Know About](../ML/MLNN-Hinton/a11-9Papers.md)
-
-
-
-
-
-## DataBase for Data Science
-
-
-
-
-## Python Implementation
-
-
-
----------------------------------------------------------------------
-
-## Reading List
-
-### Basic Math
+## Basic Math
 
 + Prof. David Jerison, [Single Variable Calculus](https://ocw.mit.edu/courses/mathematics/18-01sc-single-variable-calculus-fall-2010/), 2010
 + Prof. Denis Auroux, [Multivariable Calculus](https://ocw.mit.edu/courses/mathematics/18-02sc-multivariable-calculus-fall-2010/), 2010
@@ -136,31 +8,31 @@
 + Prof. Gil Strang, [18.06 Linear Algebra](http://web.mit.edu/18.06/www/videos.shtml), 2020
 
 
-### Probability and Statistics
+## Probability and Statistics
 
 + David Colquhoun, [The reproducibility of research and the misinterpretation of p-values](https://tinyurl.com/y5h7pbhu), R Soc Open Sci., 2017 
 + Regina L. Nuzzo, [The Inverse Fallacy and Interpreting P Values](https://tinyurl.com/y5dj9r6y), 2015
-+ Prof. John Tsitsiklis and Prof. Patrick Jaillet, [Introduction to Probability](https://ocw.mit.edu/resources/res-6-012-introduction-to-probability-spring-2018/), 2018
++ Prof. John Tsitsiklis and Prof. Patrick Jaillet, [Introduction to Probability](https://tinyurl.com/y28zfgq3), 2018
 + Professor A.J. Hildebrand, [Math 370X: Actuarial Problem solving, Spring 2008](https://faculty.math.illinois.edu/~hildebr/370/)
 + Alexandros Psomas, David Dinh, Fan Ye, [Discrete Mathematics and Probability Theory](https://inst.eecs.berkeley.edu/~cs70/su16/)
 + Joseph Blitzstein, [Introduction to Probability](https://www.edx.org/course/introduction-to-probability)
 + Joseph Blitzstein, [Statistics 110: Probability](https://projects.iq.harvard.edu/stat110)
-+ John Tsitsiklis, [Probabilistic Systems Analysis and Applied Probability](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/index.htm)
-+ Jaime Zornoza, [Probability Learning I : Bayes’ Theorem](https://towardsdatascience.com/probability-learning-i-bayes-theorem-708a4c02909a)
-+ Jaime Zornoza, [Probability Learning II: How Bayes’ Theorem is applied in Machine Learning](https://towardsdatascience.com/probability-learning-ii-how-bayes-theorem-is-applied-in-machine-learning-bd747a960962)
++ John Tsitsiklis, [Probabilistic Systems Analysis and Applied Probability](https://tinyurl.com/y5pxe8em)
++ Jaime Zornoza, [Probability Learning I : Bayes’ Theorem](https://tinyurl.com/y5fcfyrd)
++ Jaime Zornoza, [Probability Learning II: How Bayes’ Theorem is applied in Machine Learning](https://tinyurl.com/yy6eksjx)
 + Amin Ghafari, Khalil Sarwari, Yining Liu, [Discrete Mathematics and Probability Theory](https://www.eecs70.org/)
 + Brown, E.N. and Kass, R.E. (2009) [What is Statistics? (with discussion)](http://www.stat.cmu.edu/~kass/papers/what.pdf), American Statistician, 63:105-123.
 + Robert E. Kass, [Statistical Inference: The Big Picture](http://www.stat.cmu.edu/~kass/papers/bigpic.pdf), Statistical Science, 2011, Vol. 26, No. 1, 1–9
 + J. K. Kruschke1 and T. M. Liddell1, [The Bayesian New Statistics: Hypothesis testing, estimation, meta-analysis, and power analysis from a Bayesian perspective](https://link.springer.com/content/pdf/10.3758/s13423-016-1221-4.pdf), Psychon Bull Rev (2018) 25:178–206
 + Sebastien Roch, [Lecture Notes on Measure-theoretic Probability Theory](http://www.math.wisc.edu/~roch/grad-prob/)
-+ Jeremy Orloff and Jonathan Bloom, [Introduction to Probability and Statistics](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/)
++ Jeremy Orloff and Jonathan Bloom, [Introduction to Probability and Statistics](https://tinyurl.com/y2qf3heb)
 + Peter Kempthorne, [Mathematical Statistics](https://ocw.mit.edu/courses/mathematics/18-655-mathematical-statistics-spring-2016/)
 + Philippe Rigollet, [Statistics for Applications](https://ocw.mit.edu/courses/mathematics/18-650-statistics-for-applications-fall-2016/)
 + Philippe Rigollet, [Fundamentals of Statistics](https://www.edx.org/course/fundamentals-of-statistics)
 + M Ringnér, [What is principal component analysis?](http://146.6.100.192/users/BCH339N_2018/NBT_primer_PCA.pdf), 2008
 + ME Tipping, CM Bishop, [Probabilistic principal component analysis](https://publications.aston.ac.uk/id/eprint/38367/1/NCRG_97_010.pdf), 1999
-+ H Abdi, LJ Williams, [Principal component analysis](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.149.8828&rep=rep1&type=pdf), 2010
-+ J Shlens, [A tutorial on principal component analysis](https://arxiv.org/pdf/1404.1100&sa=U&ved=2ahUKEwi57Mfr0ZDpAhWtF6YKHfSxAck4ChAWMAZ6BAgEEAE&usg=AOvVaw2ccduDFnmcXvF-iGE-VXIM), 2014
++ H Abdi, LJ Williams, [Principal component analysis](https://tinyurl.com/y4acbfaq), 2010
++ J Shlens, [A tutorial on principal component analysis](https://tinyurl.com/y6qkqfxr), 2014
 + Farhad Malik, [Understanding Statistics And Probability](https://towardsdatascience.com/@farhadmalik)
   + [Understanding Statistics And Probability: Bayesian Inference](https://tinyurl.com/y4gepghk)
   + [Statistical Inference For Data Scientists](https://tinyurl.com/y5xu8m3c)
@@ -177,11 +49,11 @@
 
 
 
-### Machine Learning
+## Machine Learning
 
 + Gilbert Strage, [Calculus](https://ocw.mit.edu/ans7870/resources/Strang/Edited/Calculus/Calculus.pdf)
 
-+ Trevor Hastie and Rob Tibshirani, [introduction to machine learning](https://www.r-bloggers.com/in-depth-introduction-to-machine-learning-in-15-hours-of-expert-videos/)
++ Trevor Hastie and Rob Tibshirani, [introduction to machine learning](https://tinyurl.com/jl7uzxs)
 
 + Lukas Spranger, [Awesome Machine Learning and AI Courses](https://tinyurl.com/y5phkqwj)
 
@@ -189,8 +61,10 @@
 
 + Cem Sazara, [Natural Language Processing](https://tinyurl.com/y22gq94l) w/ [Video](https://tinyurl.com/y4j4kp53)
 
++ M. Kanter, [Deep Feature Synthesis: How Automated Feature Engineering Works](https://tinyurl.com/y548kp3n)
 
-### Neural Networks
+
+## Neural Networks
 
 + A. Julien-Laferriere, [Hopfield network](https://bit.ly/2UH5h2X)
 + [Hopfield Model of Neural Network](https://bit.ly/2xQGikM), Chapter 2,
@@ -222,7 +96,7 @@
 + J. Snoek, H. Larochellel, and R. Adams, [Practical Bayesian Optimization of Machine Learning Algorithms](https://tinyurl.com/rgeervt), NIPS 2012
 
 
-### Computer Science
+## Computer Science
 
 + Ryan O'Donnell, [15-859T: A Theorist's Toolkit 2013](http://www.cs.cmu.edu/~odonnell/toolkit13/)
 
