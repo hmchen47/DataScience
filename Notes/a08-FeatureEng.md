@@ -2163,5 +2163,25 @@ The set of articles in this series:
     test_t_df = imputer.transform(test_df)
     ```
 
++ K-nearest neighbor (KNN) imputing
+  + using the famous KNN algorithm to predict the missing values from the neighbors
+  + any point value approximated by the nearest point values of ofther variables
+  + Python snippet
+
+    ```python
+    from sklearn.impute import KNNImputer
+
+    # create the imputer w/ specified number of neighbors (the k)
+    imputer = KNNImputer(n_neighbor=3)
+
+    # fit the imputer to the train set
+    imputer.fit(train_df)
+
+    # transform the data
+    train_t_df = imputer.transform(train_df)
+    test_t_df = imputer.transform(test_df)
+    ```
+
+
 
 
