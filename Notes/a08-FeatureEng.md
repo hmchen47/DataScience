@@ -2134,7 +2134,34 @@ The set of articles in this series:
     new_x_test_df = encoder.transform(x_test_df, y_test_df)
     ```
 
+### 11.2 Advanced Missing Value Imputation
 
++ Iterative imputation
+  + a multivariate imputer that estimates feature from all the other ones in a round-robin manner
+  + using a strategy for imputing missing values by modeling each feature w/ missing values as a function of other features
+  + dtermining misssing values by discovering patterns from its neighbors
+  + using round-robin at each step
+    1. choosing a feature as output $y$ and all the other feature columns as imput $x$
+    2. training a regressor and fitting it on $(x, y)$ for known $y$
+    3. the regressor used to predict the missing values of $y$
+    4. repeating until the defined `max_iteration` is reached
+  + `IterativeImputer` still experimental in Sklearn
+  + Python snipper
+
+    ```python
+    from sklearn.experimental import enable_iterative_imputer
+    from sklearn.imputer import IterativeImputer
+
+    # create the imputer
+    imputer = IterativeImputer(random_state=22)
+
+    # fit the imputer to the train set
+    imputer.fit(train_df)
+
+    # transform the data
+    train_t_df = imputer.transform(train_df)
+    test_t_df = imputer.transform(test_df)
+    ```
 
 
 
