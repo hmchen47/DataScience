@@ -2083,14 +2083,14 @@ The set of articles in this series:
 
     # fit and transform the data
     new_x_train_df = encoder.fit_transform(x_train_df, y_train_df)
-    new_y_train_df = encoder.fit_transform(x_test_df, y_test_df)
+    new_y_train_df = encoder.transform(x_test_df, y_test_df)
     ```
 
 + Leave-one-out encoder (LOO/LOOE)
   + an example of target-based encoding
   + preventing target data leakage, unlike other target-based methods
-  + consisting of calculating the mean target of a given category $k$ for obbservation $j$ w/o using the corresponding target of $j$
-  + calculating the per-category means w/ the typical yarget encoder
+  + consisting of calculating the mean target of a given category $k$ for observation $j$ w/o using the corresponding target of $j$
+  + calculating the per-category means w/ the typical target encoder
   + Python snippet
 
     ```python
@@ -2113,7 +2113,7 @@ The set of articles in this series:
   + intended to improve the estimation of the category's mean target by shrinking them towards a more median average
   + getting the mean target for category $k$
 
-    \[ \overhat{x}^k = (1 - B) * \fracPn^+}{n} + B * \frac{y^+}{y} \]
+    \[ \widehat{x}^k = (1 - B) * \frac{n^+}{n} + B * \frac{y^+}{y} \]
 
     + $\frac{n^+}{n}$: the estimation of the category's mean target
     + $\frac{y^+}{y}$: the central average of the mean target
@@ -2144,7 +2144,7 @@ The set of articles in this series:
     1. choosing a feature as output $y$ and all the other feature columns as imput $x$
     2. training a regressor and fitting it on $(x, y)$ for known $y$
     3. the regressor used to predict the missing values of $y$
-    4. repeating until the defined `max_iteration` is reached
+    4. repeating until the defined `max_iteration`  reached
   + `IterativeImputer` still experimental in Sklearn
   + Python snipper
 
@@ -2197,11 +2197,11 @@ The set of articles in this series:
     </figure>
 
   + choosing two htperparameters
-    + a positive number `epsilon` for the distances btw points: the maximum distance btw two examples for one to be considered in the neighborhood of the other
-    + a natural number `min_samples`: serving as the number of samples in a neighborhood for a point to be considered as a core point
+    + `epsilon` > 0 for the distances btw points: the maximum distance btw two examples for one to be considered in the neighborhood of the other
+    + `min_samples` $\in \Bbb{N}$: serving as the number of samples in a neighborhood for a point to be considered as a core point
   + algorithm
     1. randomly selecting a point not assigned to a cluster
-    2. determining if it belongs to a cluster by seeing if there are at least `min_sample` points around it within `epsilon` distance
+    2. determining if it belongs to a cluster by seeing if there are at least `min_samples` points around it within `epsilon` distance
     3. creating a cluster of this point w/ all other samples within `epsilon` distance to it
     4. finding all points that are within `epsilon` distance of each point in that cluster and adding them to the same cluster
     5. finding all points that are within `epsilon` distance of all recently added points and adding these to the same cluster
@@ -2223,13 +2223,13 @@ The set of articles in this series:
     ```
 
 + Isolation forests
-  + built on the foundationof decision trees and using tree assemble methods
-  + algorithm examining how quickly a point can be isolated
+  + built on the foundation of decision trees and using tree assemble methods
+  + algorithm examining how quickly a point isolated
   + normal point: more partition to isolate
   + outliers
     + isolated quickly in the first splits
     + less frequent than regular observations
-    + lying further away from the regul;ar observations in the feature space
+    + lying further away from the regular observations in the feature space
     + w/ random partitioning identified closer to the root of the tree
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
@@ -2279,7 +2279,7 @@ The set of articles in this series:
     4. calculating the point density (local reachability density) using the inverse of the average distance btw that point and its neighbors (the lower the density, the farther the point is from its neighbors)
     5. calculating the LOF, essentially the average local reachability density of the neighbors divided by the point's own local reachability density
   + imterpretation of the final LOF score
-    + LOF(k) of 1: similar density as neighbors
+    + LOF(k) = 1: similar density as neighbors
     + LOF(k) < 1: higher density than neighbors (inlier)
     + LOF(k) > 1: lower density than neighbors (outlier)
   + Python snippet
@@ -2335,7 +2335,5 @@ The set of articles in this series:
   + issue: classes not represented equally
   + causing problems for some algorithms
   + resampling engineering and reducing this effect on machine lerning algorithms
-
-
 
 
