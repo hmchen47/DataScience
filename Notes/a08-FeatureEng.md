@@ -77,41 +77,42 @@ The set of articles in this series:
   + categories of numerical variables
     + continuous variables
     + discrete variables
-  + continuous variables
-    + an uncountable set of values
-    + probably containing any value within a given range
-    + visualization
-      + density plot
-      + histogram
-      + box plot
-      + scatter plot
-    + [example](src/a08-ex01-VisualNumerical.py):
 
-      <figure style="margin: 0.5em; text-align: center;">
-        <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
-          onclick="window.open('https://tinyurl.com/y6egl9qc')"
-          src    ="https://miro.medium.com/max/875/1*9N8ljqnCENz_IRr14dkmVg.png"
-          alt    ="Visualization of continuous numerical variables: (a) box plot, (b) histogram, (c) density plot, & (d) scatter plot"
-          title  ="Visualization of continuous numerical variables: (a) box plot, (b) histogram, (c) density plot, & (d) scatter plot"
-        />
-      </figure>
++ Continuous variables
+  + an uncountable set of values
+  + probably containing any value within a given range
+  + visualization
+    + density plot
+    + histogram
+    + box plot
+    + scatter plot
+  + [example](src/a08-ex01-VisualNumerical.py):
 
-  + discrete variables
-    + a finite number of values
-    + integers, counts
-    + visualization
-      + count plot
-      + pie chart
-    + [example](src/a08-ex02-DiscreteVars.py)
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick="window.open('https://tinyurl.com/y6egl9qc')"
+        src    ="https://miro.medium.com/max/875/1*9N8ljqnCENz_IRr14dkmVg.png"
+        alt    ="Visualization of continuous numerical variables: (a) box plot, (b) histogram, (c) density plot, & (d) scatter plot"
+        title  ="Visualization of continuous numerical variables: (a) box plot, (b) histogram, (c) density plot, & (d) scatter plot"
+      />
+    </figure>
 
-      <figure style="margin: 0.5em; text-align: center;">
-        <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-          onclick="window.open('https://tinyurl.com/y6egl9qc')"
-          src    ="https://tinyurl.com/yxkpt2jp"
-          alt    ="Visualization of discrete numerical variables: (a) density plot, (b) histogram"
-          title  ="Visualization of discrete numerical variables: (a) density plot, (b) histogram"
-        />
-      </figure>
++ Discrete variables
+  + a finite number of values
+  + integers, counts
+  + visualization
+    + count plot
+    + pie chart
+  + [example](src/a08-ex02-DiscreteVars.py)
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick="window.open('https://tinyurl.com/y6egl9qc')"
+        src    ="https://tinyurl.com/yxkpt2jp"
+        alt    ="Visualization of discrete numerical variables: (a) density plot, (b) histogram"
+        title  ="Visualization of discrete numerical variables: (a) density plot, (b) histogram"
+      />
+    </figure>
 
 + Categorical variables
   + selected from a group of categories
@@ -281,7 +282,7 @@ The set of articles in this series:
     + the scale of the variable directly influences the regression coefficient
     + variable w/ a more significant magnitude range (e.g., income) dominate over the ones w/ a smaller magnitude range (age)
     + gradient descent converges faster when features are on similar scale
-    + features scaling helps secrease he time to find support vectors for SVMs
+    + features scaling helps decrease the time to find support vectors for SVMs
     + Euclidean distances are sensitive to feature magnitude
   + models affected by feature magnitude
     + linear and logistic regression
@@ -321,7 +322,7 @@ The set of articles in this series:
 
 + Mean and median imputation
   + replacing all occurrences of missing values (NA) within a variable w/ the mean and median of the variable
-  + scenario
+  + scenarios
     + suitable for numerical variables
     + missing completely at random (MCAR)
     + more than 5% of the variable containing missing data
@@ -566,6 +567,7 @@ The set of articles in this series:
 
       # create the final test data
       test = pd.concat([X_test.reset_index(), indicator_df], axis=1)
+      ```
 
 
 + Random sample imputation
@@ -1141,18 +1143,18 @@ The set of articles in this series:
   + Python snippet
 
     ```python
-    #create the fucntion transformaer object w/ square root transformation
+    #create the function transform object w/ square root transformation
     sqrt_transformer = FunctionTransformer(np.sqrt, validate=True)
 
     # apply the transformation to data
     data_new = sqrt_transformer.transformer(data_df[cols])
     ```
   
-  + alternative: cubic root fucntion
+  + alternative: cubic root function
 
 + Reciprocal transformation
   + formula: $f(x) = \frac{1}{x}$
-  + a powerful transforamtion w/ a radical effect
+  + a powerful transformation w/ a radical effect
   + positive reciprocal: reversing the order among values of the same sign $\to$ large values $\to$ smaller
   + negative reciprocal: preserving the order among values of the same ign
   + constraint: not defined for zero
@@ -1160,13 +1162,13 @@ The set of articles in this series:
 
     ```python
     #create the function transformer object w/ reciprocal transformation
-    reciprocol_transformer = FunctionTransformer(np.reciprocol, validate=True)
+    recipocol_transformer = FunctionTransformer(np.recipocol, validate=True)
 
     # apply the transformation to data
     data_new_df = reciprocol_transformer.transform(data_df[cols])
     ```
   
-  + alternative; negative reciprocal fucntion
+  + alternative; negative reciprocal function
 
 + Exponential or Power transformation
   + formula
@@ -1175,11 +1177,11 @@ The set of articles in this series:
 
   + a reasonable effect on distribution shape
   + applying power transformation (power of two usually) to reduce left skewness
-  + using any exponent in the transformation, even using the $\exp()$ fucntion
+  + using any exponent in the transformation, even using the $\exp()$ function
   + Python snippet
 
     ```python
-    # create the fucntion transformer object w/ exponent transformation
+    # create the function transformer object w/ exponent transformation
     # using x^3 is arbitrary here, able to choose any exponent
     exponential_transformer = FunctionTransformer(lambda x: x**(3), validate=True)
 
@@ -1429,7 +1431,7 @@ The set of articles in this series:
 + Detecting Outliers
   + using visualization plots like box plot and scatter plot
     + box plot: black points as outliers
-    + scatter plot: most points located in center but one far from center might eb outlier
+    + scatter plot: most points located in center but one far from center might be outlier
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/y4rljbj3" ismap target="_blank">
@@ -1505,6 +1507,7 @@ The set of articles in this series:
 
       # remove outliers from data
       data_df = data_df.loc[~(outliers,)]
+    ```
 
 + Censoring outliers
   + setting the maximum and/or the minimum of the distribution at any arbitrary value
@@ -1542,7 +1545,7 @@ The set of articles in this series:
 
     for variable in data_df.columns:
       # calculate the IQR
-      IQR = data_df[variable].quantile(0.75) - daat_df[variable].quantile(0.25)
+      IQR = data_df[variable].quantile(0.75) - data_df[variable].quantile(0.25)
 
       # calculate the boundaries
       lower = data_df[variable].quantile(0.25) - (IQR * 1.5)
@@ -2001,7 +2004,7 @@ The set of articles in this series:
     data_df[mixed_num] = data_df[mixed].str.extract('(\d+)')
 
     # extract the first two letters
-    daat_df[mixed_label] = data_df[mixed].str[:2]
+    data_df[mixed_label] = data_df[mixed].str[:2]
     ```
 
   + Regular Expression (regex): detect patterns in mixed variables and easily extract categorical and numerical parts
@@ -2317,7 +2320,7 @@ The set of articles in this series:
   + a comprehensive tool intended to make the feature generation process fast-forward
   + components
     + deep feature synthesis: the backbone of featuretools
-    + entites: multiple entities result in an EntitySet
+    + entities: multiple entities result in an EntitySet
     + feature primitives: Deep Feature Synthesis applied to EntitySet - transfrmations or aggregations like count or average
 
 ### 11.5 Engineering geospatial data
@@ -2335,6 +2338,6 @@ The set of articles in this series:
 + resampling
   + issue: classes not represented equally
   + causing problems for some algorithms
-  + resampling engineering and reducing this effect on machine lerning algorithms
+  + resampling engineering and reducing this effect on machine learning algorithms
 
 
