@@ -13,25 +13,6 @@
 + K. He & G. Meeden, [Selecting the Number of Bins in a Histogram: A Decision Theoretic Approach](../AppliedDS-UMich/2-InfoVis/p01-HistBins.md)
 
 
-## Feature Engineering
-
-+ Pier Paolo Ippolito, [Feature Selection Techniques](../Notes/a02-FeatureEng.md)
-+ Aishwarya Singh, [6 Powerful Feature Engineering Techniques For Time Series Data (using Python)](../Notes/a03-FeatureEngTech.md)
-+ Younes Charfaoui, Hands-on with Feature Engineering Techniques, 2018
-  + 01. [Broad Introduction](../Notes/a08-FeatureEng.md#1-broad-introduction)
-  + 02. [Variable Types](../Notes/a08-FeatureEng.md#2-variables-types)
-  + 03. [Common Issues in Datasets](../Notes/a08-FeatureEng.md#3-common-issues-in-datasets)
-  + 04. [Imputing Missing Values](../Notes/a08-FeatureEng.md#4-imputing-missing-values)
-  + 05. [Categorical Variables Encoding](../Notes/a08-FeatureEng.md#5-encoding-categorical-variables)
-  + 06. [Transforming Variables](../Notes/a08-FeatureEng.md#6-transforming-variables)
-  + 07. [Variables Discretization](../Notes/a08-FeatureEng.md#7-variable-discretization)
-  + 08. [Handling Outliers](../Notes/a08-FeatureEng.md#8-handling-outliers)
-  + 09. [Feature Scaling](../Notes/a08-FeatureEng.md#9-feature-scaling)
-  + 10. [Handling Time-Date and Mixed Variables](../Notes/a08-FeatureEng.md#10-handling-date-time-and-mixed-variable)
-  + 11. [Advanced Feature Engineering Methods](../Notes/a08-FeatureEng.md#11-advanced-methods)
-
-
-
 
 ## Probability & Statistics
 
@@ -65,6 +46,24 @@
 + Martin Zinkevich, [Rules of Machine Learning: Best Practices for ML Engineering](../AppliedDS-UMich/3-AML/p4-MLRules.md)
 + Maytal Saar-Tsechansky and Foster Provost, [Handling Missing Values when Applying Classification Models](../AppliedDS-UMich/3-AML/p5-Missing.md)
 + [Graphs](../AppliedDS-UMich/5-SocialNet/p2-Graphs.md)
+
+
+### Feature Engineering
+
++ Pier Paolo Ippolito, [Feature Selection Techniques](../Notes/a02-FeatureEng.md)
++ Aishwarya Singh, [6 Powerful Feature Engineering Techniques For Time Series Data (using Python)](../Notes/a03-FeatureEngTech.md)
++ Younes Charfaoui, Hands-on with Feature Engineering Techniques, 2018
+  + [Broad Introduction](../Notes/a08-FeatureEng.md#1-broad-introduction)
+  + [Variable Types](../Notes/a08-FeatureEng.md#2-variables-types)
+  + [Common Issues in Datasets](../Notes/a08-FeatureEng.md#3-common-issues-in-datasets)
+  + [Imputing Missing Values](../Notes/a08-FeatureEng.md#4-imputing-missing-values)
+  + [Categorical Variables Encoding](../Notes/a08-FeatureEng.md#5-encoding-categorical-variables)
+  + [Transforming Variables](../Notes/a08-FeatureEng.md#6-transforming-variables)
+  + [Variables Discretization](../Notes/a08-FeatureEng.md#7-variable-discretization)
+  + [Handling Outliers](../Notes/a08-FeatureEng.md#8-handling-outliers)
+  + [Feature Scaling](../Notes/a08-FeatureEng.md#9-feature-scaling)
+  + [Handling Time-Date and Mixed Variables](../Notes/a08-FeatureEng.md#10-handling-date-time-and-mixed-variable)
+  + [Advanced Feature Engineering Methods](../Notes/a08-FeatureEng.md#11-advanced-methods)
 
 
 
