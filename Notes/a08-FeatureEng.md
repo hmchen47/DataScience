@@ -2251,7 +2251,7 @@ The set of articles in this series:
       </a>
     </div>
 
-  + Pythoon snippet
+  + Python snippet
 
     ```python
     from sklearn.ensemble import IsolatedForest
