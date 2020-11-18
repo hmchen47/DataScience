@@ -600,6 +600,7 @@ The set of articles in this series:
       # transform the data
       train_t_df = imputer.transform(train_df)
       test_t_df = imputer.transform(test_df)
+      ```
 
 ## 5. Encoding Categorical Variables
  
