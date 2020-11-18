@@ -50,35 +50,29 @@
   + categories of numerical variables
     + continuous variables
     + discrete variables
-  + continuous variables
-    + an uncountable set of values
-    + probably containing any value within a given range
-    + visualization
-      + density plot
-      + histogram
-      + box plot
-      + scatter plot
-  + discrete variables
-    + a finite number of values
-    + integers, counts
-    + visualization
-      + count plot
-      + pie chart
+
++ [Continuous variables](../Notes/a08-FeatureEng.md#2-variables-types)
+  + an uncountable set of values
+  + probably containing any value within a given range
+  + visualization
+    + density plot
+    + histogram
+    + box plot
+    + scatter plot
+
++ [Discrete variables](../Notes/a08-FeatureEng.md#2-variables-types)
+  + a finite number of values
+  + integers, counts
+  + visualization
+    + count plot
+    + pie chart
 
 + [Categorical variables](../Notes/a08-FeatureEng.md#2-variables-types)
   + selected from a group of categories
   + a.k.a. labels
-  + categories
-    + ordinal variables
-    + nominal variables
-  + ordinal variables
-    + variables existed within meaningfully ordered categories
-    + examples
-      + student grades on an exame (A, B, C, or F)
-      + days of the week (Sunday, Monday, Tuesday, ...)
-  + nominal variables
-    + not a natural order in the labels
-    + e.g., country of birth - categorical but order not matter
+  + categories: ordinal & nominal
+  + ordinal variables: variables existed within meaningfully ordered categories
+  + nominal variables: not a natural order in the labels
   + in some scenarios, categorical variables coded as numbers when the data was recorded
 
 + [Dates and Times](../Notes/a08-FeatureEng.md#2-variables-types)
@@ -86,7 +80,7 @@
   + containing __dates__, __time__, or __data and time__
   + usually __not working__ w/ datetime variables in their __raw format__
     + date variables containing a considerable number of different categories
-    + able to extract much more informa tion from datetime variables by pre-processing them correctly
+    + able to extract much more information from datetime variables by preprocessing them correctly
   + date variable issues
     + containing dates not present in the dataset used to train the learning model
     + containing dates placed in the future, w.r.t. the dates in the training dataset
@@ -94,9 +88,6 @@
 + [Mixed variables](../Notes/a08-FeatureEng.md#2-variables-types)
   + containing both numbers and labels
   + occurring in a given dataset, especially when filling its values
-  + example 
-    + number not able to be retrieved for a variety of reasons, e.g., survey of income of a person
-    + returning a label to represent the reason behind the issue, e.g., ERROR_OMMIT for client omit to answer
 
 
 ## Common Issues in Datasets
@@ -113,9 +104,7 @@
 + [Missing data](../Notes/a08-FeatureEng.md#3-common-issues-in-datasets)
   + when no data stored for a particular observation in  variable
   + basically just the absence of data
-  + data missing for multiple reasons
-    + lost: forgotten, omitted, lost, or not stored properly
-    + not exist: e.g., a variable created from the di vision of 2 variables, and the denominator takes 0
+  + data missing for multiple reasons: lost & not exist
   + many features not mandatory
   + solution: missing data imputation techniques
   + issues:
@@ -125,28 +114,12 @@
   + carefully choosing the right missing data imputation technique
   + main mechanisms lead to missing data
     + __missing data completely at random (MCAR)__
-      + the probability of being missing: same for all the observation
-      + no relationship: missing data and any other values
-      + observed or missing, within the dataset
-      + disregarding those cases not bias the inferences made
     + __missing data at random (MAR)__: the probability of an observation being missing depends on available information
     + __missing data not at random (MNAR)__: a mechanism or a reason why values introduced in the dataset
   + __labels__: the values of a categorical variable selected from a group of categories
   + __cardinality__: the number of different labels
   + cardinality on models: issues w/ multiple labels in a categorical variable
   + high cardinality
-    + transform those labels into numbers
-      + categories encoded as numbers
-      + encoding techniques impact feature space and variable interactions
-    + uneven distribution btw the train and test sets
-      + some labels may appear only in the train set
-      + over-fitting
-    + labels may appear only in the test set: model not probably knowing how to iterpret these labels
-    + too many labels tend to dominate over those w/ fewer labels
-      + in particular, tree-based algorithms
-      + a significant number of labels within a variable may introduce noise in the dataset
-      + reducing cardinality may help improve model performance
-    + models learn from the labels seen in the training set but not new, unseen labels unable to perform any calculations, resulting in errors
 
 + [Categorical variable - rare labels](../Notes/a08-FeatureEng.md#3-common-issues-in-datasets)
   + rare labels: appear only in a small proportion of the observation in a dataset
@@ -154,16 +127,6 @@
     + causing overfitting and generalization problems
     + hard to understand the role of the rare label in the final prediction
     + removing rare labels may improve model performance
-  + visualization: count plot
-
-    <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-        onclick="window.open('https://tinyurl.com/y2ngptgp')"
-        src    ="https://tinyurl.com/y4qcft5t"
-        alt    ="Count plot w/ image labels"
-        title  ="Count plot w/ image labels"
-      />
-    </figure>
 
 + [Linear model assumptions](../Notes/a08-FeatureEng.md#3-common-issues-in-datasets)
   + linearity
@@ -266,7 +229,7 @@
 
 + [Mean and median imputation](../Notes/a08-FeatureEng.md#4-imputing-missing-values)
   + replacing all occurrences of missing values (NA) within a variable w/ the mean and median of the variable
-  + scenario
+  + scenarios
     + suitable for numerical variables
     + missing completely at random (MCAR)
     + more than 5% of the variable containing missing data
@@ -285,20 +248,7 @@
     + distortion of the original variable distribution and variance
     + distortion of the covariance w/ the remaining dataset variable
     + the higher the percentage of missing values, the higher the distortions
-  + example
-    + data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">36.2</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">36.2</span>), (50 $\to$ 50)
-    + Python snippet
-
-      ```python
-      from sklearn.impute import SimpleImputer
-
-      # create the imputer, the strategy can be mean and median
-      imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
-
-      # apply the transformation to the train and test
-      train_df = imputer.transform(train_df)
-      test_df = imputer.transform(test_df)
-      ```
+  + Python: `from sklearn.impute import SimpleImputer`
 
 ### Arbitrary Value Imputation
 
@@ -321,20 +271,7 @@
     + arbitrary value at the end of the distribution $\to$ mask or create outliers
     + carefully not choose an arbitrary value too similar to the mean or median (or any other typical value of the variable distribution)
     + the higher the percentage of NA, the higher the distortion
-  + example: using 999 as an arbitrary value
-    + data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">99</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">99</span>), (50 $\to$ 50)
-    + Python snippet
-
-    ```python
-    from sklearn.impute import SimpleImputer
-
-    # create the imputer, w/ fill value 999 as the arbitrary value
-    imputer = SimpleImputer(missing_values=np.nan, strategy='constant', fill_value=999)
-
-    # apply the transformation to the train and test
-    train_df = imputer.transform(train_df)
-    test_df = imputer.transform(test_df)
-    ```
+  + Python: `from sklearn.impute import SimpleImputer`
 
 
 ### End of Tail Imputation
@@ -357,30 +294,15 @@
       + upper limit = 75th Quantile + IQR x 3
       + lower limit = 25th Quantile - IQR x 3
     + selected value for imputation: upper limit or lower limit
-  + example:
-    + data (Age): (29 $\to$ 29), (43 $\to$ 43), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">50</span>), (25 $\to$ 25), (34 $\to$ 34), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">50</span>), (50 $\to$ 50)
-    + Python snippet
+  + Python: `from feature_engine.missing_imputers import EndTailImputer`
 
-      ```python
-      from feature_engine.missing_imputers import EndTailImputer
-
-      # create the imputer
-      imputer = EngTailImputer(distribution='gaussian', tail='right')
-
-      # fit the imputer to the train set
-      imputer.fit(train_df)
-
-      # transform the data
-      train_t_df = imputer.transform(train_df)
-      test_t_df = imputer.transform(test_t_df)
-      ```
 
 ### Frequent Category Imputation
 
 + [Frequent category imputation](../Notes/a08-FeatureEng.md#4-imputing-missing-values)
   + a.k.a. mode imputation
   + replacing all occurrences of missing values (NA) within a variable w/ the mode, or the most frequent value
-  + scenario
+  + scenarios
     + suitable for numerical and categorical variables
     + in practice, using the technique w/ categorical variables
     + using w/ data as missing complete at random (MCAR)
@@ -396,23 +318,8 @@
   + limitations
     + distort the relation of the most frequent label w/ other variables within dataset
     + may lead to an over-representation of the most frequent label if a lot of missing observations existed
-  + example:
-    + data (Gender): (Male $\to$ Male), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Male</span>), (Female $\to$ Female), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Male</span>), (Femal $\to$ Female)
-    + Python snippet 
+  + Python: `from sklearn.impute import SimpleImputer`
 
-      ```python
-      from sklearn.impute import SimpleImputer
-
-      # create the imputer, w/ the most frequent as strategy to fill missing
-      imputer = SimpleImputer(missing_values=np.nan, strategy='most_frequent')
-
-      # fit the imputer to  the train data
-      imputer.fit(train_df)
-
-      # apply the transformation to the train and test
-      train_df = imputer.transform(train_df)
-      test_df = imputer.transform(test_df)
-      ```
 
 ### Missing Category Imputation
 
@@ -426,26 +333,8 @@
     + integrated into production
     + capturing the importance of "missingness"
     + no assumption mad on the data
-  + limitations
-    + small number of missing data $\to$ creating an additional category just adding another rare label to the variable
-  + example: fill missing data w/ a new category, "Missing"
-    + data (Gender): (Male $\to$ Male), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Missing</span>), (Female $\to$ Female), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Missing</span>), (Femal $\to$ Female)
-    + Python snippet
-
-      ```python
-      from sklearn.impute import SimpleImputer
-
-      # create the imputer, w/ most frequent as strategy to fill missing data
-      imputer = SimpleImnputer(missing_value=np.nan, strategy='constant', fill_value="Missing")
-
-      # fit the imputer to the train data
-      # make sure to select only the categorical variable in the following train and test sets
-      imputer.fit(train_df)
-
-      # apply the transformation to the train and test
-      train_df = imputer.transform(train_df)
-      test_df = imputer.transform(test_df)
-      ```
+  + limitations: small number of missing data $\to$ creating an additional category just adding another rare label to the variable
+  + Python: `from sklearn.impute import SimpleImputer`
 
 ### Complete Case Analysis
 
@@ -453,11 +342,10 @@
   + discarding observations where values in any of the variables are missing
   + keep only those observations for which there's information in all of the dataset variables
   + observations w/ any missing data excluded
-  + scenario
+  + scenarios
     + missing data complete at random (MCAR)
     + no more than 5% of the total dataset containing missing data
-  + assumption 
-    + missing data at random
+  + assumption: missing data at random
   + advantages
     + simple to implement
     + no data manipulation required
@@ -467,14 +355,7 @@
     + excluding informative observations for the analysis (if data not missing at random)
     + create a biased dataset if the complete cases differ from the original data (if MAR or MNAR)
     + used  in production $\to$ not knowing how to handle missing data
-  + example:
-    + data (Gender): (Male $\to$ Male), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ ), (Female $\to$ Female), (Male $\to$ Male), (<span style="color: pink;"> NA </span> $\to$ ), (Femal $\to$ Female)
-    + Python snippet
-
-      ```python
-      # read data and apply the method
-      data.dropna(inplace=True)
-      ```
+  + Python: `data.dropna(inplace=True)`
 
 
 ### Missing Indicator
@@ -485,8 +366,7 @@
   + used together w/ methods assuming MAR
     + mean, median, mode imputation
     + random sample imputation
-  + scenario
-    + suitable for categorical and numberic variables
+  + scenario: suitable for categorical and numberic variables
   + assumptions
     + NOT missing at random
     + predictive missing data
@@ -498,33 +378,7 @@
     + expanding the feature space
     + original variable still requiring to be imputed
     + many missing indicators may end up being identical or very highly corrrelated
-  + example:
-    + data (Gender $\to$ Gender, Missing): (Male $\to$ Male, <span style="color: pink;">False</span>), (Male $\to$ Male, <span style="color: pink;">False</span>), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Female, True</span>), (Female $\to$ Female, <span style="color: pink;">False</span>), (Male $\to$ Male, <span style="color: pink;">False</span>), (<span style="color: pink;"> NA </span> $\to$ <span style="color: lightgreen;">Male, True</span>), (Femal $\to$ Female, <span style="color: pink;">False</span>)
-    + Python snippet
-
-      ```python
-      from sklearn.imput import MissingIndicator
-
-      # create the object w/ missing only columns
-      indicator = MissingIndicator(error_on_new=True, features='missing-only')
-      indicator.fit(train_df)
-
-      # print the column of the missing data
-      print(train_df.columns[indicator.features_])
-
-      # create a column name for each of the new Missing indicators
-      indicator_columns = [column + '_NA_IND' for column in train_df.columns[indicator.features_]]
-      indicator_df = pd.DataFrame(temporary, columns=indicator_columns)
-
-      # create the final train data
-      train_df = pd.concat([train_df.reset_index(), indicator_df], axis=1)
-
-      # now the same for the test set
-      temporary = indicator.transform(test_df)
-      indicator_df = pd.DataFrame(temporary, columns=indicator_columns)
-
-      # create the final test data
-      test = pd.concat([X_test.reset_index(), indicator_df], axis=1)
+  + Python: `from sklearn.imput import MissingIndicator`
 
 
 ### Random Sam[ple Imputation
@@ -545,23 +399,7 @@
     + randomness
     + relationship btw imputed variables and other variables probably affected if a lot of missing values
     + requiring massive memory for deployment to store the original training set to extract values from and replace the missing values w/ the randomly selected values
-  + example:
-    + data (Gender, Age): ((Male, 29) $\to$ (Male, 29)), ((Male, <span style="color: pink;">NA</span>) $\to$ (Male, <span style="color: lightgreen;">34</span>)), (  (<span style="color: pink;">NA</span>, 43) $\to$ (<span style="color: lightgreen;">Female</span>, 43)), ((Female, 25) $\to$ (Femal, 25)), ((Male, 34) $\to$ (Male, 34)), ((<span style="color: pink;">NA</span>, 50) $\to$ (<span style="color: lightgreen;">Male</span>, 50)), ((Femal, <span style="color: pink;">NA</span>) $\to$ (Female, <span style="color: lightgreen;">25</span>))
-    + Python snippet
-
-      ```python
-      from feature_engine.missing_data_imputer import  RandomSampleImputer
-
-      # create the imputer
-      imputer = RandomSampleImputer(random_state=29)
-
-      # fit the imputer to the train set
-      imputer.fit(train_df)
-
-      # transform the data
-      train_t_df = imputer.transform(train_df)
-      test_t_df = imputer.transform(test_df)
-      ```
+  + Python: `from feature_engine.missing_data_imputer import  RandomSampleImputer`
 
 
 ### Iterative Imputation
@@ -576,22 +414,7 @@
     3. the regressor used to predict the missing values of $y$
     4. repeating until the defined `max_iteration`  reached
   + `IterativeImputer` still experimental in Sklearn
-  + Python snipper
-
-    ```python
-    from sklearn.experimental import enable_iterative_imputer
-    from sklearn.imputer import IterativeImputer
-
-    # create the imputer
-    imputer = IterativeImputer(random_state=22)
-
-    # fit the imputer to the train set
-    imputer.fit(train_df)
-
-    # transform the data
-    train_t_df = imputer.transform(train_df)
-    test_t_df = imputer.transform(test_df)
-    ```
+  + Python: `from sklearn.experimental import enable_iterative_imputer` & `from sklearn.imputer import IterativeImputer`
 
 
 ### K-Nearest Neighbor Imputation
@@ -599,26 +422,10 @@
 + [K-nearest neighbor (KNN) imputing](../Notes/a08-FeatureEng.md#112-advanced-missing-value-imputation)
   + using the famous KNN algorithm to predict the missing values from the neighbors
   + any point value approximated by the nearest point values of ofther variables
-  + Python snippet
-
-    ```python
-    from sklearn.impute import KNNImputer
-
-    # create the imputer w/ specified number of neighbors (the k)
-    imputer = KNNImputer(n_neighbor=3)
-
-    # fit the imputer to the train set
-    imputer.fit(train_df)
-
-    # transform the data
-    train_t_df = imputer.transform(train_df)
-    test_t_df = imputer.transform(test_df)
-    ```
-
+  + Python: `from sklearn.impute import KNNImputer`
 
 
 ## Encoding Categorical Variables
-
 
 ### Overview
  
@@ -638,16 +445,6 @@
       + rare labels encoding
       + binary encoding
   + Python library: category_encoders - containing a lot of basic and advanced methods for categorical variable encoding
-  + typical sample data (Color, Target): 
-
-    <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 1 0vw;"
-        onclick="window.open('https://tinyurl.com/y6yq38cg')"
-        src    ="https://tinyurl.com/y6ccmhqp"
-        alt    ="Example of categorical encoding"
-        title  ="Example of categorical encoding"
-      />
-    </figure>
 
 
 ### One-Hot Encoding
@@ -667,17 +464,6 @@
       + building tree-based algorithms
       + making feature selection w/ recursive algorithms
       + interested in determining the importance of every single category
-    + data example:
-
-      <figure style="margin: 0.5em; text-align: center;">
-        <img style="margin: 0.1em; padding-top: 0.5em; width: 4 0vw;"
-          onclick="window.open('https://tinyurl.com/y6yq38cg')"
-          src    ="https://tinyurl.com/yysvncj6"
-          alt    ="Example of one-hot encoding into $k$ variables"
-          title  ="Example of one-hot encoding into $k$ variables"
-        />
-      </figure>
-
   + one-hot encoding of most frequent categories
     + only considering the most frequent categories in a variable
     + avoid overextending the feature space
@@ -689,21 +475,7 @@
     + expanding the feature space
     + not adding extra information while encoding
     + many dummy variables probably identical $\to$ introducing redundant information
-  + Python snippet
-
-    ```python
-    # import the pandas library
-    import pandas as pd
-
-    # read dataset
-    data_df = pd.read_csv("dataset.csv")
-
-    # perform one hot encoding w/ k
-    data_with_k_df = pd.get_dummies(data_df)
-
-    # perform one hot encoding w/ k-1, it automatically drop the first
-    data_with_k_one_df = pd.get_dummies(data_df, drop_first=True)
-    ```
+  + Python: `data_with_k_df = pd.get_dummies(data_df)`
 
 
 ### Integer (Label) Encoding
@@ -712,17 +484,6 @@
   + replacing the categories w/ digits from $1$ to $n$ (or $0$ to $n-1$, depending on the implementation)
   + $n$: the number of the variable's distinct categories (the cardinality)
   + the number assigned arbitrary
-  + data example:
-
-    <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 4 0vw;"
-        onclick="window.open('https://tinyurl.com/y6yq38cg')"
-        src    ="https://tinyurl.com/y23xs9ug"
-        alt    ="Example of integer (label) encoding"
-        title  ="Example of integer (label) encoding"
-      />
-    </figure>
-
   + advantages
     + straightforward to implement
     + not expanding the feature space
@@ -733,28 +494,6 @@
     + not suitable for linear models
     + not handling new categories in the test set automatically
     + creating an order relationship btw the categories
-  + Python snippet
-
-    ```python
-    import pandas as pd
-
-    # get data
-    data_df = pd.read_csv("dataset.csv")
-
-    # function to find the different enumeration of variable
-    def create_category_mapping(data_df, variable):
-      return {K: i for i, k in enumerate(data_df[variable].unique(), 0)}
-
-    # function to apply the encoding on the variable
-    def label_encode(train_df, test_df, variable, ordinal_mapping):
-      train_df[variable] = train_df[variable].map(ordinal_mapping)
-      test_df[variable] = test_df[variable].map(ordinal_mapping)
-
-    # check that data contains only
-    for variable in data_df.columns:
-      mappings = create_category_mapping(data_df, variable)
-      label_encode(train_df, test_df, variable, mappings)
-    ```
 
 
 ### Count or Frequency Encoding
@@ -762,17 +501,6 @@
 + [Count or frequency encoding](../Notes/a08-FeatureEng.md#5-encoding-categorical-variables)
   + replacing categories w/ the count or percentage that show each category in the dataset
   + capturing the representation of each label in the dataset
-  + example: 
-
-    <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
-        onclick="window.open('https://tinyurl.com/y6yq38cg')"
-        src    ="https://tinyurl.com/y2d2llys"
-        alt    ="Example of count or frequency encoding"
-        title  ="Example of count or frequency encoding"
-      />
-    </figure>
-
   + advantages
     + straightforward to implement
     + not expanding the feature space
@@ -781,21 +509,6 @@
     + not suitable for linear models
     + not handling new categories in the test set automatically
     + losing valuable information if there are two different categories w/ the same amount of observations count
-  + Python snippet
-
-    ```python
-    import pandas as pd
-
-    # get data
-    data_df = pd.read_csv("dataset.csv")
-
-    # loop to find the different count of categories in a dict
-    # and apply them to the variable in the train and test set
-    for variable in train_df.columns:
-      count_dict = train[variable].value_counts().to_dict()
-      train_df[variable].map(count_map)
-      test_df[variable].map(count_map)
-    ```
 
 ### Ordered Label Encoding
 
@@ -803,42 +516,11 @@
   + replacing categories w/ integers from 1 to n
   + $n$: the number of distinct categories in the variable (the cardinality)
   + using the target mean information of each category to decide how to assign these numbers
-  + data example
-
-    <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
-        onclick="window.open('https://tinyurl.com/y6yq38cg')"
-        src    ="https://tinyurl.com/y2tm9sm8"
-        alt    ="Example of ordered label encoding"
-        title  ="Example of ordered label encoding"
-      />
-    </figure>
-
   + advantages
     + straightforward to implement
     + not expanding the feature space
     + creating a monotonic relationship btw categories and the target
   + limitation: probably leading to overfitting
-  + Python snippet
-
-    ```python
-    import pandas as pd
-
-    # get data
-    data_df = pd.read_csv("dataset.csv")
-
-    # get your target variable name
-    target = "your target variable name"
-
-    # generate the order list of labels, then apply it to the variable
-    for variable in train_df.columns:
-      labels = train_df.groupby([variable])[target].mean().sort_values().index
-      mappings = {x: i for i, x in enumerate(labels, 0)}
-
-      # apply the encoding to the train and test sets
-      train_df[variable] = train_df[variable].map(mapping)
-      test_df[variable] = test_df[variable].map(mapping)
-    ```
 
 
 ### Mean (Target) Encoding
@@ -850,17 +532,6 @@
     + for each group, calculating the mean of the target in the corresponding observations
     + assigning mean to that category
     + encoded the category w/ the mean of the target
-  + data example
-
-    <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
-        onclick="window.open('https://tinyurl.com/y6yq38cg')"
-        src    ="https://tinyurl.com/yxsnfdfq"
-        alt    ="Example of Mean (target) encoding"
-        title  ="Example of Mean (target) encoding"
-      />
-    </figure>
-
   + advantages
     + straightforward to implement
     + not expanding the feature space
@@ -868,26 +539,6 @@
   + limitations
     + probably leading to overfitting
     + probably leading to a possible loss of value if two categories have the same mean as the target
-  + Python snippet
-
-    ```python
-    import pandas as pd
-
-    # get data 
-    data_df = pd.read_csv("dataset.csv")
-
-    # get target variable name
-    target = "your target variable name"
-
-    # loop over the categorical columns to apply the encoding
-    for variable in train_df.columns:
-      # create dictionary of category: mean values
-      dict = train_df.groupby([variable])[target].mean().to_dict()
-
-      # apply the encoding to the train and test sets
-      train_df[variable] = train_df[variable].map(dict)
-      test_df[variable] = test_df[variable].map(dict)
-    ```
 
 
 ### Weighted of Evidence Encoding
@@ -906,17 +557,6 @@
     + WOE < 0: the probability of the target being 1 is more significant
   + creating an excellent visual representation of the variable
   + observation: category favoring the target being 0 or 1
-  + data example
-
-    <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
-        onclick="window.open('https://tinyurl.com/y6yq38cg')"
-        src    ="https://tinyurl.com/y22c9oep"
-        alt    ="Example of Weight of evidence encoding (WOE)"
-        title  ="Example of Weight of evidence encoding (WOE)"
-      />
-    </figure>
-
   + advantages
     + creating a monotonic relationship btw the target and the variables
     + ordering the categories on the 'logistic' scale, nature for logistic regression
@@ -924,34 +564,6 @@
   + limitations
     + probably lead to overfitting
     + not defined when the denominator is 0
-  + Python snippet
-
-    ```python
-    import pandas as pd
-    import numpy as np
-
-    # get data
-    data_df = pd.read_csv("dataset.csv")
-
-    # get target variable name
-    target = "your target variable name"
-
-    # loop over all the categorical variables
-    for variable in train_df.columns:
-      # calculating the mean of target for each category
-      # probability of events or P(1)
-      dataframe = pd.DataFrame(train_df.groupby([variable])[target].mean())
-
-      # calculating the non target probability
-      # probability of non-events or p(0)
-      dataframe['ratio'] =np.log(dataframe[target] / dataframe['non-target'])
-      ratio_mapping = dataframe['ratio'].to_dict()
-
-      # applying the WOE
-      train_df[variable] = train_df[variable].map(ratio_mapping)
-      test_df[variable] = test_dff[variable].map(ratio_mapping)
-    ```
-
 
 ### Probability Ratio Encoding
 
@@ -962,17 +574,6 @@
     + $P(1)$: the probability of the target being 1
     + $P(0)$: the probability of the target being 0
   + calculating the ratio = P(1)/P(0) and replacing the categories by that ratio
-  + data example
-
-    <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
-        onclick="window.open('https://tinyurl.com/y6yq38cg')"
-        src    ="https://tinyurl.com/y3q7kzew"
-        alt    ="Example of Probability ratio encoding"
-        title  ="Example of Probability ratio encoding"
-      />
-    </figure>
-
   + advantages
     + capturing information within the category, and therefore creating more predictive features
     + creating a montonic relationship btw the variables and the target, suitable for linear mdoels
@@ -980,36 +581,6 @@
   + limitations
     + likely to cause overfitting
     + not defined when the denominator is 0
-  + Python snippet
-
-    ```python
-    import pandas as pd
-    import numpy as np
-
-    # get data
-    data_df = pd.read_csv("dataset.csv")
-
-    # get target variable anme
-    target = "your target variable name"
-
-    # loop over all the categorical variables
-    for variable in train_df.columns:
-      # calculating the mean of target for each category
-      # probability of events or p(1)
-      dataframe = pd.DataFrame(train_df.groupby([variable])[target].mean())
-
-      # calculating the non target probability
-      # probability of non-events or p(0)
-      dataframe['non-target'] = 1 - dataframe[target]
-
-      # calculating the ratio
-      dataframe['ratio'] = dataframe[target] / dataframe['non-target']
-      ratio_mapping = dataframe['ratio'].to_dict()
-
-      # applying the probability ratio encoding
-      train_df[variable] = train_df[variable].map(ratio_mapping)
-      test_df[variable] = test_df[variable].map(ratio_mapping)
-    ```
 
 
 ### Rare Label Encoding
@@ -1018,41 +589,6 @@
   + rare label: appearing only in a tiny proportion of the observations in a dataset
   + causing some issues, especially w/ overfitting and generation
   + solution: group those rare labels into a new category like other or rare
-  + data example
-
-    <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
-        onclick="window.open('https://tinyurl.com/y6yq38cg')"
-        src    ="https://tinyurl.com/yyxdzpt2"
-        alt    ="Example of rare label encoding"
-        title  ="Example of rare label encoding"
-      />
-    </figure>
-
-  + Python snippet
-
-    ```python
-    import pandas as pd
-    import numpy as np
-
-    # get dat
-    data_df = pd.read_csv("dataset.csv")
-
-    # define threshold here
-    threshold = 0.05
-
-    # loop over all the categorical variables
-    for variable in train_df.columns:
-      # locate all the categories that are not rare
-      counts = train_df.groupby([variable])[variable].count() / len(train_df)
-      frequent_labels = [x for x in counts.loc[counts > threshold].index.values]
-
-      # change the rare category names w/ the word rare, and thus encoding it
-      train_df[variable] = np.where(train_df[variable].isin(frequent_labels), \
-        train_df[variable], 'Rare')
-      test_df[variable] = np.where(test_df[variable].isin(frequent_labels), \
-        test_df[variable], 'Rare')
-    ```
 
 
 ### Binary Encoding
@@ -1069,36 +605,8 @@
   + limitations
     + exposing the loss of info during encoding
     + lacking the human-readable sense
-  + data example
+  + Python: `from category_encoders import BinaryEncoder`
 
-    <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
-        onclick="window.open('https://tinyurl.com/y6yq38cg')"
-        src    ="https://tinyurl.com/y2uazs6q"
-        alt    ="Example of binary encoding"
-        title  ="Example of binary encoding"
-      />
-    </figure>
-
-  + Python snippet
-
-    ```python
-    import pandas as pd
-    from category_encoders import BinaryEncoder
-
-    # get data
-    data_df = pd.read_csv("dataset.csv")
-
-    # split into x and y
-    x_train_df = data_df.drop('target', axis=1)
-    y_train_df = data_df['target']
-
-    # create an encoder object - it will apply on all strings column
-    binary = BinaryEncoder()
-
-    # fit and transform to get encoded data
-    binary.fit_transform(x_train_df, y_train_df)
-    ```
 
 ### Catboost Encoder
 
@@ -1111,21 +619,7 @@
   + procedure
     + repeating training numerous times on shuffled copies of the dataset
     + averaging the results
-  + Python snippet
-
-    ```python
-    import pandas as pd
-    from category_encoder import CatBoostEncoder
-
-    data_df = pd.read_csv("dataset.csv")
-
-    # create the encoder
-    encoder = CatBootEncoder(return_df=True)
-
-    # fit and transform the data
-    new_x_train_df = encoder.fit_transform(x_train_df, y_train_df)
-    new_y_train_df = encoder.transform(x_test_df, y_test_df)
-    ```
+  + Python: `from category_encoder import CatBoostEncoder`
 
 ### Leae-One-Out Encoder
 
@@ -1134,21 +628,7 @@
   + preventing target data leakage, unlike other target-based methods
   + consisting of calculating the mean target of a given category $k$ for observation $j$ w/o using the corresponding target of $j$
   + calculating the per-category means w/ the typical target encoder
-  + Python snippet
-
-    ```python
-    import panadas as pd
-    from category_encoder import LeaveOneOutEncoder
-
-    data_df = pd.read_csv("dayaset.csv")
-
-    # create the encoder
-    encoder = LeaveOneOutEncoder(return_df=True)
-
-    # fit and transform the data
-    new_x_train_df = encoder.fit_transform(x_train_df, y_train_df)
-    new_x_test_df = encoder.transform(x_test_df, y_test_df)
-    ```
+  + Python: `from category_encoder import LeaveOneOutEncoder`
 
 
 ### James-Stein Encoder
@@ -1164,22 +644,7 @@
     + $\frac{n^+}{n}$: the estimation of the category's mean target
     + $\frac{y^+}{y}$: the central average of the mean target
     + $B$: a hyperparameter, representing the power of shrinking
-  + Python snipet
-
-    ```python
-    import pandas as pd
-    from category_encoders import JamesSteinEncoder
-
-    data_df = pd.read_csv("dataset.csv")
-
-    # create the encoder
-    encoder = JamesSteinEncoder(return_df=True)
-
-    # fit and transform the data
-    new_x_train_df = encoder.fit_transform(x_train_df, y_train_df)
-    new_x_test_df = encoder.transform(x_test_df, y_test_df)
-    ```
-
+  + Python: `from category_encoders import JamesSteinEncoder`
 
 
 ## Transforming Variables
@@ -1201,20 +666,7 @@
     + exponential or power transformation
     + Box-Cox transformation
     + Yeo-Johson transformation
-  + common Python snippet for transformations
-
-    ```python
-    # import the library
-    import pandas as pd
-    import numpy as np
-    from sklearn.preprocessing import FunctionTransformer
-
-    # load data
-    data_df = pd.read_csv("dataset.csv")
-
-    # create columns variables to hold the columns that need transformation
-    cols = ['col1', 'col2', 'col3', ...]
-    ```
+  + Python: `from sklearn.preprocessing import FunctionTransformer`
 
 + [Q-Q plot](../Notes/a08-FeatureEng.md#6-transforming-variables)
   + variable following a normal distribution $\implies$ the variable's values fall in a 45-degree line against the theoretical quantiles
@@ -1232,17 +684,7 @@
     # create and show the plot
     stats.probplot(data_df["variable"], dist="norm", plot=plt)
     plt.show()
-    ```
-
-    <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-        onclick="window.open('https://tinyurl.com/y2mhvfrm')"
-        src    ="https://tinyurl.com/y5y6lssv"
-        alt    ="Q-Q Plot"
-        title  ="Q-Q Plot"
-      />
-    </figure>
-  
+    ``` 
 
 
 ### Logarithmic Transformation
@@ -1253,15 +695,7 @@
   + involving a substantial transformation that significantly affects distribution shape
   + making extremely skewed distribution less skewed, especially for right-skewed distributions
   + constraint: only for __strictly positive__ numbers
-  + Python snippet
-
-    ```python
-    # create the function transformer object w/ logarithm transformation
-    lagrithm_transformer = FunctionTransformer(np.log, validate=True)
-
-    # apply the transformation to data
-    data_new_df = logarithm_transformer.transformer(data_df[cols])
-    ```
+  + Python: `lagrithm_transformer = FunctionTransformer(np.log, validate=True)`
 
 
 ### Square Root Transformation
@@ -1273,17 +707,8 @@
   + used for reducing right-skewed distributions
   + advantage: able to apply to zero values
   + constrain: only for positive numbers
-  + Python snippet
-
-    ```python
-    #create the fucntion transformaer object w/ square root transformation
-    sqrt_transformer = FunctionTransformer(np.sqrt, validate=True)
-
-    # apply the transformation to data
-    data_new = sqrt_transformer.transformer(data_df[cols])
-    ```
-  
-  + alternative: cubic root fucntion
+  + Python: `sqrt_transformer = FunctionTransformer(np.sqrt, validate=True)`  
+  + alternative: cubic root function
 
 
 ### Reciprocal Transformation
@@ -1294,17 +719,8 @@
   + positive reciprocal: reversing the order among values of the same sign $\to$ large values $\to$ smaller
   + negative reciprocal: preserving the order among values of the same ign
   + constraint: not defined for zero
-  + Python snippet
-
-    ```python
-    #create the function transformer object w/ reciprocal transformation
-    reciprocol_transformer = FunctionTransformer(np.reciprocol, validate=True)
-
-    # apply the transformation to data
-    data_new_df = reciprocol_transformer.transform(data_df[cols])
-    ```
-  
-  + alternative; negative reciprocal fucntion
+  + Python: `recipocol_transformer = FunctionTransformer(np.reciprocol, validate=True)`
+  + alternative; negative reciprocal function
 
 
 ### Exceptional or Power Transformation
@@ -1317,16 +733,7 @@
   + a reasonable effect on distribution shape
   + applying power transformation (power of two usually) to reduce left skewness
   + using any exponent in the transformation, even using the $\exp()$ fucntion
-  + Python snippet
-
-    ```python
-    # create the fucntion transformer object w/ exponent transformation
-    # using x^3 is arbitrary here, able to choose any exponent
-    exponential_transformer = FunctionTransformer(lambda x: x**(3), validate=True)
-
-    # apply the transformation to data
-    data_new_df = exponential_transformer.transform(data_df[cols])
-    ```
+  + Python: `exponential_transformer = FunctionTransformer(lambda x: x**(3), validate=True)`
 
 
 ### Box-Cox Transformation
@@ -1347,15 +754,8 @@
     + examining all values of $\lambda$
     + choosing the optimal value (resulting in the best approximation to a normal distribution)
   + constraint: only for positive number
-  + Python snippet
+  + Python: `boxcox_transformer = PowerTransformer(method='box-cox', standardize=False)`
 
-    ```python
-    # create the power transformer object w/ method 'box-cox'
-    boxcox_transformer = PowerTransformer(method='box-cox', standardize=False)
-
-    # apply the transformation to data
-    data_new_df = boxcox_transformer.transfor(data_df[cols])
-    ```
 
 
 ### Yeo-Johnson Transformation
@@ -1372,15 +772,7 @@
 
   + an adjustment to the Box-Cox transformation
   + able to apply to negative numbers
-  + Python snippet
-
-    ```python
-    # create the power transformer object w/ method 'yeo-johnson'
-    yeo_johnson_transformer = PowerTransformer(method='yeo-johnson', standardize=False)
-
-    # apply the transformation to data
-    data_new_df = yeo_johnson_transformer.transform(data_df[cols])
-    ```
+  + Python: `yeo_johnson_transformer = PowerTransformer(method='yeo-johnson', standardize=False)`
 
 
 ## Variable Discretization
@@ -1422,25 +814,7 @@
     + handling outliers
     + creating a discrete variable
     + useful when combined w/ categorical encoding
-  + Python snippet
-
-    ```python
-    import pandas as pd
-    from sklearn.preprocessing import KBinsDiscretizer
-
-    # load data
-    data_df = pd.read_csv("dataset.csv")
-
-    # create the discretizer object w/ strategy uniform and 8 bins
-    discretizer = KBinsDiscretizer(n_bins=8, encode='ordinal' strategy='uniform')
-
-    # fit the discretizer to the train set
-    discretizer.fit(train)
-
-    # apply the discretization
-    train_df = discretizer.transform(train_df)
-    test_df = discretizer.transform(test_df)
-    ```
+  + Python: `from sklearn.preprocessing import KBinsDiscretizer`
 
 
 ### Equal-Frequency Discretization
@@ -1449,30 +823,12 @@
   + dividing the scope of possible values of the variable into $N$ bins
   + each bin holding the same number (or approximately the same number) of observation
   + considerations
-    + the interval boundaries corresponding to quantiles
+    + the interval boundaries corresponding to quantile
     + improving the value spread
     + handling outliers
     + disturbing the relationship w/ the target
     + useful when combined w/ categorical encoding
-  + Python snippet
-
-    ```python
-    import pandas as pd
-    from sklearn.preprocessing import KBinsDiscretizer
-
-    # load data
-    data_df = pd.read_csv("dataset.csv")
-
-    # create the discretizer object w/ strategy quantile and 8 bins
-    discretizer = KBinsDiscretizer(n_bins=8, encode='ordinal', strategy='quantile')
-
-    # fit the discretizer to the train set
-    discterizer.fit(data_df)
-
-    # apply the discretization
-    train_df = discretizer.transformer(train_df)
-    test_df = discretizer.transformer(test_df)
-    ```
+  + Python: `from sklearn.preprocessing import KBinsDiscretizer`
 
 
 ### K-Means Discretization
@@ -1494,25 +850,7 @@
     + handling outliers, though outliers may influence the centroid
     + creating a discrete variable
     + useful when combined w/ categorical encoding
-  + Python snippet
-
-    ```python
-    import pandas as pd
-    from sklearn.preprocessing import KBinDiscretizer
-
-    # load data
-    data_df = pd.read_csv("dataset.csv")
-
-    # create the discretizer object w/ strategy kmeans and 8 bins
-    discretizer = KBinsDiscretizer(n_bins=6, encode='ordinal', strategy='kmeans')
-
-    # fit the discretizer to the train set
-    discretizer.fit(data_df)
-
-    # apply the discretization
-    train_df = discretizer.transformer(data_df)
-    test_df = discretizer.transformer(test_df)
-    ```
+  + Python: `from sklearn.preprocessing import KBinDiscretizer`
 
 ### Discretization w/ Decision Trees
 
@@ -1531,30 +869,7 @@
     + cost some time to tune the parameters effectively (e.g., tree depth, the minimum nimber of samples in one partition minimum info gain)
     + observations within each bin more similar to each other
     + creating a monotonic relationship
-  + Python snippet
-
-    ```python
-    import paandas as pd
-    from sklearn.proprecessing import DecisionTreeClassifier
-
-    # load data
-    data_df = pd.read_csv("dataset.csv")
-
-    # create variables for the target and the variable to discretize
-    x_variable = train_df['variable']
-    target = train_df['target']
-
-    # build the decision tree w/ max depth of choice
-    # {depth pf 2 will create two splits, and 4 different bins for discretization}
-    decision_tree = DecisionTreeClassifier(max_depth=2)
-
-    # start the learning process
-    decision_tree.fit(x_variable, target)
-
-    # apply the discretization to the variable
-    train_df['variable'] = decision_tree.predict_proba(train_df['variable'].to_frame()[:, 1])
-    test_df['variable'] = decision_tree.predict_prob(test_df['variable'].to_frame()[:, 1])
-    ```
+  + Python: `from sklearn.proprecessing import DecisionTreeClassifier`
 
 
 ### Custom Discretization
@@ -1563,18 +878,7 @@
   + engineering variables in a custom environment (i.e., for a particular business use case)
   + determining the intervals where the variable divided so that it makes sense for the business
   + example: Age divided into groups like [0-10] as kids, [10-25] as teenagers, and so on
-  + Python snippet
-
-    ```python
-    import pandas as pd
-
-    # bins intervals
-    labels = ['0-10', '10-25', '25-65', '>65']
-
-    # discretization w/ pandas
-    train_df['age'] = pd.cut(train_df.age, bins=bins, labels=labels, include_lowest=True)
-    test_df['age'] = pd.cut(test_df.age, bins=bins, labels=labels, include_lowest=True)
-    ```
+  + Python: `labels = ['0-10', '10-25', '25-65', '>65']`
 
 ## Handling Outliers
 
@@ -1597,34 +901,9 @@
 + [Detecting Outliers](../Notes/a08-FeatureEng.md#8-handling-outliers)
   + using visualization plots like box plot and scatter plot
     + box plot: black points as outliers
-    + scatter plot: most points located in center but one far from center might eb outlier
-
-    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-      <a href="https://tinyurl.com/y4rljbj3" ismap target="_blank">
-        <img style="margin: 0.1em;" height=150
-          src  ="https://tinyurl.com/yxblyfx8"
-          alt  ="Example of Box plot"
-          title="Example of Box plot"
-        >
-        <img style="margin: 0.1em;" height=150
-          src  ="https://miro.medium.com/max/464/1*Fh1snT0LP1WP586tV1WImA.png"
-          alt  ="Example of scatter plot"
-          title="Example of scatter plot"
-        >
-      </a>
-    </div>
-
+    + scatter plot: most points located in center but one far from center might be outlier
   + using a normal distribution (mean and s.d.)<br/>
     about 99.7% of the data lie within 3 s.d. of the mean
-
-    <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-        onclick="window.open('https://tinyurl.com/y4rljbj3')"
-        src    ="https://tinyurl.com/y4zdoyry"
-        alt    ="Example of normal distribution w/ standard deviations"
-        title  ="Example of normal distribution w/ standard deviations"
-      />
-    </figure>
 
 
 ### IQR Proximity Rule
@@ -1638,30 +917,11 @@
     + below Q1 - 1.5 x IQR
     + above Q3 + 1.5 x IQR
 
-    <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-        onclick="window.open('https://tinyurl.com/y4rljbj3')"
-        src    ="https://tinyurl.com/yyj72x5m"
-        alt    ="Example of IQR from Wikipedia"
-        title  ="Example of IQR from Wikipedia"
-      />
-    </figure>
-
 
 ### DBSCAN
 
 + [Density-Based Spatial Clustering of Application w/ Noise (DBSCAN)](../Notes/a08-FeatureEng.md#113-advanced-outlier-detection)
   + a clustering algorithm used to group points in the same clusters
-
-    <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-        onclick="window.open('https://tinyurl.com/y4op33zr')"
-        src    ="https://tinyurl.com/yxqyud99"
-        alt    ="Example of DBSCAN"
-        title  ="Example of DBSCAN"
-      />
-    </figure>
-
   + choosing two htperparameters
     + `epsilon` > 0 for the distances btw points: the maximum distance btw two examples for one to be considered in the neighborhood of the other
     + `min_samples` $\in \Bbb{N}$: serving as the number of samples in a neighborhood for a point to be considered as a core point
@@ -1673,20 +933,7 @@
     5. finding all points that are within `epsilon` distance of all recently added points and adding these to the same cluster
     6. repeating steps 1~5
   + all points not reachable from any other point aare considered __outliers__
-  + Python snippet
-
-    ```python
-    from sklearn.cluster import DBSCAN
-    import pandas as pd
-
-    dat_df = pd.read_csv("dataset.csv")
-
-    # create the isolation forest
-    outlier_detection = DBSCAN(eps=0.2, metric="euclidean", min_samples=5, n_jobs=-1)
-
-    # fit and predict the outliers
-    outliers_cluster = outlier_detection.fit_predict(data_df)
-    ```
+  + Python: `from sklearn.cluster import DBSCAN`
 
 
 ### Isolation Forests
@@ -1700,43 +947,7 @@
     + less frequent than regular observations
     + lying further away from the regular observations in the feature space
     + w/ random partitioning identified closer to the root of the tree
-
-    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-      <a href="https://tinyurl.com/y4op33zr" ismap target="_blank">
-        <img style="margin: 0.1em;" height=250
-          src  ="https://tinyurl.com/y5hmnhgk"
-          alt  ="Isolated forest - Visulization"
-          title="Isolated forest - Visulization"
-        >
-        <img style="margin: 0.1em;" height=250
-          src  ="https://tinyurl.com/y4943eac"
-          alt  ="Isolated forest - Tree View"
-          title="Isolated forest - Tree View"
-        >
-      </a>
-    </div>
-
-  + Pythoon snippet
-
-    ```python
-    from sklearn.ensemble import IsolatedForest
-    import pandas as pd
-
-    data_df = pd.read_csv("dataset.csv")
-
-    # create the isolation forest
-    outlier_dection = IsolatonForest()
-
-    # fit and predict the outliers
-    outliers = outlier_detection.fit_predict(data_df)
-
-    #### OPTIONAL ####
-    # get index of outliers
-    outliers_index = np.where(outliers == -1, True, False)
-
-    # remove outliers from data
-    data_df = data_df.loc[~(outliers_index, )]
-    ```
+  + Pythoon: `from sklearn.ensemble import IsolatedForest`
 
 
 ### Local Outlier Factor
@@ -1754,27 +965,7 @@
     + LOF(k) = 1: similar density as neighbors
     + LOF(k) < 1: higher density than neighbors (inlier)
     + LOF(k) > 1: lower density than neighbors (outlier)
-  + Python snippet
-
-    ```python
-    from sklearn.neighbor import LocalOutlierFactor
-    import pandas as pd
-
-    data_df = pd.read_csv("dataset.csv")
-
-    # create the isolation forest
-    outlier_detection = LocalOutlierFactor()
-
-    # fit and predict the outliers
-    outliers = outlier_detection.fit_predict(data_df)
-
-    #### OPTIONAL ####
-    # get index of outliers
-    outliers_index = np.where(outliers == -1, True, False)
-
-    # remove outliers from data
-    data_df = data_df.loc[~(outliers_index, )]
-    ```
+  + Python: `from sklearn.neighbor import LocalOutlierFactor`
 
 
 ### Trimming
@@ -1785,29 +976,7 @@
   + considerations
     + fast method
     + removing a significant amount of data
-  + Python snippet
-
-    ```python
-    import pandas as pd
-    import numpy as np
- 
-    # load data
-    data_df = pd.read_csv("dataset.csv")
-
-    for variable in data_df.columns:
-      # calculate the IQR
-      IQR = data_df[variable].quantile(0.75) - data_df[variable].quantile(0.25)
-
-      # calculate the boundaries
-      lower = data_df[variable].quantile(0.25) - (IQR * 1.5)
-      upper = data_df[variable].quantile(0.75) - (IQR * 1.5)
-
-      # find the outlier
-      outliers = np.where(data_df[variable] > upper, True, \
-        np.where(data_df[variable] < lower, True, False))
-
-      # remove outliers from data
-      data_df = data_df.loc[~(outliers,)]
+  + Python: `outliers = np.where(data_df[variable] > upper, True, np.where(data_df[variable] < lower, True, False))` & `data_df = data_df.loc[~(outliers,)]`
 
 
 ### Censoring
@@ -1819,97 +988,24 @@
     + not removing data
     + distorting the distributions of the variables
   + arbitrarily replacing the outliers
-
-    ```python
-    import pandas as pd
-    import numpy as np
-
-    # load data
-    data_df = pd.read_csv("dataset.csv')
-
-    for variable in data_df.columns:
-      # create boundaries (age for example)
-      lower = 10
-      upper = 89
-
-      # replacing the outliers
-      data_df[variable] = np.where(data_df[variable] > upper, upper,  \
-        np.where(data_df[variable] < lower, data[variable]))
-    ```
-
   + inter-quantal range proximity rule
-
-    ```python
-    import pandas as pd
-    import numpy as np
-
-    #load data
-    data_df = pd.read_csv("dataset.csv")
-
-    for variable in data_df.columns:
-      # calculate the IQR
-      IQR = data_df[variable].quantile(0.75) - daat_df[variable].quantile(0.25)
-
-      # calculate the boundaries
-      lower = data_df[variable].quantile(0.25) - (IQR * 1.5)
-      upper = data_df[variable].quantile(0.75) - (IQR + 1.5)
-
-      # replacing the outliers
-      data_df[variable] = np.where(data_df[variable] > upper, upper. \
-        np.where(data_df[variable] < lower, lower, data_df[variable]))
-    ```
-
   + Gaussian approximation
-
-    ```python
-    import pandas as pd
-    import numpy as np
-
-    # load data
-    data_df = pd.read_csv("dataset.csv")
-
-    for wariable in data_df.columns:
-      # calculate the boundaries
-      lower = data_df[variable].mean() - 3 * data_df[variable].std()
-      upper = data_df[variable].mean() + 3 * data_df[variable].std()
-
-      # replacing the outliers
-      data_df[variable] = np.where(dat_df[variable] > upper, upper, \
-        np.where(data_df[variable]< lower, lower, data_df[variable]))
-    ```
-
   + using quantiles
-
-    ```python
-    import pandas as pd
-    import numpy as np
-
-    # load data
-    data_df = pd.read_csv("dataset.csv")
-
-    for variable in data_df.columns:
-      # calculate the boundaries
-      lower = data_df[variable].quantile(0.10)
-      upper = data_df[variable].quantile(0.90)
-
-      # replacing the outliers
-      data_df[variable] = np.where(data_df[variable] > upper, upper, \
-        np.where(data_df[variable] < lower, lower, data_df[variable]))
-    ```
 
 
 ### Imputer
 
 + [Imputing outliers](../Notes/a08-FeatureEng.md#8-handling-outliers)
   + treating outliers as missing data
-  + refer to [imputing variable techniques](#4-imputing-missing-values)
+  + refer to [imputing variable techniques](#imputing-missing-values)
 
 
 ### Transformation
 
 + [Transforming outliers](../Notes/a08-FeatureEng.md#8-handling-outliers)
   + applying some mathematical transformations, such as log transformation
-  + refer to [transforming variables](#6-transforming-variables)
+  + refer to [transforming variables](#transforming-variables)
+
 
 
 ## Feature Scaling
@@ -1961,25 +1057,6 @@
     + modifying the shape of original distribution
     + normalizing the minimum and maximum values w/ the range [-1, 1]
     + preserving outliers if existed
-  + Python snippet
-
-    ```python
-    import pandas as pd
-    import numpy as np
-
-    # load data
-    data_df = pd.read_csv("dataset.csv")
-
-    # claculate the means
-    means = train_df.mean(axis=0)
-
-    # calculate max - min
-    max_min = train_df.max(axis=0) - train_df.min(axis=0)
-
-    # apply the transformation to data
-    train_scaled_df = (train_df - means) / max_min
-    test_scaled_df = (test - means) / max_min
-    ```
 
 
 ### Standardization
@@ -1997,25 +1074,7 @@
     + preserving the shape of the original distribution
     + preversing outliers if existed
     + minimum and maximum values varying
-  + Python snippet
-
-    ```python
-    import pandas as pd
-    import sklearn.preprocessing import StandardScaler
-
-    # load data
-    data_df = pd.read_csv("dataset.csv")
-
-    # create the scaler object
-    scaler = StandardScaler()
-
-    # fit the scaler to the train data
-    scaler.fit(train_df)
-
-    # transform train and test
-    train_scaled_df = scaler.transform(train_df)
-    test_scaled_df = scaler.transform(test_df)
-    ```
+  + Python: `import sklearn.preprocessing import StandardScaler`
 
 
 ### Robust Scaling
@@ -2032,25 +1091,7 @@
     + not preserving the shape of the original distribution
     + minimum and maximum values varying
     + robust to outliers
-  + Python snippet
-
-    ```python
-    import pandas as pd
-    from sklearn.preprocessing import RobustScaler
-
-    # load data
-    data_df = pd.read_csv("dataset.csv")
-
-    # create the scaler object
-    robust = RobustScaler()
-
-    # fit the scaler tot he train data
-    robust.fit(train_df)
-
-    # transform train and test
-    train_scaled_df = robust.transform(train_df)
-    test_scaled_df = robust.transform(test_df)
-    ```
+  + Python: `from sklearn.preprocessing import RobustScaler`
 
 
 ### Min-Max Scaling
@@ -2068,25 +1109,7 @@
     + not maintaining the shape of the original distribution
     + maximum and minimum values in the range of [0, 1]
     + sensitive to outliers
-  + Python snippet
-
-    ```python
-    import pandas as pd
-    from sklearn.preprocessing import MinMaxScaler
-
-    # load data
-    data_df = pd.read_csv("dataset.csv")
-
-    # create the scaler object
-    min_max = MinMaxScaler()
-
-    # fit the scaler to the train data
-    min_max.fit(train_df)
-
-    # transform train and test data
-    train_scaled_df = min_max.tranbsform(train_df)
-    test_scaled_df = min_max.transform(test_df)
-    ```
+  + Python:`from sklearn.preprocessing import MinMaxScaler`
 
 
 ### Maximum Absolute Scaling
@@ -2101,25 +1124,7 @@
     + the resulting mean not centered
     + not scaling the variance
     + sensitive to outliers
-  + Python snippet
-
-    ```python
-    import pandas as pd
-    from sklearn.preporcessing import MaxAbsScaler
-
-    # load data
-    data_df = pd.read_csv("dataset.csv")
-
-    # create the scaler object
-    max_abs = MaxAbsScaler("dataset.csv")
-
-    # fit the scaler to the train set
-    max_abs.fit(train_df)
-
-    # transform train and test data
-    train_scaled_df = max_abs.transform(train_df)
-    test_scaled_df = max_abs.transform(test_df)
-    ```
+  + Python: `from sklearn.preporcessing import MaxAbsScaler`
 
 
 ### Scaling to Vector Unit Norm
@@ -2138,25 +1143,8 @@
     + normalizing the feature vector and not the observation vector
     + sensitive to outlier
     + recommended for text classification and clustering
-  + Python snippet
+  + Python: `from sklearn.preprocessing import Normalizer`
 
-    ```python
-    import pandas as pd
-    from sklearn.preprocessing import Normalizer
-
-    # load data
-    data_df = pd.read_csv("dataset.csv")
-
-    # create the scaler object w/ preferred norm
-    vec_norm = Normalizer(norm='l2')
-
-    # fit the scaler to the train data
-    vec_norm.fit(train_df)
-
-    # transform train and test data
-    train_scaled_df = vec_norm.transform(train_df)
-    test_scaled_df = vec_norm.transform(test_df)
-    ```
 
 ## Handling Date-Time and Mixed Variables
 
@@ -2170,98 +1158,46 @@
     + time of birth: 19:45:57
     + birthday date: 16-08-1995, 16-04-1997
     + invoice date: 03-06-2020 19:47:29
-  + date variable
+  
++ Time/date components: `pd.Series.dt`
 
-    ```python
-    import pandas as pd
-    import numpy as np
+  <table class="colwidths-given table"><table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 55vw;" cellspacing="0" cellpadding="5" border="1">
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y3fa59ex">Date / Time Components</a></caption>
+  <thead>
+  <tr style="font-size: 1.2em; vertical-align:middle"">
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr><td>year</td><td>The year of the datetime</td>  </tr>
+    <tr><td>month</td><td>The month of the datetime</td>  </tr>
+    <tr><td>day</td><td>The days of the datetime</td>  </tr>
+    <tr><td>hour</td><td>The hour of the datetime</td>  </tr>
+    <tr><td>minute</td><td>The minutes of the datetime</td>  </tr>
+    <tr><td>second</td><td>The seconds of the datetime</td>  </tr>
+    <tr><td>microsecond</td><td>The microseconds of the datetime</td>  </tr>
+    <tr><td>nanosecond</td><td>The nanoseconds of the datetime</td>  </tr>
+    <tr><td>date</td><td>Returns datetime.date (does not contain timezone information)</td>  </tr>
+    <tr><td>time</td><td>Returns datetime.time (does not contain timezone information)</td>  </tr>
+    <tr><td>timetz</td><td>Returns datetime.time as local time with timezone information</td>  </tr>
+    <tr><td>dayofyear</td><td>The ordinal day of year</td>  </tr>
+    <tr><td>weekofyear</td><td>The week ordinal of the year</td>  </tr>
+    <tr><td>week</td><td>The week ordinal of the year</td>  </tr>
+    <tr><td>dayofweek</td><td>The number of the day of the week with Monday=0, Sunday=6</td>  </tr>
+    <tr><td>weekday</td><td>The number of the day of the week with Monday=0, Sunday=6</td>  </tr>
+    <tr><td>quarter</td><td>Quarter of the date: Jan-Mar = 1, Apr-Jun = 2, etc.</td>  </tr>
+    <tr><td>days_in_month</td><td>The number of days in the month of the datetime</td>  </tr>
+    <tr><td>is_month_start</td><td>Logical indicating if first day of month (defined by frequency)</td>  </tr>
+    <tr><td>is_month_end</td><td>Logical indicating if last day of month (defined by frequency)</td>  </tr>
+    <tr><td>is_quarter_start</td><td>Logical indicating if first day of quarter (defined by frequency)</td>  </tr>
+    <tr><td>is_quarter_end</td><td>Logical indicating if last day of quarter (defined by frequency)</td>  </tr>
+    <tr><td>is_year_start</td><td>Logical indicating if first day of year (defined by frequency)</td>  </tr>
+    <tr><td>is_year_end</td><td>Logical indicating if last day of year (defined by frequency)</td>  </tr>
+    <tr><td>is_leap_year</td><td>Logical indicating if the date belongs to a leap year</td>  </tr>
+  </tbody>
+  </table>
 
-    # load data
-    data_df = pd.read_csv("dataset.csv")
-
-    # example of 'payment' date feature
-    # convert the feature to datetime feature type
-    data_df['payment_day'] = pd.to_datetime(data_df['payment'])
-
-    # extracting the day in numerical format (1 to 31)
-    data_df['payment_day'] = data_df['payment_day'].dt.day
-
-    # extracting the day of the week (0 to 6)
-    datd_df['payment_dayofweek'] = data_df['payment_day'].dt.dayofweek
-
-    # extracting the day of the week (Thursday, Wednesday, ...)
-    data_df['payment_dayofweek_name'] = data_df['payment_datetime'].dt.weekday_name
-
-    # extracting the month (1 to 12)
-    data_df['payment_month'] = data_df['payment_datetime'].dt.month
-
-    # extracting the year
-    data_df['payment_year'] = data_df['payment_datetime'].dt.year
-
-    # extracting the week of the year (1 to 52)
-    data_df['payment_week'] = data_df['payment_datetime'].dt.week
-
-    # extracting the quater (1 to 4)
-    data_df['payment_quarter'] = data_df['payment_datetime'].dt.quarter
-
-    # extracting the semester (1 to 2)
-    data_df['payment_semester'] = np.where(\
-      data_df['payment_datetime'].isin([1, 2]), 1, 2)
-
-    # extracting if the day is weekend (True or false)
-    data_df['payment_weekend'] = np.where(data_df[\
-      'payment_dayofweek_name'].isin(['Sunady', 'Saturday']), 1, 0)
-
-    # extracting the difference in days btw 2 payments
-    data_df['payment_different'] = (data_df['first_payment'] \
-      - data_df['second_payment']).dt.days
-    ```
-
-  + time variables
-
-    ```python
-    import panadas as pd
-    import numpy as np
-
-    # load data
-    data_df = pd.read_csv('data_csv')
-
-    # example of 'payment' data feature
-    # convert the feature to datetime feature type
-    data_df['payment_datetime'] = pd.to_datetime(data_df['payment'])
-
-    # extracting the hour (0 to 23)
-    data_df['payment_hour'] = data_df['payment_datetime'].dt.hour
-
-    # extracting the minutes (0 to 59)
-    data_df['payment_minute'] = data_df['payment_datetime'].dt.minute
-
-    # extracting the seconds (0 to 59)
-    data_df['payment_second'] = data_df['payment_datatime'].dt.second
-
-    # extracting the Unix time stamp (number of seconds since January 1st, 1970, at UTC)
-    data_df['payment_unix_timestamp'] = (data_df['payment_datetime'] \
-      - pd.TimeStamp("1970-01-01")) // pd.Timedelta('1s')
-
-    # extracting the business hour (for example, from 8AM to 12PM) (0 or 1)
-    data_df['payment_business'] = np.where(\
-      data_df['payment_hour'].isin([8, 9, 10, 12]), 1, 0)
-
-    # calculating differences
-    payment_difference = data_df['first_payment'] - data_df['second_payment']
-
-    # extracting the payment difference in seconds
-    data_df['payment_difference_seconds'] = payment_difference / np.timedelta64(1, 's')
-
-    # extracting the payment difference in mimutes
-    data_df['payment_difference_minutes'] = payment_difference / np.timedelta64(1, 'm')
-
-    # extracting the payment difference in hours
-    data_df['payment_difference_hours'] = payment_difference / np.timedelta64(1, 'h')
-
-    # extracting the payment difference in milliseconds
-    data_df['payment_difference_milliseconds'] = payment_difference / np.timedelta64(1, 'ms')
-    ```
 
 ### Mixed Variables
 
@@ -2285,63 +1221,13 @@
     </figure>
 
   + resulted in a lot of nan values $\to$ applying missing data techniques
-  + Python snippet
-
-    ```python
-    import panda as pd
-    import numpy as np
-
-    # load data
-    data_df = pd.read_csv("dataset.csv")
-
-    # the  mixed column and the results
-    mixed = "mixed column"
-    mixed_num = mixed + "_numerical"
-    mixed_label = mixed + "_label"
-
-    # extract numerical part of the mixed variable
-    data_df[mixed_num] = pd.to_number(data_df[mixed], errrors='coerce', downcast='integer')
-
-    # extract the categorical part of the mixed variable
-    data_df[mixed_label] = np.where(data_df[mixed_num].isnull(), data_df[mixed], np.nan)
-    ```
+  + Python: `data_df[mixed_num] = pd.to_number(data_df[mixed], errrors='coerce', downcast='integer')`
 
 + [Labels and numbers in the same observation](../Notes/a08-FeatureEng.md#10-handling-date-time-and-mixed-variable)
   + variables containing both numbers and labels in their values
-  + example
-
-    <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
-        onclick="window.open('https://tinyurl.com/y6ss46t3')"
-        src    ="https://tinyurl.com/y4lrcul5"
-        alt    ="Example of mixed numerical & labels in the same observation"
-        title  ="Example of mixed numerical & labels in the same observation"
-      />
-    </figure>
-
   + tricky to extract categorical and numerical values
   + depending on a number of factors, e.g., number of letters, locations, etc.
-  + Python snippet
-
-    ```python
-    import pandas as pd
-    import numpy as np
-
-    # load data
-    data_df = pd.read_csv("dataset.csv")
-
-    # the mixed column and the results
-    mixed = "mixed column"
-    mixed_num = mixed + "_numerical"
-    mixed_label = mixed + "_label"
-
-    # extract any digits
-    data_df[mixed_num] = data_df[mixed].str.extract('(\d+)')
-
-    # extract the first two letters
-    daat_df[mixed_label] = data_df[mixed].str[:2]
-    ```
-
+  + Python: `data_df[mixed_num] = data_df[mixed].str.extract('(\d+)')`
   + Regular Expression (regex): detect patterns in mixed variables and easily extract categorical and numerical parts
 
 
@@ -2355,48 +1241,7 @@
   + one solution: projecting the cyclical feature on a circle, specifically the __unit circle__
   + unit circle: using $\cos$ and $\sin$ functions to express the periodicity
   + the $\sin$ and $\cos$ as new created features to transform the cyclical feature
-
-    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-      <a href="https://tinyurl.com/y6ss46t3" ismap target="_blank">
-        <img style="margin: 0.1em;" height=250
-          src  ="https://tinyurl.com/y5oputjk"
-          alt  ="Concepts of cyclical features"
-          title="Concepts of cyclical features"
-        >
-        <img style="margin: 0.1em;" height=250
-          src  ="https://tinyurl.com/y6x2vdy3"
-          alt  ="The extracted 24-hours result after applying the transformation"
-          title="The extracted 24-hours result after applying the transformation"
-        >
-      </a>
-    </div>
-
-  + Python snippet
-
-    ```python
-    import pandas as pd
-    import numpy as np
-
-    data_df = pd.read_csv("dataset.csv")
-
-    # using the previous hours and minutes feature
-
-    # creating cyclical hour feature
-    data_df['payment_hour_sin'] = np.sin(data_df['payment_hour'] * (2. * np.pi / 24.))
-    data_df['payment_hour_cos'] = np.cos(data_df['payment_hour'] * (2. * np.pi / 24.))
-
-    # creating cyclical minute feature
-    data_df['payment_minute_sin'] = np.sin(data_df['payment_minute'] * (2. * np.pi / 60.))
-    data_df['payment_minute_cos'] = np.cos(data_df['payment_minute'] * (2. * np.pi / 60.))
-
-    # creating cyclical hour feature (we subtract 1 to make range 0 to 11)
-    data_df['payment_hour_sin'] = np.sin((data_df['payment_hour'] - 1) * (2. * np.pi / 12.))
-    data_df['payment_hour_cos'] = np.cos((data_df['payment_hour'] - 1) * (2. * np.pi / 12.))
-
-    # creating cyclical month days feature
-    data_df['payment_day_sin'] = np.sin((data_df['payment_day'] - 1) * (2. * np.pi / 31.))
-    data_df['payment_day_cos'] = np.cos((data_df['payment_day'] - 1) * (2. * np.pi / 31.))
-    ```
+  + Python: `data_df['payment_hour_sin'] = np.sin(data_df['payment_hour'] * (2. * np.pi / 24.))` & `data_df['payment_hour_cos'] = np.cos(data_df['payment_hour'] * (2. * np.pi / 24.))`
 
 
 ## Advanced Feature Engineering
@@ -2413,7 +1258,7 @@
   + a comprehensive tool intended to make the feature generation process fast-forward
   + components
     + deep feature synthesis: the backbone of featuretools
-    + entites: multiple entities result in an EntitySet
+    + entities: multiple entities result in an EntitySet
     + feature primitives: Deep Feature Synthesis applied to EntitySet - transfrmations or aggregations like count or average
 
 ### Geospatial data
@@ -2431,6 +1276,6 @@
 + [Resampling](../Notes/a08-FeatureEng.md#116-resampling-imblanced-data)
   + issue: classes not represented equally
   + causing problems for some algorithms
-  + resampling engineering and reducing this effect on machine lerning algorithms
+  + resampling engineering and reducing this effect on machine learning algorithms
 
 
