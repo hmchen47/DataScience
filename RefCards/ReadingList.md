@@ -51,17 +51,24 @@
 
 ## Machine Learning
 
-+ Gilbert Strage, [Calculus](https://ocw.mit.edu/ans7870/resources/Strang/Edited/Calculus/Calculus.pdf)
++ G. Strage, [Calculus](https://ocw.mit.edu/ans7870/resources/Strang/Edited/Calculus/Calculus.pdf)
 
-+ Trevor Hastie and Rob Tibshirani, [introduction to machine learning](https://tinyurl.com/jl7uzxs)
++ T. Hastie and Rob Tibshirani, [introduction to machine learning](https://tinyurl.com/jl7uzxs)
 
-+ Lukas Spranger, [Awesome Machine Learning and AI Courses](https://tinyurl.com/y5phkqwj)
++ L. Spranger, [Awesome Machine Learning and AI Courses](https://tinyurl.com/y5phkqwj)
 
-+ Farhad Malik, [End To End Guide For Machine Learning Project](https://tinyurl.com/y4vey39z), Dec 28, 2018
++ F. Malik, [End To End Guide For Machine Learning Project](https://tinyurl.com/y4vey39z), Dec 28, 2018
 
-+ Cem Sazara, [Natural Language Processing](https://tinyurl.com/y22gq94l) w/ [Video](https://tinyurl.com/y4j4kp53)
++ C. Sazara, [Natural Language Processing](https://tinyurl.com/y22gq94l) w/ [Video](https://tinyurl.com/y4j4kp53)
 
 + M. Kanter, [Deep Feature Synthesis: How Automated Feature Engineering Works](https://tinyurl.com/y548kp3n)
+
++ B. Mwangi, [Introduction to Automated Feature Engineering Using Deep Feature Synthesis (DFS)](https://tinyurl.com/y59uko6a)
+
++ Y. Charfaoui, [Working with Geospatial Data in Machine Learning](https://tinyurl.com/yy7vmslq)
+
++ Y. Charfaoui, [Resampling to Properly Handle Imbalanced Datasets in Machine Learning](https://tinyurl.com/yxjq63ms)
+
 
 
 ## Neural Networks
