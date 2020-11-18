@@ -1280,58 +1280,58 @@
   <tbody>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; width: 15vw; text-align: left; line-height: 1.5; vertical-align: middle;"> General Topics </th>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/ReadingList.md#visualization"> Visualization </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/ReadingList.md#">  </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/ReadingList.md#">  </a> </td>
-    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/ReadingNoteIdx.md#visualization"> Visualization </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Statistics </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#"> Bayesian </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#"> Bayesian </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Artificial Intelligence </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Machine Learning </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#general-topics-for-ml"> General Topics </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#machine-learning-models"> Models </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#application---social-networks"> Applications </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#general-topics-for-ml"> General Topics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#machine-learning-models"> Models </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#application---social-networks"> Applications </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Neural Networks </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#general-topics-for-neural-networks"> General Topics </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#"> Activation Functions </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#"> CNN </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#"> Deep Learning </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#general-topics-for-neural-networks"> General Topics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#"> Activation Functions </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#"> CNN </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#"> Deep Learning </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Database </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan="1" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Python Implementation </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingList.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
   </tr>
   </tbody>
 </table>
