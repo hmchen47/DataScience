@@ -622,7 +622,7 @@ The set of articles in this series:
   + typical sample data (Color, Target): 
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 1 0vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
         onclick="window.open('https://tinyurl.com/y6yq38cg')"
         src    ="https://tinyurl.com/y6ccmhqp"
         alt    ="Example of categorical encoding"
@@ -648,7 +648,7 @@ The set of articles in this series:
     + data example:
 
       <figure style="margin: 0.5em; text-align: center;">
-        <img style="margin: 0.1em; padding-top: 0.5em; width: 4 0vw;"
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
           onclick="window.open('https://tinyurl.com/y6yq38cg')"
           src    ="https://tinyurl.com/yysvncj6"
           alt    ="Example of one-hot encoding into $k$ variables"
@@ -690,7 +690,7 @@ The set of articles in this series:
   + data example:
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 4 0vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
         onclick="window.open('https://tinyurl.com/y6yq38cg')"
         src    ="https://tinyurl.com/y23xs9ug"
         alt    ="Example of integer (label) encoding"
@@ -737,7 +737,7 @@ The set of articles in this series:
   + example: 
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
         onclick="window.open('https://tinyurl.com/y6yq38cg')"
         src    ="https://tinyurl.com/y2d2llys"
         alt    ="Example of count or frequency encoding"
@@ -776,7 +776,7 @@ The set of articles in this series:
   + data example
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
         onclick="window.open('https://tinyurl.com/y6yq38cg')"
         src    ="https://tinyurl.com/y2tm9sm8"
         alt    ="Example of ordered label encoding"
@@ -820,7 +820,7 @@ The set of articles in this series:
   + data example
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
         onclick="window.open('https://tinyurl.com/y6yq38cg')"
         src    ="https://tinyurl.com/yxsnfdfq"
         alt    ="Example of Mean (target) encoding"
@@ -873,7 +873,7 @@ The set of articles in this series:
   + data example
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
         onclick="window.open('https://tinyurl.com/y6yq38cg')"
         src    ="https://tinyurl.com/y22c9oep"
         alt    ="Example of Weight of evidence encoding (WOE)"
@@ -926,7 +926,7 @@ The set of articles in this series:
   + data example
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
         onclick="window.open('https://tinyurl.com/y6yq38cg')"
         src    ="https://tinyurl.com/y3q7kzew"
         alt    ="Example of Probability ratio encoding"
@@ -979,7 +979,7 @@ The set of articles in this series:
   + data example
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
         onclick="window.open('https://tinyurl.com/y6yq38cg')"
         src    ="https://tinyurl.com/yyxdzpt2"
         alt    ="Example of rare label encoding"
@@ -1027,7 +1027,7 @@ The set of articles in this series:
   + data example
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
         onclick="window.open('https://tinyurl.com/y6yq38cg')"
         src    ="https://tinyurl.com/y2uazs6q"
         alt    ="Example of binary encoding"
@@ -1937,7 +1937,7 @@ The set of articles in this series:
   + example
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
         onclick="window.open('https://tinyurl.com/y6ss46t3')"
         src    ="https://tinyurl.com/yxq3bunr"
         alt    ="Example of mixed numerical & labels w/ different observations"
@@ -1972,7 +1972,7 @@ The set of articles in this series:
   + example
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
         onclick="window.open('https://tinyurl.com/y6ss46t3')"
         src    ="https://tinyurl.com/y4lrcul5"
         alt    ="Example of mixed numerical & labels in the same observation"
@@ -2016,12 +2016,12 @@ The set of articles in this series:
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/y6ss46t3" ismap target="_blank">
-        <img style="margin: 0.1em;" height=250
+        <img style="margin: 0.1em;" height=200
           src  ="https://tinyurl.com/y5oputjk"
           alt  ="Concepts of cyclical features"
           title="Concepts of cyclical features"
         >
-        <img style="margin: 0.1em;" height=250
+        <img style="margin: 0.1em;" height=200
           src  ="https://tinyurl.com/y6x2vdy3"
           alt  ="The extracted 24-hours result after applying the transformation"
           title="The extracted 24-hours result after applying the transformation"
@@ -2188,7 +2188,7 @@ The set of articles in this series:
   + a clustering algorithm used to group points in the same clusters
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
         onclick="window.open('https://tinyurl.com/y4op33zr')"
         src    ="https://tinyurl.com/yxqyud99"
         alt    ="Example of DBSCAN"
@@ -2234,12 +2234,12 @@ The set of articles in this series:
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://tinyurl.com/y4op33zr" ismap target="_blank">
-        <img style="margin: 0.1em;" height=250
+        <img style="margin: 0.1em;" height=200
           src  ="https://tinyurl.com/y5hmnhgk"
           alt  ="Isolated forest - Visulization"
           title="Isolated forest - Visulization"
         >
-        <img style="margin: 0.1em;" height=250
+        <img style="margin: 0.1em;" height=200
           src  ="https://tinyurl.com/y4943eac"
           alt  ="Isolated forest - Tree View"
           title="Isolated forest - Tree View"
