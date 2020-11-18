@@ -381,7 +381,7 @@
   + Python: `from sklearn.imput import MissingIndicator`
 
 
-### Random Sam[ple Imputation
+### Random Sample Imputation
 
 + [Random sample imputation](../Notes/a08-FeatureEng.md#4-imputing-missing-values)
   + taking a random observaton from the pool of available observations of the variable and using those randomly selected values to fill in the missing one
@@ -621,7 +621,7 @@
     + averaging the results
   + Python: `from category_encoder import CatBoostEncoder`
 
-### Leae-One-Out Encoder
+### Leave-One-Out Encoder
 
 + [Leave-one-out encoder (LOO/LOOE)](../Notes/a08-FeatureEng.md#111-advanced-categorical-encoding)
   + an example of target-based encoding
@@ -689,7 +689,7 @@
 
 ### Logarithmic Transformation
 
-+ [Logarithmic transformation ](../Notes/a08-FeatureEng.md#6-transforming-variables)
++ [Logarithmic transformation](../Notes/a08-FeatureEng.md#6-transforming-variables)
   + formula: $ f(x) = \ln(x) $
   + simplest and most popular among the different types of transformations
   + involving a substantial transformation that significantly affects distribution shape
@@ -711,19 +711,19 @@
   + alternative: cubic root function
 
 
-### Reciprocal Transformation
+### Recipocal Transformation
 
-+ [Reciprocal transformation](../Notes/a08-FeatureEng.md#6-transforming-variables)
++ [Recipocal transformation](../Notes/a08-FeatureEng.md#6-transforming-variables)
   + formula: $f(x) = \frac{1}{x}$
-  + a powerful transforamtion w/ a radical effect
+  + a powerful transformation w/ a radical effect
   + positive reciprocal: reversing the order among values of the same sign $\to$ large values $\to$ smaller
   + negative reciprocal: preserving the order among values of the same ign
   + constraint: not defined for zero
-  + Python: `recipocol_transformer = FunctionTransformer(np.reciprocol, validate=True)`
+  + Python: `recipocol_transformer = FunctionTransformer(np.recipocol, validate=True)`
   + alternative; negative reciprocal function
 
 
-### Exceptional or Power Transformation
+### Exponential or Power Transformation
 
 + [Exponential or Power transformation](../Notes/a08-FeatureEng.md#6-transforming-variables)
   + formula
@@ -947,7 +947,7 @@
     + less frequent than regular observations
     + lying further away from the regular observations in the feature space
     + w/ random partitioning identified closer to the root of the tree
-  + Pythoon: `from sklearn.ensemble import IsolatedForest`
+  + Python: `from sklearn.ensemble import IsolatedForest`
 
 
 ### Local Outlier Factor
