@@ -75,6 +75,19 @@ The set of articles in this series:
   + computational expensive
   + looking for the best combination of feature subsets from all the available features
 
++ Feature selection methods
+  + filter methods
+    + relying on the features' characteristics
+    + well-suitable for a quick "screen and removal" of irrelevant features
+  + wrapper methods
+    + selection of a set of features = a search problem
+    + using a predictive ML algorithm to select the best feature subset
+    + training a new model on each feature subset $\to$ computationaly expensive
+    + providing the best performing feature subset for a given ML algorithm
+  + embedded methods
+    + taking the interaction of features and models into consideration
+    + performing feature selection as part of the model construction process
+    + less computationally expensive
 
 
 
