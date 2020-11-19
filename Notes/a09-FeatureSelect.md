@@ -68,6 +68,15 @@ The set of articles in this series:
       + modifying or transforming features into a slower dimension
       + creating a whole new feature space that looks approximately like the first one, but smaller in terms of dimensions
 
++ Procedure of feature selection
+  + steps
+    + combination of a research technique for proposing a new feature subset
+    + an evaluation measuring that scores how well is the different feature subsets
+  + computational expensive
+  + looking for the best combination of feature subsets from all the available features
+
+
+
 
 
 
