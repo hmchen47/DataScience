@@ -14,7 +14,7 @@ The set of articles in this series:
 + [More Advanced Methods](https://tinyurl.com/y6f38zqs)
 
 
-## 1. An Introduction
+## 1. The basics of feature selection
 
 + Feature selection
   + a.k.a. variable selection, attribute selection or subset selection
@@ -70,7 +70,7 @@ The set of articles in this series:
 
 + Procedure of feature selection
   + steps
-    + combination of a research technique for proposing a new feature subset
+    + combination of a search technique for proposing a new feature subset
     + an evaluation measuring that scores how well is the different feature subsets
   + computational expensive
   + looking for the best combination of feature subsets from all the available features
@@ -82,13 +82,14 @@ The set of articles in this series:
   + wrapper methods
     + selection of a set of features = a search problem
     + using a predictive ML algorithm to select the best feature subset
-    + training a new model on each feature subset $\to$ computationaly expensive
+    + training a new model on each feature subset $\to$ computationall y expensive
     + providing the best performing feature subset for a given ML algorithm
   + embedded methods
     + taking the interaction of features and models into consideration
     + performing feature selection as part of the model construction process
     + less computationally expensive
 
+ 
 
 
 
