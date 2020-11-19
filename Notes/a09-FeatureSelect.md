@@ -14,7 +14,9 @@ The set of articles in this series:
 + [More Advanced Methods](https://tinyurl.com/y6f38zqs)
 
 
-## 1. The basics of feature selection
+## 1. An Introduction
+
+Part 1. The basics of feature selection
 
 + Feature selection
   + a.k.a. variable selection, attribute selection or subset selection
@@ -89,7 +91,43 @@ The set of articles in this series:
     + performing feature selection as part of the model construction process
     + less computationally expensive
 
- 
+
+## 2. Filter Methods
+
+Part 2. Basic, correlation, and statistical filter methods
+
++ Filter Methods
+  + definitions:
+    + selecting features from a dataset independently for any ML algorithms
+    + relying only on the characteristics of these variables
+    + filtered out of the data before learning begins
+  + advantages
+    + used in any ML algorithm
+    + computationally inexpensive
+  + good for eliminating irrelevant, redundant, constant, duplicated, and correlated features
+  + types
+    + univariate
+    + multivariate
+  + the methods: proposed for univariate and multivariate fileter-based feature selection
+    + basic feature methods
+    + correlation filter methods
+    + statistical & ranking filter methods
+
++ Univariate of filter methods
+  + evaluating and ranking a single feature according to certain criteria
+  + treating each feature individually and independently of the feature space
+  + procedures
+    + ranking features according to certain criteria
+    + selecting the highest ranking features according to the those criteria
+  + issue: not considering relation to other ones in the dataset
+
++ Multivariate of filter methods
+  + evaluating the entire feature space
+  + considering the relations to other ones in the dataset
+
+
+
+
 
 
 
