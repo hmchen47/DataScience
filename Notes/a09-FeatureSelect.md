@@ -18,7 +18,7 @@ The set of articles in this series:
 
 + Feature selection
   + a.k.a. variable selection, attribute selection or subset selection
-  + the process by which a data scienist selects automatically and manually a subset of relevant features to use in ML model building
+  + the process by which a data scientist selects automatically and manually a subset of relevant features to use in ML model building
   + selecting the best subset of attributes
     + most important
     + high contribution at the time of prediction making
@@ -50,7 +50,13 @@ The set of articles in this series:
       + redundancy: highly-correlated features providing the same information
       + removing the redundant features w/o losing any information
 
-
++ Feature selection vs. feature engineering
+  + feature engineering:
+    + creating new features
+    + helping the ML model make more effective and accurate predictions
+  + feature selection:
+    + selecting features from the feature pool
+    + helping ML models more efficiently make predictions on target variables
 
 
 
