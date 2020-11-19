@@ -58,6 +58,15 @@ The set of articles in this series:
     + selecting features from the feature pool
     + helping ML models more efficiently make predictions on target variables
 
++ Feature selection vs. Dimensionality reduction
+  + dimensionality reduction
+    + tending to lump together w/ feature selection
+    + using unsupervised algorithms to reduce the number of feature in a dataset
+  + differences
+    + feature selection: a process to select and exclude some features w/o modifying them at all
+    + dimensionality reduction:
+      + modifying or transforming features into a slower dimension
+      + creating a whole new feature space that looks approximately like the first one, but smaller in terms of dimensions
 
 
 
