@@ -31,6 +31,26 @@ The set of articles in this series:
     + improving model accuracy
     + increasing model interpretability
 
++ Why feature selection matter
+  + not always true: the more data features you have, the better the resulting model is going to be
+    + irrelevant features
+    + redundant features
+    + result: overfitting
+  + reasons to select features
+    + simple models easier to interpret much easier to understand the output of a model w/ less variables
+    + shorter training time: reducing the number of variables $\to$ 
+      + reducing the computation cost
+      + speeding up model training
+      + simpler model tend to have faster prediction times
+    + enhanced generalization by reducing overfitting
+      + many of the variables just noise w/ little prediction value
+      + eliminating these irrelevant noisy features
+      + substantially improving the generalization of ML models
+    + variable redundancy:
+      + redundancy: highly-correlated features providing the same information
+      + removing the redundant features w/o losing any information
+
+
 
 
 
