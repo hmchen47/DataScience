@@ -303,9 +303,47 @@ Part 2. Basic, correlation, and statistical filter methods
 + Statistical & Ranking filter
   + evaluating each feature individually
   + evaluating whether the variable to discriminate against the target
-  + proceddure
+  + procedure
     + ranking the feature base don certain criteria or metrics
     + selecting the features w/ the highest ranking
+  + methods
+    + mutual information
+    + Chi-square score
+    + ANOVA univariate test
+    + Univariate ROC_AUC / RMSE
 
++ Mutual information
+  + a measure of the mutual dependence of two variables
+  + measuring the amount of info obtained about one variable through observing the other variable
+  + determining how much knowing one variable by understanding another
+  + a little bit like correlation, but mutual information more general
+  + measuring how much info the presence/absence of a feature contributes to making the correct prediction on $Y$
+  + MI values
+    + $MI = 0$: X and Y independent
+    + $MI = E(X)$: $X$ is deterministic of $Y$, $E(X)$ as entropy of $X$
+  + Entropy: measuring or quantifying the amount of info within a variable
+
+    \[ I(X; Y) = \sum_{x, y} P_{XY} (x, y) \log \frac{P_{XY}(x, y)}{P_X(x)P_Y(y)} \]
+
+  + Python snippet
+
+    ```python
+    # import the required functions and object
+    from sklearn.feature_selection import mutual_info_classif
+    from sklearn.feature_selection import SelectKBest
+
+    # select the number of features to retain
+    select_k = 10
+
+    # get only the numerical features
+    numerical_x_train_df = x_train_df[x_train_df.select_dtypes([np.number]).columns]
+
+    # create the SelectKBest
+    selection = SelectKBest(mutual_info_classif, k=select_k).fit(numerical_x_train_df, y_train_df)
+
+    # display the retained features
+    features = x_train_columns[selection.get_support()]
+    print(features)
+    ```
 
 
