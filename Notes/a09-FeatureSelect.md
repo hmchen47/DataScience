@@ -207,7 +207,23 @@ Part 2. Basic, correlation, and statistical filter methods
   x_test_df.drop(labels=duplicated_columns, axis=1, inplace=True
   ```)
 
+## 2.2 Correlation Filter Methods
 
++ Correlation
+  + correlation:
+    + a measure of the linear relationship btw two quantitaive variables
+    + a measure of how strongly one variable depndending on another
+  + high correlation w/ target
+    + a useful property to predict one from another
+    + goal: highly correlated w/ the target, especially for linear ML models
+  + high correlation btw variables: 
+    + providing redundant information in regards to the target
+    + making an accurate prediction on the target w/ just one of the redundant variables
+    + not adding additional information
+    + removing redundant ones to reduce the dimensionality but add noise
+  + methods to measure the correlation btw variables
+    + Pearson correlation coefficient
+    + Kendall's rank correlation coefficient
 
 
 
