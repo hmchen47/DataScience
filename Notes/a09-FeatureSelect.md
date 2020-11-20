@@ -241,6 +241,19 @@ Part 2. Basic, correlation, and statistical filter methods
 
     \[ r_{xy} = \frac{\sum_{i=1}^n (x_i - \overline{x})(y_i - \overline{y})}{\sqrt{\sum_{i=1}^n (x_i - \overline{x})^2} \sqrt{\sum_{i=1}^n (y_i - \overline{y})^2}} \]
 
++ Spearman's rank coefficient coefficient
+  + variables w/ a nonlinear relationship
+  + stronger or weaker across the distribution of the variables
+  + a non-parametric test
+  + used to measure the degree of association btw two variables w/ a monotonic function
+  + $\rho \in [-1, 1]$
+  + Pearson correlation assessing linear relationships while Spearman's correlation  assessing monotonic relationship (whether linear or not)
+  + suitable for both continuous and discrete ordinal variables
+  + not carrying any assumptions about the distribution of the data
+  + Spearman's rank correlation coefficient
+
+    \[ \rho = 1 - \frac{6 \sum d_i^2}{n(n^2 - 1)} \]
+
 
 
 
