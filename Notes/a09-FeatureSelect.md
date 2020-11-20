@@ -127,7 +127,7 @@ Part 2. Basic, correlation, and statistical filter methods
   + evaluating the entire feature space
   + considering the relations to other ones in the dataset
 
-### 2.1 Basic filter methods
+### 2.2 Basic filter methods
 
 + Constant features
   + showing single values in all the observations in the dataset
@@ -207,7 +207,7 @@ Part 2. Basic, correlation, and statistical filter methods
   x_test_df.drop(labels=duplicated_columns, axis=1, inplace=True
   ```)
 
-## 2.2 Correlation Filter Methods
+### 2.3 Correlation Filter Methods
 
 + Correlation
   + correlation:
@@ -298,7 +298,14 @@ Part 2. Basic, correlation, and statistical filter methods
       + `min_periods` : Minimum number of observations required per pair of columns to have a valid result. Currently only available for pearson and spearman correlation
     + Returns: count :y : DataFrame
 
+### 2.4 Statistical & Ranking Filter Methods
 
++ Statistical & Ranking filter
+  + evaluating each feature individually
+  + evaluating whether the variable to discriminate against the target
+  + proceddure
+    + ranking the feature base don certain criteria or metrics
+    + selecting the features w/ the highest ranking
 
 
 
