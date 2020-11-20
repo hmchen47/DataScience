@@ -254,6 +254,17 @@ Part 2. Basic, correlation, and statistical filter methods
 
     \[ \rho = 1 - \frac{6 \sum d_i^2}{n(n^2 - 1)} \]
 
++ Kendall's rank correlation coefficient
+  + a non-parametric test that measures the strength of the ordinal association btw two variables
+  + calculating a normalized score for the number of machine or concordant rankings btw the two data samples
+  + $\tau \in [-1, 1]$
+    + $\tau = 1$ (high): observations w/ a similar rank btw two variables
+    + $\tau = -1$ (low): observation w/ a dissimilar rank btw two variables
+  + best suitable for discrete data
+  + Kendall's rank correlation
+
+    \[ \tau = \frac{2(n_c - n_d)}{n(n-1)} \]
+
 
 
 
