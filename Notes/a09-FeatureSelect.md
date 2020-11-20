@@ -223,7 +223,23 @@ Part 2. Basic, correlation, and statistical filter methods
     + removing redundant ones to reduce the dimensionality but add noise
   + methods to measure the correlation btw variables
     + Pearson correlation coefficient
+    + Spearman's rank correlation coefficient
     + Kendall's rank correlation coefficient
+
++ Pearson's correlation coefficient
+  + popular measure used in ML
+  + used to summarize the strength of the linear relationship btw two data variables
+  + $r_{xy} \in [-1, 1]$
+    + $r_{xy} = 1$: the values of one variable increase as the values of another increases
+    + $r_{xy} = -1$: the values of one variable decrease as the values of another decreases
+    + $r_{xy} = 0$: no linear correlation btw them, independent
+  + assumptions
+    + both normally distributed
+    + straight-line relationship btw the two variables
+    + equally distributed around the regression line
+  + Pearson correlation coefficient
+
+    \[ r_{xy} = \frac{\sum_{i=1}^n (x_i - \overline{x})(y_i - \overline{y})}{\sqrt{\sum_{i=1}^n (x_i - \overline{x})^2} \sqrt{\sum_{i=1}^n (y_i - \overline{y})^2}} \]
 
 
 
