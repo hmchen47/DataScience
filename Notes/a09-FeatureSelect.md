@@ -346,4 +346,28 @@ Part 2. Basic, correlation, and statistical filter methods
     print(features)
     ```
 
++ Chi-squared score
+  + commonly used for testing relationships btw categorical variables
+  + suitable for categorical variables and binary targets only
+  + constraint: non-negative variables and typically boolean, frequencies, or counts
+  + simply comparing the observed distribution btw various features in the dataset and the target variable
+  + Python snippet
+
+    ```python
+    # import the required functions and object
+    from sklearn.feature_selection import chi2
+    from sklearn.feature_selection import SelectKBest
+
+    # change this to how much features to keep from the top ones
+    select = 10
+
+    # apply the chi2 score on the data and target (target should be binary)
+    selection = selectKBest(chi2, k=select_k).fit(x_train_df, y_train_df)
+
+    # deiplay the k selected features
+    features = x_train_df.columns[selection.get_support()]
+    ```
+
+
+
 
