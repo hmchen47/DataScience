@@ -96,6 +96,8 @@ Part 1. The basics of feature selection
 
 Part 2. Basic, correlation, and statistical filter methods
 
+### 2.1 Overview of Filter Methods
+
 + Filter Methods
   + definitions:
     + selecting features from a dataset independently for any ML algorithms
@@ -124,6 +126,40 @@ Part 2. Basic, correlation, and statistical filter methods
 + Multivariate of filter methods
   + evaluating the entire feature space
   + considering the relations to other ones in the dataset
+
+### 2.1 Basic filter methods
+
++ Constant features
+  + showing single values in all the observations in the dataset
+  + no information
+
+  ```python
+  # import and create the VarianceThreshold object
+  from sklearn.feature_selection import VarianceThreshold
+
+  vs_constant = VarianceThreshold(threshold=0)
+
+  # select the numerical columns only
+  numerical_x_train_df = x_train_df[x_train_df.select_dtypes([np.number]).columns]
+
+  # fit the object to out data
+  vs_constant.fit(numerical_x_train_df)
+
+  # get the constant column names
+  constant_columns = [column for column in numerical_x_train_df.columns
+    if column not in numerical_x_train_df.columns[vs_constant.get_support()]]
+
+  # detect constant categorical variables
+  constant_cat_columns = [column for column in x_train_df.columns
+    if (x_train_df[column].dtype == "0" and len(x_train_df[column].unique()) == 1 )]
+
+  # concatenating the two lists
+  all_constant_columns = constant_cat_columns + constant_columns
+
+  # drop the constant columns
+  x_train_df.drop(labels=all_constant_columns, axis=1, inplace=True)
+  x_test_df.drop(labels=all_constant_columns, axis=1, inplace=True)
+  ```
 
 
 
