@@ -368,6 +368,33 @@ Part 2. Basic, correlation, and statistical filter methods
     features = x_train_df.columns[selection.get_support()]
     ```
 
++ ANOVA univariate test
+  + ANOVA = Analysis Of Variance
+  + similar to chi-squared score
+  + measuring the dependence of two variables
+  + assumptions
+    + linear relationship btw variables and the target
+    + both normally distributed
+  + suitable for continuous variables and requiring a binary target
+  + Python snippet
+
+    ```python
+    # import the required functions and object
+    from sklearn.feature_selection import f_classif
+    from sklearn.feature_selection import SelectKBest
+
+    # select the number of features to retain
+    select = 10
+
+    # create the SelectKBest w/ the mutual info strategy
+    selection = SelectBest(f_classif, k=select_k).fix(x_train_df, y_train_df)
+
+    # display the retained features
+    features = x_train_df.columns[selection.get_support()]
+    print(features)
+    ```
+
+
 
 
 
