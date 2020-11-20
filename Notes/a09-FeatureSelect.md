@@ -190,7 +190,22 @@ Part 2. Basic, correlation, and statistical filter methods
     x_test_df.drop(labels=duplicated_columns, axis=1, inplace=True)
     ```
 
++ Duplicated features: Python snippet
 
+  ```python
+  #transpose the feature matrice
+  train_features_T = x_train_df.T
+
+  # print the number of duplicated features
+  print(train_features_T.duplicated().sum())
+
+  # select the duplicated features columns names
+  duplicated_columns - train_features_T[train_features_T.duplicated()].index.values
+
+  # drop those columns
+  x_train_df.drop(labels=duplicated_columns, axis=1, inplace=True)
+  x_test_df.drop(labels=duplicated_columns, axis=1, inplace=True
+  ```)
 
 
 
