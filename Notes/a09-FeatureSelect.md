@@ -394,6 +394,42 @@ Part 2. Basic, correlation, and statistical filter methods
     print(features)
     ```
 
++ Univariate ROC-AUC / RMSE
+  + using ML models to measure the dependence of two variables
+  + suitable for all variables
+  + no assumptions about the distribution
+  + measuring scenarios
+    + regression problem: RMSE
+    + classification problem: ROC-AUC
+  + procedure
+    + build a decision tree using a single variable and target
+    + rank features according to the model RMSE or ROC-AUC
+    + select the features w/ higher ranking scores
+  + Python snippet
+
+    ```python
+    # import the DecisionTree Algorithm and evaluation score
+    from sklearn.tree import DecisionTreeClassifier
+    from sklearn.metrics import roc_auc_score
+
+    # list of the resulting scores
+    roc_values = []
+
+    # loop over all features and calculate the score
+    for feature in x_train_df.columns:
+      clf = DecisionTreeClassifier()
+      clf.fit(x_train_df[feature].to_frame(), y_train_df)
+      y_scored = clf.predict_proba(x_test_df[feature].to_frame())
+      roc_values.append(roc_auc_score(y_test_df, y_scored[:, 1]))
+
+    # create a Pandas Series for visualization
+    roc_values = pd.Series(roc_values)
+    roc_values.index = x_train_df.columns
+
+    # show the results
+    print(roc_values.sort_values(ascending=False))
+    ```
+
 
 
 
