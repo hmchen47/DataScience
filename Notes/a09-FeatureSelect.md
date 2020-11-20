@@ -254,7 +254,7 @@ Part 2. Basic, correlation, and statistical filter methods
 
     \[ \rho = 1 - \frac{6 \sum d_i^2}{n(n^2 - 1)} \]
 
-+ Kendall's rank correlation coefficient
++ Kendall's rank correlation
   + a non-parametric test that measures the strength of the ordinal association btw two variables
   + calculating a normalized score for the number of machine or concordant rankings btw the two data samples
   + $\tau \in [-1, 1]$
@@ -265,6 +265,38 @@ Part 2. Basic, correlation, and statistical filter methods
 
     \[ \tau = \frac{2(n_c - n_d)}{n(n-1)} \]
 
++ Python snippet for correlation coefficients
+
+  ```python
+  # creating set to hold the correlated features
+  corr_feature = set()
+
+  # create the correlation matrix (default to pearson)
+  corr_matrix = x_train_df.corr()
+
+  # optional: display a heatmap of the correlaton matrix
+  plt.figure(figsize=(11,11))
+  sns.heapmap(corr_matrix)
+
+  for i in range(len(corr_matrix.columns)):
+    for j in range(i):
+      if abs(corr_matrix.iloc[i, j]) > 0.8:
+        colname = corr_matrix.column[i]
+        corr_feature.add(columns[i])
+
+  x_train_df.drop(labels=corr_features, axis=1, inplace=True)
+  x_test_df.drop(labels=corr_features, axis=1, inplace=True)
+  ```
+
+  + `dataframe.corr()` function
+    + syntax: ` DataFrame.corr(self, method=’pearson’, min_periods=1)`
+    + Parameters:
+      + `method` :
+        + `pearson`: standard correlation coefficient
+        + `kendall`: Kendall Tau correlation coefficient
+        + `spearman`: Spearman rank correlation
+      + `min_periods` : Minimum number of observations required per pair of columns to have a valid result. Currently only available for pearson and spearman correlation
+    + Returns: count :y : DataFrame
 
 
 
