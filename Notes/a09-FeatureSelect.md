@@ -443,5 +443,40 @@ Part 2. Basic, correlation, and statistical filter methods
 
 Part 3: [Forward feature selection, backward feature elimination, exhaustive feature selection, and bidirectional search](https://tinyurl.com/y38b36nz)
 
+### 3.1 Wrapper Methods
+
++ Wrapper methods
+  + disadvantages of filter methods
+    + tend to ignore the effect of the selected feature subset on the performance of the algorithm
+    + evaluate features individually $\to$ some variables useless for prediction in isolation, but quite useful when combined w/ other variables
+  + Definition
+    + evaluating a subset of features using aML algorithm algorithm that employs a search strategy to look through the sopace of possible feature subsets
+    + evaluating each subset based on the quality of the performance of a given algorithm
+  + greedy algorithms
+    + aiming to find the best possible combination of features that result in the best performance model
+    + computationally expensive
+    + impractical in the case of exhaustive search
+  + advantages
+    + detecting the interaction btw variables
+    + finding the optimal feature subset for the desired ML algorithm
+  + usually result in better predictive accuracy than filter methods
+  + process
+    1. search for a subset of features: using a search method to select a subset of features from the availabe ones
+    2. build a ML model: choosing ML algorithm trained on the previously-selected subset of features
+    3. evaluate model performance: evaluating the newly-trained ML models w/ a chosen metric
+    4. repeat: starting against w/ a new subset of features, a new ML model trained, and so on
+  + stopping criteria
+    + defined by ML learning engineer
+    + examples of criteria
+      + model performance increases
+      + model performance decreases
+      + predefined number of features reached
+  + search methods
+    + forward feature selection: starting w/ no features and adding one at a time
+    + backward feature selection: starting w/ all features present and removing one feature at a time
+    + exhaustive feature selection: trying all possible feature combinations
+    + bidirectional search: both forward and backward feature selection simultaneously to get one unique solution
+  + library to install: `mlxtend` containing useful tools for a number of day-to-day data science tasks
+
 
 
