@@ -443,6 +443,8 @@ Part 2. Basic, correlation, and statistical filter methods
 
 Part 3: [Forward feature selection, backward feature elimination, exhaustive feature selection, and bidirectional search](https://tinyurl.com/y38b36nz)
 
+[Wrapper Methods Jupyter Notebook](src/a09-3.WrapperMethods.ipynb)
+
 ### 3.1 Wrapper Methods
 
 + Wrapper methods
