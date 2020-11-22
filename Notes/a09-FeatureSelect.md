@@ -480,5 +480,47 @@ Part 3: [Forward feature selection, backward feature elimination, exhaustive fea
     + bidirectional search: both forward and backward feature selection simultaneously to get one unique solution
   + library to install: `mlxtend` containing useful tools for a number of day-to-day data science tasks
 
+### 3.2 Forward Feature Selection
+
++ Forward feature selection
+  + a.k.a. step forward selection, sequential forward feature selection (SFS)
+  + an interactive method
+  + procedure
+    + start by evaluating all feature individually and then select the one that results in the best performance
+    + test all possible combinations of the selected feature w/ the remaining features and retain the pair that procedures the best algorithmic performance
+    + a loop continues by adding one feature at a time in each iteration until the pre-set criterion reached
+  + `mlxtend.feature_selection.SequentialFeatureSelector()` function
+    + `k_features`: the maximum feature to be reached when starting from 0
+    + `floating`: using a variant of the step forward selection called step floating forward selection
+    + `scorign`: the scoring function to evaluate model performance
+    + `cv`: the number of folds of K-fold cross-validation, no cross-validation if cv=0 or False
+  + Python snippet
+
+    ```python
+    # import the algorithm to evaluate features
+    from sklearn.ensemble import RandomnForestClassifier
+
+    # create the SequentialFeatureSelector object, and configure the parameters
+    sfs = SequentialFeatureSelector(RandomForestClassifier(), k_feature=10,
+      forward=True, forward=True, floating=Flase, scoring='accuracy', cv=2)
+
+    # fit the object to the training data
+    sfs = sfs.fit(x_train, y_train)
+
+    # print the selected feature
+    selected_features = x_train.columns[list(sfs.k_feature_idx_)]
+    print(selected_features)
+
+    # print the final prediction score
+    print(sfs_k_score_)
+
+    # transform to the nrely selected features
+    x_train_sfs = sfs.transform(x_train_df)
+    x_test_sfs = sfs.transform(x_test_df)
+    ```
+
+
+
+
 
 
