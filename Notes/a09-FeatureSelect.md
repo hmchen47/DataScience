@@ -96,6 +96,9 @@ Part 1. The basics of feature selection
 
 Part 2. Basic, correlation, and statistical filter methods
 
+[Filter Methods Jupyter Notebook](src/a09-2.FilterMethods.ipynb)
+
+
 ### 2.1 Overview of Filter Methods
 
 + Filter Methods
@@ -120,7 +123,7 @@ Part 2. Basic, correlation, and statistical filter methods
   + treating each feature individually and independently of the feature space
   + procedures
     + ranking features according to certain criteria
-    + selecting the highest ranking features according to the those criteria
+    + selecting the highest ranking features according to those criteria
   + issue: not considering relation to other ones in the dataset
 
 + Multivariate of filter methods
@@ -143,7 +146,7 @@ Part 2. Basic, correlation, and statistical filter methods
     # select the numerical columns only
     numerical_x_train_df = x_train_df[x_train_df.select_dtypes([np.number]).columns]
 
-    # fit the object to out data
+    # fit the object to the data
     vs_constant.fit(numerical_x_train_df)
 
     # get the constant column names
@@ -176,11 +179,11 @@ Part 2. Basic, correlation, and statistical filter methods
     # loop over all the columns
     for feature in x_train_df.columns:
       # calculate the ratio
-      predomiant = (x_train_df[feature].value_counts() / \
+      predominant = (x_train_df[feature].value_counts() / \
         np.float(len(x_train_df))).sort_values(ascending=False).value
 
       # append the column name if it is bigger than the threshold
-      if predomiant >= threshold:
+      if predominant >= threshold:
         quasi_constant_feature.append(feature)
 
     print("Features= {}".format(quasi_constant_feature))
@@ -200,12 +203,12 @@ Part 2. Basic, correlation, and statistical filter methods
   print(train_features_T.duplicated().sum())
 
   # select the duplicated features columns names
-  duplicated_columns - train_features_T[train_features_T.duplicated()].index.values
+  duplicated_columns = train_features_T[train_features_T.duplicated()].index.values
 
   # drop those columns
   x_train_df.drop(labels=duplicated_columns, axis=1, inplace=True)
-  x_test_df.drop(labels=duplicated_columns, axis=1, inplace=True
-  ```)
+  x_test_df.drop(labels=duplicated_columns, axis=1, inplace=True)
+  ```
 
 ### 2.3 Correlation Filter Methods
 
@@ -232,7 +235,7 @@ Part 2. Basic, correlation, and statistical filter methods
   + $r_{xy} \in [-1, 1]$
     + $r_{xy} = 1$: the values of one variable increase as the values of another increases
     + $r_{xy} = -1$: the values of one variable decrease as the values of another decreases
-    + $r_{xy} = 0$: no linear correlation btw them, independent
+    + $r_{xy} = 0$: no linear correlation btw them
   + assumptions
     + both normally distributed
     + straight-line relationship btw the two variables
@@ -276,7 +279,7 @@ Part 2. Basic, correlation, and statistical filter methods
 
   # optional: display a heatmap of the correlaton matrix
   plt.figure(figsize=(11,11))
-  sns.heapmap(corr_matrix)
+  sns.heatmap(corr_matrix)
 
   for i in range(len(corr_matrix.columns)):
     for j in range(i):
@@ -298,14 +301,18 @@ Part 2. Basic, correlation, and statistical filter methods
       + `min_periods` : Minimum number of observations required per pair of columns to have a valid result. Currently only available for pearson and spearman correlation
     + Returns: count :y : DataFrame
 
+  + `DataFrame.duplicated()` function
+    + Return boolean Series denoting duplicate rows.
+    + Syntax: `DataFrame.duplicated(subset=None, keep='first')`
+
 ### 2.4 Statistical & Ranking Filter Methods
 
 + Statistical & Ranking filter
   + evaluating each feature individually
   + evaluating whether the variable to discriminate against the target
   + procedure
-    + ranking the feature base don certain criteria or metrics
-    + selecting the features w/ the highest ranking
+    + ranking the feature base on certain criteria or metrics
+    + selecting the features w/ the highest rankings
   + methods
     + mutual information
     + Chi-square score
@@ -316,7 +323,7 @@ Part 2. Basic, correlation, and statistical filter methods
   + a measure of the mutual dependence of two variables
   + measuring the amount of info obtained about one variable through observing the other variable
   + determining how much knowing one variable by understanding another
-  + a little bit like correlation, but mutual information more general
+  + a little bit like correlation, but more general
   + measuring how much info the presence/absence of a feature contributes to making the correct prediction on $Y$
   + MI values
     + $MI = 0$: X and Y independent
@@ -359,17 +366,17 @@ Part 2. Basic, correlation, and statistical filter methods
     from sklearn.feature_selection import SelectKBest
 
     # change this to how much features to keep from the top ones
-    select = 10
+    select_k = 10
 
     # apply the chi2 score on the data and target (target should be binary)
-    selection = selectKBest(chi2, k=select_k).fit(x_train_df, y_train_df)
+    selection = SelectKBest(chi2, k=select_k).fit(x_train_df, y_train_df)
 
     # deiplay the k selected features
     features = x_train_df.columns[selection.get_support()]
     ```
 
 + ANOVA univariate test
-  + ANOVA = Analysis Of Variance
+  + ANOVA = Analysis Of VAriance
   + similar to chi-squared score
   + measuring the dependence of two variables
   + assumptions
@@ -384,10 +391,10 @@ Part 2. Basic, correlation, and statistical filter methods
     from sklearn.feature_selection import SelectKBest
 
     # select the number of features to retain
-    select = 10
+    select_k = 10
 
     # create the SelectKBest w/ the mutual info strategy
-    selection = SelectBest(f_classif, k=select_k).fix(x_train_df, y_train_df)
+    selection = SelectKBest(f_classif, k=select_k).fit(x_train_df, y_train_df)
 
     # display the retained features
     features = x_train_df.columns[selection.get_support()]
@@ -429,7 +436,6 @@ Part 2. Basic, correlation, and statistical filter methods
     # show the results
     print(roc_values.sort_values(ascending=False))
     ```
-
 
 
 
