@@ -489,11 +489,6 @@ Part 3: [Forward feature selection, backward feature elimination, exhaustive fea
     + start by evaluating all feature individually and then select the one that results in the best performance
     + test all possible combinations of the selected feature w/ the remaining features and retain the pair that procedures the best algorithmic performance
     + a loop continues by adding one feature at a time in each iteration until the pre-set criterion reached
-  + `mlxtend.feature_selection.SequentialFeatureSelector()` function
-    + `k_features`: the maximum feature to be reached when starting from 0
-    + `floating`: using a variant of the step forward selection called step floating forward selection
-    + `scorign`: the scoring function to evaluate model performance
-    + `cv`: the number of folds of K-fold cross-validation, no cross-validation if cv=0 or False
   + Python snippet
 
     ```python
@@ -519,6 +514,52 @@ Part 3: [Forward feature selection, backward feature elimination, exhaustive fea
     x_test_sfs = sfs.transform(x_test_df)
     ```
 
++ `mlxtend.feature_selection.SequentialFeatureSelector()` function
+  + `k_features`: the maximum feature to be reached when starting from 0
+  + `floating`: using a variant of the step forward selection called step floating forward selection
+  + `scorign`: the scoring function to evaluate model performance
+  + `cv`: the number of folds of K-fold cross-validation, no cross-validation if cv=0 or False
+
+### 3.3 Backward Feature Elimination
+
++ Backward feature elimination method
+  + a.k.a. step backward selection, sequential backward feature selection  (SBS)
+  + starting w/ all the features in the dataset
+  + evaluating the performance of the algorithm
+  + removing one feature at a time
+  + producing the best performing algorithm using an evaluation metric
+  + the least significant feature among the remaining available ones
+  + removing feature after feature until a certain criterion satisfied
+  + Python snippet
+
+    ```python
+    # import the algorithm to evaluate features
+    frpm sklearn.ensemble import RandomForestClassifier
+
+    # just set forward=False for backward feature selection
+    # create the SequentialFeatureSelector object, and configure the parameter
+    sbs = SequentialFeatureSelector(RandomForestClassifier(),
+      k_features=10, forward=False, floating=False, scoring='accuracy', cv=2)
+
+    # fit the object to the training dataset
+    sbs = sbs.fit(x_train_df, y_train)
+
+    # print the selected features
+    selected_features = x_train_df.columns[list(sbs.k_feature_idx)]
+    print(selected_features)
+
+    #print the final prediction score
+    print(sbs.k_score_)
+
+    # transform tot he newly selected features
+    x_train_sfs_df = sbs.transform(x_train_df)
+    x_test_sfs_df = sbs.transform(x_test_df)
+    ```
+
++ `mlxtend.feature_selection.SequentialFeatureSelector()` function
+  + `k_features`: the maximum feature to be reached when starting from N
+  + `forward`: using the object for step forward or step backward feature selection
+  + `floating`: using a variant of the step backward selection called step floating backward selection
 
 
 
