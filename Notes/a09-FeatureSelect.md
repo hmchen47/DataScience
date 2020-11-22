@@ -605,17 +605,41 @@ Part 3: [Forward feature selection, backward feature elimination, exhaustive fea
   + SBS removing features at each iteration
     + removing a feature useless in the beginning but useful after removing more ones
     + unable to add the feature in the feature subsets
-  + solutions: LRS or sequential floating
-    + LRS, or Plus-L, Minus-R: using two parameters L and R (both integer)
-    + repeatedly adding and removing features from the solution subset
-    + $L > R$: LRS starting from the empty set of features
-      + repeatedly adding L features
-      + repeatedly removing R features
-    + $L < R$: LRS starting from the full set of features
-      + repeatedly removing R features
-      + repeatedly adding L features
-    + compensating for the weaknesses of SFS and SBS w/ some backtracking capabilities
-    + constrain: carefully set L and R parameters w/o well-know theory to choose the optimal values
+  + solutons: LRS or sequential floating
+
++ LRS, or Plus-L, Minus-R:
+  + using two parameters L and R (both integer)
+  + repeatedly adding and removing features from the solution subset
+  + $L > R$: LRS starting from the empty set of features
+    + repeatedly adding L features
+    + repeatedly removing R features
+  + $L < R$: LRS starting from the full set of features
+    + repeatedly removing R features
+    + repeatedly adding L features
+  + compensating for the weaknesses of SFS and SBS w/ some backtracking capabilities
+  + constrain: carefully set L and R parameters w/o well-know theory to choose the optimal values
+
++ Sequential floating
+  + an extension of LRS
+  + determining values from the data directly than by adding and removing features for L and R
+  + the size of subset floating up and down by adding and removing features
+  + context of the floating methods
+    + step floating forward selection (SFFS): performing backward steps as long as the objective function increases
+    + step floating backward selection (SFBS): performing forward steps as long as the objective function increases
+  + algorithm for SFFS
+    1. start from an empty set
+    2. select the best feature and adding in the feature subset as SFS
+    3. select the worse feature from the subset
+    4. evaluate and check whether the object function whether improving or not by deleting the feature.
+      + deleting the feature if improving
+      + keep the feature if not improving
+    5. repeat from step 2 until stop criteria reached
+  + algorithm for SBFS
+    + start w/ a full one
+    + process w/ normal SBS
+    + add feature to improve the object function
+
+
 
 
 
