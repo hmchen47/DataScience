@@ -596,6 +596,26 @@ Part 3: [Forward feature selection, backward feature elimination, exhaustive fea
   + `min_features`: the lower bound of the number of features to search from
   + `max_features`: the upper bound of the number of features to search from
 
+### 3.5 Limitations and Solutions of Step Forward/Backward Selection
+
++ limitations of SFS & SBS
+  + SFS adding features at each iteration
+    + adding up a feature useful in the beginning but non-useful after adding more ones
+    + unable to remove the feature
+  + SBS removing features at each iteration
+    + removing a feature useless in the beginning but useful after removing more ones
+    + unable to add the feature in the feature subsets
+  + solutions: LRS or sequential floating
+    + LRS, or Plus-L, Minus-R: using two parameters L and R (both integer)
+    + repeatedly adding and removing features from the solution subset
+    + $L > R$: LRS starting from the empty set of features
+      + repeatedly adding L features
+      + repeatedly removing R features
+    + $L < R$: LRS starting from the full set of features
+      + repeatedly removing R features
+      + repeatedly adding L features
+    + compensating for the weaknesses of SFS and SBS w/ some backtracking capabilities
+    + constrain: carefully set L and R parameters w/o well-know theory to choose the optimal values
 
 
 
