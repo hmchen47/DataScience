@@ -439,4 +439,9 @@ Part 2. Basic, correlation, and statistical filter methods
 
 
 
+## 3. Wrapper Methods
+
+Part 3: [Forward feature selection, backward feature elimination, exhaustive feature selection, and bidirectional search](https://tinyurl.com/y38b36nz)
+
+
 
