@@ -640,6 +640,17 @@ Part 3: [Forward feature selection, backward feature elimination, exhaustive fea
     + add feature to improve the object function
 
 
+### 3.6 Other Search Methods
+
++ Bidirectional Search (BDS)
+  + applying SFS and SBS concurrently
+  + SFS: performing from the empty set of features
+  + SBS: performing from the full set of features
+  + issue: converge to different solutions 
+  + resolving by the constrains
+    + features already selected by SFS not removing by SBS
+    + featuers already removed by SBS not added by SFS
+
 
 
 
