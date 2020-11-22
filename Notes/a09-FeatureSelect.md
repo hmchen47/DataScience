@@ -562,6 +562,40 @@ Part 3: [Forward feature selection, backward feature elimination, exhaustive fea
   + `floating`: using a variant of the step backward selection called step floating backward selection
 
 
+### 3.4 Exhaustive Feature Selection
+
++ Exhaustive feature selection
+  + finding the best performing feature subset
+  + a brute-force evaluation of feature subsets
+  + creating all  the subsets of features from 1 to N
+  + building a ML algorithm for each subset and selecting the subset w/ the best performance
+  + parameter 1 and N: the minimum number of features and the maximum number of features
+  + Python snippet
+
+    ```python
+    from mlxtend.feature_selection import ExhaustiveFeatureSelector
+
+    #import the algorithm to evaluate the features
+    from sklearn.ensemble import RandomForesetClassifier
+
+    # create the EchaustiveFeatureSelector object
+    efs = EchaustiveFeatureSelector(RandomForestClassifier(),
+      min_features=4, max_features=10, scoring=roc_auc', cv=2)
+
+    # print the selected features
+    selected_features = x_train_df.columns[list(efs.k_feature_idx_)]
+    print(selected_features)
+
+    # print the final prediction score
+    transform data to the newly selected features
+    x_train_sfs = efs.transform(x_train_df)
+    x_test_sfs = efs.transform(y_test_df)
+    ```
+
++ `mlxtend.feature_selection.SequentialFeatureSelector()` function
+  + `min_features`: the lower bound of the number of features to search from
+  + `max_features`: the upper bound of the number of features to search from
+
 
 
 
