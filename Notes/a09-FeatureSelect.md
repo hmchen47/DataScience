@@ -452,7 +452,7 @@ Part 3: [Forward feature selection, backward feature elimination, exhaustive fea
     + tend to ignore the effect of the selected feature subset on the performance of the algorithm
     + evaluate features individually $\to$ some variables useless for prediction in isolation, but quite useful when combined w/ other variables
   + Definition
-    + evaluating a subset of features using aML algorithm algorithm that employs a search strategy to look through the sopace of possible feature subsets
+    + evaluating a subset of features using a ML algorithm that employs a search strategy to look through the space of possible feature subsets
     + evaluating each subset based on the quality of the performance of a given algorithm
   + greedy algorithms
     + aiming to find the best possible combination of features that result in the best performance model
@@ -463,12 +463,12 @@ Part 3: [Forward feature selection, backward feature elimination, exhaustive fea
     + finding the optimal feature subset for the desired ML algorithm
   + usually result in better predictive accuracy than filter methods
   + process
-    1. search for a subset of features: using a search method to select a subset of features from the availabe ones
+    1. search for a subset of features: using a search method to select a subset of features from the available ones
     2. build a ML model: choosing ML algorithm trained on the previously-selected subset of features
     3. evaluate model performance: evaluating the newly-trained ML models w/ a chosen metric
     4. repeat: starting against w/ a new subset of features, a new ML model trained, and so on
   + stopping criteria
-    + defined by ML learning engineer
+    + defined by ML engineer
     + examples of criteria
       + model performance increases
       + model performance decreases
@@ -500,14 +500,14 @@ Part 3: [Forward feature selection, backward feature elimination, exhaustive fea
       forward=True, forward=True, floating=Flase, scoring='accuracy', cv=2)
 
     # fit the object to the training data
-    sfs = sfs.fit(x_train, y_train)
+    sfs = sfs.fit(x_train_df, y_train_df)
 
     # print the selected feature
-    selected_features = x_train.columns[list(sfs.k_feature_idx_)]
+    selected_features = x_train_df.columns[list(sfs.k_feature_idx_)]
     print(selected_features)
 
     # print the final prediction score
-    print(sfs_k_score_)
+    print(sfs.k_score_)
 
     # transform to the nrely selected features
     x_train_sfs = sfs.transform(x_train_df)
@@ -517,7 +517,7 @@ Part 3: [Forward feature selection, backward feature elimination, exhaustive fea
 + `mlxtend.feature_selection.SequentialFeatureSelector()` function
   + `k_features`: the maximum feature to be reached when starting from 0
   + `floating`: using a variant of the step forward selection called step floating forward selection
-  + `scorign`: the scoring function to evaluate model performance
+  + `scoring`: the scoring function to evaluate model performance
   + `cv`: the number of folds of K-fold cross-validation, no cross-validation if cv=0 or False
 
 ### 3.3 Backward Feature Elimination
@@ -534,7 +534,7 @@ Part 3: [Forward feature selection, backward feature elimination, exhaustive fea
 
     ```python
     # import the algorithm to evaluate features
-    frpm sklearn.ensemble import RandomForestClassifier
+    from sklearn.ensemble import RandomForestClassifier
 
     # just set forward=False for backward feature selection
     # create the SequentialFeatureSelector object, and configure the parameter
@@ -542,7 +542,7 @@ Part 3: [Forward feature selection, backward feature elimination, exhaustive fea
       k_features=10, forward=False, floating=False, scoring='accuracy', cv=2)
 
     # fit the object to the training dataset
-    sbs = sbs.fit(x_train_df, y_train)
+    sbs = sbs.fit(x_train_df, y_train_df)
 
     # print the selected features
     selected_features = x_train_df.columns[list(sbs.k_feature_idx)]
@@ -580,14 +580,16 @@ Part 3: [Forward feature selection, backward feature elimination, exhaustive fea
 
     # create the EchaustiveFeatureSelector object
     efs = EchaustiveFeatureSelector(RandomForestClassifier(),
-      min_features=4, max_features=10, scoring=roc_auc', cv=2)
+      min_features=4, max_features=10, scoring='roc_auc', cv=2)
 
     # print the selected features
     selected_features = x_train_df.columns[list(efs.k_feature_idx_)]
     print(selected_features)
 
     # print the final prediction score
-    transform data to the newly selected features
+    print(efs.k_score_)
+
+    # transform data to the newly selected features
     x_train_sfs = efs.transform(x_train_df)
     x_test_sfs = efs.transform(y_test_df)
     ```
@@ -605,7 +607,7 @@ Part 3: [Forward feature selection, backward feature elimination, exhaustive fea
   + SBS removing features at each iteration
     + removing a feature useless in the beginning but useful after removing more ones
     + unable to add the feature in the feature subsets
-  + solutons: LRS or sequential floating
+  + solutions: LRS or sequential floating
 
 + LRS, or Plus-L, Minus-R:
   + using two parameters L and R (both integer)
@@ -617,7 +619,7 @@ Part 3: [Forward feature selection, backward feature elimination, exhaustive fea
     + repeatedly removing R features
     + repeatedly adding L features
   + compensating for the weaknesses of SFS and SBS w/ some backtracking capabilities
-  + constrain: carefully set L and R parameters w/o well-know theory to choose the optimal values
+  + constrain: carefully set L and R parameters w/o well-known theory to choose the optimal values
 
 + Sequential floating
   + an extension of LRS
@@ -630,7 +632,7 @@ Part 3: [Forward feature selection, backward feature elimination, exhaustive fea
     1. start from an empty set
     2. select the best feature and adding in the feature subset as SFS
     3. select the worse feature from the subset
-    4. evaluate and check whether the object function whether improving or not by deleting the feature.
+    4. evaluate and check whether the objective function whether improving or not by deleting the feature.
       + deleting the feature if improving
       + keep the feature if not improving
     5. repeat from step 2 until stop criteria reached
