@@ -445,7 +445,7 @@ Part 3: [Forward feature selection, backward feature elimination, exhaustive fea
 
 [Wrapper Methods Jupyter Notebook](src/a09-3.WrapperMethods.ipynb)
 
-### 3.1 Wrapper Methods
+### 3.1 Overview of Wrapper Methods
 
 + Wrapper methods
   + disadvantages of filter methods
@@ -651,8 +651,13 @@ Part 3: [Forward feature selection, backward feature elimination, exhaustive fea
   + issue: converge to different solutions 
   + resolving by the constrains
     + features already selected by SFS not removing by SBS
-    + featuers already removed by SBS not added by SFS
+    + features already removed by SBS not added by SFS
 
 
+## 4. Embedded Methods
+
+Part 4: [Regularization and tree-based embedded methods](https://tinyurl.com/y5sj9og3)
+
+[Embedded Methods Jupyter Notebook](src/a09-4.EmbeddedMethods.ipynb)
 
 
