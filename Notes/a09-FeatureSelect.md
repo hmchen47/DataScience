@@ -660,4 +660,30 @@ Part 4: [Regularization and tree-based embedded methods](https://tinyurl.com/y5s
 
 [Embedded Methods Jupyter Notebook](src/a09-4.EmbeddedMethods.ipynb)
 
+### 4.1 Overview of Embedded Method
+
++ Embedded methods
+  + wrapper methods:
+    + a good way to ensure the selected feeatures are best for a specific ML model
+    + providing better results in terms of performance
+    + costing a lot of computation time/resources
+  + definition
+    + including the feature selection process in ML model training itself
+    + result in even better features of the mode in a short amount of time
+    + complete the feature selection process within the construction of the ML algorithm itself
+    + performing feature selection during the model training
+  + advantages
+    + solving both model training and feature selection
+    + takinging into consideration the interaction of feature  like wrapper methods do
+    + faster like filter methods
+    + more acurate than filter methods
+    + finding the feature subset for the algorithm being trained
+    + much less prone to overfitting
+  + process
+    + train a ML model
+    + derive feature importance from this model, a measure of how much is feature important when making a prediction
+    + remove non-important features using the derived feature importance
+  + method: regularization & tree-based methods
+
+
 
