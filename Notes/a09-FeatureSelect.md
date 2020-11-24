@@ -723,6 +723,56 @@ Part 4: [Regularization and tree-based embedded methods](https://tinyurl.com/y5s
     # see the deleted features
     removed_features = x_train_df.columns[(selection.estiamtor_.coef_==0).ravel().tolist()]
 
+### 4.3 Tree-based Feature Importance
+
++ Tree-based fewature importance
+  + tree-based algorithms and models
+    + well-established algorithms
+    + offerring good predictive perormance
+    + able to provide the featire importance as a way to selecct features
+  + feature importance
+    + indication which variables more important in making accurate predictions on the target variable/class
+    + identifying which features mostly used by the ML algorithm to predict the target
+  + random forests:
+    + providing feature importance w/ straightforward methods
+      + mean decrease impurity
+      + mean decrease accuracy
+    + a group of decision trees
+    + each decision tree established over a random extraction of samples and features from the dataset
+    + individual unable to see all the features or access all the observations
+    + the importance of each feature derived by how "pure" each of the sets is
+    + impurity: measure based on the optimal condition chosen
+      + classification: typically either the Gini impurity or information gain/entropy
+      + regression: variance
+  + training a tree
+    + feature importance calculated as the decrease in node impurity weighted in a tree
+    + the higher the value, the more important the feature
+  + Python snippet
+
+    ```python
+    from sklearn.ensemble import RandomForestClassifier
+
+    # create the random forest w/ hyperparameters
+    model = RandomForestClassifier(n_estimators=340)
+
+    # get the importance of the resulting features
+    importances = model.feature_importances_
+
+    # create a dataframe for visualization
+    findal_df = pd.DataFrame({"Features": x_train_df.columns, "Importances": importances})
+    final_df.set_index("Importances")
+
+    # sort in ascending order to better visualization
+    final_df = final_df.sort_values('Importances')
+
+    # plot the feature importances in bars
+    final_df.plot.bar()
+    ```
+
+  + alternatives: 
+    + able to use any other tree-based algorithm the same way =
+    + best tree model types: gradient boosting algoritms (like XH=GBoost, CatBoost, and any more)
+    + providing accurate feature importance
 
 
 
