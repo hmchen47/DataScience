@@ -686,4 +686,43 @@ Part 4: [Regularization and tree-based embedded methods](https://tinyurl.com/y5s
   + method: regularization & tree-based methods
 
 
+### 4.2 Regularization Methods
+
++ Regularization
+  + adding a penalty to the different parameters of a model to reduce its freedom
+  + penalty applied to the coefficient that multiplies each of the features in the linear model
+  + advantages
+    + avoid overfitting
+    + make the model robust to model
+    + improve its generalization
+  + main types of regularization for linear models
+    + Larson regression / L1 regularization
+      + shrinking some of the coefficients to zero
+      + indicating a certain predictor or certain features multiplied by zero to estimate the target
+      + not added to the final prediction of the target
+      + i.e., features removed due to not contributing to the final prediction
+    + ridge regression / L2 regularization
+      + not setting the coefficient to zero, but approaching to zero
+    + elastic nets / L1/L2 regularization
+      + a combination of the L1 and L2
+      + incorporating their penalties and ending up w/ features w/ zero as a coefficient
+  + Python snippet
+
+    ```python
+    # Lasso for regression tasks, and Logistic Regression for Classification tasks
+    from sklearn.learn_model import Lasso, LogisticRegression
+    from sklearn.feature_selection import SelectFromModel
+
+    # using logistic regression w/ penalty L1
+    selection = SelectFromModel(LogisticRegression(C=1, penalty='l1'))
+    selection.fit(x_train_df, y_train_df)
+
+    # see the selected features
+    selected_features = x_train_df.columns[(selection.get_support())]
+
+    # see the deleted features
+    removed_features = x_train_df.columns[(selection.estiamtor_.coef_==0).ravel().tolist()]
+
+
+
 
