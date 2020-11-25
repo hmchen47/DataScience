@@ -663,8 +663,8 @@ Part 4: [Regularization and tree-based embedded methods](https://tinyurl.com/y5s
 ### 4.1 Overview of Embedded Method
 
 + Embedded methods
-  + wrapper methods:
-    + a good way to ensure the selected feeatures are best for a specific ML model
+  + characteristics of wrapper methods:
+    + a good way to ensure the selected features are best for a specific ML model
     + providing better results in terms of performance
     + costing a lot of computation time/resources
   + definition
@@ -673,10 +673,10 @@ Part 4: [Regularization and tree-based embedded methods](https://tinyurl.com/y5s
     + complete the feature selection process within the construction of the ML algorithm itself
     + performing feature selection during the model training
   + advantages
-    + solving both model training and feature selection
-    + takinging into consideration the interaction of feature  like wrapper methods do
+    + solving both model training and feature selection simultaneously
+    + taking into consideration the interaction of feature  like wrapper methods do
     + faster like filter methods
-    + more acurate than filter methods
+    + more accurate than filter methods
     + finding the feature subset for the algorithm being trained
     + much less prone to overfitting
   + process
@@ -696,7 +696,7 @@ Part 4: [Regularization and tree-based embedded methods](https://tinyurl.com/y5s
     + make the model robust to model
     + improve its generalization
   + main types of regularization for linear models
-    + Larson regression / L1 regularization
+    + Lasso regression / L1 regularization
       + shrinking some of the coefficients to zero
       + indicating a certain predictor or certain features multiplied by zero to estimate the target
       + not added to the final prediction of the target
@@ -725,13 +725,13 @@ Part 4: [Regularization and tree-based embedded methods](https://tinyurl.com/y5s
 
 ### 4.3 Tree-based Feature Importance
 
-+ Tree-based fewature importance
++ Tree-based feature importance
   + tree-based algorithms and models
     + well-established algorithms
-    + offerring good predictive perormance
-    + able to provide the featire importance as a way to selecct features
+    + offerring good predictive performance
+    + able to provide the featire importance as a way to select features
   + feature importance
-    + indication which variables more important in making accurate predictions on the target variable/class
+    + indicating which variables more important in making accurate predictions on the target variable/class
     + identifying which features mostly used by the ML algorithm to predict the target
   + random forests:
     + providing feature importance w/ straightforward methods
