@@ -775,4 +775,16 @@ Part 4: [Regularization and tree-based embedded methods](https://tinyurl.com/y5s
     + providing accurate feature importance
 
 
+## 5. Hybride Methods
+
+Part 5: [Combining filter, wrapper, and embedded feature selection methods](https://tinyurl.com/y57f97ch)
+
+[Hybrid Method Jupyter Methods](src/a09-5.HybridMethods.ipynb)
+
+
+
+
+
+
+
 
