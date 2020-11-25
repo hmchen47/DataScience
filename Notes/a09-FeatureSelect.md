@@ -798,6 +798,19 @@ Part 5: [Combining filter, wrapper, and embedded feature selection methods](http
     + main priority: select the methods to use, them follow their processes
 
 
+### 5.2 Filter & Wrapper Methods
+
++ Hybrid method: Filter + Wrapper methods
+  + filter method
+    + ranking methods, including mutual infromation and Chi-square score
+    + order features independently involving any learning algorithm
+    + the best features selected from the ranking list
+  + procedure
+    + using ranking methods to generate a feature list
+    + using the top k features from this list to perform wrapper method (SFS or SBS)
+  + advantages
+    + reducing the feature space of datset using these filter-based rangers
+    + improving the time complexity of th wrapper methods
 
 
 
