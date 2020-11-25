@@ -917,16 +917,71 @@ Part 5: [Combining filter, wrapper, and embedded feature selection methods](http
 
         # and append the feature to remove to this list
         feature_to_remove.append(feature)
-      
+
     # print the features that need removing
     print(features_to_remove)
     features_to_keep = [x for x in_train_df.columns \
       if x not in features_to_remove]
-    
+
     # print the features to keep
     print('total features to keep: ', len(features_to_keep))
     ```
 
+### 5.4 Recursive Feature Addition
 
++ Recursive feature additions
+  + starting w/ no features and adding one feature at the time
+  + procedure
+    + train a model on all the data and derive the feature importance to rank it accordingly
+      + possible models: tree-based model, Lasso, logistic regression, or others offerring feature importance
+    + from the initial model, create another w/ the most important feature and evaluate it w/ an evaluation metric of your choice
+    + add another important feature and use it to re-train the model, along w/ any feature from the previous step
+    + use the previous evaluation metric to calculate the performance of the resulting model
+    + test whether the evaluation metric increases by an arbitrary-set threshold
+    + repeat step 3-5 until features added
+  + Python snippet
 
+    ```python
+    from sklearn.ensemble import RandomForestClassifier
+    from sklearn.metrics import roc_auc_score
+
+    # array to hold the feature to be kept
+    features_to_keep = [x_train_df.columns[0]]
+
+    # set this value accordingly
+    threshold = 0.002
+
+    # create preferred model and fit it to the training data
+    model_one_feature_df = RandomForestClassifier(n_estimators=332)
+    model_one_feature_df.fit(x_train_df[[x_train_df.columns[0]]])
+
+    # evaluate against metric selected
+    y_pred_test_df = model_one_feature_df.predict(x_test_df[[x_train_df.columns[0]]])
+    auc_roc_all = roc_auc_score(y_test_df, y_pred_test_df)
+
+    # start iterating from the feature
+    for feature in x_train_df.columns[1:]:
+      model = RandomForestClassifier(n_estimators=332)
+
+      # fit model w/ the selected features and the feature to be evaluated
+      model.fit(x_train_df[features_to_keep + [featue]], y_train_df)
+      y_pred_test_df = model.predict(x_test[features_to_keep + [feature]])
+      auc_roc_int = roc_auc_score(y_test_df, y_pred_test_df)
+
+      # determine the drop in the roc-auc
+      diff_auc = auc_score_int - auc_score_all
+
+      # compare the drop in roc-auc w/ the threshold
+      if diff_auc >= threshold:
+        # if the increases in the roc is bigger than the threshold
+        # keep the feature and re-adjust the roc-auc to the new
+        # value considering the added feature
+        auc_score_all = auc_score_int
+        featue_to_keep.append(feature)
+
+    # print the feature to keep
+    print(features_to_keep)
+    ```
+
+  
 
