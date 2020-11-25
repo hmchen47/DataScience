@@ -782,7 +782,20 @@ Part 5: [Combining filter, wrapper, and embedded feature selection methods](http
 [Hybrid Method Jupyter Methods](src/a09-5.HybridMethods.ipynb)
 
 
+### 5.1 Overview of Hybrid Methods
 
++ Hybrid methods
+  + definitions
+    + combining the difference approaches to get the best possible feature subset
+    + combinations of approaches up to engineer
+    + taking the best advantages from other feature feature selection methods
+  + advantages
+    + high performance and accuracy
+    + better computational complexity than wrapper methods
+    + more flexible and robust models against high dimensional data
+  + process
+    + depending on what engineers choose to combine
+    + main priority: select the methods to use, them follow their processes
 
 
 
