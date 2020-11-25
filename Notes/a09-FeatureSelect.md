@@ -812,5 +812,121 @@ Part 5: [Combining filter, wrapper, and embedded feature selection methods](http
     + reducing the feature space of datset using these filter-based rangers
     + improving the time complexity of th wrapper methods
 
+### 5.3 Embedded & Wrapper Methods
+
++ Hybrid method: Embedded & Wrapper methods
+  + embedded methods
+    + establishing feature importance
+    + used to select top features
+  + procedure:
+    + embedded methods to get top k features
+    + performing a wrapper methods search
+  + methods:
+    + recursive feature elimination
+    + recursive featire addition
+
++ Recursive feature elimination
+  + procedure
+    1. train a model on all the data features
+      + possible candidate: tree-based model, lasso, logistic regression, or others offerring feature importance
+      + evaluating its performance on a suitable metric
+    2. derive the feature importance to rank features accordingly
+    3. delete the fast important feature and re-train the model on the remaining ones
+    4. use the previous evaluation metric to calculate the performance of the resulting model
+    5. test whether the evaluation metric decreases by an arbitrary threshold to remain or remove
+    6. repeat step 3~5 until all features removed
+  + difference w/ SBS
+    + SBS: eliminate all the features to determine which one is the least important
+    + recursive feature elimination:
+      + getting this info from the ML models derived importance
+      + removing the feature only once rather than removing all the features at each step
+  + faster than pure wrapper methods and better than pure embedded methods
+  + limitations:
+    + use an arbitrary threshold value to decided whether to keep a feature or not
+    + thw smaller this threshold value, the more features will be included in the subset and vice versa
+  + Python snippet to select the best features
+
+    ```python
+    from sklearn.feature_selection import RFECV
+
+    # us any other model selected
+    from sklearn.ensemble import RandomForestClassifier
+
+    model = RandomForestClassifier(n_estiamtors=411)
+
+    # build the REF w/ cv option
+    ref = REFCV(model, min_features_to_selecct=3, step=1, cv=5, scoring='accuracy')
+
+    # fit the RFE to our data
+    selecton = rfe.fit(x_train_df, y_train_df)
+
+    # print the selected features
+    print(x_train_df.columns[selection.support_])
+    ```
+
+  + `RFECV`: recursive feature elimination w/ corss-validation
+    + `min_features_to_select`: int (default=1) <br/>The minimum number of features to be selected. This number of features will always be scored, even if the difference between the original feature count and `min_features_to_select` isn’t divisible by `step`.
+    + `step`: int or float, optional (default=1)
+      + $\ge 0$: correspond to the (integer) number of features to remove at each iteration
+      + $\in (0.0, 1.0)$: correspond to the percentage (rounded down) of features to remove at each iteration
+    + `cv`: int, cross-validation generator or an iterable, optional<br/>Determines the cross-validation splitting strategy.
+      + `None`: to use the default 5-fold cross-validation
+      + `integer`: to specify the number of folds
+      + CV splitter
+        + `cross-validation generator`: a non-estimator family of classes used to split a dataset into a sequence of train and test portions , by providing split and get_n_splits methods
+        + `cross-validation estimator`: an estimator that has built-in cross-validation capabilities to automatically select the best hyper-parameters
+        + `scorer`: a non-estimator callable object which evaluates an estimator on given test data, returning a number
+      + an iterable yielding (train, test) splits as arrays of indices
+    + `scoring`: string, callable or None, optional, (default=None)<br/>A string (see model evaluation documentation) or a scorer callable object / function with signature `scorer(estimator, X, y)`.
+  + Python snippet for recursive feature elimination
+
+    ```python
+    from sklearn.ensemble import RandomForestClassifier
+    from sklearn.metrics import roc_auc_score
+
+    # array to hold the feature to be removed
+    model_all_features = RandomForestClassifier(n_estimators=221)
+    model_all_features.fit(x_train_df, t_train_df)
+
+    # get the 1st score of all the features (able to use own metric)
+    y_pred_test_df = model_all_features.predict(x_test)
+    auc_score_all = roc_auc_score(y_test_df, y_pred_test_df)
+
+    # loop over all the feature to do recursive feature elimination
+    for feature in x_train_df.columns:
+      model = RandomForestClassifier(n_estiamntors=221)
+
+      # delete the current feature
+      x_train_rfe_df = x_train_df.drop(features_to_remove + [feature], axis=1)
+      x_test_rfe_df = x_test_df.drop(features_to_remove + [feature], axis=1)
+
+      # fit model w/ all variables minus the removed features and the feature to be evaluated
+      mode.fit(x_train_rfe_df, y_train_df)
+      y_pred_test-df = model.predict(x_test_rfe_df)
+      auc_score_int = roc_auc_score(y_test_df, y_pred_test_df)
+
+      # determine the drop in the roc_auc
+      diff_auc = auc_score_all - auc_score_int
+
+      # compare the drop in the roc-auc w/ the threshold
+      if diff_auc < threshold:
+        # if thr drop in the roc is small and remove the
+        # feature, require to set the new roc to the
+        # one based on the remaining feature
+        auc_score_all = auc_score_int
+
+        # and append the feature to remove to this list
+        feature_to_remove.append(feature)
+      
+    # print the features that need removing
+    print(features_to_remove)
+    features_to_keep = [x for x in_train_df.columns \
+      if x not in features_to_remove]
+    
+    # print the features to keep
+    print('total features to keep: ', len(features_to_keep))
+    ```
+
+
 
 
