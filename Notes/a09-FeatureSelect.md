@@ -985,5 +985,10 @@ Part 5: [Combining filter, wrapper, and embedded feature selection methods](http
     print(features_to_keep)
     ```
 
-  
+
+## 6. Advanced Methods
+
+Part 6: [Dimensionality reduction, genetic algorithms, permutation importance, and deep learning approaches](https://tinyurl.com/y6f38zqs)
+
+
 
