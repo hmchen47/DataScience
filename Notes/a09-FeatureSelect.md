@@ -991,4 +991,47 @@ Part 5: [Combining filter, wrapper, and embedded feature selection methods](http
 Part 6: [Dimensionality reduction, genetic algorithms, permutation importance, and deep learning approaches](https://tinyurl.com/y6f38zqs)
 
 
+### 6.1 Dimensionality Reduction
+
++ Dimensionality reduction vs. feature selecion
+  + both tried to reduce the number of features
+  + feature selection: select and exclude some features w/0 making any transformation
+  + dimensionality reduction: transform features into a lower dimension
+
++ Principal component analysis (PCA)
+  + a dimensionality reduction technique
+  + using linear algebra to transform a dataset into a compressed form
+  + starting by calculating the Eigen decomposition (or singular value decomposition, SVD) of the covariance matrix of the features
+  + procedure
+    + searching the correlation btw featrues
+    + building new features that preserve the same explained variance of the original ones
+  + resulting in a lower-dimensional projection of the data, the __maximal data variance__
+  + measuring the importance of a given variable
+  + observing how much it's contributing tot he reduced feature space that PCA obtains
+  + feature selection w/ PCA
+    + calculating the explained variance of each feature
+    + using it as featue importance to rank variable accordingly
+  + Python snippet
+
+    ```python
+    from sklearn.decomposition import pCA
+
+    # create th PCA onject w/ all the features
+    pca = PCA(n_estimators=x_train_df.shape([1]))
+
+    # fit the object to our data
+    fit = pac.fit(x_train_df)
+
+    # print out the results
+    print(fit.explained_variance_ratio)
+    print(fit.components)
+    ```
+
+  + alternative: linear discriminant analysis (LDA)
+  
+
+
+
+
+
 
