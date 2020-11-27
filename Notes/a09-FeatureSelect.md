@@ -788,21 +788,21 @@ Part 5: [Combining filter, wrapper, and embedded feature selection methods](http
   + definitions
     + combining the difference approaches to get the best possible feature subset
     + combinations of approaches up to engineer
-    + taking the best advantages from other feature feature selection methods
+    + taking the best advantages from other feature selection methods
   + advantages
     + high performance and accuracy
     + better computational complexity than wrapper methods
     + more flexible and robust models against high dimensional data
   + process
     + depending on what engineers choose to combine
-    + main priority: select the methods to use, them follow their processes
+    + main priority: select the methods to use, then follow their processes
 
 
 ### 5.2 Filter & Wrapper Methods
 
 + Hybrid method: Filter + Wrapper methods
   + filter method
-    + ranking methods, including mutual infromation and Chi-square score
+    + ranking methods, including mutual information and Chi-square score
     + order features independently involving any learning algorithm
     + the best features selected from the ranking list
   + procedure
@@ -810,7 +810,7 @@ Part 5: [Combining filter, wrapper, and embedded feature selection methods](http
     + using the top k features from this list to perform wrapper method (SFS or SBS)
   + advantages
     + reducing the feature space of datset using these filter-based rangers
-    + improving the time complexity of th wrapper methods
+    + improving the time complexity of the wrapper methods
 
 ### 5.3 Embedded & Wrapper Methods
 
@@ -825,13 +825,15 @@ Part 5: [Combining filter, wrapper, and embedded feature selection methods](http
     + recursive feature elimination
     + recursive featire addition
 
+### 5.4 Recursive feature elimination
+
 + Recursive feature elimination
   + procedure
     1. train a model on all the data features
       + possible candidate: tree-based model, lasso, logistic regression, or others offerring feature importance
       + evaluating its performance on a suitable metric
     2. derive the feature importance to rank features accordingly
-    3. delete the fast important feature and re-train the model on the remaining ones
+    3. delete the least important feature and re-train the model on the remaining ones
     4. use the previous evaluation metric to calculate the performance of the resulting model
     5. test whether the evaluation metric decreases by an arbitrary threshold to remain or remove
     6. repeat step 3~5 until all features removed
@@ -843,13 +845,13 @@ Part 5: [Combining filter, wrapper, and embedded feature selection methods](http
   + faster than pure wrapper methods and better than pure embedded methods
   + limitations:
     + use an arbitrary threshold value to decided whether to keep a feature or not
-    + thw smaller this threshold value, the more features will be included in the subset and vice versa
+    + the smaller this threshold value, the more features will be included in the subset and vice versa
   + Python snippet to select the best features
 
     ```python
     from sklearn.feature_selection import RFECV
 
-    # us any other model selected
+    # use any other model selected
     from sklearn.ensemble import RandomForestClassifier
 
     model = RandomForestClassifier(n_estiamtors=411)
@@ -870,14 +872,14 @@ Part 5: [Combining filter, wrapper, and embedded feature selection methods](http
       + $\ge 0$: correspond to the (integer) number of features to remove at each iteration
       + $\in (0.0, 1.0)$: correspond to the percentage (rounded down) of features to remove at each iteration
     + `cv`: int, cross-validation generator or an iterable, optional<br/>Determines the cross-validation splitting strategy.
-      + `None`: to use the default 5-fold cross-validation
-      + `integer`: to specify the number of folds
+      + `None`: using the default 5-fold cross-validation
+      + `integer`: specifying the number of folds
       + CV splitter
         + `cross-validation generator`: a non-estimator family of classes used to split a dataset into a sequence of train and test portions , by providing split and get_n_splits methods
         + `cross-validation estimator`: an estimator that has built-in cross-validation capabilities to automatically select the best hyper-parameters
         + `scorer`: a non-estimator callable object which evaluates an estimator on given test data, returning a number
       + an iterable yielding (train, test) splits as arrays of indices
-    + `scoring`: string, callable or None, optional, (default=None)<br/>A string (see model evaluation documentation) or a scorer callable object / function with signature `scorer(estimator, X, y)`.
+    + `scoring`: string, callable or None, optional, (default=None)<br/>A string or a scorer callable object / function with signature `scorer(estimator, X, y)`.
   + Python snippet for recursive feature elimination
 
     ```python
@@ -889,7 +891,7 @@ Part 5: [Combining filter, wrapper, and embedded feature selection methods](http
     model_all_features.fit(x_train_df, t_train_df)
 
     # get the 1st score of all the features (able to use own metric)
-    y_pred_test_df = model_all_features.predict(x_test)
+    y_pred_test_df = model_all_features.predict(x_test_df)
     auc_score_all = roc_auc_score(y_test_df, y_pred_test_df)
 
     # loop over all the feature to do recursive feature elimination
@@ -902,7 +904,7 @@ Part 5: [Combining filter, wrapper, and embedded feature selection methods](http
 
       # fit model w/ all variables minus the removed features and the feature to be evaluated
       mode.fit(x_train_rfe_df, y_train_df)
-      y_pred_test-df = model.predict(x_test_rfe_df)
+      y_pred_test_df = model.predict(x_test_rfe_df)
       auc_score_int = roc_auc_score(y_test_df, y_pred_test_df)
 
       # determine the drop in the roc_auc
@@ -927,18 +929,18 @@ Part 5: [Combining filter, wrapper, and embedded feature selection methods](http
     print('total features to keep: ', len(features_to_keep))
     ```
 
-### 5.4 Recursive Feature Addition
+### 5.5 Recursive Feature Addition
 
 + Recursive feature additions
   + starting w/ no features and adding one feature at the time
   + procedure
-    + train a model on all the data and derive the feature importance to rank it accordingly
+    1. train a model on all the data and derive the feature importance to rank it accordingly
       + possible models: tree-based model, Lasso, logistic regression, or others offerring feature importance
-    + from the initial model, create another w/ the most important feature and evaluate it w/ an evaluation metric of your choice
-    + add another important feature and use it to re-train the model, along w/ any feature from the previous step
-    + use the previous evaluation metric to calculate the performance of the resulting model
-    + test whether the evaluation metric increases by an arbitrary-set threshold
-    + repeat step 3-5 until features added
+    2. from the initial model, create another w/ the most important feature and evaluate it w/ an evaluation metric of your choice
+    3. add another important feature and use it to re-train the model, along w/ any feature from the previous step
+    4. use the previous evaluation metric to calculate the performance of the resulting model
+    5. test whether the evaluation metric increases by an arbitrary-set threshold
+    6. repeat step 3-5 until features added
   + Python snippet
 
     ```python
@@ -965,7 +967,7 @@ Part 5: [Combining filter, wrapper, and embedded feature selection methods](http
 
       # fit model w/ the selected features and the feature to be evaluated
       model.fit(x_train_df[features_to_keep + [featue]], y_train_df)
-      y_pred_test_df = model.predict(x_test[features_to_keep + [feature]])
+      y_pred_test_df = model.predict(x_test_df[features_to_keep + [feature]])
       auc_roc_int = roc_auc_score(y_test_df, y_pred_test_df)
 
       # determine the drop in the roc-auc
