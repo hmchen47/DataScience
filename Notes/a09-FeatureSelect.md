@@ -1119,6 +1119,57 @@ Part 6: [Dimensionality reduction, genetic algorithms, permutation importance, a
     + a global search algorithm allowing a suboptimal solution to be accepted in the hope that better solution wiill show up eventually
 
 
+### 6.3 Feature Importance w/ Permutation Importance
+
++ Permutation Importance
+  + basically randomly shuffle the values of a feature (w/o touching the other variables ot the targets) to see how this permutation affects the performance metric of the ML meodel
+  + the choice of metric upon the engineer
+  + mearuing the importance of a featrue by measuring the increase in the model's prediction error after permutation the feature values
+  + breaking the relationship btw the feature and the true outcome
+    + important feature:
+      + shuffling values increasing the model error
+      + relying on the feature for the prediction
+    + non-important feature:
+      + shuffling values leaving the model eroor unchanged
+      + mode ignoring the feature for the prediction
+  + Python snippet
+
+    ```python
+    # import whatever algorithm chooses
+    from sklearn.emsenble import RandomForestClassifier
+    from sklearn.metrics import roc_auc_score
+
+    # build model and train it
+    model = RandomForestClassifier(n_estimator=221)
+    model.fit(x_train_df, y_train_df)
+
+    # get the default score
+    train_auc = roc_auc_score(y_train_df, model.predict(x_train_df))
+    feature_dict_score = {}
+
+    # loop over all the feature
+    for feature in x_train_df.columns:
+      # copy the dataset to do some permutation
+      x_train_copy_df = x_train_df.copy().reset_index(drop=True)
+      y_train_copy_df = y_train_df.copy().reset_index(drop=True)
+
+      # shuffle an individual feature
+      x_train_copy_df[feature] = x_train_copy_df[feature].sample(
+        feac=1, random_sate=random_state
+      ).reset_index(drop=true)
+
+      # make a prediction w/ permuted feature and calculate roc auc
+      shuffle_auc = roc_auc_score(y_train_copy_df, 
+        model.predict(x_train_copy_df))
+
+      # save the drop in dictionary
+      feature_dict_scores[feature] = (train_auc - shuffle_aux)
+
+    # print the resulting dictionary, features => how much it drop the score
+    print(feature_dict_scores)
+    ```
+
+  + model-agnostic permutation feature importance: a more advanced technique in permutation importance
 
 
 
