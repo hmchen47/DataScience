@@ -912,7 +912,6 @@ Part 5: [Combining filter, wrapper, and embedded feature selection methods](http
 
       # compare the drop in the roc-auc w/ the threshold
       if diff_auc < threshold:
-        # if thr drop in the roc is small and remove the
         # feature, require to set the new roc to the
         # one based on the remaining feature
         auc_score_all = auc_score_int
@@ -1024,11 +1023,102 @@ Part 6: [Dimensionality reduction, genetic algorithms, permutation importance, a
 
     # print out the results
     print(fit.explained_variance_ratio)
-    print(fit.components)
+    print(fit.components) 
     ```
 
   + alternative: linear discriminant analysis (LDA)
   
+
+### 6.2 Heuristic Search Algorithms
+
++ Heuristic search
+  + attempt to perform optimization tasks in an iterative fashion to find an approximate solution if classical models failed to find an exact solution
+  + not always find the best or even the optimal solution, but find a good or acceptable solution within a reasonable amount of time and memory space
+  + performing a heuristic search across feature subsets to find the best one
+
++ Genetic algorithms (GA)
+  + global optimization techniques for searching very large spaces
+  + sort of randomized search
+  + inspired by the biological mechanisms of natural selection and reconstruction
+  + working throughout populations of possible solutions (generations)
+  + each solution in the search space represented as a finite length string (chromesome) over some finite set of symbols
+  + using an objective (or fitness) function to evaluate the suitability of each solution
+  + feature selection
+    + each chromosome representing a feature subset
+    + represented w/ binary encoding: feature w/ 1 to choose and 0 to eliminate from
+  + conducting many iterations to create a new generation (new feature subset) of possible solutions from the current generations using a few oprtors
+  + operators
+    + __slection:__ 
+      + probabilististically filters out solutions that perform poorly
+      + choosing high perfroming solutions to exploit
+    + __cross over:__
+      + the GA way to explore new solutions and exchange info btw strings
+      + applied to selected pairs of chromosomes randomly
+      + the probability equal to a given crossover rate
+      + generating new chromosomes that hoppefully will retain good features from the previous generations
+    + __maturation:__ 
+      + protecting GAs against the irrecoverable loss of good solution features
+      + changing a symbol of some chromosomes
+      + changing ration as a probability equal to a very low given mutation rate to restore lost genetic material
+  + advantages
+    + working w/ a population of solutions
+    + more effective to eacsape local minima
+  + procedures
+    1. initializing a population w/ randomly-generated individuals
+      + different feature subsets
+      + creating a mechaine learning algorithm
+    2. evaluating the fitness of each feature subset w/ an evaluation metric of choice depending on the chosen algorithm
+    3. reproducing high-fitness chromosomes (feature subset) in the new population
+    4. removing poor-fitness chromsomes (selection)
+    5. constructing new chromosomes (crossover)
+    6. recovering lost features (mutation)
+    7. repeating step 2~6 until a stopping criterion met (or the number of iterations)
+  + open-source implementation: `sklearn-genetic`
+  + Python snippet
+
+    ```python
+    from genetic_selection import GeneticSelectionCV
+
+    # import preferred ml model
+    from sklearn.ensemble import RandomForesetClassifier
+
+    # build the model w/ perferrred hyperparameters
+    model = RandomForesetClassifier(n_estimators=231)
+
+    # create the GeneticSelection search w/ the different parameters available
+    selection = GeneticSelectionCV(model, cv=5, scoring='accuracy', 
+      max_features=12, n_population=120, crossover_proba=0.5, 
+      mutation_proba=0.2, n_generations=50, crossover_inndependent_proba=0.5,
+      mutation_independent_proba=0.05, n_gen_no_chane=10, n_jobs=-1)
+
+    # fit the GA search to data
+    selection = selection(x_train_df, y_train_df)
+
+    # print result
+    print(selection.support_)
+    ```
+
+  + parameters of GeneticSelectionCV
+    + __estiamtor__: model used to evaluate the suitablity of the feature subset, alongside an evaluation metric
+    + __cv__: int, generator, or an iterable used to determine the cross-validation splitting strategy
+    + __scoring__: the evaluation metric
+      + the fitness fucntion to evaluate the performance of a chromosome
+      + ML model's performance against a subset of features
+    + __max_features__: determine the maximum number of features selected
+    + __n_population__: number of populations for the genetic algorithm, different feature subsets
+    + __crossover_proba__: probability value of a crossover operation for the genetic algorithm
+    + __mutation_proba__: probability value of a mutation operation for the genetic algorithm
+    + __n_generation__: an integer describing the number of generations for the genetic algorithm - the stopping criterion
+    + __crossover_independent_proba__:
+      + the independent probability for each attribute to be exchanged
+      + offering much more flexibility for the generic algorithm to search
+    + __mutation_independent_proba__: the independent probabiility for each attribute to be mutated by th egeneric algorithm
+    + __n_gen_no_change__: the number of generations needs to terminate the search if no change w/ the best individuals
+  + simulation annealing
+    + a heuristic approach to search for the feature subsets
+    + a global search algorithm allowing a suboptimal solution to be accepted in the hope that better solution wiill show up eventually
+
+
 
 
 
