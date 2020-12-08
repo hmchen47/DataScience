@@ -1172,6 +1172,78 @@ Part 6: [Dimensionality reduction, genetic algorithms, permutation importance, a
   + model-agnostic permutation feature importance: a more advanced technique in permutation importance
 
 
+### 5.4 Deep Learning
+
++ Deep learning
+  + involving the use of NN to build high-performing ML models
+  + NN able to learn nonlinear relationships among features
+  + most traditional embedded-based methods only exploring linear relationships across features
+
++ Autoencoders
+  + able to derive feature importance from NN to help to select good feature subsets
+  + procedure
+    + learning to compress and encode data
+    + learning how to reconstruct the data back from the reduced encoded representaion
+  + goal: resulting representation as cloas as possible to the original input
+  + taking the feature space and reducing its dimensionality $\to$ reconstructing inputs from its reduced format
+  + principle: by reducing the data dimensions
+    + learn how to ignore the noise
+    + which feature best helping to reconstruct the data
+  + Auttoencoder for Feature Selection (AEFS)
+    + [Autoencoder Inspired Unsupervised Feature Selection]((https://arxiv.org/abs/1710.08310))
+    + a solution for feature selection
+    + uncovering existing nonlinear relationships btw features
+    + using a single-layer autoencoder to reconstruct data
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick="window.open('https://tinyurl.com/y6f38zqs')"
+        src    ="https://tinyurl.com/yykc9cjf"
+        alt    ="Signle-leayer Autoencoder"
+        title  ="Signle-leayer Autoencoder"
+      />
+    </figure>
+
+    + after reconstructing the data
+      + use the first weight matrix of the autoencoder that connects the input feature layer to the reduced layer
+      + squared weight ($w^2$) $\to 0$: feature contributing little to the represention of others
+      + significant corresponding weight: important feature in the representation of other features
+  + Python snippet
+
+    ```python
+    # import the keras library
+    from keras.layers import Dense
+    from keras.models import Sequential
+
+    # the dimension of the encoding layer
+    encoding_dim = 16
+
+    # create the autoncoder
+    model = Sequential()
+
+    # add the encoding layer
+    model.add(Dense(encoding_dim, activaton='relu', 
+      input_shape=(x_train_df,shape[1],)))
+
+    # complie the model, use whatever optimizer
+    model.compile(optimizer='adadelta', loss='categorical_crossentropy')
+
+    # fit model to the training data
+    model.fit(x_train_df, y_train_df, epochs=50, batch_size=64,
+      shuffle=True, validation_data=(x_train_df, x_test_df))
+
+    # get the first layer weights
+    weights = model.layers[1].get_weights()[0]
+
+    # get the feature importance
+    print(weights.sum(axis=1))
+    ```
+
+  + limtation: a simple single-layer autoencoder unable to model complex nonlinear feature dependencies
+  + improvement: [Deep Feature Selection using a Teacher-Student Network](https://arxiv.org/abs/1903.07045)
+
+
+
 
 
 
