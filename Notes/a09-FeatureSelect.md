@@ -994,7 +994,7 @@ Part 6: [Dimensionality reduction, genetic algorithms, permutation importance, a
 
 + Dimensionality reduction vs. feature selecion
   + both tried to reduce the number of features
-  + feature selection: select and exclude some features w/0 making any transformation
+  + feature selection: select and exclude some features w/o making any transformation
   + dimensionality reduction: transform features into a lower dimension
 
 + Principal component analysis (PCA)
@@ -1006,17 +1006,17 @@ Part 6: [Dimensionality reduction, genetic algorithms, permutation importance, a
     + building new features that preserve the same explained variance of the original ones
   + resulting in a lower-dimensional projection of the data, the __maximal data variance__
   + measuring the importance of a given variable
-  + observing how much it's contributing tot he reduced feature space that PCA obtains
+  + observing how much its contributing to the reduced feature space that PCA obtains
   + feature selection w/ PCA
     + calculating the explained variance of each feature
     + using it as featue importance to rank variable accordingly
   + Python snippet
 
     ```python
-    from sklearn.decomposition import pCA
+    from sklearn.decomposition import PCA
 
     # create th PCA onject w/ all the features
-    pca = PCA(n_estimators=x_train_df.shape([1]))
+    pca = PCA(n_estimators=x_train_df.shape[1])
 
     # fit the object to our data
     fit = pac.fit(x_train_df)
@@ -1041,7 +1041,7 @@ Part 6: [Dimensionality reduction, genetic algorithms, permutation importance, a
   + sort of randomized search
   + inspired by the biological mechanisms of natural selection and reconstruction
   + working throughout populations of possible solutions (generations)
-  + each solution in the search space represented as a finite length string (chromesome) over some finite set of symbols
+  + each solution in the search space represented as a finite length string (chromosome) over some finite set of symbols
   + using an objective (or fitness) function to evaluate the suitability of each solution
   + feature selection
     + each chromosome representing a feature subset
@@ -1049,17 +1049,17 @@ Part 6: [Dimensionality reduction, genetic algorithms, permutation importance, a
   + conducting many iterations to create a new generation (new feature subset) of possible solutions from the current generations using a few oprtors
   + operators
     + __slection:__ 
-      + probabilististically filters out solutions that perform poorly
+      + probabilististically filtering out solutions that perform poorly
       + choosing high perfroming solutions to exploit
     + __cross over:__
       + the GA way to explore new solutions and exchange info btw strings
       + applied to selected pairs of chromosomes randomly
       + the probability equal to a given crossover rate
       + generating new chromosomes that hoppefully will retain good features from the previous generations
-    + __maturation:__ 
+    + __mutation:__
       + protecting GAs against the irrecoverable loss of good solution features
       + changing a symbol of some chromosomes
-      + changing ration as a probability equal to a very low given mutation rate to restore lost genetic material
+      + changing ratio as a probability equal to a very low given mutation rate to restore lost genetic material
   + advantages
     + working w/ a population of solutions
     + more effective to eacsape local minima
@@ -1068,7 +1068,7 @@ Part 6: [Dimensionality reduction, genetic algorithms, permutation importance, a
       + different feature subsets
       + creating a mechaine learning algorithm
     2. evaluating the fitness of each feature subset w/ an evaluation metric of choice depending on the chosen algorithm
-    3. reproducing high-fitness chromosomes (feature subset) in the new population
+    3. reproducing high-fitness chromosomes (feature subsets) in the new population
     4. removing poor-fitness chromsomes (selection)
     5. constructing new chromosomes (crossover)
     6. recovering lost features (mutation)
@@ -1092,17 +1092,17 @@ Part 6: [Dimensionality reduction, genetic algorithms, permutation importance, a
       mutation_independent_proba=0.05, n_gen_no_chane=10, n_jobs=-1)
 
     # fit the GA search to data
-    selection = selection(x_train_df, y_train_df)
+    selection = selection.fit(x_train_df, y_train_df)
 
     # print result
     print(selection.support_)
     ```
 
   + parameters of GeneticSelectionCV
-    + __estiamtor__: model used to evaluate the suitablity of the feature subset, alongside an evaluation metric
+    + __estiamtor__: model used to evaluate the suitability of the feature subset, alongside an evaluation metric
     + __cv__: int, generator, or an iterable used to determine the cross-validation splitting strategy
     + __scoring__: the evaluation metric
-      + the fitness fucntion to evaluate the performance of a chromosome
+      + the fitness function to evaluate the performance of a chromosome
       + ML model's performance against a subset of features
     + __max_features__: determine the maximum number of features selected
     + __n_population__: number of populations for the genetic algorithm, different feature subsets
@@ -1112,26 +1112,27 @@ Part 6: [Dimensionality reduction, genetic algorithms, permutation importance, a
     + __crossover_independent_proba__:
       + the independent probability for each attribute to be exchanged
       + offering much more flexibility for the generic algorithm to search
-    + __mutation_independent_proba__: the independent probabiility for each attribute to be mutated by th egeneric algorithm
+    + __mutation_independent_proba__: the independent probabiility for each attribute to be mutated by the generic algorithm
     + __n_gen_no_change__: the number of generations needs to terminate the search if no change w/ the best individuals
-  + simulation annealing
-    + a heuristic approach to search for the feature subsets
-    + a global search algorithm allowing a suboptimal solution to be accepted in the hope that better solution wiill show up eventually
+  
++ Simulation annealing
+  + a heuristic approach to search for the feature subsets
+  + a global search algorithm allowing a suboptimal solution to be accepted in the hope that better solution wiill show up eventually
 
 
 ### 6.3 Feature Importance w/ Permutation Importance
 
 + Permutation Importance
-  + basically randomly shuffle the values of a feature (w/o touching the other variables ot the targets) to see how this permutation affects the performance metric of the ML meodel
+  + basically randomly shuffle the values of a feature (w/o touching the other variables of the targets) to see how this permutation affects the performance metric of the ML meodel
   + the choice of metric upon the engineer
-  + mearuing the importance of a featrue by measuring the increase in the model's prediction error after permutation the feature values
+  + measuring the importance of a featrue by measuring the increase in the model's prediction error after permutation the feature values
   + breaking the relationship btw the feature and the true outcome
     + important feature:
       + shuffling values increasing the model error
       + relying on the feature for the prediction
     + non-important feature:
-      + shuffling values leaving the model eroor unchanged
-      + mode ignoring the feature for the prediction
+      + shuffling values leaving the model error unchanged
+      + model ignoring the feature for the prediction
   + Python snippet
 
     ```python
@@ -1206,7 +1207,7 @@ Part 6: [Dimensionality reduction, genetic algorithms, permutation importance, a
 
     + after reconstructing the data
       + use the first weight matrix of the autoencoder that connects the input feature layer to the reduced layer
-      + squared weight ($w^2$) $\to 0$: feature contributing little to the represention of others
+      + squared weight ($w^2$) $\to 0$: feature contributing little to the representation of others
       + significant corresponding weight: important feature in the representation of other features
   + Python snippet
 
@@ -1222,8 +1223,8 @@ Part 6: [Dimensionality reduction, genetic algorithms, permutation importance, a
     model = Sequential()
 
     # add the encoding layer
-    model.add(Dense(encoding_dim, activaton='relu', 
-      input_shape=(x_train_df,shape[1],)))
+    model.add(Dense(encoding_dim, activation='relu', 
+      input_shape=(x_train_df.shape[1],)))
 
     # complie the model, use whatever optimizer
     model.compile(optimizer='adadelta', loss='categorical_crossentropy')
