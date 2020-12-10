@@ -47,7 +47,6 @@
 + Maytal Saar-Tsechansky and Foster Provost, [Handling Missing Values when Applying Classification Models](../AppliedDS-UMich/3-AML/p5-Missing.md)
 + [Graphs](../AppliedDS-UMich/5-SocialNet/p2-Graphs.md)
 
-+ UC Berkeley, CS 88, [Computational Structures in Data Science](https://www2.eecs.berkeley.edu/Courses/CS88/)
 
 
 ### Feature Engineering

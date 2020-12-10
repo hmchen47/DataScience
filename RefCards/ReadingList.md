@@ -69,6 +69,7 @@
 
 + Y. Charfaoui, [Resampling to Properly Handle Imbalanced Datasets in Machine Learning](https://tinyurl.com/yxjq63ms)
 
++ UC Berkeley, CS 88, [Computational Structures in Data Science](https://www2.eecs.berkeley.edu/Courses/CS88/)
 
 
 ## Neural Networks
