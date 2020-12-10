@@ -163,7 +163,7 @@
   x_test_df.drop(labels=duplicated_columns, axis=1, inplace=True)
   ```
 
-### 2.3 Correlation Filter Methods
+### Correlation Filter Methods
 
 + [Correlation](../Notes/a09-FeatureSelect.md#23-correlation-filter-methods)
   + correlation:
@@ -258,7 +258,7 @@
     + Return boolean Series denoting duplicate rows.
     + Syntax: `DataFrame.duplicated(subset=None, keep='first')`
 
-### 2.4 Statistical & Ranking Filter Methods
+### Statistical & Ranking Filter Methods
 
 + [Statistical & Ranking filter](../Notes/a09-FeatureSelect.md#24-statistical--ranking-filter-methods)
   + evaluating each feature individually
@@ -392,10 +392,10 @@
 
 
 
-## 3. Wrapper Methods
+## Wrapper Methods
 
 
-### 3.1 Overview of Wrapper Methods
+### Overview of Wrapper Methods
 
 + [Wrapper methods](../Notes/a09-FeatureSelect.md#31-overview-of-wrapper-methods)
   + disadvantages of filter methods
@@ -430,7 +430,7 @@
     + bidirectional search: both forward and backward feature selection simultaneously to get one unique solution
   + library to install: `mlxtend` containing useful tools for a number of day-to-day data science tasks
 
-### 3.2 Forward Feature Selection
+### Forward Feature Selection
 
 + [Forward feature selection](../Notes/a09-FeatureSelect.md#32-forward-feature-selection)
   + a.k.a. step forward selection, sequential forward feature selection (SFS)
@@ -470,7 +470,7 @@
   + `scoring`: the scoring function to evaluate model performance
   + `cv`: the number of folds of K-fold cross-validation, no cross-validation if cv=0 or False
 
-### 3.3 Backward Feature Elimination
+### Backward Feature Elimination
 
 + [Backward feature elimination method](../Notes/a09-FeatureSelect.md#33-backward-feature-elimination)
   + a.k.a. step backward selection, sequential backward feature selection  (SBS)
@@ -512,7 +512,7 @@
   + `floating`: using a variant of the step backward selection called step floating backward selection
 
 
-### 3.4 Exhaustive Feature Selection
+### Exhaustive Feature Selection
 
 + [Exhaustive feature selection](../Notes/a09-FeatureSelect.md#34-exhaustive-feature-selection)
   + finding the best performing feature subset
@@ -548,7 +548,7 @@
   + `min_features`: the lower bound of the number of features to search from
   + `max_features`: the upper bound of the number of features to search from
 
-### 3.5 Limitations and Solutions of Step Forward/Backward Selection
+### Limitations and Solutions of Step Forward/Backward Selection
 
 + [Limitations of SFS & SBS](../Notes/a09-FeatureSelect.md#35-limitations-and-solutions-of-step-forwardbackward-selection)
   + SFS adding features at each iteration
@@ -592,7 +592,7 @@
     + add feature to improve the object function
 
 
-### 3.6 Other Search Methods
+### Other Search Methods
 
 + [Bidirectional Search (BDS)](../Notes/a09-FeatureSelect.md#36-other-search-methods)
   + applying SFS and SBS concurrently
@@ -604,9 +604,9 @@
     + features already removed by SBS not added by SFS
 
 
-## 4. Embedded Methods
+## Embedded Methods
 
-### 4.1 Overview of Embedded Method
+### Overview of Embedded Method
 
 + [Embedded methods](../Notes/a09-FeatureSelect.md#41-overview-of-embedded-method)
   + characteristics of wrapper methods:
@@ -632,7 +632,7 @@
   + method: regularization & tree-based methods
 
 
-### 4.2 Regularization Methods
+### Regularization Methods
 
 + [Regularization](../Notes/a09-FeatureSelect.md#42-regularization-methods)
   + adding a penalty to the different parameters of a model to reduce its freedom
@@ -669,7 +669,7 @@
     # see the deleted features
     removed_features = x_train_df.columns[(selection.estiamtor_.coef_==0).ravel().tolist()]
 
-### 4.3 Tree-based Feature Importance
+### Tree-based Feature Importance
 
 + [Tree-based feature importance](../Notes/a09-FeatureSelect.md#43-tree-based-feature-importance)
   + tree-based algorithms and models
@@ -721,9 +721,9 @@
     + providing accurate feature importance
 
 
-## 5. Hybride Methods
+## Hybride Methods
 
-### 5.1 Overview of Hybrid Methods
+### Overview of Hybrid Methods
 
 + [Hybrid methods](../Notes/a09-FeatureSelect.md#51-overview-of-hybrid-methods)
   + definitions
@@ -739,7 +739,7 @@
     + main priority: select the methods to use, then follow their processes
 
 
-### 5.2 Filter & Wrapper Methods
+### Filter & Wrapper Methods
 
 + [Hybrid method: Filter + Wrapper methods](../Notes/a09-FeatureSelect.md#52-filter--wrapper-methods)
   + filter method
@@ -753,7 +753,7 @@
     + reducing the feature space of datset using these filter-based rangers
     + improving the time complexity of the wrapper methods
 
-### 5.3 Embedded & Wrapper Methods
+### Embedded & Wrapper Methods
 
 + [Hybrid method: Embedded & Wrapper methods](../Notes/a09-FeatureSelect.md#53-embedded--wrapper-methods)
   + embedded methods
@@ -766,7 +766,7 @@
     + recursive feature elimination
     + recursive featire addition
 
-### 5.4 Recursive feature elimination
+### Recursive feature elimination
 
 + [Recursive feature elimination](../Notes/a09-FeatureSelect.md#54-recursive-feature-elimination)
   + procedure
@@ -869,7 +869,7 @@
   print('total features to keep: ', len(features_to_keep))
   ```
 
-### 5.5 Recursive Feature Addition
+### Recursive Feature Addition
 
 + [Recursive feature additions](../Notes/a09-FeatureSelect.md#55-recursive-feature-addition)
   + starting w/ no features and adding one feature at the time
@@ -928,7 +928,7 @@
 
 ## 6. Advanced Methods
 
-### 6.1 Dimensionality Reduction
+### Dimensionality Reduction
 
 + [Dimensionality reduction vs. feature selection](../Notes/a09-FeatureSelect.md#61-dimensionality-reduction)
   + both tried to reduce the number of features
@@ -967,7 +967,7 @@
   + alternative: linear discriminant analysis (LDA)
   
 
-### 6.2 Heuristic Search Algorithms
+### Heuristic Search Algorithms
 
 + [Heuristic search](../Notes/a09-FeatureSelect.md#62-heuristic-search-algorithms)
   + attempt to perform optimization tasks in an iterative fashion to find an approximate solution if classical models failed to find an exact solution
@@ -1058,7 +1058,7 @@
   + a global search algorithm allowing a suboptimal solution to be accepted in the hope that better solution wiill show up eventually
 
 
-### 6.3 Feature Importance w/ Permutation Importance
+### Feature Importance w/ Permutation Importance
 
 + [Permutation Importance](../Notes/a09-FeatureSelect.md#63-feature-importance-w-permutation-importance)
   + basically randomly shuffle the values of a feature (w/o touching the other variables of the targets) to see how this permutation affects the performance metric of the ML meodel
