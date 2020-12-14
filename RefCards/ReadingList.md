@@ -71,6 +71,7 @@
 
 + UC Berkeley, CS 88, [Computational Structures in Data Science](https://www2.eecs.berkeley.edu/Courses/CS88/)
 
++ W. Sun, et.al., [Canonical Capsules: Unsupervised Capsules in Canonical Pose](https://canonical-capsules.github.io/)
 
 ## Neural Networks
 
