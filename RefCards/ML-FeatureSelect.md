@@ -495,7 +495,7 @@
     + recursive feature elimination
     + recursive featire addition
 
-### Recursive feature elimination
+### Recursive Feature Elimination
 
 + [Recursive feature elimination](../Notes/a09-FeatureSelect.md#54-recursive-feature-elimination)
   + procedure
