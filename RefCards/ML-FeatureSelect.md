@@ -25,17 +25,9 @@
     + result: overfitting
   + reasons to select features
     + simple models easier to interpret much easier to understand the output of a model w/ less variables
-    + shorter training time: reducing the number of variables $\to$ 
-      + reducing the computation cost
-      + speeding up model training
-      + simpler model tend to have faster prediction times
+    + shorter training time
     + enhanced generalization by reducing overfitting
-      + many of the variables just noise w/ little prediction value
-      + eliminating these irrelevant noisy features
-      + substantially improving the generalization of ML models
-    + variable redundancy:
-      + redundancy: highly-correlated features providing the same information
-      + removing the redundant features w/o losing any information
+    + variable redundancy
 
 + [Feature selection vs. feature engineering](../Notes/a09-FeatureSelect.md#1-an-introduction)
   + feature engineering:
@@ -64,17 +56,8 @@
 
 + [Feature selection methods](../Notes/a09-FeatureSelect.md#1-an-introduction)
   + filter methods
-    + relying on the features' characteristics
-    + well-suitable for a quick "screen and removal" of irrelevant features
   + wrapper methods
-    + selection of a set of features = a search problem
-    + using a predictive ML algorithm to select the best feature subset
-    + training a new model on each feature subset $\to$ computationall y expensive
-    + providing the best performing feature subset for a given ML algorithm
   + embedded methods
-    + taking the interaction of features and models into consideration
-    + performing feature selection as part of the model construction process
-    + less computationally expensive
 
 
 ## Filter Methods
@@ -120,62 +103,27 @@
 
 + [Quasi-Constant feature](../Notes/a09-FeatureSelect.md#22-basic-filter-methods)
   + a value occupying the majority of the records
-  + Python snippet
-
-    ```python
-    # make a threshold for quasi constant
-    threshold = 0.98
-
-    # create empty list
-    quasi_constant_feature = []
-
-    # loop over all the columns
-    for feature in x_train_df.columns:
-      # calculate the ratio
-      predominant = (x_train_df[feature].value_counts() / \
-        np.float(len(x_train_df))).sort_values(ascending=False).value
-
-      # append the column name if it is bigger than the threshold
-      if predominant >= threshold:
-        quasi_constant_feature.append(feature)
-
-    print("Features= {}".format(quasi_constant_feature))
-
-    # drop the quasi constant columns
-    x_train_df.drop(labels=duplicated_columns, axis=1, inplace=True)
-    x_test_df.drop(labels=duplicated_columns, axis=1, inplace=True)
-    ```
+  + hyperparameter: threshold
 
 + [Duplicated features: Python snippet](../Notes/a09-FeatureSelect.md#22-basic-filter-methods)
 
   ```python
-  #transpose the feature matrice
-  train_features_T = x_train_df.T
-
-  # print the number of duplicated features
-  print(train_features_T.duplicated().sum())
-
   # select the duplicated features columns names
   duplicated_columns = train_features_T[train_features_T.duplicated()].index.values
-
-  # drop those columns
-  x_train_df.drop(labels=duplicated_columns, axis=1, inplace=True)
-  x_test_df.drop(labels=duplicated_columns, axis=1, inplace=True)
   ```
 
 ### Correlation Filter Methods
 
 + [Correlation](../Notes/a09-FeatureSelect.md#23-correlation-filter-methods)
   + correlation:
-    + a measure of the linear relationship btw two quantitaive variables
-    + a measure of how strongly one variable depndending on another
+    + a measure of the linear relationship btw two quantitative variables
+    + a measure of how strongly one variable depending on another
   + high correlation w/ target
     + a useful property to predict one from another
     + goal: highly correlated w/ the target, especially for linear ML models
-  + high correlation btw variables: 
+  + high correlation btw variables:
     + providing redundant information in regards to the target
     + making an accurate prediction on the target w/ just one of the redundant variables
-    + not adding additional information
     + removing redundant ones to reduce the dimensionality but add noise
   + methods to measure the correlation btw variables
     + Pearson correlation coefficient
@@ -221,42 +169,9 @@
 
     \[ \tau = \frac{2(n_c - n_d)}{n(n-1)} \]
 
-+ Python snippet for correlation coefficients
-
-  ```python
-  # creating set to hold the correlated features
-  corr_feature = set()
-
-  # create the correlation matrix (default to pearson)
-  corr_matrix = x_train_df.corr()
-
-  # optional: display a heatmap of the correlaton matrix
-  plt.figure(figsize=(11,11))
-  sns.heatmap(corr_matrix)
-
-  for i in range(len(corr_matrix.columns)):
-    for j in range(i):
-      if abs(corr_matrix.iloc[i, j]) > 0.8:
-        colname = corr_matrix.column[i]
-        corr_feature.add(columns[i])
-
-  x_train_df.drop(labels=corr_features, axis=1, inplace=True)
-  x_test_df.drop(labels=corr_features, axis=1, inplace=True)
-  ```
-
++ Python related functions
   + `dataframe.corr()` function
-    + syntax: ` DataFrame.corr(self, method=’pearson’, min_periods=1)`
-    + Parameters:
-      + `method` :
-        + `pearson`: standard correlation coefficient
-        + `kendall`: Kendall Tau correlation coefficient
-        + `spearman`: Spearman rank correlation
-      + `min_periods` : Minimum number of observations required per pair of columns to have a valid result. Currently only available for pearson and spearman correlation
-    + Returns: count :y : DataFrame
-
   + `DataFrame.duplicated()` function
-    + Return boolean Series denoting duplicate rows.
-    + Syntax: `DataFrame.duplicated(subset=None, keep='first')`
 
 ### Statistical & Ranking Filter Methods
 
@@ -285,48 +200,14 @@
 
     \[ I(X; Y) = \sum_{x, y} P_{XY} (x, y) \log \frac{P_{XY}(x, y)}{P_X(x)P_Y(y)} \]
 
-  + Python snippet
-
-    ```python
-    # import the required functions and object
-    from sklearn.feature_selection import mutual_info_classif
-    from sklearn.feature_selection import SelectKBest
-
-    # select the number of features to retain
-    select_k = 10
-
-    # get only the numerical features
-    numerical_x_train_df = x_train_df[x_train_df.select_dtypes([np.number]).columns]
-
-    # create the SelectKBest
-    selection = SelectKBest(mutual_info_classif, k=select_k).fit(numerical_x_train_df, y_train_df)
-
-    # display the retained features
-    features = x_train_columns[selection.get_support()]
-    print(features)
-    ```
+  + Python: `from sklearn.feature_selection import mutual_info_classif`
 
 + [Chi-squared score](../Notes/a09-FeatureSelect.md#24-statistical--ranking-filter-methods)
   + commonly used for testing relationships btw categorical variables
   + suitable for categorical variables and binary targets only
   + constraint: non-negative variables and typically boolean, frequencies, or counts
   + simply comparing the observed distribution btw various features in the dataset and the target variable
-  + Python snippet
-
-    ```python
-    # import the required functions and object
-    from sklearn.feature_selection import chi2
-    from sklearn.feature_selection import SelectKBest
-
-    # change this to how much features to keep from the top ones
-    select_k = 10
-
-    # apply the chi2 score on the data and target (target should be binary)
-    selection = SelectKBest(chi2, k=select_k).fit(x_train_df, y_train_df)
-
-    # deiplay the k selected features
-    features = x_train_df.columns[selection.get_support()]
-    ```
+  + Python: `from sklearn.feature_selection import chi2`
 
 + [ANOVA univariate test](../Notes/a09-FeatureSelect.md#24-statistical--ranking-filter-methods)
   + ANOVA = Analysis Of VAriance
@@ -336,23 +217,7 @@
     + linear relationship btw variables and the target
     + both normally distributed
   + suitable for continuous variables and requiring a binary target
-  + Python snippet
-
-    ```python
-    # import the required functions and object
-    from sklearn.feature_selection import f_classif
-    from sklearn.feature_selection import SelectKBest
-
-    # select the number of features to retain
-    select_k = 10
-
-    # create the SelectKBest w/ the mutual info strategy
-    selection = SelectKBest(f_classif, k=select_k).fit(x_train_df, y_train_df)
-
-    # display the retained features
-    features = x_train_df.columns[selection.get_support()]
-    print(features)
-    ```
+  + Python: `from sklearn.feature_selection import f_classif`
 
 + [Univariate ROC-AUC / RMSE](../Notes/a09-FeatureSelect.md#24-statistical--ranking-filter-methods)
   + using ML models to measure the dependence of two variables
@@ -365,36 +230,9 @@
     + build a decision tree using a single variable and target
     + rank features according to the model RMSE or ROC-AUC
     + select the features w/ higher ranking scores
-  + Python snippet
-
-    ```python
-    # import the DecisionTree Algorithm and evaluation score
-    from sklearn.tree import DecisionTreeClassifier
-    from sklearn.metrics import roc_auc_score
-
-    # list of the resulting scores
-    roc_values = []
-
-    # loop over all features and calculate the score
-    for feature in x_train_df.columns:
-      clf = DecisionTreeClassifier()
-      clf.fit(x_train_df[feature].to_frame(), y_train_df)
-      y_scored = clf.predict_proba(x_test_df[feature].to_frame())
-      roc_values.append(roc_auc_score(y_test_df, y_scored[:, 1]))
-
-    # create a Pandas Series for visualization
-    roc_values = pd.Series(roc_values)
-    roc_values.index = x_train_df.columns
-
-    # show the results
-    print(roc_values.sort_values(ascending=False))
-    ```
-
-
+  + Python: `from sklearn.tree import DecisionTreeClassifier`
 
 ## Wrapper Methods
-
-
 ### Overview of Wrapper Methods
 
 + [Wrapper methods](../Notes/a09-FeatureSelect.md#31-overview-of-wrapper-methods)
@@ -439,30 +277,6 @@
     + start by evaluating all feature individually and then select the one that results in the best performance
     + test all possible combinations of the selected feature w/ the remaining features and retain the pair that procedures the best algorithmic performance
     + a loop continues by adding one feature at a time in each iteration until the pre-set criterion reached
-  + Python snippet
-
-    ```python
-    # import the algorithm to evaluate features
-    from sklearn.ensemble import RandomnForestClassifier
-
-    # create the SequentialFeatureSelector object, and configure the parameters
-    sfs = SequentialFeatureSelector(RandomForestClassifier(), k_feature=10,
-      forward=True, forward=True, floating=Flase, scoring='accuracy', cv=2)
-
-    # fit the object to the training data
-    sfs = sfs.fit(x_train_df, y_train_df)
-
-    # print the selected feature
-    selected_features = x_train_df.columns[list(sfs.k_feature_idx_)]
-    print(selected_features)
-
-    # print the final prediction score
-    print(sfs.k_score_)
-
-    # transform to the nrely selected features
-    x_train_sfs = sfs.transform(x_train_df)
-    x_test_sfs = sfs.transform(x_test_df)
-    ```
 
 + `mlxtend.feature_selection.SequentialFeatureSelector()` function
   + `k_features`: the maximum feature to be reached when starting from 0
@@ -480,31 +294,6 @@
   + producing the best performing algorithm using an evaluation metric
   + the least significant feature among the remaining available ones
   + removing feature after feature until a certain criterion satisfied
-  + Python snippet
-
-    ```python
-    # import the algorithm to evaluate features
-    from sklearn.ensemble import RandomForestClassifier
-
-    # just set forward=False for backward feature selection
-    # create the SequentialFeatureSelector object, and configure the parameter
-    sbs = SequentialFeatureSelector(RandomForestClassifier(),
-      k_features=10, forward=False, floating=False, scoring='accuracy', cv=2)
-
-    # fit the object to the training dataset
-    sbs = sbs.fit(x_train_df, y_train_df)
-
-    # print the selected features
-    selected_features = x_train_df.columns[list(sbs.k_feature_idx)]
-    print(selected_features)
-
-    #print the final prediction score
-    print(sbs.k_score_)
-
-    # transform tot he newly selected features
-    x_train_sfs_df = sbs.transform(x_train_df)
-    x_test_sfs_df = sbs.transform(x_test_df)
-    ```
 
 + `mlxtend.feature_selection.SequentialFeatureSelector()` function
   + `k_features`: the maximum feature to be reached when starting from N
@@ -517,32 +306,9 @@
 + [Exhaustive feature selection](../Notes/a09-FeatureSelect.md#34-exhaustive-feature-selection)
   + finding the best performing feature subset
   + a brute-force evaluation of feature subsets
-  + creating all  the subsets of features from 1 to N
+  + creating all the subsets of features from 1 to N
   + building a ML algorithm for each subset and selecting the subset w/ the best performance
   + parameter 1 and N: the minimum number of features and the maximum number of features
-  + Python snippet
-
-    ```python
-    from mlxtend.feature_selection import ExhaustiveFeatureSelector
-
-    #import the algorithm to evaluate the features
-    from sklearn.ensemble import RandomForesetClassifier
-
-    # create the EchaustiveFeatureSelector object
-    efs = EchaustiveFeatureSelector(RandomForestClassifier(),
-      min_features=4, max_features=10, scoring='roc_auc', cv=2)
-
-    # print the selected features
-    selected_features = x_train_df.columns[list(efs.k_feature_idx_)]
-    print(selected_features)
-
-    # print the final prediction score
-    print(efs.k_score_)
-
-    # transform data to the newly selected features
-    x_train_sfs = efs.transform(x_train_df)
-    x_test_sfs = efs.transform(y_test_df)
-    ```
 
 + `mlxtend.feature_selection.SequentialFeatureSelector()` function
   + `min_features`: the lower bound of the number of features to search from
@@ -559,7 +325,7 @@
     + unable to add the feature in the feature subsets
   + solutions: LRS or sequential floating
 
-+ [LRS, or Plus-L, Minus-R:](../Notes/a09-FeatureSelect.md#35-limitations-and-solutions-of-step-forwardbackward-selection)
++ [LRS, or Plus-L, Minus-R](../Notes/a09-FeatureSelect.md#35-limitations-and-solutions-of-step-forwardbackward-selection)
   + using two parameters L and R (both integer)
   + repeatedly adding and removing features from the solution subset
   + $L > R$: LRS starting from the empty set of features
@@ -592,7 +358,7 @@
     + add feature to improve the object function
 
 
-### Other Search Methods
+### Bidirectional Search
 
 + [Bidirectional Search (BDS)](../Notes/a09-FeatureSelect.md#36-other-search-methods)
   + applying SFS and SBS concurrently
@@ -652,22 +418,7 @@
     + elastic nets / L1/L2 regularization
       + a combination of the L1 and L2
       + incorporating their penalties and ending up w/ features w/ zero as a coefficient
-  + Python snippet
-
-    ```python
-    # Lasso for regression tasks, and Logistic Regression for Classification tasks
-    from sklearn.learn_model import Lasso, LogisticRegression
-    from sklearn.feature_selection import SelectFromModel
-
-    # using logistic regression w/ penalty L1
-    selection = SelectFromModel(LogisticRegression(C=1, penalty='l1'))
-    selection.fit(x_train_df, y_train_df)
-
-    # see the selected features
-    selected_features = x_train_df.columns[(selection.get_support())]
-
-    # see the deleted features
-    removed_features = x_train_df.columns[(selection.estiamtor_.coef_==0).ravel().tolist()]
+  + Python: `from sklearn.feature_selection import SelectFromModel`
 
 ### Tree-based Feature Importance
 
@@ -693,29 +444,7 @@
   + training a tree
     + feature importance calculated as the decrease in node impurity weighted in a tree
     + the higher the value, the more important the feature
-  + Python snippet
-
-    ```python
-    from sklearn.ensemble import RandomForestClassifier
-
-    # create the random forest w/ hyperparameters
-    model = RandomForestClassifier(n_estimators=340)
-
-    # get the importance of the resulting features
-    importances = model.feature_importances_
-
-    # create a dataframe for visualization
-    findal_df = pd.DataFrame({"Features": x_train_df.columns, "Importances": importances})
-    final_df.set_index("Importances")
-
-    # sort in ascending order to better visualization
-    final_df = final_df.sort_values('Importances')
-
-    # plot the feature importances in bars
-    final_df.plot.bar()
-    ```
-
-  + alternatives: 
+  + alternatives:
     + able to use any other tree-based algorithm the same way =
     + best tree model types: gradient boosting algoritms (like XH=GBoost, CatBoost, and any more)
     + providing accurate feature importance
@@ -787,25 +516,7 @@
   + limitations:
     + use an arbitrary threshold value to decided whether to keep a feature or not
     + the smaller this threshold value, the more features will be included in the subset and vice versa
-  + Python snippet to select the best features
-
-    ```python
-    from sklearn.feature_selection import RFECV
-
-    # use any other model selected
-    from sklearn.ensemble import RandomForestClassifier
-
-    model = RandomForestClassifier(n_estiamtors=411)
-
-    # build the REF w/ cv option
-    ref = REFCV(model, min_features_to_selecct=3, step=1, cv=5, scoring='accuracy')
-
-    # fit the RFE to our data
-    selecton = rfe.fit(x_train_df, y_train_df)
-
-    # print the selected features
-    print(x_train_df.columns[selection.support_])
-    ```
+  + Python: `from sklearn.feature_selection import RFECV`
 
 + [`RFECV`: recursive feature elimination w/ corss-validation](../Notes/a09-FeatureSelect.md#54-recursive-feature-elimination)
   + `min_features_to_select`: int (default=1) <br/>The minimum number of features to be selected. This number of features will always be scored, even if the difference between the original feature count and `min_features_to_select` isn’t divisible by `step`.
@@ -820,54 +531,10 @@
       + `cross-validation estimator`: an estimator that has built-in cross-validation capabilities to automatically select the best hyper-parameters
       + `scorer`: a non-estimator callable object which evaluates an estimator on given test data, returning a number
     + an iterable yielding (train, test) splits as arrays of indices
-  + `scoring`: string, callable or None, optional, (default=None)<br/>A string or a scorer callable object / function with signature `scorer(estimator, X, y)`.
-+ Python snippet for recursive feature elimination
+  + `scoring`: string, callable or None, optional, (default=None)<br/>A string or a scorer callable object / function with signature `scorer(estimator, X, y)`
 
-  ```python
-  from sklearn.ensemble import RandomForestClassifier
-  from sklearn.metrics import roc_auc_score
++ [Python snippet](../Notes/a09-FeatureSelect.md#54-recursive-feature-elimination)
 
-  # array to hold the feature to be removed
-  model_all_features = RandomForestClassifier(n_estimators=221)
-  model_all_features.fit(x_train_df, t_train_df)
-
-  # get the 1st score of all the features (able to use own metric)
-  y_pred_test_df = model_all_features.predict(x_test_df)
-  auc_score_all = roc_auc_score(y_test_df, y_pred_test_df)
-
-  # loop over all the feature to do recursive feature elimination
-  for feature in x_train_df.columns:
-    model = RandomForestClassifier(n_estiamntors=221)
-
-    # delete the current feature
-    x_train_rfe_df = x_train_df.drop(features_to_remove + [feature], axis=1)
-    x_test_rfe_df = x_test_df.drop(features_to_remove + [feature], axis=1)
-
-    # fit model w/ all variables minus the removed features and the feature to be evaluated
-    mode.fit(x_train_rfe_df, y_train_df)
-    y_pred_test_df = model.predict(x_test_rfe_df)
-    auc_score_int = roc_auc_score(y_test_df, y_pred_test_df)
-
-    # determine the drop in the roc_auc
-    diff_auc = auc_score_all - auc_score_int
-
-    # compare the drop in the roc-auc w/ the threshold
-    if diff_auc < threshold:
-      # feature, require to set the new roc to the
-      # one based on the remaining feature
-      auc_score_all = auc_score_int
-
-      # and append the feature to remove to this list
-      feature_to_remove.append(feature)
-
-  # print the features that need removing
-  print(features_to_remove)
-  features_to_keep = [x for x in_train_df.columns \
-    if x not in features_to_remove]
-
-  # print the features to keep
-  print('total features to keep: ', len(features_to_keep))
-  ```
 
 ### Recursive Feature Addition
 
@@ -883,50 +550,8 @@
     6. repeat step 3-5 until features added
   + Python snippet
 
-    ```python
-    from sklearn.ensemble import RandomForestClassifier
-    from sklearn.metrics import roc_auc_score
 
-    # array to hold the feature to be kept
-    features_to_keep = [x_train_df.columns[0]]
-
-    # set this value accordingly
-    threshold = 0.002
-
-    # create preferred model and fit it to the training data
-    model_one_feature_df = RandomForestClassifier(n_estimators=332)
-    model_one_feature_df.fit(x_train_df[[x_train_df.columns[0]]])
-
-    # evaluate against metric selected
-    y_pred_test_df = model_one_feature_df.predict(x_test_df[[x_train_df.columns[0]]])
-    auc_roc_all = roc_auc_score(y_test_df, y_pred_test_df)
-
-    # start iterating from the feature
-    for feature in x_train_df.columns[1:]:
-      model = RandomForestClassifier(n_estimators=332)
-
-      # fit model w/ the selected features and the feature to be evaluated
-      model.fit(x_train_df[features_to_keep + [featue]], y_train_df)
-      y_pred_test_df = model.predict(x_test_df[features_to_keep + [feature]])
-      auc_roc_int = roc_auc_score(y_test_df, y_pred_test_df)
-
-      # determine the drop in the roc-auc
-      diff_auc = auc_score_int - auc_score_all
-
-      # compare the drop in roc-auc w/ the threshold
-      if diff_auc >= threshold:
-        # if the increases in the roc is bigger than the threshold
-        # keep the feature and re-adjust the roc-auc to the new
-        # value considering the added feature
-        auc_score_all = auc_score_int
-        featue_to_keep.append(feature)
-
-    # print the feature to keep
-    print(features_to_keep)
-    ```
-
-
-## 6. Advanced Methods
+## Advanced Methods
 
 ### Dimensionality Reduction
 
@@ -940,30 +565,15 @@
   + using linear algebra to transform a dataset into a compressed form
   + starting by calculating the Eigen decomposition (or singular value decomposition, SVD) of the covariance matrix of the features
   + procedure
-    + searching the correlation btw featrues
+    + searching the correlation btw features
     + building new features that preserve the same explained variance of the original ones
   + resulting in a lower-dimensional projection of the data, the __maximal data variance__
   + measuring the importance of a given variable
   + observing how much its contributing to the reduced feature space that PCA obtains
   + feature selection w/ PCA
     + calculating the explained variance of each feature
-    + using it as featue importance to rank variable accordingly
-  + Python snippet
-
-    ```python
-    from sklearn.decomposition import PCA
-
-    # create th PCA onject w/ all the features
-    pca = PCA(n_estimators=x_train_df.shape[1])
-
-    # fit the object to our data
-    fit = pac.fit(x_train_df)
-
-    # print out the results
-    print(fit.explained_variance_ratio)
-    print(fit.components) 
-    ```
-
+    + using it as feature importance to rank variable accordingly
+  + Python: `from sklearn.decomposition import PCA`
   + alternative: linear discriminant analysis (LDA)
   
 
@@ -984,58 +594,35 @@
   + feature selection
     + each chromosome representing a feature subset
     + represented w/ binary encoding: feature w/ 1 to choose and 0 to eliminate from
-  + conducting many iterations to create a new generation (new feature subset) of possible solutions from the current generations using a few oprtors
+  + conducting many iterations to create a new generation (new feature subset) of possible solutions from the current generations using a few operators
   + operators
-    + __slection:__ 
+    + __selection:__
       + probabilististically filtering out solutions that perform poorly
       + choosing high perfroming solutions to exploit
     + __cross over:__
       + the GA way to explore new solutions and exchange info btw strings
       + applied to selected pairs of chromosomes randomly
       + the probability equal to a given crossover rate
-      + generating new chromosomes that hoppefully will retain good features from the previous generations
+      + generating new chromosomes that hopefully will retain good features from the previous generations
     + __mutation:__
       + protecting GAs against the irrecoverable loss of good solution features
       + changing a symbol of some chromosomes
       + changing ratio as a probability equal to a very low given mutation rate to restore lost genetic material
   + advantages
     + working w/ a population of solutions
-    + more effective to eacsape local minima
+    + more effective to escape local minima
   + procedures
     1. initializing a population w/ randomly-generated individuals
       + different feature subsets
-      + creating a mechaine learning algorithm
+      + creating a machine learning algorithm
     2. evaluating the fitness of each feature subset w/ an evaluation metric of choice depending on the chosen algorithm
     3. reproducing high-fitness chromosomes (feature subsets) in the new population
-    4. removing poor-fitness chromsomes (selection)
+    4. removing poor-fitness chromosomes (selection)
     5. constructing new chromosomes (crossover)
     6. recovering lost features (mutation)
     7. repeating step 2~6 until a stopping criterion met (or the number of iterations)
   + open-source implementation: `sklearn-genetic`
-  + Python snippet
-
-    ```python
-    from genetic_selection import GeneticSelectionCV
-
-    # import preferred ml model
-    from sklearn.ensemble import RandomForesetClassifier
-
-    # build the model w/ perferrred hyperparameters
-    model = RandomForesetClassifier(n_estimators=231)
-
-    # create the GeneticSelection search w/ the different parameters available
-    selection = GeneticSelectionCV(model, cv=5, scoring='accuracy', 
-      max_features=12, n_population=120, crossover_proba=0.5, 
-      mutation_proba=0.2, n_generations=50, crossover_inndependent_proba=0.5,
-      mutation_independent_proba=0.05, n_gen_no_chane=10, n_jobs=-1)
-
-    # fit the GA search to data
-    selection = selection.fit(x_train_df, y_train_df)
-
-    # print result
-    print(selection.support_)
-    ```
-
+  + Python: `from genetic_selection import GeneticSelectionCV`
   + parameters of GeneticSelectionCV
     + __estiamtor__: model used to evaluate the suitability of the feature subset, alongside an evaluation metric
     + __cv__: int, generator, or an iterable used to determine the cross-validation splitting strategy
@@ -1071,59 +658,22 @@
     + non-important feature:
       + shuffling values leaving the model error unchanged
       + model ignoring the feature for the prediction
-  + Python snippet
-
-    ```python
-    # import whatever algorithm chooses
-    from sklearn.emsenble import RandomForestClassifier
-    from sklearn.metrics import roc_auc_score
-
-    # build model and train it
-    model = RandomForestClassifier(n_estimator=221)
-    model.fit(x_train_df, y_train_df)
-
-    # get the default score
-    train_auc = roc_auc_score(y_train_df, model.predict(x_train_df))
-    feature_dict_score = {}
-
-    # loop over all the feature
-    for feature in x_train_df.columns:
-      # copy the dataset to do some permutation
-      x_train_copy_df = x_train_df.copy().reset_index(drop=True)
-      y_train_copy_df = y_train_df.copy().reset_index(drop=True)
-
-      # shuffle an individual feature
-      x_train_copy_df[feature] = x_train_copy_df[feature].sample(
-        feac=1, random_sate=random_state
-      ).reset_index(drop=true)
-
-      # make a prediction w/ permuted feature and calculate roc auc
-      shuffle_auc = roc_auc_score(y_train_copy_df, 
-        model.predict(x_train_copy_df))
-
-      # save the drop in dictionary
-      feature_dict_scores[feature] = (train_auc - shuffle_aux)
-
-    # print the resulting dictionary, features => how much it drop the score
-    print(feature_dict_scores)
-    ```
-
   + model-agnostic permutation feature importance: a more advanced technique in permutation importance
 
 
-### 5.4 Deep Learning
+### Deep Learning
 
 + [Deep learning](../Notes/a09-FeatureSelect.md#54-deep-learning)
   + involving the use of NN to build high-performing ML models
   + NN able to learn nonlinear relationships among features
   + most traditional embedded-based methods only exploring linear relationships across features
 
-+ [utoencoders](../Notes/a09-FeatureSelect.md#54-deep-learning)
++ [autoencoders](../Notes/a09-FeatureSelect.md#54-deep-learning)
   + able to derive feature importance from NN to help to select good feature subsets
   + procedure
     + learning to compress and encode data
-    + learning how to reconstruct the data back from the reduced encoded representaion
-  + goal: resulting representation as cloas as possible to the original input
+    + learning how to reconstruct the data back from the reduced encoded representation
+  + goal: resulting representation as close as possible to the original input
   + taking the feature space and reducing its dimensionality $\to$ reconstructing inputs from its reduced format
   + principle: by reducing the data dimensions
     + learn how to ignore the noise
@@ -1133,52 +683,11 @@
     + a solution for feature selection
     + uncovering existing nonlinear relationships btw features
     + using a single-layer autoencoder to reconstruct data
-
-    <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-        onclick="window.open('https://tinyurl.com/y6f38zqs')"
-        src    ="https://tinyurl.com/yykc9cjf"
-        alt    ="Signle-leayer Autoencoder"
-        title  ="Signle-leayer Autoencoder"
-      />
-    </figure>
-
     + after reconstructing the data
       + use the first weight matrix of the autoencoder that connects the input feature layer to the reduced layer
       + squared weight ($w^2$) $\to 0$: feature contributing little to the representation of others
       + significant corresponding weight: important feature in the representation of other features
-  + Python snippet
-
-    ```python
-    # import the keras library
-    from keras.layers import Dense
-    from keras.models import Sequential
-
-    # the dimension of the encoding layer
-    encoding_dim = 16
-
-    # create the autoncoder
-    model = Sequential()
-
-    # add the encoding layer
-    model.add(Dense(encoding_dim, activation='relu', 
-      input_shape=(x_train_df.shape[1],)))
-
-    # complie the model, use whatever optimizer
-    model.compile(optimizer='adadelta', loss='categorical_crossentropy')
-
-    # fit model to the training data
-    model.fit(x_train_df, y_train_df, epochs=50, batch_size=64,
-      shuffle=True, validation_data=(x_train_df, x_test_df))
-
-    # get the first layer weights
-    weights = model.layers[1].get_weights()[0]
-
-    # get the feature importance
-    print(weights.sum(axis=1))
-    ```
-
-  + limtation: a simple single-layer autoencoder unable to model complex nonlinear feature dependencies
+  + limitation: a simple single-layer autoencoder unable to model complex nonlinear feature dependencies
   + improvement: [Deep Feature Selection using a Teacher-Student Network](https://arxiv.org/abs/1903.07045)
 
 
