@@ -171,7 +171,7 @@ Part 2. Basic, correlation, and statistical filter methods
 
     ```python
     # make a threshold for quasi constant
-    thresshold = 0.98
+    threshold = 0.98
 
     # create empty list
     quasi_constant_feature = []
@@ -214,12 +214,12 @@ Part 2. Basic, correlation, and statistical filter methods
 
 + Correlation
   + correlation:
-    + a measure of the linear relationship btw two quantitaive variables
-    + a measure of how strongly one variable depndending on another
+    + a measure of the linear relationship btw two quantitative variables
+    + a measure of how strongly one variable depending on another
   + high correlation w/ target
     + a useful property to predict one from another
     + goal: highly correlated w/ the target, especially for linear ML models
-  + high correlation btw variables: 
+  + high correlation btw variables:
     + providing redundant information in regards to the target
     + making an accurate prediction on the target w/ just one of the redundant variables
     + not adding additional information
@@ -722,6 +722,7 @@ Part 4: [Regularization and tree-based embedded methods](https://tinyurl.com/y5s
 
     # see the deleted features
     removed_features = x_train_df.columns[(selection.estiamtor_.coef_==0).ravel().tolist()]
+    ```
 
 ### 4.3 Tree-based Feature Importance
 
@@ -879,7 +880,7 @@ Part 5: [Combining filter, wrapper, and embedded feature selection methods](http
         + `cross-validation estimator`: an estimator that has built-in cross-validation capabilities to automatically select the best hyper-parameters
         + `scorer`: a non-estimator callable object which evaluates an estimator on given test data, returning a number
       + an iterable yielding (train, test) splits as arrays of indices
-    + `scoring`: string, callable or None, optional, (default=None)<br/>A string or a scorer callable object / function with signature `scorer(estimator, X, y)`.
+    + `scoring`: string, callable or None, optional, (default=None)<br/>A string or a scorer callable object / function with signature `scorer(estimator, X, y)`
   + Python snippet for recursive feature elimination
 
     ```python
@@ -992,7 +993,7 @@ Part 6: [Dimensionality reduction, genetic algorithms, permutation importance, a
 
 ### 6.1 Dimensionality Reduction
 
-+ Dimensionality reduction vs. feature selecion
++ Dimensionality reduction vs. feature selection
   + both tried to reduce the number of features
   + feature selection: select and exclude some features w/o making any transformation
   + dimensionality reduction: transform features into a lower dimension
@@ -1002,14 +1003,14 @@ Part 6: [Dimensionality reduction, genetic algorithms, permutation importance, a
   + using linear algebra to transform a dataset into a compressed form
   + starting by calculating the Eigen decomposition (or singular value decomposition, SVD) of the covariance matrix of the features
   + procedure
-    + searching the correlation btw featrues
+    + searching the correlation btw features
     + building new features that preserve the same explained variance of the original ones
   + resulting in a lower-dimensional projection of the data, the __maximal data variance__
   + measuring the importance of a given variable
   + observing how much its contributing to the reduced feature space that PCA obtains
   + feature selection w/ PCA
     + calculating the explained variance of each feature
-    + using it as featue importance to rank variable accordingly
+    + using it as feature importance to rank variable accordingly
   + Python snippet
 
     ```python
@@ -1048,28 +1049,28 @@ Part 6: [Dimensionality reduction, genetic algorithms, permutation importance, a
     + represented w/ binary encoding: feature w/ 1 to choose and 0 to eliminate from
   + conducting many iterations to create a new generation (new feature subset) of possible solutions from the current generations using a few oprtors
   + operators
-    + __slection:__ 
+    + __selection:__
       + probabilististically filtering out solutions that perform poorly
-      + choosing high perfroming solutions to exploit
+      + choosing high performing solutions to exploit
     + __cross over:__
       + the GA way to explore new solutions and exchange info btw strings
       + applied to selected pairs of chromosomes randomly
       + the probability equal to a given crossover rate
-      + generating new chromosomes that hoppefully will retain good features from the previous generations
+      + generating new chromosomes that hopefully will retain good features from the previous generations
     + __mutation:__
       + protecting GAs against the irrecoverable loss of good solution features
       + changing a symbol of some chromosomes
       + changing ratio as a probability equal to a very low given mutation rate to restore lost genetic material
   + advantages
     + working w/ a population of solutions
-    + more effective to eacsape local minima
+    + more effective to escape local minima
   + procedures
     1. initializing a population w/ randomly-generated individuals
       + different feature subsets
-      + creating a mechaine learning algorithm
+      + creating a machine learning algorithm
     2. evaluating the fitness of each feature subset w/ an evaluation metric of choice depending on the chosen algorithm
     3. reproducing high-fitness chromosomes (feature subsets) in the new population
-    4. removing poor-fitness chromsomes (selection)
+    4. removing poor-fitness chromosomes (selection)
     5. constructing new chromosomes (crossover)
     6. recovering lost features (mutation)
     7. repeating step 2~6 until a stopping criterion met (or the number of iterations)
@@ -1112,20 +1113,20 @@ Part 6: [Dimensionality reduction, genetic algorithms, permutation importance, a
     + __crossover_independent_proba__:
       + the independent probability for each attribute to be exchanged
       + offering much more flexibility for the generic algorithm to search
-    + __mutation_independent_proba__: the independent probabiility for each attribute to be mutated by the generic algorithm
+    + __mutation_independent_proba__: the independent probability for each attribute to be mutated by the generic algorithm
     + __n_gen_no_change__: the number of generations needs to terminate the search if no change w/ the best individuals
   
 + Simulation annealing
   + a heuristic approach to search for the feature subsets
-  + a global search algorithm allowing a suboptimal solution to be accepted in the hope that better solution wiill show up eventually
+  + a global search algorithm allowing a suboptimal solution to be accepted in the hope that better solution will show up eventually
 
 
 ### 6.3 Feature Importance w/ Permutation Importance
 
 + Permutation Importance
-  + basically randomly shuffle the values of a feature (w/o touching the other variables of the targets) to see how this permutation affects the performance metric of the ML meodel
+  + basically randomly shuffle the values of a feature (w/o touching the other variables of the targets) to see how this permutation affects the performance metric of the ML model
   + the choice of metric upon the engineer
-  + measuring the importance of a featrue by measuring the increase in the model's prediction error after permutation the feature values
+  + measuring the importance of a feature by measuring the increase in the model's prediction error after permutation the feature values
   + breaking the relationship btw the feature and the true outcome
     + important feature:
       + shuffling values increasing the model error
@@ -1184,8 +1185,8 @@ Part 6: [Dimensionality reduction, genetic algorithms, permutation importance, a
   + able to derive feature importance from NN to help to select good feature subsets
   + procedure
     + learning to compress and encode data
-    + learning how to reconstruct the data back from the reduced encoded representaion
-  + goal: resulting representation as cloas as possible to the original input
+    + learning how to reconstruct the data back from the reduced encoded representation
+  + goal: resulting representation as close as possible to the original input
   + taking the feature space and reducing its dimensionality $\to$ reconstructing inputs from its reduced format
   + principle: by reducing the data dimensions
     + learn how to ignore the noise
@@ -1240,7 +1241,7 @@ Part 6: [Dimensionality reduction, genetic algorithms, permutation importance, a
     print(weights.sum(axis=1))
     ```
 
-  + limtation: a simple single-layer autoencoder unable to model complex nonlinear feature dependencies
+  + limitation: a simple single-layer autoencoder unable to model complex nonlinear feature dependencies
   + improvement: [Deep Feature Selection using a Teacher-Student Network](https://arxiv.org/abs/1903.07045)
 
 
