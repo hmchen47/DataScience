@@ -7,6 +7,13 @@
 + Prof. Arthur Mattuck, Prof. Haynes Miller, Jeremy Orloff, Dr. John Lewis, [Differential Equations](https://ocw.mit.edu/courses/mathematics/18-03sc-differential-equations-fall-2011/), 2011
 + Prof. Gil Strang, [18.06 Linear Algebra](http://web.mit.edu/18.06/www/videos.shtml), 2020
 
++ MITx's Statistics and Data Science MicroMasters
+  + [Probability - The Science of Uncertainty and Data](https://www.edx.org/course/probability-the-science-of-uncertainty-and-data)
+  + [Fundamentals of Statistics](https://www.edx.org/course/fundamentals-of-statistics)
+  + [Machine Learning with Python: from Linear Models to Deep Learning](https://www.edx.org/course/machine-learning-with-python-from-linear-models-to)
+  + [Capstone Exam in Statistics and Data Science](https://www.edx.org/course/capstone-exam-in-statistics-and-data-science)
+  + [Data Analysis in Social Science—Assessing Your Knowledge](https://www.edx.org/course/data-analysis-in-social-scienceassessing-your-know)
+  + [Data Analysis: Statistical Modeling and Computation in Applications](https://www.edx.org/course/statistics-computation-and-applications)
 
 ## Probability and Statistics
 
@@ -43,8 +50,7 @@
 + Gordan Zitkovic, [Theory of Probability, Parts I and II](https://web.ma.utexas.edu/users/gordanz/lecture_notes_page.html)
 + Gordan Zitkovic, [Introduction to Stochastic Processes](https://web.ma.utexas.edu/users/gordanz/lecture_notes_page.html)
 + Gordan Zitkovic, [Introduction to Mathematical Statistics](https://web.ma.utexas.edu/users/gordanz/lecture_notes_page.html)
-+ David Pollard, [Chapter 4: Symmetry](https://tinyurl.com/yyqkqvmz) in [Advanced Probability](https://tinyurl.com/y5pszlfw), 2008
-
++ David Pollard, [Chapter 4: Symmetry](https://tinyurl.com/yyqkqvmz) in [Advanced Probability](https://tinyurl.com/y5pszlfw), 200
 
 
 
