@@ -1,6 +1,6 @@
 # Sklearn: Scikit-learn for Machine Learning
 
-## sklearn.base: Base classes and utility functions
+## Base Classes and Utility Functions
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.base">sklearn.base</a>: Base classes and utility functions</caption>
@@ -62,7 +62,7 @@
 </table><br/>
 
 
-## sklearn.calibration: Probability Calibration
+## Probability Calibration
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.calibration">sklearn.calibration</a>: Probability Calibration</caption>
@@ -83,7 +83,7 @@
 </table><br/>
 
 
-## sklearn.cluster: Clustering
+## Clustering
 
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
@@ -166,7 +166,7 @@
   </tbody>
 </table><br/>
 
-## sklearn.compose: Composite Estimators
+## Composite Estimators
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.compose">sklearn.compose</a>: Composite Estimators</caption>
@@ -193,7 +193,7 @@
 </table><br/>
 
 
-## sklearn.covariance: Covariance Estimators
+## Covariance Estimators
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.covariance">sklearn.covariance</a>: Covariance Estimators</caption>
@@ -262,7 +262,7 @@
 </table><br/>
 
 
-## sklearn.cross_decomposition: Cross decomposition
+## Cross Decomposition
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.cross_decomposition">sklearn.cross_decomposition</a>: Cross decomposition</caption>
@@ -289,7 +289,7 @@
 </table><br/>
 
 
-## sklearn.datasets: Datasets
+## Datasets
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.datasets">sklearn.datasets</a>: Datasets</caption>
@@ -444,7 +444,7 @@
 </table><br/>
 
 
-## sklearn.decomposition: Matrix Decomposition
+## Matrix Decomposition
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.decomposition">sklearn.decomposition</a>: Matrix Decomposition</caption>
@@ -498,7 +498,7 @@
 </table><br/>
 
 
-## sklearn.discriminant_analysis: Discriminant Analysis
+## Discriminant Analysis
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.discriminant_analysis">sklearn.discriminant_analysis</a>: Discriminant Analysis</caption>
@@ -519,7 +519,7 @@
 </table><br/>
 
 
-## sklearn.dummy: Dummy estimators
+## Dummy Estimators
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.dummy">sklearn.dummy</a>: Dummy estimators</caption>
@@ -540,7 +540,7 @@
 </table><br/>
 
 
-## sklearn.ensemble: Ensemble Methods
+## Ensemble Methods
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.ensemble">sklearn.ensemble</a>: Ensemble Methods</caption>
@@ -609,7 +609,7 @@
 </table><br/>
 
 
-## sklearn.exceptions: Exceptions and warnings
+## Exceptions and Warnings
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.exceptions">sklearn.exceptions</a>: Exceptions and warnings</caption>
@@ -651,7 +651,7 @@
 </table><br/>
 
 
-## sklearn.experimental: Experimental
+## Experimental
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.experimental">sklearn.experimental</a>: Experimental</caption>
@@ -672,7 +672,7 @@
 </table><br/>
 
 
-## sklearn.feature_extraction: Feature Extraction
+## Feature Extraction
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.feature_extraction">sklearn.feature_extraction</a>: Feature Extraction</caption>
@@ -723,7 +723,7 @@
 </table><br/>
 
 
-## sklearn.feature_selection: Feature Selection 
+## Feature Selection 
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.feature_selection">sklearn.feature_selection</a>: Feature Selection</caption>
@@ -783,7 +783,7 @@
 </table><br/>
 
 
-## sklearn.gaussian_process: Gaussian Processes
+## Gaussian Processes
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.feature_extraction">sklearn.gaussian_process</a>: Gaussian Processes</caption>
@@ -848,7 +848,7 @@
 </table><br/>
 
 
-## sklearn.impute: Impute
+## Impute
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.impute">sklearn.impute</a>: Impute</caption>
@@ -875,7 +875,7 @@
 </table><br/>
 
 
-## sklearn.inspection: inspection
+## Inspection
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.inspection">sklearn.inspection</a>: Inspection</caption>
@@ -901,7 +901,7 @@
 </table><br/>
 
 
-## sklearn.isotonic: Isotonic regression
+## Isotonic Regression
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.isotonic">sklearn.isotonic</a>: Isotonic regression</caption>
@@ -925,7 +925,7 @@
 </table><br/>
 
 
-## sklearn.kernel_approximation: Kernel Approximation
+## Kernel Approximation
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.kernel_approximation">kernel_approximation</a>: Kernel Approximation</caption>
@@ -952,7 +952,7 @@
 </table><br/>
 
 
-## sklearn.kernel_ridge: Kernel Ridge Regression
+## Kernel Ridge Regression
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.kernel_ridge">sklearn.kernel_ridge</a>: Kernel Ridge Regression</caption>
@@ -970,7 +970,7 @@
 </table><br/>
 
 
-## sklearn.linear_model: Linear Models
+## Linear Models
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.linear_model">sklearn.linear_model</a>: Linear Models</caption>
@@ -1119,7 +1119,7 @@
 </table><br/>
 
 
-## sklearn.manifold: Manifold Learning
+## Manifold Learning
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.manifold">sklearn.manifold</a>: Manifold Learning</caption>
@@ -1149,7 +1149,7 @@
 </table><br/>
 
 
-## sklearn.metrics: Metrics
+## Metrics
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.manifold">sklearn.metrics</a>: Metrics</caption>
@@ -1421,7 +1421,7 @@
 </table><br/>
 
 
-## sklearn.mixture: Gaussian Mixture Models
+## Gaussian Mixture Models
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.mixture">sklearn.mixture</a>: Gaussian Mixture Models</caption>
@@ -1442,7 +1442,7 @@
 </table><br/>
 
 
-## sklearn.model_selection: Model Selection
+## Model Selection
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.model_selection">sklearn.model_selection</a>: Model Selection</caption>
@@ -1539,7 +1539,7 @@
 </table><br/>
 
 
-## sklearn.multiclass: Multiclass and multilabel classification
+## Multiclass and Multilabel Classification
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.multiclass">sklearn.multiclass</a>: Multiclass and multilabel classification</caption>
@@ -1563,7 +1563,7 @@
 </table><br/>
 
 
-## sklearn.naive_bayes: Naive Bayes
+## Naive Bayes
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.naive_bayes">sklearn.naive_bayes</a>: Naive Bayes</caption>
@@ -1593,7 +1593,7 @@
 </table><br/>
 
 
-## sklearn.neighbors: Nearest Neighbors
+## Nearest Neighbors
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.neighbors">sklearn.neighbors</a>: Nearest Neighbors</caption>
@@ -1650,7 +1650,7 @@
 </table><br/>
 
 
-## sklearn.neural_network: Neural network models
+## Neural Network Models
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.neural_network">sklearn.neural_network</a>: Neural network models</caption>
@@ -1674,7 +1674,7 @@
 </table><br/>
 
 
-## sklearn.pipeline: Pipeline
+## Pipeline
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.pipeline">sklearn.pipeline</a>: Pipeline</caption>
@@ -1701,7 +1701,7 @@
 </table><br/>
 
 
-## sklearn.preprocessing: Preprocessing and Normalization
+## Preprocessing and Normalization
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.preprocessing">sklearn.preprocessing</a>: Preprocessing and Normalization</caption>
@@ -1797,7 +1797,7 @@
 </table><br/>
 
 
-## sklearn.random_projection: Random projection
+## Random Projection
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.random_projection">sklearn.random_projection</a>: Random projection</caption>
@@ -1818,7 +1818,7 @@
 </table><br/>
 
 
-## sklearn.semi_supervised: Semi-Supervised Learning
+## Semi-Supervised Learning
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.semi_supervised">sklearn.semi_supervised</a>: Semi-Supervised Learning</caption>
@@ -1839,7 +1839,7 @@
 </table><br/>
 
 
-## sklearn.svm: Support Vector Machines
+## Support Vector Machines
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.svm">sklearn.svm</a>: Support Vector Machines</caption>
@@ -1877,7 +1877,7 @@
 </table><br/>
 
 
-## sklearn.tree: Decision Trees
+## Decision Trees
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.tree">sklearn.tree</a>: Decision Trees</caption>
@@ -1911,7 +1911,7 @@
 </table><br/>
 
 
-## sklearn.utils: Utilities
+## Utilities
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing="0" cellpadding="5" border="1">
 <caption style="font-size: 1.5em; margin: 0.2em;"><a href="href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.utils">sklearn.utils</a>: Utilities</caption>
