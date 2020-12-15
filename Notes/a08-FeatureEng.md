@@ -20,6 +20,78 @@ The set of articles in this series:
 + [Advanced Feature Engineering Methods](https://tinyurl.com/y4op33zr)
 
 
+## 0. Summary
+
+
++ Imputation
+  + numerical variable
+    + mean or median imputation
+    + arbitrary value imputation
+    + end of tail imputation
+  + categorical variables
+    + frequent category imputation
+    + add a missing category
+  + both
+    + complete case analysis
+    + add a missing indicator
+    + random sample imputation
+
++ techniques for data encoding (categorical variable)
+  + traditional techniques
+    + one-hot encoding
+    + count or frequency encoding
+    + ordinal or label encoding
+    + Catboost encoder
+    + Leave-one-out encoder (LOO/LOOE)
+  + monotonic relationship
+    + ordered label encoding
+    + mean encoding
+    + probability ratio encoding
+    + weight of evidence
+  + alternative techniques
+    + rare labels encoding
+    + binary encoding
+
++ most common-used methods
+  + logarithmic transformation
+  + square root transformation
+  + reciprocal transformation
+  + exponential or power transformation
+  + Box-Cox transformation
+  + Yeo-Johson transformation
+
+
++ Variable discretization approaches
+  + supervised approach
+    + discretization w/ decision tree
+  + unsupervised approaches
+    + equal-width discretization
+    + equal-frequency discretization
+    + K-means discretization
+  + other
+    + custom discretization
+
++ Outlier Detection
+  + visualization plots like box plot and scatter plot
+  + normal distribution (mean and s.d.)
+  + Inter-quantal range proximity rule
+  + Density-Based Spatial Clustering of Application w/ Noise (DBSCAN)
+
++ Handling outliers
+  + trimming: simply removing the outliers from dataset
+  + imputing: treating outliers as missing data and applying missing data imputation techniques
+  + discretizaton: placing outliers in edge bins w/ higher or lower values of the distribution
+  + censoring: capping the variable distribution at the maximum and minimum values
+
++ Scaling methods
+  + mean normalization
+  + standardization
+  + robust to maximum and minimum
+  + scale to absolute maximum
+  + scale to unit norm
+  
+
+
 ## 1. Broad Introduction
 
 + Feature engineering
@@ -1119,7 +1191,7 @@ The set of articles in this series:
   
 
 + Logarithmic transformation 
-  + formula: $ f(x) = \ln(x) $
+  + formula: $ f(x) = \ln(x), x > 0$
   + simplest and most popular among the different types of transformations
   + involving a substantial transformation that significantly affects distribution shape
   + making extremely skewed distribution less skewed, especially for right-skewed distributions
@@ -1128,14 +1200,14 @@ The set of articles in this series:
 
     ```python
     # create the function transformer object w/ logarithm transformation
-    lagrithm_transformer = FunctionTransformer(np.log, validate=True)
+    logarithm_transformer = FunctionTransformer(np.log, validate=True)
 
     # apply the transformation to data
     data_new_df = logarithm_transformer.transformer(data_df[cols])
     ```
 
 + Square root transformation
-  + formula: $f(x) = \sqrt{x}$
+  + formula: $f(x) = \sqrt{x}, x \ge 0$
   + simple transformation w/ average effect on distribution shape
   + weaker than logarithmic transformation
   + used for reducing right-skewed distributions
@@ -1154,7 +1226,7 @@ The set of articles in this series:
   + alternative: cubic root function
 
 + Reciprocal transformation
-  + formula: $f(x) = \frac{1}{x}$
+  + formula: $f(x) = \frac{1}{x}, x \ne 0$
   + a powerful transformation w/ a radical effect
   + positive reciprocal: reversing the order among values of the same sign $\to$ large values $\to$ smaller
   + negative reciprocal: preserving the order among values of the same ign
@@ -1191,7 +1263,7 @@ The set of articles in this series:
     ```
 
 + Box-Cox transformation
-  + formula
+  + formula ($x_i > 0$)
 
     \[ x_i^{(\lambda)} = \begin{cases} 
       \frac{x_i^{\lambda}-1}{\lambda} & \text{if } \lambda \ne 0, \\ 
@@ -1222,7 +1294,7 @@ The set of articles in this series:
     \[ x_i^{(\lambda)} = \begin{cases}
       [(x_i + 1)^\lambda - 1] / \lambda & \text{if } \lambda \ne 0, x_i \ge 0, \\
       \ln(x_i) + 1 & \text{if } \lambda = 0, x_i \ge 0, \\
-      [(x_i + 1)^{2-\lambda} - 1]/(2-\lambda) & \text{if } \lambda \ne 2, x_i < 0, \\
+      -[(-x_i + 1)^{2-\lambda} - 1]/(2-\lambda) & \text{if } \lambda \ne 2, x_i < 0, \\
       -\ln(-x_i + 1) & \text{if } \lambda = 2, x_i < 0
     \end{cases} \]
 
