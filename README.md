@@ -410,10 +410,10 @@
   <!-- Feature Engineering -->
   <tr>
     <th style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Feature Engineering </th>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#summary"> Summary </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#overview"> Overview </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#variables-types"> Variable Types </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#common-issues-in-datasets"> Common Issues </a> </td>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
   </tr>
   <tr>
     <th rowspan=3 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Imputating Missing Values </th>
