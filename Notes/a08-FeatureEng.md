@@ -613,6 +613,7 @@ The set of articles in this series:
     + traditional techniques
       + one-hot encoding
       + count or frequency encoding
+      + ordinal or label encoding
     + monotonic relationship
       + ordered label encoding
       + mean encoding
