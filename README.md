@@ -532,20 +532,6 @@
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
   </tr>
 
-  <!-- Feature Selection -->
-  <tr>
-    <th rowspan=2 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Feature Selection </th>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
-  </tr>
-  <tr>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
-  </tr>
 
   <!-- Supervised Machine Learning -->
   <tr> <td colspan=5 style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Supervised Machine Learning </td> </tr>
