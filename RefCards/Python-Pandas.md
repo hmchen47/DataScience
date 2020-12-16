@@ -1,6 +1,6 @@
-# Pandas - Dataframe
+# Pandas APIs
 
-## Pandas DataFrame
+## DataFrame Attributes
 
   <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y5vn7xyd">Attributes and Underlying data</a></caption>
@@ -57,6 +57,9 @@
     </tr>
     </tbody>
   </table>
+
+
+## Dataframe Indexing & Iteration
 
   <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y6788rm2">Indexing and Iteration</a></caption>
@@ -155,8 +158,10 @@
   </table>
 
 
+## DataFrame Binary Operators
+
   <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/yxqwpewf">Binary Opperator Functions</a></caption>
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/yxqwpewf">Binary Operator Functions</a></caption>
     <thead>
     <tr style="font-size: 1.2em;">
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
@@ -267,6 +272,9 @@
     </tbody>
   </table>
 
+
+## DataFrame Fucntions
+
   <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y424dm6t">Function application, GroupBy & window</a></caption>
     <thead>
@@ -298,7 +306,7 @@
     </tr>
     <tr>
       <td><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.transform.html#pandas.DataFrame.transform" title="pandas.DataFrame.transform"><code>DataFrame.transform</code></a>(self,&nbsp;func[,&nbsp;axis])</td>
-      <td>Call <code class="docutils literal notranslate"><span class="pre">func</code> on self producing a DataFrame with transformed values.</td>
+      <td>Call <code>func</code> on self producing a DataFrame with transformed values.</td>
     </tr>
     <tr>
       <td><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html#pandas.DataFrame.groupby" title="pandas.DataFrame.groupby"><code>DataFrame.groupby</code></a>(self[,&nbsp;by,&nbsp;axis,&nbsp;level])</td>
@@ -319,6 +327,8 @@
     </tbody>
   </table>
 
+
+## DataFrame Statistics
 
   <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y23vpvaa">Computations / descriptive stats</a></caption>
@@ -473,6 +483,8 @@
   </table>
 
 
+## DataFrame Indexing & Manipulation
+
   <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <caption style="font-size: 1.5em; margin: 0.2em;"><a href="url">Reindexing / selection / label manipulation</a></caption>
     <thead>
@@ -590,8 +602,10 @@
   </table>
 
 
+## DataFrame Missing Data
+
   <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
-    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="url">Reshaping, sorting, transposing</a></caption>
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y9my23yz">Missing Data Handling</a></caption>
     <thead>
     <tr style="font-size: 1.2em;">
       <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
@@ -599,81 +613,47 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.droplevel.html#pandas.DataFrame.droplevel" title="pandas.DataFrame.droplevel"><code>DataFrame.droplevel</code></a>(self,&nbsp;level[,&nbsp;axis])</td>
-      <td>Return DataFrame with requested index / column level(s) removed.</td>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.backfill.html#pandas.DataFrame.backfill" title="pandas.DataFrame.backfill"><code>DataFrame.backfill</code></a>([axis,&nbsp;inplace,&nbsp;limit,&nbsp;…])</p></td>
+    <td><p>Synonym for <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.fillna.html#pandas.DataFrame.fillna" title="pandas.DataFrame.fillna"><code>DataFrame.fillna()</code></a> with <code>method='bfill'</code>.</p></td>
     </tr>
-    <tr>
-      <td><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.pivot.html#pandas.DataFrame.pivot" title="pandas.DataFrame.pivot"><code>DataFrame.pivot</code></a>(self[,&nbsp;index,&nbsp;columns,&nbsp;values])</td>
-      <td>Return reshaped DataFrame organized by given index / column values.</td>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.bfill.html#pandas.DataFrame.bfill" title="pandas.DataFrame.bfill"><code>DataFrame.bfill</code></a>([axis,&nbsp;inplace,&nbsp;limit,&nbsp;downcast])</p></td>
+    <td><p>Synonym for <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.fillna.html#pandas.DataFrame.fillna" title="pandas.DataFrame.fillna"><code>DataFrame.fillna()</code></a> with <code>method='bfill'</code>.</p></td>
     </tr>
-    <tr>
-      <td><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.pivot_table.html#pandas.DataFrame.pivot_table" title="pandas.DataFrame.pivot_table"><code>DataFrame.pivot_table</code></a>(self[,&nbsp;values,&nbsp;index,&nbsp;…])</td>
-      <td>Create a spreadsheet-style pivot table as a DataFrame.</td>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html#pandas.DataFrame.dropna" title="pandas.DataFrame.dropna"><code>DataFrame.dropna</code></a>([axis,&nbsp;how,&nbsp;thresh,&nbsp;…])</p></td>
+    <td><p>Remove missing values.</p></td>
     </tr>
-    <tr>
-      <td><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.reorder_levels.html#pandas.DataFrame.reorder_levels" title="pandas.DataFrame.reorder_levels"><code>DataFrame.reorder_levels</code></a>(self,&nbsp;order[,&nbsp;axis])</td>
-      <td>Rearrange index levels using input order.</td>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.ffill.html#pandas.DataFrame.ffill" title="pandas.DataFrame.ffill"><code>DataFrame.ffill</code></a>([axis,&nbsp;inplace,&nbsp;limit,&nbsp;downcast])</p></td>
+    <td><p>Synonym for <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.fillna.html#pandas.DataFrame.fillna" title="pandas.DataFrame.fillna"><code>DataFrame.fillna()</code></a> with <code>method='ffill'</code>.</p></td>
     </tr>
-    <tr>
-      <td><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_values.html#pandas.DataFrame.sort_values" title="pandas.DataFrame.sort_values"><code>DataFrame.sort_values</code></a>(self,&nbsp;by[,&nbsp;axis,&nbsp;…])</td>
-      <td>Sort by the values along either axis.</td>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.fillna.html#pandas.DataFrame.fillna" title="pandas.DataFrame.fillna"><code>DataFrame.fillna</code></a>([value,&nbsp;method,&nbsp;axis,&nbsp;…])</p></td>
+    <td><p>Fill NA/NaN values using the specified method.</p></td>
     </tr>
-    <tr>
-      <td><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_index.html#pandas.DataFrame.sort_index" title="pandas.DataFrame.sort_index"><code>DataFrame.sort_index</code></a>(self[,&nbsp;axis,&nbsp;level,&nbsp;…])</td>
-      <td>Sort object by labels (along an axis).</td>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.interpolate.html#pandas.DataFrame.interpolate" title="pandas.DataFrame.interpolate"><code>DataFrame.interpolate</code></a>([method,&nbsp;axis,&nbsp;limit,&nbsp;…])</p></td>
+    <td><p>Please note that only <code>method='linear'</code> is supported for DataFrame/Series with a MultiIndex.</p></td>
     </tr>
-    <tr>
-      <td><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.nlargest.html#pandas.DataFrame.nlargest" title="pandas.DataFrame.nlargest"><code>DataFrame.nlargest</code></a>(self,&nbsp;n,&nbsp;columns[,&nbsp;keep])</td>
-      <td>Return the first <cite>n</cite> rows ordered by <cite>columns</cite> in descending order.</td>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.isna.html#pandas.DataFrame.isna" title="pandas.DataFrame.isna"><code>DataFrame.isna</code></a>()</p></td>
+    <td><p>Detect missing values.</p></td>
     </tr>
-    <tr>
-      <td><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.nsmallest.html#pandas.DataFrame.nsmallest" title="pandas.DataFrame.nsmallest"><code>DataFrame.nsmallest</code></a>(self,&nbsp;n,&nbsp;columns[,&nbsp;keep])</td>
-      <td>Return the first <cite>n</cite> rows ordered by <cite>columns</cite> in ascending order.</td>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.isnull.html#pandas.DataFrame.isnull" title="pandas.DataFrame.isnull"><code>DataFrame.isnull</code></a>()</p></td>
+    <td><p>Detect missing values.</p></td>
     </tr>
-    <tr>
-      <td><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.swaplevel.html#pandas.DataFrame.swaplevel" title="pandas.DataFrame.swaplevel"><code>DataFrame.swaplevel</code></a>(self[,&nbsp;i,&nbsp;j,&nbsp;axis])</td>
-      <td>Swap levels i and j in a MultiIndex on a particular axis.</td>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.notna.html#pandas.DataFrame.notna" title="pandas.DataFrame.notna"><code>DataFrame.notna</code></a>()</p></td>
+    <td><p>Detect existing (non-missing) values.</p></td>
     </tr>
-    <tr>
-      <td><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.stack.html#pandas.DataFrame.stack" title="pandas.DataFrame.stack"><code>DataFrame.stack</code></a>(self[,&nbsp;level,&nbsp;dropna])</td>
-      <td>Stack the prescribed level(s) from columns to index.</td>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.notnull.html#pandas.DataFrame.notnull" title="pandas.DataFrame.notnull"><code>DataFrame.notnull</code></a>()</p></td>
+    <td><p>Detect existing (non-missing) values.</p></td>
     </tr>
-    <tr>
-      <td><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.unstack.html#pandas.DataFrame.unstack" title="pandas.DataFrame.unstack"><code>DataFrame.unstack</code></a>(self[,&nbsp;level,&nbsp;fill_value])</td>
-      <td>Pivot a level of the (necessarily hierarchical) index labels.</td>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.pad.html#pandas.DataFrame.pad" title="pandas.DataFrame.pad"><code>DataFrame.pad</code></a>([axis,&nbsp;inplace,&nbsp;limit,&nbsp;downcast])</p></td>
+    <td><p>Synonym for <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.fillna.html#pandas.DataFrame.fillna" title="pandas.DataFrame.fillna"><code>DataFrame.fillna()</code></a> with <code>method='ffill'</code>.</p></td>
     </tr>
-    <tr>
-      <td><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.swapaxes.html#pandas.DataFrame.swapaxes" title="pandas.DataFrame.swapaxes"><code>DataFrame.swapaxes</code></a>(self,&nbsp;axis1,&nbsp;axis2[,&nbsp;copy])</td>
-      <td>Interchange axes and swap values axes appropriately.</td>
-    </tr>
-    <tr>
-      <td><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.melt.html#pandas.DataFrame.melt" title="pandas.DataFrame.melt"><code>DataFrame.melt</code></a>(self[,&nbsp;id_vars,&nbsp;value_vars,&nbsp;…])</td>
-      <td>Unpivot a DataFrame from wide to long format, optionally leaving identifiers set.</td>
-    </tr>
-    <tr>
-      <td><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.explode.html#pandas.DataFrame.explode" title="pandas.DataFrame.explode"><code>DataFrame.explode</code></a>(self,&nbsp;column,&nbsp;Tuple])</td>
-      <td>Transform each element of a list-like to a row, replicating index values.</td>
-    </tr>
-    <tr>
-      <td><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.squeeze.html#pandas.DataFrame.squeeze" title="pandas.DataFrame.squeeze"><code>DataFrame.squeeze</code></a>(self[,&nbsp;axis])</td>
-      <td>Squeeze 1 dimensional axis objects into scalars.</td>
-    </tr>
-    <tr>
-      <td><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_xarray.html#pandas.DataFrame.to_xarray" title="pandas.DataFrame.to_xarray"><code>DataFrame.to_xarray</code></a>(self)</td>
-      <td>Return an xarray object from the pandas object.</td>
-    </tr>
-    <tr>
-      <td><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.T.html#pandas.DataFrame.T" title="pandas.DataFrame.T"><code>DataFrame.T</code></a></td>
-      <td>Transpose index and columns.</td>
-    </tr>
-    <tr>
-      <td><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.transpose.html#pandas.DataFrame.transpose" title="pandas.DataFrame.transpose"><code>DataFrame.transpose</code></a>(self,&nbsp;*args,&nbsp;copy)</td>
-      <td>Transpose index and columns.</td>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.replace.html#pandas.DataFrame.replace" title="pandas.DataFrame.replace"><code>DataFrame.replace</code></a>([to_replace,&nbsp;value,&nbsp;…])</p></td>
+    <td><p>Replace values given in <cite>to_replace</cite> with <cite>value</cite>.</p></td>
     </tr>
     </tbody>
   </table>
 
+
+## Pandas Dataframe Reshaping, Sorting, & Transposing
 
   <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y65kz8nw">Reshaping, sorting, transposing</a></caption>
@@ -759,6 +739,8 @@
     </tbody>
   </table>
 
+## DataFrames Manupulation 
+
   <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y3bcu5e5">Combining / joining / merging</a></caption>
     <thead>
@@ -790,6 +772,61 @@
     </tr>
     </tbody>
   </table>
+
+
+
+## DataFrame Time Series
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y7zntevu">Time Series-related</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.asfreq.html#pandas.DataFrame.asfreq" title="pandas.DataFrame.asfreq"><code>DataFrame.asfreq</code></a>(freq[,&nbsp;method,&nbsp;how,&nbsp;…])</p></td>
+    <td><p>Convert TimeSeries to specified frequency.</p></td>
+    </tr>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.asof.html#pandas.DataFrame.asof" title="pandas.DataFrame.asof"><code>DataFrame.asof</code></a>(where[,&nbsp;subset])</p></td>
+    <td><p>Return the last row(s) without any NaNs before <cite>where</cite>.</p></td>
+    </tr>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.shift.html#pandas.DataFrame.shift" title="pandas.DataFrame.shift"><code>DataFrame.shift</code></a>([periods,&nbsp;freq,&nbsp;axis,&nbsp;…])</p></td>
+    <td><p>Shift index by desired number of periods with an optional time <cite>freq</cite>.</p></td>
+    </tr>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.slice_shift.html#pandas.DataFrame.slice_shift" title="pandas.DataFrame.slice_shift"><code>DataFrame.slice_shift</code></a>([periods,&nbsp;axis])</p></td>
+    <td><p>Equivalent to <cite>shift</cite> without copying data.</p></td>
+    </tr>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.tshift.html#pandas.DataFrame.tshift" title="pandas.DataFrame.tshift"><code>DataFrame.tshift</code></a>([periods,&nbsp;freq,&nbsp;axis])</p></td>
+    <td><p>(DEPRECATED) Shift the time index, using the index’s frequency if available.</p></td>
+    </tr>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.first_valid_index.html#pandas.DataFrame.first_valid_index" title="pandas.DataFrame.first_valid_index"><code>DataFrame.first_valid_index</code></a>()</p></td>
+    <td><p>Return index for first non-NA/null value.</p></td>
+    </tr>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.last_valid_index.html#pandas.DataFrame.last_valid_index" title="pandas.DataFrame.last_valid_index"><code>DataFrame.last_valid_index</code></a>()</p></td>
+    <td><p>Return index for last non-NA/null value.</p></td>
+    </tr>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.resample.html#pandas.DataFrame.resample" title="pandas.DataFrame.resample"><code>DataFrame.resample</code></a>(rule[,&nbsp;axis,&nbsp;closed,&nbsp;…])</p></td>
+    <td><p>Resample time-series data.</p></td>
+    </tr>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_period.html#pandas.DataFrame.to_period" title="pandas.DataFrame.to_period"><code>DataFrame.to_period</code></a>([freq,&nbsp;axis,&nbsp;copy])</p></td>
+    <td><p>Convert DataFrame from DatetimeIndex to PeriodIndex.</p></td>
+    </tr>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_timestamp.html#pandas.DataFrame.to_timestamp" title="pandas.DataFrame.to_timestamp"><code>DataFrame.to_timestamp</code></a>([freq,&nbsp;how,&nbsp;axis,&nbsp;copy])</p></td>
+    <td><p>Cast to DatetimeIndex of timestamps, at <em>beginning</em> of period.</p></td>
+    </tr>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.tz_convert.html#pandas.DataFrame.tz_convert" title="pandas.DataFrame.tz_convert"><code>DataFrame.tz_convert</code></a>(tz[,&nbsp;axis,&nbsp;level,&nbsp;copy])</p></td>
+    <td><p>Convert tz-aware axis to target time zone.</p></td>
+    </tr>
+    <tr ><td><p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.tz_localize.html#pandas.DataFrame.tz_localize" title="pandas.DataFrame.tz_localize"><code>DataFrame.tz_localize</code></a>(tz[,&nbsp;axis,&nbsp;level,&nbsp;…])</p></td>
+    <td><p>Localize tz-naive index of a Series or DataFrame to target time zone.</p></td>
+    </tr>
+    </tbody>
+    </table>
+
+
+## DataFrame Plotting
 
   <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y4hhnfme">Plotting</a></caption>
@@ -851,6 +888,242 @@
     </tbody>
   </table>
 
+
+
+## TimeStamp Class
+
++ `pandas.Timestamp` class ([Ref](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.html))
+  + Syntax: `class pandas.Timestamp(ts_input=<object object>, freq=None, tz=None, unit=None, year=None, month=None, day=None, hour=None, minute=None, second=None, microsecond=None, nanosecond=None, tzinfo=None, *, fold=None)`
+  + Docstring:
+    + Pandas replacement for python `datetime.datetime` object.
+    + Timestamp is the pandas equivalent of python’s Datetime and is interchangeable with it in most cases. It’s the type used for the entries that make up a `DatetimeIndex`, and other timeseries oriented data structures in pandas.
+  + Parameters
+    + `ts_input`: datetime-like, str, int, float<br/>
+      Value to be converted to Timestamp.
+    + `freq`: str, DateOffset<br/>
+      Offset which Timestamp will have.
+    + `tz`: str, pytz.timezone, dateutil.tz.tzfile or None<br/>
+      Time zone for time which Timestamp will have.
+    + `unit`: str<br/>
+      Unit used for conversion if ts_input is of type int or float. The valid values are ‘D’, ‘h’, ‘m’, ‘s’, ‘ms’, ‘us’, and ‘ns’. For example, ‘s’ means seconds and ‘ms’ means milliseconds.
+    + `year`, `month`, `day`: int
+    + `hour`, `minute`, `second`, `microsecond`: int, optional, default 0
+    + `nanosecond`: int, optional, default 0
+    + `tzinfo`: datetime.tzinfo, optional, default None
+    + `fold`: {0, 1}, default None, keyword-only <br/>
+      Due to daylight saving time, one wall clock time can occur twice when shifting from summer to winter time; fold describes whether the datetime-like corresponds to the first (0) or the second time (1) the wall clock hits the ambiguous time
+
+
+## TimeStamp Attributes
+
+  <table ><table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 55vw;" cellspacing="0" cellpadding="5" border="1">
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y4fjaptb">Attributes of <code>pandas.TimeStamp</code></a></caption>
+  <thead>
+  <tr style="font-size: 1.2em; vertical-align:middle"">
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
+    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.asm8.html#pandas.Timestamp.asm8" title="pandas.Timestamp.asm8"><code>asm8</code></a></p></td>
+  <td><p>Return numpy datetime64 format in nanoseconds.</p></td>
+  </tr>
+  <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.dayofweek.html#pandas.Timestamp.dayofweek" title="pandas.Timestamp.dayofweek"><code>dayofweek</code></a></p></td>
+  <td><p>Return day of the week.</p></td>
+  </tr>
+  <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.dayofyear.html#pandas.Timestamp.dayofyear" title="pandas.Timestamp.dayofyear"><code>dayofyear</code></a></p></td>
+  <td><p>Return the day of the year.</p></td>
+  </tr>
+  <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.days_in_month.html#pandas.Timestamp.days_in_month" title="pandas.Timestamp.days_in_month"><code>days_in_month</code></a></p></td>
+  <td><p>Return the number of days in the month.</p></td>
+  </tr>
+  <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.daysinmonth.html#pandas.Timestamp.daysinmonth" title="pandas.Timestamp.daysinmonth"><code>daysinmonth</code></a></p></td>
+  <td><p>Return the number of days in the month.</p></td>
+  </tr>
+  <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.freqstr.html#pandas.Timestamp.freqstr" title="pandas.Timestamp.freqstr"><code>freqstr</code></a></p></td>
+  <td><p>Return the total number of days in the month.</p></td>
+  </tr>
+  <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.is_leap_year.html#pandas.Timestamp.is_leap_year" title="pandas.Timestamp.is_leap_year"><code>is_leap_year</code></a></p></td>
+  <td><p>Return True if year is a leap year.</p></td>
+  </tr>
+  <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.is_month_end.html#pandas.Timestamp.is_month_end" title="pandas.Timestamp.is_month_end"><code>is_month_end</code></a></p></td>
+  <td><p>Return True if date is last day of month.</p></td>
+  </tr>
+  <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.is_month_start.html#pandas.Timestamp.is_month_start" title="pandas.Timestamp.is_month_start"><code>is_month_start</code></a></p></td>
+  <td><p>Return True if date is first day of month.</p></td>
+  </tr>
+  <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.is_quarter_end.html#pandas.Timestamp.is_quarter_end" title="pandas.Timestamp.is_quarter_end"><code>is_quarter_end</code></a></p></td>
+  <td><p>Return True if date is last day of the quarter.</p></td>
+  </tr>
+  <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.is_quarter_start.html#pandas.Timestamp.is_quarter_start" title="pandas.Timestamp.is_quarter_start"><code>is_quarter_start</code></a></p></td>
+  <td><p>Return True if date is first day of the quarter.</p></td>
+  </tr>
+  <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.is_year_end.html#pandas.Timestamp.is_year_end" title="pandas.Timestamp.is_year_end"><code>is_year_end</code></a></p></td>
+  <td><p>Return True if date is last day of the year.</p></td>
+  </tr>
+  <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.is_year_start.html#pandas.Timestamp.is_year_start" title="pandas.Timestamp.is_year_start"><code>is_year_start</code></a></p></td>
+  <td><p>Return True if date is first day of the year.</p></td>
+  </tr>
+  <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.quarter.html#pandas.Timestamp.quarter" title="pandas.Timestamp.quarter"><code>quarter</code></a></p></td>
+  <td><p>Return the quarter of the year.</p></td>
+  </tr>
+  <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.tz.html#pandas.Timestamp.tz" title="pandas.Timestamp.tz"><code>tz</code></a></p></td>
+  <td><p>Alias for tzinfo.</p></td>
+  </tr>
+  <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.week.html#pandas.Timestamp.week" title="pandas.Timestamp.week"><code>week</code></a></p></td>
+  <td><p>Return the week number of the year.</p></td>
+  </tr>
+  <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.weekofyear.html#pandas.Timestamp.weekofyear" title="pandas.Timestamp.weekofyear"><code>weekofyear</code></a></p></td>
+  <td><p>Return the week number of the year.</p></td>
+  </tr>
+  </tbody>
+  </table>
+
+
+## TimeStamp Methods
+
+  <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
+    <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y4fjaptb">TimeStamp Methods</a></caption>
+    <thead>
+    <tr style="font-size: 1.2em;">
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Methods</th>
+      <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.astimezone.html#pandas.Timestamp.astimezone" title="pandas.Timestamp.astimezone"><code>astimezone</code></a>(tz)</p></td>
+    <td><p>Convert tz-aware Timestamp to another time zone.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.ceil.html#pandas.Timestamp.ceil" title="pandas.Timestamp.ceil"><code>ceil</code></a>(freq[,&nbsp;ambiguous,&nbsp;nonexistent])</p></td>
+    <td><p>return a new Timestamp ceiled to this resolution.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.combine.html#pandas.Timestamp.combine" title="pandas.Timestamp.combine"><code>combine</code></a>(date,&nbsp;time)</p></td>
+    <td><p>date, time -&gt; datetime with same date and time fields.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.ctime.html#pandas.Timestamp.ctime" title="pandas.Timestamp.ctime"><code>ctime</code></a></p></td>
+    <td><p>Return ctime() style string.</p></td>
+    </tr>
+    <tr ><td><p><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.date.html#pandas.Timestamp.date" title="pandas.Timestamp.date"><code>date</code></a></p></td>
+    <td><p>Return date object with same year, month and day.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.day_name.html#pandas.Timestamp.day_name" title="pandas.Timestamp.day_name"><code>day_name</code></a></p></td>
+    <td><p>Return the day name of the Timestamp with specified locale.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.dst.html#pandas.Timestamp.dst" title="pandas.Timestamp.dst"><code>dst</code></a></p></td>
+    <td><p>Return self.tzinfo.dst(self).</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.floor.html#pandas.Timestamp.floor" title="pandas.Timestamp.floor"><code>floor</code></a>(freq[,&nbsp;ambiguous,&nbsp;nonexistent])</p></td>
+    <td><p>return a new Timestamp floored to this resolution.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.fromisocalendar.html#pandas.Timestamp.fromisocalendar" title="pandas.Timestamp.fromisocalendar"><code>fromisocalendar</code></a></p></td>
+    <td><p>int, int, int -&gt; Construct a date from the ISO year, week number and weekday.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.fromisoformat.html#pandas.Timestamp.fromisoformat" title="pandas.Timestamp.fromisoformat"><code>fromisoformat</code></a></p></td>
+    <td><p>string -&gt; datetime from datetime.isoformat() output</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.fromordinal.html#pandas.Timestamp.fromordinal" title="pandas.Timestamp.fromordinal"><code>fromordinal</code></a>(ordinal[,&nbsp;freq,&nbsp;tz])</p></td>
+    <td><p>Passed an ordinal, translate and convert to a ts.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.fromtimestamp.html#pandas.Timestamp.fromtimestamp" title="pandas.Timestamp.fromtimestamp"><code>fromtimestamp</code></a>(ts)</p></td>
+    <td><p>timestamp[, tz] -&gt; tz’s local time from POSIX timestamp.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.isocalendar.html#pandas.Timestamp.isocalendar" title="pandas.Timestamp.isocalendar"><code>isocalendar</code></a></p></td>
+    <td><p>Return a 3-tuple containing ISO year, week number, and weekday.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.isoformat.html#pandas.Timestamp.isoformat" title="pandas.Timestamp.isoformat"><code>isoformat</code></a></p></td>
+    <td><p>[sep] -&gt; string in ISO 8601 format, YYYY-MM-DDT[HH[:MM[:SS[.mmm[uuu]]]]][+HH:MM].</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.isoweekday.html#pandas.Timestamp.isoweekday" title="pandas.Timestamp.isoweekday"><code>isoweekday</code></a></p></td>
+    <td><p>Return the day of the week represented by the date.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.month_name.html#pandas.Timestamp.month_name" title="pandas.Timestamp.month_name"><code>month_name</code></a></p></td>
+    <td><p>Return the month name of the Timestamp with specified locale.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.normalize.html#pandas.Timestamp.normalize" title="pandas.Timestamp.normalize"><code>normalize</code></a></p></td>
+    <td><p>Normalize Timestamp to midnight, preserving tz information.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.now.html#pandas.Timestamp.now" title="pandas.Timestamp.now"><code>now</code></a>([tz])</p></td>
+    <td><p>Return new Timestamp object representing current time local to tz.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.replace.html#pandas.Timestamp.replace" title="pandas.Timestamp.replace"><code>replace</code></a>([year,&nbsp;month,&nbsp;day,&nbsp;hour,&nbsp;minute,&nbsp;…])</p></td>
+    <td><p>implements datetime.replace, handles nanoseconds.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.round.html#pandas.Timestamp.round" title="pandas.Timestamp.round"><code>round</code></a>(freq[,&nbsp;ambiguous,&nbsp;nonexistent])</p></td>
+    <td><p>Round the Timestamp to the specified resolution.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.strftime.html#pandas.Timestamp.strftime" title="pandas.Timestamp.strftime"><code>strftime</code></a></p></td>
+    <td><p>format -&gt; strftime() style string.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.strptime.html#pandas.Timestamp.strptime" title="pandas.Timestamp.strptime"><code>strptime</code></a>(string,&nbsp;format)</p></td>
+    <td><p>Function is not implemented.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.time.html#pandas.Timestamp.time" title="pandas.Timestamp.time"><code>time</code></a></p></td>
+    <td><p>Return time object with same time but with tzinfo=None.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.timestamp.html#pandas.Timestamp.timestamp" title="pandas.Timestamp.timestamp"><code>timestamp</code></a></p></td>
+    <td><p>Return POSIX timestamp as float.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.timetuple.html#pandas.Timestamp.timetuple" title="pandas.Timestamp.timetuple"><code>timetuple</code></a></p></td>
+    <td><p>Return time tuple, compatible with time.localtime().</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.timetz.html#pandas.Timestamp.timetz" title="pandas.Timestamp.timetz"><code>timetz</code></a></p></td>
+    <td><p>Return time object with same time and tzinfo.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.to_datetime64.html#pandas.Timestamp.to_datetime64" title="pandas.Timestamp.to_datetime64"><code>to_datetime64</code></a></p></td>
+    <td><p>Return a numpy.datetime64 object with ‘ns’ precision.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.to_julian_date.html#pandas.Timestamp.to_julian_date" title="pandas.Timestamp.to_julian_date"><code>to_julian_date</code></a>()</p></td>
+    <td><p>Convert TimeStamp to a Julian Date.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.to_numpy.html#pandas.Timestamp.to_numpy" title="pandas.Timestamp.to_numpy"><code>to_numpy</code></a></p></td>
+    <td><p>Convert the Timestamp to a NumPy datetime64.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.to_period.html#pandas.Timestamp.to_period" title="pandas.Timestamp.to_period"><code>to_period</code></a></p></td>
+    <td><p>Return an period of which this timestamp is an observation.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.to_pydatetime.html#pandas.Timestamp.to_pydatetime" title="pandas.Timestamp.to_pydatetime"><code>to_pydatetime</code></a></p></td>
+    <td><p>Convert a Timestamp object to a native Python datetime object.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.today.html#pandas.Timestamp.today" title="pandas.Timestamp.today"><code>today</code></a>(cls[,&nbsp;tz])</p></td>
+    <td><p>Return the current time in the local timezone.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.toordinal.html#pandas.Timestamp.toordinal" title="pandas.Timestamp.toordinal"><code>toordinal</code></a></p></td>
+    <td><p>Return proleptic Gregorian ordinal.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.tz_convert.html#pandas.Timestamp.tz_convert" title="pandas.Timestamp.tz_convert"><code>tz_convert</code></a>(tz)</p></td>
+    <td><p>Convert tz-aware Timestamp to another time zone.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.tz_localize.html#pandas.Timestamp.tz_localize" title="pandas.Timestamp.tz_localize"><code>tz_localize</code></a>(tz[,&nbsp;ambiguous,&nbsp;nonexistent])</p></td>
+    <td><p>Convert naive Timestamp to local time zone, or remove timezone from tz-aware Timestamp.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.tzname.html#pandas.Timestamp.tzname" title="pandas.Timestamp.tzname"><code>tzname</code></a></p></td>
+    <td><p>Return self.tzinfo.tzname(self).</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.utcfromtimestamp.html#pandas.Timestamp.utcfromtimestamp" title="pandas.Timestamp.utcfromtimestamp"><code>utcfromtimestamp</code></a>(ts)</p></td>
+    <td><p>Construct a naive UTC datetime from a POSIX timestamp.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.utcnow.html#pandas.Timestamp.utcnow" title="pandas.Timestamp.utcnow"><code>utcnow</code></a>()</p></td>
+    <td><p>Return a new Timestamp representing UTC day and time.</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.utcoffset.html#pandas.Timestamp.utcoffset" title="pandas.Timestamp.utcoffset"><code>utcoffset</code></a></p></td>
+    <td><p>Return self.tzinfo.utcoffset(self).</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.utctimetuple.html#pandas.Timestamp.utctimetuple" title="pandas.Timestamp.utctimetuple"><code>utctimetuple</code></a></p></td>
+    <td><p>Return UTC time tuple, compatible with time.localtime().</p></td>
+    </tr>
+    <tr ><td><p><a  href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.weekday.html#pandas.Timestamp.weekday" title="pandas.Timestamp.weekday"><code>weekday</code></a></p></td>
+    <td><p>Return the day of the week represented by the date.</p></td>
+    </tr>
+    </tbody>
+    </table>
+
+
+
+
+
+
+##  Template
+
   <table style="font-family: arial,helvetica,sans-serif; width: 55vw;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center">
     <caption style="font-size: 1.5em; margin: 0.2em;"><a href="url">Template</a></caption>
     <thead>
@@ -860,4 +1133,3 @@
     </tr>
     </thead>
   </table>
-
