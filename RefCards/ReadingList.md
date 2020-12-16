@@ -69,6 +69,7 @@
 
 + Y. Charfaoui, [Resampling to Properly Handle Imbalanced Datasets in Machine Learning](https://tinyurl.com/yxjq63ms)
 
++ S. Balakrishnama and A. Ganapathiraju, [Linear Discriminant Analysis - A Brief Tutorial](https://tinyurl.com/ya2pjtmd)
 
 
 ## Neural Networks
