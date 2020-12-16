@@ -27,25 +27,25 @@
     + ordered label encoding
     + mean encoding
     + probability ratio encoding
-    + weight of evidence
+    + weight of evidence $\left(\text{WOE} = \ln \left(\frac{p(1)}{p(0)}\right)\right)$
   + alternative techniques
     + rare labels encoding
     + binary encoding
 
-+ most common-used methods
-  + logarithmic transformation
-  + square root transformation
-  + reciprocal transformation
-  + exponential or power transformation
-  + Box-Cox transformation
-  + Yeo-Johson transformation
++ Most common-used transformer
+  + logarithmic transformation $\left(f(x) = \ln(x), x > 0 \right)$
+  + square root transformation $\left(f(x) = \sqrt{x}, x \ge 0 \right)$
+  + reciprocal transformation $\left(f(x) = \frac1x, x \ne 0 \right)$
+  + exponential or power transformation $\left(f(x) = x^2, x^3, \dots, x^n, \exp(x) \right)$
+  + Box-Cox transformation $\left(x_i^(\lambda) = \begin{cases} (x_i^\lambda -1) / \lambda & \text{if } \lambda =\ne 0 \\ \ln(x_i) & \text{if } \lambda = 0 \end{cases} \right)$
+  + Yeo-Johnson transformation $\left(x_i^{(\lambda)} = \begin{cases} [(x_i + 1)^\lambda - 1] / \lambda & \text{if } \lambda \ne 0, x_i \ge 0, \\ \ln(x_i) + 1 & \text{if } \lambda = 0, x_i \ge 0, \\ -[(-x_i + 1)^{2-\lambda} - 1]/(2-\lambda) & \text{if } \lambda \ne 2, x_i < 0, \\  -\ln(-x_i + 1) & \text{if } \lambda = 2, x_i < 0 \end{cases}\right)$
 
 
 + Variable discretization approaches
   + supervised approach
     + discretization w/ decision tree
   + unsupervised approaches
-    + equal-width discretization
+    + equal-width discretization ($\text{width} = \frac{\max(x) - \min(x)}{N}$)
     + equal-frequency discretization
     + K-means discretization
   + other
@@ -53,22 +53,24 @@
 
 + Outlier Detection
   + visualization plots like box plot and scatter plot
-  + normal distribution (mean and s.d.)
-  + Inter-quantal range proximity rule
+  + normal distribution ($\mu \pm 3 \times \text{s.d.}$)
+  + Inter-quantal range proximity rule (upper bound = $Q_3(x) + 1.5 \times \text{IQR}$, lower bound = $Q_1(x) - 1.5 \times \text{IQR}$)
   + Density-Based Spatial Clustering of Application w/ Noise (DBSCAN)
 
 + Handling outliers
   + trimming: simply removing the outliers from dataset
   + imputing: treating outliers as missing data and applying missing data imputation techniques
-  + discretizaton: placing outliers in edge bins w/ higher or lower values of the distribution
+  + discretization: placing outliers in edge bins w/ higher or lower values of the distribution
   + censoring: capping the variable distribution at the maximum and minimum values
 
 + Scaling methods
-  + mean normalization
-  + standardization
-  + robust to maximum and minimum
-  + scale to absolute maximum
-  + scale to unit norm
+  + mean normalization $\left(\overline{x} = \frac{x - \mu}{\max(x) - \min(x)]} \right)$
+  + standardization $\left(\overline{x} = \frac{x - \mu}{\text{std}(x)} \right)$
+  + robust scaling (scaling to median and IQR) $\left(\overline{x} = \frac{x - \text{median}(x)}{Q_3(x) - Q_1(x)} \right)$
+  + robust to maximum and minimum $\left(\overline{x} = \frac{x - \min(x)}{\max(x) - \min(x)} \right)$
+  + scale to absolute maximum $\left(\overline{x} = \frac{x}{\max(x)}\right)$
+  + scale to unit norm $\left(\overline{x} = \frac{x}{\|x\|} \right)$
+
   
 
 ## Overview
@@ -454,7 +456,7 @@
 ### Random Sample Imputation
 
 + [Random sample imputation](../Notes/a08-FeatureEng.md#4-imputing-missing-values)
-  + taking a random observaton from the pool of available observations of the variable and using those randomly selected values to fill in the missing one
+  + taking a random observation from the pool of available observations of the variable and using those randomly selected values to fill in the missing one
   + scenario:
     + suitable for numerical and categorical variables
   + assumptions
@@ -833,7 +835,7 @@
 + [Yeo-Johnson transformation](../Notes/a08-FeatureEng.md#6-transforming-variables)
   + formula
 
-        \[ x_i^{(\lambda)} = \begin{cases}
+    \[ x_i^{(\lambda)} = \begin{cases}
       [(x_i + 1)^\lambda - 1] / \lambda & \text{if } \lambda \ne 0, x_i \ge 0, \\
       \ln(x_i) + 1 & \text{if } \lambda = 0, x_i \ge 0, \\
       -[(-x_i + 1)^{2-\lambda} - 1]/(2-\lambda) & \text{if } \lambda \ne 2, x_i < 0, \\
@@ -867,7 +869,7 @@
   + usually encoding w/ ordinal, i.e., integer encoding as 1, 2, 3, tec.
   + two major methods
     + using the value of the interval straight away if using intervals as numbers
-    + treating numbers as categories, applying any of the encoding technique that creates a montone relationship w/ the target
+    + treating numbers as categories, applying any of the encoding technique that creates a monotone relationship w/ the target
   + advantageous way of encoding bins: treating bins as categories to use an encoding technique that creates a monotone relationship w/ the target
 
 ### Equal-Width Discretization
@@ -962,7 +964,7 @@
   + handling outliers
     + trimming: simply removing the outliers from dataset
     + imputing: treating outliers as missing data and applying missing data imputation techniques
-    + discretizaton: placing outliers in edge bins w/ higher or lower values of the distribution
+    + discretization: placing outliers in edge bins w/ higher or lower values of the distribution
     + censoring: capping the variable distribution at the maximum and minimum values
 
 
@@ -1107,6 +1109,7 @@
   + scaling methods
     + mean normalization
     + standardization
+    + robust scaling (scaling to median and IQR)
     + robust to maximum and minimum
     + scale to absolute maximum
     + scale to unit norm
