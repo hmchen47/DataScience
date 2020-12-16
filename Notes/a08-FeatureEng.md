@@ -34,19 +34,22 @@ The set of articles in this series:
     + complete case analysis
     + add a missing indicator
     + random sample imputation
+    + iterative imputation (multivariate)
+    + K-nearest neighbor imputation
 
 + techniques for data encoding (categorical variable)
   + traditional techniques
     + one-hot encoding
     + count or frequency encoding
     + ordinal or label encoding
-    + Catboost encoder
-    + Leave-one-out encoder (LOO/LOOE)
   + monotonic relationship
     + ordered label encoding
-    + mean encoding
+    + mean (target) encoding
     + probability ratio encoding
     + weight of evidence $\left(\text{WOE} = \ln \left(\frac{p(1)}{p(0)}\right)\right)$
+    + Catboost encoder - target-based
+    + Leave-one-out encoder (LOO/LOOE) - target-based
+    + James-Stein Encoder $\left( \widehat{x}^k = (1-B) \cdot \frac{n^+}{n} + B \cdot \frac{y^+}{y} \right)$ - target-based
   + alternative techniques
     + rare labels encoding
     + binary encoding
@@ -75,6 +78,8 @@ The set of articles in this series:
   + normal distribution ($\mu \pm 3 \times \text{s.d.}$)
   + Inter-quantal range proximity rule (upper bound = $Q_3(x) + 1.5 \times \text{IQR}$, lower bound = $Q_1(x) - 1.5 \times \text{IQR}$)
   + Density-Based Spatial Clustering of Application w/ Noise (DBSCAN)
+  + Isolation Forest - tree-based
+  + Local Outlier Factor (LOF)
 
 + Handling outliers
   + trimming: simply removing the outliers from dataset
@@ -89,8 +94,6 @@ The set of articles in this series:
   + robust to maximum and minimum $\left(\overline{x} = \frac{x - \min(x)}{\max(x) - \min(x)} \right)$
   + scale to absolute maximum $\left(\overline{x} = \frac{x}{\max(x)}\right)$
   + scale to unit norm $\left(\overline{x} = \frac{x}{\|x\|} \right)$
-
-
 
 
 ## 1. Broad Introduction
@@ -2315,8 +2318,8 @@ The set of articles in this series:
       <a href="https://tinyurl.com/y4op33zr" ismap target="_blank">
         <img style="margin: 0.1em;" height=200
           src  ="https://tinyurl.com/y5hmnhgk"
-          alt  ="Isolated forest - Visulization"
-          title="Isolated forest - Visulization"
+          alt  ="Isolated forest - Visualization"
+          title="Isolated forest - Visualization"
         >
         <img style="margin: 0.1em;" height=200
           src  ="https://tinyurl.com/y4943eac"

@@ -15,19 +15,22 @@
     + complete case analysis
     + add a missing indicator
     + random sample imputation
+    + iterative imputation (multivariate)
+    + K-nearest neighbor imputation
 
 + techniques for data encoding (categorical variable)
   + traditional techniques
     + one-hot encoding
     + count or frequency encoding
     + ordinal or label encoding
-    + Catboost encoder
-    + Leave-one-out encoder (LOO/LOOE)
   + monotonic relationship
     + ordered label encoding
-    + mean encoding
+    + mean (target) encoding
     + probability ratio encoding
     + weight of evidence $\left(\text{WOE} = \ln \left(\frac{p(1)}{p(0)}\right)\right)$
+    + Catboost encoder - target-based
+    + Leave-one-out encoder (LOO/LOOE) - target-based
+    + James-Stein Encoder $\left( \widehat{x}^k = (1-B) \cdot \frac{n^+}{n} + B \cdot \frac{y^+}{y} \right)$ - target-based
   + alternative techniques
     + rare labels encoding
     + binary encoding
@@ -56,6 +59,8 @@
   + normal distribution ($\mu \pm 3 \times \text{s.d.}$)
   + Inter-quantal range proximity rule (upper bound = $Q_3(x) + 1.5 \times \text{IQR}$, lower bound = $Q_1(x) - 1.5 \times \text{IQR}$)
   + Density-Based Spatial Clustering of Application w/ Noise (DBSCAN)
+  + Isolation Forest - tree-based
+  + Local Outlier Factor (LOF)
 
 + Handling outliers
   + trimming: simply removing the outliers from dataset
@@ -71,7 +76,6 @@
   + scale to absolute maximum $\left(\overline{x} = \frac{x}{\max(x)}\right)$
   + scale to unit norm $\left(\overline{x} = \frac{x}{\|x\|} \right)$
 
-  
 
 ## Overview
 
@@ -1270,94 +1274,6 @@
     <tr><td>is_leap_year</td><td>Logical indicating if the date belongs to a leap year</td>  </tr>
   </tbody>
   </table>
-
-
-+ `pandas.Timestamp` class ([Ref](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.html))
-  + Syntax: `class pandas.Timestamp(ts_input=<object object>, freq=None, tz=None, unit=None, year=None, month=None, day=None, hour=None, minute=None, second=None, microsecond=None, nanosecond=None, tzinfo=None, *, fold=None)`
-  + Docstring:
-    + Pandas replacement for python `datetime.datetime` object.
-    + Timestamp is the pandas equivalent of python’s Datetime and is interchangeable with it in most cases. It’s the type used for the entries that make up a `DatetimeIndex`, and other timeseries oriented data structures in pandas.
-  + Parameters
-    + `ts_input`: datetime-like, str, int, float<br/>
-      Value to be converted to Timestamp.
-    + `freq`: str, DateOffset<br/>
-      Offset which Timestamp will have.
-    + `tz`: str, pytz.timezone, dateutil.tz.tzfile or None<br/>
-      Time zone for time which Timestamp will have.
-    + `unit`: str<br/>
-      Unit used for conversion if ts_input is of type int or float. The valid values are ‘D’, ‘h’, ‘m’, ‘s’, ‘ms’, ‘us’, and ‘ns’. For example, ‘s’ means seconds and ‘ms’ means milliseconds.
-    + `year`, `month`, `day`: int
-    + `hour`, `minute`, `second`, `microsecond`: int, optional, default 0
-    + `nanosecond`: int, optional, default 0
-    + `tzinfo`: datetime.tzinfo, optional, default None
-    + `fold`: {0, 1}, default None, keyword-only <br/>
-      Due to daylight saving time, one wall clock time can occur twice when shifting from summer to winter time; fold describes whether the datetime-like corresponds to the first (0) or the second time (1) the wall clock hits the ambiguous time
-
-+ `pandas.TimeStamp` attributes
-
-  <table class="colwidths-given table"><table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 55vw;" cellspacing="0" cellpadding="5" border="1">
-  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y4fjaptb">Attributes of <code>pandas.TimeStamp</code></a></caption>
-  <thead>
-  <tr style="font-size: 1.2em; vertical-align:middle"">
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Property</th>
-    <th style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr class="row-odd"><td><p><a class="reference internal" href="pandas.Timestamp.asm8.html#pandas.Timestamp.asm8" title="pandas.Timestamp.asm8"><code class="xref py py-obj docutils literal notranslate"><span class="pre">asm8</span></code></a></p></td>
-  <td><p>Return numpy datetime64 format in nanoseconds.</p></td>
-  </tr>
-  <tr class="row-even"><td><p><a class="reference internal" href="pandas.Timestamp.dayofweek.html#pandas.Timestamp.dayofweek" title="pandas.Timestamp.dayofweek"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dayofweek</span></code></a></p></td>
-  <td><p>Return day of the week.</p></td>
-  </tr>
-  <tr class="row-odd"><td><p><a class="reference internal" href="pandas.Timestamp.dayofyear.html#pandas.Timestamp.dayofyear" title="pandas.Timestamp.dayofyear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dayofyear</span></code></a></p></td>
-  <td><p>Return the day of the year.</p></td>
-  </tr>
-  <tr class="row-even"><td><p><a class="reference internal" href="pandas.Timestamp.days_in_month.html#pandas.Timestamp.days_in_month" title="pandas.Timestamp.days_in_month"><code class="xref py py-obj docutils literal notranslate"><span class="pre">days_in_month</span></code></a></p></td>
-  <td><p>Return the number of days in the month.</p></td>
-  </tr>
-  <tr class="row-odd"><td><p><a class="reference internal" href="pandas.Timestamp.daysinmonth.html#pandas.Timestamp.daysinmonth" title="pandas.Timestamp.daysinmonth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">daysinmonth</span></code></a></p></td>
-  <td><p>Return the number of days in the month.</p></td>
-  </tr>
-  <tr class="row-even"><td><p><a class="reference internal" href="pandas.Timestamp.freqstr.html#pandas.Timestamp.freqstr" title="pandas.Timestamp.freqstr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">freqstr</span></code></a></p></td>
-  <td><p>Return the total number of days in the month.</p></td>
-  </tr>
-  <tr class="row-odd"><td><p><a class="reference internal" href="pandas.Timestamp.is_leap_year.html#pandas.Timestamp.is_leap_year" title="pandas.Timestamp.is_leap_year"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_leap_year</span></code></a></p></td>
-  <td><p>Return True if year is a leap year.</p></td>
-  </tr>
-  <tr class="row-even"><td><p><a class="reference internal" href="pandas.Timestamp.is_month_end.html#pandas.Timestamp.is_month_end" title="pandas.Timestamp.is_month_end"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_month_end</span></code></a></p></td>
-  <td><p>Return True if date is last day of month.</p></td>
-  </tr>
-  <tr class="row-odd"><td><p><a class="reference internal" href="pandas.Timestamp.is_month_start.html#pandas.Timestamp.is_month_start" title="pandas.Timestamp.is_month_start"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_month_start</span></code></a></p></td>
-  <td><p>Return True if date is first day of month.</p></td>
-  </tr>
-  <tr class="row-even"><td><p><a class="reference internal" href="pandas.Timestamp.is_quarter_end.html#pandas.Timestamp.is_quarter_end" title="pandas.Timestamp.is_quarter_end"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_quarter_end</span></code></a></p></td>
-  <td><p>Return True if date is last day of the quarter.</p></td>
-  </tr>
-  <tr class="row-odd"><td><p><a class="reference internal" href="pandas.Timestamp.is_quarter_start.html#pandas.Timestamp.is_quarter_start" title="pandas.Timestamp.is_quarter_start"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_quarter_start</span></code></a></p></td>
-  <td><p>Return True if date is first day of the quarter.</p></td>
-  </tr>
-  <tr class="row-even"><td><p><a class="reference internal" href="pandas.Timestamp.is_year_end.html#pandas.Timestamp.is_year_end" title="pandas.Timestamp.is_year_end"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_year_end</span></code></a></p></td>
-  <td><p>Return True if date is last day of the year.</p></td>
-  </tr>
-  <tr class="row-odd"><td><p><a class="reference internal" href="pandas.Timestamp.is_year_start.html#pandas.Timestamp.is_year_start" title="pandas.Timestamp.is_year_start"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_year_start</span></code></a></p></td>
-  <td><p>Return True if date is first day of the year.</p></td>
-  </tr>
-  <tr class="row-even"><td><p><a class="reference internal" href="pandas.Timestamp.quarter.html#pandas.Timestamp.quarter" title="pandas.Timestamp.quarter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quarter</span></code></a></p></td>
-  <td><p>Return the quarter of the year.</p></td>
-  </tr>
-  <tr class="row-odd"><td><p><a class="reference internal" href="pandas.Timestamp.tz.html#pandas.Timestamp.tz" title="pandas.Timestamp.tz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tz</span></code></a></p></td>
-  <td><p>Alias for tzinfo.</p></td>
-  </tr>
-  <tr class="row-even"><td><p><a class="reference internal" href="pandas.Timestamp.week.html#pandas.Timestamp.week" title="pandas.Timestamp.week"><code class="xref py py-obj docutils literal notranslate"><span class="pre">week</span></code></a></p></td>
-  <td><p>Return the week number of the year.</p></td>
-  </tr>
-  <tr class="row-odd"><td><p><a class="reference internal" href="pandas.Timestamp.weekofyear.html#pandas.Timestamp.weekofyear" title="pandas.Timestamp.weekofyear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">weekofyear</span></code></a></p></td>
-  <td><p>Return the week number of the year.</p></td>
-  </tr>
-  </tbody>
-  </table>
-
 
 ### Mixed Variables
 
