@@ -1,5 +1,55 @@
 # Feature Selection for Machine Learning
 
+## Summary
+
++ Filter Methods
+  + Basic feature
+    + constant feature
+    + quasi-constant feature
+    + duplicated features
+  + Correlation filter
+    + Pearson's correlation coefficient $\left( r_{xy} = \frac{\sum_{i=1}^n (x_i - \overline{x})(y_i - \overline{y})}{\sqrt{\sum_{i=1}^n (x_i - \overline{x})^2} \sqrt{\sum_{i=1}^n (y_i - \overline{y})^2}} \right)$
+    + Spearman's rank correlation coefficient $\left( \rho = 1 - \frac{6 \sum d_i^2}{n(n^2 - 1)} \right)$
+    + Kendall's rank correlation coefficient $\left( \tau = \frac{2(n_c - n_d)}{n(n-1)} \right)$
+  + Statistical and Ranking filter
+    + Mutual information $\left( \text{Entropy: }I(X; Y) = \sum_{x, y} P_{XY} (x, y) \log \frac{P_{XY}(x, y)}{P_X(x)P_Y(y)} \right)$
+    + Chi-squared score 
+    + ANOVA univariate test
+    + Univariate ROC-AUC / RMSE
+
++ Wrapper Methods
+  + Forward feature addition, sequential forward feature selection (SFS)
+  + Backward feature elimination, sequential backward feature selection (SBS)
+  + Exhaustive feature selection
+  + LRS or Plus-L, Minus-R
+  + Sequential floating
+    + step floating forward selection (SFFS)
+    + step floating backward selection (SFBS)
+  + Bidirectional search (BDS)
+
++ Embedded methods
+  + Regularization
+  + Tree-based feature importance
+    + Feature importance
+    + Random forests
+  + Permutation importance
+
++ Hybrid Methods
+  + Filter & wrapper
+  + Embedded & wrapper
+    + Recursive feature elimination
+    + Recursive feature addition
+
++ Advanced methods
+  + Dimensionality reduction
+    + Principle component analysis (PCA)
+    + Linear discriminant analysis (LDA)
+  + Heuristic search algorithms
+    + Genetic algorithm (GA)
+    + Simulation annealing
+  + Deep learning
+    + Autoencoder for feature selection (AEFS)
+
 
 ## Overview
 
@@ -76,7 +126,7 @@
   + types
     + univariate
     + multivariate
-  + the methods: proposed for univariate and multivariate fileter-based feature selection
+  + the methods: proposed for univariate and multivariate filter-based feature selection
     + basic feature methods
     + correlation filter methods
     + statistical & ranking filter methods
@@ -425,8 +475,8 @@
 + [Tree-based feature importance](../Notes/a09-FeatureSelect.md#43-tree-based-feature-importance)
   + tree-based algorithms and models
     + well-established algorithms
-    + offerring good predictive performance
-    + able to provide the featire importance as a way to select features
+    + offering good predictive performance
+    + able to provide the feature importance as a way to select features
   + feature importance
     + indicating which variables more important in making accurate predictions on the target variable/class
     + identifying which features mostly used by the ML algorithm to predict the target
@@ -446,11 +496,11 @@
     + the higher the value, the more important the feature
   + alternatives:
     + able to use any other tree-based algorithm the same way =
-    + best tree model types: gradient boosting algoritms (like XH=GBoost, CatBoost, and any more)
+    + best tree model types: gradient boosting algorithms (like XH=GBoost, CatBoost, and any more)
     + providing accurate feature importance
 
 
-## Hybride Methods
+## Hybrid Methods
 
 ### Overview of Hybrid Methods
 
@@ -500,7 +550,7 @@
 + [Recursive feature elimination](../Notes/a09-FeatureSelect.md#54-recursive-feature-elimination)
   + procedure
     1. train a model on all the data features
-      + possible candidate: tree-based model, lasso, logistic regression, or others offerring feature importance
+      + possible candidate: tree-based model, lasso, logistic regression, or others offering feature importance
       + evaluating its performance on a suitable metric
     2. derive the feature importance to rank features accordingly
     3. delete the least important feature and re-train the model on the remaining ones
@@ -542,7 +592,7 @@
   + starting w/ no features and adding one feature at the time
   + procedure
     1. train a model on all the data and derive the feature importance to rank it accordingly
-      + possible models: tree-based model, Lasso, logistic regression, or others offerring feature importance
+      + possible models: tree-based model, Lasso, logistic regression, or others offering feature importance
     2. from the initial model, create another w/ the most important feature and evaluate it w/ an evaluation metric of your choice
     3. add another important feature and use it to re-train the model, along w/ any feature from the previous step
     4. use the previous evaluation metric to calculate the performance of the resulting model
