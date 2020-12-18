@@ -67,6 +67,16 @@
   + [Advanced Feature Engineering Methods](../Notes/a08-FeatureEng.md#11-advanced-methods)
 
 
+### Feature Selection
+
++ Younes Charfaoui, Hands-on with Feature Selection Techniques, 2018
+  + [An Introduction](../Notes/a09-FeatureSelect.md#1-an-introduction)
+  + [Filter Methods](../Notes/a09-FeatureSelect.md#2-filter-methods)
+  + [Wrapper Methods](../Notes/a09-FeatureSelect.md#3-wrapper-methods)
+  + [Embedded Methods](../Notes/a09-FeatureSelect.md#4-embedded-methods)
+  + [Hybrid Methods](../Notes/a09-FeatureSelect.md#5-hybrid-methods)
+  + [More Advanced Methods](../Notes/a09-FeatureSelect.md#6-advanced-methods)
+
 
 ### Machine Learning Models
 
