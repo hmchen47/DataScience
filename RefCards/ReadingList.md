@@ -7,6 +7,13 @@
 + Prof. Arthur Mattuck, Prof. Haynes Miller, Jeremy Orloff, Dr. John Lewis, [Differential Equations](https://ocw.mit.edu/courses/mathematics/18-03sc-differential-equations-fall-2011/), 2011
 + Prof. Gil Strang, [18.06 Linear Algebra](http://web.mit.edu/18.06/www/videos.shtml), 2020
 
++ MITx's Statistics and Data Science MicroMasters
+  + [Probability - The Science of Uncertainty and Data](https://www.edx.org/course/probability-the-science-of-uncertainty-and-data)
+  + [Fundamentals of Statistics](https://www.edx.org/course/fundamentals-of-statistics)
+  + [Machine Learning with Python: from Linear Models to Deep Learning](https://www.edx.org/course/machine-learning-with-python-from-linear-models-to)
+  + [Capstone Exam in Statistics and Data Science](https://www.edx.org/course/capstone-exam-in-statistics-and-data-science)
+  + [Data Analysis in Social Science—Assessing Your Knowledge](https://www.edx.org/course/data-analysis-in-social-scienceassessing-your-know)
+  + [Data Analysis: Statistical Modeling and Computation in Applications](https://www.edx.org/course/statistics-computation-and-applications)
 
 ## Probability and Statistics
 
@@ -43,8 +50,7 @@
 + Gordan Zitkovic, [Theory of Probability, Parts I and II](https://web.ma.utexas.edu/users/gordanz/lecture_notes_page.html)
 + Gordan Zitkovic, [Introduction to Stochastic Processes](https://web.ma.utexas.edu/users/gordanz/lecture_notes_page.html)
 + Gordan Zitkovic, [Introduction to Mathematical Statistics](https://web.ma.utexas.edu/users/gordanz/lecture_notes_page.html)
-+ David Pollard, [Chapter 4: Symmetry](https://tinyurl.com/yyqkqvmz) in [Advanced Probability](https://tinyurl.com/y5pszlfw), 2008
-
++ David Pollard, [Chapter 4: Symmetry](https://tinyurl.com/yyqkqvmz) in [Advanced Probability](https://tinyurl.com/y5pszlfw), 200
 
 
 
@@ -52,25 +58,17 @@
 ## Machine Learning
 
 + G. Strage, [Calculus](https://ocw.mit.edu/ans7870/resources/Strang/Edited/Calculus/Calculus.pdf)
-
 + T. Hastie and Rob Tibshirani, [introduction to machine learning](https://tinyurl.com/jl7uzxs)
-
 + L. Spranger, [Awesome Machine Learning and AI Courses](https://tinyurl.com/y5phkqwj)
-
 + F. Malik, [End To End Guide For Machine Learning Project](https://tinyurl.com/y4vey39z), Dec 28, 2018
-
 + C. Sazara, [Natural Language Processing](https://tinyurl.com/y22gq94l) w/ [Video](https://tinyurl.com/y4j4kp53)
-
 + M. Kanter, [Deep Feature Synthesis: How Automated Feature Engineering Works](https://tinyurl.com/y548kp3n)
-
 + B. Mwangi, [Introduction to Automated Feature Engineering Using Deep Feature Synthesis (DFS)](https://tinyurl.com/y59uko6a)
-
 + Y. Charfaoui, [Working with Geospatial Data in Machine Learning](https://tinyurl.com/yy7vmslq)
-
 + Y. Charfaoui, [Resampling to Properly Handle Imbalanced Datasets in Machine Learning](https://tinyurl.com/yxjq63ms)
-
 + S. Balakrishnama and A. Ganapathiraju, [Linear Discriminant Analysis - A Brief Tutorial](https://tinyurl.com/ya2pjtmd)
-
++ UC Berkeley, CS 88, [Computational Structures in Data Science](https://www2.eecs.berkeley.edu/Courses/CS88/)
++ W. Sun, et.al., [Canonical Capsules: Unsupervised Capsules in Canonical Pose](https://canonical-capsules.github.io/)
 
 ## Neural Networks
 
