@@ -147,7 +147,7 @@
 
 	<span style="padding-left: 2em;"/> \[\theta_j := \theta_j - \alpha \displaystyle \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)\]
 
-	<span style="padding-left: calc(50vw - 10em);">(simultaneously update</span> $i = 0, 1$)<br/>
+	<span style="padding-left: calc(50vw - 20em);">(simultaneously update</span> $i = 0, 1$)<br/>
 	}
 
 	+ $\frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1)\;$: derivative; sign (+, -) as slope and value as steepness
@@ -163,12 +163,13 @@
     + start with some $\theta$
     + keep changing $\theta$ to reduce $J(\theta)$ until we hopefully end up with at a minimum
 
-+ [Multivariate linear repression ($n \geq 1$) algorithm](../ML/ML-Stanford/04-LRegMVar.md#gradient-descent-for-multiple)
++ [Multivariate linear regression ($n \geq 1$) algorithm](../ML/ML-Stanford/04-LRegMVar.md#gradient-descent-for-multiple)
 
   Repeat {
 
-    \[\theta_j := \theta_j -\alpha \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})= \theta_j -\alpha \frac{\partial}{\partial \theta_j} J(\theta)\[
-    <span style="padding-top: 0.5em; padding-left: calc(50vw - 5em);"> (simultaneously update </span> $\theta_j \;$ for $j=0, 1, \ldots, n$)<br/>
+    \[\theta_j := \theta_j -\alpha \frac{1}{m} \sum_{i=1}^m (h_\theta (x^{(i)}) - y^{(i)})= \theta_j -\alpha \frac{\partial}{\partial \theta_j} J(\theta)\]
+
+    <span style="padding-top: 0.5em; padding-left: calc(50vw - 20em);"> (simultaneously update </span> $\theta_j \;$ for $j=0, 1, \ldots, n$)<br/>
   }
 
   Extended version: with $x_0^{(i)} = 1$
@@ -224,7 +225,7 @@
 + [Batch gradient descent for each iteration](../ML/ML-Stanford/ex01.md#update-equations-derivation-)
 
   \[\theta_j := \theta_j - \alpha \dfrac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}\]
-  <span style="padding-top: 0.5em; padding-left: calc(50vw - 5em);"> (simultaneously update </span>
+  <span style="padding-top: 0.5em; padding-left: calc(50vw - 20em);"> (simultaneously update </span>
   $\; \theta_j, \;\; \forall j$)<br/>
 
   + Notations:
