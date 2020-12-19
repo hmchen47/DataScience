@@ -1195,6 +1195,15 @@
     + resource utilization
     + floating point & software/hardware requirements
 
++ Popular GD Algorithms
+  + Vanilla GD
+  + [DG w/ Momentum](NN-FastLearn.md#classical-momentum)
+  + [AdaGrad](./NN-AdaptiveLearn.md#adagrad)
+  + [ADAM](./NN-AdaptiveLearn.md#adam)
+
++ References
+  + [Fast Learning Algorithms](./NN-FastLearn.md)
+  + [Adaptive Learning Algorithms]()./NN-AdaptiveLearn.md
 
 + [Gradeint descent/Delta rule](../ML/MLNN-Hinton/a01-IntroNN.md#gradient-descent)
   + an iterative method for finding the minimum of a function
