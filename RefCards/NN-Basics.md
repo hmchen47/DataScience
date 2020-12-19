@@ -345,6 +345,7 @@
     + a hybrid of the two
 
 
+
 ## Architectures
 
 ### Types of Architectures
@@ -872,73 +873,6 @@
 
 
 
-## Lost/Cost Function and Gradient Descent
-
-### Overview of Lost Function
-
-+ [Loss function/cost function](../ML/MLNN-Hinton/a02-IntermediateNN.md#loss-functions)
-  + NN trained using an optimization process that requires a loss function to calculate the model error
-  + many functions used to estimate the error of a set of weights in a neural network
-  + prefer a function where the space of candidate solutions maps onto a smooth (but high-dimensional) landscape that the optimization algorithm can reasonably navigate via iterative updates to the model wights
-  + maximum likelihood: a framework for choosing a loss function when training neural networks and machine models in general
-  + what loss function to use depends on the output data distribution and is closely coupled to the output unit
-  + main types of loss functions: cross-entropy and mean squared error
-  + cross-entropy loss function > mean squared error: classification that use a sigmoid or softmax activation function in the output layer learn faster and more robustly
-  + The use of cross-entropy looses greatly improved the performance of models with sigmoid and softmax outputs, which had previously suffered from saturation and slow learning when using the mean squared error loss. - Deep Learning, 2016
-
-+ [Cross-entropy loss function](../ML/MLNN-Hinton/a09-SoftmaxClass.md#introduction)
-
-  \[L_i = -\log \left( \frac{e^{f_{y_i}}}{\sum_j e^{f_j}} \right) \qquad \text{or equivalently} \qquad L_i = -f_{y_i} + \log \sum_j e^{f_j}\]
-
-  + $f_j$: the $i$-th element of the vector of class score $f$
-  + the full loss for the database: the mean of $L-i$ over all training examples together with a regularization term $R(W)$
-  + softmax function: $f_j(z) = \frac{e^{z_j}}{\sum_k e^{f_j}}$; taking a vector of arbitrary real-valued scores (in $z$) and squashing it to a vector of values between zero and one that sum to one
-
-+ [Cross-entropy vs. Mean Squared Error](../ML/MLNN-Hinton/a02-IntermediateNN.md#loss-functions)
-  + form for training data and model distribution (i.e., negative log-likelihood)
-
-    \[J(W) = - \displaystyle \mathbb{E}_{x, y \sim \hat{p}_{data}} \log(p_{\text{model}}(y|x))\]
-
-  + example of cost functions
-
-    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-      <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
-        <img src="https://miro.medium.com/max/1250/1*ERuk0wZZw7sejFI9zwd7zQ.png" style="margin: 0.1em;" alt="an example of a sigmoid output coupled with a mean squared error loss" title="an example of a sigmoid output coupled with a mean squared error loss" height=180>
-        <img src="https://miro.medium.com/max/1250/1*mJRBxNfU_mjhmi2lvZLxBg.png" style="margin: 0.1em;" alt="example using a sigmoid output and cross-entropy loss" title="example using a sigmoid output and cross-entropy loss" height=180>
-      </a>
-    </div>
-
-
-### Lost Function for Softmax Function
-
-+ The [cost function](../ML/MLNN-Hinton/a08-SoftmaxReg.md#cost-function) with weight decay for Softmax Regression
-
-  \[J(\theta) = -\frac{1}{m} \left[ \sum_{i=1}^m \sum_{j=1}^k \mathbf{1}\{y^{(i)}=j\} \log\left( \frac{e^{\theta_j^T x^{(i)}}}{\sum_{l=1}^k} e^{\theta_i^T x{(i)}} \right) \right] + \frac{2}{\lambda} \sum_{i=1}^k \sum_{j=0}^n \theta_{ij}^2 \]
-
-  + $\mathbf{1}\{y^{(i)} = j\}$: an indicator function; only the output of the classifier corresponding to the correct class label
-  + $log(x) \in (-\infty, 0] \text{ when } x \in [0, 1]$
-  + if the classifier outputs 1 for the training example, then the cos is zero.
-
-
-### Gradient Descent for Softmax Function
-
-+ [The gradient descent function](../ML/MLNN-Hinton/a08-SoftmaxReg.md#gradients)
-
-  \[\Delta_{\theta_j}J(\theta) = -\frac{1}{m} \sum_{i=1}^m \left[ x^{(i)} \left(\mathbf{1}\{y^{(i)} = j\} - p(y^{(i)} = j | x^{(i)}; \theta)\right) \right] + \lambda \theta_j \]
-
-  + the function computes the gradients for a single class $j$
-
-  + $\left(\mathbf{1}\{y^{(i)} = j\} - p(y^{(i)} = j | x^{(i)}; \theta)\right)$: evaluate a single value btw 0 and 1
-
-  + multiplied by a vector $x^{(i)}$ to get the weight updates for a single training example $i$ and a single class $j$
-
-+ [Vectorization and dimensional analysis](../ML/MLNN-Hinton/a08-SoftmaxReg.md#gradients)
-  + $M$: outputs for all classes and all training examples; dimensions: [numClass x numExamples]
-  + $grad$: gradient matrix; dimension: [numClass x input Size]
-  + $data$: data matrix; dimension: [inputSize x numExamples]
-
-  \[grad = M * data\]
-
 
 ## Output Units
 
@@ -1238,6 +1172,30 @@
 
 ### Gradient Descent
 
++ Gradient descent technique
+  + a particular optimization technique
+  + plot 'cost space' w/ cost function $J(\Theta)$
+  + goal: finding the lowest point w/o knowing surounding and whole scope
+
++ Classification of Gradient Descent Algorithms
+  + data ingestion
+    + full batch
+    + stochastic
+  + differentiation techniques
+    + 1st order
+    + 2nd order
+
++ Challenges of GD Algorithms
+  + data challenges
+    + non-convex optimization problem
+    + multiple minima points (local & global minima)
+    + saddle point problem
+  + gradient challenge: vanishing/exploding gradient problems
+  + implementation challenges
+    + resource utilization
+    + floating point & software/hardware requirements
+
+
 + [Gradeint descent/Delta rule](../ML/MLNN-Hinton/a01-IntroNN.md#gradient-descent)
   + an iterative method for finding the minimum of a function
   + Making a step means: $w^{new} = w^{old} + \text{step}$
@@ -1276,6 +1234,7 @@
   + the loss (likelihood) function used to derive the derivatives for iteration $k$
 
     \[\mathcal{L}^k = - \sum_{i \in b^k} \left[ y_i \log(p_i) + (1 - p_i)\log(1 - p_i) \right]\]
+
 
 
 ### Delta Rule
