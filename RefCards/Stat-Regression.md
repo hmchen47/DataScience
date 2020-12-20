@@ -13,7 +13,7 @@
 
 ## Assumption Violation and Solutions
 
-+ Linear and Additive
++ [Linear and Additive](../Notes/a10-RegressionAnalusis.md#what-if-these-assumptions-get-violated)
   + fit a linear model to a non-linear, non-additive data set $\to$ fail to capture the trend mathematically
   + resulting in an inefficient model
   + erroneous predictions on an unseen data set
@@ -21,7 +21,7 @@
     + residual vs fitted value plots
     + including polynomial terms ($X, X^2, X^3, \dots$) to capture the non-linear effect
 
-+ Autocorrelation
++ [Autocorrelation](../Notes/a10-RegressionAnalusis.md#what-if-these-assumptions-get-violated)
   + presence of correlation in error terms drastically reduces model’s accuracy
   + time series models: the next instance depending on previous instance
   + correlated error terms: underestimate the true standard error
@@ -35,7 +35,7 @@
       + $DW \in (2, 4) \implies$ negative autocorrelation
     + residual vs time plot: observing the seasonal or correlated pattern in residual values
 
-+ Multicollinearity
++ [Multicollinearity](../Notes/a10-RegressionAnalusis.md#what-if-these-assumptions-get-violated)
   + the independent variables moderately or highly correlated
   + model with correlated variables
     + difficult to figure out the true relationship of a predictors with response variable
@@ -52,7 +52,7 @@
       + $VIF \ge 10$: serious multicollinearity
     + correlation table
 
-+ Heteroscedasticity
++ [Heteroscedasticity](../Notes/a10-RegressionAnalusis.md#what-if-these-assumptions-get-violated)
   + non-constant variance in the error terms
   + arising in presence of outliers or extreme leverage values
   + disproportionately influences the model’s performance
@@ -61,7 +61,7 @@
     + residual vs fitted values plot: exhibit a funnel shape pattern
     + Breusch-Pagan / Cook–Weisberg test or White general test
 
-+ Normal distribution of error terms
++ [Normal distribution of error terms](../Notes/a10-RegressionAnalusis.md#what-if-these-assumptions-get-violated)
   + non-normally distributed:
     + CI too wide or narrow
     + a few unusual data points $\to$ investigate closely to make a better model
