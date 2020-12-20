@@ -71,4 +71,52 @@
     + statistical tests of normality, including Kolmogorov-Smirnov test, Shapiro-Wilk test
 
 
+## Regression Plots
+
++ [Residual vs Fitted Values](../Notes/a10-RegressionAnalusis.md#interpretation-of-regression-plots)
+  + scatter plot:
+    + the distribution of residuals (errors) vs fitted values (predicted values)
+    + various useful insights including outliers
+    + outliers: labeled by observation number to make them easy to detect
+  + key points
+    + existence of any patterns:
+      + signs of non-linearity in the data
+      + model not capturing non-linearity
+    + funnel shaped: sign of non constant variance, i.e. heteroscedasticity
+  + solution
+    + executing a non-linear transformation, such as $\log(x)$, $\sqrt{x}$, or $x^2$
+    + overcome heteroscedasticity:
+      + transforming variable such as $\log(Y)$ or $\sqrt{Y}$
+      + weighted least square method
+
++ [Normal Q-Q Plot](../Notes/a10-RegressionAnalusis.md#interpretation-of-regression-plots)
+  + a scatter plot to validate the assumption of normal distribution in a data set
+  + normal distribution: points shown fairly straight line
+  + non-normality: deviation in the straight line
+  + quantile:
+    + points in data below a certain proportion of data falls
+    + often referred to as percentiles
+    + e.g., value of 50th percentile = 120 $\implies$ half og the data lies below 120
+  + solution: non-linear transformation of variables (response or predictors)
+
++ [Scale Location Plot](../Notes/a10-RegressionAnalusis.md#interpretation-of-regression-plots)
+  + used to detect homoscedasticity
+  + how the residual spreading along the range of predictors
+  + similar to residual vs fitted value plot except using standardized residual values
+  + normally distributed: no discernible pattern in the plot
+  + solution: (same as Residual vs Fitted Values for heteroscedasticity)
+    + transforming variable such as $\log(Y)$ or $\sqrt{Y}$
+    + weighted least square method
+
++ [Residuals vs Leverage Plot](../Notes/a10-RegressionAnalusis.md#interpretation-of-regression-plots)
+  + known as Cook’s Distance plot
+  + Cook’s distance: identifying the points more influence than other points
+  + influential points: a sizable impact of the regression line
+  + adding or removing such points from the model able to completely change the model statistics
+  + influential points =? outliers: investigating the data required
+  + solution: influential point = outlier
+    + removing those data if not many
+    + treating as missing values or scale down
+
+
 
