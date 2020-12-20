@@ -217,6 +217,13 @@
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#pareto-distribution"> Pareto </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Refression Analysis </th>
+    <td style="padding: 0.3em;"> <a href="./RefCardds/Stat-Regression.md#overview"> Overview </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCardds/Stat-Regression.md#assumption-violation-and-solutions"> Assumption Violation </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCardds/Stat-Regression.md#regression-plots"> Plots </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCardds/Stat-Regression.md#">  </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Study Design </th>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-StudyDesign.md#overview"> Overview </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-StudyDesign.md#study-design-for-cohort-studies"> Cohort </a></td>
@@ -361,6 +368,8 @@
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#">  </a></td>
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Numerical.md#">  </a></td>
   </tr>
+
+  <!-- Template -->
   <tr> <td colspan=5 style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Subject Title </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
