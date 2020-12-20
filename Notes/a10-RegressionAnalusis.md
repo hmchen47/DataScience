@@ -98,6 +98,102 @@ Date: JULY 14, 2016
     + statistical tests of normality, including Kolmogorov-Smirnov test, Shapiro-Wilk test
 
 
+## Interpretation of Regression Plots
+
++ Residual vs Fitted Values
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/z5bu6a3" ismap target="_blank">
+      <img style="margin: 0.1em;" height=200
+        src  ="https://tinyurl.com/jjzp7x3"
+        alt  ="interpretation of residual vs fitted regression plot"
+        title="interpretation of residual vs fitted regression plot"
+      >
+    </a>
+    <a href="url" ismap target="_blank">
+      <img style="margin: 0.1em;" height=150
+        src  ="https://tinyurl.com/zy443vu"
+        alt  ="residual vs fitted value heteroskedasticity plot interpretation"
+        title="residual vs fitted value heteroskedasticity plot interpretation"
+      >
+    </a>
+  </div>
+
+  + scatter plot: (right & middle diagrams)
+    + the distribution of residuals (errors) vs fitted values (predicted values)
+    + various useful insights including outliers
+    + outliers: labeled by observation number to make them easy to detect
+  + key points
+    + existence of any patterns:
+      + signs of non-linearity in the data
+      + model not capturing non-linearity
+    + funnel shaped: sign of non constant variance, ir.e. heteroscedasticity
+  + solution
+    + executing a non-linear transformation, such as $\log(x)$, $\sqrt{x}$, or $x^2$
+    + overcome heteroscedasticity:
+      + transforming variable such as $\log(Y)$ or $\sqrt{Y}$
+      + weighted least square method
+
++ Normal Q-Q Plot
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick="window.open('https://tinyurl.com/z5bu6a3')"
+      src    ="https://tinyurl.com/z7wfo5m"
+      alt    ="normal q-q plot regression interpretation"
+      title  ="normal q-q plot regression interpretation"
+    />
+  </figure>
+
+  + a scatter plot to validate the assumption of normal distribution in a data set
+  + normal distribution: points shown fairly straight line
+  + non-normality: deviation in the straight line
+  + quantile:
+    + points in data below a certain proportion of data falls
+    + often referred to as percentiles
+    + e.g., value of 50th percentile = 120 $\implies$ half og the data lies below 120
+  + solution: non-linear transformation of variables (response or predictors)
+
++ Scale Location Plot
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick="window.open('https://tinyurl.com/z5bu6a3')"
+      src    ="https://tinyurl.com/zhdnerb"
+      alt    ="3. Scale Location Plot scale location regression plot"
+      title  ="3. Scale Location Plot scale location regression plot"
+    />
+  </figure>
+
+  + used to detect homoscedasticity
+  + how the residual spreading along the range of predictors
+  + similar to residual vs fitted value plot except using standardized residual values
+  + normally distributed: no discernible pattern in the plot
+  + solution: (same as Residual vs Fitted Values for heteroscedasticity)
+    + transforming variable such as $\log(Y)$ or $\sqrt{Y}$
+    + weighted least square method
+
++ Residuals vs Leverage Plot
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick="window.open('https://tinyurl.com/z5bu6a3')"
+      src    ="https://tinyurl.com/jyzjfro"
+      alt    ="residual vs leverage regression plot interpretation"
+      title  ="residual vs leverage regression plot interpretation"
+    />
+  </figure>
+
+  + known as Cook’s Distance plot
+  + Cook’s distance: identifying the points more influence than other points
+  + influential points: a sizable impact of the regression line
+  + adding or removing such points from the model able to completely change the model statistics
+  + influential points =? outliers: investigating the data required
+  + solution: influential point = outlier
+    + removing those data if not many
+    + treating as missing values or scale down
+
+
 
 
 
