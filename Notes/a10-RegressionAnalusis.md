@@ -127,7 +127,7 @@ Date: JULY 14, 2016
     + existence of any patterns:
       + signs of non-linearity in the data
       + model not capturing non-linearity
-    + funnel shaped: sign of non constant variance, ir.e. heteroscedasticity
+    + funnel shaped: sign of non constant variance, i.e. heteroscedasticity
   + solution
     + executing a non-linear transformation, such as $\log(x)$, $\sqrt{x}$, or $x^2$
     + overcome heteroscedasticity:
