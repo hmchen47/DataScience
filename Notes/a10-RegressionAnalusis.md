@@ -22,6 +22,19 @@ Date: JULY 14, 2016
   + successful regression analysis: validate assumptions
   
 
+## Assumptions in Regression
+
++ The important assumptions in regression analysis:
+  + __linear and additive relationship__:
+    + between dependent (response) variable and independent (predictor) variable(s).
+    + linear relationship: a change in response $Y$ due to one unit change in $X^1$ is constant, regardless of the value of $X^1$
+    + additive relationship: the effect of $X^¹$ on $Y$ is independent of other variables
+  + __no autocorrelation__: no correlation between the residual (error) terms
+  + __no multicollinearity__: independent variables not be correlated
+  + __heteroscedasticity__: error terms not constant variance, homoscedasticity - variables w/ same variance
+  + __normally distributed__: the distribution of error terms
+
+
 
 
 
