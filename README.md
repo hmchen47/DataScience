@@ -217,11 +217,11 @@
     <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Distributions.md#pareto-distribution"> Pareto </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Refression Analysis </th>
-    <td style="padding: 0.3em;"> <a href="./RefCardds/Stat-Regression.md#overview"> Overview </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCardds/Stat-Regression.md#assumption-violation-and-solutions"> Assumption Violation </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCardds/Stat-Regression.md#regression-plots"> Plots </a></td>
-    <td style="padding: 0.3em;"> <a href="./RefCardds/Stat-Regression.md#">  </a></td>
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Regression Analysis </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Regression.md#overview"> Overview </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Regression.md#assumption-violation-and-solutions"> Assumption Violation </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Regression.md#regression-plots"> Plots </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-Regression.md#">  </a></td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Study Design </th>
