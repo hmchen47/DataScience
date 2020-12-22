@@ -1135,7 +1135,7 @@
 
 ## Lost/Cost Function and Gradient Descent
 
-### Overview of Lost Function
+### Lost / Cost Functions
 
 + [Loss function/cost function](../ML/MLNN-Hinton/a02-IntermediateNN.md#loss-functions)
   + NN trained using an optimization process that requires a loss function to calculate the model error
@@ -1169,6 +1169,29 @@
       </a>
     </div>
 
++ Mean Squared Error Function
+
+  \[ E = \frac12 \sum_{i \in \text{Output}} (y_i - o_i)^2 \]
+
+  + $y_i$: predicted output
+  + $o_i$: actual output
+
++ Cross-Entropy Function
+  
+  \[ - \frac1n \sum_{i=1}^n \log\left(f(x_i, li_i, w)\right) \]
+
+  + $f$: the model's predicted probability for input $x_i$'s label to be $l_i$
+  + $w$: parameters
+  + $n$: the training batch size
+
++ Negative Log-Likelihood Loss (NLL) Function
+
+  \[ NLL(\theta, D) = - \sum_{i=0}^{|D|} \log P(Y = y^{(i)} \mid x^{(i), \theta}) \]
+
+  + $y^{(i)}$: the value of the output
+  + $x^{(i)}$: the value of the feature input
+  + $\theta$: the parameters
+  + $D$: the training set
 
 ### Gradient Descent
 
@@ -1180,7 +1203,8 @@
 + Classification of Gradient Descent Algorithms
   + data ingestion
     + full batch
-    + stochastic
+    + mini-batch
+    + stochastic: real-time, online processing
   + differentiation techniques
     + 1st order
     + 2nd order
