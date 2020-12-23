@@ -209,7 +209,155 @@ Date: 202-07-24
 
 ## 4. Visualizing steps for Neural Network working methodology
 
++ Visualization for MLP
+  + Step 0: Read input and output
 
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+        onclick="window.open('https://tinyurl.com/ydcgnt8j')"
+        src    ="https://tinyurl.com/ya3p5m8f"
+        alt    ="neural network methodology"
+        title  ="neural network methodology"
+      />
+    </figure>
+
+  + Step 1: Initialize weights and biases with random values (There are methods to initialize weights and biases but for now initialize with random values)
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+        onclick="window.open('https://tinyurl.com/ydcgnt8j')"
+        src    ="https://tinyurl.com/y8dwrydq"
+        alt    ="neural network, weights"
+        title  ="neural network, weights"
+      />
+    </figure>
+
+  + Step 2: Calculate hidden layer input: <br/>
+    hidden_layer_input= matrix_dot_product(X,wh) + bh
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+        onclick="window.open('https://tinyurl.com/ydcgnt8j')"
+        src    ="https://tinyurl.com/ya8kkjrg"
+        alt    ="neural networks, hidden layer"
+        title  ="neural networks, hidden layer"
+      />
+    </figure>
+  
+  + Step 3: Perform non-linear transformation on hidden linear input <br/>
+    hiddenlayer_activations = sigmoid(hidden_layer_input)
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+        onclick="window.open('https://tinyurl.com/ydcgnt8j')"
+        src    ="https://tinyurl.com/y936n3by"
+        alt    ="transformation. activation function"
+        title  ="transformation. activation function"
+      />
+    </figure>
+  
+  + Step 4: Perform linear and non-linear transformation of hidden layer activation at output layer<br/>
+    output_layer_input = matrix_dot_product (hiddenlayer_activations * wout ) + bout<br/>
+    output = sigmoid(output_layer_input)
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+        onclick="window.open('https://tinyurl.com/ydcgnt8j')"
+        src    ="https://tinyurl.com/y9ex86jx"
+        alt    ="neural network, activaton function"
+        title  ="neural network, activaton function"
+      />
+    </figure> 
+
+
+  + Step 5: Calculate gradient of Error(E) at output layer<br/>
+    E = y-output
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+        onclick="window.open('https://tinyurl.com/ydcgnt8j')"
+        src    ="https://tinyurl.com/yck24qtr"
+        alt    ="gradient"
+        title  ="gradient"
+      />
+    </figure>
+  
+  + Step 6: Compute slope at output and hidden layer<br/>
+    Slope_output_layer= derivatives_sigmoid(output)<br/>
+    Slope_hidden_layer = derivatives_sigmoid(hiddenlayer_activations)
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+        onclick="window.open('https://tinyurl.com/ydcgnt8j')"
+        src    ="https://tinyurl.com/ya95wyjc"
+        alt    ="neural network, gradient slope"
+        title  ="neural network, gradient slope"
+      />
+    </figure>
+  
+  + Step 7: Compute delta at output layer <br/>
+    d_output = E * slope_output_layer*lr
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+        onclick="window.open('https://tinyurl.com/ydcgnt8j')"
+        src    ="https://tinyurl.com/yck9lrcj"
+        alt    ="delta, neural network"
+        title  ="delta, neural network"
+      />
+    </figure>
+
+  + Step 8: Calculate Error at the hidden layer<br/>
+    Error_at_hidden_layer = matrix_dot_product(d_output, wout.Transpose)
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+        onclick="window.open('https://tinyurl.com/ydcgnt8j')"
+        src    ="https://tinyurl.com/ydbaplfp"
+        alt    ="hidden layer, error"
+        title  ="hidden layer, error"
+      />
+    </figure>
+  
+  + Step 9: Compute delta at hidden layer <br/>
+    d_hiddenlayer = Error_at_hidden_layer * slope_hidden_layer
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+        onclick="window.open('https://tinyurl.com/ydcgnt8j')"
+        src    ="https://tinyurl.com/ydcp6atp"
+        alt    ="delta, hidden layer"
+        title  ="delta, hidden layer"
+      />
+    </figure>
+
+  + Step 10: Update weight at both output and hidden layer <br/>
+    wout = wout + matrix_dot_product(hiddenlayer_activations.Transpose, d_output)*learning_rate<br/>
+    wh =  wh+ matrix_dot_product(X.Transpose,d_hiddenlayer)*learning_rate
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+        onclick="window.open('https://tinyurl.com/ydcgnt8j')"
+        src    ="https://tinyurl.com/y8kjz5zx"
+        alt    ="neural network, weights"
+        title  ="neural network, weights"
+      />
+    </figure>
+  
+
+  + Step 11: Update biases at both output and hidden layer<br/>
+    bh = bh + sum(d_hiddenlayer, axis=0) * learning_rate<br/>
+    bout = bout + sum(d_output, axis=0)*learning_rate
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+        onclick="window.open('https://tinyurl.com/ydcgnt8j')"
+        src    ="https://tinyurl.com/yc752j83"
+        alt    ="neural network, bias"
+        title  ="neural network, bias"
+      />
+    </figure>
+  
 
 
 
