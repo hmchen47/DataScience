@@ -19,22 +19,6 @@ Date: 202-07-24
     + pick a problem and solve it
     + goals: how to apply an algorithm w/ different parameters, values, limits to understand the algorithm
 
-+ Simple intuition behind Neural networks
-  + forward propagation: an estimation process
-    + taking several inputs
-    + processing inputs through multiple neurons from multiple hidden layers
-    + returning result using an output layer
-  + backward propagation
-    + trying to minimize the error of actual (desired) output and forward propagation output
-    + by adjusting the value/weight of neurons to minimize their contributions
-  + gradient descent
-    + a common algorithm to reduce the number of iterations to minimize the error
-    + optimizing the task quickly and efficiently
-
-+ Multi-Layer Perceptron and its basics
-  + taking multiple inputs and produces one output
-  + 
-
 
 
 
