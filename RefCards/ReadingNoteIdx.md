@@ -94,13 +94,14 @@
 
 ### General Topics for Neural Networks
 
-+ Matthew Stewart, [Introduction to Neural Networks](../ML/MLNN-Hinton/a01-IntroNN.md)
-+ Matthew Stewart, [Intermediate Topics in Neural networks](../ML/MLNN-Hinton/a02-IntermediateNN.md)
-+ Matthew Stewart, [Neural Network Optimization](../ML/MLNN-Hinton/a03-Optimization.md)
-+ Matthew Stewart, [Simple Guide to Hyperparameter Tuning in Neural Networks](../ML/MLNN-Hinton/a04-Hyperparameter.md)
-+ Matthew Stewart, [Neural Style Transfer and Visualization of Convolutional Networks](../ML/MLNN-Hinton/a05-VisualCNN.md)
-+ Random Nerd, [Delta Learning Rule & Gradient Descent | Neural Networks](../ML/MLNN-Hinton/a06-DeltaRule.md)
++ M. Stewart, [Introduction to Neural Networks](../ML/MLNN-Hinton/a01-IntroNN.md)
++ M. Stewart, [Intermediate Topics in Neural networks](../ML/MLNN-Hinton/a02-IntermediateNN.md)
++ M. Stewart, [Neural Network Optimization](../ML/MLNN-Hinton/a03-Optimization.md)
++ M. Stewart, [Simple Guide to Hyperparameter Tuning in Neural Networks](../ML/MLNN-Hinton/a04-Hyperparameter.md)
++ M. Stewart, [Neural Style Transfer and Visualization of Convolutional Networks](../ML/MLNN-Hinton/a05-VisualCNN.md)
++ R. Nerd, [Delta Learning Rule & Gradient Descent | Neural Networks](../ML/MLNN-Hinton/a06-DeltaRule.md)
 + Drew Rollins, [Delta Function](../ML/MLNN-Hinton/a07-DeltaFunc.md)
++ S. Ray, [Understanding and coding Neural Networks From Scratch in Python and R](../Notes/a11-NeuralNets.md)
 
 
 ### Activation Functions
