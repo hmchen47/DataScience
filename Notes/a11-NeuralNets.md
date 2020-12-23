@@ -357,15 +357,12 @@ Date: 202-07-24
         title  ="neural network, bias"
       />
     </figure>
-  
 
-
+  + above only cover one iteration
 
 ## 5. Implementing NN using Numpy (Python)
 
-
-
-
+[Implementation of NN using Numpy](../src/a11-NeuralNets.py)
 
 ## 6. Implementing NN using R
 
