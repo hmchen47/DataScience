@@ -366,9 +366,7 @@ Date: 202-07-24
 
 ## 6. Implementing NN using R
 
-
-
-
+[Implementation of NN in R](../src/a11-NeuralNets.r)
 
 ## 7. Understanding the implementation of Neural Networks from scratch in detail
 
