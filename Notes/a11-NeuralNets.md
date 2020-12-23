@@ -370,8 +370,7 @@ Date: 202-07-24
 
 ## 7. Understanding the implementation of Neural Networks from scratch in detail
 
-
-
+[Implementation of NN in Jupyter](../src/a11-NeuralNets.ipynb)
 
 
 ## 8. [Optional] Mathematical Perspective of Back Propagation Algorithm
