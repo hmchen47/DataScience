@@ -2,7 +2,7 @@
 
 Author: Sunil Ray
 
-Date: 202-07-24
+Date: 2020-07-24
 
 [Original](https://tinyurl.com/ydcgnt8j)
 
@@ -213,7 +213,7 @@ Date: 202-07-24
   + Step 0: Read input and output
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 70vw;"
         onclick="window.open('https://tinyurl.com/ydcgnt8j')"
         src    ="https://tinyurl.com/ya3p5m8f"
         alt    ="neural network methodology"
@@ -224,7 +224,7 @@ Date: 202-07-24
   + Step 1: Initialize weights and biases with random values (There are methods to initialize weights and biases but for now initialize with random values)
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 70vw;"
         onclick="window.open('https://tinyurl.com/ydcgnt8j')"
         src    ="https://tinyurl.com/y8dwrydq"
         alt    ="neural network, weights"
@@ -236,7 +236,7 @@ Date: 202-07-24
     hidden_layer_input= matrix_dot_product(X,wh) + bh
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 70vw;"
         onclick="window.open('https://tinyurl.com/ydcgnt8j')"
         src    ="https://tinyurl.com/ya8kkjrg"
         alt    ="neural networks, hidden layer"
@@ -248,7 +248,7 @@ Date: 202-07-24
     hiddenlayer_activations = sigmoid(hidden_layer_input)
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 70vw;"
         onclick="window.open('https://tinyurl.com/ydcgnt8j')"
         src    ="https://tinyurl.com/y936n3by"
         alt    ="transformation. activation function"
@@ -261,7 +261,7 @@ Date: 202-07-24
     output = sigmoid(output_layer_input)
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 70vw;"
         onclick="window.open('https://tinyurl.com/ydcgnt8j')"
         src    ="https://tinyurl.com/y9ex86jx"
         alt    ="neural network, activaton function"
@@ -274,7 +274,7 @@ Date: 202-07-24
     E = y-output
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 70vw;"
         onclick="window.open('https://tinyurl.com/ydcgnt8j')"
         src    ="https://tinyurl.com/yck24qtr"
         alt    ="gradient"
@@ -287,7 +287,7 @@ Date: 202-07-24
     Slope_hidden_layer = derivatives_sigmoid(hiddenlayer_activations)
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 70vw;"
         onclick="window.open('https://tinyurl.com/ydcgnt8j')"
         src    ="https://tinyurl.com/ya95wyjc"
         alt    ="neural network, gradient slope"
@@ -299,7 +299,7 @@ Date: 202-07-24
     d_output = E * slope_output_layer*lr
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 70vw;"
         onclick="window.open('https://tinyurl.com/ydcgnt8j')"
         src    ="https://tinyurl.com/yck9lrcj"
         alt    ="delta, neural network"
@@ -311,7 +311,7 @@ Date: 202-07-24
     Error_at_hidden_layer = matrix_dot_product(d_output, wout.Transpose)
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 70vw;"
         onclick="window.open('https://tinyurl.com/ydcgnt8j')"
         src    ="https://tinyurl.com/ydbaplfp"
         alt    ="hidden layer, error"
@@ -323,7 +323,7 @@ Date: 202-07-24
     d_hiddenlayer = Error_at_hidden_layer * slope_hidden_layer
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 70vw;"
         onclick="window.open('https://tinyurl.com/ydcgnt8j')"
         src    ="https://tinyurl.com/ydcp6atp"
         alt    ="delta, hidden layer"
@@ -336,7 +336,7 @@ Date: 202-07-24
     wh =  wh+ matrix_dot_product(X.Transpose,d_hiddenlayer)*learning_rate
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 70vw;"
         onclick="window.open('https://tinyurl.com/ydcgnt8j')"
         src    ="https://tinyurl.com/y8kjz5zx"
         alt    ="neural network, weights"
@@ -344,13 +344,12 @@ Date: 202-07-24
       />
     </figure>
   
-
   + Step 11: Update biases at both output and hidden layer<br/>
     bh = bh + sum(d_hiddenlayer, axis=0) * learning_rate<br/>
     bout = bout + sum(d_output, axis=0)*learning_rate
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 70vw;"
         onclick="window.open('https://tinyurl.com/ydcgnt8j')"
         src    ="https://tinyurl.com/yc752j83"
         alt    ="neural network, bias"
@@ -375,6 +374,45 @@ Date: 202-07-24
 
 ## 8. [Optional] Mathematical Perspective of Back Propagation Algorithm
 
++ Modeling Back Propagation Algorithm
+  + Notations
+    + $W_i$: the weights btw the input layer and the hidden layer
+    + $W_h$: the weights btw the hidden layer and the output layer
+  + outputs
+    + hidden layer output: $h = \sigma(u) = \sigma(W_i X)$
+    + system output: $Y = \sigma(u^\prime) = \sigma(W_h h)$
+  + goals:
+    + $\frac{\partial E}{\partial W_i}$: change in error on changing the weights btw the input and the hidden layer
+    + $\frac{\partial E}{\partial W_h}$: change in error on changing the weights btw the hidden and the output layer
+  + using the chain rule of partial differentiation
+    + $E$" a function of $Y$
+    + $Y$: a function of $u^\prime$
+    + $u^\prime$: a function of $W_i$
+  + the gradients:
+  
+    \[ \frac{\partial E}{\partial W_h} = \left( \frac{\partial E}{\partial u^\prime} \right) \cdot \left( \frac{\partial E}{\partial W_i} \right) \cdot \left( \frac{\partial u^\prime}{\partial W_h} \right) \tag{1} \]
+
+  + the error: $E = \frac{(Y - t)^2}{2} \implies (\frac{\partial E}{\partial Y}) = (Y- t)$
+  + activation function:
+    + sigmoid function: $\sigma(x) = \frac{1}{1 - e^{-x}}$
+    + [differentiation](https://tinyurl.com/yyk9hbm9) of sigmoid function: $\sigma(1-\sigma)$
+
+    \[\begin{align*}
+      \sigma(x) &= \frac{1}{1+ e^{-x}} \tag{2} \\\\
+      \sigma^\prime(x) &= \frac{d}{dx} \sigma(x) = \frac{d}{dx} \left( 1 + e^{-x} \right)^{-1} \\
+      &= -\left( 1+e^{-x} \right)^{-2} \cdot \frac{d}{dx} \left(1 + e^{-x}\right) \\
+      &\hspace{5em} \left(\text{reciprocal rule: } \left[ \frac{1}{u(x)} \right]^\prime = \left[ u^{-1}(x) \right]^\prime = \left[ \frac{u^\prime(x)}{u^2(x)} \right] = -u^{-2}(x) \cdot u^\prime(x) \right) \\
+      &= -(1+e^{-x})^{-2} \cdot \left( \frac{1}{dx}[1] + \frac{d}{dx} [e^{-x}] \right) \\
+      &\hspace{5em} \left(\text{rule of linearity: } \left[ a \cdot u(x) + b \cdot v(x) \right]^\prime \right) = a \cdot u^\prime(x) + b \cdot v^\prime(x) \\
+      &= -(1+e^{-x})^{-2} \cdot \left(0 + \frac{d}{dx}[e^{-x}]\right) \\
+      &\hspace{5em} \left(\text{exponential rule: } \left[ e^{u(x)} \right]^\prime = e^{u(x)} \cdot u^\prime(x)\right) \\
+      &= -(1+e^{-x})^{-2} \cdot \left(e^{-x} \cdot \frac{d}{dx}[-x]\right) = -(1+e^{-x})^{-2} \cdot \left(e^{-x} \cdot -\frac{d}{dx}[x]\right) \\
+      &= -(1+e^{-x})^{-2} \cdot(e^{-x} \cdot -1) = (1+e^{-x})^{-2} \cdot e^{-x} = \frac{e^{-x}}{(1+e^{-x})^2} \\
+      &= \frac{1 \cdot e^{-x}}{(1+e^{-x}) \cdot (1+e^{-x})} = \frac{1}{(1+e^{-x})} \cdot \frac{e^{-x}}{(1+e^{-x})} = \frac{1}{(1+e^{-x})} \cdot \frac{e^{-x}+1-1}{1+e^{-x}} \\
+      &= \frac{1}{(1+e^{-x})} \cdot \left(1 - \frac{1}{(1+e^{-x})}\right) = \sigma(x) \cdot \left(1 - \sigma(x)\right)
+    \end{align*}\]
+
+  + 
 
 
 
