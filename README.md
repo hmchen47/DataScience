@@ -745,11 +745,11 @@
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/ML-Theory.md#initialization-neural-network"> Initialization </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/ML-Theory.md#neural-network-algorithm"> Training </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NN-Basics.md#"> Learning Methodologies </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/NN-Basics.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Theory.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Theory.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan=2 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Fundamentals </th>
+    <th rowspan=3 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Fundamentals </th>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Basics.md#motivations"> Motivation </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Basics.md#anatomy"> Anatomy </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Basics.md#concepts-and-neural-networks"> Concepts & NN </a> </td>
@@ -760,6 +760,12 @@
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Basics.md#bias--variance"> Bias & Variance </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Basics.md#considerations-of-learning-procedures"> Considerations </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/NN-Basics.md#backpropagation"> Backpropagation </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/NN-Basics.md#mathematical-perspective-of-bp-algorithm"> BP Math Derivation </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ML-Basics.md#general-algorithm-of-neural-network-methodology"> General Algorithm </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ML-Basics.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ML-Basics.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Architectures </th>
