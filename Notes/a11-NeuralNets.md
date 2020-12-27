@@ -385,7 +385,7 @@ Date: 2020-07-24
     + $\frac{\partial E}{\partial W_i}$: change in error on changing the weights btw the input and the hidden layer
     + $\frac{\partial E}{\partial W_h}$: change in error on changing the weights btw the hidden and the output layer
   + using the chain rule of partial differentiation
-    + $E$" a function of $Y$
+    + $E$: a function of $Y$
     + $Y$: a function of $u^\prime$
     + $u^\prime$: a function of $W_i$
   + the error: $E = \frac{(Y - t)^2}{2} \implies (\frac{\partial E}{\partial Y}) = (Y- t)$
