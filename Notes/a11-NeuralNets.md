@@ -388,17 +388,13 @@ Date: 2020-07-24
     + $E$" a function of $Y$
     + $Y$: a function of $u^\prime$
     + $u^\prime$: a function of $W_i$
-  + the gradients:
-  
-    \[ \frac{\partial E}{\partial W_h} = \left( \frac{\partial E}{\partial u^\prime} \right) \cdot \left( \frac{\partial E}{\partial W_i} \right) \cdot \left( \frac{\partial u^\prime}{\partial W_h} \right) \tag{1} \]
-
   + the error: $E = \frac{(Y - t)^2}{2} \implies (\frac{\partial E}{\partial Y}) = (Y- t)$
   + activation function:
     + sigmoid function: $\sigma(x) = \frac{1}{1 - e^{-x}}$
     + [differentiation](https://tinyurl.com/yyk9hbm9) of sigmoid function: $\sigma(1-\sigma)$
 
     \[\begin{align*}
-      \sigma(x) &= \frac{1}{1+ e^{-x}} \tag{2} \\\\
+      \sigma(x) &= \frac{1}{1+ e^{-x}} \tag{1} \\\\
       \sigma^\prime(x) &= \frac{d}{dx} \sigma(x) = \frac{d}{dx} \left( 1 + e^{-x} \right)^{-1} \\
       &= -\left( 1+e^{-x} \right)^{-2} \cdot \frac{d}{dx} \left(1 + e^{-x}\right) \\
       &\hspace{5em} \left(\text{reciprocal rule: } \left[ \frac{1}{u(x)} \right]^\prime = \left[ u^{-1}(x) \right]^\prime = \left[ \frac{u^\prime(x)}{u^2(x)} \right] = -u^{-2}(x) \cdot u^\prime(x) \right) \\
@@ -412,7 +408,40 @@ Date: 2020-07-24
       &= \frac{1}{(1+e^{-x})} \cdot \left(1 - \frac{1}{(1+e^{-x})}\right) = \sigma(x) \cdot \left(1 - \sigma(x)\right)
     \end{align*}\]
 
-  + 
+  + the gradients btw hidden layer and the output layer
+  
+    \[\begin{align*}
+      \frac{\partial E}{\partial W_h} &= \left( \frac{\partial E}{\partial u^\prime} \right) \cdot \left( \frac{\partial E}{\partial W_i} \right) \cdot \left( \frac{\partial u^\prime}{\partial W_h} \right) \tag{2}  \\\\
+      \tfrac{\partial Y}{\partial u^\prime} &= \tfrac{\partial \sigma(u^\prime)}{\partial u^\prime} = \sigma(u^\prime)(1-\sigma(u^\prime)) = Y(1-Y) \hspace{1em} \left( \sigma(u^\prime) = Y \right) \\
+      \tfrac{\partial u^\prime}{\partial W_h} &= \tfrac{\partial (W_h h)}{\partial W_h} = h \\\\
+      \therefore \frac{\partial E}{\partial W_h} &= (Y-t) \cdot Y(1-Y) \cdot h
+    \end{align*}\]
+
+  + the gradient btw the input layer and the hidden layer
+
+    \[\begin{align*}
+      \frac{\partial E}{\partial W_i} &= \frac{\partial E}{\partial h} \cdot \frac{\partial h}{\partial u} \cdot \frac{\partial u}{\partial W_i} = \left[ \frac{\partial E}{\partial Y} \cdot \frac{\partial Y}{\partial u^\prime} \cdot \frac{\partial h}{\partial h} \right] \cdot \frac{\partial h}{\partial u} \cdot \frac{\partial u}{\partial W_i} \tag{3} \\ \\
+      \tfrac{\partial u^\prime}{\partial h} &= \tfrac{\partial W_h h}{\partial h} = W_h \\
+      \tfrac{\partial h}{\partial u} &= \tfrac{\sigma(u))}{\partial u} = \sigma (u) (1 - \sigma(u)) \hspace{1em}\left( \sigma(u) = h \right) \\
+      \tfrac{\partial Y}{\partial u} &= h(1-h) \\
+      \tfrac{\partial u}{\partial W_i} &= \tfrac{W_i X}{\partial W_i} = X \\\\
+      \therefore \frac{\partial E}{\partial W_i} &= \left[ (Y - t) \cdot Y(1-Y) \cdot W_h \right] \cdot h(1-h) \cdot X
+    \end{align*}\]
+
+  + updated weights with learning rate $\eta$
+
+    \[\begin{align*}
+      W_h &= W_h + \eta \cdot \frac{\partial E}{\partial W_h} \\\\
+      W_i &= W_i + \eta \cdot \frac{\partial E}{\partial W_i}
+    \end{align*}\]
+
+  + association btw code and math formula
+    + hiddenlayer_activations = h
+    + E = Y - t
+    + slope_output_layer = Y (1 - Y)
+    + lr = $\eta$
+    + slope_hidden_layer = h (1 - h)
+    + wout = $W_h$
 
 
 
