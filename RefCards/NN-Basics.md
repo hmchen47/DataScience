@@ -345,6 +345,140 @@
     + a hybrid of the two
 
 
+### Mathematical Perspective of BP Algorithm
+
++ [Modeling Back Propagation Algorithm](../Notes/a11-NeuralNets.md#8-optional-mathematical-perspective-of-back-propagation-algorithm)
+  + Notations
+    + $W_i$: the weights btw the input layer and the hidden layer
+    + $W_h$: the weights btw the hidden layer and the output layer
+  + outputs
+    + hidden layer output: $h = \sigma(u) = \sigma(W_i X)$
+    + system output: $Y = \sigma(u^\prime) = \sigma(W_h h)$
+  + goals:
+    + $\frac{\partial E}{\partial W_i}$: change in error on changing the weights btw the input and the hidden layer
+    + $\frac{\partial E}{\partial W_h}$: change in error on changing the weights btw the hidden and the output layer
+  + using the chain rule of partial differentiation
+    + $E$: a function of $Y$
+    + $Y$: a function of $u^\prime$
+    + $u^\prime$: a function of $W_i$
+  + the error: $E = \frac{(Y - t)^2}{2} \implies (\frac{\partial E}{\partial Y}) = (Y- t)$
+  + activation function:
+    + sigmoid function: $\sigma(x) = \frac{1}{1 - e^{-x}}$
+    + [differentiation](https://tinyurl.com/yyk9hbm9) of sigmoid function: $\sigma(1-\sigma)$
+  + the gradients btw hidden layer and the output layer
+  
+    \[ \frac{\partial E}{\partial W_h} &= (Y-t) \cdot Y(1-Y) \cdot h \]
+
+  + the gradient btw the input layer and the hidden layer
+
+    \[ \frac{\partial E}{\partial W_i} &= \left[ (Y - t) \cdot Y(1-Y) \cdot W_h \right] \cdot h(1-h) \cdot X \]
+
+  + updated weights with learning rate $\eta$
+
+    \[\begin{align*}
+      W_h &= W_h + \eta \cdot \frac{\partial E}{\partial W_h} \\\\
+      W_i &= W_i + \eta \cdot \frac{\partial E}{\partial W_i}
+    \end{align*}\]
+
+
+### General Algorithm of Neural Network methodology
+
++ [Procedure of Multi-layer perceptron](../Notes/a11-NeuralNets.md#3-steps-involved-in-neural-network-methodology)
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick="window.open('https://tinyurl.com/ydcgnt8j')"
+      src    ="https://tinyurl.com/yasmeebl"
+      alt    ="neural network, mlp"
+      title  ="neural network, mlp"
+    />
+  </figure>
+
+  + <font style="color: magenta; font-weight: bold;">Forward Propagation</font>: step 2~4
+  + <font style="color: magenta; font-weight: bold;">Backward Propagation</font>: step 5~11
+
+  0. input and output
+    + $X$: input matrix
+    + $Y$: output matrix
+  1. initialize weights and biases w/ random values (one-time initialization)
+    + $w_h$: a weight matrix to the hidden layer
+    + $b_h$: bias matrix to the hidden layer
+    + $w_{out}$: a weight matrix to the output layer
+    + $b_{out}$: bias matrix to the output layer
+  2. linear transformation: take matrix dot product of input and weights assigned to edges between the input and hidden layer then add biases of the hidden layer neurons to respective inputs
+
+    ```python
+    hidden_layer_input= matrix_dot_product(X,wh) + bh
+    ```
+
+  3. perform non-linear transformation using an activation function (Sigmoid). (Sigmoid $f(x) = \frac{1}{(1 + \exp(-x))}$)
+
+    ```python
+    hiddenlayer_activations = sigmoid(hidden_layer_input)
+    ```
+
+  4. perform a linear transformation on hidden layer activation (take matrix dot product with weights and add a bias of the output layer neuron) then apply an activation function (again used sigmoid, but you can use any other activation function depending upon your task) to predict the output
+
+    ```python
+    output_layer_input = matrix_dot_product (hiddenlayer_activations * wout ) + bout
+    output = sigmoid(output_layer_input)
+    ```
+
+  5. compare prediction with actual output and calculate the gradient of error (Actual – Predicted). Error is the mean square loss = $((Y-t)^2)/2$
+
+    ```python
+    E = y – output
+    ```
+
+  6. compute the slope/ gradient of hidden and output layer neurons ( To compute the slope, we calculate the derivatives of non-linear activations x at each layer for each neuron). The gradient of sigmoid can be returned as $x \cdot (1 – x)$.
+
+    ```python
+    slope_output_layer = derivatives_sigmoid(output)
+    slope_hidden_layer = derivatives_sigmoid(hiddenlayer_activations)
+    ```
+
+  7. compute change factor(delta) at the output layer, dependent on the gradient of error multiplied by the slope of output layer activation
+
+    ```python
+    d_output = E * slope_output_layer
+    ```
+
+  8. the error will propagate back into the network which means error at the hidden layer. take the dot product of the output layer delta with the weight parameters of edges between the hidden and output layer ($w_{out}^T$).
+
+    ```python
+    Error_at_hidden_layer = matrix_dot_product(d_output, wout.Transpose)
+    ```
+
+  9. compute change factor(delta) at hidden layer, multiply the error at hidden layer with slope of hidden layer activation
+
+    ```python
+    d_hiddenlayer = Error_at_hidden_layer * slope_hidden_layer
+    ```
+
+  10. update weights at the output and hidden layer: The weights in the network can be updated from the errors calculated for training example(s).
+
+    ```python
+    wout = wout + matrix_dot_product(hiddenlayer_activations.Transpose, d_output)*learning_rate
+    wh =  wh + matrix_dot_product(X.Transpose,d_hiddenlayer)*learning_rate
+    ```
+
+  11. update biases at the output and hidden layer: The biases in the network can be updated from the aggregated errors at that neuron
+    + bias at output_layer = bias at output_layer + sum of delta of output_layer at row-wise * learning_rate
+    + bias at hidden_layer = bias at hidden_layer + sum of delta of output_layer at row-wise * learning_rate
+
+    ```python
+    bh = bh + sum(d_hiddenlayer, axis=0) * learning_rate
+    bout = bout + sum(d_output, axis=0)*learning_rate
+    ```
+
+  + association btw code and math formula
+    + hiddenlayer_activations = h
+    + E = Y - t
+    + slope_output_layer = Y (1 - Y)
+    + lr = $\eta$
+    + slope_hidden_layer = h (1 - h)
+    + wout = $W_h$
+
 
 ## Architectures
 
