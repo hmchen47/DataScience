@@ -31,7 +31,7 @@ Date: 2016-02-01
       + classification problem in statistics
       + quantity: regression problem
   + unsupervised methods
-  + time-series mehods
+  + time-series methods
     + data collected at many points of time
     + cross-sectional research for marketing
     + utilizing discriminant analysis, regression and factor analysis commonly
