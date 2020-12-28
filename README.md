@@ -401,6 +401,13 @@
   <tbody>
   <tr> <td colspan=5 style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> General and Preprocessing </td> </tr>
   <tr>
+    <th style="padding: 0.3em; width: 15%; text-align: left; line-height: 1.5; vertical-align: middle;"> Basics </th>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-Basics.md#overview"> Overview </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-Basics.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-Basics.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-Basics.md#">  </a> </td>
+  </tr>
+  <tr>
     <th style="padding: 0.3em; width: 15%; text-align: left; line-height: 1.5; vertical-align: middle;"> Modeling </th>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-Theory.md#model-representation"> Model representation </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-Theory.md#pipeline"> Pipeline </a> </td>
