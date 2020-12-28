@@ -35,7 +35,7 @@ Date: 2016-02-01
     + data collected at many points of time
     + cross-sectional research for marketing
     + utilizing discriminant analysis, regression and factor analysis commonly
-  + pattern mining: used for rationalize self placement and for recommender system
+  + pattern mining: used for rationalize self placement and for recommend system
   + special methods
     + text analysis
     + social network analysis
@@ -57,7 +57,7 @@ Date: 2016-02-01
     + fast and parallel computing
     + predicting either group memberships or quantities
     + randomly select cases and variables
-    + mini-models: predictpoorly but better than chance
+    + mini-models: predict poorly but better than chance
   + Adaboost / boosting
     + common fool's strategies
     + using all cases and weighted up or down depending on how difficult they are to predict accurately
