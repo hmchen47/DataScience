@@ -31,6 +31,11 @@
 
 
 
+### Time Series Analysis
+
++ K. Gray, [Time Series Analysis: A Primer](https://tinyurl.com/y89zhl4b), 2016
+
+
 ## Artificial Intelligence
 
 
