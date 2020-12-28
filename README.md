@@ -326,6 +326,25 @@
     <td style="padding: 0.3em;"> <a href=".">  </a></td>
   </tr>
 
+  <!-- Time Series Analysis -->
+  <tr> <td colspan=5 style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Time Series Analysis </td> </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Basics </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-TimeSeries.md#overview"> Overview </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-TimeSeries.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-TimeSeries.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-TimeSeries.md#">  </a></td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-TimeSeries.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-TimeSeries.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-TimeSeries.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="./RefCards/Stat-TimeSeries.md#">  </a></td>
+  </tr>
+  </tbody>
+</table>
+
   <!-- Numerical methods -->
   <tr> <td colspan=5 style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Numerical Methods </td> </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
