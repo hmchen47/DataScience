@@ -23,3 +23,14 @@
     + web analysis
     + mining stream data
     + anomaly detection
+
++ [Popular machine learner](../Notes/a12-MLArticles.md#making-sense-of-machine-learner)
+  + Artificial Neural Network (ANN)
+  + Support Vector Machine (SVM)
+  + Random Forest
+  + Adaboost / boosting
+
+
+
+
+
