@@ -385,12 +385,13 @@ Date: 2020-07-24
     + $\frac{\partial E}{\partial W_i}$: change in error on changing the weights btw the input and the hidden layer
     + $\frac{\partial E}{\partial W_h}$: change in error on changing the weights btw the hidden and the output layer
   + using the chain rule of partial differentiation
-    + $E$: a function of $Y$
+    + $E$: a function of $Y$ and $t$
     + $Y$: a function of $u^\prime$
     + $u^\prime$: a function of $W_i$
-  + the error: $E = \frac{(Y - t)^2}{2} \implies (\frac{\partial E}{\partial Y}) = (Y- t)$
+    + $t$: the output of system w/ $W_i$ & $W_h$ of current epoch
+  + the error: $E = \frac{(Y - t)^2}{2} \implies \frac{\partial E}{\partial Y} = (Y- t)$
   + activation function:
-    + sigmoid function: $\sigma(x) = \frac{1}{1 - e^{-x}}$
+    + sigmoid function: $\sigma(x) = 1 / (1 + e^{-x})$
     + [differentiation](https://tinyurl.com/yyk9hbm9) of sigmoid function: $\sigma(1-\sigma)$
 
     \[\begin{align*}
@@ -411,7 +412,7 @@ Date: 2020-07-24
   + the gradients btw hidden layer and the output layer
   
     \[\begin{align*}
-      \frac{\partial E}{\partial W_h} &= \left( \frac{\partial E}{\partial u^\prime} \right) \cdot \left( \frac{\partial E}{\partial W_i} \right) \cdot \left( \frac{\partial u^\prime}{\partial W_h} \right) \tag{2}  \\\\
+      \frac{\partial E}{\partial W_h} &= \left( \frac{\partial E}{\partial Y} \right) \cdot \left( \frac{\partial Y}{\partial u^\prime} \right) \cdot \left( \frac{\partial u^\prime}{\partial W_h} \right) \tag{2}  \\\\
       \tfrac{\partial Y}{\partial u^\prime} &= \tfrac{\partial \sigma(u^\prime)}{\partial u^\prime} = \sigma(u^\prime)(1-\sigma(u^\prime)) = Y(1-Y) \hspace{1em} \left( \sigma(u^\prime) = Y \right) \\
       \tfrac{\partial u^\prime}{\partial W_h} &= \tfrac{\partial (W_h h)}{\partial W_h} = h \\\\
       \therefore \frac{\partial E}{\partial W_h} &= (Y-t) \cdot Y(1-Y) \cdot h
