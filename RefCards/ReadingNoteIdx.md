@@ -52,6 +52,8 @@
 + Maytal Saar-Tsechansky and Foster Provost, [Handling Missing Values when Applying Classification Models](../AppliedDS-UMich/3-AML/p5-Missing.md)
 + [Graphs](../AppliedDS-UMich/5-SocialNet/p2-Graphs.md)
 + K. Gray, [Making Sense of Machine Learning](../Notes/a12-MLArticles.md#making-sense-of-machine-learner)
++ M. Mayo, [Decision Tree Classifiers: A Concise Technical Overview](../Notes/a12-MLArticles.md#decision-tree-classifiers-a-concise-technical-overview)
+
 
 
 
