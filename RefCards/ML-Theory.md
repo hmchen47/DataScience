@@ -1180,6 +1180,24 @@
     <span style="padding-left: 2em"/> $\mu_k :=\;$ average (mean) of points assigned to cluster $k \implies \mu_k = \frac{1}{m_k} \sum_{i=1}^{m_k} x^{(k_i)} \;\in\; \mathbb{R}^n$ <br/>
     }
 
++ [K-means clustering algorithm](../Notes/a12-MLArticles.md#comparing-clustering-techniques-a-concise-technical-overview)
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick="window.open('https://www.kdnuggets.com/2016/09/comparing-clustering-techniques-concise-technical-overview.html')"
+        src    ="https://www.kdnuggets.com/wp-content/uploads/kmeans-pseudocode.jpg"
+        alt    ="k-means Clustering Algorithm"
+        title  ="k-means Clustering Algorithm"
+      />
+    </figure>
+
+  + converge: the re-calculated centroids match the previous iteration's centroids or are within some present margin
+  + Euclidean distance: one measure of distance
+
+    \[ \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2} \]
+
+  + iterative clustering k-means in serial, however, the distance calculations within an iteration need not be
+
 
 #### Initialization: K-Mean
 
@@ -1210,6 +1228,7 @@
     </div>
 
   + Left diagram: often there is no clear Elbow $\rightarrow$ difficult to choose, just best guest, plot cost function vs K value not necessary
+
 
 
 ### Principal Component Analysis (PCA)
