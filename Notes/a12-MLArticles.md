@@ -180,4 +180,69 @@ Author: Matthew Mayo
   + any algorithms seeks to classify data, and take a top-down, recursive. divide-conquer approach to crafting a tree-based graph for subsequent instance classification, regardless of any other particulars (including attribution split selection methods and optional tree-pruning approach) would be consider a decision tree
 
 
+## Comparing Clustering Techniques: A Concise Technical Overview
+
+Author: Matthew Mayo
+
+[Original](https://tinyurl.com/y7qy3xe5)
+
+
++ Clustering
+  + used fro analyzing data not including pre-loaded classes
+  + data distance: grouped together using the concept of maximizing inter-class similarity and minimizing the similarity btw differing classes
+  + techniques
+    + k-means clustering
+    + hierarchical clustering
+    + fuzzy clustering
+    + density clustering
+    + centroid-style clustering
+
++ K-means clustering algorithm
+  + k-points randomly chosen as cluster centers, or constraints
+  + all training instances plotted and added to the closet cluster
+  + after all instances added to clusters, the centroids representing the mean of the instances of each cluster
+    + recalculated the centroids
+    + newly calculated centroids as the new centers of their respective clusters
+  + iterate the previous steps w/ newly calculated centroids until no change to the centroids or their relationship
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick="window.open('https://www.kdnuggets.com/2016/09/comparing-clustering-techniques-concise-technical-overview.html')"
+        src    ="https://www.kdnuggets.com/wp-content/uploads/kmeans-pseudocode.jpg"
+        alt    ="k-means Clustering Algorithm"
+        title  ="k-means Clustering Algorithm"
+      />
+    </figure>
+
+  + converge: the re-calculated centroids match the previous iteration's centroids or are within some present margin
+  + Euclidean distance: one measure of distance
+
+    \[ \left[ (x_1 - x_2)^2 + (y_1 - y_2)^2 \right]^{1/2} \]
+
+  + iterative clustering k-means in serial, however, the distance calculations within an iteration need not be
+
++ Expectation-Maximization (EM)
+  + probabilistic clustering: determine the most likely set of cluster, given a set of data
+  + EM: a probabilistic clustering algorithm
+  + determining the probabilities that instances belong to particular clusters
+  + maximum likelihood or maximum a posterior estimates of parameters is statistical models
+  + initialized w/ a set of parameters, iterating until clustering is maximized, w.r.t. k clusters
+  + 2 steps
+    + __Expectation Step (E-Step):__ particular objects to clusters based on parameter $\to$ cluster probability calculation step the cluster probabilities being the 'expected' class values
+    + __Maximization Step (M-Step):__ calculate the distribution parameters, maximizing expected likelihood
+  + parameter estimation equations: cluster probabilities known for each cluster
+  + mean for a cluster
+
+    \[ \mu_c = \frac{w_1x_1 = w_2x_2 + \cdots + w_nx_n}{w_1 + w_2 + \cdots + w_n} \]
+
+  + standard deviation of a cluster
+
+    \[ \sigma_c = \frac{w_1(x_1 - \mu)^2 + w_2(x_2 - \mu)^2 + \cdots + w_n(x_n - \mu)^2}{w_1 + w_2 + \cdots + w_n} \]
+
+    + $w_i$: probability of an instance $i$ as a member of a cluster $c$
+    + $x_1$: all of the dataset's instances
+  + w/ a new instance to cluster, its cluster membership probability is calculated and compared to each cluster $\to$ a membership probability
+  + repeat until the inter-cluster delta < defined threshold
+  + in practice, iteration should continue until the log-likelihood, increase is negligible, and the log-likelihood typically increases dramatically during the first number of iterations and converges to this negligible point quite quickly
+
 
