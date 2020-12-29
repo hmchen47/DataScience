@@ -421,7 +421,7 @@
     <th style="padding: 0.3em; width: 15%; text-align: left; line-height: 1.5; vertical-align: middle;"> Basics </th>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-Basics.md#overview"> Overview </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-Basics.md#decision-tree-classifiers-a-concise-technical-overview"> Descision Tree </a> </td>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-Basics.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-Basics.md#clustering-techniques"> Clustering </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-Basics.md#">  </a> </td>
   </tr>
   <tr>
@@ -434,7 +434,7 @@
 
   <!-- Feature Engineering -->
   <tr>
-    <th style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Feature Engineering (FEng)</th>
+    <th style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle; color: cyan;"> Feature Engineering (FEng)</th>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#summary"> Summary </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#overview"> Overview </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#variables-types"> Variable Types </a> </td>
@@ -559,7 +559,7 @@
 
   <!-- Feature Selection -->
   <tr>
-    <th rowspan=1 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Feature Selection (FSelect) </th>
+    <th rowspan=1 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle; color: cyan;"> Feature Selection (FSelect) </th>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureSelect.md#overview"> Overview </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureSelect.md#">  </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureSelect.md#">  </a> </td>
@@ -663,7 +663,6 @@
     <td style="padding: 0.3em;"> <a href="RefCards/ML-Theory.md#neural-network-algorithm"> Training </a> </td>
     <td style="padding: 0.3em;">  </td>
   </tr>
-
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Support Vector Machine (SVM) </th>
     <td style="padding: 0.3em;"> <a href="RefCards/ML-Theory.md#overview"> Overview </a> </td>
@@ -681,6 +680,14 @@
     <td style="padding: 0.3em;"> <a href="RefCards/ML-Theory.md#algorithm-k-mean"> Algorithm </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/ML-Theory.md#initialization-k-mean"> Initialization </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/ML-Theory.md#parameter"> Parameter </a> </td>
+  </tr>
+
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan=1 style="padding: 0.3em;text-align: left; line-height: 1.5; vertical-align: middle;"> Expactation-Maximization (EM) </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/ML-Basics.md#model-of-em"> Model (NA) </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ML-Basics.md#algorithm-of-em"> Algorithm </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ML-Basics.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ML-Basics.md#">  </a></td>
   </tr>
 
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
