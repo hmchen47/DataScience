@@ -55,8 +55,8 @@ Date: 2016-09-08
     + confusingly used term $\to$
       + panel modeling w/ a small number of periods
       + repeated measures, growth curve analysis or multilevel analysis
-  + popular: structural equation modeling (SEM)
-  + structural analysis
+    + popular: structural equation modeling (SEM)
+  + survival analysis
     + analyzing the expected length of time until one/more events happen
     + duration analysis in economics
     + event history analysis sociology
@@ -64,7 +64,7 @@ Date: 2016-09-08
     + structural changes within the series and model parameters vary across time
     + models
       + breakpoint tests and models, e.g., state space, swithcing regression
-      + GARCH (Generalized Autoregressive Conditional Heteroscedasticity) & ARCH
+      + GARCH (Generalized Autoregressive Conditional Heteroskedasticity) & ARCH
       + MGARCH (Multivariate GRACH): two or more series to analyze jointly
   + Non-parametric econometrics
     + time series and longitudinal data
