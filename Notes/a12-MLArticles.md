@@ -225,7 +225,7 @@ Author: Matthew Mayo
   + probabilistic clustering: determine the most likely set of cluster, given a set of data
   + EM: a probabilistic clustering algorithm
   + determining the probabilities that instances belong to particular clusters
-  + maximum likelihood or maximum a posterior estimates of parameters is statistical models
+  + statistical models: maximum likelihood or maximum a posterior estimates of parameters
   + initialized w/ a set of parameters, iterating until clustering is maximized, w.r.t. k clusters
   + 2 steps
     + __Expectation Step (E-Step):__ particular objects to clusters based on parameter $\to$ cluster probability calculation step the cluster probabilities being the 'expected' class values
