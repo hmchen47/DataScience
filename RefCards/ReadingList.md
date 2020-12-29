@@ -51,6 +51,7 @@
 + Gordan Zitkovic, [Introduction to Stochastic Processes](https://web.ma.utexas.edu/users/gordanz/lecture_notes_page.html)
 + Gordan Zitkovic, [Introduction to Mathematical Statistics](https://web.ma.utexas.edu/users/gordanz/lecture_notes_page.html)
 + David Pollard, [Chapter 4: Symmetry](https://tinyurl.com/yyqkqvmz) in [Advanced Probability](https://tinyurl.com/y5pszlfw), 200
++ Anna Mikusheva, [Time Series Analysis](https://tinyurl.com/yd7sfmbo), MIT, 2003
 
 
 
@@ -69,6 +70,8 @@
 + S. Balakrishnama and A. Ganapathiraju, [Linear Discriminant Analysis - A Brief Tutorial](https://tinyurl.com/ya2pjtmd)
 + UC Berkeley, CS 88, [Computational Structures in Data Science](https://www2.eecs.berkeley.edu/Courses/CS88/)
 + W. Sun, et.al., [Canonical Capsules: Unsupervised Capsules in Canonical Pose](https://canonical-capsules.github.io/)
+
+
 
 ## Neural Networks
 
