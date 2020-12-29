@@ -1503,11 +1503,11 @@
     <td style="padding: 0.3em; width: 10vw;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Statistics </th>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#"> Bayesian </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Probability & Statistics </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#basics"> Basics </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#study-design"> Study Design </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#bayesian-approaches"> Bayesian Approaches </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#time-series-analysis"> Time Series Analysis </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Artificial Intelligence </th>
