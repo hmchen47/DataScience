@@ -429,11 +429,11 @@
 
 + [Model the function $y = x \cdot sin(x)$ using a neural network (NN)](../ML/MLNN-Hinton/a02-IntermediateNN.md#architecture)
   + Assume NN using ReLU activation function (Fig.1)
-  + NN with a two-node single hidden layer as one degree of freedom (Fig.2)
-  + NN with a three-node single hidden layer as two degree of freedom (Fig.3)
-  + NN with a multi-node hidden layer (Fig.4)
-  + NN with 2 one-node hidden layers (Fig.5) approximates the function as a single hidden layer (Fig.1)
-  + NN with 3 hidden layers and 3 nodes in each layer (Fig.7) gives a pretty good approximation
+  + NN w/ a two-node single hidden layer as one degree of freedom (Fig.2)
+  + NN w/ a three-node single hidden layer as two degree of freedom (Fig.3)
+  + NN w/ a multi-node hidden layer (Fig.4)
+  + NN w/ 2 one-node hidden layers (Fig.5) approximates the function as a single hidden layer (Fig.1)
+  + NN w/ 3 hidden layers and 3 nodes in each layer (Fig.7) gives a pretty good approximation
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://towardsdatascience.com/comprehensive-introduction-to-neural-network-architecture-c08c6d8e5d98" ismap target="_blank">
