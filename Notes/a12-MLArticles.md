@@ -217,7 +217,7 @@ Author: Matthew Mayo
   + converge: the re-calculated centroids match the previous iteration's centroids or are within some present margin
   + Euclidean distance: one measure of distance
 
-    \[ \left[ (x_1 - x_2)^2 + (y_1 - y_2)^2 \right]^{1/2} \]
+    \[ \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2} \]
 
   + iterative clustering k-means in serial, however, the distance calculations within an iteration need not be
 
