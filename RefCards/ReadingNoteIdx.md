@@ -16,6 +16,12 @@
 
 ## Probability & Statistics
 
+### Basics
+
++ Thomas Maydon, [The 4 Types of Data Analytics](../Notes/a14-ProbStatA.md), 2017
+
+
+
 ### Study Design
 
 + Song JW, Chung KC. [Observational studies: cohort and case-control studies](../Notes/p02-Observational.md). Plast Reconstr Surg. 2010;126(6):2234–2242
@@ -33,7 +39,7 @@
 
 ### Time Series Analysis
 
-+ K. Gray, [Time Series Analysis: A Primer](https://tinyurl.com/y89zhl4b), 2016
++ K. Gray, [Time Series Analysis: A Primer](../Notes/a13-TimeSeries.md), 2016
 
 
 ## Artificial Intelligence
