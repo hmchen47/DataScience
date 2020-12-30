@@ -63,3 +63,51 @@ Author: Matthew Mayo @ KDnuggets
   + common kernel function: polynomial kernel $(x \cdot y)^n$ computes the dot product of 2 vectors, and raises that result to the power of n
 
 
+## Support Vector Machines: A Simple Explanation
+
+Author: Noel Bambrick @ AYLIEN
+
+[Original](https://tinyurl.com/yaw2okww)
+
++ Support vector machine
+  + supervised machine learning algorithm
+  + classification and regression purpose
+  + finding a hyperplane that best divides a dataset into two classes
+  + support vectors: data points nearest the hyperplane, the points of data set that, if removed, would alter the position of dividing hyperplane
+
++ Hyperplane
+  + a line that linearly separates and classifies a set of data
+  + margin (left diagram): the distance btw the hyperrplan and the nearest data point from either set
+  + goal: choose a hyperplane w/ a greatest possible margin btw the hyperplan and any point within the training set , giving a greater chance of new data being classified correctly
+  + no clear hyperplane (right diagram): lifting balls represents the mapping of data into a higher dimension $\to$ kerneling
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/yaw2okww" ismap target="_blank">
+      <img style="margin: 0.1em;" height=150
+        src  ="https://tinyurl.com/ydau7omt"
+        alt  ="SVM"
+        title="SVM"
+      >
+      <img style="margin: 0.1em;" height=150
+        src  ="https://tinyurl.com/y9x59eke"
+        alt  ="SVM"
+        title="SVM"
+      >
+    </a>
+  </div>
+
++ Pros and Cons of Support Vector Machines
+  + advantages
+    + accuracy
+    + working well on smaller cleaner datasets
+    + more efficient because it uses a subset of training points
+  + limitations
+    + not suitable to larger dataset
+    + less efficient on noiser dataset w/ overlapping classes
+
++ SUM uses
+  + text classification tasks, including category assignments, detecting spam and sentiment analysis
+  + image recognition challenges: aspect-based recognition, color-based classification
+  + handwritten digit recognition
+
+
