@@ -58,8 +58,6 @@
 + Maytal Saar-Tsechansky and Foster Provost, [Handling Missing Values when Applying Classification Models](../AppliedDS-UMich/3-AML/p5-Missing.md)
 + [Graphs](../AppliedDS-UMich/5-SocialNet/p2-Graphs.md)
 + K. Gray, [Making Sense of Machine Learning](../Notes/a12-MLArticles.md#making-sense-of-machine-learner)
-+ M. Mayo, [Decision Tree Classifiers: A Concise Technical Overview](../Notes/a12-MLArticles.md#decision-tree-classifiers-a-concise-technical-overview)
-+ M. Mayo, [Comparing Clustering Techniques: A Concise Technical Overview](../Notes/a12-MLArticles.md#comparing-clustering-techniques-a-concise-technical-overview)
 
 
 
@@ -96,7 +94,16 @@
 
 ### Machine Learning Models
 
++ M. Mayo, [Decision Tree Classifiers: A Concise Technical Overview](../Notes/a12-MLArticles.md#decision-tree-classifiers-a-concise-technical-overview)
++ M. Mayo, [Comparing Clustering Techniques: A Concise Technical Overview](../Notes/a12-MLArticles.md#comparing-clustering-techniques-a-concise-technical-overview)
 
+
+
+### Support Vector Machine (SVM)
+
++ Matthew Mayo, [Support Vector Machines: A Concise Technical Overview](../Notes/a15-SVMa.md#support-vector-machines-a-concise-technical-overview), 2016
++ Noel Bambrick, [Support Vector Machines: A Simple Explanation](/Notes/a15-SVMa.md#support-vector-machines-a-simple-explanation), 2016
++ GregL, [Why Use SVM?](../Notes/a15-SVMa.md#why-use-svm)
 
 
 ### Application - Social Networks
