@@ -104,6 +104,9 @@
 + Matthew Mayo, [Support Vector Machines: A Concise Technical Overview](../Notes/a15-SVMa.md#support-vector-machines-a-concise-technical-overview), 2016
 + Noel Bambrick, [Support Vector Machines: A Simple Explanation](/Notes/a15-SVMa.md#support-vector-machines-a-simple-explanation), 2016
 + GregL, [Why Use SVM?](../Notes/a15-SVMa.md#why-use-svm)
++ Eric Kim, [Everything You Wanted to Know about the Kernel Trick](/Notes/a15-SVMa.md#everything-you-wanted-to-know-about-the-kernel-trick), 2015
+
+
 
 
 ### Application - Social Networks
