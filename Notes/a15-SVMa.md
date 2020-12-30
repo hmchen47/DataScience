@@ -111,3 +111,35 @@ Author: Noel Bambrick @ AYLIEN
   + handwritten digit recognition
 
 
+## Why Use SVM?
+
+Author: GregL
+
+Date: 2017-01-24
+
+[Original](https://tinyurl.com/y7ft7wn7)
+
++ What is SVM?
+  + supervised machine learning algorithm
+  + classification or regression problem
+  + kernel trick: transform data and then based on these transformations if finds an optimal boundary btw the possible outputs
+
++ What makes SVM so great?
+  + non-linear SVM or SVM using a non-linear kernel
+  + the boundary that the algorithm calculated does not have to be a straight line
+  + cons: much longer training time
+
++ Demo: Cows and Wolves
+  + build a classified based on the position of the cows and wolves in your pasture
+  + the logistic and decision tree models both make use of straight lines
+  + code: [cows_and_wolves.py](src/a15-cows_and_wolves.py)
+
++ Let the SVM do the hard work
+  + non-linear relationship
+  + taking transformations btw variables ($\log(x)$, $(x^2)$) becomes much less important since it's going to be accounted for int he algorithm
+  + build a model using 80% of data as training set
+  + demo code: [comparisons of SVM, Logistic and Decision tree](src/a15-comparisons.py)
+
+
+
+
