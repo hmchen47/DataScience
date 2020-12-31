@@ -154,7 +154,7 @@ Author: Eric Kim
 + What is a kernel anyway?
   + kernel function:
   
-    \[ K(\vec{v}, \vec{w}) \text{ as a function } K: \Bbb{R}^N \times \Bbb{R}^K \to \Bbb{R} \]
+    \[ K(\vec{v}, \vec{w}) \text{ with } K: \Bbb{R}^N \times \Bbb{R}^K \to \Bbb{R} \]
   
   + function computed a dot product btw $\vec{v}$ and $\vec{w}$, ie, a measure of 'similarity' btw $\vec{v}$ and $\vec{w}$
 
@@ -171,23 +171,25 @@ Author: Eric Kim
   + binary classifier: simple
   + multiclass classification problem
     + more than 2 possible outcomes
-    + train face verification system that can detect the identity of a photograph from a pool of N people (where N > 2)
+    + example: train face verification system to detect the identity of a photograph from a pool of N people (where N > 2)
 
-+ Main approaches to the mukticlass problem
++ Main approaches to the multiclass problem
   + directly add a multiclass extension to a binary classifier
     + pros: a principled way of solving the multiclass problem
     + cons: much more complicated $\to$ significantly longer training and test procedures
   + combine multiple binary classifiers to create a 'mega' multiclass classifier
     + pros: simple idea, easy to implement faster than multiclass extensions
-    + cons: ad-hoc method for solving the multiclass problem $\to$ exist datasets for which OVO/OVA will perform poorly on
-  + recommend to us OVO (one-vs-One) / OVA (One-vs-All) rather than more complicated generalized multiclass classifiers
+    + cons: ad-hoc method for solving the multiclass problem $\to$ probably exist datasets 
+      + OVO/OVA performing poorly on
+      + general multiclass classifier performing well on
+  + recommend to use OVO (one-vs-One) / OVA (One-vs-All) rather than more complicated generalized multiclass classifiers
 
 + Linear SVM
-  + find a hyperplane $\vec{w} \to$ best separating the data points in the training set by class labels, $\vec{w}$ $\implies$ decision boundary
-  + classify a point $x_i \in X$ (dataset) $\to$ simply see which 'side' of $\vec{w}$ that $x$ lies (Fig. 1)
-  + the hyperplane $\vec{w}$ (a line in $\Bbb{R}$) separates the space into two halves (Fig. 2)
-    + The Decision Boundary of a Linear SVM on a linearly-separable dataset. The solid line is the boundary.
-    + The SVM is trained on 75% of the dataset, and evaluated on the remaining 25%. Circled data points are from the test set.
+  + find a hyperplane $\vec{w}$ s.t. best separating the data points in the training set by class labels, $\vec{w}$ $\implies$ decision boundary
+  + classify a point $x_i \in X$ (dataset) by simply seeing which 'side' of $\vec{w}$ that $x$ lies (Fig. 1)
+  + the hyperplane $\vec{w}$ (a line in $\Bbb{R}^2$) separating the space into two halves (Fig. 2)
+    + the Decision Boundary (solid line) of a Linear SVM on a linearly-separable dataset
+    + SVM trained on 75% of the dataset, and evaluated on the remaining 25% (circled data points from the test set)
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/y7g97y2e" ismap target="_blank">
@@ -206,12 +208,13 @@ Author: Eric Kim
 
 + Nonlinear dataset
   + no line in $\Bbb{R}^2$ (Fig. 3)
-    + A two-class dataset that is not linearly separable.
-    + The outer ring (cyan) is class '0', while the inner ring (red) is class '1'.
+    + a two-class dataset not linearly separable.
+    + the outer ring (cyan) as class '0'
+    + the inner ring (red) as class '1'
   + both random classifier and linear SVM perform poorly (Fig. 4)
-    + The decision boundary of a linear SVM classifier.
-    + Because the dataset is not linearly separable, the resulting decision boundary performs and generalizes extremely poorly.
-    + Like in Figure 2, we train the SVM on 75% of the dataset, and test on the remaining 25%.
+    + no the decision boundary of a linear SVM classifier
+    + the dataset not linearly separable $\implies$ the resulting decision boundary performs and generalizes extremely poorly
+    + train the SVM on 75% of the dataset and test on the remaining 25%
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/y7g97y2e" ismap target="_blank">
@@ -229,18 +232,18 @@ Author: Eric Kim
   </div>
 
 
-### Dealing with Nonseparable Data
+### Dealing with Non-separable Data
 
 + Dealing w/ non-separable data
-  + assume that the decision boundary is a a separating hyperplane $\vec{w}$
-  + generalizing the constraint of decision boundary that is line in the original feature space (here $\Bbb{R}^2$)
+  + assumption: separating hyperplane $\vec{w}$ as the decision boundary
+  + generalizing the constraint of decision boundary, the line in the original feature space (here $\Bbb{R}^2$)
   + explicitly discover decision boundaries w/ arbitrary shape
 
 + Separable in higher-dimension
   + representing a 2D version of the true dataset lives in $\Bbb{R}^3$
   + the $\Bbb{R}^3$ dataset is easily linear separable by a hyperplane
   + train a linear SVM classifier that successfully finds a good decision boundary
-  + given the dataset in $\Bbb{R}^2$, find a transformation $T: \Bbb{R}^2 \to \Bbb{R}^3$ s.t. transformed dataset is linearly separable in $\Bbb{R}^3$
+  + given the dataset in $\Bbb{R}^2$, find a transformation $T: \Bbb{R}^2 \to \Bbb{R}^3$ s.t. transformed dataset linearly separable in $\Bbb{R}^3$
   + Demo: seperation w/ higher dimensions $T([x_1, x_2]) = [x_1, x_2, x_1^2+x_2^2]$
 
     <figure style="margin: 0.5em; text-align: center;">
@@ -254,26 +257,30 @@ Author: Eric Kim
     </figure>
 
   + assume a transformation $\phi$, the new classification pipeline
-    1. transform the training set $X$ to $X^\prime$ w/ $\phi$
-    2. train a linear SVM on $X^\prime$ to get classifier $f_{SVM}$
-    3. test: a new sample $\vec{x}$ to $\vec{x^\prime} = \phi(\vec{x}) \to$ output class label determined by: $f_{SVM}(\vec{x^\prime})$
-  + the hyperplane learned in $\Bbb{R}^3$ is nonlinear when projected back to $\Bbb{R}^2
+    1. transform the training set $X$ to $X'$ w/ $\phi$
+    2. train a linear SVM on $X'$ to get classifier $f_{svm}$
+    3. test: a new sample $\vec{x}$ to $\vec{x'} = \phi(\vec{x}) \to$ output class label determined by $f_{svm}(\vec{x'})$
+  + the hyperplane learned in $\Bbb{R}^3$ is nonlinear when projected back to $\Bbb{R}^2$
   + improving the expressiveness of the linear SVM classifier by working a high-dimensional space
 
-+ Recap
++ Procedures for non-linear SVM
   + a dataset $D$, not linearly separable in a high-dimensional space $\Bbb{R}^M (M > N)$
   + $\exists$ a transformation $\phi$ that lifts the dataset $D$ to a higher-dimensional $D^\prime$ to find a decision boundary $\vec{w}$ that separates the classes in $D^\prime$
-  + train a linear SVM on $D^\prime$ to find a decision n=boundary $\vec{w}$ that separates the classes in $D^\prime$
+  + train a linear SVM on $D^\prime$ to find a decision boundary $\vec{w}$ that separates the classes in $D^\prime$
   + projecting the decision boundary $\vec{w}$ found in $\Bbb{R}^M$ back to the original space $\Bbb{R}^N$
+
++ Animated visualization of SVM
+  + [SVM with polynomial kernel visualization](http://www.youtube.com/watch?v=3liCbRZPrZA)
+  + [Performing nonlinear classification via linear separation in higher dimensional space](http://www.youtube.com/watch?v=9NrALgHFwTo)
 
 + Caveat: impractical for large dimensions
   + consider the computational consequences of increasing the dimensional consequences of increasing the dimensionality from $\Bbb{R}^N$ to $\Bbb{R}^M$ (M > N)
-  + if $M$ grows very quickly w.r.t. $N$ (e.g., $M \in \mathcal{O}(2^N)$), then learning SVMs via dataset transformations will incurr serious computational and memory problem
-  + polynomial kernel: $\Bbb{R}^2 \to \Bbb{R}^5$
+  + $M$ grows very quickly w.r.t. $N$ (e.g., $M \in \mathcal{O}(2^N)$) $\implies$ learning SVMs via dataset transformations will incurr serious computational and memory problem
+  + example: polynomial kernel $\Bbb{R}^2 \to \Bbb{R}^5$
 
     \[ [x_1, x_2] = [x_1^2, x_2^2, \sqrt{2} x_1x_2, \sqrt{2c}x_1, \sqrt{2c}x_2, c] \]
 
-  + in general, a $d$-dimensional polynomial kernel maps fro $\Bbb{R}^N$ to an $\binom{n+d}{d}$-dimensional space
+  + in general, a $d$-dimensional polynomial kernel maps from $\Bbb{R}^N$ to an $\binom{N+d}{d}$-dimensional space
 
 + Dot products
   + the SVM has no need to explicitly work in the higher-dimensional space at training or testing time
@@ -286,15 +293,15 @@ Author: Eric Kim
 + Kernel functions
   + kernel function $K(\vec{v}, \vec{w})$: $K(\Bbb{R}^N \times \Bbb{R}^M) \to \Bbb{R}$ 
   + a kernel $K$ effectively computes dot products in a high-dimensional space $\Bbb{R}^M$ while remaining in $\Bbb{R}^N$
-  + for $\vec{x_i}, \vec{x_j} \in \Bbb{R}^N, K(\vec{x_i}, \vec{x_j}) = (\phi(\vec{x_i}, \phi(\vec{x_j}))_M$ where $(\cdot, \cdot)_M$ = inner product of $\Bbb{R}^M, M>N$, $\phi(\vec{x})$ transforms $\vec{x}$ to $\Bbb{R}^M$; $\phi: \Bbb{R}^N \to \Bbb{R}^M$
+  + $\forall \,\vec{x_i}, \vec{x_j} \in \Bbb{R}^N, K(\vec{x_i}, \vec{x_j}) = \left(\phi(\vec{x_i}), \phi(\vec{x_j})\right)_M$ where $(\cdot, \cdot)_M$ = inner product of $\Bbb{R}^M, M>N$, $\phi(\vec{x})$ transforms $\vec{x}$ to $\Bbb{R}^M$; i.e., $\phi: \Bbb{R}^N \to \Bbb{R}^M$
 
-+ Popular kernels
++ Popular kernels & `sklearn` library
   + popular kernels: polynomial, radial basis fucntion, and sigmoid kernel
-  + sklearn's SVM implementation `svm.svc`: kernel parameter - linear, poly, rbf, or sigmoid
-  + let $\vec{x+t}, \vec{x_j} \in \Bbb{R}^N$ be rows from dataset $X$
+  + sklearn's SVM implementation `svm.svc`: kernel parameter - `linear`, `poly`, `rbf`, or `sigmoid`
+  + let $\vec{x_i}, \vec{x_j} \in \Bbb{R}^N$ be rows from dataset $X$
     1. __polynomial kernel:__ $(\gamma \cdot \langle \vec{x_i} , \vec{x_j} \rangle + r)^d$
-    2. __Radial Basis Function (RBF) Kernel:__ $\exp(-\gamma \cdot \lvert \vec{x_i} - \vec{x_j} \rvert ^2)$, where $\gamma > 0$
-    3. __Sigmoid Kernel:__ $tanh(\langle \vec{x_i}, \vec{x_j} \rangle + r)$
+    2. __Radial Basis Function (RBF) Kernel:__ $\exp\left(-\gamma \cdot \lvert \vec{x_i} - \vec{x_j} \rvert ^2\right)$, where $\gamma > 0$
+    3. __Sigmoid Kernel:__ $\tanh(\langle \vec{x_i}, \vec{x_j} \rangle + r)$
   + sklearn's `svm.svc` uses both `gamma` and `coef0` parameters for the `kernel = 'sigmoid'` despite the above definition only having $\gamma$
   + choosing the 'correct' kernel is a nontrivial task, and may depend on the specific task at hand
   + true the kernel parameters to get good performance from classifier
