@@ -18,8 +18,21 @@
     + only for non-adaptive features and one layer of adaptive weights
     + unable to learn multiple layers of representation
 
++ [kernel function](../Notes/a15-SVMa.md#so-what-is-a-kernel-anyway)
+  + kernel function:
+  
+    \[ K(\vec{v}, \vec{w}) \text{ with } K: \Bbb{R}^N \times \Bbb{R}^K \to \Bbb{R} \]
+  
+  + function computed a dot product btw $\vec{v}$ and $\vec{w}$, ie, a measure of 'similarity' btw $\vec{v}$ and $\vec{w}$
 
-## Model: SVM
++ [Binary vs. multiclass classification](../Notes/a15-SVMa.md#linear-svm-binary-classification)
+  + binary classifier: simple
+  + multiclass classification problem
+    + more than 2 possible outcomes
+    + example: train face verification system to detect the identity of a photograph from a pool of N people (where N > 2)
+
+
+## Modeling SVM
  
 + [hinge loss](https://en.wikipedia.org/wiki/Hinge_loss) function
 
@@ -50,10 +63,10 @@
     $n =\;$ number of features ($x \in \mathbb{R}^{n+1}$), $m = \;$ number of training examples <br/>
     if $n$ is large (relative to $m$): <br/>
     <span style="padding-left: 1em;"/>Use logistic regression, or SVM without a kernel ("linear kernel") <br/>
-    <span style="padding-left: 2em;"/>if $n$ is mall, $m$ is intermediate: (e.g, n = 1~1,000, m = 10~10,000) <br/>
+    <span style="padding-left: 2em;"/>if $n$ is mall, $m$ is intermediate: (e.g, n = 1\~1,000, m = 10\~10,000) <br/>
     <span style="padding-left: 3em;"/>Use SVM with Gaussian kernel<br/><br/>
-    <span style="padding-left: 2em;"/>if $n$ is small, $m$ is large: (e.g., n = 1~1,000, m = 50,000+) <br/>
-    <span style="padding-left: 3em;"/>Creat/add more features, then use logistic regression or SVM without a kernel
+    <span style="padding-left: 2em;"/>if $n$ is small, $m$ is large: (e.g., n = 1\~1,000, m = 50,000+) <br/>
+    <span style="padding-left: 3em;"/>Create/add more features, then use logistic regression or SVM without a kernel
   
   + Neural network likely to work well for most of these settings, but may be slower to train
 
@@ -74,7 +87,7 @@
 + [Simplification for Decision Boundary](../ML/ML-Stanford/12-SVM.md#large-margin-intuition)
   + Objective:
 
-    \[\min_\theta C \underbrace{\sum_{i=1}^m \left[ y^{(i)} \text{cost}_1(\theta^Tx^{(i)}) + (1 - y^{(i)}) \text{cost}_0(\theta^Tx^{(i)}) \right]}_{(A)} + \dfrac{1}{2} \sum_{j=1}^n \theta_j^2\]
+    \[ \min_\theta C \;\underbrace{\sum_{i=1}^m \left[ y^{(i)} \text{cost}_1(\theta^Tx^{(i)}) + (1 - y^{(i)}) \text{cost}_0(\theta^Tx^{(i)}) \right]}_{(A)} + \dfrac{1}{2} \sum_{j=1}^n \theta_j^2 \]
 
   + $C \gg 0$, $(A) = 0\;$ to minimize the cost function
   + Wherever $y^{(i)} = 1\;: \theta^T x^{(i)} \geq 1$ <br/>
@@ -158,5 +171,131 @@
     + Polynomial kernel: $k(x, l) = (x^Tl + \text{constant})^{\text{degree}}$ such as $(x^T l)^2, (x^T l)^3, (x^T l) + 1^3, (x^T l)^4, \ldots$
     + More esoteric: String kernel, chi-square kernel, histogram intersection kernel, ...
 
+
+## Binary Classification
+
++ [Linear SVM, Binary classification](../Notes/a15-SVMa.md#linear-svm-binary-classification)
+  + $\exists$ a two-class dataset $D$
+  + training a classifier $C$ to predict the class labels of future data points
+  + binary classification problem: yes/no question
+    + medicine: given a patient's vital data, patient $\stackrel{?}{\to}$ cold
+    + computer vision: image containing a person?
+
+## Multiclass Classification
+
++ [Main approaches to the multiclass problem](../Notes/a15-SVMa.md#linear-svm-binary-classification)
+  + directly add a multiclass extension to a binary classifier
+    + pros: a principled way of solving the multiclass problem
+    + cons: much more complicated $\to$ significantly longer training and test procedures
+  + combine multiple binary classifiers to create a 'mega' multiclass classifier
+    + pros: simple idea, easy to implement faster than multiclass extensions
+    + cons: ad-hoc method for solving the multiclass problem $\to$ probably exist datasets 
+      + OVO/OVA performing poorly on
+      + general multiclass classifier performing well on
+  + recommend to use OVO (one-vs-One) / OVA (One-vs-All) rather than more complicated generalized multiclass classifiers
+
+
+## Linear SVM 
+
++ [Linear SVM](../Notes/a15-SVMa.md#linear-svm-binary-classification)
+  + find a hyperplane $\vec{w}$ s.t. best separating the data points in the training set by class labels, $\vec{w}$ $\implies$ decision boundary
+  + classify a point $x_i \in X$ (dataset) by simply seeing which 'side' of $\vec{w}$ that $x$ lies (Fig. 1)
+  + the hyperplane $\vec{w}$ (a line in $\Bbb{R}^2$) separating the space into two halves (Fig. 2)
+    + the Decision Boundary (solid line) of a Linear SVM on a linearly-separable dataset
+    + SVM trained on 75% of the dataset, and evaluated on the remaining 25% (circled data points from the test set)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y7g97y2e" ismap target="_blank">
+      <img style="margin: 0.1em;" height=200
+        src  ="https://tinyurl.com/yajsamxv"
+        alt  ="Figure 1: A two-class, linearly separable dataset."
+        title="Figure 1: A two-class, linearly separable dataset."
+      >
+      <img style="margin: 0.1em;" height=200
+        src  ="https://tinyurl.com/ycrvwg9p"
+        alt  ="Figure 2: The Decision Boundary of a Linear SVM on a linearly-separable dataset. The solid line is the boundary. The SVM is trained on 75% of the dataset, and evaluated on the remaining 25%. Circled data points are from the test set."
+        title="Figure 2: The Decision Boundary of a Linear SVM on a linearly-separable dataset. The solid line is the boundary. The SVM is trained on 75% of the dataset, and evaluated on the remaining 25%. Circled data points are from the test set."
+      >
+    </a>
+  </div>
+
+## Nonlinear SVM
+
++ [Nonlinear dataset](../Notes/a15-SVMa.md#linear-svm-binary-classification)
+  + no line in $\Bbb{R}^2$ (Fig. 3)
+  + both random classifier and linear SVM perform poorly (Fig. 4)
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/y7g97y2e" ismap target="_blank">
+      <img style="margin: 0.1em;" height=200
+        src  ="https://tinyurl.com/ya6ocsx8"
+        alt  ="Figure 3: A two-class dataset that is not linearly separable. The outer ring (cyan) is class '0', while the inner ring (red) is class '1'."
+        title="Figure 3: A two-class dataset that is not linearly separable. The outer ring (cyan) is class '0', while the inner ring (red) is class '1'."
+      >
+      <img style="margin: 0.1em;" height=200
+        src  ="https://tinyurl.com/yaaw3xxy"
+        alt  ="Figure 4: The decision boundary of a linear SVM classifier. Because the dataset is not linearly separable, the resulting decision boundary performs and generalizes extremely poorly. Like in Figure 2, we train the SVM on 75% of the dataset, and test on the remaining 25%."
+        title="Figure 4: The decision boundary of a linear SVM classifier. Because the dataset is not linearly separable, the resulting decision boundary performs and generalizes extremely poorly. Like in Figure 2, we train the SVM on 75% of the dataset, and test on the remaining 25%."
+      >
+    </a>
+  </div>
+
++ [Dealing w/ non-separable data](../Notes/a15-SVMa.md#dealing-with-non-separable-data)
+  + assumption: separating hyperplane $\vec{w}$ as the decision boundary
+  + generalizing the constraint of decision boundary, the line in the original feature space (here $\Bbb{R}^2$)
+  + explicitly discover decision boundaries w/ arbitrary shape
+
++ [Separable in higher-dimension](../Notes/a15-SVMa.md#dealing-with-non-separable-data)
+  + representing a 2D version of the true dataset lives in $\Bbb{R}^3$
+  + the $\Bbb{R}^3$ dataset is easily linear separable by a hyperplane
+  + train a linear SVM classifier that successfully finds a good decision boundary
+  + given the dataset in $\Bbb{R}^2$, find a transformation $T: \Bbb{R}^2 \to \Bbb{R}^3$ s.t. transformed dataset linearly separable in $\Bbb{R}^3$
+  + assume a transformation $\phi$, the new classification pipeline
+    1. transform the training set $X$ to $X'$ w/ $\phi$
+    2. train a linear SVM on $X'$ to get classifier $f_{svm}$
+    3. test: a new sample $\vec{x}$ to $\vec{x'} = \phi(\vec{x}) \to$ output class label determined by $f_{svm}(\vec{x'})$
+  + the hyperplane learned in $\Bbb{R}^3$ is nonlinear when projected back to $\Bbb{R}^2$
+  + improving the expressiveness of the linear SVM classifier by working a high-dimensional space
+
++ [Procedures for non-linear SVM](../Notes/a15-SVMa.md#dealing-with-non-separable-data)
+  + a dataset $D$, not linearly separable in a high-dimensional space $\Bbb{R}^M (M > N)$
+  + $\exists$ a transformation $\phi$ that lifts the dataset $D$ to a higher-dimensional $D^\prime$ to find a decision boundary $\vec{w}$ that separates the classes in $D^\prime$
+  + train a linear SVM on $D^\prime$ to find a decision boundary $\vec{w}$ that separates the classes in $D^\prime$
+  + projecting the decision boundary $\vec{w}$ found in $\Bbb{R}^M$ back to the original space $\Bbb{R}^N$
+
++ [Caveat: impractical for large dimensions](../Notes/a15-SVMa.md#dealing-with-non-separable-data)
+  + consider the computational consequences of increasing the dimensional consequences of increasing the dimensionality from $\Bbb{R}^N$ to $\Bbb{R}^M$ (M > N)
+  + $M$ grows very quickly w.r.t. $N$ (e.g., $M \in \mathcal{O}(2^N)$) $\implies$ learning SVMs via dataset transformations will incurr serious computational and memory problem
+  + in general, a $d$-dimensional polynomial kernel maps from $\Bbb{R}^N$ to an $\binom{N+d}{d}$-dimensional space
+
+## Kernel trick
+
++ [Dot products](../Notes/a15-SVMa.md#dealing-with-non-separable-data)
+  + the SVM has no need to explicitly work in the higher-dimensional space at training or testing time
+  + during training, the optimization problem only uses the training samples to compute pair-wise dot products $(\vec{x_i}, \vec{x_j})$, where $\vec{x_i}, \vec{x_j} \in \Bbb{R}^N$
+
++ [Kernel trick](../Notes/a15-SVMa.md#dealing-with-non-separable-data)
+  + $\exists$ kernel functions, $K(\vec{v}, \vec{w}), \;\vec{v}, \vec{w} \in \Bbb{R}^N$ compute the dot product btw $\vec{v}$ and $\vec{w}$ in a higher-dimensional $\Bbb{R}^M$ w/o explicitly transform $\vec{v}$ and $\vec{w}$ to $\Bbb{R}^M$
+  + implication: by using a kernel $K(\vec{x_i}, \vec{x_j})$, implicitly transform dataset to a higher-dimensional $\Bbb{R}^M$ w/o using extra memory and w/ a minimal effect on computation time
+
++ [Kernel functions](../Notes/a15-SVMa.md#dealing-with-non-separable-data)
+  + kernel function $K(\vec{v}, \vec{w})$: $K(\Bbb{R}^N \times \Bbb{R}^M) \to \Bbb{R}$ 
+  + a kernel $K$ effectively computes dot products in a high-dimensional space $\Bbb{R}^M$ while remaining in $\Bbb{R}^N$
+  + $\forall \,\vec{x_i}, \vec{x_j} \in \Bbb{R}^N, K(\vec{x_i}, \vec{x_j}) = \left(\phi(\vec{x_i}), \phi(\vec{x_j})\right)_M$ where $(\cdot, \cdot)_M$ = inner product of $\Bbb{R}^M, M>N$, $\phi(\vec{x})$ transforms $\vec{x}$ to $\Bbb{R}^M$; i.e., $\phi: \Bbb{R}^N \to \Bbb{R}^M$
+
+
+## Popular Kernel Functions
+
++ [Popular kernels & `sklearn` library](../Notes/a15-SVMa.md#dealing-with-non-separable-data)
+  + popular kernels: polynomial, radial basis fucntion, and sigmoid kernel
+  + sklearn's SVM implementation `svm.svc`: kernel parameter - `linear`, `poly`, `rbf`, or `sigmoid`
+  + let $\vec{x_i}, \vec{x_j} \in \Bbb{R}^N$ be rows from dataset $X$
+    1. __polynomial kernel:__ $(\gamma \cdot \langle \vec{x_i} , \vec{x_j} \rangle + r)^d$
+    2. __Radial Basis Function (RBF) Kernel:__ $\exp\left(-\gamma \cdot \lvert \vec{x_i} - \vec{x_j} \rvert ^2\right)$, where $\gamma > 0$
+    3. __Sigmoid Kernel:__ $\tanh(\langle \vec{x_i}, \vec{x_j} \rangle + r)$
+  + sklearn's `svm.svc` uses both `gamma` and `coef0` parameters for the `kernel = 'sigmoid'` despite the above definition only having $\gamma$
+  + choosing the 'correct' kernel is a nontrivial task, and may depend on the specific task at hand
+  + true the kernel parameters to get good performance from classifier
+  + popular parameter-tuning techniques including K-fold cross validation
 
 
