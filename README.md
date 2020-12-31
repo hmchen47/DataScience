@@ -664,11 +664,23 @@
     <td style="padding: 0.3em;">  </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Support Vector Machine (SVM) </th>
+    <th rowspan=3 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Support Vector Machine (SVM) </th>
     <td style="padding: 0.3em;"> <a href="RefCards/ML-SVM.md#overview"> Overview </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/ML-SVM.md#model-svm"> Model </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ML-SVM.md#modeling-svm"> Modeling </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/ML-SVM.md#decision-boundary"> Decision Boundary </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/ML-SVM.md#kernels"> Kernels </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/ML-SVM.md#binary-classification"> Binary Classification </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ML-SVM.md#multiclass-classification"> Multiclass Classification </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ML-SVM.md#linear-svm"> Linear SVM </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ML-SVM.md#nonlinear-svm"> Non-linear SVM </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/ML-SVM.md#kernel-trick"> Kernel Trick </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ML-SVM.md#popular-kernel-functions"> Popular Kernel Functions </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ML-SVM.md#">  </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ML-SVM.md#">  </a> </td>
   </tr>
 
   <!-- Unsupervised Machine Learning -->
