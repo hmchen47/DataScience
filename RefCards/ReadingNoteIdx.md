@@ -46,6 +46,8 @@
 + Martin Zinkevich, [Rules of Machine Learning: Best Practices for ML Engineering](../AppliedDS-UMich/3-AML/p4-MLRules.md)
 + Maytal Saar-Tsechansky and Foster Provost, [Handling Missing Values when Applying Classification Models](../AppliedDS-UMich/3-AML/p5-Missing.md)
 + [Graphs](../AppliedDS-UMich/5-SocialNet/p2-Graphs.md)
++ Leslie N. Smith, [A Disciplined Approach to Neural Network Hyper-Parameters: Part-I - Learning Rate, Batch Size, Momentum, and Weight Decay](../ML/MLNN-Hinton/a13-HyperParam.md), 2018
++ 
 
 
 
@@ -78,6 +80,14 @@
   + [More Advanced Methods](../Notes/a09-FeatureSelect.md#6-advanced-methods)
 
 
+
+
+### Adaptive Learning
+
++ P. Rojas, [Fast Learning Algorithms](../ML/MLNN-Hinton/a12-Learning.md), 1996
++ 
+
+
 ### Machine Learning Models
 
 
@@ -99,8 +109,9 @@
 + M. Stewart, [Neural Network Optimization](../ML/MLNN-Hinton/a03-Optimization.md)
 + M. Stewart, [Simple Guide to Hyperparameter Tuning in Neural Networks](../ML/MLNN-Hinton/a04-Hyperparameter.md)
 + M. Stewart, [Neural Style Transfer and Visualization of Convolutional Networks](../ML/MLNN-Hinton/a05-VisualCNN.md)
++ M. Stewart, [Advanced Topics in Neural Networks](../ML/MLNN-Hinton/a14-Advanced.md)
 + R. Nerd, [Delta Learning Rule & Gradient Descent | Neural Networks](../ML/MLNN-Hinton/a06-DeltaRule.md)
-+ Drew Rollins, [Delta Function](../ML/MLNN-Hinton/a07-DeltaFunc.md)
++ D. Rollins, [Delta Function](../ML/MLNN-Hinton/a07-DeltaFunc.md)
 + S. Ray, [Understanding and coding Neural Networks From Scratch in Python and R](../Notes/a11-NeuralNets.md)
 
 
@@ -113,13 +124,12 @@
 
 ### Convolution Neural Networks
 
-+ Adit Deshpande, [A Beginner's Guide To Understanding Convolutional Neural Networks](../ML/MLNN-Hinton/a10-CNNsGuide.md)
-
++ A. Deshpande, [A Beginner's Guide To Understanding Convolutional Neural Networks](../ML/MLNN-Hinton/a10-CNNsGuide.md), 2016
 
 
 ### Deep Learning
 
-+ Adit Deshpande, [The 9 Deep Learning Papers You Need to Know About](../ML/MLNN-Hinton/a11-9Papers.md)
++ A. Deshpande, [The 9 Deep Learning Papers You Need to Know About](../ML/MLNN-Hinton/a11-9Papers.md)
 
 
 
