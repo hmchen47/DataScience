@@ -4,10 +4,15 @@ Author: Pedro Domingos
 
 [Original](https://tinyurl.com/y4fz3jja)
 
+[Article in Communications of the ACM](https://tinyurl.com/kcd5ztd)
+
 
 ## 1. Introduction
 
-
++ Classifier
+  + a system
+  + input (typically): a vector of discrete and/or continuous feature values
+  + output: a single discrete value, the class
 
 ## 2. Learning = Representation + Evaluation + Optimization
 
