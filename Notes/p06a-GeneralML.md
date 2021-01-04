@@ -37,7 +37,62 @@ Author: Pedro Domingos
 
 ## 2. Learning = Representation + Evaluation + Optimization
 
++ Components of machine learning
+  + representation
+    + formal language to represent the classifier
+    + hypothesis space: the set of classifiers that it can possible learner
+    + how to represent the inputs
+  + evaluation
+    + evaluation function / objective function / scoring function
+    + distinguishing good classifiers
+    + used internally or externally by the algorithm
+    + external one used to to optimize
+  + optimization
+    + methods to search the classifiers for the highest-scoring one
+    + key to choose:
+      + the efficiency for the learner
+      + determining the classifier produced if more then one optimum
 
++ Common learning algorithms for components
+  + Representation
+    + Instances
+      + $K$-nearest neighbor: finding the $k$ most similar training examples and predicting the majority class among them
+      + Support vector machines
+    + Hyperplanes: a linear combination of the features per class and predict the class with the highest-valued combination
+      + Naive Bayes
+      + Logistic regression
+    + Decision trees: testing one feature at each internal node, w/ one branch for each feature value, and having class predictions at the leaves
+    + Set of rules
+      + Propositional rules
+      + Logic programs
+    + Neural networks
+    + Graphical models
+      + Bayesian networks
+      + Conditional random fields
+  + Evaluation
+    + Accuracy/Error rate
+    + Precision and recall
+    + Squared error
+    + Likelihood
+    + Posterior probability
+    + Information probability
+    + Information gain: the mutual information btw feature $x_j$ and the class $y$
+    + K-L divergence
+    + Cost / Utility
+    + Margin
+  + Optimization
+    + Combination optimization
+      + Greedy search: testing feature $x$ w/ $c_0$ as the child for $x = 0$ and $c_1$ as the child for $x = 1$
+      + Beam search
+      + Branch-and-bound
+    + Continuous optimization
+      + Uncostrained
+        + Gradient descent
+        + Conjugate gradient
+        + Quasi-Newton methods
+      + Constrained
+        + Linear programming
+        + Quadratic programming
 
 
 ## 3. It's Generalization that Counts
