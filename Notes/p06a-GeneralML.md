@@ -94,10 +94,40 @@ Author: Pedro Domingos
         + Linear programming
         + Quadratic programming
 
++ Example of learning algorithm: Decision Tree induction
+
+  <span style="font-size: 1.3em; padding-bottom: 2.0em;"><b>Algorithm 1 LearnDT</b>(<i>TrainSet</i>)</span><br/>
+  <b>if</b> all examples in <i>TrainSet</i> have the same class $y_*$ <b>then</b><br/>
+  <b style="padding: 1em;">return</b> MakeLeaf($y_*$)<br/>
+  <b>if</b> no feature $x_j$ has InfoGain($x_j, y) > 0$ <b> then</b><br/>
+  <span style="padding: 1em;">$y_* \gets$ Most frequent class in $i$TrainSet</i><br/>
+  <b style="padding: 1em;">return</b> MakeLeaf(y_*)<br/>
+  $x_* \gets {\operatorname{argmax}}_{x_j}$ InfoGain($x, y$)<br/>
+  $TS_0 \gets$ Examples in $TrainSet$ with $x_* = 0$<br/>
+  $TS_1 \gets$ Examples in $TrainSet$ with $x_* = 1$<br/>
+  <b>return</b> MakeNode($x_*$, LearnDT($TS_0$), LearnDT($TS_1$))
+
 
 ## 3. It's Generalization that Counts
 
-
++ Generalization for machine learning
+  + fundamental goal: generalization beyond the example in the training set
+  + common mistake: test on the training data to get illusion of success $\to$ keep some of the data and test the classifier
+  + contamination of classifier by the test data in insidious ways $\gets$ using test data to true parameter
+  + cross-validation
+    + randomly dividing training data into (say) 10 subsets
+    + holding out each one while training on the reset
+    + testing each learned classifier on the examples not seen
+    + averaging out the results to see how well the particular parameters setting does
+  + generalization as goal
+    + an interesting consequence for machine learning
+    + unable to access to the function for optimization
+    + using training error as a surrogate for test error
+    + fraught w/ danger
+  + objective function
+    + only a proxy for the true goal
+    + no need to fully optimize it
+    + a local optimum returned by simple greedy search probably better than the global optimum
 
 ## 4. Data Alone is not Enough
 
