@@ -96,7 +96,7 @@ Author: Pedro Domingos
 
 + Example of learning algorithm: Decision Tree induction
 
-  <span style="font-size: 1.3em; padding-bottom: 2.0em;"><b>Algorithm 1 LearnDT</b>(<i>TrainSet</i>)</span><br/>
+  <span style="font-size: 1.2em; padding-bottom: 2.4em;"><b>Algorithm 1 LearnDT</b>(<i>TrainSet</i>)</span><br/>
   <b>if</b> all examples in <i>TrainSet</i> have the same class $y_*$ <b>then</b><br/>
   <b style="padding: 1em;">return</b> MakeLeaf($y_*$)<br/>
   <b>if</b> no feature $x_j$ has InfoGain($x_j, y) > 0$ <b> then</b><br/>
@@ -131,8 +131,42 @@ Author: Pedro Domingos
 
 ## 4. Data Alone is not Enough
 
++ Data along not enough
+  + another major consequence of generalization as goal
+  + every learner must embody some knowledge or assumptions beyond the data
+  + no free lunch theorems: no learner able to beat random guessing over all possible functions to be learned
+  + general assumptions
+    + including smoothness, similar examples having similar classes, limited dependences, or limited complexity
+    + often enough to do very well
+    + large part of why machine learning so successful
+  
++ Induction
+  + a knowledge lever
+  + turning a small amount of input knowledge into a large amount of output knowledge
+  + a vastly more powerful lever than deduction
+  + requiring much less input knowledge to produce useful results
+  + still requiring more than zero input knowledge to work
+  + the more put in, the more to get out
 
-
++ Key criteria for choosing a representation
+  + which kinds of knowledge easily to express in it
+  + examples
+    + a lot of knowledge about what makes examples similar in our domain $\implies$ instance-based methods
+    + knowledge about probabilistic dependencies $\implies$ graphic models w/ a good fit
+  + knowledge about what kinds of preconditions required by each class $\implies$ "ID ... THEN ..." rules as the best option
+  + most useful learners
+    + no assumptions hard-wired into them
+    + allowing to state assumptions explicitly and varying them widely
+    + incorporating assumptions automatically into the learning
+  
++ Domain knowledge
+  + machine learning:
+    + unable to get something from nothing
+    + get more from less
+  + programming: build everything from scratch
+  + learning as farming
+    + let nature doing more of the work
+    + combining knowledge w/ data to grow programs
 
 ## 5. Overfitting Has Many Faces
 
