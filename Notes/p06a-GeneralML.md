@@ -237,13 +237,53 @@ Author: Pedro Domingos
     + assumption: only one hypothesis being test
     + modern learner easily test millions before they are done
   + combated by correcting the significance tests to take the number of hypotheses into account but leading to underfitting
-  + false discovery rate: controlling the fraction of flasely accepted non-null hypotheses
+  + false discovery rate: controlling the fraction of falsely accepted non-null hypotheses
 
 
 ## 6. Intuition Falls in High Dimensions
 
++ Curse of dimensionality
+  + many algorithms working find in low dimensions but intractable w/ high dimesions
+  + generalizing correctly becomes exponentially harder as the dimensionality (number of features) of the examples grows
+  + a fixed-size training set covers a dwindling fraction of the input space
+  + machine learning algorithms depending on (explicitly or implicitly) breaks down in high dimensions
+    + $x_1 \wedge x_2$: nearest neighbor classifier w/ Hamming distance as the similarity measure
+    + example
+      + $\exists \;x_3, \dots, x_{100}$
+      + the noise from them completely swamps the signal the signal in $x_1$ and $x_2$
+      + nearest neighbor effectively making random predictions
+  + all 100 feature relevant
+    + $\bf{x_t}$: a test example
+    + $d$-dimensional grid, $\bf{x_t}$'s $2d$ nearest example at the same distance from it
+    + dimensionality increasing, more and more example become nearest neighbors of $\bf{x_t}$, until the choice of nearest neighbor is effectively
 
++ Only one instance of a more general problem w/ high dimensions
+  + institution on 3-dimension world often not applying in high-dimensional ones
+  + high dimension
+    + most of the mass of a multivariate Gaussian distribution not near the mean, but in an increasingly distant "shell" around it
+    + most of the volume of a high-dimensional orange in the skin, not the pulp
+  + constant number of examples distributed uniformly in high-dimensional hypercube
+  + beyond some dimensionality most example closer to a face of hypercube than to their nearest neighbor
+  + approximating a hyper-sphere by inscribing it in a hypercube
+  + almost all the volume of the hypercube outside the hyper-sphere
+  + disadvantage for ML: shapes of one type often approximated by shapes of another
 
++ High-dimensional classifier
+  + find a reasonable frontier btw examples of different classes just by visual inspection
+  + hard to understand what is happening $\to$ difficult to design a good classifier
+  + gathering more features never hurt but probably outweighted by the curse of dimensionality
+
++ Blessing of non-uniformity
+  + effect partly counteracting the curse
+  + not spreading uniformly throughout the instance space
+  + contracted on or near a lower-dimensional manifold
+  + example
+    + $k$-nearest neighbor working quite well for handwritten digit recognition
+    + images of digits w/ one-dimension per pixel
+    + the space of digit images much smaller than the space of all possible images
+  + learners
+    + implicitly taking advantage if this lower effective dimension
+    + explicitly reducing the dimensionality used
 
 
 ## 7. Theoretical Guarantees are not What They Seem
