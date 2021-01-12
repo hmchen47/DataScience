@@ -369,8 +369,78 @@ Author: Pedro Domingos
 
 ## 9. More Date Beats a Clever Algorithms
 
++ Algorithms vs. Data
+  + assumption: constructed the best set of featrues
+  + issue: still not accurate
+  + main choices of solutions
+    + design a better learning algorithm
+    + gather more data
+  + researchers mainly concerned w/ the algorithms
+  + pragmatically the quickest path to success often just get more data
+  + rule of thumb: a dumb algorithm w/ lots of lots of data beats a clever one w/ modest amounts of it
 
++ Scalability
+  + main resources of computer science: time & memory
+  + main resources of ML: time, memory & data
+  + paradox:
+    + 1980's: data
+    + 2010's: time
+    + principle: more data $\to$ more complex classifiers
+    + practice: simpler classifiers used because complex ones take too long to learn
 
++ Clever algorithms
+  + first approximation doing all the same
+  + proportional rules
+    + readily encoded as neural networks
+    + similar relationship hold btw other representations
+  + learners
+    + working by grouping nearby examples into the same class
+    + key difference: the meaning of "nearby"
+    + non-uniformly distributed data
+      + producing widely different frontiers
+      + still making the same predictions in the regions that matter
+  + explaining why powerful learners unstable but still accurate
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+        onclick="window.open('https://sites.astro.caltech.edu/~george/ay122/cacm12.pdf')"
+        src    ="https://tinyurl.com/yxu6khcf"
+        alt    ="Very different frontiers can yield similar class predictions. (+ and - are training examples of two classes.)"
+        title  ="Very different frontiers can yield similar class predictions. (+ and - are training examples of two classes.)"
+      />
+    </figure>
+
++ Rule to select the algorithms
+  + trying the simplest learners first
+    + naive Bayes before logistic regression
+    + $k$-nearest neighbor before support vector machine
+  + more sophisticated learners
+    + seductive but usually harder to use
+    + the curse of dimensionality: no existing amount of data enough
+  + clever algorithms
+    + making the most of the data and computing resource available
+    + no sharp frontier btw designing learners and learning classifiers
+    + any given piece of knowledge encoded in the learner and learned from data
+
++ Types of learners
+  + fixed-size
+    + linear classifier
+  + variable-size
+    + decision trees
+    + sometimes called non-parametric learners
+    + principle: learning any function given sufficient data
+    + practice: probably unable to learn because of limitations of the algorithm
+      + e.g., greedy search falls into local optima
+
++ Bottlenecks of ML
+  + biggest bottleneck: human cycles
+  + typical evaluation: measures of accuracy & computational cost
+  + more important:
+    + human effort saved and insight gained
+    + human-understandable output
+  + organizations
+    + in place and infrastructure to make experimenting w/ many learners, data sources and learning problems 
+    + a close collaboration btw ML experts adnd applications domain ones
 
 ## 10. Learn Many Models Not Just One
 
