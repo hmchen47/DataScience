@@ -288,8 +288,57 @@ Author: Pedro Domingos
 
 ## 7. Theoretical Guarantees are not What They Seem
 
++ Theoretical guarantees
+  + a bound on the number of examples needed to ensure good generalization
+  + induction traditionally contracted w/ deduction
+    + deduction: guarantee that the conclusions are correct
+    + induction: guarantee to settle for probabilistic 
 
++ Bad classifier
+  + true error rate greater than $\varepsilon$
+  + the probability consistent w/ $n$ random, independent training examples less than $(1 - \varepsilon)^n$
+  + $b$: the number of the bad classifiers in the learner's hypothesis space $H$
+  + the probability that at least one of them is consistent $ < b(1 - \varepsilon)^n$ by the union bound
+  + assumption: the learner returning a consistent classifier
+  + the probability less than $|H|(1 \varepsilon)^n$, where $b \le |H|$
+  + the probability less than $\delta$, $n > \ln(\delta / |H|)/\ln(1 - \varepsilon) \ge \frac{1}{\varepsilon} \left(\ln(|H| + \ln \frac{1}{\delta})\right)$
+    + the required number of examples only grows logarithmically with $|H|$ and $1/\delta$
+    + most interesting hypothesis spaces: doubly exponential in the number of features $d$
+    + the bounds extremely loose
+  + Boolean functions
+    + the space of Boolean functions of $d$ Boolean variables
+    + $e$ possible different examples $\implies 2^e$ possible different functions
+    + $2^d$ possible different examples $\implies 2^{2^d}$ possible different functions
+    + hypothesis spaces "merely" exponential
+    + the bound still very loose
+  + example
+    + 100 Boolean features
+    + the hypothesis space: decision trees w/ up to 10 levels
+    + to guarantee $\delta = \varepsilon = 1\% \to$ half a million examples
+    + in practice, a small fraction of the suffices for accurate 
 
++ Size of training set
+  + given large enough training set, high probability  w/ learner
+    + returning a hypothesis generalized well, or
+    + unable to find a consistent hypothesis
+  + bound not providing way to select a good hypothesis
+  + the hypothesis space containing the true classifier $\implies$ lower probability w/ a bad classifier as training size increased
+  + shrinking hypothesis space $\implies$ bound improving but shrinking the chance to contain the true classifier
+
++ Asymptotic guarantee
+  + theoretically w/ infinite data, the learner guaranteed to output the correct classifier
+  + rash to choose one learner over another because of its asympotic gaurantee
+  + in practice, seldom in the asymptotic regime due to bias-variance tradeoff
+  + learn A better than learner B given infinite data while learner B better than learner A given finite data
+
++ Role of theoretical guarantee
+  + not as criterion for practical decision but as a source of understanding and driving for algorithm design
+  + the close interplay of theory and practice makes rapid progress of ML
+  + caveat emptor:
+    + def: the principle that the buyer alone is responsible for checking the quality and suitability of goods before a purchase is made
+    + learning is a complex phenomenon
+    + learner w/ a theoretical justification and working in practice
+    + not meant theory explaining the practice
 
 ## 8. Feature Engineering is the Key
 
