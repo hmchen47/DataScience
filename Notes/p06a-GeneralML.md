@@ -342,8 +342,30 @@ Author: Pedro Domingos
 
 ## 8. Feature Engineering is the Key
 
++ Project time consuming
+  + big portion:
+    + gather, integrate, clean, and pre-process data
+    + trial and error in feature design
+  + little portion: machine learning
+  + iterative process rather than one-shot process
+    + running the learner
+    + analyzing the results
+    + modifying the data and/or the learner
+    + repeating
 
++ Feature engineering
+  + raw data not in the form amenable to learning but able to construct features from it
+  + intuition, creativity and "black art" to select features
+  + difficult due to domain-specific
+  + learner largely general-specific
+  + most useful learners facilitating incorporating knowledge.
 
++ Automatic feature engineering process
+  + automatically generating large number of candidate features and selecting the best set by their info gain w.r.t the class
+  + features irrelevant in isolation probably relevant in combination
+  + learner w/ a very large number of feature
+    + time-consuming
+    + overfitting
 
 ## 9. More Date Beats a Clever Algorithms
 
