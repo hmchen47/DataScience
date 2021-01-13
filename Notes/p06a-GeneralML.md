@@ -445,8 +445,42 @@ Author: Pedro Domingos
 
 ## 10. Learn Many Models Not Just One
 
++ Model ensembles
+  + systematic empirical comparisons
+    + the best learner varying from application to application
+    + systems containing many different learners started to appear
+  + instead of selecting the best variation found, combine many variations w/ little extra effort and much better results
+  + techniques
+    + _bagging_
+      + simply generating random variations of the training set by resampling
+      + learning a classifier on each
+      + combining the results by voting
+    + _boosting_
+      + training examples w/ weights
+      + weights varied: each new classifier focuses on the examples $\to$ the previous one tends to get wrong
+    + _stacking_: the outputs of individual classifiers as the inputs of a "higher-level" learner
 
++ Bayesian model averaging (BMA)
+  + the theoretically optimal approach to learning
+  + predictions on new examples made by averaging the individual predictions of all classifiers in the hypothesis space
+  + weighted by
+    + how well the classifier explaining the training data
+    + how much we believe in them a _priori_
 
++ Model ensembles vs. BMA
+  + very different
+  + ensembles
+    + changing the hypothesis space
+    + e.g., from single decision trees to linear combinations of them
+    + taking a wide variety of forms
+    + weights fairly even w/ the single highest-weight classifier
+    + a key part of the ML toolkit
+  + BMA
+    + averaging weights to the hypotheses in the original space according to a fixed formula
+    + weights extremely different from those produced by bagging or boosting
+    + weights extremely skewed w/ the single highest-weight classifier
+    + making effectively to just selecting the high-weighted classifier
+    + seldom worth the trouble
 
 ## 11. Simplicity Does Not Imply Accuracy
 
