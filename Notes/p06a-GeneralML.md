@@ -424,10 +424,11 @@ Author: Pedro Domingos
 
 + Types of learners
   + fixed-size
-    + linear classifier
+    + parametric learners
+    + e.g., linear classifier
   + variable-size
-    + decision trees
-    + sometimes called non-parametric learners
+    + non-parametric learners
+    + e.g., decision trees
     + principle: learning any function given sufficient data
     + practice: probably unable to learn because of limitations of the algorithm
       + e.g., greedy search falls into local optima
