@@ -484,6 +484,39 @@ Author: Pedro Domingos
 
 ## 11. Simplicity Does Not Imply Accuracy
 
++ Occam's razor
+  + the problem-solving principle that "entities should not be multiplied without necessity"
+  + the simplest explanation is usually the right one
+
++ Simplicity of learner
+  + given two classifiers w/ the same training error
+  + the simpler of the two likely w/ the lowest error
+  + many counter examples
+    + model ensembles: generalization error of a boosted ensemble continues to improve by adding classifiers even after the training error reaching zero
+    + support vector machine: able to effectively have an infinite number parameters w/o overfitting
+  + function $sign(\sim(ax))$:
+    + discriminating an arbitrary large, arbitrary labeled set of points on the $x$ axis
+    + even through only one parameter
+  + survey:
+    + simpler hypotheses preferred
+    + simplicity is a virtue in its own right
+    + not because of a hypothetical connection w/ accuracy
+
++ Complexity w/ the size of the hypothesis space
+  + smaller spaces allowing hypotheses to be represented by shorter codes
+  + bounds viewed as implying that shorter hypotheses generalize better
+  + assigning shorter codes to the hypothesis in the space w/ some _a priori_ reference for
+  + circular reasoning:
+    + "proof" of a tradeoff btw accuracy & simplicity
+    + preferred simpler design accurate
+      + preferred one accurate
+      + not the hypotheses "simple"
+
++ Complication of simplicity
+  + few learners search exhaustively the hypothesis space
+  + trying fewer hypotheses from hypothesis space less likely to overfit than trying a more hypotheses from a smaller space
+  + the size of hypothesis space only a rough guide
+  + relating training and test error really matters
 
 
 
