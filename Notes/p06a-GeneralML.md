@@ -518,12 +518,29 @@ Author: Pedro Domingos
   + the size of hypothesis space only a rough guide
   + relating training and test error really matters
 
-
-
 ## 12. Presentable Does Not Imply Learnable
 
-
-
++ Representable and Learnable
+  + representations in variable-size learners
+    + every function able to be represented, or approximated arbitrarily closely, using this representation
+    + often ignore all others
+  + representable not meant learnable
+    + eg, standard decision tree learners unable to learn tree s w/ more leaves than there are training examples
+  + in continuous space representing even simple functions using a fixed set of primitives often requires an infinite number of components
+  + learner unable to find true function even representable if hypothesis space w/ many local optima of the evaluation function
+  + standard learner only able to learn a tiny subset of all possible  w/ given finite data, time & memory
+  + key question:
+    + can it be learned?
+    + not "can it be represented?" $\gets$ trivial
+  
++ Compact representation
+  + some representations exponentially more compact than others for some functions
+  + $therefore$ exponentially less data required to learn those functions
+  + many learners formed by combining simple basis functions
+    + eg, SVM combining kernels centered at some of the training examples
+  + representing parity of $n$ bits requiring $2^n$ basis functions
+  + using a representation w/ more layers (i.e., more steps btw input and output), parity able to encoded in a linear classifier
+  + finding methods to learn these representations as one of the major research frontiers
 
 ## 13. Correlation Does Not Imply Causation
 
