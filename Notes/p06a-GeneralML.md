@@ -561,14 +561,33 @@ Author: Pedro Domingos
     + whether called "cause" or not, predicting the effect og yje action not just correlation btw observational variables
     + obtain experimental data as possible
 
+## 14 References
 
-## 14. Conclusion 
-
-
-
-## 15 References
-
-
+1. E. Bauer and R. Kohavi. An empirical comparison of voting classification algorithms: Bagging, boosting and variants. Machine Learning, 36:105–142, 1999.
+1. Y. Bengio. Learning deep architectures for AI. Foundations and Trends in Machine Learning, 2:1–127, 2009. 
+1. Y. Benjamini and Y. Hochberg. Controlling the false discovery rate: A practical and powerful approach to multiple testing. Journal of the Royal Statistical Society, Series B, 57:289–300, 1995.
+1. J. M. Bernardo and A. F. M. Smith. Bayesian Theory. Wiley, New York, NY, 1994.
+1. A. Blumer, A. Ehrenfeucht, D. Haussler, and M. K. Warmuth. Occam’s razor. Information Processing Letters, 24:377–380, 1987.
+1. W. W. Cohen. Grammatically biased learning: Learning logic programs using an explicit antecedent description language. Artificial Intelligence, 68:303–366, 1994.
+1. P. Domingos. The role of Occam’s razor in knowledge discovery. Data Mining and Knowledge Discovery, 3:409–425, 1999.
+1. P. Domingos. Bayesian averaging of classifiers and the overfitting problem. In Proceedings of the Seventeenth International Conference on Machine Learning, pages 223–230, Stanford, CA, 2000. Morgan Kaufmann. 
+1. P. Domingos. A unified bias-variance decomposition and its applications. In Proceedings of the Seventeenth International Conference on Machine Learning, pages 231–238, Stanford, CA, 2000. Morgan Kaufmann.
+1. P. Domingos and M. Pazzani. On the optimality of the simple Bayesian classifier under zero-one loss. Machine Learning, 29:103–130, 1997.
+1. G. Hulten and P. Domingos. Mining complex models from arbitrarily large databases in constant time. In Proceedings of the Eighth ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, pages 525–531, Edmonton, Canada, 2002. ACM Press.
+1. D. Kibler and P. Langley. Machine learning as an experimental science. In Proceedings of the Third European Working Session on Learning, London, UK, 1988. Pitman.
+1. A. J. Klockars and G. Sax. Multiple Comparisons. Sage, Beverly Hills, CA, 1986.
+1. R. Kohavi, R. Longbotham, D. Sommerfield, and R. Henne. Controlled experiments on the Web: Survey and practical guide. Data Mining and Knowledge Discovery, 18:140–181, 2009.
+1. J. Manyika, M. Chui, B. Brown, J. Bughin, R. Dobbs, C. Roxburgh, and A. Byers. Big data: The next frontier for innovation, competition, and productivity. Technical report, McKinsey Global Institute, 2011.
+1. T. M. Mitchell. Machine Learning. McGraw-Hill, New York, NY, 1997.
+1. A. Y. Ng. Preventing “overfitting” of cross-validation data. In Proceedings of the Fourteenth International Conference on Machine Learning, pages 245–253, Nashville, TN, 1997. Morgan Kaufmann.
+1. J. Pearl. On the connection between the complexity and credibility of inferred models. International Journal of General Systems, 4:255–264, 1978.
+1. J. Pearl. Causality: Models, Reasoning, and Inference. Cambridge University Press, Cambridge, UK, 2000.
+1. J. R. Quinlan. C4.5: Programs for Machine Learning. Morgan Kaufmann, San Mateo, CA, 1993.
+1. M. Richardson and P. Domingos. Markov logic networks. Machine Learning, 62:107–136, 2006.
+1. J. Tenenbaum, V. Silva, and J. Langford. A global geometric framework for nonlinear dimensionality reduction. Science, 290:2319–2323, 2000.
+1. V. N. Vapnik. The Nature of Statistical Learning Theory. Springer, New York, NY, 1995.
+1. I. Witten, E. Frank, and M. Hall. Data Mining: Practical Machine Learning Tools and Techniques. Morgan Kaufmann, San Mateo, CA, 3rd edition, 2011.
+1. D. Wolpert. The lack of a priori distinctions between learning algorithms. Neural Computation, 8:1341–1390, 1996
 
 
 
