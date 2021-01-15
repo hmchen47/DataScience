@@ -60,7 +60,7 @@
 + K. Gray, [Making Sense of Machine Learning](../Notes/a12-MLArticles.md#making-sense-of-machine-learner)
 + M. Mayo, [Decision Tree Classifiers: A Concise Technical Overview](../Notes/a12-MLArticles.md#decision-tree-classifiers-a-concise-technical-overview)
 + M. Mayo, [Comparing Clustering Techniques: A Concise Technical Overview](../Notes/a12-MLArticles.md#comparing-clustering-techniques-a-concise-technical-overview)
-
++ P. Domingos, [A Few Useful Things to Know about Machine Learning](../Notes/p06a-GeneralML.md), Univ. of Washington, 2012
 
 
 
