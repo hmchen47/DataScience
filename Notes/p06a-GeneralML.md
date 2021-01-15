@@ -544,6 +544,22 @@ Author: Pedro Domingos
 
 ## 13. Correlation Does Not Imply Causation
 
++ Correlation and Causation
+  + correlation not implying causation
+  + learned correlation often treated as representing causal relations
+  + the goal of learning predictive models used correlation as guides to action
+  + observational data: the predictive variable not under the control of the learner
+  + experimental data: the predictive variable under the control of the learner
+  + some learning algorithms able to extract the causal info from observational data
+  + the applicability limited
+  + correlation as sign of potential causal connection
+  + using correlation as a guide for further investigation
+
++ Causality only a convenient fiction
+  + existence of causality: a deep philosophical question w/ no definite answer in sight
+  + practical points of ML
+    + whether called "cause" or not, predicting the effect og yje action not just correlation btw observational variables
+    + obtain experimental data as possible
 
 
 ## 14. Conclusion 
