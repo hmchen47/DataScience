@@ -561,7 +561,15 @@ Author: Pedro Domingos
     + whether called "cause" or not, predicting the effect og yje action not just correlation btw observational variables
     + obtain experimental data as possible
 
-## 14 References
+## 14 Conclusion
+
++ Further studies
+  + [Pedro Domingos web page](https://homes.cs.washington.edu/~pedrod/)
+  + [Predro Domingos online course](http://www.cs.washington.edu/homes/pedrod/class)
+  + I. Witten, E. Frank, and M. Hall. Data Mining: Practical Machine Learning Tools and Techniques
+
+
+## 15 References
 
 1. E. Bauer and R. Kohavi. An empirical comparison of voting classification algorithms: Bagging, boosting and variants. Machine Learning, 36:105–142, 1999.
 1. Y. Bengio. Learning deep architectures for AI. Foundations and Trends in Machine Learning, 2:1–127, 2009. 
