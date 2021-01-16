@@ -367,7 +367,7 @@ Author: Pedro Domingos
     + time-consuming
     + overfitting
 
-## 9. More Date Beats a Clever Algorithms
+## 9. More Date Beats a Clever Algorithm
 
 + Algorithms vs. Data
   + assumption: constructed the best set of featrues
