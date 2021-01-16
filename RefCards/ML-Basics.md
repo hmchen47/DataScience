@@ -30,6 +30,20 @@
   + Random Forest
   + Adaboost / boosting
 
++ [Useful Things to Know about Machine Learning](../Notes/p06a-GeneralML.md#a-few-useful-things-to-know-about-machine-learning)
+  + [Learning = Representation + Evaluation + Optimization](../Notes/p06a-GeneralML.md#2-learning--representation--evaluation--optimization)
+  + [It's Generalization that Counts](../Notes/p06a-GeneralML.md#3-its-generalization-that-counts)
+  + [Data Alone is not Enough](../Notes/p06a-GeneralML.md#4-data-alone-is-not-enough)
+  + [Overfitting Has Many Faces](/Notes/p06a-GeneralML.md#5-overfitting-has-many-faces)
+  + [Intuition Falls in High Dimensions](/Notes/p06a-GeneralML.md#6-intuition-falls-in-high-dimensions)
+  + [Theoretical Guarantees are not What They Seem](../Notes/p06a-GeneralML.md#7-theoretical-guarantees-are-not-what-they-seem)
+  + [Feature Engineering is the Key](/Notes/p06a-GeneralML.md#8-feature-engineering-is-the-key)
+  + [More Date Beats a Clever Algorithm](/Notes/p06a-GeneralML.md#9-more-date-beats-a-clever-algorithm)
+  + [Learn Many Models Not Just One](/Notes/p06a-GeneralML.md#10-learn-many-models-not-just-one)
+  + [Simplicity Does Not Imply Accuracy](/Notes/p06a-GeneralML.md#11-simplicity-does-not-imply-accuracy)
+  + [Presentable Does Not Imply Learnable](../Notes/p06a-GeneralML.md#12-presentable-does-not-imply-learnable)
+  + [Correlation Does Not Imply Causation](/Notes/p06a-GeneralML.md#13-correlation-does-not-imply-causation)
+
 
 ## Decision Tree Classifiers
 
