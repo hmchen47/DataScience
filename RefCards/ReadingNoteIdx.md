@@ -105,6 +105,18 @@
 
 ### Machine Learning Models
 
++ M. Mayo, [Decision Tree Classifiers: A Concise Technical Overview](../Notes/a12-MLArticles.md#decision-tree-classifiers-a-concise-technical-overview)
++ M. Mayo, [Comparing Clustering Techniques: A Concise Technical Overview](../Notes/a12-MLArticles.md#comparing-clustering-techniques-a-concise-technical-overview)
+
+
+
+### Support Vector Machine (SVM)
+
++ Matthew Mayo, [Support Vector Machines: A Concise Technical Overview](../Notes/a15-SVMa.md#support-vector-machines-a-concise-technical-overview), 2016
++ Noel Bambrick, [Support Vector Machines: A Simple Explanation](/Notes/a15-SVMa.md#support-vector-machines-a-simple-explanation), 2016
++ GregL, [Why Use SVM?](../Notes/a15-SVMa.md#why-use-svm)
++ Eric Kim, [Everything You Wanted to Know about the Kernel Trick](/Notes/a15-SVMa.md#everything-you-wanted-to-know-about-the-kernel-trick), 2015
+
 
 
 
