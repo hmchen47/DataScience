@@ -10,6 +10,22 @@
   + __homoscedasticity__: error terms w/ constant variance
   + __normally distributed__ error terms
 
++ [Types of regression](https://tinyurl.com/ybjabux7)
+  + ANOVA - Analysis of Variance: a kind of regression in which the X variable or variables are categorical rather than numeric
+  + Analysis of Covariance: used when there is at least one numeric (continuous or interval) variable mixed in with one or more categorical Independent Variables
+  + Logistic Regression: a dichotomous, or binary variable
+  + Multinomial Logistic Regression/Logit Model: categorical dependent variable w/ more than two categories
+  + Probit model: based on the cumulative normal distribution
+  + Ordinal Logistic / Probit Regression: categorical dependent variable w/ ordered categories
+  + Poisson and Negative Binomial Regression: countable dependent variable
+  + Quantile regression
+  + Box-Cox regression
+  + Truncated and censored regression
+  + Hurdle regression
+  + Nonparameteric regression
+  + Regression methods for time-series
+  + regression methods for longitudinal
+
 
 ## Assumption Violation and Solutions
 
