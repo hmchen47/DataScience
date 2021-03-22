@@ -32,7 +32,7 @@ Date: 2017-05-17
 
   + Linear Algebra: data represented in the form of linear equations $\to$ represented in the form of matrices and vectors
   + matrix used to save a long set of linear equations
-  + planes: 4 possible cases $\imp[lies$ difficult w/ higher dimensions
+  + planes: 4 possible cases $\implies$ difficult w/ higher dimensions
     + no intersection at all
     + planes intersect in a line
     + intersect in a plane
@@ -49,7 +49,49 @@ Date: 2017-05-17
   + __row matrix__: only 1 row
   + __trace__: the sum of all the diagonal elements of a square matrix
 
++ Basic operations on Matrix
+  + addition: $\mathbf{C} = \mathbf{A} + \mathbf{B} \to C_{ij} = A_{ij} + B_{ij}$
+  + scalar multiplication: $c \cdot \mathbf{A} \to c \cdot [A_{ij}] = [c \, A_{ij}]$
+  + transposition: interchanging row and col index
+    + math presentation: $A_{ij}^T = A_{ji}$
+    + example: python code
 
+      ```python
+      import numpy as np
+      import pandas as pd
+
+      A = np.arange(21, 30).reshape(3, 3)
+      A.transport()
+      ```
+
+  + matrix multiplication:
+    + math representation: $\mathbf{C} = \mathbf{AB} \to C_{ij} = A_{ik} \times B_{kj}$
+    + example: python code
+
+      ```python
+      import numpy as np
+
+      A = np.arange(21, 30).reshape(3, 3)
+      B = np.arange(31, 40).reshape(3, 3)
+      A.dot(B)
+      B.dot(A)
+      ```
+
+    + properties
+      + associative: $\mathbf{A(BC)} = \mathbf{(AB}C)}$
+
+        ```python
+        import numpy as np
+
+        A = np.arange(21, 30).reshape(3, 3)
+        B = np.arange(31, 40).reshape(3, 3)
+        C = np.arange(41, 50).reshape(3, 3)
+
+        tmp1 = (A.dot(B)).dot(C)
+        tmp2 = A.dot(B.dot(C))
+        ```
+
+      + NOT commutative: $\mathbf{AB} \neq \mathbf{BA}$
 
 
 
