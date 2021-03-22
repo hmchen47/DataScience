@@ -108,7 +108,51 @@ Date: 2017-05-17
   + basic idea: clear variables in successive equation and form an upper trianglar matrix
   + rank of matrix: the maximum number of linearity interdependent row vectors in a matrix
 
++ Inverse of a matrix
+  + determinant of a matrix: only applicable to square matrix
 
+    \[\begin{align*}
+      \mathbf{A} = \begin{bmatrix} a & b \\ c & d \end{bmatrix} &\to \det(\mathbf{A}) = ad - bc \\\\
+      \mathbf{B} = \begin{bmatrix} a & b & c \\ d & e & f \\ g & h & i \end{bmatrix} &\to \det(\mathbf{B}) = a \begin{bmatrix} e & f \\ h & i \end{bmatrix} + b \begin{bmatrix} d & f \\ g & i \end{bmatrix} + c \begin{bmatrix} d & e \\g & h \end{bmatrix}
+    \end{align*}\]
 
+  + example: python code
+
+    ```python
+    import numpy as np
+
+    arr = np.arange(100, 116).reshape(4, 4)
+    np.linalg.det(arr)
+    ```
+
+  + __minor of a matrix:__<br>minor corresponding to an element ($A_{ij}$) is the deteminant of the sub-matrix formed by deleting the $i^{\text{th}}$ row and $j^{\text{th}}$ column of the matrix
+  + __cofactor of a matrix:__ minor of a matrix w/ signs
+  + __cofactor matrix:__ replacing the original elements w/ corresponding cofactor
+  + __adjoint of a matrix__
+    1. find the cofactor matrix of $\mathbf{A}$
+    2. transpose the cofactor matrix
+  + example: adjoint of a matrix
+
+    \[\mathbf{A} = \begin{bmatrix} 1 & 2 7 0 \\ 4 & 2 & 5 \\ 1 & 0 & 2 \end{bmatrix} \;\;\underrightarrow{\text{cofactor}} \;\;\mathbf{C} = \begin{bmatrix} 4 & -3 & -2 \\ -4 & 2 & 2 \\ 10 & -5 & -6 \end{bmatrix} \;\;\underrightarrow{\text{adjoint}}\;\; \mathbf{D} = \begin{bmatrix} 4 & -4 & 10 \\ -3 & 2 & -5 \\ -2 & 2 & -6 \end{bmatrix} \]
+
+  + inverse of a matrix
+    1. find the adjoint
+    2. multiply the adjoint matrix by the inverse of determinant of the matrix $\mathbf{A}$
+
+      \[\text{inv}(\mathbf{A}) = \frac{-1}{2} \begin{bmatrix} 4 & -4 & 10 \\ -3 & 2 & -5 \\ -2 & 2 & -6 \end{bmatrix} \]
+
+  + singular matrix: $\det(\mathbf{A}) = 0$
+  + solving linear equations: 
+
+    \[\mathbf{AX} = \mathbf{Z} \hspace{0.5em}\to\hspace{0.5em} \mathbf{A^{-1}AX} = \mathbf{A^{-1}Z} \hspace{0.5em}\to\hspace{0.5em} (\mathbf{A^{-1}A})\mathbf{X} = \mathbf{A^{-1}Z} \hspace{0.5em}\to\hspace{0.5em} \mathbf{X} = \mathbf{A^{-1}Z}\]
+
+  + example: python code
+
+    ```python
+    import numpy as np
+
+    arr = np.arange(5, 21).reshape(4, 5)
+    np.linarg.inv(arr)
+    ```
 
 
