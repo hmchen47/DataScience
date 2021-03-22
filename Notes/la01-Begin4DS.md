@@ -93,6 +93,20 @@ Date: 2017-05-17
 
       + NOT commutative: $\mathbf{AB} \neq \mathbf{BA}$
 
++ Representing equations in Matrix form
+
+    \[ \mathbf{AX} = \mathbf{Z} \]
+
++ Row Echelon Form
+  + two conditions followed by any manipulation to be valid
+    + preserve the solution
+    + reversible
+  + manipulation
+    1. swap the order of the equations
+    2. multiply both sides of equation by any non-zero constant $c$
+    3. multiply an equation by any non-zero constant and add to other equation
+  + basic idea: clear variables in successive equation and form an upper trianglar matrix
+  + rank of matrix: the maximum number of linearity interdependent row vectors in a matrix
 
 
 
