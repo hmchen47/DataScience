@@ -6,6 +6,8 @@ Date: 2017-05-17
 
 [Origin](https://www.analyticsvidhya.com/blog/2017/05/comprehensive-guide-to-linear-algebra/)
 
+## 1. Motivation – Why learn Linear Algebra?
+
 + Motivation
   + scenario 1: identify a flower image
     + how does a computer store an image?
@@ -22,6 +24,8 @@ Date: 2017-05-17
     + common techniques: Bag of Words, Terms Document s and frequency in matrix
     + store counts (or other similar attributes) of words in documents and frequency in matrix
 
+## 2. Representation of problems in Linear Algebra
+
 + Representation of problems in Linear Algebra
   + 2 bats and 1 ball; 2 balls and 1 bat $\to$ \$100
   
@@ -37,6 +41,8 @@ Date: 2017-05-17
     + planes intersect in a line
     + intersect in a plane
     + all planes intersect at a point
+
+## 3. Matrix
 
 + Matrix terms
   + __order of matrix__: $\text{rows} \times \text{cols}$
@@ -97,6 +103,13 @@ Date: 2017-05-17
 
     \[ \mathbf{AX} = \mathbf{Z} \]
 
+
+## 4. Solving the Problem
+
++ Ways to solve matrix equations
+  + row echelon form
+  + inverse of a matrix
+
 + Row Echelon Form
   + two conditions followed by any manipulation to be valid
     + preserve the solution
@@ -154,5 +167,35 @@ Date: 2017-05-17
     arr = np.arange(5, 21).reshape(4, 5)
     np.linarg.inv(arr)
     ```
+
++ Applications of inverse in Data Science
+  + inverse used to calculate parameter vector by normal equation in linear equation
+  + to find the final parameter vector ($\theta$) assuming the initial function is parameterized by $\theta$ and $X \to $ find the inverse of ($\mathbf{X^TX}$)
+  + $f_{\theta}(\mathbf{X}) = \theta^T X$
+    + $\that$: the parameter to calculate
+    + $\mathbf{X}$: the column vector of feature or independent variables
+  + example: python code
+
+    ```python
+    import numpy as np
+    import pandas as pd
+
+    Df = pd.read,csv(".../baseball.csv")
+    Df1 = pd.head(14)
+    X = Df1[['RS', 'RA', 'W', 'OPB', 'SLG', 'BA']]
+    Y = Df['OOBP']
+    T = X.dot(X)
+    inv = np.linalg.inv(XT).dot(Y)
+    ```
+  
+  + drawback: computationally costly ($n^3$) $\to$ Gradient Descent $\to$ Eigenvectors
+
+## 5. Eigenvalues and Eigenvectors
+
+
+## 6. Singular Value Decomposition
+
+
+
 
 
