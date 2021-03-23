@@ -50,6 +50,7 @@
 
 ### Operations & Properties
 
++ [Determinant](../Notes/la02-Determinant.md)
 
 
 ### Eigenvalues and Eigenvector
