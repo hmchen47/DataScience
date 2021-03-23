@@ -290,6 +290,17 @@ Date: 2017-05-17
 
 ## 6. Singular Value Decomposition (SVD)
 
++ Singular value decomposition (SVD)
+  + some sort of generalization of Eigenvalue decomposition
+  + used to remove the redundant features in the data set
+  + redundant features causing problems in running ML algorithm
+  + running algorithm on original data set: time inefficient & memory
+  + example: images
+    + convert a color picture into  B&W picture
+    + a matrix able to represent the intensity of pixels of the image in the form of rows and columns
+    + different images shown different ranks w/ different resolution $\to$ a pretty well image w/ 20/30  ranks instead of 200/300 ranks
+  + presence of redundant features causing multi co-linearity in linear regression
+
 
 
 
