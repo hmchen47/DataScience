@@ -1503,7 +1503,7 @@
   + [Utility](./RefCards/DataScience-UCB.md#utility)
 
 
-### Reading Notes
+## Reading Notes
 
 <table style="margin: 0 auto; border: 1px solid black; border-collapse: collapse;">
   <thead>
@@ -1526,6 +1526,13 @@
     <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#study-design"> Study Design </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#bayesian-approaches"> Bayesian Approaches </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#time-series-analysis"> Time Series Analysis </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Linear Algebra</th>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#"> General </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#"> Operations & Properties </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#"> Eigenvalue and Eigenvector </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/ReadingNoteIdx.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan=1 style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Artificial Intelligence </th>
