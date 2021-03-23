@@ -42,6 +42,20 @@
 + K. Gray, [Time Series Analysis: A Primer](../Notes/a13-TimeSeries.md), 2016
 
 
+## Linear Algebra
+
+### General
+
++ [A Comprehensive Beginners Guide to Linear Algebra for Data Scientist](../Notes/la01-Begin4DS.md)
+
+### Operations & Properties
+
+
+
+### Eigenvalues and Eigenvector
+
+
+
 ## Artificial Intelligence
 
 
