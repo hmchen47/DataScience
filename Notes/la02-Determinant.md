@@ -2,7 +2,7 @@
 
 [Origin](https://en.wikipedia.org/wiki/Determinant)
 
-
+  
 ## Introduction
 
 
