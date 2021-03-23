@@ -42,6 +42,15 @@ Date: 2017-05-17
     + intersect in a plane
     + all planes intersect at a point
 
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://www.analyticsvidhya.com/blog/2017/05/comprehensive-guide-to-linear-algebra/')"
+      src    = "https://tinyurl.com/jc8md4sv"
+      alt    = "scenarios of plane intersection"
+      title  = "scenarios of plane intersection"
+    />
+  </figure>
+
 ## 3. Matrix
 
 + Matrix terms
@@ -121,24 +130,36 @@ Date: 2017-05-17
   + basic idea: clear variables in successive equation and form an upper trianglar matrix
   + rank of matrix: the maximum number of linearity interdependent row vectors in a matrix
 
-+ Inverse of a matrix
++ determinant
   + determinant of a matrix: only applicable to square matrix
+    + each term consisting of two parts: a sub-matrix and a coefficient
+    + sub-matrix:
+      + pick a constant, said ($a_{ij}$)
+      + delete all the coefficients in the $i^{\text{th}}$ row and $j^{\text{th}}$ column
+      + make a matrix of the remaining elements, said $\mathbf{C}$
+      + find the determinant of the matrix $\mathbf{C}$
+    + sign of determinant: sum the indices of a particular element
+      + even number: put a positive sign before the multiplication
+      + odd number: put a negative sign before the multiplication
+    + general examples of determinants for 2, 3, and 4-dim matrices
 
-    \[\begin{align*}
-      \mathbf{A} = \begin{bmatrix} a & b \\ c & d \end{bmatrix} &\to \det(\mathbf{A}) = ad - bc \\\\
-      \mathbf{B} = \begin{bmatrix} a & b & c \\ d & e & f \\ g & h & i \end{bmatrix} &\to \det(\mathbf{B}) = a \begin{bmatrix} e & f \\ h & i \end{bmatrix} + b \begin{bmatrix} d & f \\ g & i \end{bmatrix} + c \begin{bmatrix} d & e \\g & h \end{bmatrix}
-    \end{align*}\]
+      \[\begin{align*}
+        \det(\mathbf{A}) &= \det\left(\begin{bmatrix} a & b \\ c & d \end{bmatrix}\right) = ad - bc \\\\
+        \det(\mathbf{B}) &= \det\left(\begin{bmatrix} a & b & c \\ d & e & f \\ g & h & i \end{bmatrix}\right) = a \begin{bmatrix} e & f \\ h & i \end{bmatrix} - b \begin{bmatrix} d & f \\ g & i \end{bmatrix} + c \begin{bmatrix} d & e \\g & h \end{bmatrix} \\\\
+        \det(\mathbf{C}) &= \det\left(\begin{bmatrix} a&b&c&d\\e&f&g&h\\i&j&k&l\\m&n&o&p \end{bmatrix}\right) \\
+        &= a \begin{bmatrix}f&g&h\\j&k&l\\n&o&p \end{bmatrix} - b \begin{bmatrix} e&g&h\\i&k&l\\m&o&p \end{bmatrix} + c \begin{bmatrix} e&f&h\\i&j&l\\m&n&p \end{bmatrix} -d \begin{bmatrix} e&f&g\\i&j&k\\m&n&o \end{bmatrix}
+      \end{align*}\]
 
-  + example: python code
+    + python code to get determinant
 
-    ```python
-    import numpy as np
+      ```python
+      import numpy as np
 
-    arr = np.arange(100, 116).reshape(4, 4)
-    np.linalg.det(arr)
-    ```
+      arr = np.arange(100, 116).reshape(4, 4)
+      np.linalg.det(arr)
+      ```
 
-  + __minor of a matrix:__<br>minor corresponding to an element ($A_{ij}$) is the deteminant of the sub-matrix formed by deleting the $i^{\text{th}}$ row and $j^{\text{th}}$ column of the matrix
+  + __minor of a matrix:__<br>minor corresponding to an element ($A_{ij}$) is the determinant of the sub-matrix formed by deleting the $i^{\text{th}}$ row and $j^{\text{th}}$ column of the matrix
   + __cofactor of a matrix:__ minor of a matrix w/ signs
   + __cofactor matrix:__ replacing the original elements w/ corresponding cofactor
   + __adjoint of a matrix__
@@ -148,18 +169,29 @@ Date: 2017-05-17
 
     \[\mathbf{A} = \begin{bmatrix} 1 & 2 7 0 \\ 4 & 2 & 5 \\ 1 & 0 & 2 \end{bmatrix} \;\;\underrightarrow{\text{cofactor}} \;\;\mathbf{C} = \begin{bmatrix} 4 & -3 & -2 \\ -4 & 2 & 2 \\ 10 & -5 & -6 \end{bmatrix} \;\;\underrightarrow{\text{adjoint}}\;\; \mathbf{D} = \begin{bmatrix} 4 & -4 & 10 \\ -3 & 2 & -5 \\ -2 & 2 & -6 \end{bmatrix} \]
 
+### 4.2.1 Finding Inverse of a matrix
+
++ Inverse of matrix
   + inverse of a matrix
     1. find the adjoint
     2. multiply the adjoint matrix by the inverse of determinant of the matrix $\mathbf{A}$
+  + example: 
 
       \[\text{inv}(\mathbf{A}) = \frac{-1}{2} \begin{bmatrix} 4 & -4 & 10 \\ -3 & 2 & -5 \\ -2 & 2 & -6 \end{bmatrix} \]
 
-  + singular matrix: $\det(\mathbf{A}) = 0$
-  + solving linear equations: 
+  + singular matrix:
+    + $\det(\mathbf{A}) = 0$
+    + non-invertible
+  + the resultant of multiplication of a matrix and its inverse: identity matrix
+
+
+### 4.2.2 Power of matrices
+
+  + solving linear equations:
 
     \[\mathbf{AX} = \mathbf{Z} \hspace{0.5em}\to\hspace{0.5em} \mathbf{A^{-1}AX} = \mathbf{A^{-1}Z} \hspace{0.5em}\to\hspace{0.5em} (\mathbf{A^{-1}A})\mathbf{X} = \mathbf{A^{-1}Z} \hspace{0.5em}\to\hspace{0.5em} \mathbf{X} = \mathbf{A^{-1}Z}\]
 
-  + example: python code
+  + python code for inverse
 
     ```python
     import numpy as np
@@ -168,11 +200,14 @@ Date: 2017-05-17
     np.linarg.inv(arr)
     ```
 
+
+### 4.2.3 Application of inverse in Data Science
+
 + Applications of inverse in Data Science
-  + inverse used to calculate parameter vector by normal equation in linear equation
+  + inverse used to calculate parameter vector by normal equation in linear equations
   + to find the final parameter vector ($\theta$) assuming the initial function is parameterized by $\theta$ and $X \to $ find the inverse of ($\mathbf{X^TX}$)
   + $f_{\theta}(\mathbf{X}) = \theta^T X$
-    + $\that$: the parameter to calculate
+    + $\theta$: the parameter to calculate
     + $\mathbf{X}$: the column vector of feature or independent variables
   + example: python code
 
@@ -184,17 +219,76 @@ Date: 2017-05-17
     Df1 = pd.head(14)
     X = Df1[['RS', 'RA', 'W', 'OPB', 'SLG', 'BA']]
     Y = Df['OOBP']
-    T = X.dot(X)
+
+    # converting X to a matrix
+    X = np.asmatrix(X)
+
+    x = np.transpose(X)
+    
+    # finding multiplication
+    T = x.dot(X)
+
+    # inverse of T 
     inv = np.linalg.inv(XT).dot(Y)
+
+    # calculating \theta
+    theta = (inv.dot(X.T)).dot(Y)
     ```
   
   + drawback: computationally costly ($n^3$) $\to$ Gradient Descent $\to$ Eigenvectors
 
 ## 5. Eigenvalues and Eigenvectors
 
++ Eigenvalues and eigenvectors
+  + Linear Transformation
+    + the directions of inputs and output vectors are different
+    + the column matrix denotes a vector
+    + example:
 
-## 6. Singular Value Decomposition
+      \[\begin{bmatrix} 1 & 2 \\ 0 & 3 \end{bmatrix} \begin{bmatrix} 1 \\ 2 \end{bmatrix} = \begin{bmatrix} 5 \\ 6 \end{bmatrix} \]
+  + eigenvectors: vectors whose direction remains unchanged even after applying linear transformation w/ a matrix
+  + applied to square matrices only
 
+
+
+### 5.1 How to find Eigenvectors of a matrix?
+
++ Finding eigenvectors for a matrix
+  + let matrix $\mathbf{A}$ w/ eigenvector $x$, after multiplication w/ matrix the direction of $x$ doesn't change
+  + only change in magnitude permitted
+
+    \[Ax = cx \to (A - c) \mathbf{X} = 0 \tag{1} \]
+
+    + $c$: identity matrix of the order equal to $\mathbf{A}$ multiplied by a scalar $c$
+    + $A - c$: singular matrix $\gets \det(A-c) = 0$
+    + $c$ of the order depending on the matrix $A \to$ find the solutions of the equation
+  + suppose that $c_1, c_2, \dots$ are the solutions of the equation
+  + put $c_i$ in Eq.(1) to find $x_i$ corresponding to $c_i$
+  + python code to find EigenVector
+
+    ```python
+    import numpy as np
+
+    arr = np.arange(1, 10).reshape(3, 3)
+    np.linalg.eig(arr)
+    ```
+
+
+### 5.2 Use of Eigenvectors in Data Science
+
++ Principal Component Analysis (PCA) algorithm
+  + crap some less important features
+  + eigenvector used to select PCA
+  + procedure:
+    1. mean normalized data and feature scaled
+    2. find covariance matrix
+    3. get eigenvectors of covariance matrix $\to$ minimize the loss of information when cutting features $\to$ maximize variance
+    4. select $k$ eigenvectors corresponding to the $k$ largest eigenvalues $\to$ form $\mathbf{u}$ matrix which  each eigenvector will constitute a column
+  + to reduce the data points: data point $a$ in data set to $k$-dim
+
+    \[ \mathbf{u}^T \cdot a \]
+
+## 6. Singular Value Decomposition (SVD)
 
 
 
