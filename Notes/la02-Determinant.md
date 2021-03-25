@@ -156,7 +156,7 @@
 
   + $\text{sgn}$: the sign function pf permutations in the permutation group $S_n$ which returns +1 nd -1 for even and odd permutations, respectively
 
-+ Levi-Civita symbol
++ [Levi-Civita symbol](https://en.wikipedia.org/wiki/Levi-Civita_symbol)
   + extending the Leibniz formula to a summation in which not only permutations
   + all sequences of $n$ indices in the range $1, \dots, n$ occur, ensuring that the contribution of a sequence will be zero unless it denotes a permutation
   + representing a collection of numbers
@@ -183,7 +183,41 @@
 
 ## Properties
 
++ Basic properties
+  1. $\det(I_n) = 1, I_n: n \times n$ identity matrix
+  2. $\det(A^T) = \det(A)$
+  3. $\det(A^{-1}) = 1/\det(A) = \det(A)^{-1}$
+  4. $\det(AB) = \det(A) \cdot \det(B)$
+  5. $\det(cA) = c^n \cdot \det(A), A_{n \times n}$
+  6. $A, B, C$ are positive semidefinite matrices w/ same size, $\det(A+B+C) + \det(C) \geq \det(A+C) + \det(B+C), \;\forall A, B, C > 0$ with the corollary $\det(A+B) \geq \det(A) + \det(B)$
+  7. $A$ is triangle matrix, i.e., $a_{ij} = 0, \;\forall i > j \text{ or } i < j \implies$its determinant equals the product of the diagonal entities
 
+    \[ \det(A) = a_{11} a_{22} \cdots a_{nn} = \prod_{i=1}^n a_{ii} \]
+
+  8. the determinant as an $n$-linear equation by viewing an $n \times n$ matrix w/ $n$ columns
+      + the $j^{th}$ column of a matrix $A$ as a sum $\mathbf{a}_j = \mathbf{v} + \mathbf{w}$ of two column vectors and others remaining unchanged
+      + the determinant of $A$ = the sum of the determinant of the matrices obtained from $A$ by replacing the $j^{th}$ by $\mathbf{v}$ (denoted $A_v$) and then by $\mathbf{w}$ (denoted $A_w$)
+
+      \[\begin{align*}
+        \det(A) &= \det([a_1| \cdots |a_j| \cdots a_n]) = \det([\cdots | \mathbf{v + w} \cdots ]) \\
+          &= \det([\cdots | \mathbf{v} \cdots ]) + \det([\cdots | \mathbf{w} \cdots ]) = \det(A_v) + \det(A_w)
+      \end{align*}\]
+
+  9. $\exists \text{ a } n \times n \text{ matrix } A$ w/ $a_{ij} = 0, \forall\; i, j \in [1, n] \implies \det(A) = 0$
+  10. alternating form of $n$-linear function: two or more columns identical of an matrix $A \implies \det(A) = 0$
+  11. $n \times n$ matrix composed of $n$ rows, the determinant as an $n$-linear function
+  12. alternating form of $n$-linear function: two or more rows of an matrix $A$ identical $\implies \det(A) = 0$
+  13. interchanging any pair of columns or rows of a matrix multiplies its determinant by -1
+      + any permutation of the rows and columns multiplies the determinant by the sign of the permutation
+      + permutation: viewing each row as a vector $\mathbf{R}_i$ (equivalently each column as $\mathbf{C}_j$) and reordering the rows (or columns) by interchange of $\mathbf{R}_j$ and $\mathbf{R}_k$ (or $\mathbf{C}_j$ and $\mathbf{C}_k$), where $j, k \in [1, n]$
+  14. adding a scalar multiple of one column to another column not change the value of the determinant
+
++ Example: Gaussian elimination
+
+  \[ A = \begin{bmatrix} -2&2&-3\\-1&1&3\\2&0&-1 \end{bmatrix}, B = \begin{bmatrix} -2&2&-3\\0&0&4.5\\2&0&-1 \end{bmatrix}, C = \begin{bmatrix} -2&2&-3\\0&0&4.5\\0&2&-4 \end{bmatrix}, D = \begin{bmatrix} -2&2&-3\\0&2&-4\\0&0&4.5 \end{bmatrix} \]
+
+  + $\det(A) = \det(B) = - \det(C)$
+  + $D$: a (upper) triangular matrix, the determinant as the product of the entries ion the main diagonal, $(-2) \cdot 2 \cdot 4.5 = -18$
 
 
 ## Applications
