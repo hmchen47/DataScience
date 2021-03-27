@@ -242,6 +242,20 @@
       \det(M) &= \det(D)\det(A - BD^{-1}C), \text{ if } D \text{ invertible}
     \end{align*}\]
 
++ Multiplicativity and matrix groups
+  + multiplicative map
+  
+    \[ \det(AB) = \det(A) \det(B) \]
+
+  + a consequence of the characterization given above of the determinant as the unique n-linear alternating function of the columns w/ value 1 on the identity matrix
+  + $M_n(K) \to K$ mapping $M \mapsto \det(AM)$
+  + generalized to (square) products of rectangular matrices, given the Cauchy-Binet formula, providing an independent proof of the multiplicative property
+  + $\det(A) \neq 0 \iff A$ invertible
+  + the determinant of the inverse matrix
+
+    \[ \det(A^{-1}) = \frac{1}{\det(A)} = \left[\det(A) \right]^{-1} \]
+
++ Sylvester's determinant theorem
 
 
 
