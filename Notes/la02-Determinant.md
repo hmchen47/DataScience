@@ -217,12 +217,37 @@
   \[ A = \begin{bmatrix} -2&2&-3\\-1&1&3\\2&0&-1 \end{bmatrix}, B = \begin{bmatrix} -2&2&-3\\0&0&4.5\\2&0&-1 \end{bmatrix}, C = \begin{bmatrix} -2&2&-3\\0&0&4.5\\0&2&-4 \end{bmatrix}, D = \begin{bmatrix} -2&2&-3\\0&2&-4\\0&0&4.5 \end{bmatrix} \]
 
   + $\det(A) = \det(B) = - \det(C)$
-  + $D$: a (upper) triangular matrix, the determinant as the product of the entries ion the main diagonal, $(-2) \cdot 2 \cdot 4.5 = -18$
+  + $D$: an (upper) triangular matrix, the determinant as the product of the entries ion the main diagonal, $(-2) \cdot 2 \cdot 4.5 = -18$
+
++ [Schur complement](https://en.wikipedia.org/wiki/Schur_complement)
+  + suppose $p, q$ are non-negative integers
+  + suppose $A, B, C, D$ are respectively $p \times q$, $p\times q$, $p \times p$, and $q \times q$ matrices of complex numbers
+  + let $M$ as a $(p + q) \times (p + q)$ matrix
+
+    \[ M = \begin{bmatrix} A&B\\C&D \end{bmatrix} \]
+
+  + Def: w/ invertible $D$, the __Schur complement__ of the block $D$ of the matrix $M$ is the $p \times p$ matrix defined by
+
+    \[ M / D :=  A - BD^{-1}C \]
+
+  + Def: w/ invertible $A$, the __Schur complement__ of the block $A$ of the matrix $M$ is the $q \times q$ matrix defined by
+
+    \[ M / A := A - CA^{-1}B \]
+
+  + generalized Schur complement: substituing a generalized inverse for the inverses on $M/A$ or $M/D$ if $A$ or $D$ singular
+  + property on determinant
+
+    \[\begin{align*}
+      \det(M) &= \det(A)\det(D - CA^{-1}B), \text{ if } A \text{ invertible}\\
+      \det(M) &= \det(D)\det(A - BD^{-1}C), \text{ if } D \text{ invertible}
+    \end{align*}\]
+
+
 
 
 ## Applications
 
-
++ 
 
 
 
