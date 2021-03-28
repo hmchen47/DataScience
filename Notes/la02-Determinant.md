@@ -296,7 +296,25 @@
     \end{align*}\]
 
 + Sylvester's determinant theorem
-  + 
+  + for matrices $A_{m\times n}$ and $B_{n \times m}$
+
+    \[ \det(I+m + AB) = \det(I_n + BA) \]
+
+    where $I_m$ and $I_n$ are $m \times m$ and $n \times n$ identity matrices, respectively
+
+  + general results
+    + quick calculation of the determinant of a matrix differs from the identity matrix by a matrix of rank 1 w/ column vector $c$ and row vector $r$
+
+      \[ \det(I_m + cr) = 1 + rc \]
+
+    + more generally, $\forall$ invertible matrix $X_{m \times m}$
+
+      \[\begin{align*}
+        \det(X + AB) &= \det(X)\det(I_n + BX^{-1}A) \\\\
+        \det(X + cr) &= \det(X)\det(1 + rX^{-1}c) = \det(X) + r {\operatorname{X}} c
+    \end{align*}\]
+
+    + $\forall\;$ square matrices $A, B$ w/ the same size, $AB$ and $BA$ w/ the same characteristic polynomials
 
 
 ## Applications
