@@ -234,7 +234,7 @@
 
     \[ M / A := A - CA^{-1}B \]
 
-  + generalized Schur complement: substituing a generalized inverse for the inverses on $M/A$ or $M/D$ if $A$ or $D$ singular
+  + generalized Schur complement: substituting a generalized inverse for the inverses on $M/A$ or $M/D$ if $A$ or $D$ singular
   + property on determinant
 
     \[\begin{align*}
@@ -255,8 +255,48 @@
 
     \[ \det(A^{-1}) = \frac{1}{\det(A)} = \left[\det(A) \right]^{-1} \]
 
-+ Sylvester's determinant theorem
++ Laplace's expansion and the adjugate matrix
+  + expression the determinant of a matrix in terms of its minors
+  + Minor $M_{ij}$: the determinate of the $(n-1) \times (n-1)$-matrix
+  + $(-1)^{i+j} M_{ij}$: cofactor of $M_{i, j}$
+  + Laplace expansion along the $i$th row of the determinant of $A$
 
+    \[ \det(A) = \sum_{j=1)^n (-1)^{i+j} a_{ij}}M_{ij}, \;\;\forall i \]
+
+  + Laplace expansion along the $j$th column of the determinant of $A$
+
+    \[ \det(A) = \sum_{i=1}^n (-1)^{i+j} a_{ij}M_{ij} \]
+
+  + efficient for small matrices and spare matrices only
+  + exponential number of determinants for general matrices
+  + $adj(A)$
+    + adjugate matrix
+    + transpose of the matrix of cofactor
+
+      \[ (\operatorname{adj}(A))_{ij} = (-1)^{i+j} M_{ji} \]
+
+    + $\forall\;$ matrix $A$
+
+      \[ \det(A)I = A \operatorname{A} = (\operatorname{A}} A \]
+
+    + used for expressing the inverse of the nonsingular matrix
+
+      \[ A^{-1} = \frac{1}{\det A} \operatorname{A} A \]
+
+  + example: Laplace expansion of $3 \times 3$ matrix
+
+    \[A = \begin{bmatrix} -2&2&-3\\-1&1&3\\2&0&-1 \end{bmatrix} \]
+
+    along the second column ($j = 2$ and the sum over $i$)
+
+    \[\begin{align*}
+      \det(A) &= (-1)^{1+2} \cdot 2 \cdot \begin{vmatrix} -1&3\\2&-2 \end{vmatrix} + (-1)^{2+2} \cdot 1 \cdot \begin{bmatrix} -2&-3\\2&-1 \end{bmatrix} + (-1)^{3+2} \cdot 0 \cdot \begin{bmatrix} -2&-3\\-1&3 \end{bmatrix} \\
+      &= (-2) \cdot ((-1) \cdot (-1) - 2 \cdot 3) + 1 \cdot ((-2) \cdot (01) -2 \cdot (-3)) \\
+      &= (-2) \cdot (-5) + 8 = 18
+    \end{align*}\]
+
++ Sylvester's determinant theorem
+  + 
 
 
 ## Applications
