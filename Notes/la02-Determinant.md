@@ -370,6 +370,17 @@
     + equality $\iff A = I$
     + able to be derived via the formula for the KL-divergence btw two multivariate normal distributions
 
++ Cramer's rule
+  + matrix equations: $Ax = b$
+  + $A$: nonzero determinant
+  + solution: 
+
+    \[ x_i = \frac{\det(A_i)}{\det(A)}} \hspace{1em} i=1, 2, 3, \dots, n \]
+
+    + $A_i$: the matrix formed by replacing the $i$th column of $A$ by the column vector $b$
+  + column expansion of the determinant w/ vectors $a_j$ as the columns of $A$
+
+    \[ \det(A_i) = \det [a_1 \cdots b \cdots a_n] = \sum_{j=1}^n x_j \det[a_1 \cdots a_{i-1} a_j a_{i+1} \cdots a_n] = x_i \det(A) \]
 
 
 
