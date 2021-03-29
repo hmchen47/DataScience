@@ -316,6 +316,50 @@
 
     + $\forall\;$ square matrices $A, B$ w/ the same size, $AB$ and $BA$ w/ the same characteristic polynomials
 
+## Properties of determinant in relation to other notions
+
++ Eigenvalues
+  + $A$: an arbitrary $n \times n$ matrix of complex numbers w/ eigenvalues $\lambda_1, \lambda_2, \dots, \lambda_n$
+  + pseudo determinant: the determinant of $A$ as the product of all eigenvalues
+
+    \[ \det(A) = \prod_{i=1}^n \lambda_i = \lambda_1 \lambda_2 \cdots \lambda_n \]
+
+  + conversely, determinant used to find the eigenvalues of matrix $A$: the solution of the characteristic equation
+
+    \[ \det(A - \lambda I) = 0 \]
+
+  + Hermitian matrix as positive definite: all eigenvalues positive
+  + Sylvester's criterion asserts that positive definite Hermitian matrix equivalent to determinants of the sub-matrices
+
+    \[ A_k = \begin{bmatrix} a_{1,1}&a_{1,2}&\cdots&a_{1,k}\\a_{2,1}&a_{2,2}&\cdots&a_{2,k}\\ \vdots&\vdots&\ddots&\vdots\\a_{k,1}&a_{k,2}&\cdots&a_{k,k} \end{bmatrix} \hspace{1em} \forall\; k \in [1, n] \]
+
++ Trace
+  + $\operatorname{tr}(A)$: trace of $A$
+  + the sum of the diagonal entries of $A$ and also equals the sum of the eigenvalues
+  + complex matrices
+
+    \[ \det(\exp(A)) = \exp(\operatorname{tr}(A)) \]
+
+  + real matrices
+
+    \[ \operatorname{tr}(A) = \log(\det(\exp(A))) \]
+
+  + $\exp(A)$: matrix exponential of $A$
+    + $\forall\;$ eigenvalue $\lambda$ of $A$ corresponding to the eigenvalue $\exp(\lambda)$ of $\exp(A)$
+    + $\forall\; L$ as logarithm of $A$ satisfying $\exp(L) = A$, the determinant of $A$
+
+      \[ \det(A) = \exp(\operatorname{tr}(L)) \]
+
+  + example:
+
+    \[\begin{align*}
+      \det(A) &= \frac{1}{2} \left((\operatorname{tr}(A))^2 - \operatorname{tr}(A^2) \right) \hspace{1em} n = 2\\
+      \det(A) &= \frac{1}{6} \left((\operatorname{tr}(A))^3 - 3\operatorname{tr}(A)\operatorname{tr}(A^2) + 2 \operatorname{tr}(A^3) \right) \hspace{1em} n = 3\\
+      \det(A) &= \frac{1}{24} \left((\operatorname{tr}(A))^4 - 6\operatorname(A^2)(\operatorname{tr}(A))^2 + 3 (\operatorname{tr}(A^2))^2 + 8 \operatorname{tr}(A^3) \operatorname{tr}(A) - 6\operatorname{tr}(A^4) \right) \hspace{1em} n = 4\\
+    \end{align*}\]
+
++ Upper and lower bounds
+
 
 ## Applications
 
