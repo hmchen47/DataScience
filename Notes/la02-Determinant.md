@@ -359,6 +359,19 @@
     \end{align*}\]
 
 + Upper and lower bounds
+  + $A$: a positive definite matrix
+  + trace operator providing the following tight lower and upper bounds on the log determinant
+
+    \[\begin{align*}
+      &\operatorname{tr}(I - A^{-1}) \le \log\det(A) \le \operatorname{tr}(A - I) \\\\
+      &\frac{n}{\operatorname{tr}(A^{-1})} \le \det(A)^{\frac{1}{n}} \le \frac{1}{n} \operatorname{tr}(A) \leq \sqrt{\frac{1}{n} \operatorname{tr}(A^2)}
+    \end{align*}\]
+
+    + equality $\iff A = I$
+    + able to be derived via the formula for the KL-divergence btw two multivariate normal distributions
+
+
+
 
 
 ## Applications
