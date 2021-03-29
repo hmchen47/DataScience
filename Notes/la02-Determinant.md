@@ -1,5 +1,7 @@
 # Determinant
 
+Organization: Wikipedia
+
 [Origin](https://en.wikipedia.org/wiki/Determinant)
 
 
@@ -382,7 +384,38 @@
 
     \[ \det(A_i) = \det [a_1 \cdots b \cdots a_n] = \sum_{j=1}^n x_j \det[a_1 \cdots a_{i-1} a_j a_{i+1} \cdots a_n] = x_i \det(A) \]
 
++ Block matrices
+  + matrices: $A_{n \times n}, B_{n \times m}, C_{m \times n}, D_{m \times m}$
+  
+    \[ \det \begin{pmatrix} A&0\\C&D \end{pmatrix} = \det(A) \det(D) = \det \begin{pmatrix} A&B\\0&D \end{pmatrix} \]
 
+  + $A$ invertible
+
+    \[ \det \begin{pmatrix} A&B\\C&D \end{pmatrix} = \det(A)\det(D - CA^{-1}B) \]
+
+  + $D$ invertible
+
+    \[ \det \begin{pmatrix} A&B\\C&D \end{pmatrix} = \det(D)\det(A - BD^{-1}C) \]
+
+  + All blocks are square matrices w/ same order, $C$ and $D$ commute $\implies$
+
+    \[ \det \begin{pmatrix} A&B\\C&D \end{pmatrix} = \det (AD - BC) \]
+
+  + Generalization: all pairs of $n \times n$ matrices of the $np \times np$ block matrices commute $\implies$ the determinant of the block matrices equal to the determinant of the matrix obtained by computing the determinant of the block matrix considering its entries as the entries of a $p \times p$ matrix
+  + All blocks are square matrices w/ same order, $A = D$ and $B = C$ $\implies$
+
+    \[ \det \begin{pmatrix} A&B\\B&A \end{pmatrix} = \det(A-B) \det(A+B) \]
+
+  + $D_{1 \times 1}$, $B$ a column vector, and $C$ as a row vector $\implies$ 
+
+    \[ \det\begin{pmatrix} A&B\\C&D \end{pmatrix} = (D - CA^{-1}B) \det(A) \]
+
+  + $s$ as a scalar complex number, a square block matrix w/ characteristics polynomial factored w/
+
+    \[\begin{align*}
+      \det\begin{pmatrix} A-sI&B\\C&D-sI \end{pmatrix} &= \det(A - sI) \det\left(D - \frac{C\operatorname{adj}(A-sI)B}{\det(A-sI)} - sI \right) \hspace{1em} \text{if } s \notin \operatorname{eig}(A) \\
+      &= \det(A-sI)^{1-n-m} \det(\det(A-sI)D - c\operatorname{adj}(A-sI)B -\det(A-sI) sI)
+    \end{align*}\]
 
 
 ## Applications
