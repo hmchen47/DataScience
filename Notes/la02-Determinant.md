@@ -439,7 +439,14 @@ Organization: Wikipedia
 
 ## Applications
 
-+ 
++ Linear independence
+  + determinant = 0 $\iff$ the column vectors (or the row vectors) of the matrix linearly dependent
+  + determinants used to characterize linear dependent vectors
+  + differential equations: given $n$ functions $f_1(x), \dots, f_n(x)$, the Wronskian (showing linear independence in a set of solutions)
+
+    \[ W(f_1, \dots, f_n)(x) - \begin{vmatrix} f_1(x)&f_2(x)&\cdots&f_n(x)\\f_1^\prime(x)&f_2^\prime(x)&\cdots&f_n^\prime(x)\\ \vdots&\vdots&\ddots&\vdots\\ f_1^{(n-1)}(x)&f_2^{(n-1)}(x)&\cdots&f_n^{(n-1)}(x)\end{vmatrix} \]
+
+  + $x \neq 0$ in a specific interval $\iff$ the given functions and all their derivatives up to order $n-1$ linearly independent
 
 
 
