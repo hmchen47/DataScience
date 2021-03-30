@@ -417,6 +417,25 @@ Organization: Wikipedia
       &= \det(A-sI)^{1-n-m} \det(\det(A-sI)D - c\operatorname{adj}(A-sI)B -\det(A-sI) sI)
     \end{align*}\]
 
++ Derivative
+  + the determinant of real square matrices is a polynomial function $\Bbb{R}^{n\times n} \to \Bbb{R}$
+  + the polynomial function differentiable
+  + the derivative expressed using Jacobi's formula
+
+    \[ \frac{d \det(A)}{d \alpha} = \operatorname{tr}\left(\operatorname{adj}(A) \frac{d A}{d \alpha} \right) \]
+
+  + $A$ invertible $\implies$
+
+    \[ \frac{d \det(A)}{d \alpha} = \det(A) \operatorname{tr}\left(A^{-1}\frac{d A}{d \alpha} \right) \]
+
+  + expressed in terms of the entries of $A$
+
+    \[ \frac{\partial \det(A)}{\partial A_{ij}} = \operatorname(A)_{ji} = \det(A)(A^{-1})_{ji} \]
+
+  + equivalent formulation
+
+    \[ \det(A+\epsilon X) - \det(A) = \operatorname{tr}(\operatorname{adj}(A)X) \epsilon + O(\epsilon^2) = \det(A)\operatorname(A^{-1}X)\epsilon + O(\epsilon^2) \]
+
 
 ## Applications
 
