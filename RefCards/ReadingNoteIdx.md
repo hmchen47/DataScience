@@ -46,11 +46,11 @@
 
 ### General
 
-+ [A Comprehensive Beginners Guide to Linear Algebra for Data Scientist](../Notes/la01-Begin4DS.md)
++ V. K. Yadav, [A Comprehensive Beginners Guide to Linear Algebra for Data Scientist](../Notes/la01-Begin4DS.md)
 
 ### Operations & Properties
 
-+ [Determinant](../Notes/la02-Determinant.md)
++ Wikipedia, [Determinant](../Notes/la02-Determinant.md)
 
 
 ### Eigenvalues and Eigenvector
