@@ -448,6 +448,59 @@ Organization: Wikipedia
     + Laplace's formula
     + extremely inefficient for large matrices: $\cal{O}(n!)$
 
++ LU decomposition
+  + $A$ expressed as lower triangle matrix $L$, upper triangle matrix $U$ and a permutation matrix $P$
+
+    \[ A = PLU \]
+
+  + determinants of $U$, $L$ quickly calculated
+  + determinant of $P$: the sign $varepsilon$ of the corresponding permutation
+  + the determinant of $A$
+
+    \[ \det(A) = \varepsilon \det(L) \cdot \det(U) \]
+
++ [QR decomposition](https://en.wikipedia.org/wiki/QR_decomposition)
+  + a decomposition of a matrix $A$ into a product $A = QR$
+  + $Q$: orthogonal matrix
+  + $R$: upper triangular matrix
+  + often used o solve the linear least squares problem
+  + the basis for a particular eigenvalue algorithm, the QR algorithm
+  + the Gram-Schmidt process:
+    + applied to the columns of the full column rank matrix $A = [\mathbf{A}_1, \cdots, \mathbf{A}_n ]$ w/ inner product $\langle\bf{v}, \bf{w}\rangle = \bf{v}^T \bf{w}$
+    + projection
+
+      \[ \text{proj_u} \bf{a} = \frac{\langle\bf{u}, \bf{a}\rangle}{\langle \bf{u}, \bf{u}} \bf{u} \]
+
+      then
+
+      \[\begin{array}{lll}
+        \bf{u}_1 &= \bf{a}_1, & \bf{e}_1 = \frac{\bf{u}_1}{\|\bf{u}_1\|} \\
+        \bf{u}_2 &= \bf{a}_2 - \text{proj}_{\bf{u}_1} \bf{a}_2, & \bf{e}_2 = \frac{\bf{u}_2}{\|\bf{u}_2\|} \\
+        \bf{u}_2 &= \bf{a}_3 - \text{proj}_{\bf{u}_1} \bf{a}_3 - \text{proj}_{\bf{u}_2} \bf{a}_3, & \bf{e}_3 = \frac{\bf{u}_3}{\|\bf{u}_3\|} \\
+        & \vdots & \\
+        \bf{u}_k &= \bf{a}_k - \sum_{j=1}^{k-1}\text{proj}_{\bf{u}_j} \bf{a}_k, & \bf{e}_k = \frac{\bf{u}_k}{\|\bf{u}_k\|} \\
+      \end{array}\]
+
+    + expressing $\bf{a}_i$ over newly computed orthonormal basis w/ $\langle\bf{e}_i, \bf{a}_i\rangle = \|\bf{u}_i\|$
+
+      \[\begin{align*}
+        \bf{a}_1 &= \langle \bf{e}_1, \bf{a}_1 \rangle \bf{w}_1 \\
+        \bf{a}_2 &= \langle \bf{e}_1, \bf{a}_2 \rangle \bf{w}_1 + \langle \bf{e}_2, \bf{a}_2 \rangle \bf{e}_2 \\
+        \bf{a}_3 &= \langle \bf{e}_1, \bf{a}_3 \rangle \bf{w}_1 + \langle \bf{e}_2, \bf{a}_3 \rangle \bf{e}_2 + \langle \bf{e}_3, \bf{a}_3 \rangle \bf{e}_3 \\
+        & \vdots \\
+        \bf{a}_k &= \sum_{j=1}^k \langle \bf{e}_j, \bf{a}_k \rangle \bf{w}_j
+      \end{align*}\]
+
+    + the matrix form $A = QR$
+
+      \[ Q = [\bf{e}_1 \cdots \bf{e}_n] \]
+
+      \[ R = \begin{bmatrix}
+      \langle \bf{e}_1, \bf{a}_1 \rangle & \langle \bf{e}_1, \bf{a}_2 \rangle & \langle \bf{e}_1, \bf{a}_3 \rangle & \cdots \\ 
+      0& \langle\bf{e}_2,  \bf{a}_2 \rangle & \langle \bf{e}_2, \bf{a}_3 \rangle & \cdots \\
+      0 & 0 & \langle \bf{e}_3, \bf{a}_3 \rangle & \cdots \\
+      \vdots & \vdots & \vdots& \ddots
+      \end{bmatrix}\]
 
 ## Applications
 
