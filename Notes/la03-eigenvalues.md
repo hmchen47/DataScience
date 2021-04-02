@@ -18,14 +18,15 @@ Organization: Wikipedia
     + eigenvalue
     + characteristic value
     + characteristic root
-  + $A_{n \times n} \leftrightarrow$ linear transformations from sane $n$-dim vector space into itself, given any basis of the vector space
-  + finite-dim vector space:
-    + eigenvalues and eigenvectors in matrices = eigenvalues and eigenvectors in linear transformation
-    + $V$: finite-dimensional
-    + $A$: the matrix representation of $T$
-    + $\bf{u}$: the coordinate vector of $\bf{v}$
+  + $A_{n \times n} \leftrightarrow$ linear transformations from same $n$-dim vector space into itself, given any basis of the vector space
 
-    \[ T(\bf{v}) = \lambda v \hspace{1em}\longrightarrow\hspace{1em} A\bf{u} = \lambda\bf{u} \]
++ Finite-dim vector space
+  + eigenvalues and eigenvectors in matrices = eigenvalues and eigenvectors in linear transformation
+  + $V$: finite-dimensional
+  + $A$: the matrix representation of $T$
+  + $\bf{u}$: the coordinate vector of $\bf{v}$
+
+  \[ T(\bf{v}) = \lambda v \hspace{1em}\longrightarrow\hspace{1em} A\bf{u} = \lambda\bf{u} \]
 
 
 ## Overview
