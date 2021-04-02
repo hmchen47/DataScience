@@ -502,6 +502,25 @@ Organization: Wikipedia
       \vdots & \vdots & \vdots& \ddots
       \end{bmatrix}\]
 
++ [Cholesky decomposition / factorization](https://en.wikipedia.org/wiki/Cholesky_decomposition)
+  + a decomposition of a Hermitian, positive-define matrix into the product of a lower triangular matrix and its conjugate transpose
+  + the LDL composition, also called the square-root-free Cholesky decomposition
+
+    \[ \bf{A} = \bf{LDL*} \]
+
+  + $\bf{L}$: a lower unit triangular (unitriangular) matrix
+  + $\bf{D}$: a diagonal matrix
+  + the diagonal elements of $\bf{L}$: required to be 1 at the cost of introducing an additional diagonal matrix $\bf{D}$ in the decomposition
+  + advantages
+    + able to be computed
+    + used w/ essentially the same algorithms but avoid extracting square roots
+  + real matrices w/ form $\bf{A} = \bf{LDL^T}$ and referred to as LDLT decomposition
+  + closely related to the eigendecomposition of real symmetric matrices, $\bf{A} = \bf{Q\Lambda Q^T}$
+  + related to the classical Cholesky decomposition of the form $\bf{LL}^\star$
+
+    \[ \bf{A} = \bf{LDL^\star} = \bf{LD}^{1/2}\left(\bf{D}^{1/2}\right)^\star \bf{L}^\star = \bf{LD}^{1/2} \left(\bf{LD}^{1/2}\right)^\star \]
+
+
 ## Applications
 
 + Linear independence
