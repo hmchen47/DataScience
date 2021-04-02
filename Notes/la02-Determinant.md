@@ -453,11 +453,34 @@ Organization: Wikipedia
   + example: an orthogonal matrix w/ entries in $\Bbb{R}^n$ representing an orthornormal basis in Euclidean space
   + determinant of such a matrix:
     + determining whether the orientation of the basis is consistent w/ or opposite to the orientation of the standard basis
-    + determinant = +1 $\implise$ basis w/ the same orientation
+    + determinant = +1 $\implies$ basis w/ the same orientation
     + determinant = -1 $\implies$ basis w/ the opposite orientation
   + generalization:
     + $\det(A) > 0 \implies A$ represents an orientation-preserving linear transformation
     + $\det(A) <> 0 \implies A$ switches the orientation of the basis
 
++ Volume and Jacobian determinant
+  + $|\det(A)|$: the volume of the parallelepiped spanned by those vectors
+  + $f: \Bbb{R}^n \to \Bbb{R}^n$: the linear map represented by the matrix $A$
+  + $S$ as any measurable subset of $\Bbb{R}^n \implies$ the volume of $f(S)$ given by $|\det(A)|$ times the volume of $S$
+  + generalization: the linear map $f: \Bbb{R}^n \to \Bbb{R}^m$ represented by $A_{m \times n} \implies$ the $n$-dim volume of $f(S)$ given by
+
+    \[ \text{volume}(f(S)) = \sqrt{\det(A^TA)} \text{ volume}(S) \]
+
+  + example: calculating the volume of the tetrahedron bounded by four points
+    + used to identify skew lines
+    + given a tetrahedron w/ vertices $\mathbf{a, b, c}$ and $\mathbf{d}$
+    + the volume of any tetrahedron: $(1/6) \cdot |\det(\mathbf{a - b, b-c, c-d})|$
+    + nay other combination of pairs of vertices forming a spanning tree over the vertices
+  + general differentiable function
+    + $f: \Bbb{R}^n \to \Bbb{R}^n$
+    + Jacobian matrix w/
+
+      \[ D(f) = \left(\frac{\partial f_i}{\partial x_j}\right)_{1 \le i,j \le n} \]
+
+    + the Jacobian determinant in the higher-dimensional version of integration by substitution
+    + for suitable functions $f$ and an open subset $U$ of $\Bbb{R}^n$, the integral over $f(U)$ of some other function $\phi: \Bbb{R}^n \to \Bbb{R}^m$
+
+      \[ \int_f(U) \phi(\mathbf{v})d\mathbf{v} = \int_U \phi(f(\mathbf{u})|\det(D f)(u)| d\mathbf{u} \]
 
 
