@@ -483,4 +483,16 @@ Organization: Wikipedia
 
       \[ \int_f(U) \phi(\mathbf{v})d\mathbf{v} = \int_U \phi(f(\mathbf{u})|\det(D f)(u)| d\mathbf{u} \]
 
++ Circulant determinant
+  + second order
+
+    \[ \begin{vmatrix}x_1&x_2\\x_3&x_4\end{vmatrix} = (x_1 = x_2)(x_1 - x_2) \]
+
+  + third order w/ $\omega$ and $\omega^2$ are complex cube roots of 1
+
+    \[ \begin{vmatrix} x_1&x_2&x_3\\x_3&x_2&x1\\x_2&x_3&x_1 \end{vmatrix} = (x_1+x_2+x_3)(x_1+\omega x_2+\omega^2x_3)(x_1+\omega^2 x_2+\omega x_3) \]
+
+  + the $n$th-order circulant determinant
+
+    \[ \begin{vmatrix}x_1&x_2&x_3&\cdots&x_n\\x_n&x_1&x_2&\cdots&x_{n-1}\\x_{n-1}&x_n&x_1&\cdots&x_{n-2}\\ \vdots&\vdots&\vdots&\ddots&\vdots\\x_2&x_3&x_4&\cdots&x_1 \end{vmatrix} = \prod_{j=1}^n \left(x_1+\omega^j x_2 + \omega^{2j}x_3+\cdots+\omega^{(n-1)j} x_n\right) \]
 
