@@ -437,6 +437,18 @@ Organization: Wikipedia
     \[ \det(A+\epsilon X) - \det(A) = \operatorname{tr}(\operatorname{adj}(A)X) \epsilon + O(\epsilon^2) = \det(A)\operatorname(A^{-1}X)\epsilon + O(\epsilon^2) \]
 
 
+## Calculation
+
++ Computing determinants
+  + mainly used as a theoretical tool
+  + rarely calculated explicitly in numerical linear algebra
+  + computational geometry: using calculations related to determinant
+  + naive method
+    + Leibniz formula
+    + Laplace's formula
+    + extremely inefficient for large matrices: $\cal{O}(n!)$
+
+
 ## Applications
 
 + Linear independence
