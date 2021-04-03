@@ -65,6 +65,30 @@ Organization: Wikipedia
   + __eigenbasis:__ a set of eigenvectors of $T4 forms a basis f the domain of $T$
 
 
+## Eigenvalues and eigenvector of matrices
+
++ Eigenvalues and eigenvectors of matrices
+  + consider $n$-dim vectors formed as a list of $n$ scalar, e.g., 
+
+    \[ \bf{x} = \begin{bmatrix} 1&-3&4 \end{bmatrix} \hspace{0.5em}\text{and}\hspace{0.5em} \bf{y} = \begin{bmatrix} -20&60&-80 \end{bmatrix} \]
+
+  + scalar multiplier of each other, or parallel, or colinear
+    + $\bf{x}$ and $\bf{y}$ of the above example
+    + $\exists\; \lambda$ s.t. $\bf{x} = \lambda \bf{y}$
+
++ Linear transformation, eigenvalues and eigenvectors
+  + linear transformation of $n$-dimensional vectors defined by $A_}n \times n}$
+
+    \[ A \bf{v} = \bf{w} \hspace{0.5em}\longleftrightarrow\hspace{0.5em} \begin{bmatrix} A_{11}&A_{12}&\cdots&A_{1n}\\A_{21}&A_{22}&\cdots&A_{2n}\\ \vdots&\vdots&\ddots&\vdots\\A_{n1}&A_{n2}&\cdots&A_{nn} \end{bmatrix} \begin{bmatrix} v_1\\v_2\\ \vdots \\v_n \end{bmatrix} = \begin{bmatrix} w_1\\w_2\\\vdots\\w_n \end{bmatrix} \]
+
+    + each row: $w_i = A_{i1}v_1 + A_{i2}v_2 + \cdots + A_{in}v_n = \sum_{j=1}^n A_{ij}v_j$
+
+  + $v, w$: scalar multiplies
+  + $A\bf{v} = \bf{w} = \lambda\bf{v} \implies \bf{v}$ as an __eigenvector__ of the linear transformation $A$
+  + $\lambda$: __eigenvalue__ corresponding to that eigenvector
+  + __eigenvalue equation:__ $A\bf{v} = \bf{w} = \lambda\bf{v} \hspace{0.5em}\longrightarrow\hspace{0.5em} (A - \lambda I)\bf{v} = \bf{0}$
+
+
 ## Eigenvalues and characteristic polynomial
 
 
