@@ -130,8 +130,25 @@ Organization: Wikipedia
 
 ## Algebraic multiplicity
 
++ Algebraic multiplicity
+  + $\lambda_i$: an eigenvalue of $A_{n \times n}$
+  + definition:
+    + $\mu_A(\lambda_i)$ of the eigenvalue
+    + its multiplicity as a root of the characteristic polynomial
+    + the largest integer $k$ s.t. $(\lambda - \lambda_i)^k$ divides evenly that polynomial
+  + suppose $A$ w/ dimension $n$ and $d \le n$ distinct eigenvalues
+  + the characteristic polynomial raised to the power of the algebraic multiplicity
 
+    \[ |A - \lambda I| = (\lambda_1 -\lambda)^{\mu_A(\lambda_1)} (\lambda_2 -\lambda)^{\mu_A(\lambda_2)} \cdots (\lambda_d -\lambda)^{\mu_A(\lambda_d)} \]
+  
+  + $d = n$
+    + same as Eq. (4)
+    + the size of each eigenvalue's algebraic multiplicity related to the dimensional $n$ as $1 & \le \mu_A(A\lambda_i) \le n$
 
+      \[ \mu_A = \sum_{i=1}^d \mu_A(\lambda_i) = n \]
+  
+  + simple eigenvalue: $\mu_A(\lambda_i) = 1$
+  + semisimple eigenvalue $\gamma_A(\lambda_i)$: $\mu_A(\lambda_i)$ equals to geometric multiplicity of $\lambda_i$
 
 
 ## Eigenspaces, geometric multiplicity, and the eigenbasis for matrices
