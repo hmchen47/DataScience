@@ -79,7 +79,7 @@ Organization: Wikipedia
 + Linear transformation, eigenvalues and eigenvectors
   + linear transformation of $n$-dimensional vectors defined by $A_}n \times n}$
 
-    \[ A \bf{v} = \bf{w} \hspace{0.5em}\longleftrightarrow\hspace{0.5em} \begin{bmatrix} A_{11}&A_{12}&\cdots&A_{1n}\\A_{21}&A_{22}&\cdots&A_{2n}\\ \vdots&\vdots&\ddots&\vdots\\A_{n1}&A_{n2}&\cdots&A_{nn} \end{bmatrix} \begin{bmatrix} v_1\\v_2\\ \vdots \\v_n \end{bmatrix} = \begin{bmatrix} w_1\\w_2\\\vdots\\w_n \end{bmatrix} \]
+    \[ A \bf{v} = \bf{w} \hspace{0.5em}\longleftrightarrow\hspace{0.5em} \begin{bmatrix} A_{11}&A_{12}&\cdots&A_{1n}\\A_{21}&A_{22}&\cdots&A_{2n}\\ \vdots&\vdots&\ddots&\vdots\\A_{n1}&A_{n2}&\cdots&A_{nn} \end{bmatrix} \begin{bmatrix} v_1\\v_2\\ \vdots \\v_n \end{bmatrix} = \begin{bmatrix} w_1\\w_2\\\vdots\\w_n \end{bmatrix} \tag{1}\]
 
     + each row: $w_i = A_{i1}v_1 + A_{i2}v_2 + \cdots + A_{in}v_n = \sum_{j=1}^n A_{ij}v_j$
 
@@ -91,7 +91,41 @@ Organization: Wikipedia
 
 ## Eigenvalues and characteristic polynomial
 
++ Characteristic polynomial
+  + eigenvalue equation:
 
+    \[ (A - \lambda I)\bf{v} = \bf{0} \tag{2} \]
+
+  + nonzero solution $v \iff \det((A - \lambda I)) = 0$
+  + $\lambda$: the eigenvalues of $A$
+  + determinant of Eq.(2)
+  
+    \[ \det(A - \lambda I) = 0 \tag{3}\]
+
+    + polynomial function of the variable $\lambda$ 
+    + characteristics polynomial of $A$
+    + characteristic equation or the secular equation of $A$
+  + $n$: degree of the polynomial = the order of the matrix $A$
+
++ Fundamental theorem of algebra
+  + characteristic polynomial of $A_{n \times n}$ factored into the product of $n$ linear terms
+
+    \[ |A - \lambda I| = (\lambda_1 - \lambda)(\lambda_2 - \lambda) \cdots (\lambda_n - \lambda) \tag{4}\]
+
+  + $\lambda_i \in \Bbb{R}/\Bbb{C}$
+  + all entries $a_{ij} \in \Bbb{R} \implies$ the coefficients of the polynomial $\in \Bbb{R}$ and eigenvalues $\lambda_i \in \Bbb{C}$
+  + example: consider
+
+    \[ A = \begin{bmatrix} 2&1\\1&2 \end{bmatrix} \]
+
+    + the characteristic polynomial of $A$
+
+      \[ |A - \lambda I| = \begin{vmatrix} 2-\lambda&1\\1&2-\lambda \end{vmatrix} = 3 - 4\lambda + \lambda^2 \]
+
+    + characteristic polynomial = 0 $\implies \lambda = 1$ and $\lambda = 3$
+    + eigenvectors: any nonzero multiplies of
+
+      \[ \bf{v}_{\lambda=1} = \begin{bmatrix} 1\\-1 \end{bmatrix}, \hspace{1em} \bf{v}_{\lambda=3} = \begin{bmatrix} 1\\1 \end{bmatrix} \]
 
 
 ## Algebraic multiplicity
