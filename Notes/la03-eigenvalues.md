@@ -148,12 +148,36 @@ Organization: Wikipedia
       \[ \mu_A = \sum_{i=1}^d \mu_A(\lambda_i) = n \]
   
   + simple eigenvalue: $\mu_A(\lambda_i) = 1$
-  + semisimple eigenvalue $\gamma_A(\lambda_i)$: $\mu_A(\lambda_i)$ equals to geometric multiplicity of $\lambda_i$
+  + semisimple eigenvalue $\nu_A(\lambda_i)$: $\mu_A(\lambda_i)$ equals to geometric multiplicity of $\lambda_i$
 
 
 ## Eigenspaces, geometric multiplicity, and the eigenbasis for matrices
 
++ Eigenspaces
+  + given a particular eigenvalue $\lambda$ of $A_{n \times n}$
+  + __eigensoace__ or __characteristic space__ of A associated w/ $\lambda$: define the set $E$ to be all vectors $\bf{v}$ satisfying Eq. (2)
 
+    \[ E = \{\bf(v}: (A - \lambda I) \bf{v} = 0 \} \]
+
+  + properties of $E$
+    + precisely the kernel or nullspace of the matrix $(A - \lambda I)$
+    + any non-zero vector satisfying the condition is an eigenvector of $A$ associated w/ $\lambda$
+    + the union of the zero vector w/ the set of all eigenvectors of $A$ associated w/ $\lambda$
+    + equal to nullspace of $(A-\lambda I)$
+  + generalization:
+    + $\lambda \in \Bbb{C}$ and eigenvectors $\bf{\lambda}_{n \times 1}$ w/ $\lambda_i \in \Bbb{C}$
+    + nullspaces as a linear subspace $\implies$ $E$ as a linear subspace of $\Bbb{C}^n$
+  + close under addition
+    + eigenspace $E$ as a linear subspace
+    + $\bf{u, v} \in E \inplies (\bef{u + v} \in E$
+    + equivalently $A(\bf{u + v)} = \lambda(\bf{u + v})$
+    + proved w/ distributive property of matrix multiplication
+  + closed under scalar multiplication
+    + $\bf{v} \in E$ and $\alpha \Bbb{C}$
+    + $(\alpha \bf{v}) \in E$
+    + equivalently $A(\alpha \bf{v}) = \lambda(\alpha \bf{v})$
+    + proved by multiplication of complex matrices by complex number is commutative
+    + $\bf{u + v}$ and $\alpha \bf{v}$ not zero, eigenvectors of $A$ associated w/ $\lambda$
 
 
 
