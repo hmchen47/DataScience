@@ -210,7 +210,26 @@ Organization: Wikipedia
 
 ## Properties of eigenvalues
 
++ Properties of eigenvalues
+  + $A_{n \times n}$ an arbitrary matrix of complex numbers w/ eigenvalues $\lambda_1, \dots, \lambda_n$
+  + $\mu_A(\lambda_i)$: the eigenvalues's algebraic multiplicity
+  + trace and eigenvalues: the sum of its diagonal elements = the sum of eigenvalues
 
+    \[ \operatorname{tr}(A) = \sum_{i=1}^n a_ii = \sum_{i=1}^n \lambda_i = \lambda_1 + \lambda_2 + \cdots + \lambda_n \] 
+
+  + the determinant pf $A$ = the product of all its eigenvalues
+
+    \[ \det(A) = \prod_{i=1}^n \lambda_i = \lambda_i \lambda_2 \cdots \lambda_n \]
+
+  + the eigenvalues of the $k^{th}$ power of $A$, i.e., the eigenvalues of $A^k, \;\forall k > 0$ are $\lambda_1^k, \dots, \lambda_n^k$
+  + invertible $A \iff \lambda_i \ne 0, \;\forall i$
+  + invertible $A \implies$ eigenvalues of $A^{-1}$ are $\frac{1}{\lambda_1}, \cdots, \frac{1}{\lambda_n}$ and each eigenvalues's geometric multiplicity coincides
+  + $A = A^\star$ or $A$ is Hermitian $\implies$ $\lambda_i \in \Bbb{R}$, where $A^\star$ is conjugate transpose of $A$, also applied to any symmetric real matrix
+  + $A$ is Hermitian and positive-definite, positive-semi-definite, negative-definite, or negative-semi-definite $\implies$ $\lambda_i > 0, \ge 0, < 0, \le 0$, respectively
+  + $A$ is unitary $\implies |\lambda_i| = 1$
+  + $A_{n \times n}$ with eigenvalues $\{\lambda_1, \dots, \lambda_k\} \implies$ $I + A$ w/ eigenvalues $\{\lambda_1+1, \dots, \lambda_k+1\}$
+    + $\exists\;\alpha \in \Bbb{C}$, $(\alpha I + A)$ w/ eigenvalues $\{\lambda_1+\alpha, \dots, \lambda_k+\alpha\}$
+    + generalization: $\exists\; P \implies P(A)$ w/ eigenvalues $\{P(\lambda_1), \dots, P(\lambda_k)\}$
 
 
 ## Left and right eigenvectors
