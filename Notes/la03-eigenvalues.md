@@ -234,9 +234,22 @@ Organization: Wikipedia
 
 ## Left and right eigenvectors
 
++ Eigenvectors
+  + vector: matrix w/ a single column 
+  + right eigenvector
+    + eigenvector always refers to a __right eigenvector__
+    + a column vector that right multiplies $A_{n \times n}$ in the defining equation, Eq.(1), $A\\bf{v} = \lambda\bf{v}$
+  + left eigenvector
+    + eigenvalue and eigenvector able to be defined for _row_ vectors
+    + left multiply matrix $A$
+    + the defining equation
 
+      \[\bf{u}A = \kappa\bf{u} \]
 
-
+      + $\kappa$: a scalar
+      + $\bf{u}$: a $1 \times n$ matrix
+    + __left eigenvecctor__: any row vector satisfying the above equation
+    + equivalently, $A^T \bf{u}^T = \kappa \bf{u}^T$
 
 ## Diagonalization and the eigendecomposition
 
