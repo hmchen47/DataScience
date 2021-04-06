@@ -157,7 +157,7 @@ Organization: Wikipedia
   + given a particular eigenvalue $\lambda$ of $A_{n \times n}$
   + __eigensoace__ or __characteristic space__ of A associated w/ $\lambda$: define the set $E$ to be all vectors $\bf{v}$ satisfying Eq. (2)
 
-    \[ E = \{\bf(v}: (A - \lambda I) \bf{v} = 0 \} \]
+    \[ E = \{\bf{v} : (A - \lambda I) \bf{v} = 0 \} \]
 
   + properties of $E$
     + precisely the kernel or nullspace of the matrix $(A - \lambda I)$
@@ -169,7 +169,7 @@ Organization: Wikipedia
     + nullspaces as a linear subspace $\implies$ $E$ as a linear subspace of $\Bbb{C}^n$
   + close under addition
     + eigenspace $E$ as a linear subspace
-    + $\bf{u, v} \in E \inplies (\bef{u + v} \in E$
+    + $\bf{u, v} \in E \implies (\bf{u + v}) \in E$
     + equivalently $A(\bf{u + v)} = \lambda(\bf{u + v})$
     + proved w/ distributive property of matrix multiplication
   + closed under scalar multiplication
@@ -179,7 +179,34 @@ Organization: Wikipedia
     + proved by multiplication of complex matrices by complex number is commutative
     + $\bf{u + v}$ and $\alpha \bf{v}$ not zero, eigenvectors of $A$ associated w/ $\lambda$
 
++ Geometric multiplicity
+  + $\nu_A(\lambda)$:
+    + the eigenvalue's geometric multiplicity
+    + the dimension of eigenspace $E$ associated w/ $\lambda$
+    + equivalently the maximum number of linear independent eigenvectors associated w/ $\lambda$
+  + $E$: the nullspace of $(A - \lambda I)$
+    + the geometric multiplicity of $\lambda$ =  the dimension of the nullspace of $(A - \lambda I)$
+    + the nullity of $(A - \lambda I)$
+    + rank of $(A - \lambda I)$ as $\gamma_A(\lambda) = n - \text{rank}(A - \lambda I)$
+  + an eigenvalue's geometric multiplicity must be at least one, i.e., each eigenvalue has at least one associated eigenvector
+  + an eigenvalue's geometric multiplicity unable to exceed its algebra multiplicity
+  + an eigenvalue's geometric multiplicity unable to exceed $n$
 
+    \[ 1 \le \gamma_A(\lambda) \le \mu_A(\lambda) \le n \]
+
+  + total geometric multiplicity
+    + suppose $A$ w/ $d \le n$ distinct eigenvalues $\lambda_1, \dots, \lambda_d$
+    + $\gamma_A(\lambda_i)$: the geometric multiplicity
+    + total geometric multiplicity
+
+      \[ \gamma_A = \sum_{i=1}^d \gamma_A(\lambda)i), \hspace{1em} d \le \gamma_A \le n \]
+
+    + the dimension of the sum of all he eigenspaces of $A$'s eigenvalues
+    + equivalently the maximum number of linearly independent eigenvectors of $A$
+  + $\gamma_A = n \implies$
+    + the direct sum of the eigenspaces of all of $A$'s eigenvalues is the entire vector space $\Bbb{C}^n$
+    + eigenbasis: a basis of $\Bbb{C}^n$ able to be formed from $n$ linearly independent eigenvectors of $A$
+    + any vector in $\Bbb{C}^n$ able to written as a linear combination of eigenvectors of $A$
 
 ## Properties of eigenvalues
 
