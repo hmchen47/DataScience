@@ -281,6 +281,11 @@ Organization: Wikipedia
 
 ## Variational characterization
 
++ Min-max theorem
+  + $A$: Hermitian matrix
+  + eigenvalue given a variational characterization
+  + the largest eigenvalue of $H$ = the maximum value of the quadratic from $\bf{x}^TH\bf{x}/\bf{x}^T\bf{x}$
+  + the maximum value of $\bf{x}$ = an eigenvector
 
 ## Eigenvector-eigenvalue identity
 
