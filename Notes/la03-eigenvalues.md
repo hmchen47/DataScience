@@ -341,7 +341,13 @@ Organization: Wikipedia
       & \therefore\; \bf{v}_{\lambda=3} = \begin{bmatrix} v_1\\v_2 \end{bmatrix} = \begin{bmatrix} 1\\1 \end{bmatrix}
     \end{align*}\]
 
-+ 
+
+
+## General formula for eigenvalues of a 2-dim matrix
+
+Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
+
+\[ A = \begin{bmatrix} a&b\\c&d \end{bmatrix} \implies \lambda = \frac{1}{2} (a + d) \pm \sqrt{\left(\frac12(a - d)\right)^2 + bc} = \frac12 \left(\operatorname{tr}(A) \pm \sqrt{(\operatorname{tr}(A^2)) - 4 \det(A)} \right) \]
 
 
 ## General definitions
