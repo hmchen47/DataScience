@@ -253,14 +253,33 @@ Organization: Wikipedia
 
 ## Diagonalization and the eigendecomposition
 
++ Eigendecomposition
+  + the eigenvectors of $A$ form a basis
+  + $A$ w/ $n$ linearly independent eigenvectors $\bf{v}_1, \bf{v}_2, \dots, \bf{v}_n$ w/ associated eigenvalues $\lambda_1, \lambda_2, \dots, \lambda_n$
+  + define a square matrix $Q$ w/ columns as the $n$ linearly independent eigenvectors of $A$
 
+    \[ A = [ \bf{v}_1, \bf{v}_2, \dots, \bf{v}_n] \]
 
+  + each column of $Q$ as an eigenvector of $A$, right multiplying $A$ by $Q$ scales each column of $Q$ by its associated eigenvalue
+
+    \[ AQ = [\lambda_1\bf{v}_1, \lambda_2\bf{v}_2, \dots, \lambda_n \bf{v}_n] \]
+
+  + define a diagonal matrix $\Lambda$ w/ diagonal element $\Lambda_{ii}$ as the eigenvalue associated w/ the $i$th column of $Q \implies AQ = QA$
+  + the columns of $Q$ as linearly independent $\implies$ $Q$ invertible
+
+    \[ A = Q\Lambda Q^{-1}, \hspace{1em} Q^{-1}AQ = \Lambda \]
+
+  + __decomposition__
+    + $A$ decomposed into a matrix composed of its eigenvectors
+    + the inverse of the matrix of eigenvectors
+    + a similarity transformation
+  + such a matrix $A$ to be similar to the diagonal matrix or diagonalizable
+  + the matrix $Q$ as the change of basis matrix of the similarity transformation
+  + the matrices $A$ and $\Lambda$ representing the same linear transformation expressed into two different bases
+  + the eigenvectors used as the basis when representing the linear transformation as $\Lambda$
 
 
 ## Variational characterization
-
-
-
 
 
 ## Eigenvector-eigenvalue identity
