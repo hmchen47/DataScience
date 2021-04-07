@@ -299,9 +299,49 @@ Organization: Wikipedia
 
 ## Examples
 
++ Two-dimensional matrix
+  + consider the matrix
 
+    \[ A = \begin{bmatrix} 2&2\\1&2 \]
 
+  + the effect of transformation on point coordinates in the plane
+    + the eigenvectors $v$ of the transformation satisfy Eq. (1)
+    + the values of $\lambda$ for which $\det(A - \lambda I) = 0$ as eigenvalues
 
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+        onclick= "window.open('https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors#Eigenvector-eigenvalue_identity')"
+        src    = "https://upload.wikimedia.org/wikipedia/commons/0/06/Eigenvectors.gif"
+        alt    = "The transformation matrix A = {\displaystyle \left[{\begin{smallmatrix}2&1\\1&2\end{smallmatrix}}\right]}{\displaystyle \left[{\begin{smallmatrix}2&1\\1&2\end{smallmatrix}}\right]} preserves the direction of purple vectors parallel to vλ=1 = [1 −1]T and blue vectors parallel to vλ=3 = [1 1]T. The red vectors are not parallel to either eigenvector, so, their directions are changed by the transformation. The lengths of the purple vectors are unchanged after the transformation (due to their eigenvalue of 1), while blue vectors are three times the length of the original (due to their eigenvalue of 3)."
+        title  = "The transformation matrix A = {\displaystyle \left[{\begin{smallmatrix}2&1\\1&2\end{smallmatrix}}\right]}{\displaystyle \left[{\begin{smallmatrix}2&1\\1&2\end{smallmatrix}}\right]} preserves the direction of purple vectors parallel to vλ=1 = [1 −1]T and blue vectors parallel to vλ=3 = [1 1]T. The red vectors are not parallel to either eigenvector, so, their directions are changed by the transformation. The lengths of the purple vectors are unchanged after the transformation (due to their eigenvalue of 1), while blue vectors are three times the length of the original (due to their eigenvalue of 3)."
+      />
+    </figure>
+
+  + the determinant of $(A - \lambda I)$
+
+    \[\begin{align*}
+      |A - \lambda I| &= \left| \begin{bmatrix} 2&1\\1&2 \end{bmatrix} - \lambda \begin{bmatrix} 1&0\\0&1 \end{bmatrix} \right| = \begin{vmatrix} 2-\lambda&1\\1&2-\lambda \end{vmatrix} \\\\
+      &= 2 - 4\lambda + \lambda^2
+    \end{align*}\]
+
+  + the characteristic polynomial = 0 $\implies \lambda = 1$ and $\lambda = 3$ as eigenvalues
+  + $\lambda = 1$, Eq. (2)
+
+    \[\begin{align*}
+      &(A - \lambda I) \bf{v}_{\lambda=1} = \begin{bmatrix} 1&1\\1&1 \end{bmatrix} \begin{bmatrix} v_1\\v_2 \end{bmatrix} = \begin{bmatrix} 0\\0 \end{bmatrix} \\
+      & 1v_1 + 1 v_2 = 0; \hspace{0.5em} 1v_1 + 1v_2 = 0 \\
+      & \therefore\; \bf{v}_{\lambda=1} = \begin{bmatrix} v_1\\v_2 \end{bmatrix} = \begin{bmatrix} 1\\-1 \end{bmatrix}
+    \end{align*}\]
+
+  + $\lambda = 3$, Eq. (2)
+
+    \[\begin{align*}
+      &(A - 3\lambda I) \bf{v}_{\lambda=1} = \begin{bmatrix} -1&1\\1&-1 \end{bmatrix} \begin{bmatrix} v_1\\v_2 \end{bmatrix} = \begin{bmatrix} 0\\0 \end{bmatrix} \\
+      & -1v_1 + 1 v_2 = 0; \hspace{0.5em} 1v_1 - 1v_2 = 0 \\
+      & \therefore\; \bf{v}_{\lambda=3} = \begin{bmatrix} v_1\\v_2 \end{bmatrix} = \begin{bmatrix} 1\\1 \end{bmatrix}
+    \end{align*}\]
+
++ 
 
 
 ## General definitions
