@@ -289,10 +289,13 @@ Organization: Wikipedia
 
 ## Eigenvector-eigenvalue identity
 
++ Eigenvalue-eigenvector identity
+  + Hermitian matrix
+  + the norm square of the $j$th component of a normalized eigenvector
+    + calculated by only the matrix eigenvalues and the eigenvalues of the corresponding minor matrix
+    + $M_j$: the submatrix formed by removing the $j$th row and column from the original matrix
 
-
-
-
+    \[ |v_{i, j}|^2 = \frac{\prod_k (\lambda_i - \lambda_k(M_j))}{\prod_{k\ne i} (\lambda_i - \lambda_k)} \]
 
 ## Examples
 
