@@ -341,6 +341,23 @@ Organization: Wikipedia
       & \therefore\; \bf{v}_{\lambda=3} = \begin{bmatrix} v_1\\v_2 \end{bmatrix} = \begin{bmatrix} 1\\1 \end{bmatrix}
     \end{align*}\]
 
++ Three-dimensional matrix
+  + consider the matrix
+
+    \[ A = \begin{bmatrix} 2&0&0\\0&3&4\\0&4&9 \end{bmatrix} \]
+
+  + the characteristic polynomial of $A$
+
+    \[\begin{align*}
+      |A - \lambda I| &= \left| \begin{bmatrix} 2&0&0\\0&3&4\\0&4&9 \end{bmatrix} - \lambda \begin{bmatrix} 1&0&0\\0&1&0\\0&0&1 \end{bmatrix} \right| = \begin{vmatrix} 2-\lambda&0&0\\0&3-\lambda&p\\0&4&9-\lambda \end{vmatrix} \\
+      &= (2-\lambda) [(3 - \lambda)(9-\lambda) - 16] = -\lambda^3+14\lambda^2-35\lambda+22
+    \end{align*}\]
+
+  + the roots of the characteristic polynomial = eigenvalues: 2, 1, and 11
+  + the corresponding to the eigenvectors
+
+    \[ \bf{v}_{\lambda = 2} = \begin{bmatrix} 1\\0\\0 \end{bmatrix}, \hspace{1em} \bf{v}_{\lambda = 1} = \begin{bmatrix} 0\\-2\\1 \end{bmatrix}, \hspace{1em} \bf{v}_{\lambda = 11} = \begin{bmatrix} 0\\1\\2 \end{bmatrix} \]
+
 
 
 ## General formula for eigenvalues of a 2-dim matrix
