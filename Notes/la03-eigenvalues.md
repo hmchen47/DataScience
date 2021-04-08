@@ -377,6 +377,16 @@ Organization: Wikipedia
   
     \[\bf{v}_{\lambda_2} = \begin{bmatrix} 1\\ \lambda_2 \\ \lambda_3 \end{bmatrix}, \hspace{1em} \bf{v}_{\lambda_3} = \begin{bmatrix} 1\\ \lambda_3 \\ \lambda_2 \end{bmatrix} \]
 
++ Diagonal matrix
+  + diagonal matrices: matrices w/ entries only along the main diagonal
+  + eigenvalues of a diagonal matrix = the diagonal elements themselves
+  + consider the matrix
+
+    \[ A = \begin{bmatrix} 1&0&0\\0&2&0\\0&0&3 \end{bmatrix} \]
+  
+  + the characteristic polynomial of $A$: $|A - \lambda I| = (1 - \lambda)(2 - \lambda)(3 - \lambda)$
+  + the roots of characteristic polynomial = eigenvalues: $\lambda_1 = 1, \lambda_2 = 2, \lambda_3$
+  + each diagonal element corresponds to an eigenvector whose only nonzero component is in the same row as the diagonal element
 
 
 ## General formula for eigenvalues of a 2-dim matrix
