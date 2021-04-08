@@ -358,6 +358,21 @@ Organization: Wikipedia
 
     \[ \bf{v}_{\lambda = 2} = \begin{bmatrix} 1\\0\\0 \end{bmatrix}, \hspace{1em} \bf{v}_{\lambda = 1} = \begin{bmatrix} 0\\-2\\1 \end{bmatrix}, \hspace{1em} \bf{v}_{\lambda = 11} = \begin{bmatrix} 0\\1\\2 \end{bmatrix} \]
 
++ Three-dimensional matrix w/ complex eigenvalues
+  + consider the cyclic permutation matrix
+
+    \[ A = \begin{bmatrix} 0&1&0\\0&0&1\\1&0&0 \end{bmatrix} \]
+
+  + the characteristic polynomial: $1 - \lambda^3$
+  + the roots = eigenvalues: $\lambda_1 = 1, \hspace{1em} \lambda_2 = -\frac12 + i\frac{\sqrt{3}}{2}, \hspace{1em} \lambda_3 = \lambda_2^\star = -\frac12 + -i \frac{\sqrt{3}}{2}$
+  + the real eigenvalue $\lambda_1 = 1$, any vector w/ 3 equal nonzero entries is an eigenvector
+  + the complex conjugate pair of imaginary eigenvalues
+
+    \[\begin{align*}
+      &\lambda_2 \lambda_3 = 1, \hspace{1em} \lambda_2^2 = \lambda_3, \hspace{1em} \lambda_3^2 = \lambda_2\\\\
+      &A \begin{bmatrix} 1\\ \lambda_2\\ \lambda_3 \end{bmatrix} = \begin{bmatrix} \lambda_2\\ \lambda_3 \\1 \end{bmatrix} = \lambda_2 \cdot \begin{bmatrix} 1\\ \lambda_2 \\ \lambda_3 \end{bmatrix}, \hspace{1em} A\begin{bmatrix} 1\\ \lambda_3\\ \lambda_2 \end{bmatrix} = \begin{bmatrix} \lambda_3\\ \lambda_2\\ 1\end{bmatrix} = \lambda_2 \cdot \begin{bmatrix}1 \\ \lambda_3 \\ \lambda_2 \end{bmatrix}
+    \end{align*}\]
+
 
 
 ## General formula for eigenvalues of a 2-dim matrix
