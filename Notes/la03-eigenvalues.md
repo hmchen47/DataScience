@@ -373,6 +373,10 @@ Organization: Wikipedia
       &A \begin{bmatrix} 1\\ \lambda_2\\ \lambda_3 \end{bmatrix} = \begin{bmatrix} \lambda_2\\ \lambda_3 \\1 \end{bmatrix} = \lambda_2 \cdot \begin{bmatrix} 1\\ \lambda_2 \\ \lambda_3 \end{bmatrix}, \hspace{1em} A\begin{bmatrix} 1\\ \lambda_3\\ \lambda_2 \end{bmatrix} = \begin{bmatrix} \lambda_3\\ \lambda_2\\ 1\end{bmatrix} = \lambda_2 \cdot \begin{bmatrix}1 \\ \lambda_3 \\ \lambda_2 \end{bmatrix}
     \end{align*}\]
 
+  + the other two eigenvectors of $A$ are complex
+  
+    \[\bf{v}_{\lambda_2} = \begin{bmatrix} 1\\ \lambda_2 \\ \lambda_3 \end{bmatrix}, \hspace{1em} \bf{v}_{\lambda_3} = \begin{bmatrix} 1\\ \lambda_3 \\ \lambda_2 \end{bmatrix} \]
+
 
 
 ## General formula for eigenvalues of a 2-dim matrix
