@@ -405,7 +405,25 @@ Organization: Wikipedia
 
     \[ \bf{v}_{\lambda_1} = \begin{bmatrix} 1\\-1\\1/2 \end{bmatrix}, \hspace{1em} \bf{v}_{\lambda_2} = \begin{bmatrix} 0\\1\\-3 \end{bmatrix}, \hspace{1em} \hspace{1em} \begin{bmatrix} 0\\0\\1 \end{bmatrix} \]
 
++ Matrix w/ repeated eigenvalues
+  + consider the lower triangular matrix
 
+    \[ A = \begin{bmatrix} 2&0&0&0\\1&2&0&0\\0&1&3&0\\0&0&1&3 \end{bmatrix} \]
+
+  + the characteristic polynomial of $A$
+
+    \[ |A - \lambda I | = \begin}vmatrix} 2-\lambda&0&0&0\\1&2-\lambda&0&0\\1&2-\lambda&0&0\\0&1&3-\lambda&0\\0&0&1&3-\lambda \end{vmatrix} = (2-\lambda)^2(3-\lambda)^2 \]
+
+  + the roots of the characteristic polynomial: $\lambda_1 = 2, \lambda_2 = 3$
+  + the algebraic multiplicity of each eigenvalue: 2
+  + both double roots $\implies$ the sum of the algebraic multiplicity of all eigenvalues: $\mu_A = 4 = n$, the order of the characteristic polynomial and the dimension of $A$
+  + the geometric multiplicity of the eigenvalue 2: 1 
+    + the only eigenvector in the eigenspace: $[0 1 -1 1]^T$
+    + one dimension
+  + the geometric multiplicity of the eigenvalues 3: 1
+    + the only eigenvector in eigenspace: $[0 0 0 1]^T$
+    + one dimension
+  + total geometric multiplicity: $\gamma_A = 2$
 
 
 ## General formula for eigenvalues of a 2-dim matrix
