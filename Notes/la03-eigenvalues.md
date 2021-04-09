@@ -388,6 +388,25 @@ Organization: Wikipedia
   + the roots of characteristic polynomial = eigenvalues: $\lambda_1 = 1, \lambda_2 = 2, \lambda_3$
   + each diagonal element corresponds to an eigenvector whose only nonzero component is in the same row as the diagonal element
 
++ Triangular matrix
+  + lower triangular matrix: a diagonal matrix w/ elements above main diagonal = 0
+  + upper triangular matrix: a diagonal matrix w/ elements below main diagonal = 0
+  + the eigenvalues of triangular matrices = the elements of the main diagonal
+  + consider the lower triangular matrix
+
+    \[ A = \begin{bmatrix} 1&0&0\\1&2&0\\2&3&3 \end{bmatrix} \]
+
+  + the characteristic polynomial of $A$
+
+    \[ |A - \lambda I| = (1 - \lambda)(2 - \lambda)(3-\lambda) \]
+
+  + the roots of the characteristic polynomial: $\lambda_1 = 1, \lambda_2 = 2, \lambda_3 = 3$
+  + the corresponding eigenvectors
+
+    \[ \bf{v}_{\lambda_1} = \begin{bmatrix} 1\\-1\\1/2 \end{bmatrix}, \hspace{1em} \bf{v}_{\lambda_2} = \begin{bmatrix} 0\\1\\-3 \end{bmatrix}, \hspace{1em} \hspace{1em} \begin{bmatrix} 0\\0\\1 \end{bmatrix} \]
+
+
+
 
 ## General formula for eigenvalues of a 2-dim matrix
 
