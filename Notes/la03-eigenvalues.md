@@ -502,6 +502,30 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
     + the spectrum of an operator containing all its eigenvalues but not limited to them
 
 
+## Dynamic equations
+
++ Dynamic equations
+  + simplest difference equations
+
+    \[ x_t = a_1 x_{t-1} + a_2 x_{t-2} + \cdots + a_k x_{t-k} \]
+
+  + solution w/ characteristic equation
+
+    \[ \lambda^k - a_1 \lambda^{k-1} - a_2 \lambda^{k-2} - \cdots - a_{k-1} \lambda - a_k = 0 \]
+
+  + stacking the solution into matrix form $\to$ a set of equation consisting of the above difference equation
+  + the $k -1$ equations:
+    + $x_{t-1} = x_{t-1}, \dots, x_{t-k+1} = x_{t-k+1}$
+    + $k$-dim system of the first order in the stacked variable vector $[x_t \cdots x_{t-k+1}]$ in terms of its once-lagged value
+    + taking the characteristic equation of the system's matrix
+  + $k$ characteristic roots $\lambda_1, \dots, \lambda_k$ as the solution equation
+
+    \[ x_t = c_1 \lambda_1^t + \cdots + c_k \lambda_k^t \]
+
+  + similar procedure used for solving a differentiable equation of the form
+
+    \[ \frac{d^k x}{dt^k} + a_{k-1} \frac{d^{k-1} x}{dt^{k-1}} + \cdots + a_ \frac[d x}{dt} + a_0 x = 0] \]
+
 
 ## Calculation
 
