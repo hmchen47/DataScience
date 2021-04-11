@@ -453,6 +453,24 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
     \[ E = \{\bf{v}: T(\bf{v}) = \lambda \bf{v}\} \]
 
   + eigenspace / characteristic space of $T$, $E$: the union of the zero vector w/ the set of all eigenvectors associated w/ $\lambda$
+  + a linear transformation: $\forall\; \bf{u, v} \in V, \alpha \in K$
+
+    \[\begin{align*}
+      T(\bf{x} + \bf{y}) &= T(\bf{x}) + T(\bf{y}) \\
+      T(\alpha \bf{x}) &= \alpha T(\bf{x})
+    \end{align*}\]
+
+  + $\exists\; \bf{u}, \bf{v} \in E$, eigenvectors of $T$ associated w/ eigenvalue $\lambda \implies$
+
+    \[\begin{align*}
+      T(\bf{u} + \bf{v}) &= T(\bf{u}) + T(\bf{v}) \\
+      T(\alpha \bf{v}) &= \alpha T(\bf{v})
+    \end{align*}\]
+
+  + $\bf{u} + \bf{v} \in E$ w/ $E$ close under addition and scalar multiplication
+  + the eigenspace $E$ w/ $\lambda \implies$ a linear subspace of $V$
+  + eigenline: subspace w/ dimension 1
+  
 
 
 
