@@ -441,7 +441,10 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
 
     \[ T: V \to V \]
 
-  + __eigenvector:__ a nonzero vector $\bf{v} \in V$ of $T \iff \exists\; \lambda \in K$ s.t. $T(\bf{v}) = \lambda \bf{v}$
+  + __eigenvector:__ a nonzero vector $\bf{v} \in V$ of $T \iff \exists\; \lambda \in K$ s.t. 
+  
+    \[ T(\bf{v}) = \lambda \bf{v} \tag{5} \]
+
   + eigenvalue equation for $T$: $T(\bf{v}) = \lambda \bf{v}$
     + $\lambda$: the eigenvalue of $T$ corresponding to the eigenvector $\bf{v}$
     + $T(\bf{v})$: the result of the applying the transformation $T4 tot the vector $\bf{v}$
@@ -485,7 +488,11 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
   + the entire vector space $V$ spanned by the eigenvectors of $T$
   + the direct sum of the eigenspaces associated w/ all the eigenvalues of $T$ is the entire vector space $V \implies$ a basis of $V$, called an __eigenbasis__, formed from linearly independent eigenvectors of $T$
   + $T$ admits an eigenbasis $\implies$ $T$ diagonalizable
-  
+
++ Zero vector as an eigenvector
+  + let an eigenvalue to be any scalar $\lambda \in K$ s.t. $\exists\; \bf{v} \in V$ satifing Eq. (5)
+  + the vector must be nonzero $\because$ zero vector allows any scalar in $K$ to be an eigenvalue
+
 
 
 ## Calculation
