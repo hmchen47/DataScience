@@ -493,6 +493,14 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
   + let an eigenvalue to be any scalar $\lambda \in K$ s.t. $\exists\; \bf{v} \in V$ satifing Eq. (5)
   + the vector must be nonzero $\because$ zero vector allows any scalar in $K$ to be an eigenvalue
 
++ Spectral theory
+  + $\lambda$ as an eigenvalue of $T \implies$ the operator $(T - \lambda I)$ not one-to-one
+  + $(T - \lambda I)^{-1}$ not existed
+  + the operator $(T - \lambda I)$ w/o inverse even if $\lambda$ not an eigenvalue
+  + functional analysis
+    + eigenvalues generalized tot the spectrum of a linear operator $T$ as the set of all scalars $\lambda$
+    + the spectrum of an operator containing all its eigenvalues but not limited to them
+
 
 
 ## Calculation
