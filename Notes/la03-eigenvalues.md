@@ -470,7 +470,14 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
   + $\bf{u} + \bf{v} \in E$ w/ $E$ close under addition and scalar multiplication
   + the eigenspace $E$ w/ $\lambda \implies$ a linear subspace of $V$
   + eigenline: subspace w/ dimension 1
-  
+
++ Geometric multiplicity
+  + $\gamma_T(\lambda)$: the geometric multiplicity of an eigenvalue $\lambda$, the dimension of the eigenspace associated w/ $\lambda$
+  + the maximum number of linearly independent eigenvectors associated w/ that eigenvalue
+  + every eigenvalue at least one eigenvector $\implies \gamma_T(\lambda) \ge 1$
+  + the eigenspace of $T$ forming a direct sum
+    + eigenvectors of different eigenvalues always linearly independent
+    + the sum of the dimensions of the eigenspaces unable to exceed the dimension $n$ of the vector space on which $T$ operators
 
 
 
