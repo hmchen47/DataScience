@@ -479,6 +479,13 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
     + eigenvectors of different eigenvalues always linearly independent
     + the sum of the dimensions of the eigenspaces unable to exceed the dimension $n$ of the vector space on which $T$ operators
 
++ Eigenbasis
+  + invariant subspace: any subspace spanned by eigenvectors of $T$
+  + restriction of $T$: diagonalizable
+  + the entire vector space $V$ spanned by the eigenvectors of $T$
+  + the direct sum of the eigenspaces associated w/ all the eigenvalues of $T$ is the entire vector space $V \implies$ a basis of $V$, called an __eigenbasis__, formed from linearly independent eigenvectors of $T$
+  + $T$ admits an eigenbasis $\implies$ $T$ diagonalizable
+  
 
 
 ## Calculation
