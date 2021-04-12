@@ -94,7 +94,7 @@ Organization: Wikipedia
 + Characteristic polynomial
   + eigenvalue equation:
 
-    \[ (A - \lambda I)\bf{v} = \bf{0} \tag{2} \]
+    \[ (A - \lambda I)\bf{v} = \bf{0} \tag{2}\]
 
   + nonzero solution $v \iff \det((A - \lambda I)) = 0$
   + $\lambda$: the eigenvalues of $A$
@@ -529,7 +529,42 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
 
 ## Calculation
 
-+ 
++ Classical method
+  + procedure
+    + find the eigenvalue
+    + calculate the eigenvectors for each eigenvalue
+  + eigenvalues
+    + determined by finding the roots of the characteristic polynomial
+    + difficulty: increasing rapidly w/ the size of the matrix
+    + theorical:
+      + the coefficients of the characteristic polynomial computed exactly
+      + algorithms able to find all the roots of a polynomialof arbitrary degree to any required accuracy
+    + practical
+      + the coefficients contaminated by unavoided round-off errros
+      + roots of the a polynomial extremely sensitive function of the coefficients
+    + explicit algebraic formulas
+      + the roots of a polynomial exist only if the degress $n \le 4$
+      + Abel-Ruffini theorem: no general, explicit and exace algebraic formula for the roots of a polynomial w/ $ \ge 5$
+      + $n \ge 5$: eigenvalues and eigenvexctors computed by approximate numerical methods
+  + eigenvectors
+    + w/ a known eigenvalue, the corresponsing eigenvectors found by finding nonzero solutions of the eigenvalue equation
+    + a system of linear equations w/ known coefficients
+    + example
+      + consider $A$ w/ 6 as an eigenvalue
+
+        \[ A = \begin{bmatrix} 4&1\\6&3 \end{bmatrix} \]
+
+      + the eigenvectors by solving the equation $A\bf{v} = 6\bf{v}$
+
+        \[ \begin{bmatrix} 4&1\\6&3 \end{bmatrix} \begin{bmatrix} x\\y \end{bmatrix} = 6 \cdot \begin{bmatrix} x\\y \end{bmatrix} \]
+
+      + eigenvalue $\lambda = 6$
+        + the matrix equation = two linear equations
+
+          \[ \begin{cases} 4x + y &= 6x \\ 6x + 3y &= 6y \end{cases} \implies \begin{cases} -2x + y &= 0 \\ 6x -3y &= 0 \end{cases} \]
+      
+        + $therefore\; y = 2x \implies \begin{bmatrix} a \\ 2a \end{bmatrix}, \forall\; a \in \Bbb{R} - \{0\}$
+      + eigenvalue $\lambda = 1 \implies 3x + y = 0 \implies \begin{bmatrix} b \\ -3b \end{bmatrix}, \;\forall\; b \in \Bbb{R}- \{0\}] $
 
 
 
@@ -538,7 +573,7 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
 
 + Eigenvalues of geometric transformations
 
-  <table style="text-align:center; margin:1em auto 1em auto; width: 60vw;">
+  <table style="text-align:center; margin:1em auto 1em auto; width: 55vw;">
   <tbody><tr>
   <th>
   </th>
