@@ -577,9 +577,7 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\begin{bmatrix}k_{1}&amp;0\\0&amp;k_{2}\end{bmatrix}}}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0"><mrow><mrow><mo>[</mo><mtable rowspacing="4pt" columnspacing="1em"><mtr><mtd><msub><mi>k</mi><mrow><mn>1</mn></mrow></msub></mtd><mtd><mn>0</mn></mtd></mtr><mtr><mtd>2</mn></mrow></msub></mtd></mtr></mtable><mo>]</mo></mrow></mrow></mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><mrow><mrow><mo>[</mo><mtable rowspacing="4pt" columnspacing="1em"><mtr><mtd><msub><mi>k</mi><mrow><mn>1</mn></mrow></msub></mtd><mtd><mn>0</mn></mtd></mtr><mtr><mtd>2</mn></mrow></msub></mtd></mtr></mtable><mo>]</mo></mrow></mrow></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle {\begin{bmatrix}k_{1}&amp;0\\0&amp;k_{2}\end{bmatrix}}}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7bb5fc953bd28772a8946d5010c987f604198456" aria-hidden="true" style="vertical-align: -2.505ex; width:10.06ex; height:6.176ex;" alt="{\displaystyle {\begin{bmatrix}k_{1}&amp;0\\0&amp;k_{2}\end{bmatrix}}}"></span>
@@ -591,122 +589,36 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fe419a75a755a4061ffb54342fd7da682da59d10" aria-hidden="true" style="vertical-align: -2.505ex; width:9.518ex; height:6.176ex;" alt="{\displaystyle {\begin{bmatrix}c&amp;-s\\s&amp;c\end{bmatrix}}}"></span><br><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle c=\cos \theta }">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <mi>c</mi>
-          <mo>=</mo>
-          <mi>cos</mi>
-          <mo>⁡<!-- ⁡ --></mo>
-          <mi>θ<!-- θ --></mi>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><mi>c</mi><mo>=</mo><mi>cos</mi><mo>⁡<!-- ⁡ --></mo><mi>θ<!-- θ --></mi></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle c=\cos \theta }</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6baa53af54b1d724a7245a024f7b79172005a757" aria-hidden="true" style="vertical-align: -0.338ex; width:8.694ex; height:2.176ex;" alt="{\displaystyle c=\cos \theta }"></span><br><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle s=\sin \theta }">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <mi>s</mi>
-          <mo>=</mo>
-          <mi>sin</mi>
-          <mo>⁡<!-- ⁡ --></mo>
-          <mi>θ<!-- θ --></mi>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><mi>s</mi><mo>=</mo><mi>sin</mi><mo>⁡<!-- ⁡ --></mo><mi>θ<!-- θ --></mi></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle s=\sin \theta }</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2a780f95c74931076ff3a877ec63685ce848744e" aria-hidden="true" style="vertical-align: -0.338ex; width:8.522ex; height:2.176ex;" alt="{\displaystyle s=\sin \theta }"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\begin{bmatrix}1&amp;k\\0&amp;1\end{bmatrix}}}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <mrow>
-            <mrow>
-              <mo>[</mo>
-              <mtable rowspacing="4pt" columnspacing="1em">
-                <mtr>
-                  <mtd>
-                    <mn>1</mn>
-                  </mtd>
-                  <mtd>
-                    <mi>k</mi>
-                  </mtd>
-                </mtr>
-                <mtr>
-                  <mtd>
-                    <mn>0</mn>
-                  </mtd>
-                  <mtd>
-                    <mn>1</mn>
-                  </mtd>
-                </mtr>
-              </mtable>
-              <mo>]</mo>
-            </mrow>
-          </mrow>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><mrow><mrow><mo>[</mo><mtable rowspacing="4pt" columnspacing="1em"><mtr><mtd><mn>1</mn></mtd><mtd><mi>k</mi></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr></mtable><mo>]</mo></mrow></mrow></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle {\begin{bmatrix}1&amp;k\\0&amp;1\end{bmatrix}}}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/91500c98e17498645a476b428553f65bc739829b" aria-hidden="true" style="vertical-align: -2.505ex; width:7.903ex; height:6.176ex;" alt="{\displaystyle {\begin{bmatrix}1&amp;k\\0&amp;1\end{bmatrix}}}"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\begin{bmatrix}c&amp;s\\s&amp;c\end{bmatrix}}}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <mrow>
-            <mrow>
-              <mo>[</mo>
-              <mtable rowspacing="4pt" columnspacing="1em">
-                <mtr>
-                  <mtd>
-                    <mi>c</mi>
-                  </mtd>
-                  <mtd>
-                    <mi>s</mi>
-                  </mtd>
-                </mtr>
-                <mtr>
-                  <mtd>
-                    <mi>s</mi>
-                  </mtd>
-                  <mtd>
-                    <mi>c</mi>
-                  </mtd>
-                </mtr>
-              </mtable>
-              <mo>]</mo>
-            </mrow>
-          </mrow>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><mrow><mrow><mo>[</mo><mtable rowspacing="4pt" columnspacing="1em">
       <annotation encoding="application/x-tex">{\displaystyle {\begin{bmatrix}c&amp;s\\s&amp;c\end{bmatrix}}}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/08688e17a8535881d176d96693fecc1a5829432e" aria-hidden="true" style="vertical-align: -2.505ex; width:7.71ex; height:6.176ex;" alt="{\displaystyle {\begin{bmatrix}c&amp;s\\s&amp;c\end{bmatrix}}}"></span><br><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle c=\cosh \varphi }">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <mi>c</mi>
-          <mo>=</mo>
-          <mi>cosh</mi>
-          <mo>⁡<!-- ⁡ --></mo>
-          <mi>φ<!-- φ --></mi>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><mi>c</mi><mo>=</mo><mi>cosh</mi><mo>⁡<!-- ⁡ --></mo><mi>φ<!-- φ --></mi></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle c=\cosh \varphi }</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/080f3b967e77d7e4fe86de9610473ecdf13c70be" aria-hidden="true" style="vertical-align: -0.838ex; width:10.416ex; height:2.676ex;" alt="{\displaystyle c=\cosh \varphi }"></span><br><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle s=\sinh \varphi }">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <mi>s</mi>
-          <mo>=</mo>
-          <mi>sinh</mi>
-          <mo>⁡<!-- ⁡ --></mo>
-          <mi>φ<!-- φ --></mi>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><mi>s</mi><mo>=</mo><mi>sinh</mi><mo>⁡<!-- ⁡ --></mo><mi>φ<!-- φ --></mi></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle s=\sinh \varphi }</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1d47465eee3a66306293f395a6b720e1e63f89bf" aria-hidden="true" style="vertical-align: -0.838ex; width:10.244ex; height:2.676ex;" alt="{\displaystyle s=\sinh \varphi }"></span>
@@ -716,116 +628,35 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
   </th>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \ (\lambda -k)^{2}}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <mtext>&nbsp;</mtext>
-          <mo stretchy="false">(</mo>
-          <mi>λ<!-- λ --></mi>
-          <mo>−<!-- − --></mo>
-          <mi>k</mi>
-          <msup>
-            <mo stretchy="false">)</mo>
-            <mrow>
-              <mn>2</mn>
-            </mrow>
-          </msup>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><mtext>&nbsp;</mtext><mo stretchy="false">(</mo><mi>λ<!-- λ --></mi><mo>−<!-- − --></mo><mi>k</mi><msup><mo stretchy="false">)</mo><mrow><mn>2</mn></mrow></msup></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \ (\lambda -k)^{2}}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0fdb919512cf0ff0f4009cf5c2e5628d036154cb" aria-hidden="true" style="vertical-align: -0.838ex; width:8.851ex; height:3.176ex;" alt="\ (\lambda -k)^{2}"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle (\lambda -k_{1})(\lambda -k_{2})}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <mo stretchy="false">(</mo>
-          <mi>λ<!-- λ --></mi>
-          <mo>−<!-- − --></mo>
-          <msub>
-            <mi>k</mi>
-            <mrow>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-          <mo stretchy="false">)</mo>
-          <mo stretchy="false">(</mo>
-          <mi>λ<!-- λ --></mi>
-          <mo>−<!-- − --></mo>
-          <msub>
-            <mi>k</mi>
-            <mrow>
-              <mn>2</mn>
-            </mrow>
-          </msub>
-          <mo stretchy="false">)</mo>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><mo stretchy="false">(</mo><mi>λ<!-- λ --></mi><mo>−<!-- − --></mo><msub><mi>k</mi><mrow><mn>1</mn></mrow></msub><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>λ<!-- λ --></mi><mo>−<!-- − --></mo><msub><mi>k</mi><mrow><mn>2</mn></mrow></msub><mo stretchy="false">)</mo></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle (\lambda -k_{1})(\lambda -k_{2})}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/83039dceee60853050759e4ad606ca8a90068292" aria-hidden="true" style="vertical-align: -0.838ex; width:16.541ex; height:2.843ex;" alt="(\lambda -k_{1})(\lambda -k_{2})"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \lambda ^{2}-2c\lambda +1}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msup>
-            <mi>λ<!-- λ --></mi>
-            <mrow>
-              <mn>2</mn>
-            </mrow>
-          </msup>
-          <mo>−<!-- − --></mo>
-          <mn>2</mn>
-          <mi>c</mi>
-          <mi>λ<!-- λ --></mi>
-          <mo>+</mo>
-          <mn>1</mn>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msup><mi>λ<!-- λ --></mi><mrow><mn>2</mn></mrow></msup><mo>−<!-- − --></mo><mn>2</mn><mi>c</mi><mi>λ<!-- λ --></mi><mo>+</mo><mn>1</mn></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \lambda ^{2}-2c\lambda +1}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f7a70690556dbacded9c75a6c2cf0901abddf3e7" aria-hidden="true" style="vertical-align: -0.505ex; width:12.777ex; height:2.843ex;" alt="\lambda ^{2}-2c\lambda +1"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \ (\lambda -1)^{2}}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <mtext>&nbsp;</mtext>
-          <mo stretchy="false">(</mo>
-          <mi>λ<!-- λ --></mi>
-          <mo>−<!-- − --></mo>
-          <mn>1</mn>
-          <msup>
-            <mo stretchy="false">)</mo>
-            <mrow>
-              <mn>2</mn>
-            </mrow>
-          </msup>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><mtext>&nbsp;</mtext><mo stretchy="false">(</mo><mi>λ<!-- λ --></mi><mo>−<!-- − --></mo><mn>1</mn><msup><mo stretchy="false">)</mo><mrow><mn>2</mn></mrow></msup></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \ (\lambda -1)^{2}}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c87e8c25e09c5cdd0b21a172effb3f27efce3db9" aria-hidden="true" style="vertical-align: -0.838ex; width:8.802ex; height:3.176ex;" alt="\ (\lambda -1)^{2}"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \lambda ^{2}-2c\lambda +1}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msup>
-            <mi>λ<!-- λ --></mi>
-            <mrow>
-              <mn>2</mn>
-            </mrow>
-          </msup>
-          <mo>−<!-- − --></mo>
-          <mn>2</mn>
-          <mi>c</mi>
-          <mi>λ<!-- λ --></mi>
-          <mo>+</mo>
-          <mn>1</mn>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msup><mi>λ<!-- λ --></mi><mrow><mn>2</mn></mrow></msup><mo>−<!-- − --></mo><mn>2</mn><mi>c</mi><mi>λ<!-- λ --></mi><mo>+</mo><mn>1</mn></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \lambda ^{2}-2c\lambda +1}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f7a70690556dbacded9c75a6c2cf0901abddf3e7" aria-hidden="true" style="vertical-align: -0.505ex; width:12.777ex; height:2.843ex;" alt="\lambda ^{2}-2c\lambda +1"></span>
@@ -833,212 +664,57 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
   <tr>
   <th>Eigenvalues, <span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \lambda _{i}}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>λ<!-- λ --></mi>
-            <mrow>
-              <mi>i</mi>
-            </mrow>
-          </msub>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>λ<!-- λ --></mi><mrow><mi>i</mi></mrow></msub></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \lambda _{i}}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/72fde940918edf84caf3d406cc7d31949166820f" aria-hidden="true" style="vertical-align: -0.671ex; width:2.155ex; height:2.509ex;" alt="\lambda _{i}"></span>
   </th>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \lambda _{1}=\lambda _{2}=k}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>λ<!-- λ --></mi>
-            <mrow>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <msub>
-            <mi>λ<!-- λ --></mi>
-            <mrow>
-              <mn>2</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mi>k</mi>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>λ<!-- λ --></mi><mrow><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>λ<!-- λ --></mi><mrow><mn>2</mn></mrow></msub><mo>=</mo><mi>k</mi></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \lambda _{1}=\lambda _{2}=k}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/326cbde7a4ba5352e8b638532df84753d1ec4b4f" aria-hidden="true" style="vertical-align: -0.671ex; width:12.227ex; height:2.509ex;" alt="\lambda _{1}=\lambda _{2}=k"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \lambda _{1}=k_{1}}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>λ<!-- λ --></mi>
-            <mrow>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <msub>
-            <mi>k</mi>
-            <mrow>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>λ<!-- λ --></mi><mrow><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>k</mi><mrow><mn>1</mn></mrow></msub></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \lambda _{1}=k_{1}}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/78ae6617a5303fafd2bae47632d9d9a7dc81642e" aria-hidden="true" style="vertical-align: -0.671ex; width:7.773ex; height:2.509ex;" alt="\lambda _{1}=k_{1}"></span><br><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \lambda _{2}=k_{2}}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>λ<!-- λ --></mi>
-            <mrow>
-              <mn>2</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <msub>
-            <mi>k</mi>
-            <mrow>
-              <mn>2</mn>
-            </mrow>
-          </msub>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>λ<!-- λ --></mi><mrow><mn>2</mn></mrow></msub><mo>=</mo><msub><mi>k</mi><mrow><mn>2</mn></mrow></msub></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \lambda _{2}=k_{2}}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ac5003f99ebb5285d2afe3c30927f1ea3a18f32e" aria-hidden="true" style="vertical-align: -0.671ex; width:7.773ex; height:2.509ex;" alt="\lambda _{2}=k_{2}"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \lambda _{1}=e^{i\theta }=c+si}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>λ<!-- λ --></mi>
-            <mrow>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <msup>
-            <mi>e</mi>
-            <mrow>
-              <mi>i</mi>
-              <mi>θ<!-- θ --></mi>
-            </mrow>
-          </msup>
-          <mo>=</mo>
-          <mi>c</mi>
-          <mo>+</mo>
-          <mi>s</mi>
-          <mi>i</mi>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>λ<!-- λ --></mi><mrow><mn>1</mn></mrow></msub><mo>=</mo><msup><mi>e</mi><mrow><mi>i</mi><mi>θ<!-- θ --></mi></mrow></msup><mo>=</mo><mi>c</mi><mo>+</mo><mi>s</mi><mi>i</mi></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \lambda _{1}=e^{i\theta }=c+si}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1fa44786d4f2cc95c4b24e4329a322e2bc9b5dcd" aria-hidden="true" style="vertical-align: -0.671ex; width:17.001ex; height:3.009ex;" alt="{\displaystyle \lambda _{1}=e^{i\theta }=c+si}"></span><br><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \lambda _{2}=e^{-i\theta }=c-si}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>λ<!-- λ --></mi>
-            <mrow>
-              <mn>2</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <msup>
-            <mi>e</mi>
-            <mrow>
-              <mo>−<!-- − --></mo>
-              <mi>i</mi>
-              <mi>θ<!-- θ --></mi>
-            </mrow>
-          </msup>
-          <mo>=</mo>
-          <mi>c</mi>
-          <mo>−<!-- − --></mo>
-          <mi>s</mi>
-          <mi>i</mi>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>λ<!-- λ --></mi><mrow><mn>2</mn></mrow></msub><mo>=</mo><msup><mi>e</mi><mrow><mo>−<!-- − --></mo><mi>i</mi><mi>θ<!-- θ --></mi></mrow></msup><mo>=</mo><mi>c</mi><mo>−<!-- − --></mo><mi>s</mi><mi>i</mi></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \lambda _{2}=e^{-i\theta }=c-si}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c5b7a54f4fa6bae6e57d3343c8bec0c25c6867d7" aria-hidden="true" style="vertical-align: -0.671ex; width:18.279ex; height:3.009ex;" alt="{\displaystyle \lambda _{2}=e^{-i\theta }=c-si}"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \lambda _{1}=\lambda _{2}=1}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>λ<!-- λ --></mi>
-            <mrow>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <msub>
-            <mi>λ<!-- λ --></mi>
-            <mrow>
-              <mn>2</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mn>1</mn>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>λ<!-- λ --></mi><mrow><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>λ<!-- λ --></mi><mrow><mn>2</mn></mrow></msub><mo>=</mo><mn>1</mn></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \lambda _{1}=\lambda _{2}=1}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8110a57bf3475c2bfba8d4af326160500b7bef6f" aria-hidden="true" style="vertical-align: -0.671ex; width:12.178ex; height:2.509ex;" alt="\lambda _{1}=\lambda _{2}=1"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \lambda _{1}=e^{\varphi }}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>λ<!-- λ --></mi>
-            <mrow>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <msup>
-            <mi>e</mi>
-            <mrow>
-              <mi>φ<!-- φ --></mi>
-            </mrow>
-          </msup>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>λ<!-- λ --></mi><mrow><mn>1</mn></mrow></msub><mo>=</mo><msup><mi>e</mi><mrow><mi>φ<!-- φ --></mi></mrow></msup></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \lambda _{1}=e^{\varphi }}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/66978ed4f5bfb501db97a3b645b8e34ad901dc72" aria-hidden="true" style="vertical-align: -0.671ex; width:7.899ex; height:2.676ex;" alt="\lambda _{1}=e^{\varphi }"></span><br><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \lambda _{2}=e^{-\varphi }}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>λ<!-- λ --></mi>
-            <mrow>
-              <mn>2</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <msup>
-            <mi>e</mi>
-            <mrow>
-              <mo>−<!-- − --></mo>
-              <mi>φ<!-- φ --></mi>
-            </mrow>
-          </msup>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>λ<!-- λ --></mi><mrow><mn>2</mn></mrow></msub><mo>=</mo><msup><mi>e</mi><mrow><mo>−<!-- − --></mo><mi>φ<!-- φ --></mi></mrow></msup></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \lambda _{2}=e^{-\varphi }}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2321e6824b3067d46abe87853d4b436e3868c2ff" aria-hidden="true" style="vertical-align: -0.671ex; width:9.177ex; height:2.843ex;" alt="\lambda _{2}=e^{-\varphi }"></span>,
@@ -1046,164 +722,56 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
   <tr>
   <th>Algebraic <abbr title="multiplicity">mult.</abbr>,<br><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \mu _{i}=\mu (\lambda _{i})}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>μ<!-- μ --></mi>
-            <mrow>
-              <mi>i</mi>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mi>μ<!-- μ --></mi>
-          <mo stretchy="false">(</mo>
-          <msub>
-            <mi>λ<!-- λ --></mi>
-            <mrow>
-              <mi>i</mi>
-            </mrow>
-          </msub>
-          <mo stretchy="false">)</mo>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>μ<!-- μ --></mi><mrow><mi>i</mi></mrow></msub><mo>=</mo><mi>μ<!-- μ --></mi><mo stretchy="false">(</mo><msub><mi>λ<!-- λ --></mi><mrow><mi>i</mi></mrow></msub><mo stretchy="false">)</mo></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \mu _{i}=\mu (\lambda _{i})}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/44a86bfbea85072f96882d88c90d4a1d8d42a7e5" aria-hidden="true" style="vertical-align: -0.838ex; width:10.666ex; height:2.843ex;" alt="{\displaystyle \mu _{i}=\mu (\lambda _{i})}"></span>
   </th>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \mu _{1}=2}">
-    <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>μ<!-- μ --></mi>
-            <mrow>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mn>2</mn>
-        </mstyle>
-      </mrow>
+    <semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>μ<!-- μ --></mi><mrow><mn>1</mn></mrow></msub><mo>=</mo><mn>2</mn></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \mu _{1}=2}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/37b804debefab063745106268754e2ad8f83a033" aria-hidden="true" style="vertical-align: -0.838ex; width:6.717ex; height:2.676ex;" alt="\mu _{1}=2"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \mu _{1}=1}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>μ<!-- μ --></mi>
-            <mrow>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mn>1</mn>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>μ<!-- μ --></mi><mrow><mn>1</mn></mrow></msub><mo>=</mo><mn>1</mn></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \mu _{1}=1}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/093269c0f47ef7efeb987e03733c11183738bea1" aria-hidden="true" style="vertical-align: -0.838ex; width:6.717ex; height:2.676ex;" alt="\mu _{1}=1"></span><br><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \mu _{2}=1}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>μ<!-- μ --></mi>
-            <mrow>
-              <mn>2</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mn>1</mn>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>μ<!-- μ --></mi><mrow><mn>2</mn></mrow></msub><mo>=</mo><mn>1</mn></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \mu _{2}=1}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/037818fb3de56a2ed84255e914be2f61db842133" aria-hidden="true" style="vertical-align: -0.838ex; width:6.717ex; height:2.676ex;" alt="\mu _{2}=1"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \mu _{1}=1}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>μ<!-- μ --></mi>
-            <mrow>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mn>1</mn>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>μ<!-- μ --></mi><mrow><mn>1</mn></mrow></msub><mo>=</mo><mn>1</mn></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \mu _{1}=1}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/093269c0f47ef7efeb987e03733c11183738bea1" aria-hidden="true" style="vertical-align: -0.838ex; width:6.717ex; height:2.676ex;" alt="\mu _{1}=1"></span><br><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \mu _{2}=1}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>μ<!-- μ --></mi>
-            <mrow>
-              <mn>2</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mn>1</mn>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>μ<!-- μ --></mi><mrow><mn>2</mn></mrow></msub><mo>=</mo><mn>1</mn></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \mu _{2}=1}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/037818fb3de56a2ed84255e914be2f61db842133" aria-hidden="true" style="vertical-align: -0.838ex; width:6.717ex; height:2.676ex;" alt="\mu _{2}=1"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \mu _{1}=2}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>μ<!-- μ --></mi>
-            <mrow>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mn>2</mn>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>μ<!-- μ --></mi><mrow><mn>1</mn></mrow></msub><mo>=</mo><mn>2</mn></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \mu _{1}=2}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/37b804debefab063745106268754e2ad8f83a033" aria-hidden="true" style="vertical-align: -0.838ex; width:6.717ex; height:2.676ex;" alt="\mu _{1}=2"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \mu _{1}=1}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>μ<!-- μ --></mi>
-            <mrow>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mn>1</mn>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>μ<!-- μ --></mi><mrow><mn>1</mn></mrow></msub><mo>=</mo><mn>1</mn></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \mu _{1}=1}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/093269c0f47ef7efeb987e03733c11183738bea1" aria-hidden="true" style="vertical-align: -0.838ex; width:6.717ex; height:2.676ex;" alt="\mu _{1}=1"></span><br><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \mu _{2}=1}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>μ<!-- μ --></mi>
-            <mrow>
-              <mn>2</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mn>1</mn>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>μ<!-- μ --></mi><mrow><mn>2</mn></mrow></msub><mo>=</mo><mn>1</mn></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \mu _{2}=1}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/037818fb3de56a2ed84255e914be2f61db842133" aria-hidden="true" style="vertical-align: -0.838ex; width:6.717ex; height:2.676ex;" alt="\mu _{2}=1"></span>
@@ -1211,164 +779,57 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
   <tr>
   <th>Geometric <abbr title="multiplicity">mult.</abbr>,<br><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \gamma _{i}=\gamma (\lambda _{i})}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>γ<!-- γ --></mi>
-            <mrow>
-              <mi>i</mi>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mi>γ<!-- γ --></mi>
-          <mo stretchy="false">(</mo>
-          <msub>
-            <mi>λ<!-- λ --></mi>
-            <mrow>
-              <mi>i</mi>
-            </mrow>
-          </msub>
-          <mo stretchy="false">)</mo>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>γ<!-- γ --></mi><mrow><mi>i</mi></mrow></msub><mo>=</mo><mi>γ<!-- γ --></mi><mo stretchy="false">(</mo><msub><mi>λ<!-- λ --></mi><mrow><mi>i</mi></mrow></msub><mo stretchy="false">)</mo></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \gamma _{i}=\gamma (\lambda _{i})}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ce3237dd9f6f5daba876c3e39baefcfbcca24504" aria-hidden="true" style="vertical-align: -0.838ex; width:10.329ex; height:2.843ex;" alt="\gamma _{i}=\gamma (\lambda _{i})"></span>
   </th>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \gamma _{1}=2}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>γ<!-- γ --></mi>
-            <mrow>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mn>2</mn>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>γ<!-- γ --></mi><mrow><mn>1</mn></mrow></msub><mo>=</mo><mn>2</mn></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \gamma _{1}=2}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6e807587733866aeb774d767add51a536fe647f9" aria-hidden="true" style="vertical-align: -0.838ex; width:6.519ex; height:2.676ex;" alt="\gamma _{1}=2"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \gamma _{1}=1}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>γ<!-- γ --></mi>
-            <mrow>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mn>1</mn>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>γ<!-- γ --></mi><mrow><mn>1</mn></mrow></msub><mo>=</mo><mn>1</mn></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \gamma _{1}=1}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/79b71e25e13c46dad7b2f6e07c3b6cf6e7a739d9" aria-hidden="true" style="vertical-align: -0.838ex; width:6.519ex; height:2.676ex;" alt="\gamma _{1}=1"></span><br><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \gamma _{2}=1}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>γ<!-- γ --></mi>
-            <mrow>
-              <mn>2</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mn>1</mn>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>γ<!-- γ --></mi><mrow><mn>2</mn></mrow></msub><mo>=</mo><mn>1</mn></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \gamma _{2}=1}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/55749b967103dbda8fffc595eccad3afce20cbec" aria-hidden="true" style="vertical-align: -0.838ex; width:6.519ex; height:2.676ex;" alt="\gamma _{2}=1"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \gamma _{1}=1}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>γ<!-- γ --></mi>
-            <mrow>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mn>1</mn>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>γ<!-- γ --></mi><mrow><mn>1</mn></mrow></msub><mo>=</mo><mn>1</mn></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \gamma _{1}=1}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/79b71e25e13c46dad7b2f6e07c3b6cf6e7a739d9" aria-hidden="true" style="vertical-align: -0.838ex; width:6.519ex; height:2.676ex;" alt="\gamma _{1}=1"></span><br><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \gamma _{2}=1}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>γ<!-- γ --></mi>
-            <mrow>
-              <mn>2</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mn>1</mn>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>γ<!-- γ --></mi><mrow><mn>2</mn></mrow></msub><mo>=</mo><mn>1</mn></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \gamma _{2}=1}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/55749b967103dbda8fffc595eccad3afce20cbec" aria-hidden="true" style="vertical-align: -0.838ex; width:6.519ex; height:2.676ex;" alt="\gamma _{2}=1"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \gamma _{1}=1}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>γ<!-- γ --></mi>
-            <mrow>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mn>1</mn>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>γ<!-- γ --></mi><mrow><mn>1</mn></mrow></msub><mo>=</mo><mn>1</mn></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \gamma _{1}=1}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/79b71e25e13c46dad7b2f6e07c3b6cf6e7a739d9" aria-hidden="true" style="vertical-align: -0.838ex; width:6.519ex; height:2.676ex;" alt="\gamma _{1}=1"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \gamma _{1}=1}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>γ<!-- γ --></mi>
-            <mrow>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mn>1</mn>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>γ<!-- γ --></mi><mrow><mn>1</mn></mrow></msub><mo>=</mo><mn>1</mn></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \gamma _{1}=1}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/79b71e25e13c46dad7b2f6e07c3b6cf6e7a739d9" aria-hidden="true" style="vertical-align: -0.838ex; width:6.519ex; height:2.676ex;" alt="\gamma _{1}=1"></span><br><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \gamma _{2}=1}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mi>γ<!-- γ --></mi>
-            <mrow>
-              <mn>2</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mn>1</mn>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mi>γ<!-- γ --></mi><mrow><mn>2</mn></mrow></msub><mo>=</mo><mn>1</mn></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \gamma _{2}=1}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/55749b967103dbda8fffc595eccad3afce20cbec" aria-hidden="true" style="vertical-align: -0.838ex; width:6.519ex; height:2.676ex;" alt="\gamma _{2}=1"></span>
@@ -1380,223 +841,28 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\begin{aligned}\mathbf {u} _{1}&amp;={\begin{bmatrix}1\\0\end{bmatrix}}\\\mathbf {u} _{2}&amp;={\begin{bmatrix}0\\1\end{bmatrix}}\end{aligned}}}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <mrow>
-            <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
-              <mtr>
-                <mtd>
-                  <msub>
-                    <mrow>
-                      <mi mathvariant="bold">u</mi>
-                    </mrow>
-                    <mrow>
-                      <mn>1</mn>
-                    </mrow>
-                  </msub>
-                </mtd>
-                <mtd>
-                  <mi></mi>
-                  <mo>=</mo>
-                  <mrow>
-                    <mrow>
-                      <mo>[</mo>
-                      <mtable rowspacing="4pt" columnspacing="1em">
-                        <mtr>
-                          <mtd>
-                            <mn>1</mn>
-                          </mtd>
-                        </mtr>
-                        <mtr>
-                          <mtd>
-                            <mn>0</mn>
-                          </mtd>
-                        </mtr>
-                      </mtable>
-                      <mo>]</mo>
-                    </mrow>
-                  </mrow>
-                </mtd>
-              </mtr>
-              <mtr>
-                <mtd>
-                  <msub>
-                    <mrow>
-                      <mi mathvariant="bold">u</mi>
-                    </mrow>
-                    <mrow>
-                      <mn>2</mn>
-                    </mrow>
-                  </msub>
-                </mtd>
-                <mtd>
-                  <mi></mi>
-                  <mo>=</mo>
-                  <mrow>
-                    <mrow>
-                      <mo>[</mo>
-                      <mtable rowspacing="4pt" columnspacing="1em">
-                        <mtr>
-                          <mtd>
-                            <mn>0</mn>
-                          </mtd>
-                        </mtr>
-                        <mtr>
-                          <mtd>
-                            <mn>1</mn>
-                          </mtd>
-                        </mtr>
-                      </mtable>
-                      <mo>]</mo>
-                    </mrow>
-                  </mrow>
-                </mtd>
-              </mtr>
-            </mtable>
-          </mrow>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><mrow><mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true"><mtr><mtd><msub><mrow><mi mathvariant="bold">u</mi></mrow><mrow><mn>1</mn></mrow></msub></mtd><mtd><mi></mi><mo>=</mo><mrow><mrow><mo>[</mo><mtable rowspacing="4pt" columnspacing="1em"><mtr><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr></mtable><mo>]</mo></mrow></mrow></mtd></mtr><mtr><mtd><msub><mrow><mi mathvariant="bold">u</mi></mrow><mrow><mn>2</mn></mrow></msub></mtd><mtd><mi></mi><mo>=</mo><mrow><mrow><mo>[</mo><mtable rowspacing="4pt" columnspacing="1em"><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>1</mn></mtd></mtr></mtable><mo>]</mo></mrow></mrow></mtd></mtr></mtable></mrow></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle {\begin{aligned}\mathbf {u} _{1}&amp;={\begin{bmatrix}1\\0\end{bmatrix}}\\\mathbf {u} _{2}&amp;={\begin{bmatrix}0\\1\end{bmatrix}}\end{aligned}}}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7a1069ff8e7733cfde92189c7fff9b12ebd734e3" aria-hidden="true" style="vertical-align: -5.671ex; width:10.758ex; height:12.509ex;" alt="{\displaystyle {\begin{aligned}\mathbf {u} _{1}&amp;={\begin{bmatrix}1\\0\end{bmatrix}}\\\mathbf {u} _{2}&amp;={\begin{bmatrix}0\\1\end{bmatrix}}\end{aligned}}}"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\begin{aligned}\mathbf {u} _{1}&amp;={\begin{bmatrix}1\\-i\end{bmatrix}}\\\mathbf {u} _{2}&amp;={\begin{bmatrix}1\\+i\end{bmatrix}}\end{aligned}}}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <mrow>
-            <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
-              <mtr>
-                <mtd>
-                  <msub>
-                    <mrow>
-                      <mi mathvariant="bold">u</mi>
-                    </mrow>
-                    <mrow>
-                      <mn>1</mn>
-                    </mrow>
-                  </msub>
-                </mtd>
-                <mtd>
-                  <mi></mi>
-                  <mo>=</mo>
-                  <mrow>
-                    <mrow>
-                      <mo>[</mo>
-                      <mtable rowspacing="4pt" columnspacing="1em">
-                        <mtr>
-                          <mtd>
-                            <mn>1</mn>
-                          </mtd>
-                        </mtr>
-                        <mtr>
-                          <mtd>
-                            <mo>−<!-- − --></mo>
-                            <mi>i</mi>
-                          </mtd>
-                        </mtr>
-                      </mtable>
-                      <mo>]</mo>
-                    </mrow>
-                  </mrow>
-                </mtd>
-              </mtr>
-              <mtr>
-                <mtd>
-                  <msub>
-                    <mrow>
-                      <mi mathvariant="bold">u</mi>
-                    </mrow>
-                    <mrow>
-                      <mn>2</mn>
-                    </mrow>
-                  </msub>
-                </mtd>
-                <mtd>
-                  <mi></mi>
-                  <mo>=</mo>
-                  <mrow>
-                    <mrow>
-                      <mo>[</mo>
-                      <mtable rowspacing="4pt" columnspacing="1em">
-                        <mtr>
-                          <mtd>
-                            <mn>1</mn>
-                          </mtd>
-                        </mtr>
-                        <mtr>
-                          <mtd>
-                            <mo>+</mo>
-                            <mi>i</mi>
-                          </mtd>
-                        </mtr>
-                      </mtable>
-                      <mo>]</mo>
-                    </mrow>
-                  </mrow>
-                </mtd>
-              </mtr>
-            </mtable>
-          </mrow>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><mrow><mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true"><mtr><mtd><msub><mrow><mi mathvariant="bold">u</mi></mrow><mrow><mn>1</mn></mrow></msub></mtd><mtd><mi></mi><mo>=</mo><mrow><mrow><mo>[</mo><mtable rowspacing="4pt" columnspacing="1em"><mtr><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mo>−<!-- − --></mo><mi>i</mi></mtd></mtr></mtable><mo>]</mo></mrow></mrow></mtd></mtr><mtr><mtd><msub><mrow><mi mathvariant="bold">u</mi></mrow><mrow><mn>2</mn></mrow></msub></mtd><mtd><mi></mi><mo>=</mo><mrow><mrow><mo>[</mo><mtable rowspacing="4pt" columnspacing="1em"><mtr><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mo>+</mo><mi>i</mi></mtd></mtr></mtable><mo>]</mo></mrow></mrow></mtd></mtr></mtable></mrow></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle {\begin{aligned}\mathbf {u} _{1}&amp;={\begin{bmatrix}1\\-i\end{bmatrix}}\\\mathbf {u} _{2}&amp;={\begin{bmatrix}1\\+i\end{bmatrix}}\end{aligned}}}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ebfcdafb92833dd29fcabb84de5349c305bf4626" aria-hidden="true" style="vertical-align: -5.671ex; width:12.207ex; height:12.509ex;" alt="{\displaystyle {\begin{aligned}\mathbf {u} _{1}&amp;={\begin{bmatrix}1\\-i\end{bmatrix}}\\\mathbf {u} _{2}&amp;={\begin{bmatrix}1\\+i\end{bmatrix}}\end{aligned}}}"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \mathbf {u} _{1}={\begin{bmatrix}1\\0\end{bmatrix}}}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <msub>
-            <mrow>
-              <mi mathvariant="bold">u</mi>
-            </mrow>
-            <mrow>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-          <mo>=</mo>
-          <mrow>
-            <mrow>
-              <mo>[</mo>
-              <mtable rowspacing="4pt" columnspacing="1em">
-                <mtr>
-                  <mtd>
-                    <mn>1</mn>
-                  </mtd>
-                </mtr>
-                <mtr>
-                  <mtd>
-                    <mn>0</mn>
-                  </mtd>
-                </mtr>
-              </mtable>
-              <mo>]</mo>
-            </mrow>
-          </mrow>
-        </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><msub><mrow><mi mathvariant="bold">u</mi></mrow><mrow><mn>1</mn></mrow></msub><mo>=</mo><mrow><mrow><mo>[</mo><mtable rowspacing="4pt" columnspacing="1em"><mtr><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr></mtable><mo>]</mo></mrow></mrow></mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle \mathbf {u} _{1}={\begin{bmatrix}1\\0\end{bmatrix}}}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/de1f984884c937803d30931a83c5310fefb97b5d" aria-hidden="true" style="vertical-align: -2.505ex; width:10.007ex; height:6.176ex;" alt="{\displaystyle \mathbf {u} _{1}={\begin{bmatrix}1\\0\end{bmatrix}}}"></span>
   </td>
   <td><span><span style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\begin{aligned}\mathbf {u} _{1}&amp;={\begin{bmatrix}1\\1\end{bmatrix}}\\\mathbf {u} _{2}&amp;={\begin{bmatrix}1\\-1\end{bmatrix}}.\end{aligned}}}">
     <semantics>
-      <mrow>
-        <mstyle displaystyle="true" scriptlevel="0">
-          <mrow>
-            <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
-              <mtr>
-                <mtd><msub><mrow><mi mathvariant="bold">u</mi></mrow><mrow><mn>1</mn></mrow></msub></mtd>
-                <mtd><mi></mi><mo>=</mo><mrow><mrow><mo>[</mo><mtable rowspacing="4pt" columnspacing="1em"><mtr><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mn>1</mn></mtd></mtr></mtable><mo>]</mo></mrow></mrow></mtd>
-              </mtr>
-              <mtr><mtd><msub><mrow><mi mathvariant="bold">u</mi></mrow><mrow><mn>2</mn></mrow></msub></mtd>
-        <mtd>
-          <mi></mi>
-          <mo>=</mo><mrow><mrow><mo>[</mo><mtable rowspacing="4pt" columnspacing="1em"><mtr><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mo>−<!-- − --></mo><mn>1</mn></mtd></mtr></mtable><mo>]</mo></mrow></mrow><mo>.</mo>
-        </mtd></mtr></mtable> </mrow> </mstyle>
-      </mrow>
+      <mrow><mstyle displaystyle="true" scriptlevel="0"><mrow><mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true"><mtr><mtd><msub><mrow><mi mathvariant="bold">u</mi></mrow><mrow><mn>1</mn></mrow></msub></mtd><mtd><mi></mi><mo>=</mo><mrow><mrow><mo>[</mo><mtable rowspacing="4pt" columnspacing="1em"><mtr><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mn>1</mn></mtd></mtr></mtable><mo>]</mo></mrow></mrow></mtd></mtr><mtr><mtd><msub><mrow><mi mathvariant="bold">u</mi></mrow><mrow><mn>2</mn></mrow></msub></mtd><mtd><mi></mi><mo>=</mo><mrow><mrow><mo>[</mo><mtable rowspacing="4pt" columnspacing="1em"><mtr><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mo>−<!-- − --></mo><mn>1</mn></mtd></mtr></mtable><mo>]</mo></mrow></mrow><mo>.</mo></mtd></mtr></mtable> </mrow> </mstyle></mrow>
       <annotation encoding="application/x-tex">{\displaystyle {\begin{aligned}\mathbf {u} _{1}&amp;={\begin{bmatrix}1\\1\end{bmatrix}}\\\mathbf {u} _{2}&amp;={\begin{bmatrix}1\\-1\end{bmatrix}}.\end{aligned}}}</annotation>
     </semantics>
   </math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b925c7647d284eec56cd2b47431cd9392945d4cf" aria-hidden="true" style="vertical-align: -5.671ex; width:13.213ex; height:12.509ex;" alt="{\displaystyle {\begin{aligned}\mathbf {u} _{1}&amp;={\begin{bmatrix}1\\1\end{bmatrix}}\\\mathbf {u} _{2}&amp;={\begin{bmatrix}1\\-1\end{bmatrix}}.\end{aligned}}}"></span>
