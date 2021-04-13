@@ -55,6 +55,7 @@
 
 ### Eigenvalues and Eigenvector
 
++ Wikipedia, [Eigenvalues and Eigenvector](../Notes/la03-eigenvalues.md)
 
 
 ## Artificial Intelligence
