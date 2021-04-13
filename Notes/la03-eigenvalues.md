@@ -566,6 +566,18 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
         + $therefore\; y = 2x \implies \begin{bmatrix} a \\ 2a \end{bmatrix}, \forall\; a \in \Bbb{R} - \{0\}$
       + eigenvalue $\lambda = 1 \implies 3x + y = 0 \implies \begin{bmatrix} b \\ -3b \end{bmatrix}, \;\forall\; b \in \Bbb{R}- \{0\}] $
 
++ Simple iterative methods
+  + first find the eigenvectiors and then determining each eigenvalue from the corresponding eigenvector
+  + easiest algorithm:
+    + picking an arbitrary starting vector
+    + repeatedly multiplying it w/ the matrix
+    + converged toward an eigenvector
+  + variation: multiplying $(A - \mu I)^{-1} \;\because$ converged to an eigenvector of the eigenvalue closest to $\mu \in \Bbb{C}$
+  + $\bf{v}$ as an eigenvector of $A \implies$ the corresponding eigenvalue computed as
+
+    \[ \lambda = \frac{\bf{v}^\star A \bf{v}}{\bf{v}^\star\bf{v}} \]
+
+    where $\bf{v}^\star$ = the conjugate transpose of $\bf{v}$
 
 
 
