@@ -562,12 +562,12 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
         + the matrix equation = two linear equations
 
           \[ \begin{cases} 4x + y &= 6x \\ 6x + 3y &= 6y \end{cases} \implies \begin{cases} -2x + y &= 0 \\ 6x -3y &= 0 \end{cases} \]
-      
+
         + $therefore\; y = 2x \implies \begin{bmatrix} a \\ 2a \end{bmatrix}, \forall\; a \in \Bbb{R} - \{0\}$
       + eigenvalue $\lambda = 1 \implies 3x + y = 0 \implies \begin{bmatrix} b \\ -3b \end{bmatrix}, \;\forall\; b \in \Bbb{R}- \{0\}] $
 
 + Simple iterative methods
-  + first find the eigenvectiors and then determining each eigenvalue from the corresponding eigenvector
+  + first find the eigenvectors and then determining each eigenvalue from the corresponding eigenvector
   + easiest algorithm:
     + picking an arbitrary starting vector
     + repeatedly multiplying it w/ the matrix
@@ -579,6 +579,15 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
 
     where $\bf{v}^\star$ = the conjugate transpose of $\bf{v}$
 
++ Modern methods
+  + QR algorithm: efficient, accurate methods to compute eigenvalues and eigrnvectors of arbitrary matrices
+  + combining the Householder transformation w/ the LU decomposition results in an algorithm better than QR algorithm
+  + Lanczos algorithm
+    + for large Hermitian sparse matrices
+    + an efficient iterative method to compute eigenvalues and eigenvectors
+  + numeric methods
+    + comuting the eigenvalues of a matrix also determine a st of corresponding eigenvectors as a by-product of the computation
+    + sometimes implementation discarding the eigenvector infromation as soon as it not required
 
 
 ## Applications
