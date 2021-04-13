@@ -925,5 +925,32 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
   </td></tr></tbody></table>
 
 
++ Schrödinger  equation
+  + the transformation $T$ = differential operator
+  + the time-independent Schrödinger equation in quantum mechanics
+
+    \[ H \psi_E = E \psi_E \]
+
+    + $H$: the Hamiltonian, a second-order differential operator
+    + $\psi_E$: the wavefunction, one of its eigenfunctions corresponding to the eigenspace, $E$, interpreted as its emergy
+  + bound state solutions
+    + finding $\psi_E$ within the space of square integrable functions
+    + the space:
+      + a Hilbert space w/ a well-defined scalar product
+      + introducing a basis set
+      + $\psi_E$: a 1-dim array (vector)
+      + $H$: a matrix
+  + bra_ket notation:
+    + a vector as a state of the system
+    + $|\pis_E\rangle$: the Hilbert space of square integrable fucntions
+    + the Schrödinger equation
+
+      \[ H|\Pis_E\langle = E |\Psi_E\langle \]
+
+      + $|\Psi_E\langle$: an eigenstate of $H$
+      + $E$: the eigenvalue
+      + $H$: an obserable self disjoint operator, the infinite-dimensional along of Hermitian matrices
+
+
 
 
