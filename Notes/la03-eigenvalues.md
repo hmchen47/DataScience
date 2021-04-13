@@ -942,14 +942,25 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
       + $H$: a matrix
   + bra_ket notation:
     + a vector as a state of the system
-    + $|\pis_E\rangle$: the Hilbert space of square integrable fucntions
+    + $|\Psi_E\rangle$: the Hilbert space of square integrable functions
     + the Schrödinger equation
 
-      \[ H|\Pis_E\langle = E |\Psi_E\langle \]
+      \[ H|\Psi_E\rangle = E |\Psi_E\rangle \]
 
-      + $|\Psi_E\langle$: an eigenstate of $H$
+      + $|\Psi_E\rangle$: an eigenstate of $H$
       + $E$: the eigenvalue
-      + $H$: an obserable self disjoint operator, the infinite-dimensional along of Hermitian matrices
+      + $H$: an observable self disjoint operator, the infinite-dimensional along of Hermitian matrices
+
++ Wave transport
+  + a static disordered system: ligh, acoustic waves and microwaves randomly scattered numerous times
+  + ultimately coherent wave transporting through the system: a deterministic process described by a field transmission matrix $\bf{t}$
+  + $\bf{t}^\dagger\bf{t}$:
+    + the eigenvectors of the transmission operator
+    + a set of disorder-specific input waveforms enabling waves to couple into the disordered systsem's eigenvalues
+    + the indpendent pathways waves able to travel through the system
+  + $\tau$: the eigenvalues of $\bf{t}^\dagger\bf{t}$ corresponding to the intensity transmittance assocaited w/ eeach eigenchannel
+  + remarkable property of the transmission operator of diffusive systems: bimodal eigenvalue distribution w/ $\tau_\max = 1$ and $\tau_\min = 0$
+  + property of open eigenchannels: the statistcally robust spatial profile of the eigenchannels, beyond the perfect transmittance
 
 
 
