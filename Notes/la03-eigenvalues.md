@@ -224,7 +224,7 @@ Organization: Wikipedia
   + the eigenvalues of the $k^{th}$ power of $A$, i.e., the eigenvalues of $A^k, \;\forall k > 0$ are $\lambda_1^k, \dots, \lambda_n^k$
   + invertible $A \iff \lambda_i \ne 0, \;\forall i$
   + invertible $A \implies$ eigenvalues of $A^{-1}$ are $\frac{1}{\lambda_1}, \cdots, \frac{1}{\lambda_n}$ and each eigenvalues's geometric multiplicity coincides
-  + $A = A^\star$ or $A$ is Hermitian $\implies$ $\lambda_i \in \Bbb{R}$, where $A^\star$ is conjugate transpose of $A$, also applied to any symmetric real matrix
+  + $A = A^\ast$ or $A$ is Hermitian $\implies$ $\lambda_i \in \Bbb{R}$, where $A^\ast$ is conjugate transpose of $A$, also applied to any symmetric real matrix
   + $A$ is Hermitian and positive-definite, positive-semi-definite, negative-definite, or negative-semi-definite $\implies$ $\lambda_i > 0, \ge 0, < 0, \le 0$, respectively
   + $A$ is unitary $\implies |\lambda_i| = 1$
   + $A_{n \times n}$ with eigenvalues $\{\lambda_1, \dots, \lambda_k\} \implies$ $I + A$ w/ eigenvalues $\{\lambda_1+1, \dots, \lambda_k+1\}$
@@ -364,7 +364,7 @@ Organization: Wikipedia
     \[ A = \begin{bmatrix} 0&1&0\\0&0&1\\1&0&0 \end{bmatrix} \]
 
   + the characteristic polynomial: $1 - \lambda^3$
-  + the roots = eigenvalues: $\lambda_1 = 1, \hspace{1em} \lambda_2 = -\frac12 + i\frac{\sqrt{3}}{2}, \hspace{1em} \lambda_3 = \lambda_2^\star = -\frac12 + -i \frac{\sqrt{3}}{2}$
+  + the roots = eigenvalues: $\lambda_1 = 1, \hspace{1em} \lambda_2 = -\frac12 + i\frac{\sqrt{3}}{2}, \hspace{1em} \lambda_3 = \lambda_2^\ast = -\frac12 + -i \frac{\sqrt{3}}{2}$
   + the real eigenvalue $\lambda_1 = 1$, any vector w/ 3 equal nonzero entries is an eigenvector
   + the complex conjugate pair of imaginary eigenvalues
 
@@ -575,9 +575,9 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
   + variation: multiplying $(A - \mu I)^{-1} \;\because$ converged to an eigenvector of the eigenvalue closest to $\mu \in \Bbb{C}$
   + $\bf{v}$ as an eigenvector of $A \implies$ the corresponding eigenvalue computed as
 
-    \[ \lambda = \frac{\bf{v}^\star A \bf{v}}{\bf{v}^\star\bf{v}} \]
+    \[ \lambda = \frac{\bf{v}^\ast A \bf{v}}{\bf{v}^\ast\bf{v}} \]
 
-    where $\bf{v}^\star$ = the conjugate transpose of $\bf{v}$
+    where $\bf{v}^\ast$ = the conjugate transpose of $\bf{v}$
 
 + Modern methods
   + QR algorithm: efficient, accurate methods to compute eigenvalues and eigrnvectors of arbitrary matrices
@@ -972,6 +972,29 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
   + Roothaan equations
     + applied in quantum chemistry
     + representing the Hartree-Fock equation in a non-orthogonal baiss set
+
++ Geology and glaciology
+  + applied in geology, especially in the study of glacial till
+  + eigenvalues and eigenvectors used as a method
+  + a mass of infomration of a clast fabric's constitutions' orientation and dip summarized in a 3-D space by 6 numbers
+  + in th efield, a geologist collecting data for hundres or thousands of clasts in a solid sample
+  + data graphically comapred asuc as in a Tri-Plot (Sneed and Folk) diagram, or as a Stereonet on Wulff Net
+  + data information
+    + the orientation tensor in the 4 orthogonal (perpenducular) axes of space
+    + eigenvectors: $\bf{v}_1, \bf{v}_2, \bf{v}_3$
+    + corresponding eigenvalues: $E_1 \ge E_2 \ge E_3$
+    + $\bf{v}_1$, $\bf{v}_2$ and \bf{v}_3$: the primary, secondary and tertiary orientation/dip of clast in terms of strength
+  + clast orientation: the direction of the eigenvector, on a compass rose of $360^\degree$
+  + dip: measured as the eigenvalue
+  + the modulus of the tensor: range from $0^\degree$ (no dip) to $90^\degree$ (vertical)
+  + the relative values of $E_1, E_2, E_3$ dectated by the natural of sediment's fabric
+  + typs of fabric
+    + isotropic: $E_1 = E_2 = E_3$
+    + planar: $E_1 = E_2 > E_3$
+    + linear: $E_1 > E_2 > E3$
+
+
+
 
 
 
