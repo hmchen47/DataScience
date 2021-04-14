@@ -952,7 +952,7 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
       + $H$: an observable self disjoint operator, the infinite-dimensional along of Hermitian matrices
 
 + Wave transport
-  + a static disordered system: ligh, acoustic waves and microwaves randomly scattered numerous times
+  + a static disordered system: light, acoustic waves and microwaves randomly scattered numerous times
   + ultimately coherent wave transporting through the system: a deterministic process described by a field transmission matrix $\bf{t}$
   + $\bf{t}^\dagger\bf{t}$:
     + the eigenvectors of the transmission operator
@@ -962,6 +962,16 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
   + remarkable property of the transmission operator of diffusive systems: bimodal eigenvalue distribution w/ $\tau_\max = 1$ and $\tau_\min = 0$
   + property of open eigenchannels: the statistcally robust spatial profile of the eigenchannels, beyond the perfect transmittance
 
++ Molecular orbitals
+  + applied in atomic and molecular physiscs of quantum mechanics
+  + Hartee-Fock theory: the atomic and molecular orbitals defined by eigenvectors of the Fock operator
+    + corresponding eigenvalues interpreted as ionization potentials via Koopmans' theorem
+    + eigenvector used in a somewhat more general meaning
+    + Fock operator explicitly dependent on the orbitals and their eigenvalues
+  + self-consistent field method: solving nonlinear eigenvalue problems by an iteraton procedure
+  + Roothaan equations
+    + applied in quantum chemistry
+    + representing the Hartree-Fock equation in a non-orthogonal baiss set
 
 
 
