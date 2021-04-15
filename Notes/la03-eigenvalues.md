@@ -1041,6 +1041,21 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
     + system represented as linear summation of the eigenvectors
     + eigenvalue problem of complex structures often solved using finite element analysis
 
++ Eigenfaces
+  + applied to image processing
+  + processed images of faces viewed as vectors
+  + components of vectors: the brightness of each pixel
+  + the dimension of vector space: the number of pixels
+  + eigenfaces
+    + the eigenvectors of the covariance matrix associated w/ a large set of normalized pictures of faces
+    + example: PCA
+  + useful for expressing any face image as a linear combination
+  + facial recognition branch of bioinformatics: providing a means of applying data compression to faces for identification purpose
+
++ Eigenvoices
+  + the general direction of variability in human pronuciations of a particular utterance
+  + linear combination of such eigenvoices $\to$ a new voice pronunciation of the the world constructed
+  + useful in automatic speech recognition systems for speaker adaptation
 
 
 
