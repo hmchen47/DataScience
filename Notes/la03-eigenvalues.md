@@ -1057,10 +1057,17 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
   + linear combination of such eigenvoices $\to$ a new voice pronunciation of the the world constructed
   + useful in automatic speech recognition systems for speaker adaptation
 
-+ Tensor of moment of interia
++ Tensor of moment of inertia
   + applied to mechanics
   + eigenvectors of the moment of interia tensor = the principal axes of rigid body
-  + tensor of meoment of iteria: a key quantity required to determine the rotation of a ridig body around its center of mass
+  + tensor of meoment of inertia: a key quantity required to determine the rotation of a ridig body around its center of mass
+
++ Stress tensor
+  + applied in solid mechanics
+  + eigenvectors of the moment of inertia tensor = the principal axes of a ridig body
+  + the eigenvalues on the diagonal and eigenbasis as a basis
+  + stree tensor w/o shear component $\to$ principal components
+
 
 
 
