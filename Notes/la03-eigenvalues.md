@@ -984,16 +984,34 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
     + eigenvectors: $\bf{v}_1, \bf{v}_2, \bf{v}_3$
     + corresponding eigenvalues: $E_1 \ge E_2 \ge E_3$
     + $\bf{v}_1$, $\bf{v}_2$ and \bf{v}_3$: the primary, secondary and tertiary orientation/dip of clast in terms of strength
-  + clast orientation: the direction of the eigenvector, on a compass rose of $360^\degree$
+  + clast orientation: the direction of the eigenvector, on a compass rose of $360^\circ$
   + dip: measured as the eigenvalue
-  + the modulus of the tensor: range from $0^\degree$ (no dip) to $90^\degree$ (vertical)
+  + the modulus of the tensor: range from $0^\circ$ (no dip) to $90^\circ$ (vertical)
   + the relative values of $E_1, E_2, E_3$ dectated by the natural of sediment's fabric
   + typs of fabric
     + isotropic: $E_1 = E_2 = E_3$
     + planar: $E_1 = E_2 > E_3$
     + linear: $E_1 > E_2 > E3$
 
-
++ Principle component analysis
+  + orthogonal basis of eigenvectors:
+    + the eigendecomposition of a symmetric positive semidefinite (PSD) matrix
+    + w/ non-negative eigenvalue
+    + used in multivariate analysis, sample covariance matrices = PSD
+  + PCA in statistics = orthogonal decompsoition
+    + studying linear relations among variables
+    + performed on the covariance matrix or the correlation matrix
+  + eigenvectors $\to$ principal components
+  + eigenvalues $\to$ the variance explained by the principal components
+  + PCA of the correlation matrix
+    + providing an orthogonal basis for the space of the observed data
+    + the largest eigenvalues corresponding to the principal components
+    + associated w/ most of the covariability among a number of observed data
+  + used as a mean of dimensionality reduction in large dataset
+  + Q-methodology
+    + a research method used in psychology and in social science to study people's "subjectiveity"
+    + the eigenvalues of the correlation matrix determining the Q-methodologist's judgement of principal significance
+  + more genereally, PCA used as a method of factor analysis in structure equation modeling
 
 
 
