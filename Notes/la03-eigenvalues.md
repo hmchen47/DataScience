@@ -1013,6 +1013,34 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
     + the eigenvalues of the correlation matrix determining the Q-methodologist's judgement of principal significance
   + more genereally, PCA used as a method of factor analysis in structure equation modeling
 
++ Vibration analysis
+  + vibration analysis of mechanical structures w/ many degrees of freedom
+  + eigenvalues: the natural frequencies (or engenfrequencies) of vibration
+  + eigenvectors: the shapes pf these vibrational modes
+  + undamped vibration: acceleration proportional to position
+
+    \[ m\ddot{x} + kx = 0 \hspace{1em}\text{ or }\hspace{1em} m\ddot{x} = -kx \]
+
+    + $m$: a mass matric 
+    + $k$: a stiffness matrix
+    + admissible solutions
+      + a linear combination of solutions to the generalized eigenvalue problem
+
+        \[ kx = \omega^2 mx \]
+
+      + $\omega^2$: the eigenvalue
+      + $\omega$: the (imaginary) angular frequency
+    + principal vibration modes $\ne$ principal compliance modes
+  + damped vibration: quadratic eigenvalue problem
+
+    \[ m\ddot{x} + c\dot{x} + k = 0 \hspace{1em}\to\hspace{1em} (\omega^2 m + \omega c + k)x = 0 \]
+
+    + reduced to a generalized eigenvalue problem by algebraic manipulation at the cost of solving a larger system
+  + orthorgibality property
+    + decoupling of the differential equations
+    + system represented as linear summation of the eigenvectors
+    + eigenvalue problem of complex structures often solved using finite element analysis
+
 
 
 
