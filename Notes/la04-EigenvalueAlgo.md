@@ -64,7 +64,27 @@ Organization: Wikipedia
     + $\lambda$: an eigenvalue of $W^{-1}AW$ w/ generalized eigenvector $W^{-1} \bf{v}$
     + similar matrices w/ the same eigenvalues
 
-
++ Normal, Hermitian, and real-symmetric matrices
+  + adjoint matrix
+    + the matrix of cofactors of the transpose
+    + $M^\ast$ of a complex matrix $M$ = transpose of the conjugate of $M$: $M^\ast = \overline{M}^T$
+  + normal matrix
+    + a square matrix $A$ if it commutes w/ its adjoint
+    + $A^\ast A = A A^\ast$
+  + Hermitian matrix
+    + $A^\ast = A$
+    + normal matrix
+    + $A \in \Bbb{R}^{n \times n} \implies$ the adjoint = its transpose
+    + $\iff$ symmetric
+  + column vectors: the adjoint used to define the canonical inner product in $\Bbb{C}^n: \bf{w} \cdot \bf{v} = \bf{w}^\ast \bf{v}$
+  + properties of normal, Hermitian, and real-symmetric matrices
+    + every generalized eigenvector of a normal matrix $\implies$  ordinary eigenvector
+    + Jordan normal form w/ diagonal $\implies$ any normal matrix similar to a diagonal matrix
+    + eigenvectors of distinct eigenvalues of a normal matrix $\implies$ orthogonal
+    + null space and the image (or column space) of a normal matrix $\implies$ orthogonal to each other
+    + $\forall$ normal matrix $A, \;\Bbb{C}^n$ w/ an orthonormal basis consisting of eigenvectors of $A \implies$ corresponding matrix of eigenvectors __initary__
+    + eigenvalues of a Hermitian matrix $\in \Bbb{R} \implies (\overline{\lambda} - \lambda) \bf{v} = (A^\ast - A) \bf{v} = (A - A)\bf{v} = 0 \;\;\forall\; \bf{v} \ne \bf{0}$
+    + $A \in \Bbb{R}^n, \exists$ an orthonormal basis for $\Bbb{R}^n$ consisting of eigenvectors of $A \iff A$ symmetric
 
 
 ## Condition number
