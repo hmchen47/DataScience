@@ -1085,5 +1085,13 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
     + the adjacency matrix first modified to ensure a stationary distribution exists
     the second smallest eigenvector used to partition the graph into clusters
 
++ Basic reproduction number
+  + $R_0$: a fundamental number in the study if how infectious discreases spread
+  + one infectious person put into a population of completely susceptible people $\implies$ $R_0$ as the average number of people that one typical infectious person will infect
+  + the generation time of an infectious: the time, $T_G$, from one person becoming infectedd to the next person becoming infected
+  + heterogeneous population:
+    + the next generation matrix: how many people in the population will become infected after time $t_G$ has passed
+    + $R_0$: the largest eigenvalue of the next generation matrix
+
 
 
