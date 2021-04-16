@@ -1068,7 +1068,22 @@ Consider a real matrix A. The eigenvalues $\lambda$ of $A$ are
   + the eigenvalues on the diagonal and eigenbasis as a basis
   + stree tensor w/o shear component $\to$ principal components
 
-
++ Graphs
+  + applied in spectral graph theory
+  + eigenvalue of a graph:
+    + eigenvalue of the graph's ahjacent matrix $A$
+    + eigenvalue of the graph's Lapacian matrix due to its discrete Lapace operator
+      + combinatorial Laplacian: $D - A$
+      + normalized Lapalcian: $I - D^{-1/2} AD^{-1/2}$
+      + $D$: a diagonal matrix w/ $D_{ii} = $ the degree of vertx $v_i$
+      + w/ $D^{-1/2}$, the $i$th diagonal entry = $1/\sqrt{\deg{v_i}}$
+  + the $k$th principal eigenvector: the eigenvector corresponding to the $k$th largest or $k$th smallest eigenvalue of the Laplacian
+  + principal eigenvector used to meaure the centrality of its vertices
+  + Google's PageRank algorithm
+    + the principal eigenvector of a modified adjacency matrix of the World Wide Web graph giving the page as it component
+    + vecctor corresponding to the stationary distribution of the Markov chain represented by the row-randomized adjacency matrix
+    + the adjacency matrix first modified to ensure a stationary distribution exists
+    the second smallest eigenvector used to partition the graph into clusters
 
 
 
