@@ -45,9 +45,24 @@ Organization: Wikipedia
   + Cayley-Hamilton theorem:
     + $A$ obeying $P_A(A) = 0$
     + the columns of the matrix $\prod_{i \ne j}(A - \lambda_i I)^{\alpha_i} = 0 \text{or }\lambda_j$
-    + the column space = the generalized eigenspace $\lambda_j$
+    + the column space = the generalized eigenspace of $\lambda_j$
 
++ Eigenbasis
+  + collection of generalized eigenvectors of distinct eigenvalues $\to$ linear independent
+  + a basis of all of $\Bbb{C}^n$ chosen consisting of generalized eigenvectors
+  + basis $\{\bf{v}_i\}_{i=1}^n$ chosen and organized s.t. 
+    + $\bf{v}_i$ and $\bf{v}_j$ w/ the same eigenvalue $\implies \bf{v} \forall\; k \in [i, j]$
+    + $\bf{v}_i$ not ordinary eigenvector w/ eigenvalue $\lasmbda_i \implies {A-\lambda_i I) \bf{v}_i = \bf{v}_{i-1}$ 
+  + basis vectors placed as the column vectors of a matrix $V = [\bf{v}_1 \bf{v}_2 \cdots \bf{v}_n] \implies V$ used to convert $A$ to its Jorfan normal form
 
+    \[ V^{-1}AV = \begin{bmatrix} \lambda_1&\beta_1&0& \cdots & 0\\ 0&\lambda_2&\beta_2&\cdots&0\\0&0&\lambda_3&\cdots&0\\\vdots&\vdots&\vdots&\ddots&\vdots\\0&0&0&\cdots&\lambda_n \end{bmatrix} \]
+
+    + $\lambda_i$: the eigenvalues
+    + $\beta_i = \begin{cases} 1& \text{ if } (A - \lambda_{i+1}) \bf{v}_{i+1} = \bf{v}_i \\ 0 & \text{ otherwise} \end{cases}$
+  + generalization:
+    + any invertible matrix $W$ and $\lambda$ as an eigenvalue $A$ w/ generalized eigenvector $\bf{v} \implies (W^{-1}AW - \lambda I)^k W^{-k} \bf{v} = 0$
+    + $\lambda$: an eigenvalue of $W^{-1}AW$ w/ generalized eigenvector $W^{-1} \bf{v}$
+    + similar matrices w/ the same eigenvalues
 
 
 
