@@ -126,6 +126,17 @@ Organization: Wikipedia
 
 ## Algorithms
 
++ General algorithm idea
+  + algorithm for finding eigenvalues used to find the roots of polynormials
+  + Abel-Ruffini theorem: algorithm w/ dimensions $\ge 4$
+    + infinite space
+    + involving functions of greater complexity than elementary arithmetic operations and fraction powers
+  + algorithms exactly calculating eigenvalues in a finite number of steps only exist for a few special classes of matrix
+  + iterative algorithms producing better approximate solutions w/ each iteration for general matrix
+  + different algorithms producing different number of eigenvalues: all, a few or even only one
+  + identified $\lambda$ used to
+    + direct the algorithm toward a different solution next time
+    + reduce the problem to one that no longer w/ $\lambda$ as a solution
 
 
 
