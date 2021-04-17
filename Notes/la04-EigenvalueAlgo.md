@@ -156,6 +156,12 @@ Organization: Wikipedia
   + applied to the restrict matrix
   + able to be repeated until all eigenvalues found
 
++ Inverse iteration based algorithms
+  + applied to algorithm unable to produce eigenvectors
+  + $\mu$ set to a close approximation tot he eigenvalue
+  + quickly converging to the eigenvector iof the cloest eigenvalue to $\mu$
+  + alternative for small matrix: finding the column space of the product of $(A - \lambda^\prime I), \;\forall\; \lambda^\prime$ (other eigenvalues)
+
 
 
 ## Hessenberg and tridiagonal matrices
