@@ -117,7 +117,11 @@ Organization: Wikipedia
   + the condition number for finding $\lambda$: $\kappa(\lambda, A) - \|V\|_{\operatorname{op}}\|V^{-1}\|_{\operatorname{op}}$
   + normal $A \implies$ unitary $V$ and $\kappa(\lambda, A) = 1$
 
-
++ Eigenspace
+  + finding the eigenspace of a normal matrix $A$ corresponding to an eigenvalue $\lambda$
+  + condition number inversely proportional to the minimum distance btw $\lambda$ and the other distinct eigenvalues of $A$
+  + the eigenspace problem for normal matrices: well-conditioned for isolated eigenvalues
+  + not-isolated eigenvalues: identifying the span of all eigenvectors of nearby eigenvalues
 
 
 ## Algorithms
