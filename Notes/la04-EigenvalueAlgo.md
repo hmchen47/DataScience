@@ -138,6 +138,19 @@ Organization: Wikipedia
     + direct the algorithm toward a different solution next time
     + reduce the problem to one that no longer w/ $\lambda$ as a solution
 
++ Redirection methods
+  + accomplished by shifting
+  + replacing $A$ w/ $(A - \mu I) , \exists\; \text{ constant } \mu$
+  + eigenvalue found for $(A - \mu I)$ must add back  in to get an eigenvalue for $A$
+  + power iteration, $\mu = \lambda$
+    + finding the largest eigenvalue in absolute value
+    + $\lambda$ only an approximate eigenvalue $\implies$ unlikely to find it a second time
+  + inverse iteration
+    + finding the lowest eigenvalue
+    + $\mu$ chosen well from $\lambda$
+    + hopefully closer to some other eigenvalue
+
+
 
 
 
