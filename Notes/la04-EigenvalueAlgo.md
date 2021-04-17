@@ -100,6 +100,19 @@ Organization: Wikipedia
   + no algorithms able to produce more accurate results than indicated by the condition number, except by chance
   + possibly very ill-conditioned problem to find the roots of a polynomial
 
++ Operator normal
+  + solving the linear equation $A\bf{v} = \bf{b}$ w/ invertible $A$
+  + the condition number $\kappa(A^{-1}, \bf{b}) = \|A\|_{\operatorname{op}}\|A^{-1}\|_{\operatorname{op}}$
+  + $\|\;\|_{\operatorname{op}}$: the __operator norm__ subordinate to the normal Euclidean nor on $\Bbb{C}^n$
+  + $\kappa(A)$ of the matrix $A$
+    + $\kappa(A, \bf{b})$ independent of $\bf{b}$ and the same for $A$ and $A^{-1}$
+    + the absolute value of the ratio of the largest eigenvalue of $A$ to its smallest
+  + unitary $A \implies \|A\|_{\operatorname{op}} = \|A^{-1}\|_{\operatorname{op}} = 1 \implies \kappa(A) = 1$
+  + operator norm difficult to calculate for general matrix
+  + matrix norm commonly used to estimate the condition number
+
+
+
 
 
 ## Algorithms
