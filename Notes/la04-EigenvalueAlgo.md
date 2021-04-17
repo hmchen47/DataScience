@@ -89,6 +89,16 @@ Organization: Wikipedia
 
 ## Condition number
 
++ Condition number
+  + the evaluation of some function $f$ for some input $x$
+  + $\kappa(f, x)$:
+    + the ratio of the relative error in the function's output to the relative error in the input
+    + varying w/ both the function and the input
+    + how error growing during the calculation
+  + base-10 logarithm: how many fewer digits of accuracy exist in the result than existed in the input
+  + a best-case scenario: reflecting the instability built into the problem, regardless if how it solved
+  + no algorithms able to produce more accurate results than indicated by the condition number, except by chance
+  + possibly very ill-conditioned problem to find the roots of a polynomial
 
 
 
