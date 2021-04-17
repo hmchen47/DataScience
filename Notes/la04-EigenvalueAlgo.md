@@ -111,6 +111,11 @@ Organization: Wikipedia
   + operator norm difficult to calculate for general matrix
   + matrix norm commonly used to estimate the condition number
 
++ Bauer-Fike theorem
+  + $\exists\; A_{n \times n}$ diagonalizable w/ eigenvector matrix $V$
+  + $\lambda$ as eigenvalue of $A \implies$ the absolute error in calculating $\lambda$ bounded by the product $\kappa(V)$ and the absolute error in $A$
+  + the condition number for finding $\lambda$: $\kappa(\lambda, A) - \|V\|_{\operatorname{op}}\|V^{-1}\|_{\operatorname{op}}$
+  + normal $A \implies$ unitary $V$ and $\kappa(\lambda, A) = 1$
 
 
 
