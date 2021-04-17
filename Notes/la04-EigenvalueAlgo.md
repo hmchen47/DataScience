@@ -150,7 +150,11 @@ Organization: Wikipedia
     + $\mu$ chosen well from $\lambda$
     + hopefully closer to some other eigenvalue
 
-
++ Reduction methods
+  + accomplished by restricting $A$ to the column space of the matrix $(A - \lambda I)$
+  + $(A - \lambda I)$ singular $\implies$ the column space w/ lesser dimension
+  + applied to the restrict matrix
+  + able to be repeated until all eigenvalues found
 
 
 
