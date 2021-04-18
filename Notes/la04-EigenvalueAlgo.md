@@ -177,12 +177,24 @@ Organization: Wikipedia
 
     \[ |v_{i, j}|^2 = \frac{p_j\big(\lambda_i (A)\big)}{p^\prime \big(\lambda_j(A)\big)}, \hspace{1em}\forall\;i \text{ s.t. }p^\prime\big(\lambda_i(A)\big) \ne 0 \]
 
-
-
 ## Hessenberg and tridiagonal matrices
 
++ Hessenberg matrices
+  + the eigenvalues of triangular matrix: the diagonal elements
+  + general matrices: $\nexists\;$ finite method, e.g., Gaussian elimination, to convert a matrix to triangular form while preserving eigenvalues
+  + possible to reach something close to triangular
+  + upper Hessenberg matrix: a square matrix w/ all entries below the subdiagonal are zero
+  + lower Hessenberg matrix: a square matrix w/ all entries above the subtriangal are zero
+  + upper & lower Hessenberg matrices: tridiagonal
+  + Hessenberg and tridiagonal matrices: starting points for many eigenvalue algorithms
+  + several methods commonly used to convert a general matrix into a Hessenberg matrix w/ the sam eeigenvalues
+  + symmetric or Hermitian matrices $\to$ tridiagonal
 
-
++ Similarity matrix
+  + eigenvalue only: no similarity matrix required
+  + both eigenvalue and eigenvector:
+    + similarity matrix required probably
+    + transform the eigenvectors of the Hessenberg matrix back into eigenvectors of the original matrix
 
 
 ## Iterative algorithms
