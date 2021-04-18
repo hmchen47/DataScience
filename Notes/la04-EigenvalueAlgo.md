@@ -327,7 +327,45 @@ Organization: Wikipedia
         &P_+P_+ = P_+ \hspace{1em} P_- P_- = P_- \hspace{1em} P_+P_- = P_-P_+ = 0
       \end{align*}\]
 
-    + column spaces of $P_+$ and $P_-$: the eigenspaces of $A$ corresponsing to $+\alpha$ and $-\alpha$, respectively
+    + column spaces of $P_+$ and $P_-$: the eigenspaces of $A$ corresponding to $+\alpha$ and $-\alpha$, respectively
 
++ 2-dim matrix
+  + dim = 2~4: formula involving radicals used to find the eigenvalues
+  + Consider general matrix $A_{2 \times 2}$
+
+    \[ A = \begin{bmatrix} a&b\\c&d \end{bmatrix} \]
+
+  + the characteristic polynomial
+
+    \[ \det\begin{bmatrix} \lambda - a&-b\\-c&\lambda - d \end{bmatrix} = \lambda^2 - (a + d) \lambda + (ad - bc) = \lambda^2 - \lambda \operatorname{tr}(A) + \det(A) \]
+
+  + the eigenvalues via the quadratic formula
+
+    \[ \lambda = \frac{\operatorname{tr}(A) \pm \sqrt{\operatorname{tr}^2(A) - 4\det(A)}}{2} \]
+
+  + $\operatorname{gap}(A) = \sqrt{\operatorname{tr}(A) - 4 \det(A)}$: the distance btw the two eigenvalues
+  
+    \[ \frac{\partial \lambda}{\partial a} = \frac12 \left(1 \pm \frac{a-d}{\operatorname{gap}(A)}\right), \hspace{2em} \frac{\partial \lambda}{\partial b} = \frac{\pm c}{\operatorname{gap}(A)} \]
+
+  + similar formula for $c$ and $d$
+  + isolated eigenvalues $\implies$ well-conditioned calculation
+  + finding eigenvectors by the Cayley-Hamilton theorem
+    + eigenvalues $\lambda_1, \lambda_2 \implies (A - \lambda_1 I)(A - \lambda_2 I) = (A -\lambda_2 I){A - \lambda_1 I) = 0$ 
+    + the columns of $(A - \lambda_2 I)$ annihilated by $(A - \lambda_1 I)$ and vice versa
+    + neither matrix zero $\implies$ the columns of each must include eigenvectors for the other eigenvalue
+  + example:
+    + consider $A_{2 \times 2}$
+
+      \[ A = \begin{bmatrix} 4&3\\-2&-3 \end{bmatrix} \]
+
+    + $\operatorname{tr}(A) = 4- 3 = 1, \det(A) = 4(-3) -3(-2) = -6, \therfore\;$ the characteristic equation
+
+      \[ 0 = \lambda^2 - \lambda -6 = (\lambda - 3)(\lambda + 2) \]
+
+    + the eigenvalues: 3 and -2
+
+      \[ A-3I = \begin{bmatrix} 1&3\\-2&-3 \end{bmatrix}, \hspace{2em} A + 2I = \begin{bmatrix} 6&3\\-2&-1 \end{bmatrix} \]
+
+    + the eigenvectors: (1, -2) for $\lambda = -2$ and (3, -1) for $\lambda = 3$
 
 
