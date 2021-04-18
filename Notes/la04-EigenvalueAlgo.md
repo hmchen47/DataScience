@@ -162,6 +162,21 @@ Organization: Wikipedia
   + quickly converging to the eigenvector iof the cloest eigenvalue to $\mu$
   + alternative for small matrix: finding the column space of the product of $(A - \lambda^\prime I), \;\forall\; \lambda^\prime$ (other eigenvalues)
 
++ Thompson's formula
+  + applied to the norm of unit eigenvector compoenets of normal matrices
+  + $\exists\; \text {normal } A_{n \times n}$
+    + eigenvalues $\lambda_i(A)$
+    + corresponding eigenvectors $\bf{v}_i$ w/ component entries $v_{i,j}$
+  + $A_j$: an $n-1 \times n-1$ matrix by removing $j$th row and column from $A$
+  + $\lambda_k(A_j)$: the $k$th eigenvalue
+  + formula
+
+    \[ |v_{i, j}|^2 \prod_{k=1, k\ne i} \big(\lambda_i(A) \lambda_k(A)\big) = \prod_{k=1}^{n-1} \big(\lambda_i(A) - \lambda_k(A_j)\big) \]
+
+  + $p, p_j$: characteristic polynomials of $A$ and $A_j$
+
+    \[ |v_{i, j}|^2 = \frac{p_j\big(\lambda_i (A)\big)}{p^\prime \big(\lambda_j(A)\big)}, \hspace{1em}\forall\;i \text{ s.t. }p^\prime\big(\lambda_i(A)\big) \ne 0 \]
+
 
 
 ## Hessenberg and tridiagonal matrices
