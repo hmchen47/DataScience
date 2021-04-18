@@ -369,5 +369,67 @@ Organization: Wikipedia
 
   + the eigenvectors: (1, -2) for $\lambda = -2$ and (3, -1) for $\lambda = 3$
 
++ 3-dim matrix
+  + characteristic equation of a symmetric $A_{3 \times 3}$
+
+    \[ \det(\alpha I - A) = \alpha^3 - \alpha^2 \operatorname{tr}(A) -\alpha \frac12 \left(\operatorname{tr}(A^2) - \operatorname{tr}^2(A)\right) - \det(A) = 0 \]
+
+  + solved by the methods of Cardano or Lagrange
+    + simplify the expression considerably
+    + directly lead to a trigonometric solution
+  + $A = pB + qI \implies A, B$ w/ the same eigenvectors
+  + $\beta$ as an eigenvalue of $B \iff \alpha = p\beta + q$ an eigenvalue of $A$
+  + let $q = \operatorname{tr}(A)/3$ and $p = \left( \operatorname{tr}\left((A - qI)^2\right)/6\right)^{1/2}$
+
+    \[ \det(\beta I - B) = \beta^3 - 3 \beta -\det(B) = 0 \]
+
+  + substitution $\beta = 2 \cos\theta$ and simplifying the identity $\cos 3\theta = 4 \cos^3 \theta - 3 \cos \theta \to \cos 3\theta = \det(B)/2$
+
+    \[ \beta = 2 \cos\left(\frac13 \arccos\left(\det(B)/2\right) + \frac{2k\pi}{3} \right), \;k = 0, 1, 2 \]
+
+  + $|\det(\beta)} > 2 \in \Bbb{C} \implies \arccos$ taken along the same branch for all three values of $k$
+  + pseudo code
+
+    ```matlab
+    % Given a real symmetric 3x3 matrix A, compute the eigenvalues
+    % Note that acos and cos operate on angles in radians
+
+    p1 = A(1,2)^2 + A(1,3)^2 + A(2,3)^2
+    if (p1 == 0) 
+      % A is diagonal.
+      eig1 = A(1,1)
+      eig2 = A(2,2)
+      eig3 = A(3,3)
+    else
+      q = trace(A)/3               % trace(A) is the sum of all diagonal values
+      p2 = (A(1,1) - q)^2 + (A(2,2) - q)^2 + (A(3,3) - q)^2 + 2 * p1
+      p = sqrt(p2 / 6)
+      B = (1 / p) * (A - q * I)    % I is the identity matrix
+      r = det(B) / 2
+
+      % In exact arithmetic for a symmetric matrix  -1 <= r <= 1
+      % but computation error can leave it slightly outside this range.
+      if (r <= -1) 
+          phi = pi / 3
+      elseif (r >= 1)
+          phi = 0
+      else
+          phi = acos(r) / 3
+      end
+
+      % the eigenvalues satisfy eig3 <= eig2 <= eig1
+      eig1 = q + 2 * p * cos(phi)
+      eig3 = q + 2 * p * cos(phi + (2*pi/3))
+      eig2 = 3 * q - eig1 - eig3     % since trace(A) = eig1 + eig2 + eig3
+    end
+    ```
+
+  + via Cayley-Hamilton theorem
+    + $\alpha_1, \alpha_2, \alpha_3$ distinct eigenvalues of $A \implies (A -\alpha_1 I)(A - \alpha_2 I)(A - \alpha_3 I) = 0$
+    + the product of any two of these matrices containing an eigenvector for the 3rd eigenvalue
+  + $\alpha_3 = \alpha_1 \implies (A - \alpha_1 I)^2(A - \alpha_2 I) = 0 \text{ and } (A - \alpha_2 I)(A - \alpha_1 I)^2 = 0$
+  + generalized eigenspace of $\alpha_1$ spanned by the columns of $A - \alpha_2 I$
+  + ordinary eigenspace of $\alpha_1$ spanned by the columns of $(A - \alpha_1 I)(A - \alpha_2 I)$
+  + ordinary eigenspace of $\alpha_2$ spanned by the columns of $(A - \alpha_1 I)^2$
 
 
