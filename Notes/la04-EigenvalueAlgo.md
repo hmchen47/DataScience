@@ -196,6 +196,48 @@ Organization: Wikipedia
     + similarity matrix required probably
     + transform the eigenvectors of the Hessenberg matrix back into eigenvectors of the original matrix
 
+<table style="text-align: center">
+  <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://en.wikipedia.org/wiki/Eigenvalue_algorithm#Hessenberg_and_tridiagonal_matrices">Algorithms for Hessenberg & Tridiagonal Matrices</a></caption>
+  <tbody><tr>
+  <th>Method</th>
+  <th>Applies to</th>
+  <th>Produces</th>
+  <th>Cost without similarity matrix</th>
+  <th>Cost with similarity matrix</th>
+  <th>Description
+  </th></tr>
+  <tr>
+  <td><a href="https://en.wikipedia.org/wiki/Householder_transformation" title="Householder transformation">Householder transformations</a></td>
+  <td>General</td>
+  <td>Hessenberg</td>
+  <td>​<sup>2<i>n</i><sup>3</sup></sup>⁄<sub>3</sub> + <i>O</i>(<i>n</i><sup>2</sup>)</td>
+  <td>​<sup>4<i>n</i><sup>3</sup></sup>⁄<sub>3</sub> + <i>O</i>(<i>n</i><sup>2</sup>)</td>
+  <td align="left">Reflect each column through a subspace to zero out its lower entries.
+  </td></tr>
+  <tr>
+  <td><a href="https://en.wikipedia.org/wiki/Givens_rotation" title="Givens rotation">Givens rotations</a></td>
+  <td>General</td>
+  <td>Hessenberg</td>
+  <td>​<sup>4<i>n</i><sup>3</sup></sup>⁄<sub>3</sub> + <i>O</i>(<i>n</i><sup>2</sup>)</td>
+  <td></td>
+  <td align="left">Apply planar rotations to zero out individual entries. Rotations are ordered so that later ones do not cause zero entries to become non-zero again.
+  </td></tr>
+  <tr>
+  <td><a href="https://en.wikipedia.org/wiki/Arnoldi_iteration" title="Arnoldi iteration">Arnoldi iteration</a></td>
+  <td>General</td>
+  <td>Hessenberg</td>
+  <td></td>
+  <td></td>
+  <td align="left">Perform Gram–Schmidt orthogonalization on Krylov subspaces.
+  </td></tr>
+  <tr>
+  <td><a href="https://en.wikipedia.org/wiki/Lanczos_algorithm" title="Lanczos algorithm">Lanczos algorithm</a></td>
+  <td>Hermitian</td>
+  <td>Tridiagonal</td>
+  <td></td>
+  <td></td>
+  <td align="left">Arnoldi iteration for Hermitian matrices, with shortcuts.
+</td></tr></tbody></table>
 
 ## Iterative algorithms
 
