@@ -306,8 +306,28 @@ Organization: Wikipedia
 + Triangular matrices
   + determinant of a triangular matrix = the product of its diagonal entries
   + triangular $T \implies \det(\lambda I - T) = \prod_i (\lambda  T_{ii})$
-  + eigenvalues of $T4 = diagonal entries
+  + eigenvalues of $T$ = diagonal entries
 
++ Factorable polynomial equations
+  + $\forall$ polynomial $p, p(A) = 0 \implies \lambda$ satisfies the same equation
+  + $\forall\; p$ w/ a known factorization $\implies \lambda$ among its roots
+  + projection: a square matrix $P$ satisfying $P^2 = P$
+    + roots of the corresponding scalar polynomial equation, $\lambda^2 = \lambda$
+    + any projection w/ 0 and 1 for its eigenvalues
+    + the multiplicity of 0 as an eigenvalue: the nullity of $P$
+    + the multiplicity of 1 as an eigenvalue: the rank of $P$
+  + $\exists\; A \text{ and scalar } \alpha$ s.t. $A^2 = \alpha^2 I$
+    + the eigenvalues: $\pm \alpha$
+    + projection operator
+
+      \[\begin{align*}
+        & P_+ = \frac12 \left(I + \frac{A}{\alpha}\right) \hspace{2em} P_- = \frac12 \left(I - \frac{A}{\alpha}\right)\\
+        &\text{satisfy}\\
+        &AP_+ = \alpha P_+ \hspace{1em} AP_- = -\alpha P_-\\
+        &P_+P_+ = P_+ \hspace{1em} P_- P_- = P_- \hspace{1em} P_+P_- = P_-P_+ = 0
+      \end{align*}\]
+
+    + column spaces of $P_+$ and $P_-$: the eigenspaces of $A$ corresponsing to $+\alpha$ and $-\alpha$, respectively
 
 
 
