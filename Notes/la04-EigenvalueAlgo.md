@@ -353,19 +353,21 @@ Organization: Wikipedia
     + eigenvalues $\lambda_1, \lambda_2 \implies (A - \lambda_1 I)(A - \lambda_2 I) = (A -\lambda_2 I){A - \lambda_1 I) = 0$ 
     + the columns of $(A - \lambda_2 I)$ annihilated by $(A - \lambda_1 I)$ and vice versa
     + neither matrix zero $\implies$ the columns of each must include eigenvectors for the other eigenvalue
-  + example:
-    + consider $A_{2 \times 2}$
 
-      \[ A = \begin{bmatrix} 4&3\\-2&-3 \end{bmatrix} \]
++ Example: $2 \times 2$ matrix
+  + consider $A_{2 \times 2}$
 
-    + $\operatorname{tr}(A) = 4- 3 = 1, \det(A) = 4(-3) -3(-2) = -6, \therfore\;$ the characteristic equation
+    \[ A = \begin{bmatrix} 4&3\\-2&-3 \end{bmatrix} \]
 
-      \[ 0 = \lambda^2 - \lambda -6 = (\lambda - 3)(\lambda + 2) \]
+  + $\operatorname{tr}(A) = 4- 3 = 1, \det(A) = 4(-3) -3(-2) = -6, \therefore\;$ the characteristic equation
 
-    + the eigenvalues: 3 and -2
+    \[ 0 = \lambda^2 - \lambda -6 = (\lambda - 3)(\lambda + 2) \]
 
-      \[ A-3I = \begin{bmatrix} 1&3\\-2&-3 \end{bmatrix}, \hspace{2em} A + 2I = \begin{bmatrix} 6&3\\-2&-1 \end{bmatrix} \]
+  + the eigenvalues: 3 and -2
 
-    + the eigenvectors: (1, -2) for $\lambda = -2$ and (3, -1) for $\lambda = 3$
+    \[ A-3I = \begin{bmatrix} 1&3\\-2&-3 \end{bmatrix}, \hspace{2em} A + 2I = \begin{bmatrix} 6&3\\-2&-1 \end{bmatrix} \]
+
+  + the eigenvectors: (1, -2) for $\lambda = -2$ and (3, -1) for $\lambda = 3$
+
 
 
