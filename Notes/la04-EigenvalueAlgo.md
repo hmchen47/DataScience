@@ -301,8 +301,12 @@ Organization: Wikipedia
 </tbody></table>
 
 
-
 ## Direct calculation
+
++ Triangular matrices
+  + determinant of a triangular matrix = the product of its diagonal entries
+  + triangular $T \implies \det(\lambda I - T) = \prod_i (\lambda  T_{ii})$
+  + eigenvalues of $T4 = diagonal entries
 
 
 
