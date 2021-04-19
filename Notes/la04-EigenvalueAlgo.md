@@ -432,4 +432,22 @@ Organization: Wikipedia
   + ordinary eigenspace of $\alpha_1$ spanned by the columns of $(A - \alpha_1 I)(A - \alpha_2 I)$
   + ordinary eigenspace of $\alpha_2$ spanned by the columns of $(A - \alpha_1 I)^2$
 
++ Example: $3 \times 3$ matrix
+  + consider a matrix
+
+    \[ A = \begin{bmatrix} 3&2&6\\2&2&5\\-2&-1&-4 \end{bmatrix} \]
+
+  + the characteristic equation: $0 = \lambda^2 - \lambda^2 - \lambda + 1 = (\lambda -1)^2(\lambda + 1)$
+  + eigenvalues: 1 (of multiplicity 2) and -1
+  + eigenvectors
+
+    \[\begin{align*}
+      A - I = \begin{bmatrix} 2&2&6\\2&1&5\\-2&-1&-5 \end{bmatrix}, &\hspace{2em} A + I = \begin{bmatrix} 4&2&6\\2&3&5\\-2&-1&-3 \end{bmatrix} \\\\
+      (A - I)^2 = \begin{bmatrix} -4&0&-8\\-5&0&-8\\4&0&8 \end{bmatrix}, &\hspace{2em} (A - I)(A + I) = \begin{bmatrix} 0&4&4\\0&2&2\\0&-2&-2 \end{bmatrix}
+    \end{align*}\]
+
+    + $\lambda = -1 \to (-4, -4, 4)$
+    + $\lambda = 1 \to  (4, 2, -2)$
+    + generalized eigenvectors w/ $\lambda = 1$: (2, 3, -1) and (6, 5, -3)
+    + (2, 3, -1) and (6, 5, -3) combined w/ (-4, -4, 4) and (4, 2, -2) to form a basis of generalized eigenvectors of $A$
 
