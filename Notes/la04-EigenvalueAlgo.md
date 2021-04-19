@@ -458,3 +458,20 @@ Organization: Wikipedia
   + the column space is 2 dimensional $\to$ eigenspace must be 1 dimensional $\to$ anu other eigenvector parallel to it
 
 
+## List of eigenvalue algorithms
+
++ [Eigenvalue algorithm](https://en.wikipedia.org/wiki/List_of_numerical_analysis_topics#Eigenvalue_algorithms) — a numerical algorithm for  locating the eigenvalues of a matrix
+  + [Power iteration](https://en.wikipedia.org/wiki/Power_iteration)
+  + [Inverse iteration](https://en.wikipedia.org/wiki/Inverse_iteration)
+  + [Rayleigh quotient iteration](https://en.wikipedia.org/wiki/Rayleigh_quotient_iteration)
+  + [Arnoldi iteration](https://en.wikipedia.org/wiki/Arnoldi_iteration) — based on Krylov subspaces
+  + [Lanczos algorithm](https://en.wikipedia.org/wiki/Lanczos_algorithm) — Arnoldi, specialized for positive-definite matrices
+    + [Block Lanczos algorithm](https://en.wikipedia.org/wiki/Block_Lanczos_algorithm) — for when matrix is over a finite field
+  + [QR algorithm](https://en.wikipedia.org/wiki/QR_algorithm)
+  + [Jacobi eigenvalue algorithm](https://en.wikipedia.org/wiki/Jacobi_eigenvalue_algorithm) — select a small submatrix which can be diagonalized exactly, and repeat
+    + [Jacobi rotation](https://en.wikipedia.org/wiki/Jacobi_rotation) — the building block, almost a Givens rotation
+    + [Jacobi method for complex Hermitian matrices](https://en.wikipedia.org/wiki/Jacobi_method_for_complex_Hermitian_matrices)
+  + [Divide-and-conquer eigenvalue algorithm](https://en.wikipedia.org/wiki/Divide-and-conquer_eigenvalue_algorithm)
+  + [Folded spectrum method](https://en.wikipedia.org/wiki/Folded_spectrum_method)
+  + [LOBPCG](https://en.wikipedia.org/wiki/LOBPCG) — Locally Optimal Block Preconditioned Conjugate Gradient Method
+  + [Eigenvalue perturbation](https://en.wikipedia.org/wiki/Eigenvalue_perturbation) — stability of eigenvalues under perturbations of the matrix
