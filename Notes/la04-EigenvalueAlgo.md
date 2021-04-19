@@ -428,11 +428,11 @@ Organization: Wikipedia
     + $\alpha_1, \alpha_2, \alpha_3$ distinct eigenvalues of $A \implies (A -\alpha_1 I)(A - \alpha_2 I)(A - \alpha_3 I) = 0$
     + the product of any two of these matrices containing an eigenvector for the 3rd eigenvalue
   + $\alpha_3 = \alpha_1 \implies (A - \alpha_1 I)^2(A - \alpha_2 I) = 0 \text{ and } (A - \alpha_2 I)(A - \alpha_1 I)^2 = 0$
-  + generalized eigenspace of $\alpha_1$ spanned by the columns of $A - \alpha_2 I$
-  + ordinary eigenspace of $\alpha_1$ spanned by the columns of $(A - \alpha_1 I)(A - \alpha_2 I)$
-  + ordinary eigenspace of $\alpha_2$ spanned by the columns of $(A - \alpha_1 I)^2$
+    + generalized eigenspace of $\alpha_1$ spanned by the columns of $A - \alpha_2 I$
+    + ordinary eigenspace of $\alpha_1$ spanned by the columns of $(A - \alpha_1 I)(A - \alpha_2 I)$
+    + ordinary eigenspace of $\alpha_2$ spanned by the columns of $(A - \alpha_1 I)^2$
 
-+ Example: $3 \times 3$ matrix
++ Example: 3x3 matrix
   + consider a matrix
 
     \[ A = \begin{bmatrix} 3&2&6\\2&2&5\\-2&-1&-4 \end{bmatrix} \]
@@ -450,4 +450,11 @@ Organization: Wikipedia
     + $\lambda = 1 \to  (4, 2, -2)$
     + generalized eigenvectors w/ $\lambda = 1$: (2, 3, -1) and (6, 5, -3)
     + (2, 3, -1) and (6, 5, -3) combined w/ (-4, -4, 4) and (4, 2, -2) to form a basis of generalized eigenvectors of $A$
+
++ Eigenvectors of normal 3x3 matrices
+  + a normal matrix $A_{3 \times 3} \implies$ the cross-product used to find eigenvectors
+  + eigenvalue $\lambda \implies$ the null space of $(A - \lambda I)$ perpendicular to its column space
+  + cross-product of two independent columns of $A - \lambda I \in$ null space
+  + the column space is 2 dimensional $\to$ eigenspace must be 1 dimensional $\to$ anu other eigenvector parallel to it
+
 
