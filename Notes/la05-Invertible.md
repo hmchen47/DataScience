@@ -7,6 +7,12 @@ Organization: Wikipedia
 
 ## Overview
 
++ Invertible matrix
+  + a.k.a., nonsingular, nondegenerate
+  + Def: $\forall\; A_{n \times n}, \exists\; B_{n \times n} \text{ s.t. } AB = BA = I_n$
+  + $B$: the (multiplicative) inverse of $A$, uniquely determined by $A$
+  + __matrix invsion:__ the process of finding the matrix $B$ satisfying the prior equation for a given invertible matrix $A$
+
 
 
 
