@@ -51,6 +51,7 @@
 ### Operations & Properties
 
 + Wikipedia, [Determinant](../Notes/la02-Determinant.md)
++ Wikipedia, [Invertible Matrix](../Notes/la05-Invertible.md)
 
 
 ### Eigenvalues and Eigenvector
