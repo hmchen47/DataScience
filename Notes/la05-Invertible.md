@@ -88,13 +88,11 @@ Organization: Wikipedia
 
 ## Methods of matrix invertible
 
-
-
-
-
-### Gaussian elimination
-
-
++ Gaussian elimination
+  + an algorithm used to 
+    + determine whether a given matrix is invertible
+    + find the inverse
+  + alternative: the UL decomposition, generating upper and lower triangular matrices
 
 
 
