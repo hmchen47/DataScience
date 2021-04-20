@@ -53,6 +53,16 @@ Organization: Wikipedia
   + $\forall\; \text{ invertible } A_{n \times n}, B_{n \times n} \text{ s.t. } (AB)^{-1} = B^{-1} A^{-1}$.  More generally, invertible $A_1, \dots, A_k \implies$ $(A_1 A_2 \cdots A_k)^{-1} = A_k^{-1} A_{k-1}^{-1} \cdots A_2^{-1} A_1^{-1}$
   + $\det A^{-1} = (\det A)^{-1}$
 
++ Orthogonal vectors
+  + the rows of the inverse matrix $V$ of a matrix $U \to$ orthonormal to the columns of $U$
+  + suppose that $UV = VU = I$
+    + $v_i^T$: the rows of $V, 1 \le i \le n$
+    + $u_j$: the columns of $U, 1 \le j \le n$
+  + Euclidean inner product: $v_i^T u_j = \delta_{i,j}$
+    + useful in constructing the inverse of a square matrix in some instances
+    + a set of orthogonal vectors (not necessarily orthonormal vectors) to the columns of $U$ are known
+  + the iterative Gram-Schmidt process applied to the initial set to detemine the rows of the inverse $V$
+
 
 
 ## Examples
