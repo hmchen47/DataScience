@@ -45,6 +45,13 @@ Organization: Wikipedia
   + $A$ expressed as a finite product of elementary matrices
   + $A$ w/ left or right inverse, which case both left and right inverse and $B = C = A^{-1}$
 
++ Properties of invertible matrices: $\exists\; A$ invertible
+  + $(A^{-1})^{-1} = A$
+  + $(kA)^{-1} = k^{-1}A^{-1}, \;\forall\; k \ne 0$
+  + $A$ w/ orthonormal columns $\implies (A\bf{x})^+ = \bf{x}^+A^{-1}$, where ${}^+$ denotes the Moore-Penrose inverse and $\bf{x}$ is a vector
+  + $(A^T)^{-1} = (A^{-1})^T$
+  + $\forall\; \text{ invertible } A_{n \times n}, B_{n \times n} \text{ s.t. } (AB)^{-1} = B^{-1} A^{-1}$.  More generally, invertible $A_1, \dots, A_k \implies$ $(A_1 A_2 \cdots A_k)^{-1} = A_k^{-1} A_{k-1}^{-1} \cdots A_2^{-1} A_1^{-1}$
+  + $\det A^{-1} = (\det A)^{-1}$
 
 
 
