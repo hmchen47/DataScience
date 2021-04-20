@@ -94,10 +94,14 @@ Organization: Wikipedia
     + find the inverse
   + alternative: the UL decomposition, generating upper and lower triangular matrices
 
-
-
-### Newton's method
-
++ Newton's method
+  + used for a multiplicative inverse algorithm
+  + convenient to find a suitable starting seed: $X_{k+1} = 2 X_k - X_k A X_k$
+  + particularly useful when dealing w/ families of related matrices
+  + probably a good starting point for refining an approximation for the new inverse
+  + example: the pair of sequences of inverse matrices used in obtaining matrix square roots by Denman-Beavers iteration
+  + probably more than one pass of the iteration to obtain closely enough new matrix
+  + useful for "touch up" corrections to Gauss-Jordan algorithm wontainated by small errors due to imperfect computer arithmetic
 
 
 
