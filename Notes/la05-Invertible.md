@@ -139,13 +139,21 @@ Organization: Wikipedia
   + $L$: the lower triangular Cholesky decomposition of $A$
   + $L^\ast$: the conjugate transpose of $L$
 
++ Analytic solution
+  + adjugate matrix: the transpose of the matrix of cofactor
+    + efficient way to compute the inverse of small matrix
+    + inefficient way to calculate the inverse of large matrix
+  + the inverse
 
+    \[ A^{-1} = \frac{1}{|A|} C^T = \frac{1}{|A|} \begin{pmatrix} C_11&C_{21}&\cdots&C_{n1}\\C_{12}&C_{22}&\cdots&C_{n2}\\ \vdots&\vdots&\ddots&\vdots\\C_{1n}&C_{2n}&\cdots&C_{nn} \end{pmatrix} \]
 
+    so that
 
+    \[ (A^{-1})_{ij} = \frac{1}{|A|}\left(C^T\right)_{ij} = \frac{1}{|A|} (C_{ji}) \]
 
-### Analytic solution
-
-
+    + $|A|$: the determinant of $A$
+    + $C$: the matrix of cofactors
+    + $C^T$: transpose matrix
 
 
 
