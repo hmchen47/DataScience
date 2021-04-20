@@ -131,9 +131,13 @@ Organization: Wikipedia
 
     \[ [\Lambda^{-1}]_{ii} = \frac{1}{\lambda_i} \]
 
++ Cholesky decomposition
+  + positive definite $A \implies$ the inverse
 
+    \[ A^{-1} = (L^\ast)^{-1} L^{-1} \]
 
-### Cholesky decomposition
+  + $L$: the lower triangular Cholesky decomposition of $A$
+  + $L^\ast$: the conjugate transpose of $L$
 
 
 
