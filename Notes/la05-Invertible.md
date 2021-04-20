@@ -164,6 +164,42 @@ Organization: Wikipedia
 
     \[ A^{-1} = \frac{1}{\det A} [(\operatorname{tr} A)I - A] \]
 
++ Inversion of 3x3 matrices
+  + the inverse of $A$
+
+    \[ A^{-1} = \begin{bmatrix} a&b&c\\d&e&f\\g&h&i \end{bmatrix} = \frac{1}{\det A} \begin{bmatrix} A&B&C\\D&E&F\\G&H&I \end{bmatrix}^T = \frac{1}{\det A} \begin{bmatrix} A&D&G\\B&E&H\\C&F&I \end{bmatrix} \]
+
+  + the elements of the intermediary matrix above (RHS)
+
+    \[\begin{array}{crcrcr}
+      A = &  (ei-fh), & D = & -(bi - ch), & G = &  (bf - ce), \\
+      B = & -(di-fg), & E = &  (ai - cg), & H = & -(af - cd), \\
+      C = &  (dh-eg), & F = & -(ah - bg), & I = &  (ae - bd). 
+    \end{array}\]
+
+  + applying the rule of Sarrus to get $\det(A)$
+
+    \[ \det(A) = aA + bB + cC \]
+
+  + the Cayley-Hamilton decomposition
+
+    \[ A^{-1} = \frac{1}{\det(A)} \left(\frac12 \left[(\operatorname{tr}A)^2 - \operatorname{tr} A^2 \right] I - A \operatorname{tr} A + A^2 \right) \]
+
+  + general 3x3 inverse expressed concisely in terms of the cross product and triple product
+    + $\exists\; A = [\bf{x}_0 \bf{x}_1 \bf{x}_2]$ is invertible
+
+      \[ A^{-1} = \frac{1}{\det (A)} \begin{bmatrix} (\bf{x}_1 \times \bf{x}_2)^T\\(\bf{x}_2 \times \bf{x}_0)^T\\(\bf{x}_0 \times \bf{x}_1)^T \end{bmatrix}\]
+
+    + $\det (A)$ equal to the triple product of $\bf{x}_0, \bf{x}_1, \bf{x}_2$
+    + the volume of the parallelpiped of formed by the rows or columns
+
+      \[ \det(A) = \bf{x}_0  \cdot (\bf{x}_1  \times \bf{x}_2) \]
+
+    + correctness of the formula checked by using cross- and triple-product properties
+    + left and right inverse always coincide
+    + each row of $A^{-1}$: orthogonal to the non-corresponding two columns of $A$
+    + $\det(A)$ causing the diagonal elements of $I = A^{-1}A$ to be unitary
+
 
 ### Blockwise inversion
 
