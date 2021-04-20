@@ -200,6 +200,12 @@ Organization: Wikipedia
     + each row of $A^{-1}$: orthogonal to the non-corresponding two columns of $A$
     + $\det(A)$ causing the diagonal elements of $I = A^{-1}A$ to be unitary
 
++ Inversion of 4x4 matrices
+  + expressions for the inverse of $A$ get complicated
+  + the Cayley-Hamilton method w/ $n = 4$
+
+    \[ A^{-1} = \frac{1}{\det (A)} \left( \frac16 \left[(\operatorname{tr} A)^3 - 3 \operatorname{tr} A \operatorname{tr} A^2 + 2 \operatorname{tr} A^3 \right] I - \frac12 A \left[(\operatorname A)^2 - \operatorname{tr} A^2 \right] + A^2 \operatorname{tr} A - A^3 \right) \]
+
 
 ### Blockwise inversion
 
