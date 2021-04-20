@@ -155,6 +155,14 @@ Organization: Wikipedia
     + $C$: the matrix of cofactors
     + $C^T$: transpose matrix
 
++ Inversion of 2x2 matrices
+  + the inverse of $A$
+
+    \[ A^{-1} = \begin{bmatrix} a&b\\c&d \end{bmatrix}^{-1} = \frac{1}{\det A} \begin{bmatrix} d&-b\\-c&a \end{bmatrix} = \frac{1}{ad-bc} \begin{bmatrix} d&-b\\-c&a \end{bmatrix} \]
+
+  + the Cayley-Hamilton method
+
+    \[ A^{-1} = \frac{1}{\det A} [(\operatorname{tr} A)I - A] \]
 
 
 ### Blockwise inversion
