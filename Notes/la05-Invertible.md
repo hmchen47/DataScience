@@ -103,12 +103,20 @@ Organization: Wikipedia
   + probably more than one pass of the iteration to obtain closely enough new matrix
   + useful for "touch up" corrections to Gauss-Jordan algorithm wontainated by small errors due to imperfect computer arithmetic
 
++ Cayley-Hamilton method
+  + $\det(A), \operatorname{tr}(A),$ and power of $A$ used to express the inverse of $A$
 
+    \[ A^{-1} = \frac{1}{\det(A)} \sum_{s=0}^{n-1} A^s \sum_{k_1, k_2, \dots, k_{n-1}} \prod_{l=1}^{n-1} \frac{(-1)^{k_l + 1}}{l^{k_l} k_l!} \operatorname{tr}(A^l)^{k_l} \]
 
+  + $\operatorname{tr}(A)$: traces of $A$
+    + given by the sum of the main diagonal
+    + taken over $s$ and the set of all $k_l \ge 0$ satisfying the linear Diophantine equartion
 
-### Cayley-Hamilton method
+    \[ s + \sum_{l=1}^{n-1} l K_l = n -1 \]
 
+  + rewritten w/ complete Bell polynomials of the arguments $t_l = -(l - 1)!\operatorname{tr}(A^l)$
 
+    \[ A^{-1} = \frac{1}{\det(A)} \sum_{s=1}^n A^{s-1} \,\frac{(-1)^{n-1}}{(n-s)!} \,B_{n-s}(t_1, t_2, \dots, t_{n-s}) \]
 
 
 
