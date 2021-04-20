@@ -63,6 +63,15 @@ Organization: Wikipedia
     + a set of orthogonal vectors (not necessarily orthonormal vectors) to the columns of $U$ are known
   + the iterative Gram-Schmidt process applied to the initial set to detemine the rows of the inverse $V$
 
++ Adjugate matrix
+  + used to find the inverse of $A$
+  + invertible $A \implies$
+
+    \[ A6{-1} = \frac{1}{\det(A)} \operatorname{adj}(A) \]
+
++ Identity matrix
+  + the associativity of matrix multiplication
+  + finite square matrices $A, B \text{ s.t. } AB = I \implies BA = I$
 
 
 ## Examples
