@@ -24,7 +24,26 @@ Organization: Wikipedia
 
 ## Properties
 
-
++ The invertible matrix theorem: $A_{n \times n}$ over a field $K$, the following statements equivalent
+  + invertible $A \implies$ nonsingular or non-degenerate
+  + $A$ row-equivalent to $I_n$
+  + $A$ column-equivalent to $I_n$
+  + $A$ w/ n pivot positions
+  + $\det(A) \ne 0$
+  + $A$ w/ full rank, i.e., $\operatorname{rank}(A) = n$
+  + $A\bf{x} = 0$ w/ only the trivial solution $\bf{x} = 0$
+  + the kernel of $A$ is trivial, i.e., it contains only the null vector as anb element, $\operatorname{ker}(A) = \{0\}$
+  + the equation $A\bf{x} = \bf{b}$ w/ exactly one solution $\forall\; \bf{b} \in K^n$
+  + the columns of $A$ linearly independent
+  + the columns of $A$ span $K^n$
+  + $\operatorname{Col} A = K^n$
+  + the columns of $A$ form a basis of $K^n$
+  + the linear transformation mapping $\bf{x}$ to $A\bf{x}$ is bijection from $K^n$ to $K^n$
+  + $\exists\; B_{n \times n}$ s.t. $AB = I_n=BA$
+  + transpose $A^T$ invertible ($\therefore$ rows of $A$ linear independent, span $K^n$, and form a basis of $K^n$)
+  + the number 0 not an eigenvalue of $A$
+  + $A$ expressed as a finite product of elementary matrices
+  + $A$ w/ left or right inverse, which case both left and right inverse and $B = C = A^{-1}$
 
 
 
