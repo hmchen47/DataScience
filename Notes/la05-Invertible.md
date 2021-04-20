@@ -118,11 +118,18 @@ Organization: Wikipedia
 
     \[ A^{-1} = \frac{1}{\det(A)} \sum_{s=1}^n A^{s-1} \,\frac{(-1)^{n-1}}{(n-s)!} \,B_{n-s}(t_1, t_2, \dots, t_{n-s}) \]
 
++ Eigendecomposition
+  + $\exists\; \text{ eigendecomposed } A, \forall\; \lambda \ne 0 \implies \text{ invertible } A$ w/
 
+    \[ A^{-1} = Q\Lambda^{-1}Q^{-1} \]
 
-### Eigendecomposition
+    + $Q$: square $(n \times n)$ matrix
+    + $q_i$: the eigenvector, $i$th column of $Q$
+    + $\Lambda$: the diagonal matrix w/ diagonal elements as the corresponding eigenvalues, i.e., $\Lambda_{ii} = \lambda_i$
+  + symmetric $A$ and orthogonal $Q$ s.t. $Q^{-1} = Q^T$
+  + inverse of diagonal $\Lambda$
 
-
+    \[ [\Lambda^{-1}]_{ii} = \frac{1}{\lambda_i} \]
 
 
 
