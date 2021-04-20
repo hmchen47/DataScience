@@ -76,8 +76,14 @@ Organization: Wikipedia
 
 ## Examples
 
++ 2x2 matrix
+  + consider invertible $A_{2 \times 2}$
 
+    \[ A = \begin{bmatrix} -1&\frac{32}\\1&-1 \end{bmatrix} \hspace{1em}\to\hspace{1em} \det A = -\frac12 \ne 0 \]
 
+  + consider non-invertible, or singular $B_{2 \times 2}$
+
+    \[ B = \begin{bmatrix} -1&\frac32\\\frac23&-1 \end{bmatrix} \hspace{1em}\to\hspace{1em} \det B = 0 \]
 
 
 ## Methods of matrix invertible
