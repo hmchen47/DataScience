@@ -330,10 +330,6 @@ Organization: Wikipedia
       (A + \varepsilon X)^{-n} &= A^{-n} + \varepsilon \sum_{i=1}^n A^{-i}XA^{-(n+1-i)} + \mathcal{O}(\varepsilon^2)
     \end{align*}\]
 
-
-
-
-
 ## Applications
 
 
