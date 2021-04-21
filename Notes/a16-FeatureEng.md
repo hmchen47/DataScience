@@ -57,50 +57,50 @@ Date: Nov. 29, 2015
 
 ## Results
 
-<table border="1">
-  <caption style="font-size: 1.2em; margin: 0.2em;">Mushrooms</caption>
+  <table align=center  border="1">
+    <caption style="font-size: 1.2em; margin: 0.2em;">Mushrooms</caption>
+    <thead>
+    <tr style="text-align: left;"><th></th><th>Coding</th><th>Dataset</th><th>Dimensionality</th><th>Avg. Score</th><th>Elapsed Time</th></tr>
+    </thead>
+    <tbody>
+      <tr><th>0</th><td>Ordinal</td><td>Mushroom</td><td>22</td><td>0.810919</td><td>3.653194</td></tr>
+      <tr><th>1</th><td>One-Hot Encoded</td><td>Mushroom</td><td>117</td><td>0.813252</td><td>8.193983</td></tr>
+      <tr><th>6</th><td>Helmert Coding</td><td>Mushroom</td><td>117</td><td>0.837997</td><td>5.431131</td></tr>
+      <tr><th>5</th><td>Backward Difference Coding</td><td>Mushroom</td><td>117</td><td>0.846864</td><td>7.829706</td></tr>
+      <tr><th>3</th><td>Sum Coding</td><td>Mushroom</td><td>117</td><td>0.850555</td><td>4.929640</td></tr>
+      <tr><th>4</th><td>Polynomial Coding</td><td>Mushroom</td><td>117</td><td>0.855596</td><td>6.136916</td></tr>
+      <tr><th>2</th><td>Binary Encoded</td><td>Mushroom</td><td>43</td><td>0.871493</td><td>3.948484</td></tr>
+    </tbody>
+  </table>
+
+  <table align=center  border="1">
+    <caption style="font-size: 1.2em; margin: 0.2em;">Cars</caption>
+    <thead>
+    <tr style="text-align: left;"><th></th><th>Coding</th><th>Dataset</th><th>Dimensionality</th><th>Avg. Score</th><th>Elapsed Time</th></tr>
+    </thead>
+    <tbody>
+      <tr><th>10</th><td>Sum Coding</td><td>Cars</td><td>21</td><td>0.549347</td><td>1.456738</td></tr>
+      <tr><th>13</th><td>Helmert Coding</td><td>Cars</td><td>21</td><td>0.577471</td><td>1.458556</td></tr>
+      <tr><th>7</th><td>Ordinal</td><td>Cars</td><td>6</td><td>0.638522</td><td>1.466667</td></tr>
+      <tr><th>8</th><td>One-Hot Encoded</td><td>Cars</td><td>21</td><td>0.648694</td><td>1.393966</td></tr>
+      <tr><th>11</th><td>Polynomial Coding</td><td>Cars</td><td>21</td><td>0.666130</td><td>1.495264</td></tr>
+      <tr><th>12</th><td>Backward Difference Coding</td><td>Cars</td><td>21</td><td>0.697274</td><td>1.499557</td></tr>
+      <tr><th>9</th><td>Binary Encoded</td><td>Cars</td><td>12</td><td>0.697911</td><td>1.441609</td></tr>
+    </tbody>
+  </table>
+
+  <table align=center  border="1">
+    <caption style="font-size: 1.2em; margin: 0.2em;">Splice</caption>
   <thead>
-  <tr style="text-align: right;"><th></th><th>Coding</th><th>Dataset</th><th>Dimensionality</th><th>Avg. Score</th><th>Elapsed Time</th></tr>
+  <tr style="text-align: left;"><th></th><th>Coding</th><th>Dataset</th><th>Dimensionality</th><th>Avg. Score</th><th>Elapsed Time</th></tr>
   </thead>
   <tbody>
-    <tr><th>0</th><td>Ordinal</td><td>Mushroom</td><td>22</td><td>0.810919</td><td>3.653194</td></tr>
-    <tr><th>1</th><td>One-Hot Encoded</td><td>Mushroom</td><td>117</td><td>0.813252</td><td>8.193983</td></tr>
-    <tr><th>6</th><td>Helmert Coding</td><td>Mushroom</td><td>117</td><td>0.837997</td><td>5.431131</td></tr>
-    <tr><th>5</th><td>Backward Difference Coding</td><td>Mushroom</td><td>117</td><td>0.846864</td><td>7.829706</td></tr>
-    <tr><th>3</th><td>Sum Coding</td><td>Mushroom</td><td>117</td><td>0.850555</td><td>4.929640</td></tr>
-    <tr><th>4</th><td>Polynomial Coding</td><td>Mushroom</td><td>117</td><td>0.855596</td><td>6.136916</td></tr>
-    <tr><th>2</th><td>Binary Encoded</td><td>Mushroom</td><td>43</td><td>0.871493</td><td>3.948484</td></tr>
+  <tr><th>14</th><td>Ordinal</td><td>Splice</td><td>61</td><td>0.681816</td><td>5.107389</td></tr>
+  <tr><th>17</th><td>Sum Coding</td><td>Splice</td><td>3465</td><td>0.922276</td><td>25.898854</td></tr>
+  <tr><th>16</th><td>Binary Encoded</td><td>Splice</td><td>134</td><td>0.935744</td><td>3.352499</td></tr>
+  <tr><th>15</th><td>One-Hot Encoded</td><td>Splice</td><td>3465</td><td>0.944839</td><td>2.563578</td></tr>
   </tbody>
-</table>
-
-<table border="1">
-  <caption style="font-size: 1.2em; margin: 0.2em;">Cars</caption>
-  <thead>
-  <tr style="text-align: right;"><th></th><th>Coding</th><th>Dataset</th><th>Dimensionality</th><th>Avg. Score</th><th>Elapsed Time</th></tr>
-  </thead>
-  <tbody>
-    <tr><th>10</th><td>Sum Coding</td><td>Cars</td><td>21</td><td>0.549347</td><td>1.456738</td></tr>
-    <tr><th>13</th><td>Helmert Coding</td><td>Cars</td><td>21</td><td>0.577471</td><td>1.458556</td></tr>
-    <tr><th>7</th><td>Ordinal</td><td>Cars</td><td>6</td><td>0.638522</td><td>1.466667</td></tr>
-    <tr><th>8</th><td>One-Hot Encoded</td><td>Cars</td><td>21</td><td>0.648694</td><td>1.393966</td></tr>
-    <tr><th>11</th><td>Polynomial Coding</td><td>Cars</td><td>21</td><td>0.666130</td><td>1.495264</td></tr>
-    <tr><th>12</th><td>Backward Difference Coding</td><td>Cars</td><td>21</td><td>0.697274</td><td>1.499557</td></tr>
-    <tr><th>9</th><td>Binary Encoded</td><td>Cars</td><td>12</td><td>0.697911</td><td>1.441609</td></tr>
-  </tbody>
-</table>
-
-<table border="1">
-  <caption style="font-size: 1.2em; margin: 0.2em;">Splice</caption>
-<thead>
-<tr style="text-align: right;"><th></th><th>Coding</th><th>Dataset</th><th>Dimensionality</th><th>Avg. Score</th><th>Elapsed Time</th></tr>
-</thead>
-<tbody>
-<tr><th>14</th><td>Ordinal</td><td>Splice</td><td>61</td><td>0.681816</td><td>5.107389</td></tr>
-<tr><th>17</th><td>Sum Coding</td><td>Splice</td><td>3465</td><td>0.922276</td><td>25.898854</td></tr>
-<tr><th>16</th><td>Binary Encoded</td><td>Splice</td><td>134</td><td>0.935744</td><td>3.352499</td></tr>
-<tr><th>15</th><td>One-Hot Encoded</td><td>Splice</td><td>3465</td><td>0.944839</td><td>2.563578</td></tr>
-</tbody>
-</table>
+  </table>
 
 
 
