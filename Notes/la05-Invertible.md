@@ -296,12 +296,39 @@ Organization: Wikipedia
 
 ## Derivative of the matrix inverse
 
++ Derivative of inverse matrix
+  + $\exists$ invertible $A$ depending on $t$
+  + the derivative of the inverse of $A$ w.r.t. $t$
 
+    \[ \frac{d A^{-1}}{d t} = -A^{-1} \frac{d A}{d t} A^{-1} \]
 
+  + derivation:
+    + $A A^{-1} = I$
+    + the derivative to solve the inverse of $A$
 
+      \[\begin{align*}
+        \frac{d A^{-1} A}{d t} &= \frac{d A^{-1}}{d t} A + A^{-1} \frac{d A}{d t} = \frac{d I}{d t} = 0 \\
+        \frac{d A^{-1}}{d t} &= -A^{-1} \frac{d A}{d t} A^{-1}
+      \end{align*}\]
 
+  + $\exists\; \varepsilon$ s.t.
 
-## Generalized inverse
+    \[ (A + \varepsilon X)^{-1} = A^{-1} - \varepsilon A^{-1}XA^{-1} + \mathcal{O}(\varepsilon^2) \]
+
+  + generalization
+
+    \[ \frac{d f(A)}{d t} = \sum_i g_i(A) \frac{d A}{d t} h_i(A) \implies f(A+\varepsilon) f(A) + \varepsilon \sum_i g_i(A) X h_i(A) + \mathcal(O)(\varepsilon^2) \]
+
+  + $\exists\; n \in \Bbb{N}$
+
+    \[ \frac{d A^n}{d t} = \sum_{i=1}^n A^{i-1} \frac{dA}{d t} A^{n-i}, \hspace{1em} \frac{d A^{-n}}{d t} = - \sum_{i=1}^n A^{-i} \frac{A}{d t} A^{-(n+1-i)} \]
+
+  + therefore,
+
+    \[\begin{align*}
+      (A + \varepsilon X)^n &= A^n + \varepsilon \sum_{i=1}^n A^{i-1}XA^{n-i} + \mathcal{O}(\varepsilon^2), \\
+      (A + \varepsilon X)^{-n} &= A^{-n} + \varepsilon \sum_{i=1}^n A^{-i}XA^{-(n+1-i)} + \mathcal{O}(\varepsilon^2)
+    \end{align*}\]
 
 
 
