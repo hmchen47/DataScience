@@ -111,3 +111,14 @@ Date: Nov. 29, 2015
   + [GitHub source codes for Pandas](https://github.com/wdm0006/categorical_encoding)
 
 
+# Beyond One-Hot
+
+Title: Beyond One-Hot. 17 Ways of Transforming Categorical Features Into Numeric Features
+
+Author: S. Mazzanti
+
+Date: Dec. 18, 2020
+
+[Original](https://tinyurl.com/aavmpdam)
+
+
