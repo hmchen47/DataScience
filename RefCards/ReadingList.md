@@ -4,8 +4,10 @@
 
 + Prof. David Jerison, [Single Variable Calculus](https://ocw.mit.edu/courses/mathematics/18-01sc-single-variable-calculus-fall-2010/), 2010
 + Prof. Denis Auroux, [Multivariable Calculus](https://ocw.mit.edu/courses/mathematics/18-02sc-multivariable-calculus-fall-2010/), 2010
-+ Prof. Arthur Mattuck, Prof. Haynes Miller, Jeremy Orloff, Dr. John Lewis, [Differential Equations](https://ocw.mit.edu/courses/mathematics/18-03sc-differential-equations-fall-2011/), 2011
-+ Prof. Gil Strang, [18.06 Linear Algebra](http://web.mit.edu/18.06/www/videos.shtml), 2020
++ Prof. Arthur Mattuck, Prof. Haynes Miller, Jeremy Orloff, Dr. John Lewis, [Differential Equations](https://ocw.mit.edu/courses/mathematics/18-03sc-differential-equations-fall-2011/), 2010
++ Prof. Gilbert Strang, [Linear Algebra](https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/), 18.06, 2010
++ Prof. Gilbert Strang, [Linear Algebra](https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/), 18.06SC, 2011
++ Prof. David Vogan, [Linear Algebra](https://ocw.mit.edu/courses/mathematics/18-700-linear-algebra-fall-2013/), 18.700, 2013 (more on theory and proofs)
 
 + MITx's Statistics and Data Science MicroMasters
   + [Probability - The Science of Uncertainty and Data](https://www.edx.org/course/probability-the-science-of-uncertainty-and-data)
