@@ -271,9 +271,9 @@ Organization: Wikipedia
 
     \[ A^{-1} = X^{-1} = \frac{X^{-1} (A - X) X^{-1}}{1 + \operatorname{tr}\left(X^{-1}(A - X)\right)} \]
 
-### p-adic approximation
-
-
++ p-adic approximation
+  + $A$ w/ integer and rational coefficients and $\exists\;$ a solution in arbitrary-precision rationals $\implies$ a $p$-adic approximation methods converges to an exact solution in $\mathcal{O}(n^4 \log^2 n)$
+  + relying on solving $n$ linear system via Dixon's method of $p$-adic approximation
 
 
 
