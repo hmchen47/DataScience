@@ -275,13 +275,23 @@ Organization: Wikipedia
   + $A$ w/ integer and rational coefficients and $\exists\;$ a solution in arbitrary-precision rationals $\implies$ a $p$-adic approximation methods converges to an exact solution in $\mathcal{O}(n^4 \log^2 n)$
   + relying on solving $n$ linear system via Dixon's method of $p$-adic approximation
 
++ Reciprocal basis vectors method
+  + $\exists\; X = [x^{ij}], 1 \le i, j \le n$
+    + $n$ rows interpreted as $n$ vectors $\bf{x}_i = x^{ij} \bf{e}_j$
+    + $\bf{e}_j$: a standard orthonormal basis of Euclidean space $\Bbb{R}^n$
+  + computing the reciprocal (sometimes called dual) column vectors via Clifford algebra (or Geometric Algebra) as the column of the inverse matrix $X^{-1} = [x_{ji}]$
 
+    \[\bf{x}^i = x_{ji}\, \bf{e}^j = (-1)^{i-1} (\bf{x}_1 \wedge  \cdots \wedge ()_i \wedge \cdots \wedge \bf{x}_n) \cdot (\bf{x}_1 \wedge \bf{x}_2 \wedge \cdots \wedge \bf{x}_n)^{-1} \]
 
-### Reciprocal basis vectors method
+  + $()_i$: indicating $\bf{x}_i$ removing from the expression for $\bf{x}^i$
+  + the Kronecker delta, $\delta_i^j$ s.t.
 
+    \[\begin{align*}
+      XX^{-1} &= [\bf{x}_i \cdot \bf{x}^j] = [\delta_i^j] = I_n\\
+      X^{-1}X &= [(\bf{e}_i \cdot \bf{x}^k) (\bf{e}^j \cdot \bf{x}_k)] = [\bf{e}_i \cdot \bf{e}^j] = I_n
+    \end{align*}\]
 
-
-
+  + $\bf{x}_i$ not linear independent $\implies (\bf{x}_1 \wedge \bf{x}_2 \wedge \cdots \wedge \bf{x}_n) = 0$ and $X$ not invertible 
 
 
 ## Derivative of the matrix inverse
