@@ -344,8 +344,12 @@ Organization: Wikipedia
     + world-to-subspace-to-world object transformation
     + physical simulations
 
-
-### Matrix inverses in MIMO wireless communication
++ Matrix inverses in MIMO wireless communication
+  + consisting of $N$ transmission and $M$ receive antennas
+  + a signal transmitted via $N$ transmit antennas and received via $M$ receive antennas
+  + receiving signal:
+    + a linear combination of the $N$ transmitted signal forming an $N \time M$ transmission matrix $H$
+    + $H$ invertible for the receiver to be able to figure out the transmitted information
 
 
 
