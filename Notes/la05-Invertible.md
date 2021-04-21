@@ -206,11 +206,47 @@ Organization: Wikipedia
 
     \[ A^{-1} = \frac{1}{\det (A)} \left( \frac16 \left[(\operatorname{tr} A)^3 - 3 \operatorname{tr} A \operatorname{tr} A^2 + 2 \operatorname{tr} A^3 \right] I - \frac12 A \left[(\operatorname A)^2 - \operatorname{tr} A^2 \right] + A^2 \operatorname{tr} A - A^3 \right) \]
 
++ Blockwise inversion
+  + analytic inversion formula
 
-### Blockwise inversion
+    \[ \begin{bmatrix} A&B\\C&D \end{bmatrix} = \begin{bmatrix} A^{-1} + A^{-1} B(D - CA^{-1} B)^{-1} & -A^{-1}B(D-CA^{-1}B)^{-1}\\ -(D-CA^{-1}B)^{-1}CA^{-1} & (D - CA^{-1}B)^{-1} \end{bmatrix} \tag{1} \]
 
+    + $A, B, C, D$: matrix sub-blocks of arbitrary size
+    + $A, D - CA^{-1}B$: non-singular
+    + advantageous w/ diagonal $A$ and small $(D - CA^{-1}B)$
+  + nullity theorem
+    + the nullity of $A$ = the nullity of the sub-block in the lower right of the inverse matrix
+    + the nullity of $B$ = the nullity of the sub-block in the upper right of the inverse matrix
+  + the inversion procedure
+    + Eq. (1) performed matrix block operations operated on $C$ and $D$ first
+    + $A$ and $B$ operated on first, and provided $D$ and $A - BD^{-1}C$ are non-singular
 
+      \[ \begin{bmatrix}A&B\\C&D \end{bmatrix}^{-1} = \begin{bmatrix} (A - BD^{-1}C)^{-1}&-(A - BD^{-1}C)^{-1}BD^{-1}\\-D^{-1}C(A - BD^{-1}C)^{-1}&D^{-1}+D^{-1}C(A - BD^{-1}C)^{-1}BD^{-1} \end{bmatrix} \tag{2} \]
 
+    + Eq. (1) = Eq. (2) $\implies$
+
+      \[\begin{array}{rcl} \tag{3}
+        (A - BD^{-1}C)^{-1} &=& A^{-1} + A^{-1}B(D - CA^{-1}B)^{-1}CA^{-1}\\
+        (A - BD^{-1}C)^{-1}BD^{-1} &=& A^{-1}B(D - CA^{-1}B)^{-1}\\
+        D^{-1}C(A - BD^{-1}C)^{-1} &=& (D - CA^{-1}B)^{-1}CA^{-1}\\
+        D^{-1}+D^{-1}C(A - BD^{-1}C)^{-1}BD^{-1} &=& (D - CA^{-1}B)^{-1}
+      \end{array}\]
+
+    + binomial inverse theorem: Eq. (3) = the Woodbury matrix identity
+  + invertible $A, D \implies$
+
+    \[ \begin{bmatrix} A&B\\C&D \end{bmatrix}^{-1} = \begin{bmatrix} (A - BD^{-1}C)^{-1}&0\\0&(D - CA^{-1}B)^{-1} \end{bmatrix} \begin{bmatrix} I&-BD^{-1}\\-CA^{-1}&I \end{bmatrix} \tag{2} \]
+
+  + the Weinstein-Aronszajn identity: one of the two matrices in the block-diagonal matrix is invertible exactly when the other is
+  + inversion of $A_{n \times n}$ requiring inversion of two half-sized matrices and 6 multiplications btw 2 half-sized matrices
+    + divided and conquer algorithm: using blockwise inversion to invert a matrix
+    + matrix multiplication algorithm w/ same time complexity as divided and conquer algorithm
+  + matrix multiplication algorithm:
+    + time complexity: $\mathcal{O}(n^{2.3727})$ operations
+    + the best proven lower bound: $\Omega(n^2 \log n)$
+  + zero upper right block matrix $B \to$ simplify the formula significantly
+
+    \[ \begin{bmatrix} A&0\\C&D \end{bmatrix}^{-1} = \begin{bmatrix} A^{-1}&0\\-D^{-1}CA^{-1}&D^{-1} \end{bmatrix} \]
 
 
 ### By Neumann series
