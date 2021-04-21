@@ -332,19 +332,17 @@ Organization: Wikipedia
 
 ## Applications
 
++ Regression/least square
+  + explicit inverse: the easiest way to estimate the accuracy w/ the diagonal of a matrix inverse
+  + faster algorithms to compute only the diagonal entries of a matrix inverse
 
-
-
-### Regression/least square
-
-
-
-
-
-### Matrix inverses in real-time simulations
-
-
-
++ Matrix inverses in real-time simulations
+  + playing a significant role in computer graphics
+  + in particular 3D graphics rendering and 3D simulations
+  + examples
+    + screen-to-world ray casting
+    + world-to-subspace-to-world object transformation
+    + physical simulations
 
 
 ### Matrix inverses in MIMO wireless communication
