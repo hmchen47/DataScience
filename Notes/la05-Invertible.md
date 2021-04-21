@@ -248,12 +248,28 @@ Organization: Wikipedia
 
     \[ \begin{bmatrix} A&0\\C&D \end{bmatrix}^{-1} = \begin{bmatrix} A^{-1}&0\\-D^{-1}CA^{-1}&D^{-1} \end{bmatrix} \]
 
++ Neumann series
+  + $\exists\; A$ w/ $\displaystyle\lim_{n \to \infty} (I - A)^n = 0 \implies$ inverse $A$ expressed by a Neumann series
 
-### By Neumann series
+    \[ A^{-1} = \sum_{n=0}^\infty (I - A)^n \]
 
+  + preconditioner: truncating the sum results in an "approximate" inverse
+  + geometric sum: truncated Neumann series accelerated exponentially by satisfying
 
+    \[ \sum_{n=0}^{2^L -1} (I -A)^n = \prod_{l=0}^{L-1} \left( I + (I - A)^{2^l} \right) \]
 
+  + $\therefore\;$ only $2L -2$ matrix multiplication required to compute $2^L$ terms of the sum
+  + generalization: $A$ near the invertible matrix $X$ in the sense that
 
+      \[ \lim_{n \to \infty} (I - X^{-1} A)^n = 0 \hspace{1em}\text{ or }\hspace{1em} \lim_{n \to \infty} (I - A X^{-1})^n = 0 \]
+
+    $\implies A$ nonsingular w/ inverse
+
+      \[ A^{-1} = \sum_{n \to \infty} \left(X^{-1}(X - A)\right)^n X^{-1} \]
+
+  + $A - X$ w/ rank 1 $\implies$
+
+    \[ A^{-1} = X^{-1} = \frac{X^{-1} (A - X) X^{-1}}{1 + \operatorname{tr}\left(X^{-1}(A - X)\right)} \]
 
 ### p-adic approximation
 
