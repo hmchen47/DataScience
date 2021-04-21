@@ -121,4 +121,18 @@ Date: Dec. 18, 2020
 
 [Original](https://tinyurl.com/aavmpdam)
 
+## Introduction
+
++ Categorical encoding
+  + the process of transforming a categorical column into one (or more) numerical column(s)
+  + Python library: [category_encoders](https://github.com/scikit-learn-contrib/category_encoders)
+
+    ```python
+    !pip install category_encoders
+    
+    import category_encoders as ce
+
+    ce.OrdinalEncoder().fit.transform(x)
+    ```
+
 
