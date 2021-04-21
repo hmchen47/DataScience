@@ -103,5 +103,11 @@ Date: Nov. 29, 2015
   </table>
 
 
+## Conclusion
+
++ Conclusion
+  + binary coding: consistently performing well w/o significantly increasing dimensionality
+  + ordinal coding: worse cases
+  + [GitHub source codes for Pandas](https://github.com/wdm0006/categorical_encoding)
 
 
