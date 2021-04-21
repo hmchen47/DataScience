@@ -46,13 +46,62 @@ Date: Nov. 29, 2015
   + [Splice Junctions](http://archive.ics.uci.edu/ml/machine-learning-databases/molecular-biology/splice-junction-gene-sequences/)
 
 + Encoding methods used
-  + Ordinal: as described above
-  + One-Hot: one column per category, with a 1 or 0 in each cell for if the row contained that column's category
-  + Binary: first the categories are encoded as ordinal, then those integers are converted into binary code, then the digits from that binary string are split into separate columns.  This encodes the data in fewer dimensions that one-hot, but with some distortion of the distances.
-  + Sum: compares the mean of the dependent variable for a given level to the overall mean of the dependent variable over all the levels. That is, it uses contrasts between each of the first k-1 levels and level k In this example, level 1 is compared to all the others, level 2 to all the others, and level 3 to all the others.
-  + Polynomial: The coefficients taken on by polynomial coding for k=4 levels are the linear, quadratic, and cubic trends in the categorical variable. The categorical variable here is assumed to be represented by an underlying, equally spaced numeric variable. Therefore, this type of encoding is used only for ordered categorical variables with equal spacing.
-  + Backward Difference: the mean of the dependent variable for a level is compared with the mean of the dependent variable for the prior level. This type of coding may be useful for a nominal or an ordinal variable.
-  + Helmert: The mean of the dependent variable for a level is compared to the mean of the dependent variable over all previous levels. Hence, the name ‘reverse’ being sometimes applied to differentiate from forward Helmert coding.
+  + __Ordinal__: as described above
+  + __One-Hot__: one column per category, with a 1 or 0 in each cell for if the row contained that column's category
+  + __Binary__: first the categories are encoded as ordinal, then those integers are converted into binary code, then the digits from that binary string are split into separate columns.  This encodes the data in fewer dimensions that one-hot, but with some distortion of the distances.
+  + __Sum__: compares the mean of the dependent variable for a given level to the overall mean of the dependent variable over all the levels. That is, it uses contrasts between each of the first k-1 levels and level k In this example, level 1 is compared to all the others, level 2 to all the others, and level 3 to all the others.
+  + __Polynomial__: The coefficients taken on by polynomial coding for k=4 levels are the linear, quadratic, and cubic trends in the categorical variable. The categorical variable here is assumed to be represented by an underlying, equally spaced numeric variable. Therefore, this type of encoding is used only for ordered categorical variables with equal spacing.
+  + __Backward Difference__: the mean of the dependent variable for a level is compared with the mean of the dependent variable for the prior level. This type of coding may be useful for a nominal or an ordinal variable.
+  + __Helmert__: The mean of the dependent variable for a level is compared to the mean of the dependent variable over all previous levels. Hence, the name ‘reverse’ being sometimes applied to differentiate from forward Helmert coding.
+
+
+## Results
+
+<table border="1">
+  <caption style="font-size: 1.2em; margin: 0.2em;">Mushrooms</caption>
+  <thead>
+  <tr style="text-align: right;"><th></th><th>Coding</th><th>Dataset</th><th>Dimensionality</th><th>Avg. Score</th><th>Elapsed Time</th></tr>
+  </thead>
+  <tbody>
+    <tr><th>0</th><td>Ordinal</td><td>Mushroom</td><td>22</td><td>0.810919</td><td>3.653194</td></tr>
+    <tr><th>1</th><td>One-Hot Encoded</td><td>Mushroom</td><td>117</td><td>0.813252</td><td>8.193983</td></tr>
+    <tr><th>6</th><td>Helmert Coding</td><td>Mushroom</td><td>117</td><td>0.837997</td><td>5.431131</td></tr>
+    <tr><th>5</th><td>Backward Difference Coding</td><td>Mushroom</td><td>117</td><td>0.846864</td><td>7.829706</td></tr>
+    <tr><th>3</th><td>Sum Coding</td><td>Mushroom</td><td>117</td><td>0.850555</td><td>4.929640</td></tr>
+    <tr><th>4</th><td>Polynomial Coding</td><td>Mushroom</td><td>117</td><td>0.855596</td><td>6.136916</td></tr>
+    <tr><th>2</th><td>Binary Encoded</td><td>Mushroom</td><td>43</td><td>0.871493</td><td>3.948484</td></tr>
+  </tbody>
+</table>
+
+<table border="1">
+  <caption style="font-size: 1.2em; margin: 0.2em;">Cars</caption>
+  <thead>
+  <tr style="text-align: right;"><th></th><th>Coding</th><th>Dataset</th><th>Dimensionality</th><th>Avg. Score</th><th>Elapsed Time</th></tr>
+  </thead>
+  <tbody>
+    <tr><th>10</th><td>Sum Coding</td><td>Cars</td><td>21</td><td>0.549347</td><td>1.456738</td></tr>
+    <tr><th>13</th><td>Helmert Coding</td><td>Cars</td><td>21</td><td>0.577471</td><td>1.458556</td></tr>
+    <tr><th>7</th><td>Ordinal</td><td>Cars</td><td>6</td><td>0.638522</td><td>1.466667</td></tr>
+    <tr><th>8</th><td>One-Hot Encoded</td><td>Cars</td><td>21</td><td>0.648694</td><td>1.393966</td></tr>
+    <tr><th>11</th><td>Polynomial Coding</td><td>Cars</td><td>21</td><td>0.666130</td><td>1.495264</td></tr>
+    <tr><th>12</th><td>Backward Difference Coding</td><td>Cars</td><td>21</td><td>0.697274</td><td>1.499557</td></tr>
+    <tr><th>9</th><td>Binary Encoded</td><td>Cars</td><td>12</td><td>0.697911</td><td>1.441609</td></tr>
+  </tbody>
+</table>
+
+<table border="1">
+  <caption style="font-size: 1.2em; margin: 0.2em;">Splice</caption>
+<thead>
+<tr style="text-align: right;"><th></th><th>Coding</th><th>Dataset</th><th>Dimensionality</th><th>Avg. Score</th><th>Elapsed Time</th></tr>
+</thead>
+<tbody>
+<tr><th>14</th><td>Ordinal</td><td>Splice</td><td>61</td><td>0.681816</td><td>5.107389</td></tr>
+<tr><th>17</th><td>Sum Coding</td><td>Splice</td><td>3465</td><td>0.922276</td><td>25.898854</td></tr>
+<tr><th>16</th><td>Binary Encoded</td><td>Splice</td><td>134</td><td>0.935744</td><td>3.352499</td></tr>
+<tr><th>15</th><td>One-Hot Encoded</td><td>Splice</td><td>3465</td><td>0.944839</td><td>2.563578</td></tr>
+</tbody>
+</table>
+
 
 
 
