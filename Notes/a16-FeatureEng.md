@@ -297,5 +297,34 @@ Date: Dec. 18, 2020
     </a>
   </div>
 
++ HelmertEncoder
+  + similar to BackwardDifferenceEncoder
+  + each level compared w/ all the previous levels
+  + example: PhD coefficient = 24 = 68 - ((35+45+52)/3)
+
+  ```python
+  helmert_encoding = ordinal_encoding.apply(
+    lambda oe: pd.Series(
+      [0] * (oe - 2) + \
+      ([oe - 1] if oe > 1 else []) + [-1] * (len(set(x)) - oe)
+    )
+  ).div(pd.Series(range(2,len(set(x)) + 1)))
+  ```
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/3nfRKfI" ismap target="_blank">
+      <img style="margin: 0.1em;" height=150
+        src   = "https://bit.ly/3xgJj8d"
+        alt   = "Result of Helmert encoder"
+        title = "Result of Helmert encoder"
+      >
+      <img style="margin: 0.1em;" height=150
+        src   = "https://bit.ly/3tIRrMT"
+        alt   = "Result of Helmert encoder w/ linear regression"
+        title = "Result of Helmert encoder w/ linear regression"
+      >
+    </a>
+  </div>
+
 
 
