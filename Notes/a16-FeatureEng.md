@@ -350,7 +350,7 @@ Date: Dec. 18, 2020
   ```
 
   <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
       onclick= "window.open('https://bit.ly/3nfRKfI')"
       src    = "https://bit.ly/3tKUT9t"
       alt    = "Result of polynomial encoder"
@@ -372,7 +372,7 @@ Date: Dec. 18, 2020
   ```
 
   <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
       onclick= "window.open('https://bit.ly/3nfRKfI')"
       src    = "https://bit.ly/3dFKDK3"
       alt    = "Result of binary encoder"
@@ -380,6 +380,36 @@ Date: Dec. 18, 2020
     />
   </figure>
 
++ BaseNEncoder
+  + a generalization of the BinaryEncoder
+  + BinaryEncoder: base 2
+  + BaseNEncoder: base n, w/ $n > 1$
+  + question: any practical application?
+  + example: base 3 (see diagram)
+
+  ```python
+  def int2base(n, base):
+    # return representation of int n in base base
+    out = ''
+    while n:
+        out += str(int(n % base))
+        n //= base
+    return out[::-1]
+
+  base_n = ordinal_encoding.apply(lambda oe: int2base(n = oe, base = base))
+  base_n_encoding = base_n.apply(
+    lambda bn: pd.Series(list(bn.zfill(base_n.apply(len).max())))
+  ).astype(int)
+  ```
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick= "window.open('https://bit.ly/3nfRKfI')"
+      src    = "https://bit.ly/3dHRUcD"
+      alt    = "Result of base N encoder"
+      title  = "Result of base N encoder"
+    />
+  </figure>
 
 
 
