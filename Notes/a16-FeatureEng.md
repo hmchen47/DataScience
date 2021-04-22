@@ -135,4 +135,27 @@ Date: Dec. 18, 2020
     ce.OrdinalEncoder().fit.transform(x)
     ```
 
+## Not All Encodings Created Equal
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+    onclick= "window.open('https://tinyurl.com/aavmpdam')"
+    src    = "https://tinyurl.com/38swc7jm"
+    alt    = "Classification of encoding methods fpr categorical variables"
+    title  = "Classification of encoding methods fpr categorical variables"
+  />
+</figure>
+
++ Classification criteria
+  + supervised/unsupervised:
+    + unsupervised: solely based on the categorical column
+    + supervised: based on some function of the original column and a second (numeric) column
+  + output dimension
+    + output dimension = 1
+    + output dimension > 1
+  + mapping:
+    + unique: always w/ the same output for each level
+    + not unique: same level allowed to have different possible outputs
+
+
 
