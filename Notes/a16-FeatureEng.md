@@ -119,7 +119,7 @@ Author: S. Mazzanti
 
 Date: Dec. 18, 2020
 
-[Original](https://tinyurl.com/aavmpdam)
+[Original](https://bit.ly/3nfRKfI)
 
 ## Introduction
 
@@ -139,7 +139,7 @@ Date: Dec. 18, 2020
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
-    onclick= "window.open('https://tinyurl.com/aavmpdam')"
+    onclick= "window.open('https://bit.ly/3nfRKfI')"
     src    = "https://tinyurl.com/38swc7jm"
     alt    = "Classification of encoding methods fpr categorical variables"
     title  = "Classification of encoding methods fpr categorical variables"
@@ -173,7 +173,7 @@ Date: Dec. 18, 2020
 
   <figure style="margin: 0.5em; text-align: center;">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-      onclick= "window.open('https://tinyurl.com/aavmpdam')"
+      onclick= "window.open('https://bit.ly/3nfRKfI')"
       src    = "https://miro.medium.com/max/408/1*Q5OWc3QqZYrhIGQUCNC9lg.png"
       alt    = "Result of ordinal encoder"
       title  = "Result of ordinal encoder"
@@ -191,7 +191,7 @@ Date: Dec. 18, 2020
 
   <figure style="margin: 0.5em; text-align: center;">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-      onclick= "window.open('https://tinyurl.com/aavmpdam')"
+      onclick= "window.open('https://bit.ly/3nfRKfI')"
       src    = "https://miro.medium.com/max/380/1*uuqrb9F2I3oLUQCNrx2l8g.png"
       alt    = "Result of count encoder"
       title  = "Result of count encoder"
@@ -211,7 +211,7 @@ Date: Dec. 18, 2020
   ```
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://tinyurl.com/aavmpdam" ismap target="_blank">
+    <a href="https://bit.ly/3nfRKfI" ismap target="_blank">
       <img style="margin: 0.1em;" height=120
         src   = "https://miro.medium.com/max/873/1*TEb9Qz-tey_3F8QLoOOnEA.png"
         alt   = "Result of one-hot encoder"
@@ -246,13 +246,13 @@ Date: Dec. 18, 2020
   ```
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://tinyurl.com/aavmpdam" ismap target="_blank">
-      <img style="margin: 0.1em;" height=120
+    <a href="https://bit.ly/3nfRKfI" ismap target="_blank">
+      <img style="margin: 0.1em;" height=140
         src   = "https://miro.medium.com/max/795/1*9v2JtnKBhOX2lCmA-U6zmA.png"
         alt   = "Result of sum encoder"
         title = "Result of sum encoder"
       >
-      <img style="margin: 0.1em;" height=120
+      <img style="margin: 0.1em;" height=140
         src   = "https://miro.medium.com/max/875/1*jbZdQeGzpfAz0Mwq2Lg64g.png"
         alt   = "Result of sum encoder w/ linear regression"
         title = "Result of sum encoder w/ linear regression"
@@ -260,6 +260,42 @@ Date: Dec. 18, 2020
     </a>
   </div>
 
++ BackwardDifferenceEncoder
+  + one of the contrast encodings
+  + useful for ordinal variables
+  + designed to compare adjacent levles
+  + example: (left diagram)
+    + ordinable variable: education level
+    + relation w/ a numeric variable (e.g., income)
+    + comparing each couple of consecutive levels w.r.t the target variable
+  + example: (right diagram)
+    + intercept coincides w/ the mean of $y$
+    + coefficient of Bachelor: 10 = (45 - 35)
+    + coefficient of Master: 7 = (52 - 45)
+
+  ```python
+  backward_difference_encoding = ordinal_encoding.apply(
+    lambda oe: pd.Series(
+      [i / len(set(x)) for i in range(1, oe)] + 
+      [- i / len(set(x)) for i in range(len(set(x)) - oe, 0, -1)]
+    )
+  )
+  ```
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/3nfRKfI" ismap target="_blank">
+      <img style="margin: 0.1em;" height=150
+        src   = "https://miro.medium.com/max/723/1*110TWbFjMVD13B0ru0WHEA.png"
+        alt   = "Result of backward difference encoder"
+        title = "Result of backward difference encoder"
+      >
+      <img style="margin: 0.1em;" height=150
+        src   = "https://miro.medium.com/max/800/1*eIVLcadB4yqQPZbQ6oMcVg.png"
+        alt   = "Result of backward difference encoder w/ linear regression"
+        title = "Result of backward difference encoder w/ linear regression"
+      >
+    </a>
+  </div>
 
 
 
