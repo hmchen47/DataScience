@@ -172,7 +172,7 @@ Date: Dec. 18, 2020
   ```
 
   <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
       onclick= "window.open('https://tinyurl.com/aavmpdam')"
       src    = "https://miro.medium.com/max/408/1*Q5OWc3QqZYrhIGQUCNC9lg.png"
       alt    = "Result of ordinal encoder"
@@ -190,7 +190,7 @@ Date: Dec. 18, 2020
   ```
 
   <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
       onclick= "window.open('https://tinyurl.com/aavmpdam')"
       src    = "https://miro.medium.com/max/380/1*uuqrb9F2I3oLUQCNrx2l8g.png"
       alt    = "Result of count encoder"
@@ -212,15 +212,37 @@ Date: Dec. 18, 2020
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://tinyurl.com/aavmpdam" ismap target="_blank">
-      <img style="margin: 0.1em;" height=150
+      <img style="margin: 0.1em;" height=120
         src   = "https://miro.medium.com/max/873/1*TEb9Qz-tey_3F8QLoOOnEA.png"
         alt   = "Result of one-hot encoder"
         title = "Result of one-hot encoder"
       >
-      <img style="margin: 0.1em;" height=150
+      <img style="margin: 0.1em;" height=120
         src   = "https://miro.medium.com/max/875/1*dGUozlrwR46YBt12KDVNOQ.png"
         alt   = "Result of one-hot encoder and linear regression"
         title = "Result of one-hot encoder and linear regression"
       >
     </a>
   </div>
+
++ SumEncoder
+  + no so important
+  
+  ```python
+  sum_encoding = one_hot_encoding.iloc[:, :-1].apply(
+    lambda row: row if row.sum() == 1 else row.replace(0, -1)
+    , axis = 1
+  )
+  ```
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      onclick= "window.open('https://tinyurl.com/aavmpdam')"
+      src    = "https://miro.medium.com/max/795/1*9v2JtnKBhOX2lCmA-U6zmA.png"
+      alt    = "Result of sum encoder"
+      title  = "Result of sum encoder"
+    />
+  </figure>
+
+
+
