@@ -171,5 +171,13 @@ Date: Dec. 18, 2020
   ordinal_encoding = x.replace(dict(zip(sorted_x, range(1, len(sorted_x) + 1))))
   ```
 
++ CountEncoder
+  + each level mapped to the number of observations carrying that level
+  + useful as an indicator of the credibility of each level
+  + probably automatically decide to take into account the info brought by the level only its count is above some threshold
+
+  ```python
+  count_encoding = x.replace(x.value_counts().to_dict())
+  ```
 
 
