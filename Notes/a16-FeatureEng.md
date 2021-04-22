@@ -326,5 +326,38 @@ Date: Dec. 18, 2020
     </a>
   </div>
 
++ PolynomialEncoder
+  + one of the contrast encodings
+  + designed to quantify linear, quadratic and cubic behavior of the target variable w.r.t the categorical variable
+  + assumption: underlying categorical variable w/ levels not only ordinable, buut also equally spaced
+  + using w/ care
+
+  ```python
+  def do_polynomial_encoding(order):
+    # code from https://github.com/pydata/patsy/blob/master/patsy/contrasts.py
+    n = len(set(x))
+    scores = np.arange(n)
+    scores = np.asarray(scores, dtype=float)
+    scores -= scores.mean()
+    raw_poly = scores.reshape((-1, 1)) ** np.arange(n).reshape((1, -1))
+    q, r = np.linalg.qr(raw_poly)
+    q *= np.sign(np.diag(r))
+    q /= np.sqrt(np.sum(q ** 2, axis=1))
+    q = q[:, 1:]
+    return q[order - 1]
+
+  polynomial_encoding = ordinal_encoding.apply(lambda oe: pd.Series(do_polynomial_encoding(oe)))
+  ```
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      onclick= "window.open('https://bit.ly/3nfRKfI')"
+      src    = "https://bit.ly/3tKUT9t"
+      alt    = "Result of polynomial encoder"
+      title  = "Result of polynomial encoder"
+    />
+  </figure>
+
+
 
 
