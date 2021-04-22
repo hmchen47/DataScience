@@ -358,6 +358,28 @@ Date: Dec. 18, 2020
     />
   </figure>
 
++ BinaryEncoder
+  + basically the same of OrdinalEncoder
+  + difference: the integers converted to binary number, then every proportional digit is one-hot encoded
+  + output consisting of dummy columns
+  + dimensionality reduction w.r.t one-hot
+
+  ```python
+  binary_base = ordinal_encoding.apply(
+    lambda oe: str(bin(oe))[2:].zfill(len(bin(len(set(x)))) - 2)
+  )
+  binary_encoding = binary_base.apply(lambda bb: pd.Series(list(bb))).astype(int)
+  ```
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      onclick= "window.open('https://bit.ly/3nfRKfI')"
+      src    = "https://bit.ly/3dFKDK3"
+      alt    = "Result of binary encoder"
+      title  = "Result of binary encoder"
+    />
+  </figure>
+
 
 
 
