@@ -171,6 +171,15 @@ Date: Dec. 18, 2020
   ordinal_encoding = x.replace(dict(zip(sorted_x, range(1, len(sorted_x) + 1))))
   ```
 
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick= "window.open('https://tinyurl.com/aavmpdam')"
+      src    = "https://miro.medium.com/max/408/1*Q5OWc3QqZYrhIGQUCNC9lg.png"
+      alt    = "Result of ordinal encoder"
+      title  = "Result of ordinal encoder"
+    />
+  </figure>
+
 + CountEncoder
   + each level mapped to the number of observations carrying that level
   + useful as an indicator of the credibility of each level
@@ -180,4 +189,38 @@ Date: Dec. 18, 2020
   count_encoding = x.replace(x.value_counts().to_dict())
   ```
 
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick= "window.open('https://tinyurl.com/aavmpdam')"
+      src    = "https://miro.medium.com/max/380/1*uuqrb9F2I3oLUQCNrx2l8g.png"
+      alt    = "Result of count encoder"
+      title  = "Result of count encoder"
+    />
+  </figure>
 
++ OneHotEncoder
+  + excellent and the most used
+  + each level mapped to a dummy column (i.e., a column of 0/1)
+  + input as a single column $\to$ output consisting of $L$ columns
+  + data applied one-hot encoded $\to$ ready for any predictive algorithm
+
+  ```python
+  one_hot_encoding = ordinal_encoding.apply(
+    lambda oe: pd.Series(np.diag(np.ones(len(set(x))))[oe - 1].astype(int))
+  )
+  ```
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/aavmpdam" ismap target="_blank">
+      <img style="margin: 0.1em;" height=150
+        src   = "https://miro.medium.com/max/873/1*TEb9Qz-tey_3F8QLoOOnEA.png"
+        alt   = "Result of one-hot encoder"
+        title = "Result of one-hot encoder"
+      >
+      <img style="margin: 0.1em;" height=150
+        src   = "https://miro.medium.com/max/875/1*dGUozlrwR46YBt12KDVNOQ.png"
+        alt   = "Result of one-hot encoder and linear regression"
+        title = "Result of one-hot encoder and linear regression"
+      >
+    </a>
+  </div>
