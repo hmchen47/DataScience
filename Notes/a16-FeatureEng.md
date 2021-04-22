@@ -227,6 +227,16 @@ Date: Dec. 18, 2020
 
 + SumEncoder
   + no so important
+  + one of contrast encodings
+    + designed to have a specific behavior
+    + used in regression problems
+    + used to get the regression coefficients
+  + used to have the regression coefficients w/ zero-sum
+  + example: (see left diagram)
+    + intercept corresponding to the mean of $y$
+    + first level, High_School: y = (50 - 35) = 15
+    + last level, PhD: y = (68 - 50) = 18
+    + exactly the opposite of the sum of the remaining coefficients (-15-5+2 = -18)
   
   ```python
   sum_encoding = one_hot_encoding.iloc[:, :-1].apply(
@@ -235,14 +245,21 @@ Date: Dec. 18, 2020
   )
   ```
 
-  <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-      onclick= "window.open('https://tinyurl.com/aavmpdam')"
-      src    = "https://miro.medium.com/max/795/1*9v2JtnKBhOX2lCmA-U6zmA.png"
-      alt    = "Result of sum encoder"
-      title  = "Result of sum encoder"
-    />
-  </figure>
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://tinyurl.com/aavmpdam" ismap target="_blank">
+      <img style="margin: 0.1em;" height=120
+        src   = "https://miro.medium.com/max/795/1*9v2JtnKBhOX2lCmA-U6zmA.png"
+        alt   = "Result of sum encoder"
+        title = "Result of sum encoder"
+      >
+      <img style="margin: 0.1em;" height=120
+        src   = "https://miro.medium.com/max/875/1*jbZdQeGzpfAz0Mwq2Lg64g.png"
+        alt   = "Result of sum encoder w/ linear regression"
+        title = "Result of sum encoder w/ linear regression"
+      >
+    </a>
+  </div>
+
 
 
 
