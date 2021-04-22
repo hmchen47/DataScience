@@ -158,4 +158,18 @@ Date: Dec. 18, 2020
     + not unique: same level allowed to have different possible outputs
 
 
+## 17 categorical encoding algorithms
+
++ OrdinalEncoder
+  + each level mapped to an integer, from 1 to L (L is the number of levels)
+  + using alphabetical order, but any other custom order is acceptable
+  + only a representation of convenience
+  + used to save memory, or as intermediate step for other types of encoding
+
+  ```python
+  sorted_x = sorted(set(x))
+  ordinal_encoding = x.replace(dict(zip(sorted_x, range(1, len(sorted_x) + 1))))
+  ```
+
+
 
