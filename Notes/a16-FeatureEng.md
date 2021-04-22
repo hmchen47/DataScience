@@ -411,5 +411,52 @@ Date: Dec. 18, 2020
     />
   </figure>
 
++ HashingEncoder
+  + hashing each original level w/ some hashing algorithm
+  + outcome: converted to integer and the module of that integer w.r.t. some (big) divisor taken
+  + mapped each original string to an integer btw 1 and divisor-1
+  + one-hot encoder: the integer obtained by this procedure
+  + fundamental property of hashing: hashing trick
+    + resulting integer uniformly distributed
+    + unlikely mapped into the same integer w/ a divisor big enough
+  + example: email spam classifier w/ a logistic regression
+    + one-hot encoding for all words contained in the database
+    + downside:
+      + storing the mapping in the separate dictionary
+      + model dimensions changing any time w/ new string appeared
+    + solution: hashing trick
+      + hashing the input
+      + no dictionary anymore
+      + fixed output dimension, depending on initial divisor
+      + new string likely w/ a different encoding than the existing one
+
+  ```python
+  def do_hash(string, output_dimension):
+    hasher = hashlib.new('sha256')
+    hasher.update(bytes(string, 'utf-8'))
+    string_hashed = hasher.hexdigest()
+    string_hashed_int = int(string_hashed, 16)
+    string_hashed_int_remainder = string_hashed_int % output_dimension
+    return string_hashed, string_hashed_int, string_hashed_int_remainder
+
+  hashing = x.apply(
+    lambda string: pd.Series(
+      do_hash(string, output_dimension), 
+      index = ['x_hashed', 'x_hashed_int', 'x_hashed_int_remainder']
+    )
+  )
+  hashing_encoding = hashing['x_hashed_int_remainder'].apply(
+    lambda rem: pd.Series(np.diag(np.ones(output_dimension))[rem])
+  ).astype(int)
+  ```
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+      onclick= "window.open('https://bit.ly/3nfRKfI')"
+      src    = "https://bit.ly/2RObZoU"
+      alt    = "Result of hashing encoder"
+      title  = "Result of hashing encoder"
+    />
+  </figure>
 
 
