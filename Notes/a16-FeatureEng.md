@@ -597,3 +597,27 @@ Date: Dec. 18, 2020
       title  = "Result of weight of evidence encoder"
     />
   </figure>
+
++ LeaveOneOutEncoder
+  + unique mapping: risk of overfitting
+  + overcome unique mapping issue
+  
+  ```python
+  y_level_except_self = x.to_frame().apply(
+    lambda row: y[x == row['x']].drop(row.name).to_list(), 
+    axis = 1
+  )
+  leave_one_out_encoding = y_level_except_self.apply(np.mean)
+  ```
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://bit.ly/3nfRKfI')"
+      src    = "https://bit.ly/3neUBFo"
+      alt    = "Result of leave one out encoder"
+      title  = "Result of leave one out encoder"
+    />
+  </figure>
+
+
+
