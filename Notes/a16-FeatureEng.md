@@ -167,65 +167,68 @@ Date: Dec. 18, 2020
   + using alphabetical order, but any other custom order is acceptable
   + only a representation of convenience
   + used to save memory, or as intermediate step for other types of encoding
+  + example python code and results
 
-  ```python
-  sorted_x = sorted(set(x))
-  ordinal_encoding = x.replace(dict(zip(sorted_x, range(1, len(sorted_x) + 1))))
-  ```
+    ```python
+    sorted_x = sorted(set(x))
+    ordinal_encoding = x.replace(dict(zip(sorted_x, range(1, len(sorted_x) + 1))))
+    ```
 
-  <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-      onclick= "window.open('https://bit.ly/3nfRKfI')"
-      src    = "https://miro.medium.com/max/408/1*Q5OWc3QqZYrhIGQUCNC9lg.png"
-      alt    = "Result of ordinal encoder"
-      title  = "Result of ordinal encoder"
-    />
-  </figure>
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+        onclick= "window.open('https://bit.ly/3nfRKfI')"
+        src    = "https://miro.medium.com/max/408/1*Q5OWc3QqZYrhIGQUCNC9lg.png"
+        alt    = "Result of ordinal encoder"
+        title  = "Result of ordinal encoder"
+      />
+    </figure>
 
 + CountEncoder
   + each level mapped to the number of observations carrying that level
   + useful as an indicator of the credibility of each level
   + probably automatically decide to take into account the info brought by the level only its count is above some threshold
+  + example python code and results
 
-  ```python
-  count_encoding = x.replace(x.value_counts().to_dict())
-  ```
+    ```python
+    count_encoding = x.replace(x.value_counts().to_dict())
+    ```
 
-  <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-      onclick= "window.open('https://bit.ly/3nfRKfI')"
-      src    = "https://miro.medium.com/max/380/1*uuqrb9F2I3oLUQCNrx2l8g.png"
-      alt    = "Result of count encoder"
-      title  = "Result of count encoder"
-    />
-  </figure>
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+        onclick= "window.open('https://bit.ly/3nfRKfI')"
+        src    = "https://miro.medium.com/max/380/1*uuqrb9F2I3oLUQCNrx2l8g.png"
+        alt    = "Result of count encoder"
+        title  = "Result of count encoder"
+      />
+    </figure>
 
 + OneHotEncoder
   + excellent and the most used
   + each level mapped to a dummy column (i.e., a column of 0/1)
   + input as a single column $\to$ output consisting of $L$ columns
   + data applied one-hot encoded $\to$ ready for any predictive algorithm
+  + example python code and results
 
-  ```python
-  one_hot_encoding = ordinal_encoding.apply(
-    lambda oe: pd.Series(np.diag(np.ones(len(set(x))))[oe - 1].astype(int))
-  )
-  ```
+    ```python
+    one_hot_encoding = ordinal_encoding.apply(
+      lambda oe: pd.Series(np.diag(np.ones(len(set(x))))[oe - 1].astype(int))
+    )
+    ```
 
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://bit.ly/3nfRKfI" ismap target="_blank">
-      <img style="margin: 0.1em;" height=120
-        src   = "https://miro.medium.com/max/873/1*TEb9Qz-tey_3F8QLoOOnEA.png"
-        alt   = "Result of one-hot encoder"
-        title = "Result of one-hot encoder"
-      >
-      <img style="margin: 0.1em;" height=120
-        src   = "https://miro.medium.com/max/875/1*dGUozlrwR46YBt12KDVNOQ.png"
-        alt   = "Result of one-hot encoder and linear regression"
-        title = "Result of one-hot encoder and linear regression"
-      >
-    </a>
-  </div>
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://bit.ly/3nfRKfI" ismap target="_blank">
+        <img style="margin: 0.1em;" height=120
+          src   = "https://miro.medium.com/max/873/1*TEb9Qz-tey_3F8QLoOOnEA.png"
+          alt   = "Result of one-hot encoder"
+          title = "Result of one-hot encoder"
+        >
+        <img style="margin: 0.1em;" height=120
+          src   = "https://miro.medium.com/max/875/1*dGUozlrwR46YBt12KDVNOQ.png"
+          alt   = "Result of one-hot encoder and linear regression"
+          title = "Result of one-hot encoder and linear regression"
+        >
+      </a>
+    </div>
 
 + SumEncoder
   + no so important
@@ -234,46 +237,47 @@ Date: Dec. 18, 2020
     + used in regression problems
     + used to get the regression coefficients
   + used to have the regression coefficients w/ zero-sum
-  + example: (see left diagram)
+  + example python code and results
     + intercept corresponding to the mean of $y$
     + first level, High_School: y = (50 - 35) = 15
     + last level, PhD: y = (68 - 50) = 18
     + exactly the opposite of the sum of the remaining coefficients (-15-5+2 = -18)
-  
-  ```python
-  sum_encoding = one_hot_encoding.iloc[:, :-1].apply(
-    lambda row: row if row.sum() == 1 else row.replace(0, -1)
-    , axis = 1
-  )
-  ```
+    
+    ```python
+    sum_encoding = one_hot_encoding.iloc[:, :-1].apply(
+      lambda row: row if row.sum() == 1 else row.replace(0, -1)
+      , axis = 1
+    )
+    ```
 
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://bit.ly/3nfRKfI" ismap target="_blank">
-      <img style="margin: 0.1em;" height=140
-        src   = "https://miro.medium.com/max/795/1*9v2JtnKBhOX2lCmA-U6zmA.png"
-        alt   = "Result of sum encoder"
-        title = "Result of sum encoder"
-      >
-      <img style="margin: 0.1em;" height=140
-        src   = "https://miro.medium.com/max/875/1*jbZdQeGzpfAz0Mwq2Lg64g.png"
-        alt   = "Result of sum encoder w/ linear regression"
-        title = "Result of sum encoder w/ linear regression"
-      >
-    </a>
-  </div>
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://bit.ly/3nfRKfI" ismap target="_blank">
+        <img style="margin: 0.1em;" height=140
+          src   = "https://miro.medium.com/max/795/1*9v2JtnKBhOX2lCmA-U6zmA.png"
+          alt   = "Result of sum encoder"
+          title = "Result of sum encoder"
+        >
+        <img style="margin: 0.1em;" height=140
+          src   = "https://miro.medium.com/max/875/1*jbZdQeGzpfAz0Mwq2Lg64g.png"
+          alt   = "Result of sum encoder w/ linear regression"
+          title = "Result of sum encoder w/ linear regression"
+        >
+      </a>
+    </div>
 
 + BackwardDifferenceEncoder
   + one of the contrast encodings
   + useful for ordinal variables
   + designed to compare adjacent levles
-  + example: (left diagram)
-    + ordinable variable: education level
-    + relation w/ a numeric variable (e.g., income)
-    + comparing each couple of consecutive levels w.r.t the target variable
-  + example: (right diagram)
-    + intercept coincides w/ the mean of $y$
-    + coefficient of Bachelor: 10 = (45 - 35)
-    + coefficient of Master: 7 = (52 - 45)
+  + example python code and results
+    + example: (left diagram)
+      + ordinable variable: education level
+      + relation w/ a numeric variable (e.g., income)
+      + comparing each couple of consecutive levels w.r.t the target variable
+    + example: (right diagram)
+      + intercept coincides w/ the mean of $y$
+      + coefficient of Bachelor: 10 = (45 - 35)
+      + coefficient of Master: 7 = (52 - 45)
 
   ```python
   backward_difference_encoding = ordinal_encoding.apply(
@@ -303,115 +307,118 @@ Date: Dec. 18, 2020
   + similar to BackwardDifferenceEncoder
   + each level compared w/ all the previous levels
   + example: PhD coefficient = 24 = 68 - ((35+45+52)/3)
+  + example python code and results
 
-  ```python
-  helmert_encoding = ordinal_encoding.apply(
-    lambda oe: pd.Series(
-      [0] * (oe - 2) + \
-      ([oe - 1] if oe > 1 else []) + [-1] * (len(set(x)) - oe)
-    )
-  ).div(pd.Series(range(2,len(set(x)) + 1)))
-  ```
+    ```python
+    helmert_encoding = ordinal_encoding.apply(
+      lambda oe: pd.Series(
+        [0] * (oe - 2) + \
+        ([oe - 1] if oe > 1 else []) + [-1] * (len(set(x)) - oe)
+      )
+    ).div(pd.Series(range(2,len(set(x)) + 1)))
+    ```
 
-  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
-    <a href="https://bit.ly/3nfRKfI" ismap target="_blank">
-      <img style="margin: 0.1em;" height=150
-        src   = "https://bit.ly/3xgJj8d"
-        alt   = "Result of Helmert encoder"
-        title = "Result of Helmert encoder"
-      >
-      <img style="margin: 0.1em;" height=150
-        src   = "https://bit.ly/3tIRrMT"
-        alt   = "Result of Helmert encoder w/ linear regression"
-        title = "Result of Helmert encoder w/ linear regression"
-      >
-    </a>
-  </div>
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://bit.ly/3nfRKfI" ismap target="_blank">
+        <img style="margin: 0.1em;" height=150
+          src   = "https://bit.ly/3xgJj8d"
+          alt   = "Result of Helmert encoder"
+          title = "Result of Helmert encoder"
+        >
+        <img style="margin: 0.1em;" height=150
+          src   = "https://bit.ly/3tIRrMT"
+          alt   = "Result of Helmert encoder w/ linear regression"
+          title = "Result of Helmert encoder w/ linear regression"
+        >
+      </a>
+    </div>
 
 + PolynomialEncoder
   + one of the contrast encodings
   + designed to quantify linear, quadratic and cubic behavior of the target variable w.r.t the categorical variable
   + assumption: underlying categorical variable w/ levels not only ordinable, buut also equally spaced
   + using w/ care
+  + example python code and results
 
-  ```python
-  def do_polynomial_encoding(order):
-    # code from https://github.com/pydata/patsy/blob/master/patsy/contrasts.py
-    n = len(set(x))
-    scores = np.arange(n)
-    scores = np.asarray(scores, dtype=float)
-    scores -= scores.mean()
-    raw_poly = scores.reshape((-1, 1)) ** np.arange(n).reshape((1, -1))
-    q, r = np.linalg.qr(raw_poly)
-    q *= np.sign(np.diag(r))
-    q /= np.sqrt(np.sum(q ** 2, axis=1))
-    q = q[:, 1:]
-    return q[order - 1]
+    ```python
+    def do_polynomial_encoding(order):
+      # code from https://github.com/pydata/patsy/blob/master/patsy/contrasts.py
+      n = len(set(x))
+      scores = np.arange(n)
+      scores = np.asarray(scores, dtype=float)
+      scores -= scores.mean()
+      raw_poly = scores.reshape((-1, 1)) ** np.arange(n).reshape((1, -1))
+      q, r = np.linalg.qr(raw_poly)
+      q *= np.sign(np.diag(r))
+      q /= np.sqrt(np.sum(q ** 2, axis=1))
+      q = q[:, 1:]
+      return q[order - 1]
 
-  polynomial_encoding = ordinal_encoding.apply(lambda oe: pd.Series(do_polynomial_encoding(oe)))
-  ```
+    polynomial_encoding = ordinal_encoding.apply(lambda oe: pd.Series(do_polynomial_encoding(oe)))
+    ```
 
-  <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-      onclick= "window.open('https://bit.ly/3nfRKfI')"
-      src    = "https://bit.ly/3tKUT9t"
-      alt    = "Result of polynomial encoder"
-      title  = "Result of polynomial encoder"
-    />
-  </figure>
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick= "window.open('https://bit.ly/3nfRKfI')"
+        src    = "https://bit.ly/3tKUT9t"
+        alt    = "Result of polynomial encoder"
+        title  = "Result of polynomial encoder"
+      />
+    </figure>
 
 + BinaryEncoder
   + basically the same of OrdinalEncoder
   + difference: the integers converted to binary number, then every proportional digit is one-hot encoded
   + output consisting of dummy columns
   + dimensionality reduction w.r.t one-hot
+  + example python code and results
 
-  ```python
-  binary_base = ordinal_encoding.apply(
-    lambda oe: str(bin(oe))[2:].zfill(len(bin(len(set(x)))) - 2)
-  )
-  binary_encoding = binary_base.apply(lambda bb: pd.Series(list(bb))).astype(int)
-  ```
+    ```python
+    binary_base = ordinal_encoding.apply(
+      lambda oe: str(bin(oe))[2:].zfill(len(bin(len(set(x)))) - 2)
+    )
+    binary_encoding = binary_base.apply(lambda bb: pd.Series(list(bb))).astype(int)
+    ```
 
-  <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-      onclick= "window.open('https://bit.ly/3nfRKfI')"
-      src    = "https://bit.ly/3dFKDK3"
-      alt    = "Result of binary encoder"
-      title  = "Result of binary encoder"
-    />
-  </figure>
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick= "window.open('https://bit.ly/3nfRKfI')"
+        src    = "https://bit.ly/3dFKDK3"
+        alt    = "Result of binary encoder"
+        title  = "Result of binary encoder"
+      />
+    </figure>
 
 + BaseNEncoder
   + a generalization of the BinaryEncoder
   + BinaryEncoder: base 2
   + BaseNEncoder: base n, w/ $n > 1$
   + question: any practical application?
-  + example: base 3 (see diagram)
+  + example python code and results
 
-  ```python
-  def int2base(n, base):
-    # return representation of int n in base base
-    out = ''
-    while n:
-        out += str(int(n % base))
-        n //= base
-    return out[::-1]
+    ```python
+    def int2base(n, base):
+      # return representation of int n in base base
+      out = ''
+      while n:
+          out += str(int(n % base))
+          n //= base
+      return out[::-1]
 
-  base_n = ordinal_encoding.apply(lambda oe: int2base(n = oe, base = base))
-  base_n_encoding = base_n.apply(
-    lambda bn: pd.Series(list(bn.zfill(base_n.apply(len).max())))
-  ).astype(int)
-  ```
+    base_n = ordinal_encoding.apply(lambda oe: int2base(n = oe, base = base))
+    base_n_encoding = base_n.apply(
+      lambda bn: pd.Series(list(bn.zfill(base_n.apply(len).max())))
+    ).astype(int)
+    ```
 
-  <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-      onclick= "window.open('https://bit.ly/3nfRKfI')"
-      src    = "https://bit.ly/3dHRUcD"
-      alt    = "Result of base N encoder"
-      title  = "Result of base N encoder"
-    />
-  </figure>
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick= "window.open('https://bit.ly/3nfRKfI')"
+        src    = "https://bit.ly/3dHRUcD"
+        alt    = "Result of base N encoder"
+        title  = "Result of base N encoder"
+      />
+    </figure>
 
 + HashingEncoder
   + hashing each original level w/ some hashing algorithm
@@ -431,35 +438,36 @@ Date: Dec. 18, 2020
       + no dictionary anymore
       + fixed output dimension, depending on initial divisor
       + new string likely w/ a different encoding than the existing one
+  + example python code and results
 
-  ```python
-  def do_hash(string, output_dimension):
-    hasher = hashlib.new('sha256')
-    hasher.update(bytes(string, 'utf-8'))
-    string_hashed = hasher.hexdigest()
-    string_hashed_int = int(string_hashed, 16)
-    string_hashed_int_remainder = string_hashed_int % output_dimension
-    return string_hashed, string_hashed_int, string_hashed_int_remainder
+    ```python
+    def do_hash(string, output_dimension):
+      hasher = hashlib.new('sha256')
+      hasher.update(bytes(string, 'utf-8'))
+      string_hashed = hasher.hexdigest()
+      string_hashed_int = int(string_hashed, 16)
+      string_hashed_int_remainder = string_hashed_int % output_dimension
+      return string_hashed, string_hashed_int, string_hashed_int_remainder
 
-  hashing = x.apply(
-    lambda string: pd.Series(
-      do_hash(string, output_dimension), 
-      index = ['x_hashed', 'x_hashed_int', 'x_hashed_int_remainder']
+    hashing = x.apply(
+      lambda string: pd.Series(
+        do_hash(string, output_dimension), 
+        index = ['x_hashed', 'x_hashed_int', 'x_hashed_int_remainder']
+      )
     )
-  )
-  hashing_encoding = hashing['x_hashed_int_remainder'].apply(
-    lambda rem: pd.Series(np.diag(np.ones(output_dimension))[rem])
-  ).astype(int)
-  ```
+    hashing_encoding = hashing['x_hashed_int_remainder'].apply(
+      lambda rem: pd.Series(np.diag(np.ones(output_dimension))[rem])
+    ).astype(int)
+    ```
 
-  <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
-      onclick= "window.open('https://bit.ly/3nfRKfI')"
-      src    = "https://bit.ly/2RObZoU"
-      alt    = "Result of hashing encoder"
-      title  = "Result of hashing encoder"
-    />
-  </figure>
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+        onclick= "window.open('https://bit.ly/3nfRKfI')"
+        src    = "https://bit.ly/2RObZoU"
+        alt    = "Result of hashing encoder"
+        title  = "Result of hashing encoder"
+      />
+    </figure>
 
 + Mean weight encodings
   + two variables: categorical ($x$) and numeric ($y$)
@@ -481,22 +489,23 @@ Date: Dec. 18, 2020
   + weight depending on the group numerosity and smoothing parameter
   + smoothing = 0: relying solely on group means
   + smoothing increasing $\to$ more global mean weight $\to$ stronger regularization
+  + example python code and results
 
-  ```python
-  y_mean = y.mean()
-  y_level_mean = x.replace(y.groupby(x).mean())
-  weight = 1 / (1 + np.exp(-(count_encoding - 1) / smoothing))
-  target_encoding = y_level_mean * weight + y_mean * (1 - weight)
-  ```
+    ```python
+    y_mean = y.mean()
+    y_level_mean = x.replace(y.groupby(x).mean())
+    weight = 1 / (1 + np.exp(-(count_encoding - 1) / smoothing))
+    target_encoding = y_level_mean * weight + y_mean * (1 - weight)
+    ```
 
-  <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
-      onclick= "window.open('https://bit.ly/3nfRKfI')"
-      src    = "https://bit.ly/3tKLkHP"
-      alt    = "Result of target encoder"
-      title  = "Result of target encoder"
-    />
-  </figure>
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick= "window.open('https://bit.ly/3nfRKfI')"
+        src    = "https://bit.ly/3tKLkHP"
+        alt    = "Result of target encoder"
+        title  = "Result of target encoder"
+      />
+    </figure>
 
 + MEstimateEncoder
   + resembling TargetEncoder
@@ -504,23 +513,24 @@ Date: Dec. 18, 2020
   + $m$:
     + how much the global mean should weight in absolute terms
     + considered as a number of observations
-    + levels exactly $m$ observations $\implies$ the level mean = the overall mean 
+    + levels exactly $m$ observations $\implies$ the level mean = the overall mean
+  + example python code and results
 
-  ```python
-  y_mean = y.mean()
-  y_level_mean = x.replace(y.groupby(x).mean())
-  weight = count_encoding / (count_encoding + m)
-  m_estimate_encoding =  y_level_mean * weight + y_grand_mean * (1 - weight)
-  ```
+    ```python
+    y_mean = y.mean()
+    y_level_mean = x.replace(y.groupby(x).mean())
+    weight = count_encoding / (count_encoding + m)
+    m_estimate_encoding =  y_level_mean * weight + y_grand_mean * (1 - weight)
+    ```
 
-  <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
-      onclick= "window.open('https://bit.ly/3nfRKfI')"
-      src    = "https://bit.ly/3eslWQr"
-      alt    = "Result of mean estimate encoder"
-      title  = "Result of mean estimate encoder"
-    />
-  </figure>
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick= "window.open('https://bit.ly/3nfRKfI')"
+        src    = "https://bit.ly/3eslWQr"
+        alt    = "Result of mean estimate encoder"
+        title  = "Result of mean estimate encoder"
+      />
+    </figure>
 
 + JamesSteinEncoder
   + trying to set parameters statistically grounded
@@ -528,47 +538,49 @@ Date: Dec. 18, 2020
   + advantages
     + providing better estimates than maximum-likelihood estimator
     + no parameter required
+  + example python code and results
 
-  ```python
-  y_mean = y.mean()
-  y_var = y.var()
-  y_level_mean = x.replace(y.groupby(x).mean())
-  y_level_var = x.replace(y.groupby(x).var())
+    ```python
+    y_mean = y.mean()
+    y_var = y.var()
+    y_level_mean = x.replace(y.groupby(x).mean())
+    y_level_var = x.replace(y.groupby(x).var())
 
-  weight = 1 - (y_level_var / (y_var + y_level_var) * (len(set(x)) - 3) / (len(set(x)) - 1))
-  james_stein_encoding = y_level_mean * weight + y_mean * (1 - weight)
-  ```
+    weight = 1 - (y_level_var / (y_var + y_level_var) * (len(set(x)) - 3) / (len(set(x)) - 1))
+    james_stein_encoding = y_level_mean * weight + y_mean * (1 - weight)
+    ```
 
-  <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
-      onclick= "window.open('https://bit.ly/3nfRKfI')"
-      src    = "https://bit.ly/3sKCxnG"
-      alt    = "Result of James Stein encoder"
-      title  = "Result of James Stein encoder"
-    />
-  </figure>
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick= "window.open('https://bit.ly/3nfRKfI')"
+        src    = "https://bit.ly/3sKCxnG"
+        alt    = "Result of James Stein encoder"
+        title  = "Result of James Stein encoder"
+      />
+    </figure>
 
 + GLMMEncoder
   + fitting a Linear Mixed Effect Model on $y$
   + [Linear Mixed Effect Models](https://bit.ly/3auWBEj) designed precisely for handling homogeneous groups of observations
   + idea: fitting a model w/ no regressors (only the intercept) and using the levels as groups
   + output: simply the sum of the intercept and the random effect of the group
+  + example python code and results
 
-  ```python
-  model = smf.mixedlm(formula = 'y ~ 1', data = y.to_frame(), groups = x).fit()
-  intercept = model.params['Intercept']
-  random_effect = x.replace({k: float(v) for k, v in model.random_effects.items()})
-  glmm_encoding = intercept + random_effect
-  ```
+    ```python
+    model = smf.mixedlm(formula = 'y ~ 1', data = y.to_frame(), groups = x).fit()
+    intercept = model.params['Intercept']
+    random_effect = x.replace({k: float(v) for k, v in model.random_effects.items()})
+    glmm_encoding = intercept + random_effect
+    ```
 
-  <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
-      onclick= "window.open('https://bit.ly/3nfRKfI')"
-      src    = "https://bit.ly/32CBH1Q"
-      alt    = "Result of global linear mixed encoder"
-      title  = "Result of global linear mixed encoder"
-    />
-  </figure>
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick= "window.open('https://bit.ly/3nfRKfI')"
+        src    = "https://bit.ly/32CBH1Q"
+        alt    = "Result of global linear mixed encoder"
+        title  = "Result of global linear mixed encoder"
+      />
+    </figure>
 
 + WOEEncoder
   + Weight of Evidence encoder
@@ -580,46 +592,48 @@ Date: Dec. 18, 2020
     + dividing the distribution of 1s by the distribution of 0s (for each group)
     + higher value $\to$ more skewed toward 0/1
     + taking the logarithm of the value
+  + example python code and results
 
-  ```python
-  y_level_ones = x.replace(y.groupby(x).apply(lambda l: (l == 1).sum()))
-  y_level_zeros = x.replace(y.groupby(x).apply(lambda l: (l == 0).sum()))
-  y_ones = (y == 1).sum()
-  y_zeros = (y == 0).sum()
-  nominator = y_level_ones / y_ones
-  denominator = y_level_zeros / y_zeros
-  woe_encoder = np.log(nominator / denominator)
-  ```
+    ```python
+    y_level_ones = x.replace(y.groupby(x).apply(lambda l: (l == 1).sum()))
+    y_level_zeros = x.replace(y.groupby(x).apply(lambda l: (l == 0).sum()))
+    y_ones = (y == 1).sum()
+    y_zeros = (y == 0).sum()
+    nominator = y_level_ones / y_ones
+    denominator = y_level_zeros / y_zeros
+    woe_encoder = np.log(nominator / denominator)
+    ```
 
-  <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
-      onclick= "window.open('https://bit.ly/3nfRKfI')"
-      src    = "https://bit.ly/3vaI5cY"
-      alt    = "Result of weight of evidence encoder"
-      title  = "Result of weight of evidence encoder"
-    />
-  </figure>
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick= "window.open('https://bit.ly/3nfRKfI')"
+        src    = "https://bit.ly/3vaI5cY"
+        alt    = "Result of weight of evidence encoder"
+        title  = "Result of weight of evidence encoder"
+      />
+    </figure>
 
 + LeaveOneOutEncoder
   + unique mapping: risk of overfitting
   + overcome unique mapping issue
-  
-  ```python
-  y_level_except_self = x.to_frame().apply(
-    lambda row: y[x == row['x']].drop(row.name).to_list(), 
-    axis = 1
-  )
-  leave_one_out_encoding = y_level_except_self.apply(np.mean)
-  ```
+  + example python code and results
+    
+    ```python
+    y_level_except_self = x.to_frame().apply(
+      lambda row: y[x == row['x']].drop(row.name).to_list(), 
+      axis = 1
+    )
+    leave_one_out_encoding = y_level_except_self.apply(np.mean)
+    ```
 
-  <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
-      onclick= "window.open('https://bit.ly/3nfRKfI')"
-      src    = "https://bit.ly/3neUBFo"
-      alt    = "Result of leave one out encoder"
-      title  = "Result of leave one out encoder"
-    />
-  </figure>
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick= "window.open('https://bit.ly/3nfRKfI')"
+        src    = "https://bit.ly/3neUBFo"
+        alt    = "Result of leave one out encoder"
+        title  = "Result of leave one out encoder"
+      />
+    </figure>
 
 + CatBoostEncoder
   + a gradient boosting algorithm
@@ -630,26 +644,27 @@ Date: Dec. 18, 2020
     + taking a row somewhere in the middle of the table
     + pretending the row above current one observed previously in time
     + the row below yest to be observed
+  + example python code and results
 
-  ```python
-  y_mean = y.mean()
-  y_level_before_self = x.to_frame().apply(
-    lambda row: y[(x == row['x']) & (y.index < row.name)].to_list(), 
-    axis = 1
-  )
-  catboost_encoding = y_level_before_self.apply(
-    lambda ylbs: (sum(ylbs) + y_mean * a) / (len(ylbs) + a)
-  )
-  ```
+    ```python
+    y_mean = y.mean()
+    y_level_before_self = x.to_frame().apply(
+      lambda row: y[(x == row['x']) & (y.index < row.name)].to_list(), 
+      axis = 1
+    )
+    catboost_encoding = y_level_before_self.apply(
+      lambda ylbs: (sum(ylbs) + y_mean * a) / (len(ylbs) + a)
+    )
+    ```
 
-  <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
-      onclick= "window.open('https://bit.ly/3nfRKfI')"
-      src    = "https://bit.ly/3aAThrl"
-      alt    = "Result of categorical boosting encoder"
-      title  = "Result of categorical boosting encoder"
-    />
-  </figure>
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick= "window.open('https://bit.ly/3nfRKfI')"
+        src    = "https://bit.ly/3aAThrl"
+        alt    = "Result of categorical boosting encoder"
+        title  = "Result of categorical boosting encoder"
+      />
+    </figure>
 
 
 
