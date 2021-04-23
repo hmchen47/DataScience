@@ -520,6 +520,29 @@ Date: Dec. 18, 2020
     />
   </figure>
 
++ JamesSteinEncoder
+  + trying to set parameters statistically grounded
+  + the mean of a group w/ high variance should be trusted less
+  + advantages
+    + providing better estimates than maximum-likelihood estimator
+    + no parameter required
 
+  ```python
+  y_mean = y.mean()
+  y_var = y.var()
+  y_level_mean = x.replace(y.groupby(x).mean())
+  y_level_var = x.replace(y.groupby(x).var())
 
+  weight = 1 - (y_level_var / (y_var + y_level_var) * (len(set(x)) - 3) / (len(set(x)) - 1))
+  james_stein_encoding = y_level_mean * weight + y_mean * (1 - weight)
+  ```
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://bit.ly/3nfRKfI')"
+      src    = "https://bit.ly/3sKCxnG"
+      alt    = "Result of James Stein encoder"
+      title  = "Result of James Stein encoder"
+    />
+  </figure>
 
