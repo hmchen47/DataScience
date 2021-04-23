@@ -101,7 +101,7 @@
   + [Handling Time-Date and Mixed Variables](../Notes/a08-FeatureEng.md#10-handling-date-time-and-mixed-variable)
   + [Advanced Feature Engineering Methods](../Notes/a08-FeatureEng.md#11-advanced-methods)
 + W. McGinnis, [Beyond One-Hot: An Explanation of Categorical Variables](../Notes/a16-FeatureEng.md#beyond-one-hot)
-+ S. Mazaanto, [Beyond One-Hot. 17 Ways of Transforming Categorical Features Into Numeric Features](../Notes/a16-FeatureEng.md#beyond-one-hot-1)
++ S. Mazaanto, [Beyond One-Hot. 17 Ways of Transforming Categorical Features Into Numeric Features](../Notes/a16-FeatureEng.md#beyond-one-hot-17-ways)
 
 
 
