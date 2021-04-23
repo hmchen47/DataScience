@@ -546,3 +546,24 @@ Date: Dec. 18, 2020
     />
   </figure>
 
++ GLMMEncoder
+  + fitting a Linear Mixed Effect Model on $y$
+  + [Linear Mixed Effect Models](https://bit.ly/3auWBEj) designed precisely for handling homogeneous groups of observations
+  + idea: fitting a model w/ no regressors (only the intercept) and using the levels as groups
+  + output: simply the sum of the intercept and the random effect of the group
+
+  ```python
+  model = smf.mixedlm(formula = 'y ~ 1', data = y.to_frame(), groups = x).fit()
+  intercept = model.params['Intercept']
+  random_effect = x.replace({k: float(v) for k, v in model.random_effects.items()})
+  glmm_encoding = intercept + random_effect
+  ```
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://bit.ly/3nfRKfI')"
+      src    = "https://bit.ly/32CBH1Q"
+      alt    = "Result of global linear mixed encoder"
+      title  = "Result of global linear mixed encoder"
+    />
+  </figure>
