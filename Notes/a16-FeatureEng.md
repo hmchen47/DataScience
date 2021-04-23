@@ -459,4 +459,23 @@ Date: Dec. 18, 2020
     />
   </figure>
 
++ Mean encodings
+  + two variables: categorical ($x$) and numeric ($y$)
+  + subjective: transform $x$ into a numeric variable
+  + idea: taking the mean of $y$ for each level of $x$
+  + formula
+
+    \[ enc_i = mean( y| x = i) \]
+
+  + issue of the approach: some group probably too small or too variable to be reliable
+  + supervised encoding overcomes by choosing a middle way btw the group mean and the global mean of $y$
+
+    \[ enc_i = w_i \times mean(y|x = i) + (1 -w) \times mean(y) \]
+
+  + $w_i = 0 / 1$ depending on how "credible" the group mean is
+  + TargetEncoder, MEstimateEncoder and JamesSteinEncoder: algorithms differ based on how $w_i$ defined
+
++ TargetEncoder
+ 
+
 
