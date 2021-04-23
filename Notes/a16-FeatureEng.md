@@ -459,7 +459,7 @@ Date: Dec. 18, 2020
     />
   </figure>
 
-+ Mean encodings
++ Mean weight encodings
   + two variables: categorical ($x$) and numeric ($y$)
   + subjective: transform $x$ into a numeric variable
   + idea: taking the mean of $y$ for each level of $x$
@@ -476,6 +476,26 @@ Date: Dec. 18, 2020
   + TargetEncoder, MEstimateEncoder and JamesSteinEncoder: algorithms differ based on how $w_i$ defined
 
 + TargetEncoder
+  + weight depending on the group numerosity and smoothing parameter
+  + smoothing = 0: relying solely on group means
+  + smoothing increasing $\to$ more global mean weight $\to$ stronger regularization
+
+  ```python
+  y_mean = y.mean()
+  y_level_mean = x.replace(y.groupby(x).mean())
+  weight = 1 / (1 + np.exp(-(count_encoding - 1) / smoothing))
+  target_encoding = y_level_mean * weight + y_mean * (1 - weight)
+  ```
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://bit.ly/3nfRKfI')"
+      src    = "https://bit.ly/3tKLkHP"
+      alt    = "Result of target encoder"
+      title  = "Result of target encoder"
+    />
+  </figure>
+
  
 
 
