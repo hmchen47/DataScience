@@ -205,8 +205,11 @@ Date: Dec. 18, 2020
 + OneHotEncoder
   + excellent and the most used
   + each level mapped to a dummy column (i.e., a column of 0/1)
-  + input as a single column $\to$ output consisting of $L$ columns
+  + input w/ a single column $\to$ output consisting of $L$ columns
   + data applied one-hot encoded $\to$ ready for any predictive algorithm
+    + taking one observation for each level
+    + observing a target variable, $y$, containing the income of each individual
+    + fitting a linear regression (OLS)
   + example python code and results
 
     ```python
@@ -217,12 +220,12 @@ Date: Dec. 18, 2020
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://bit.ly/3nfRKfI" ismap target="_blank">
-        <img style="margin: 0.1em;" height=120
+        <img style="margin: 0.1em;" height=150
           src   = "https://miro.medium.com/max/873/1*TEb9Qz-tey_3F8QLoOOnEA.png"
           alt   = "Result of one-hot encoder"
           title = "Result of one-hot encoder"
         >
-        <img style="margin: 0.1em;" height=120
+        <img style="margin: 0.1em;" height=150
           src   = "https://miro.medium.com/max/875/1*dGUozlrwR46YBt12KDVNOQ.png"
           alt   = "Result of one-hot encoder and linear regression"
           title = "Result of one-hot encoder and linear regression"
