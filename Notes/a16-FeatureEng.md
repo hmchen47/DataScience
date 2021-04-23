@@ -111,7 +111,7 @@ Date: Nov. 29, 2015
   + [GitHub source codes for Pandas](https://github.com/wdm0006/categorical_encoding)
 
 
-# Beyond One-Hot
+# Beyond One-Hot: 17 Ways
 
 Title: Beyond One-Hot. 17 Ways of Transforming Categorical Features Into Numeric Features
 
@@ -120,6 +120,8 @@ Author: S. Mazzanti
 Date: Dec. 18, 2020
 
 [Original](https://bit.ly/3nfRKfI)
+
+[Original Notebook](https://github.com/smazzanti/beyond_one_hot/blob/main/beyond_one_hot.ipynb)
 
 ## Introduction
 
@@ -616,6 +618,36 @@ Date: Dec. 18, 2020
       src    = "https://bit.ly/3neUBFo"
       alt    = "Result of leave one out encoder"
       title  = "Result of leave one out encoder"
+    />
+  </figure>
+
++ CatBoostEncoder
+  + a gradient boosting algorithm
+  + working extremely well in a wide range of problems
+  + Ref: [Transforming categorical features to numerical features](https://catboost.ai/docs/concepts/algorithm-main-stages_cat-to-numberic.html)
+  + basically like LeaveOneOutEncoder, but following an on-line approach
+  + procedure
+    + taking a row somewhere in the middle of the table
+    + pretending the row above current one observed previously in time
+    + the row below yest to be observed
+
+  ```python
+  y_mean = y.mean()
+  y_level_before_self = x.to_frame().apply(
+    lambda row: y[(x == row['x']) & (y.index < row.name)].to_list(), 
+    axis = 1
+  )
+  catboost_encoding = y_level_before_self.apply(
+    lambda ylbs: (sum(ylbs) + y_mean * a) / (len(ylbs) + a)
+  )
+  ```
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://bit.ly/3nfRKfI')"
+      src    = "https://bit.ly/3aAThrl"
+      alt    = "Result of categorical boosting encoder"
+      title  = "Result of categorical boosting encoder"
     />
   </figure>
 
