@@ -567,3 +567,33 @@ Date: Dec. 18, 2020
       title  = "Result of global linear mixed encoder"
     />
   </figure>
+
++ WOEEncoder
+  + Weight of Evidence encoder
+  + employed only for binary target variables
+  + two distributions behind Weight of Evidence
+    + the distribution of 1s (# of 1s in each group / # of 1s in all $y$)
+    + the distribution of 0s (# of 0s in each group / # of 0s in all $y$)
+  + heart of the algorithm:
+    + dividing the distribution of 1s by the distribution of 0s (for each group)
+    + higher value $\to$ more skewed toward 0/1
+    + taking the logarithm of the value
+
+  ```python
+  y_level_ones = x.replace(y.groupby(x).apply(lambda l: (l == 1).sum()))
+  y_level_zeros = x.replace(y.groupby(x).apply(lambda l: (l == 0).sum()))
+  y_ones = (y == 1).sum()
+  y_zeros = (y == 0).sum()
+  nominator = y_level_ones / y_ones
+  denominator = y_level_zeros / y_zeros
+  woe_encoder = np.log(nominator / denominator)
+  ```
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://bit.ly/3nfRKfI')"
+      src    = "https://bit.ly/3vaI5cY"
+      alt    = "Result of weight of evidence encoder"
+      title  = "Result of weight of evidence encoder"
+    />
+  </figure>
