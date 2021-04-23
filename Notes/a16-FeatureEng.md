@@ -496,6 +496,30 @@ Date: Dec. 18, 2020
     />
   </figure>
 
- 
++ MEstimateEncoder
+  + resembling TargetEncoder
+  + $w_i$ depending on a parameter, $m$
+  + $m$:
+    + how much the global mean should weight in absolute terms
+    + considered as a number of observations
+    + levels exactly $m$ observations $\implies$ the level mean = the overall mean 
+
+  ```python
+  y_mean = y.mean()
+  y_level_mean = x.replace(y.groupby(x).mean())
+  weight = count_encoding / (count_encoding + m)
+  m_estimate_encoding =  y_level_mean * weight + y_grand_mean * (1 - weight)
+  ```
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://bit.ly/3nfRKfI')"
+      src    = "https://bit.ly/3eslWQr"
+      alt    = "Result of mean estimate encoder"
+      title  = "Result of mean estimate encoder"
+    />
+  </figure>
+
+
 
 
