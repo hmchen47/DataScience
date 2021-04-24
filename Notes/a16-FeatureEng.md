@@ -491,7 +491,7 @@ Date: Dec. 18, 2020
 + TargetEncoder
   + weight depending on the group numerosity and smoothing parameter
   + smoothing = 0: relying solely on group means
-  + smoothing increasing $\to$ more global mean weight $\to$ stronger regularization
+  + smoothing $\nearrow\; \to$ global mean weight $\nearrow\;\to$ stronger regularization
   + example python code and results
 
     ```python
