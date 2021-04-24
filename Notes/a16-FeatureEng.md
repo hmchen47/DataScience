@@ -245,7 +245,7 @@ Date: Dec. 18, 2020
     + first level, High_School: y = (50 - 35) = 15
     + last level, PhD: y = (68 - 50) = 18
     + exactly the opposite of the sum of the remaining coefficients (-15-5+2 = -18)
-    
+
     ```python
     sum_encoding = one_hot_encoding.iloc[:, :-1].apply(
       lambda row: row if row.sum() == 1 else row.replace(0, -1)
@@ -271,10 +271,10 @@ Date: Dec. 18, 2020
 + BackwardDifferenceEncoder
   + one of the contrast encodings
   + useful for ordinal variables
-  + designed to compare adjacent levles
+  + designed to compare adjacent levels
   + example python code and results
     + example: (left diagram)
-      + ordinable variable: education level
+      + ordinal variable: education level
       + relation w/ a numeric variable (e.g., income)
       + comparing each couple of consecutive levels w.r.t the target variable
     + example: (right diagram)
@@ -309,8 +309,8 @@ Date: Dec. 18, 2020
 + HelmertEncoder
   + similar to BackwardDifferenceEncoder
   + each level compared w/ all the previous levels
-  + example: PhD coefficient = 24 = 68 - ((35+45+52)/3)
   + example python code and results
+    + PhD coefficient: 24 = 68 - ((35+45+52)/3)
 
     ```python
     helmert_encoding = ordinal_encoding.apply(
@@ -339,7 +339,7 @@ Date: Dec. 18, 2020
 + PolynomialEncoder
   + one of the contrast encodings
   + designed to quantify linear, quadratic and cubic behavior of the target variable w.r.t the categorical variable
-  + assumption: underlying categorical variable w/ levels not only ordinable, buut also equally spaced
+  + assumption: underlying categorical variable w/ levels not only ordinal, but also equally spaced
   + using w/ care
   + example python code and results
 
@@ -361,7 +361,7 @@ Date: Dec. 18, 2020
     ```
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
         onclick= "window.open('https://bit.ly/3nfRKfI')"
         src    = "https://bit.ly/3tKUT9t"
         alt    = "Result of polynomial encoder"
@@ -384,7 +384,7 @@ Date: Dec. 18, 2020
     ```
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
         onclick= "window.open('https://bit.ly/3nfRKfI')"
         src    = "https://bit.ly/3dFKDK3"
         alt    = "Result of binary encoder"
