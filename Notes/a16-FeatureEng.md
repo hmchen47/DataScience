@@ -645,7 +645,7 @@ Date: Dec. 18, 2020
   + procedure
     + taking a row somewhere in the middle of the table
     + pretending the row above current one observed previously in time
-    + the row below yest to be observed
+    + the row below yet to be observed
   + example python code and results
 
     ```python
