@@ -513,7 +513,6 @@ Date: Dec. 18, 2020
 + MEstimateEncoder
   + resembling TargetEncoder
   + $w_i$ depending on a parameter, $m$
-  + $m$:
     + how much the global mean should weight in absolute terms
     + considered as a number of observations
     + levels exactly $m$ observations $\implies$ the level mean = the overall mean
@@ -620,7 +619,7 @@ Date: Dec. 18, 2020
   + unique mapping: risk of overfitting
   + overcome unique mapping issue
   + example python code and results
-    
+
     ```python
     y_level_except_self = x.to_frame().apply(
       lambda row: y[x == row['x']].drop(row.name).to_list(), 
