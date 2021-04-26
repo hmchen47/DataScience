@@ -13,6 +13,16 @@ Organization: ML Glossary
   + mapping probability value to two pr more discrete classes
   + linear regression: outputs w/ continuous number values
 
++ Linear regression vs logistic regression
+  + linear regression
+    + predictions w/ continuous value (numbers in a range)
+    + example: predicting the student's test score on a scale of 0 - 100
+  + logistic regression
+    + predictions w/ discrete value (only specific values or categories allowed)
+    + viewing probability score underlying the model's classifications
+    + example: predicting the student passed or failed
+
+
 
 
 ## Binary logistic Regression
