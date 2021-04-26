@@ -2,6 +2,21 @@
 
 ## Basic Concepts
 
++ [Statistics](../Notes/a17-Hypotheses.md#overview)
+  + objective: make references about a population based on information contained a sample
+  + parameters: numerical measurements used to characterize population
+  + population parameters
+    + $\mu$: mean
+    + $M$: median
+    + $\sigma$: standard deviation
+    + $\pi$: proportion
+
++ [Inferential problems](../Notes/a17-Hypotheses.md#overview)
+  + formulated as an inference about one of parameters of population
+  + categories of inferences
+    + __estimate__ the value of the population parameters
+    + __test a hypothesis__ about the value of the parameter
+
 + [Terminology](../Notes/p01-Bayesian.md#31-subjectivity-and-context)
   + standard deviation ($sd$): a measure of the amount of variation or dispersion of a set of values ($var = sd^2$) $\implies$ true population mean
   + standard error ($se$)
@@ -750,6 +765,17 @@
 
 
 ## Hypothesis Testing
+
++ [Summary of the various hypothesis tests and when to use](../Notes/a17-Hypotheses.md#overview)
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 55vw;"
+      onclick= "window.open('https://towardsdatascience.com/which-hypothesis-test-to-perform-89d7044d34a1')"
+      src    = "https://miro.medium.com/max/875/1*8pSgz0bAlIQ3wlGNJAc-6g.png"
+      alt    = "Summary of the hypothesis tests"
+      title  = "Summary of the hypothesis tests"
+    />
+  </figure>
 
 + Neyman-Pearson lemma
   + performing a hypothesis test btw two simple hypotheses, $H_0: \theta = \theta_0$ and  $H_1: \theta = \theta_1$
