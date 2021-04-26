@@ -29,7 +29,43 @@ Organization: ML Glossary
 
 ## Binary logistic Regression
 
++ Sigmoid activation
+  + mapping any real value into another value $\in [0, 1]$
+  + ML: mapping predictions to probabilities
+  + formula
 
+    \[ S(z) = \frac{1}{1 + e^{-z}} \]
+
+    + $S(z)$: output btw 0 and 1 (probability estimate)
+    + $z$: input to the function
+    + $e$: base of natural log
+
+  + function graph
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+        onclick= "window.open('https://ml-cheatsheet.readthedocs.io/en/latest/logistic_regression.html')"
+        src    = "https://ml-cheatsheet.readthedocs.io/en/latest/_images/sigmoid.png"
+        alt    = "Sigmoid function"
+        title  = "Sigmoid function"
+      />
+    </figure>
+
++ Example
+  + problem and data
+    + goal: to predict whether a student will pass or fail
+    + data:
+      + features: hours slept and hours studied
+      + results: student exam results w/ two classes, passed (1) and failed (0)
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick= "window.open('https://ml-cheatsheet.readthedocs.io/en/latest/logistic_regression.html')"
+        src    = "https://ml-cheatsheet.readthedocs.io/en/latest/_images/logistic_regression_exam_scores_scatter.png"
+        alt    = "Plot of hours slept, study and exam results"
+        title  = "Plot of hours slept, study and exam results"
+      />
+    </figure>
 
 
 
