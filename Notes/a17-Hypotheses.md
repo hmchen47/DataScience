@@ -56,14 +56,17 @@ Date: 2018-12-20
     />
   </figure>
 
++ Test Statistic
+  + formula
 
+    \[ t_{obs} = \frac{\overline{y} - \mu_0}{s/\sqrt{n}} \]
 
-
-### Test Statistic
-
-
-
-
+    + $\mu_0$: proposed constant for population mean
+    + $\overline{y}$: sample mean
+    + $s$: sample standard deviation
+    + $n$: sample size
+  + calculated $t$ compared to the critical $t$ value from the $t$ distribution table w/ degrees of freedom $df = n - 1$
+  + calculated $t$ value $\implies$ reject the null hypothesis
 
 ### Example
 
