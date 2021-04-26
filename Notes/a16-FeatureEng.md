@@ -123,6 +123,8 @@ Date: Dec. 18, 2020
 
 [Original Notebook](https://github.com/smazzanti/beyond_one_hot/blob/main/beyond_one_hot.ipynb)
 
+[Local Notebook](./src/a16-beyond_one_hot.ipynb)
+
 ## Introduction
 
 + Categorical encoding
