@@ -105,13 +105,13 @@
 + W. McGinnis, [Beyond One-Hot: An Explanation of Categorical Variables](../Notes/a16-FeatureEng.md#beyond-one-hot)
 + S. Mazaanto, [Beyond One-Hot. 17 Ways of Transforming Categorical Features Into Numeric Features](../Notes/a16-FeatureEng.md#beyond-one-hot-17-ways)
 + R. Holbrook, Feature Engineering, Kaggle
-  + [What is Feature Engineering](../Notes/a17a-FeatureEng.md)
-  + [Mutual Information](../Notes/a17b-MutualInfo.md)
-  + [Creating Feature](../Notes/a17c-CreateFeat.md)
-  + [Clustering with K-Means](../Notes/a17d-KMeans.md)
-  + [Principal Components Analysis](../Notes/a17e-PCA.md)
-  + [Target Encoding](../Notes/a17f-TargetEnc.md)
-  + [Example: House Prices](../Notes/a17g-HousePrices.md)
+  + [What is Feature Engineering](../Notes/a18a-FeatureEng.md)
+  + [Mutual Information](../Notes/a18b-MutualInfo.md)
+  + [Creating Feature](../Notes/a18c-CreateFeat.md)
+  + [Clustering with K-Means](../Notes/a18d-KMeans.md)
+  + [Principal Components Analysis](../Notes/a18e-PCA.md)
+  + [Target Encoding](../Notes/a18f-TargetEnc.md)
+  + [Example: House Prices](../Notes/a18g-HousePrices.md)
 
 
 
@@ -201,5 +201,8 @@
 
 
 ## Python Implementation
+
++ G. Seif, [23 great Pandas codes for Data Scientists](../Notes/a19-Pandas4DS.md)
+
 
 
