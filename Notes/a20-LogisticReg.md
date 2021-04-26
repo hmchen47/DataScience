@@ -51,6 +51,26 @@ Organization: ML Glossary
       />
     </figure>
 
++ Decision boundary
+  + mapping a probability to a discrete class, e.g., true/false, cat/dog
+  + selecting a threshold value or tipping point
+
+    \[ class = \begin{cases} 1 & p \ge 0.5 \\ 0 & p < 0.5 \end{cases}\]
+
+  + example: predicted value = 0.7
+    + threshold = 0.5 $\to$ positive
+    + threshold = 0.2 $\to$ negative
+  + multiple classes: selecting the class w/ the highest predicted probability
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick= "window.open('https://ml-cheatsheet.readthedocs.io/en/latest/logistic_regression.html')"
+      src    = "https://ml-cheatsheet.readthedocs.io/en/latest/_images/logistic_regression_sigmoid_w_threshold.png"
+      alt    = "Decision boundary and sigmoid function"
+      title  = "Decision boundary and sigmoid function"
+    />
+  </figure>
+
 + Example
   + problem and data
     + goal: to predict whether a student will pass or fail
@@ -67,6 +87,8 @@ Organization: ML Glossary
       />
     </figure>
 
+  + making predictions
+    + 
 
 
 
