@@ -27,7 +27,7 @@ Date: 2018-12-20
 + Summary of the various hypothesis tests and when to use
 
   <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 55vw;"
       onclick= "window.open('https://towardsdatascience.com/which-hypothesis-test-to-perform-89d7044d34a1')"
       src    = "https://miro.medium.com/max/875/1*8pSgz0bAlIQ3wlGNJAc-6g.png"
       alt    = "Summary of the hypothesis tests"
@@ -39,9 +39,11 @@ Date: 2018-12-20
 
 ## One sample t-test
 
-
-### Hypotheses
-
++ One sample t-test
+  + determining whether the sample mean is statistically different from a known or hypothesized population mean
+  + hypotheses: two-tailed one sample t-test
+    + __Null Hypothesis:__ the sample mean = the population mean
+    + __Alternative Hypothesis:__ the sample mean $\ne$ the population mean
 
 
 
