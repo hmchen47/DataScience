@@ -108,7 +108,32 @@
     + selecting from the feature pool
     + helping ML models to predict on target variables more efficiently
     + typical ML pipeline: completing feature engineering then feature selection
-  
+
++ [Categorical encoding w/ category_encoders lib](../Notes/a16-FeatureEng.md#beyond-one-hot-17-ways)
+  + the process of transforming a categorical column into one (or more) numerical column(s)
+  + Python library: [category_encoders](https://github.com/scikit-learn-contrib/category_encoders)
+
+    ```python
+    !pip install category_encoders
+    
+    import category_encoders as ce
+
+    ce.OrdinalEncoder().fit.transform(x)
+    ```
+
+  + classification of endcoders
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+        onclick= "window.open('https://bit.ly/3nfRKfI')"
+        src    = "https://tinyurl.com/38swc7jm"
+        alt    = "Classification of encoding methods fpr categorical variables"
+        title  = "Classification of encoding methods fpr categorical variables"
+      />
+    </figure>
+
+  + [local demo notebook](../Notes/a16-FeatureEng.md#beyond-one-hot-17-ways/src/a16-beyond_one_hot.ipynb)
+
 
 ## Variables Types
 
