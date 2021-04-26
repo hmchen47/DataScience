@@ -19,7 +19,7 @@
 ### Basics
 
 + Thomas Maydon, [The 4 Types of Data Analytics](../Notes/a14-ProbStatA.md), 2017
-+ R. Joseph, [Which hypotheses test to perform?](../Notes/a18-Hypotheses.md), 2018
++ R. Joseph, [Which hypotheses test to perform?](../Notes/a17-Hypotheses.md), 2018
 
 
 
