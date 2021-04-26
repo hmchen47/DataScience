@@ -45,6 +45,16 @@ Date: 2018-12-20
     + __Null Hypothesis:__ the sample mean = the population mean
     + __Alternative Hypothesis:__ the sample mean $\ne$ the population mean
 
++ Summary of null and alternative hypotheses
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://towardsdatascience.com/which-hypothesis-test-to-perform-89d7044d34a1')"
+      src    = "https://miro.medium.com/max/875/1*IQI1DObnx9k2gwnSHGkRCA.png"
+      alt    = "Table of types of hypothesis tests and their hypotheses"
+      title  = "Table of types of hypothesis tests and their hypotheses"
+    />
+  </figure>
 
 
 
