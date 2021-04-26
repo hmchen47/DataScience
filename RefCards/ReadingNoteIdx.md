@@ -102,6 +102,16 @@
   + [Advanced Feature Engineering Methods](../Notes/a08-FeatureEng.md#11-advanced-methods)
 + W. McGinnis, [Beyond One-Hot: An Explanation of Categorical Variables](../Notes/a16-FeatureEng.md#beyond-one-hot)
 + S. Mazaanto, [Beyond One-Hot. 17 Ways of Transforming Categorical Features Into Numeric Features](../Notes/a16-FeatureEng.md#beyond-one-hot-17-ways)
++ R. Holbrook, Feature Engineering, Kaggle
+  + [What is Feature Engineering](../Notes/a17a-FeatureEng.md)
+  + [Mutual Information](../Notes/a17b-MutualInfo.md)
+  + [Creating Feature](../Notes/a17c-CreateFeat.md)
+  + [Clustering with K-Means](../Notes/a17d-KMeans.md)
+  + [Principal Components Analysis](../Notes/a17e-PCA.md)
+  + [Target Encoding](../Notes/a17f-TargetEnc.md)
+  + [Example: House Prices](../Notes/a17g-HousePrices.md)
+
+
 
 
 
