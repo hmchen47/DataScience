@@ -22,8 +22,10 @@ Organization: ML Glossary
     + viewing probability score underlying the model's classifications
     + example: predicting the student passed or failed
 
-
-
++ Types of logistic regression
+  + binary: pass/fail
+  + multi: cats, dogs, sheep
+  + ordinal: low, medium, high
 
 ## Binary logistic Regression
 
