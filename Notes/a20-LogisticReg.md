@@ -195,6 +195,26 @@ Organization: ML Glossary
       return weights
     ```
 
++ Mapping probabilities to classes
+  + the final step: assign class labels (0 or 1) to the predicted probabilities
+  + procedure
+    + decision boundary
+    + convert probabilities to classes
+
+  ```python
+  # decision boundary
+  def decision_boundary(prob):
+    return 1 if prob >= .5 else 0
+
+  # convert probabilities to classes
+  def classify(predictions):
+    '''
+    input  - N element array of predictions between 0 and 1
+    output - N element array of 0s (False) and 1s (True)
+    '''
+    decision_boundary = np.vectorize(decision_boundary)
+    return decision_boundary(predictions).flatten()
+  ```
 
 
 + Example
