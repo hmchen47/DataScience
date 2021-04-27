@@ -88,7 +88,33 @@ Organization: ML Glossary
     </figure>
 
   + making predictions
-    + 
+    + $P(class = 1)$:
+      + class 1
+      + prediction function returning the probability of observation
+      + probability being positive, True, or "Yes"
+    + the probability closer to 1 $\implies$ more confident that the observation in class 1
+    + multiple linear regression equation
+
+      \[ z = W_0 + W_1 \cdot H_{studied} + W_2 \cdot H_{slept} \]
+
+    + transforming the output using sigmod function to return a probability
+
+      \[ P(class = 1) = \frac{1}{1 + e^{-z}} \]
+
+    + result: $P(class = 1) = .4 \to$ only 40\% change of passing
+    + decision boundary : 0.5
+    + #\therefore\;$ this observation "Fail"
+    + python snippet
+
+      ```python
+      def predict(features, weights):
+      '''
+      Returns 1D array of probabilities
+      that the class label == 1
+      '''
+      z = np.dot(features, weights)
+      return sigmoid(z)
+      ```
 
 
 
