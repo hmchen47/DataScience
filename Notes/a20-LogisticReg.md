@@ -216,6 +216,27 @@ Organization: ML Glossary
     return decision_boundary(predictions).flatten()
   ```
 
++ Training
+
+  ```python
+  def train(features, labels, weights, lr, iters):
+    cost_history = []
+
+    for i in range(iters):
+        weights = update_weights(features, labels, weights, lr)
+
+        #Calculate error for auditing purposes
+        cost = cost_function(features, labels, weights)
+        cost_history.append(cost)
+
+        # Log Progress
+        if i % 1000 == 0:
+            print "iter: "+str(i) + " cost: "+str(cost)
+
+    return weights, cost_history
+  ```
+
+
 
 + Example
   + problem and data
@@ -260,6 +281,16 @@ Organization: ML Glossary
       '''
       z = np.dot(features, weights)
       return sigmoid(z)
+      ```
+
+  + mapping probabilities to classes
+    + decision boundary
+    + convert probabilities to classes
+    + example output
+
+      ```python
+      Probabilities = [ 0.967, 0.448, 0.015, 0.780, 0.978, 0.004]
+      Classifications = [1, 0, 0, 1, 1, 0]
       ```
 
 
