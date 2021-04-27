@@ -98,6 +98,13 @@ Organization: ML Glossary
     </figure>
 
   + limitation: penalizing confident and wrong predictions than reward confident and correct predictions
+  + vectorized cost function
+
+    \[\begin{align*}
+      h &= g(X \theta) \\\\
+      J(\theta) &= \frac1m \cdot \Big( -y^T \log(h) - (1- y)^T \log(1 - h)\Big)
+    \end{align*}\]
+
   + Python snippet
 
     ```python
