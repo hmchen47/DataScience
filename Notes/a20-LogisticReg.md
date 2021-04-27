@@ -401,7 +401,22 @@ Organization: ML Glossary
   classifications = classifier(probabilities)
   our_acc = accuracy(classifications,labels.flatten())
   print 'Our score: ',our_acc
+
+  # Scikit score: 0.88. Our score: 0.89
   ```
+
+
+## References
+
+1. http://www.holehouse.org/mlclass/06_Logistic_Regression.html
+2. http://machinelearningmastery.com/logistic-regression-tutorial-for-machine-learning
+3. https://scilab.io/machine-learning-logistic-regression-tutorial/
+4. https://github.com/perborgen/LogisticRegression/blob/master/logistic.py
+5. http://neuralnetworksanddeeplearning.com/chap3.html
+6. http://math.stackexchange.com/questions/78575/derivative-of-sigmoid-function-sigma-x-frac11e-x
+7. https://en.wikipedia.org/wiki/Monotoniconotonic_function
+8. http://scikit-learn.org/stable/modules/linear_model.html#logistic-regression>
+9. https://en.wikipedia.org/wiki/Softmax_function
 
 
 
