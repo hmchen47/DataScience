@@ -71,6 +71,68 @@ Organization: ML Glossary
     />
   </figure>
 
++ Cross-Entropy cost function
+  + a.k.a. Log Loss
+  + unable to use the same cost function. Mean Squared Error or L2 loss, as linear regression
+  + the non-linear prediction function of sigmoid
+    + squaring prediction as in MSE in a non-convex function $\to$ many local minimums
+    + gradient descent probably unable to find the optimal global minimum
+  + divided into two separate cost functions for different classes
+
+    \[\begin{align*} &J(\theta) = \frac1m \sum_{i=1}^m \text{Cost}\left(h_\theta(x^{(i)}), y^{(i)}\right) \\
+      & \text{Cost}\big(h_\theta(x), y\big) = \begin{cases} -\log\big(h_\theta(x)\big) & \text{if } y=1 \\ -\log\big(1 - h_\theta(x)\big) & \text{if } y = 0 \end{cases}\\\\
+      \implies\hspace{0.5em} &J(\theta) = -\frac1m \sum_{i=1}^m \left[ y^{(i)} \log\big(h_\theta(x^{(i)})\big) + \big(1 - y^{(i)}\big) \log\big(1 - h_\theta(x^{(i)})\big)\right]
+    \end{align*}\]
+
+  + benefits:
+    + smooth monotonic functions
+    + easy to calculate the gradient and minimize cost
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick= "window.open('https://ml-cheatsheet.readthedocs.io/en/latest/logistic_regression.html')"
+        src    = "https://ml-cheatsheet.readthedocs.io/en/latest/_images/y1andy2_logistic_function.png"
+        alt    = "Cross Entropy cost function for different classes"
+        title  = "Cross Entropy cost function for different classes"
+      />
+    </figure>
+
+  + limitation: penalizing confident and wrong predictions than reward confident and correct predictions
+  + Python snippet
+
+    ```python
+    def cost_function(features, labels, weights):
+      '''
+      Using Mean Absolute Error
+
+      Features:(100,3)
+      Labels: (100,1)
+      Weights:(3,1)
+      Returns 1D matrix of predictions
+      Cost = (labels*log(predictions) + (1-labels)*log(1-predictions) ) / len(labels)
+      '''
+      observations = len(labels)
+
+      predictions = predict(features, weights)
+
+      #Take the error when label=1
+      class1_cost = -labels*np.log(predictions)
+
+      #Take the error when label=0
+      class2_cost = (1-labels)*np.log(1-predictions)
+
+      #Take the sum of both costs
+      cost = class1_cost - class2_cost
+
+      #Take the average cost
+      cost = cost.sum() / observations
+
+      return cost
+    ```
+
+
+
+
 + Example
   + problem and data
     + goal: to predict whether a student will pass or fail
