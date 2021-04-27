@@ -356,6 +356,23 @@ Organization: ML Glossary
   + predict the probability the observation are in that single class
   + prediction = &lt;math&gt;max(probability of the classes)
 
++ Softmax activation
+  + a.k.a. softargmax or normalized exponential function
+  + taking input as a vector of $K$ real numbers and normalizing it into a probability distribution
+  + distribution consisting of $k$ probabilities proportional to the exponentials of the input numbers
+  + applying softmax to values of vector components
+    + prior: probably negative, greater than 1 and not summing to 1
+    + post: components $\in [0, 1]$ and sum to 1
+  + formula for standard (unit) softmax functions
+
+    \[ \sigma(z_i) = \frac{e^{z_(i)}}{\sum_{j=1}^K s^{z_{(j)}}}, \hspace{1em}\text{for } i = 1, \dots, K, z = z_1, \dots, z_K \]
+
+  + applying the standard exponential function to each element $z_i$ of the input vector $z$ and normalize these values by dividing by the sum of these exponentials
+  + normalization ensuring $\sum \sigma(z) = 1$
+
+
+
+
 
 
 
