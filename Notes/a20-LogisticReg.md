@@ -140,7 +140,7 @@ Organization: ML Glossary
 + Gradient descent
   + minimizing the cost function
   + derivative of the sigmoid function:
-    + $\frac{d}{d x}\sigma(x) = \sigma(x) \big(1 - \sigma(x)\big)
+    + $\frac{d}{d x}\sigma(x) = \sigma(x) \big(1 - \sigma(x)\big)$
     + ref: [detailed derivative](https://math.stackexchange.com/questions/78575/derivative-of-sigmoid-function-sigma-x-frac11e-x)
   + cost function derivative
 
@@ -250,9 +250,6 @@ Organization: ML Glossary
     + technique to plot the decision boundary on the top of the predictions
     + used to observe how the predicted labels compare to the actual labels
 
-
-
-
 + Example
   + problem and data
     + goal: to predict whether a student will pass or fail
@@ -353,7 +350,11 @@ Organization: ML Glossary
 
 ## Multiclass logistic Regression
 
-
++ Procedure
+  + divide the problem into n+1 binary classification problems
+  + for each class ...
+  + predict the probability the observation are in that single class
+  + prediction = &lt;math&gt;max(probability of the classes)
 
 
 
