@@ -287,11 +287,22 @@ Organization: ML Glossary
     + decision boundary
     + convert probabilities to classes
     + example output
+      + Probabilities = [ 0.967, 0.448, 0.015, 0.780, 0.978, 0.004]
+      + Classifications = [1, 0, 0, 1, 1, 0]
+  + cost and weights
+    + iter: 0 cost: 0.635
+    + iter: 1000 cost: 0.302
+    + iter: 2000 cost: 0.264  
+    + Final cost: 0.2487. Final weights: [-8.197, .921, .738]
 
-      ```python
-      Probabilities = [ 0.967, 0.448, 0.015, 0.780, 0.978, 0.004]
-      Classifications = [1, 0, 0, 1, 1, 0]
-      ```
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick= "window.open('https://ml-cheatsheet.readthedocs.io/en/latest/logistic_regression.html')"
+        src    = "https://ml-cheatsheet.readthedocs.io/en/latest/_images/logistic_regression_loss_history.png"
+        alt    = "Plot of cost value w/ epochs"
+        title  = "Plot of cost value w/ epochs"
+      />
+    </figure>
 
 
 
