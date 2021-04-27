@@ -236,6 +236,21 @@ Organization: ML Glossary
     return weights, cost_history
   ```
 
++ Model evaluation
+  + cost history plot
+  + accuracy: measuring how correct predictions were
+
+    ```python
+    def accuracy(predicted_labels, actual_labels):
+      diff = predicted_labels - actual_labels
+      return 1.0 - (float(np.count_nonzero(diff)) / len(diff))
+    ```
+
+  + decision boundary
+    + technique to plot the decision boundary on the top of the predictions
+    + used to observe how the predicted labels compare to the actual labels
+
+
 
 
 + Example
@@ -305,6 +320,35 @@ Organization: ML Glossary
         />
       </figure>
 
+    + accuracy: simply comparing predicted labels to true labels and divide by the total
+    + decision boundary
+
+      <figure style="margin: 0.5em; text-align: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+          onclick= "window.open('https://ml-cheatsheet.readthedocs.io/en/latest/logistic_regression.html')"
+          src    = "https://ml-cheatsheet.readthedocs.io/en/latest/_images/logistic_regression_loss_history.png"
+          alt    = "Visualization of decision boundary"
+          title  = "Visualization of decision boundary"
+        />
+      </figure>
+
+      ```python
+      def plot_decision_boundary(trues, falses):
+        fig = plt.figure()
+        ax = fig.add_subplot(111)
+
+        no_of_preds = len(trues) + len(falses)
+
+        ax.scatter([i for i in range(len(trues))], trues, s=25, c='b', marker="o", label='Trues')
+        ax.scatter([i for i in range(len(falses))], falses, s=25, c='r', marker="s", label='Falses')
+
+        plt.legend(loc='upper right');
+        ax.set_title("Decision Boundary")
+        ax.set_xlabel('N/2')
+        ax.set_ylabel('Predicted Probability')
+        plt.axhline(.5, color='black')
+        plt.show()
+      ```
 
 
 ## Multiclass logistic Regression
