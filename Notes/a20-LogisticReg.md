@@ -137,6 +137,63 @@ Organization: ML Glossary
       return cost
     ```
 
++ Gradient descent
+  + minimizing the cost function
+  + derivative of the sigmoid function:
+    + $\frac{d}{d x}\sigma(x) = \sigma(x) \big(1 - \sigma(x)\big)
+    + ref: [detailed derivative](https://math.stackexchange.com/questions/78575/derivative-of-sigmoid-function-sigma-x-frac11e-x)
+  + cost function derivative
+
+    \[ C^\prime = x\big(s(z) - y \big) \]
+
+    + $C^\prime$: the derivative of cost w.r.t. weights
+    + $y$: the actual class label (0 or 1)
+    + $s(z)$: model's prediction
+    + $x$: the feature or feature vector
+  + pseudocode
+
+    ```shell
+    Repeat {
+      1. Calculate gradient average
+      2. Multiply by learning rate
+      3. Subtract from weights
+    }
+    ```
+
+  + python snippet
+
+    ```python
+    def update_weights(features, labels, weights, lr):
+      '''
+      Vectorized Gradient Descent
+
+      Features:(200, 3)
+      Labels: (200, 1)
+      Weights:(3, 1)
+      '''
+      N = len(features)
+
+      #1 - Get Predictions
+      predictions = predict(features, weights)
+
+      #2 Transpose features from (200, 3) to (3, 200)
+      # So we can multiply w the (200,1)  cost matrix.
+      # Returns a (3,1) matrix holding 3 partial derivatives --
+      # one for each feature -- representing the aggregate
+      # slope of the cost function across all observations
+      gradient = np.dot(features.T,  predictions - labels)
+
+      #3 Take the average cost derivative for each feature
+      gradient /= N
+
+      #4 - Multiply the gradient by our learning rate
+      gradient *= lr
+
+      #5 - Subtract from our weights to minimize cost
+      weights -= gradient
+
+      return weights
+    ```
 
 
 
