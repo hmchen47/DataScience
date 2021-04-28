@@ -53,7 +53,23 @@ Organization: Kaggle
 
 ## Interpreting Mutual Information Scores
 
++ Mutual information scores
+  + MI = 0.0
+    + least possible value
+    + independent: unable to tell anything about the other
+  + MI maximum value
+    + theory: no upper bound
+    + practice: MI > 2.0 uncommon
+    + MI: a logarithm quantity
 
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+        onclick= "window.open('https://www.kaggle.com/ryanholbrook/mutual-information')"
+        src    = "https://i.imgur.com/Dt75E1f.png"
+        alt    = "Left: Mutual information increases as the dependence between feature and target becomes tighter. Right: Mutual information can capture any kind of association (not just linear, like correlation.)"
+        title  = "Left: Mutual information increases as the dependence between feature and target becomes tighter. Right: Mutual information can capture any kind of association (not just linear, like correlation.)"
+      />
+    </figure>
 
 
 
