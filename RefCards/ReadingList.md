@@ -72,7 +72,8 @@
 + S. Balakrishnama and A. Ganapathiraju, [Linear Discriminant Analysis - A Brief Tutorial](https://tinyurl.com/ya2pjtmd)
 + UC Berkeley, CS 88, [Computational Structures in Data Science](https://www2.eecs.berkeley.edu/Courses/CS88/)
 + W. Sun, et.al., [Canonical Capsules: Unsupervised Capsules in Canonical Pose](https://canonical-capsules.github.io/)
-
++ ML Glossary, [Linear Regression](https://ml-cheatsheet.readthedocs.io/en/latest/linear_regression.html)
++ S. Ruder, [An overview of gradient descent optimization algorithms](https://ruder.io/optimizing-gradient-descent/), 2016
 
 
 ## Neural Networks
