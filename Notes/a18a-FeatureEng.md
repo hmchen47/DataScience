@@ -129,7 +129,5 @@ Organization: Kaggle
     print(f"MAE Score with Ratio Features: {score:.4}")
     # MAE Score with Ratio Features: 7.948
     ```
-  
-
 
 
