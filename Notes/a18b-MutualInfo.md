@@ -11,8 +11,11 @@ Organization: Kaggle
 
 ## Introduction
 
-
-
++ Handling features
+  + issue: hundreds and thousands of features w/o description
+  + procedure to resolve
+    + constructing a ranking w/ a __feature utility metric__, a function measuring associatiions btw a feature and a target
+    + choosing a smaller set of the most useful features to develop initially and having more confidence to spend time on them
 
 
 ## Mutual Information and What it Measures
