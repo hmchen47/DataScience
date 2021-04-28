@@ -73,7 +73,7 @@ Organization: Kaggle
     from sklearn.ensemble import RandomForestRegressor
     from sklearn.model_selection import cross_val_score
 
-    df = pd.read_csv("../input/fe-course-data/concrete.csv")
+    df = pd.read_csv("data/a18a-concrete.csv")
     df.head()
     ```
 
