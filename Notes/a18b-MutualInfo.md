@@ -31,9 +31,25 @@ Organization: Kaggle
 
 ## Mutual Information and What it Measures
 
++ Mutual information and measurement
+  + MI describing relationships in terms of _uncertainty_
+  + __mutual information (MI)__ btw two quantities: a measure of the extent to which knowledge of one quantity reduces uncertainty about the other
+  + example: Ames Housing data
+    + the relationship btw the exterior quality of a house and the price it sold for
+    + diagram
+      + knowing the value of `ExterQual` to make more certain about the corresponding `SalePrice`
+      + MI (`ExterQual` w/ `SalePrice`): the average reduction of uncertainty in `SalePrice` taken over the four values of `ExterQual`
+    + entropy: uncertainty measured using a quantity from information theory
+    + the entropy of a variable (rough): how many yes-or-no questions required to describe an occurrence of that variable, on average
 
-
-
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+        onclick= "window.open('https://www.kaggle.com/ryanholbrook/mutual-information')"
+        src    = "https://i.imgur.com/X12ARUK.png"
+        alt    = "Knowing the exterior quality of a house reduces uncertainty about its sale price."
+        title  = "Knowing the exterior quality of a house reduces uncertainty about its sale price."
+      />
+    </figure>
 
 ## Interpreting Mutual Information Scores
 
