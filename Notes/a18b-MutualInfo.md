@@ -63,7 +63,7 @@ Organization: Kaggle
     + MI: a logarithm quantity
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
         onclick= "window.open('https://www.kaggle.com/ryanholbrook/mutual-information')"
         src    = "https://i.imgur.com/Dt75E1f.png"
         alt    = "Left: Mutual information increases as the dependence between feature and target becomes tighter. Right: Mutual information can capture any kind of association (not just linear, like correlation.)"
@@ -71,6 +71,18 @@ Organization: Kaggle
       />
     </figure>
 
++ Considerations when using mutual information
+  + relative potential:
+    + MI helping to understand the relative potential of a feature
+    + the potential as a predictor of the target
+  + univariate metric
+    + possible for a feature very informative when interacting w/ other features
+    + not so informative for the feature itself
+    + MI unable to detect interaction btw features
+  + feature and model
+    + the usefulness of feature depending on the model it used w/
+    + feature probably only useful to the extent related to the target
+    + a feature w/ high MI score $\nRightarrow$ model able to do anything w/ that information
 
 
 ## Example - 1985 Automobiles
