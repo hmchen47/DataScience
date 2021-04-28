@@ -82,7 +82,7 @@
 + M. Mayo, [Comparing Clustering Techniques: A Concise Technical Overview](../Notes/a12-MLArticles.md#comparing-clustering-techniques-a-concise-technical-overview)
 + P. Domingos, [A Few Useful Things to Know about Machine Learning](../Notes/p06a-GeneralML.md), Univ. of Washington, 2012
 + L. Smith, [A Disciplined Approach to Neural Network Hyper-Parameters: Part-I - Learning Rate, Batch Size, Momentum, and Weight Decay](../ML/MLNN-Hinton/a13-HyperParam.md), 2018
-+ 
++ ML Glossary, [Logistic Regression](../Notes/a20-LogisticReg.md)
 
 
 
