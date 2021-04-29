@@ -388,6 +388,25 @@ Organization: Kaggle
         </a>
       </div>
 
+    + MI btw `BldgType` and `GrLivArea` & `SalePrice`
+      + very different trend lines within each category of `BldgType`
+      + the trends indicating an interaction between these features
+      + `BldgType` revealing more about how `GrLivArea` relates to `SalePrice`
+      + trend lines for `MoSold` almost all the same
+      + `MoSold` not very informative for knowing `BldgType`
+  + discovering interactions
+    + list the 10 most informative features
+    + python snippet: 
+
+      ```python
+      mi_scores.head(10)
+      # OverallQual     0.581262        # Neighborhood    0.569813
+      # GrLivArea       0.496909        # YearBuilt       0.437939
+      # GarageArea      0.415014        # TotalBsmtSF     0.390280
+      # GarageCars      0.381467        # FirstFlrSF      0.368825
+      # BsmtQual        0.364779        # KitchenQual     0.326194
+      ```
+
 
 
 
