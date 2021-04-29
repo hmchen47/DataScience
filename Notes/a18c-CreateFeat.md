@@ -227,7 +227,23 @@ Organization: Kaggle
     #   ...
     ```
 
-
++ Tips for creating features
+  + linear models
+    + learning sums and differences naturally
+    + unable to learn anything more complex
+  + ratio:
+    + difficult for most models to learn
+    + ratio combinations leading to some easy performance gains
+  + normalization
+    + linear models and Neural Nets generally doing better w/ normalized features
+    + NN: features scaled to values not too far from 0
+    + tree-based models also beneficial from normalization but limited
+  + tree models
+    + learning to approximate almost any combination of features
+    + combination especially important when limited data
+  + counts:
+    + especially helpful for tree models
+    + tree models w/o natural way of aggregating information across many features at once
 
 
 ## Exercise
