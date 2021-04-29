@@ -111,7 +111,7 @@ Organization: Kaggle
 
     plt.style.use("seaborn-whitegrid")
 
-    df = pd.read_csv("data/Automobile_data.csv")
+    df = pd.read_csv("data/a18b-Automobile_data.csv")
     df.head()
     ```
 
@@ -203,4 +203,86 @@ Organization: Kaggle
       />
     </figure>
 
+
+## Exercise: Mutual Information
+
++ Exercise: mutual information
+  + [original exercise](https://www.kaggle.com/hmchen47/exercise-mutual-information/edit)
+  + dataset:
+    + [Ames data set](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data)
+    + Local data set: house-prices-advanced-regression-techniques
+      + [data description](src/data/a18b-ex-data_description.txt)
+      + [training data](src/data/a18b-ex-train.csv)
+      + [testing data](src/data/a18b-ex-test.csv)
+      + [sample submission](src/data/a18b-ex-sample_submission)
+  + task: identify initial set of features w/
+    + mutual information
+    + interaction plots
+  + python snippet: system setup and utilities
+
+    ```python
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import pandas as pd
+    import seaborn as sns
+    from sklearn.feature_selection import mutual_info_regression
+
+    # Set Matplotlib defaults
+    plt.style.use("seaborn-whitegrid")
+    plt.rc("figure", autolayout=True)
+    plt.rc(
+        "axes",
+        labelweight="bold",
+        labelsize="large",
+        titleweight="bold",
+        titlesize=14,
+        titlepad=10,
+    )
+
+    # Load data
+    df = pd.read_csv("data/a18b-ex-train.csv")
+
+    # Utility functions from Tutorial
+    def make_mi_scores(X, y):
+        X = X.copy()
+        for colname in X.select_dtypes(["object", "category"]):
+            X[colname], _ = X[colname].factorize()
+        # All discrete features should now have integer dtypes
+        discrete_features = [pd.api.types.is_integer_dtype(t) for t in X.dtypes]
+        mi_scores = mutual_info_regression(X, y, discrete_features=discrete_features, random_state=0)
+        mi_scores = pd.Series(mi_scores, name="MI Scores", index=X.columns)
+        mi_scores = mi_scores.sort_values(ascending=False)
+        return mi_scores
+
+    def plot_mi_scores(scores):
+        scores = scores.sort_values(ascending=True)
+        width = np.arange(len(scores))
+        ticks = list(scores.index)
+        plt.barh(width, scores)
+        plt.yticks(width, ticks)
+        plt.title("Mutual Information Scores")
+    ```
+
+
+
+
+
++ [`panads.fsctorize` method](https://pandas.pydata.org/docs/reference/api/pandas.factorize.html)
+  + syntax: `pandas.factorize(values, sort=False, na_sentinel=- 1, size_hint=None)`
+  + docstring: encode the object as an enumerated type or categorical variable
+  + parameters
+    + `values`: sequence <br>A 1-D sequence. Sequences that aren’t pandas objects are coerced to ndarrays before factorization.
+    + `sort`: bool, default `False`<br>Sort uniques and shuffle codes to maintain the relationship.
+    + `na_sentinel`: int or None, default -1<br>Value to mark “not found”. If None, will not drop the NaN from the uniques of the values.
+    + `size_hint`: int, optional<br>Hint to the hashtable sizer.
+  + returns
+    + `code`: sndarray<br>An integer ndarray that’s an indexer into uniques. uniques.take(codes) will have the same values as values.
+    + `uniques`: ndarray, Index, or Categorical<br>The unique valid values. When values is Categorical, uniques is a Categorical. When values is some other pandas object, an Index is returned. Otherwise, a 1-D ndarray is returned.
+  + example
+
+    ```python
+    codes, uniques = pd.factorize(['b', None, 'a', 'c', 'b'])
+    codes     # array([ 0, -1,  1,  2,  0]...)
+    uniques   # array(['a', 'b', 'c'], dtype=object)
+    ```
 
