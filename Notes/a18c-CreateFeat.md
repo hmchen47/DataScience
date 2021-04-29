@@ -51,8 +51,46 @@ Organization: Kaggle
 
 ## Mathematical Transforms
 
++ Representing feature relationships
+  + relationship among numerical features usually expressed mathematical formulas
+  + ratio:
+    + features describing a car's engine in Automobile dataset
+    + a variety of formulas for creating potentially useful new feature
+    + e.g., `stroke ratio`: a measure of how efficient an engine vs how performant
+  + combination
+    + complicated formulation among features
+    + the more complicated combination is, the more difficult it will ne for a model learn
+    + e.g., engine;s "displacement" as a measure of its power
+  + data visualization
+    + able to suggest transformations
+    + often a "reshaping" of a feature through powers or logarithms
+    + e.g., highly skewed distribution of `Windspeed` in US Accidents
+  + python snippet
 
+    ```python
+    autos["stroke_ratio"] = autos.stroke / autos.bore
 
+    autos["displacement"] = (
+        np.pi * ((0.5 * autos.bore) ** 2) * autos.stroke * autos.num_of_cylinders
+    )
+
+    # If the feature has 0.0 values, use np.log1p (log(1+x)) instead of np.log
+    accidents["LogWindSpeed"] = accidents.WindSpeed.apply(np.log1p)
+
+    # Plot a comparison
+    fig, axs = plt.subplots(1, 2, figsize=(8, 4))
+    sns.kdeplot(accidents.WindSpeed, shade=True, ax=axs[0])
+    sns.kdeplot(accidents.LogWindSpeed, shade=True, ax=axs[1]);
+    ```
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick= "window.open('https://www.kaggle.com/ryanholbrook/creating-features')"
+        src    = "https://bit.ly/3e0Yjjc"
+        alt    = "Data visualization with "
+        title  = "Data visualization with "
+      />
+    </figure>
 
 
 ## Counts
