@@ -335,6 +335,58 @@ Organization: Kaggle
       />
     </figure>
 
+  + examining MI scores
+    + investigating possible interaction effects w/ `BidgType`
+    + Bldg Type (Nominal): Type of dwelling
+      + `1Fam`: Single-family Detached
+      + `2FmCon`: Two-family Conversion; originally built as one-family dwelling
+      + `Duplx`: Duplex
+      + `TwnhsE`: Townhouse End Unit
+    + `BldgType` not w/ high MI score
+    + python snippet: `sns.catplot(x="BldgType", y="SalePrice", data=df, kind="boxen");`
+
+      <figure style="margin: 0.5em; text-align: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+          onclick= "window.open('src/data/a18b-ex-MI.ipynb')"
+          src    = "img/a18b-ex-03.png"
+          alt    = "Boxplot for Building Type vs. Sale Price"
+          title  = "Boxplot for Building Type vs. Sale Price"
+        />
+      </figure>
+
+    + whether `BldgType` producing a significant interaction w/ 
+      + `GrLivArea`: above ground living area
+      + `MoSold`: Month sold
+      + python snippet:
+
+      ```python
+      feature = "GrLivArea"
+      sns_plot = sns.lmplot(
+          x=feature, y="SalePrice", hue="BldgType", col="BldgType",
+          data=df, scatter_kws={"edgecolor": 'w'}, col_wrap=3, height=4,
+      );
+
+      feature = "MoSold"
+      sns_plot = sns.lmplot(
+          x=feature, y="SalePrice", hue="BldgType", col="BldgType",
+          data=df, scatter_kws={"edgecolor": 'w'}, col_wrap=3, height=4,
+      );
+      ```
+
+      <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+        <a href="src/data/a18b-ex-MI.ipynb" ismap target="_blank">
+          <img style="margin: 0.1em;" height=200
+            src   = "img/a18b-ex-04.png"
+            alt   = "Various building types and Sale Prices"
+            title = "Various building types and Sale Prices"
+          >
+          <img style="margin: 0.1em;" height=200
+            src   = "img/a18b-ex-05.png"
+            alt   = "Month and Sale Prices"
+            title = "Month and Sale Prices"
+          >
+        </a>
+      </div>
 
 
 
