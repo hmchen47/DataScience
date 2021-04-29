@@ -11,8 +11,14 @@ Organization: Kaggle
 
 ## Introduction
 
-
-
++ Tips to discovering new features
+  + understand the features: referring to data documentation if available
+  + acquire domain knowledge: research the problem domain
+  + study previous work
+  + use data visualization:
+    + revealing pathologies in the distribution of a feature
+    + simplifying complicated relationships
+    + a must step for feature engineering process
 
 
 ## Mathematical Transforms
