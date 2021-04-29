@@ -95,7 +95,33 @@ Organization: Kaggle
 
 ## Counts
 
++ Counting features
+  + features describing presence or absence
+  + representing such features w/ binary (1 for presence , 0 for Absence) or Boolean (True or False)
+  + dealing such features in sets
+  + new "counts" features: aggregating such features
+  + able to create Boolean values w/ dataframe built-in methods
+  + example: Traffic Accidents
+    + features indicating whether some roadway near the accident
+    + creating a count of the total number of roadway features
 
+    ```python
+    roadway_features = ["Amenity", "Bump", "Crossing", "GiveWay",
+        "Junction", "NoExit", "Railway", "Roundabout", "Station", "Stop",
+        "TrafficCalming", "TrafficSignal"]
+    accidents["RoadwayFeatures"] = accidents[roadway_features].sum(axis=1)
+    ```
+
+  + example: Concrete
+    + features: the components in concrete formulation
+    + many formulations w/o some components, e.g., value w/ 0
+    + count how many components used in formulations
+
+    ```python
+    components = [ "Cement", "BlastFurnaceSlag", "FlyAsh", "Water",
+              "Superplasticizer", "CoarseAggregate", "FineAggregate"]
+    concrete["Components"] = concrete[components].gt(0).sum(axis=1)
+    ```
 
 
 
