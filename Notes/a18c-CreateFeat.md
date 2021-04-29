@@ -124,10 +124,38 @@ Organization: Kaggle
     ```
 
 
-
 ## Building-Up and Breaking-Down Features
 
++ Manipulating structure data
+  + complex strings usually broken into simpler pieces
+  + common examples of structure data
+    + ID numbers: `'123-45-6789'`
+    + Phone numbers: `'(999) 555-0123'`
+    + Street addresses: `'8241 Kaggle Ln., Goose City, NV'`
+    + Internet addresses: `'http://www.kaggle.com'`
+    + Product codes: `'0 36000 29145 2'`
+    + Dates and times: `'Mon Sep 30 07:06:05 2013'`
+  + able to apply string methods, like `split`, directly to columns
 
+    ```python
+    customer[["Type", "Level"]] = ( # Create two new features
+        customer["Policy"]          # from the Policy feature
+        .str                        # through the string accessor
+        .split(" ", expand=True)    # by splitting on " "
+                                    # and expanding the result into separate columns
+    )
+    #     Policy        Type        Level
+    # 0   Corporate L3  Corporate   L3
+    ```
+
+  + able to join simple features into a composed feature
+
+    ```python
+    autos["make_and_style"] = autos["make"] + "_" + autos["body_style"]
+    # 0   alfa-romero   convertible   alfa-romero_convertible
+    ```
+
+  
 
 
 
