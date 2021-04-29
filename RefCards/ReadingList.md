@@ -74,6 +74,11 @@
 + W. Sun, et.al., [Canonical Capsules: Unsupervised Capsules in Canonical Pose](https://canonical-capsules.github.io/)
 + ML Glossary, [Linear Regression](https://ml-cheatsheet.readthedocs.io/en/latest/linear_regression.html)
 + S. Ruder, [An overview of gradient descent optimization algorithms](https://ruder.io/optimizing-gradient-descent/), 2016
++ R. Tatman, [Data Cleaning](https://www.kaggle.com/learn/data-cleaning), Kaggle
++ A. Cook & J. Li, [Geospatial Analysis](https://www.kaggle.com/learn/geospatial-analysis), Kaggle
++ D. Becker & M. Leonard, [Natural Language Processing](https://www.kaggle.com/learn/natural-language-processing), Kaggle
+
+
 
 
 ## Neural Networks
