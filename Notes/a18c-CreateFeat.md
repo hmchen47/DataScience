@@ -146,6 +146,7 @@ Organization: Kaggle
     )
     #     Policy        Type        Level
     # 0   Corporate L3  Corporate   L3
+    #     ...
     ```
 
   + able to join simple features into a composed feature
@@ -153,14 +154,78 @@ Organization: Kaggle
     ```python
     autos["make_and_style"] = autos["make"] + "_" + autos["body_style"]
     # 0   alfa-romero   convertible   alfa-romero_convertible
+    #     ...
     ```
-
-  
-
-
 
 ## Group Transforms
 
++ Group transforms
+  + aggregating information across multiple rows grouped by some category
+  + good practice: category interaction $\to$ group transform over the category
+  + aggregation function to combine two features
+    + grouping categorical feature
+    + aggregating feature values
+  + built-in dataframe method as aggregation function, e.g., `mean`, `max`, `min`, `median`, `var`, `std`, `count`
+  + preventing inappropriate data splitting
+    + using training and validation splits to preserve their independence
+    + best practice
+      + creating a grouped feature using only the training set
+      + joining it to the validation set
+      + using the validation set's `merge` set after creating a unique set of values w/ `drop_duplicates` on the training set
+  + example: average income by state
+    + `state` as grouping feature
+    + `mean` as aggregation function
+    + `Income` for the aggregated feature
+
+    ```python
+    customer["AverageIncome"] = (
+        customer.groupby("State")  # for each state
+        ["Income"]                 # select the income
+        .transform("mean")         # and compute its mean
+    )
+    #   State       Income    AverageIncome
+    # 0 Washington  56274     38122.733083
+    # 1 Arizona     0         37405.402231
+    #   ...
+    ```
+
+  + example: frequency w/ which state occurs
+
+    ```python
+    customer["StateFreq"] = (
+        customer.groupby("State")
+        ["State"]
+        .transform("count")
+        / customer.State.count()
+    )
+    #   State       StateFreq
+    # 0 Washington  0.087366
+    #   ...
+    ```
+
+  + 
+
+  + example: handling data splitting
+
+    ```python
+    # Create splits
+    df_train = customer.sample(frac=0.5)
+    df_valid = customer.drop(df_train.index)
+
+    # Create the average claim amount by coverage type, on the training set
+    df_train["AverageClaim"] = df_train.groupby("Coverage")["ClaimAmount"].transform("mean")
+
+    # Merge the values into the validation set
+    df_valid = df_valid.merge(
+        df_train[["Coverage", "AverageClaim"]].drop_duplicates(),
+        on="Coverage",
+        how="left",
+    )
+
+    #  Coverage  AverageClaim
+    #0 Extended  482.887836
+    #   ...
+    ```
 
 
 
