@@ -263,6 +263,29 @@ Organization: Kaggle
         plt.title("Mutual Information Scores")
     ```
 
+  + python snippet: visualizing features vs. price
+    + `YearBuilt`: knowing the year tends to constrain `SalePrice` to a smaller range of possible values $\to$ the highest MI score
+    + `MoSold`: variety of `SalePrice`
+    + `ScreenPorch`: many data w/ value = 0, on average it won't tell much about `SalePrice` (though more than `MoSold`)
+
+    ```python
+    features = ["YearBuilt", "MoSold", "ScreenPorch"]
+    sns_plot = sns.relplot(
+        x="value", y="SalePrice", col="variable", \
+            data=df.melt(id_vars="SalePrice", value_vars=features),\
+            facet_kws=dict(sharex=False),
+    );
+    ```
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+        onclick= "window.open('src/data/a18b-ex-MI.ipynb')"
+        src    = "img/a18b-ex-01.png"
+        alt    = "Hosepower vs. Price"
+        title  = "Hosepower vs. Price"
+      />
+    </figure>
+
 
 
 
