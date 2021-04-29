@@ -286,6 +286,55 @@ Organization: Kaggle
       />
     </figure>
 
+  + understanding mutual information
+
+    ```python
+    X = df.copy()
+    y = X.pop('SalePrice')
+
+    mi_scores = make_mi_scores(X, y)
+
+    print(mi_scores.head(20))
+    # print(mi_scores.tail(20))  # uncomment to see bottom 20
+
+    plt.figure(dpi=100, figsize=(8, 5))
+    plot_mi_scores(mi_scores.head(20))
+    # plot_mi_scores(mi_scores.tail(20))  # uncomment to see bottom 20
+
+    # OverallQual     0.581262          # Neighborhood    0.569813
+    # GrLivArea       0.496909          # YearBuilt       0.437939
+    # GarageArea      0.415014          # TotalBsmtSF     0.390280
+    # GarageCars      0.381467          # FirstFlrSF      0.368825
+    # BsmtQual        0.364779          # KitchenQual     0.326194
+    # ExterQual       0.322390          # YearRemodAdd    0.315402
+    # MSSubClass      0.287131          # GarageFinish    0.265440
+    # FullBath        0.251693          # Foundation      0.236115
+    # LotFrontage     0.233334          # GarageType      0.226117
+    # FireplaceQu     0.221955          # SecondFlrSF     0.200658
+    # Name: MI Scores, dtype: float64
+    ```
+
+    + common themes among most of these features are:
+      + Location: `Neighborhood`
+      + Size: all of the `Area` and `SF` features, and counts like `FullBath` and `GarageCars`
+      + Quality: all of the `Qual` features
+      + Year: `YearBuilt` and `YearRemodAdd`
+      + Types: descriptions of features and styles like `Foundation` and `GarageType`
+    + interaction features
+      + kinds of features commonly used in real-estate listings (like on Zillow)
+      + mutual information metric scored them highly
+      + the lowest ranked features mostly representing things rare or exceptional in some way
+      + example: not be relevant to the average home buyer
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+        onclick= "window.open('src/data/a18b-ex-MI.ipynb')"
+        src    = "img/a18b-ex-02.png"
+        alt    = "Mutual information scores"
+        title  = "Mutual information scores"
+      />
+    </figure>
+
 
 
 
