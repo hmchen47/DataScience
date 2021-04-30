@@ -116,11 +116,12 @@ Organization: Kaggle
     + return the clustering w/ the least total distance btw each point and its centroid, the optimal clustering
   + increasing the `max_iter` for a large number of clusters
   + increasing `n_init` for a complex dataset
+  + sensitive to scale: rescale or normalize data w/ extreme values
   + best partitioning for a set of features depending on
     + model used
     + what to predict
 
-+ Examples: SalesPrice of Ames and Airbnb in NYC
++ Examples: SalePrice of Ames and Airbnb in NYC
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://www.kaggle.com/ryanholbrook/clustering-with-k-means" ismap target="_blank">
@@ -140,7 +141,23 @@ Organization: Kaggle
 
 ## Example - California Housing
 
++ Example: California housing
+  + data set: [California Housing](https://www.kaggle.com/camnugent/california-housing-prices)
+    + `Latitude` and `Longitude`: natural candidates for k-means clustering
+    + `MedInc`: creating economic segments in different regions of California
+  + training w/ K-means
 
+    ```python
+    # Create cluster feature
+    kmeans = KMeans(n_clusters=6)
+    X["Cluster"] = kmeans.fit_predict(X)
+    X["Cluster"] = X["Cluster"].astype("category")
+    #   MedInc  Latitude  Longitude Cluster
+    # 0 8.3252  37.88     -122.23   1
+    #    ...
+    ```
+
+  + 
 
 
 
