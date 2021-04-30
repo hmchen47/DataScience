@@ -307,5 +307,20 @@ Organization: Kaggle
         />
       </figure>
 
+  + cluster-distance features
+    + using the `fit_transform`method of `kmeans` instead of `fit_predict`
+    + evaluating w/ mean square error log score  under `XGBoost` model
 
+    ```python
+    kmeans = KMeans(n_clusters=10, n_init=10, random_state=0)
+
+    # Create the cluster-distance features using `fit_transform`
+    X_cd = kmeans.fit_transform(X_scaled)
+
+    # Label features and join to dataset
+    X_cd = pd.DataFrame(X_cd, columns=[f"Centroid_{i}" for i in range(X_cd.shape[1])])
+    X = X.join(X_cd)
+
+    score_dataset(X, y)
+    # 0.027943818675595398
 
