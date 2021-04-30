@@ -253,6 +253,12 @@ Organization: Kaggle
     df = pd.read_csv("data/a18/ames.csv")
     ```
 
+  + scaling features
+    + features to decide whether rescaling
+      + `Latitude` and `Longitude` of cities in California
+      + `Lot Area` and `Living Area` of houses in Ames, Iowa
+      + `Number of Doors` and `Horsepower` of a 1989 model car
+    + answers refer to K-means w/ scikit-learn's implementation
 
 
 
