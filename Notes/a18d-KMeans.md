@@ -157,7 +157,25 @@ Organization: Kaggle
     #    ...
     ```
 
-  + 
+  + geographic plotting 
+    + observing the geographic distribution of the clusters
+    + separating segments for high-income areas on the coasts
+
+    ```python
+    sns.relplot(
+        x="Longitude", y="Latitude", hue="Cluster", data=X, height=6,
+    );
+    ```
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+        onclick= "window.open('https://www.kaggle.com/ryanholbrook/clustering-with-k-means')"
+        src    = "https://bit.ly/2PH3XxA"
+        alt    = "Geographic clusters"
+        title  = "Geographic clusters"
+      />
+    </figure>
+
 
 
 
