@@ -93,6 +93,18 @@ Organization: Kaggle
   + k-means: intuitive and easy to apply in a feature engineering context
   + selection of algorithm: depending on application
 
++ K-means clustering
+  + measuring similarity using ordinary straight-line distance (Euclidean distance)
+  + creating clusters by placing a number of points, called centroids, inside the feature space
+  + each point assigning to the cluster whatever centroid it closest to
+  + $k$: the parameter about how many centroids
+  + Voronoi tessallation
+    + imaging each centroid capturing points through a sequence of radiating circles
+    + a line formed w/ the overlapped sets of circles from competing centroids
+    + analogy: which cluster to assigned w/ future data
+
+
+
 
 
 ## Example - California Housing
