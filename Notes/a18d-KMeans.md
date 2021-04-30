@@ -86,7 +86,12 @@ Organization: Kaggle
 
 ## k-Means Clustering
 
-
++ Clustering algorithms
+  + classification
+    + how they measure "similarity" or "proximity"
+    + what kinds of features working with
+  + k-means: intuitive and easy to apply in a feature engineering context
+  + selection of algorithm: depending on application
 
 
 
