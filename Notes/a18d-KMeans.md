@@ -236,7 +236,6 @@ Organization: Kaggle
         titlepad=10,
     )
 
-
     def score_dataset(X, y, model=XGBRegressor()):
         # Label encoding for categoricals
         for colname in X.select_dtypes(["category", "object"]):
@@ -281,7 +280,7 @@ Organization: Kaggle
       X["Cluster"] = kmeans.fit_predict(X_scaled)
       ```
 
-    + plot clusters
+    + plot clusters and evaluate w/ `XGBoost`
 
       ```python
       Xy = X.copy()
@@ -294,6 +293,9 @@ Organization: Kaggle
               value_vars=features, id_vars=["SalePrice", "Cluster"],
           ),
       );
+
+      score_dataset(X, y)
+      # 0.14046321396663294
       ```
 
       <figure style="margin: 0.5em; text-align: center;">
