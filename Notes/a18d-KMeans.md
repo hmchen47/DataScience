@@ -265,20 +265,45 @@ Organization: Kaggle
       + number of clusters: 10
       + iterations: 10
 
-    ```python
-    X = df.copy()
-    y = X.pop("SalePrice")
+      ```python
+      X = df.copy()
+      y = X.pop("SalePrice")
 
-    # YOUR CODE HERE: Define a list of the features to be used for the clustering
-    features = ["LotArea", "TotalBsmtSF", "FirstFlrSF", "SecondFlrSF", "GrLivArea"]
+      # YOUR CODE HERE: Define a list of the features to be used for the clustering
+      features = ["LotArea", "TotalBsmtSF", "FirstFlrSF", "SecondFlrSF", "GrLivArea"]
 
-    # Standardize
-    X_scaled = X.loc[:, features]
-    X_scaled = (X_scaled - X_scaled.mean(axis=0)) / X_scaled.std(axis=0)
+      # Standardize
+      X_scaled = X.loc[:, features]
+      X_scaled = (X_scaled - X_scaled.mean(axis=0)) / X_scaled.std(axis=0)
 
-    # YOUR CODE HERE: Fit the KMeans model to X_scaled and create the cluster labels
-    kmeans = KMeans(n_clusters=10, n_init=10, random_state=0)
-    X["Cluster"] = kmeans.fit_predict(X_scaled)
-    ```
+      # YOUR CODE HERE: Fit the KMeans model to X_scaled and create the cluster labels
+      kmeans = KMeans(n_clusters=10, n_init=10, random_state=0)
+      X["Cluster"] = kmeans.fit_predict(X_scaled)
+      ```
+
+    + plot clusters
+
+      ```python
+      Xy = X.copy()
+      Xy["Cluster"] = Xy.Cluster.astype("category")
+      Xy["SalePrice"] = y
+      sns.relplot(
+          x="value", y="SalePrice", hue="Cluster", col="variable",
+          height=4, aspect=1, facet_kws={'sharex': False}, col_wrap=3,
+          data=Xy.melt(
+              value_vars=features, id_vars=["SalePrice", "Cluster"],
+          ),
+      );
+      ```
+
+      <figure style="margin: 0.5em; text-align: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+          onclick= "window.open('https://www.kaggle.com/ryanholbrook/clustering-with-k-means')"
+          src    = "img/a18d-01.png"
+          alt    = "Clusters w/ various features"
+          title  = "Clusters w/ various features"
+        />
+      </figure>
+
 
 
