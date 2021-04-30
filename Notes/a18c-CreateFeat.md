@@ -257,6 +257,16 @@ Organization: Kaggle
     + `LivLotRatio`: the ratio of `GrLivArea` to `LotArea`
     + `Spaciousness`: the sum of `FirstFlrSF` and `SecondFlrSF` divided by `TotRmsAbvGrd`
     + `TotalOutsideSF`: the sum of `WoodDeckSF`, `OpenPorchSF`, `EnclosedPorch`, `Threeseasonporch`, and `ScreenPorch`
+
+    ```python
+    X_1 = pd.DataFrame()  # dataframe to hold new features
+
+    X_1["LivLotRatio"] = X.GrLivArea/X.LotArea
+    X_1["Spaciousness"] = (X.FirstFlrSF + X.SecondFlrSF) / X.TotRmsAbvGrd
+    X_1["TotalOutsideSF"] = X[["WoodDeckSF", "OpenPorchSF", "EnclosedPorch", \
+                              "Threeseasonporch", "ScreenPorch"]].sum(axis=1)
+    ```
+
   + interaction w/ a categorical
     + discovering and interaction btw `BldgType` and `GrLivArea`
     + using one-hot encoding
@@ -273,6 +283,15 @@ Organization: Kaggle
       X = X.join(X_new)
       ```
 
+    + python snippet
+
+      ```python
+      # One-hot encode BldgType. Use `prefix="Bldg"` in `get_dummies`
+      X_2 = pd.get_dummies(X.BldgType, prefix="Bldg")
+      # Multiply
+      X_2 = X_2.mul(X.GrLivArea, axis=0)
+      ```
+
   + count feature
     + creating a feature to describe how many kinds of outdoor areas a dwelling has
     + `PorchTypes`: count how many of the following greater than 0.0
@@ -282,3 +301,21 @@ Organization: Kaggle
       + `Threeseasonporch`
       + `ScreenPorch`
 
+    ```python
+    X_3 = pd.DataFrame()
+    components = ["WoodDeckSF", "OpenPorchSF", "EnclosedPorch", "Threeseasonporch", "ScreenPorch"]
+
+    X_3["PorchTypes"] = X[components].gt(0).sum(axis=1)
+    ```
+
+  + breaking down a categorical feature
+    + `MSSubClass` features:
+      + display the set of categories: `df.MSSubClass.unique()`
+      + more generalized categorization by the first word of each category
+    + create a feature containing only the first words of the feature
+
+    ```python
+    X_4 = pd.DataFrame()
+
+    X_4["MSClass"] = df.MSSubClass.str.split("_", n=1, expand=True)[0]
+    ```
