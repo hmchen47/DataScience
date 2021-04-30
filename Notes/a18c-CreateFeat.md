@@ -257,6 +257,21 @@ Organization: Kaggle
     + `LivLotRatio`: the ratio of `GrLivArea` to `LotArea`
     + `Spaciousness`: the sum of `FirstFlrSF` and `SecondFlrSF` divided by `TotRmsAbvGrd`
     + `TotalOutsideSF`: the sum of `WoodDeckSF`, `OpenPorchSF`, `EnclosedPorch`, `Threeseasonporch`, and `ScreenPorch`
+  + interaction w/ a categorical
+    + discovering and interaction btw `BldgType` and `GrLivArea`
+    + using one-hot encoding
+    + example python snippet w/ one-hot encoding
+
+      ```python
+      # One-hot encode Categorical feature, adding a column prefix "Cat"
+      X_new = pd.get_dummies(df.Categorical, prefix="Cat")
+
+      # Multiply row-by-row
+      X_new = X_new.mul(df.Continuous, axis=0)
+
+      # Join the new features to the feature set
+      X = X.join(X_new)
+      ```
 
 
 
