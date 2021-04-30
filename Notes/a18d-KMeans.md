@@ -259,6 +259,26 @@ Organization: Kaggle
       + `Lot Area` and `Living Area` of houses in Ames, Iowa
       + `Number of Doors` and `Horsepower` of a 1989 model car
     + answers refer to K-means w/ scikit-learn's implementation
+  + creating a feature of cluster labels
+    + parameters for k-means clustering
+      + features: `features: `LotArea`, `TotalBsmtSF`, `FirstFlrSF`, `SecondFlrSF`, `GrLivArea`
+      + number of clusters: 10
+      + iterations: 10
 
+    ```python
+    X = df.copy()
+    y = X.pop("SalePrice")
+
+    # YOUR CODE HERE: Define a list of the features to be used for the clustering
+    features = ["LotArea", "TotalBsmtSF", "FirstFlrSF", "SecondFlrSF", "GrLivArea"]
+
+    # Standardize
+    X_scaled = X.loc[:, features]
+    X_scaled = (X_scaled - X_scaled.mean(axis=0)) / X_scaled.std(axis=0)
+
+    # YOUR CODE HERE: Fit the KMeans model to X_scaled and create the cluster labels
+    kmeans = KMeans(n_clusters=10, n_init=10, random_state=0)
+    X["Cluster"] = kmeans.fit_predict(X_scaled)
+    ```
 
 
