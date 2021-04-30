@@ -330,3 +330,22 @@ Organization: Kaggle
     X_5["MedNhbdArea"] = df.groupby("Neighborhood")["GrLivArea"].transform("median")
     ```
 
+  + training w/ `XGBoost` and evaluate the score
+
+    ```python
+    def score_dataset(X, y, model=XGBRegressor()):
+        # Label encoding for categoricals
+        for colname in X.select_dtypes(["category", "object"]):
+            X[colname], _ = X[colname].factorize()
+        # Metric for Housing competition is RMSLE (Root Mean Squared Log Error)
+        score = cross_val_score(
+            model, X, y, cv=5, scoring="neg_mean_squared_log_error",
+        )
+        score = -1 * score.mean()
+        score = np.sqrt(score)
+        return score
+
+    X_new = X.join([X_1, X_2, X_3, X_4, X_5])
+    score_dataset(X_new, y)
+    # 0.13847331710099203
+    ```
