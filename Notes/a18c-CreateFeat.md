@@ -273,5 +273,12 @@ Organization: Kaggle
       X = X.join(X_new)
       ```
 
-
+  + count feature
+    + creating a feature to describe how many kinds of outdoor areas a dwelling has
+    + `PorchTypes`: count how many of the following greater than 0.0
+      + `WoodDeckSF`
+      + `OpenPorchSF`
+      + `EnclosedPorch`
+      + `Threeseasonporch`
+      + `ScreenPorch`
 
