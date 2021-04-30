@@ -319,3 +319,14 @@ Organization: Kaggle
 
     X_4["MSClass"] = df.MSSubClass.str.split("_", n=1, expand=True)[0]
     ```
+
+  + using a group transform
+    + creating feature `MedNhbdArea`
+    + `MedNhbdArea`: the median of `GrLivArea` grouped on `Neighborhood`
+
+    ```python
+    X_5 = pd.DataFrame()
+
+    X_5["MedNhbdArea"] = df.groupby("Neighborhood")["GrLivArea"].transform("median")
+    ```
+
