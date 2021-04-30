@@ -176,6 +176,23 @@ Organization: Kaggle
       />
     </figure>
 
+  + median house values and box-plots
+    + box-plot: the distribution of the target within each cluster
+    + informative clustering $\to$ distributions separating across `MedHouseVal`
+
+    ```python
+    X["MedHouseVal"] = df["MedHouseVal"]
+    sns.catplot(x="MedHouseVal", y="Cluster", data=X, kind="boxen", height=6);
+    ```
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+        onclick= "window.open('https://www.kaggle.com/ryanholbrook/clustering-with-k-means')"
+        src    = "https://bit.ly/3nCnKLd"
+        alt    = "Distributions of clusters w/ box-plot"
+        title  = "Distributions of clusters w/ box-plot"
+      />
+    </figure>
 
 
 
