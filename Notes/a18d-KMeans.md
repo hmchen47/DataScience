@@ -103,6 +103,22 @@ Organization: Kaggle
     + a line formed w/ the overlapped sets of circles from competing centroids
     + analogy: which cluster to assigned w/ future data
 
++ K-means w/ scikit-learn's implementation
+  + hyperparameters: `n_clusters`, `max_iter`, `n_init`
+  + procedure
+    + init: randomly initializing `n_cluster` centroids
+    + assign points to the nearest cluster centroid
+    + move each centroid to minimize the distance to its points
+    + repeat the above 2 steps until the centroids converged or reaching the maximum iteration (`max_iter`)
+  + issue: initial random position of the centroids $\to$ poor clustering
+  + solution:
+    + repeat the algorithm a number of times (`n_init`)
+    + return the clustering w/ the least total distance btw each point and its centroid, the optimal clustering
+  + increasing the `max_iter` for a large number of clusters
+  + increasing `n_init` for a complex dataset
+  + best partitioning for a set of features depending on
+    + model used
+    + what to predict
 
 
 
