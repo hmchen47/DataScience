@@ -248,7 +248,15 @@ Organization: Kaggle
 
 ## Exercise
 
-
++ Exercise: creating features
+  + task: developing mathematical transforms
+    + features describing areas
+    + same units (square-feet)
+    + using `XGBoots` (a tree-based model) $\to$ focus on ratios and sums
+  + create mathematical transforms
+    + `LivLotRatio`: the ratio of `GrLivArea` to `LotArea`
+    + `Spaciousness`: the sum of `FirstFlrSF` and `SecondFlrSF` divided by `TotRmsAbvGrd`
+    + `TotalOutsideSF`: the sum of `WoodDeckSF`, `OpenPorchSF`, `EnclosedPorch`, `Threeseasonporch`, and `ScreenPorch`
 
 
 
