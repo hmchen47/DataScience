@@ -116,7 +116,19 @@ Organization: Kaggle
     + return the clustering w/ the least total distance btw each point and its centroid, the optimal clustering
   + increasing the `max_iter` for a large number of clusters
   + increasing `n_init` for a complex dataset
-  + sensitive to scale: rescale or normalize data w/ extreme values
+  + sensitive to scale:
+    + rescale or normalize data w/ extreme values
+    + depending on domain knowledge and predicting target
+    + rule of thumb: feature
+      + ready directly comparable, e.g., test result at different time $\to$ not rescale
+      + not on comparable scales, e.g., height and weight $\to$ usually benefit for rescale
+      + not clear $\to$ use common sense
+    + features w/ larger values weighted more heavily
+    + comparing different schemes through cross-validation probably helpful
+    + examples:
+      + `Latitude` and `Longitude` of cities in California: rescaling distort the natural distances $\to$ not rescaling
+      + `Lot Area` and `Living Area` of houses in Ames, Iowa: not clear, living area tending to be more valuable while sale price as the prediction target
+      + `Number of Door` and `Housepower` of a 1989 model car: rescaling, he number of doors in a car will be negligible comparing to its horsepower (usually in the hundreds)
   + best partitioning for a set of features depending on
     + model used
     + what to predict
@@ -186,7 +198,7 @@ Organization: Kaggle
     ```
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
         onclick= "window.open('https://www.kaggle.com/ryanholbrook/clustering-with-k-means')"
         src    = "https://bit.ly/3nCnKLd"
         alt    = "Distributions of clusters w/ box-plot"
@@ -198,7 +210,7 @@ Organization: Kaggle
 
 ## Exercise
 
-
++ Exercise: 
 
 
 
