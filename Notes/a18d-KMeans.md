@@ -18,6 +18,14 @@ Organization: Kaggle
     + representing the structure of the features in a certain way
   + a "feature discovery" technique in terms of feature engineering
 
++ Clustering
+  + the assigning of data points to groups
+  + group based on how similar the points to each other
+  + making "birds of a feather flock together"
+  + used for feature engineering: an attempt to discover
+    + groups of customers representing a market segment
+    + geographic areas sharing similar weather patterns
+  + adding a feather of cluster labels $\to$ untangle complicated relationships of space and proximity
 
 
 ## Cluster Labels as a Feature
