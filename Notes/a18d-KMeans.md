@@ -120,7 +120,22 @@ Organization: Kaggle
     + model used
     + what to predict
 
++ Examples: SalesPrice of Ames and Airbnb in NYC
 
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://www.kaggle.com/ryanholbrook/clustering-with-k-means" ismap target="_blank">
+      <img style="margin: 0.1em;" height=250
+        src   = "https://i.imgur.com/KSoLd3o.jpg.png"
+        alt   = "K-means clustering creates a Voronoi tessallation of the feature space."
+        title = "K-means clustering creates a Voronoi tessallation of the feature space."
+      >
+      <img style="margin: 0.1em;" height=250
+        src   = "https://i.imgur.com/tBkCqXJ.gif"
+        alt   = "The K-means clustering algorithm on Airbnb rentals in NYC.s"
+        title = "The K-means clustering algorithm on Airbnb rentals in NYC.s"
+      >
+    </a>
+  </div>
 
 
 ## Example - California Housing
