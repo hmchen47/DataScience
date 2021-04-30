@@ -11,6 +11,12 @@ Organization: Kaggle
 
 ## Introduction
 
++ Unsupervised learning algorithms
+  + not making use of a target
+  + purpose:
+    + learning some property of the data
+    + representing the structure of the features in a certain way
+  + a "feature discovery" technique in terms of feature engineering
 
 
 
