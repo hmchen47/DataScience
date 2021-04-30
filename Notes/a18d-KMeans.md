@@ -210,7 +210,48 @@ Organization: Kaggle
 
 ## Exercise
 
-+ Exercise: 
++ Exercise: California housings
+  + [original exercise](https://www.kaggle.com/hmchen47/exercise-clustering-with-k-means/edit)
+  + dataset: [Ames data set](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data)
+  + loading data and utility for cross-validation
+
+    ```python
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import pandas as pd
+    import seaborn as sns
+    from sklearn.cluster import KMeans
+    from sklearn.model_selection import cross_val_score
+    from xgboost import XGBRegressor
+
+    # Set Matplotlib defaults
+    plt.style.use("seaborn-whitegrid")
+    plt.rc("figure", autolayout=True)
+    plt.rc(
+        "axes",
+        labelweight="bold",
+        labelsize="large",
+        titleweight="bold",
+        titlesize=14,
+        titlepad=10,
+    )
+
+
+    def score_dataset(X, y, model=XGBRegressor()):
+        # Label encoding for categoricals
+        for colname in X.select_dtypes(["category", "object"]):
+            X[colname], _ = X[colname].factorize()
+        # Metric for Housing competition is RMSLE (Root Mean Squared Log Error)
+        score = cross_val_score(
+            model, X, y, cv=5, scoring="neg_mean_squared_log_error",
+        )
+        score = -1 * score.mean()
+        score = np.sqrt(score)
+        return score
+
+    # Prepare data
+    df = pd.read_csv("data/a18/ames.csv")
+    ```
 
 
 
