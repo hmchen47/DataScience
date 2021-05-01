@@ -12,9 +12,14 @@ Organization: Kaggle
 
 ## Introduction
 
-
-
-
++ Principal Component Analysis and feature engineering
+  + a partitioning of the variation in the data
+  + a great tool to help to discover important relationship in the data
+  + used to create more informative features
+  + typically applied to [standardized](https://bit.ly/2S9yMM2) data
+  + variation meaning
+    + standardized data: correlation
+    + unstandardized data: covariance
 
 
 ## Principal Component Analysis
