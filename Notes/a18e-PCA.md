@@ -104,8 +104,32 @@ Organization: Kaggle
 
 ## PCA for Feature Engineering
 
-
-
++ Ways to use PCA for feature engineering
+  + use as a __descriptive technique__
+    + computing the MI scores for the components
+    + what kind of variation most predictive of the target
+    + ideas for kinds of features to create
+      + `Size`: product of `Height` and `Diameter`
+      + `Shape`: ratio of `Height` and `Diameter`
+    + try clustering on one or more of the high scoring components
+  + use __components__ themselves as features
+    + the components exposing the variational structure of the data directly
+    + often more informative than the original features
+    + use cases
+      + __dimensionality reduction__
+        + highly redundant features, in particular, multicolinear
+        + partitioning out the redundancy into one or more near-zero variance components
+      + __anomaly detection__
+        + unusual variation often w/ the low-variance components
+        + unusual variation: not apparent from the original features
+        + components highly informative in an anomaly or outlier detection task
+      + __noise reduction__
+        + sensor reading often w/ common background noise
+        + able to collect the (informative) signal into a smaller number of features while leaving out the noise
+        + boosting the signal-to-noise ratio
+      + __decorrelatio__
+        + ML sometimes struggling w/ highly-correlated features
+        + transforming correlated features into uncorrelated components
 
 
 
