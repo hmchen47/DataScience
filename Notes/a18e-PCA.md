@@ -220,6 +220,11 @@ Organization: Kaggle
     # Convert to dataframe
     component_names = [f"PC{i+1}" for i in range(X_pca.shape[1])]
     X_pca = pd.DataFrame(X_pca, columns=component_names)
+
+    X_pca.head()
+    #   PC1       PC2         PC3         PC4
+    # 0 0.382486  -0.400222   0.124122    0.169539
+    #   ...
     ```
 
   + observe loadings and plot variation
@@ -237,6 +242,13 @@ Organization: Kaggle
         index=X.columns,          # and the rows are the original features
     )
 
+    loadings
+    # 	               PC1          PC2	        PC3          PC4
+    # highway_mpg   -0.492347    0.770892     0.070142    -0.397996
+    # engine_size    0.503859    0.626709     0.019960     0.594107
+    # horsepower     0.500448    0.013788     0.731093    -0.463534
+    # curb_weight    0.503262    0.113008    -0.678369    -0.523232
+
     plot_variance(pca);
     ```
 
@@ -248,6 +260,27 @@ Organization: Kaggle
         title  = "Percent of explained & cumulative variation w/ components"
       />
     </figure>
+
+  + MI scores of the components
+    + `PC1` highly informative 
+    + other components w/ small variation but still playing a significant relationship w/ `price`
+    + examining these components to find relationships not captured by the main Luxury/Economy axis
+    + 3rd component: a contrast btw `housepower` and `curb_weight` - sports cars vs. wagons
+
+    ```python
+    mi_scores = make_mi_scores(X_pca, y, discrete_features=False)
+    # PC1 = 1.013666, PC2 = 0.378819, PC3 = 0.306635, PC4 = 0.204069
+
+    dx = X_pca["PC3"].sort_values(ascending=False).index
+    cols = ["make", "body_style", "horsepower", "curb_weight"]
+    df.loc[idx, cols]
+    #       make      body_style  horsepower  curb_weight
+    # 117   porsche   hardtop     207         2756
+    #       ...
+    ```
+
+
+
 
 
 ## Exercise
