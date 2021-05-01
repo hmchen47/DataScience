@@ -265,21 +265,35 @@ Organization: Kaggle
     + `PC1` highly informative 
     + other components w/ small variation but still playing a significant relationship w/ `price`
     + examining these components to find relationships not captured by the main Luxury/Economy axis
-    + 3rd component: a contrast btw `housepower` and `curb_weight` - sports cars vs. wagons
 
     ```python
     mi_scores = make_mi_scores(X_pca, y, discrete_features=False)
     # PC1 = 1.013666, PC2 = 0.378819, PC3 = 0.306635, PC4 = 0.204069
+    ```
 
+  + contrast component and creating a new ratio feature
+    + 3rd component: a contrast btw `housepower` and `curb_weight` - sports cars vs. wagons
+
+    ```python
     dx = X_pca["PC3"].sort_values(ascending=False).index
     cols = ["make", "body_style", "horsepower", "curb_weight"]
     df.loc[idx, cols]
     #       make      body_style  horsepower  curb_weight
     # 117   porsche   hardtop     207         2756
     #       ...
+
+    df["sports_or_wagon"] = X.curb_weight / X.horsepower
+    sns.regplot(x="sports_or_wagon", y='price', data=df, order=2);
     ```
 
-
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick= "window.open('https://www.kaggle.com/ryanholbrook/principal-component-analysis')"
+        src    = "img/a18e-02.png"
+        alt    = "Sports cars vs. wagons w/ price"
+        title  = "Sports cars vs. wagons w/ price"
+      />
+    </figure>
 
 
 
