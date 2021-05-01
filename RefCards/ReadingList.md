@@ -2,6 +2,7 @@
 
 ## Basic Math
 
++ G. Strage, [Calculus](https://ocw.mit.edu/ans7870/resources/Strang/Edited/Calculus/Calculus.pdf)
 + Prof. David Jerison, [Single Variable Calculus](https://ocw.mit.edu/courses/mathematics/18-01sc-single-variable-calculus-fall-2010/), 2010
 + Prof. Denis Auroux, [Multivariable Calculus](https://ocw.mit.edu/courses/mathematics/18-02sc-multivariable-calculus-fall-2010/), 2010
 + Prof. Arthur Mattuck, Prof. Haynes Miller, Jeremy Orloff, Dr. John Lewis, [Differential Equations](https://ocw.mit.edu/courses/mathematics/18-03sc-differential-equations-fall-2011/), 2010
@@ -9,13 +10,7 @@
 + Prof. Gilbert Strang, [Linear Algebra](https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/), 18.06SC, 2011
 + Prof. David Vogan, [Linear Algebra](https://ocw.mit.edu/courses/mathematics/18-700-linear-algebra-fall-2013/), 18.700, 2013 (more on theory and proofs)
 
-+ MITx's Statistics and Data Science MicroMasters
-  + [Probability - The Science of Uncertainty and Data](https://www.edx.org/course/probability-the-science-of-uncertainty-and-data)
-  + [Fundamentals of Statistics](https://www.edx.org/course/fundamentals-of-statistics)
-  + [Machine Learning with Python: from Linear Models to Deep Learning](https://www.edx.org/course/machine-learning-with-python-from-linear-models-to)
-  + [Capstone Exam in Statistics and Data Science](https://www.edx.org/course/capstone-exam-in-statistics-and-data-science)
-  + [Data Analysis in Social Science—Assessing Your Knowledge](https://www.edx.org/course/data-analysis-in-social-scienceassessing-your-know)
-  + [Data Analysis: Statistical Modeling and Computation in Applications](https://www.edx.org/course/statistics-computation-and-applications)
+
 
 ## Probability and Statistics
 
@@ -54,13 +49,18 @@
 + Gordan Zitkovic, [Introduction to Mathematical Statistics](https://web.ma.utexas.edu/users/gordanz/lecture_notes_page.html)
 + David Pollard, [Chapter 4: Symmetry](https://tinyurl.com/yyqkqvmz) in [Advanced Probability](https://tinyurl.com/y5pszlfw), 200
 + Anna Mikusheva, [Time Series Analysis](https://tinyurl.com/yd7sfmbo), MIT, 2003
-
++ MITx's Statistics and Data Science MicroMasters
+  + [Probability - The Science of Uncertainty and Data](https://www.edx.org/course/probability-the-science-of-uncertainty-and-data)
+  + [Fundamentals of Statistics](https://www.edx.org/course/fundamentals-of-statistics)
+  + [Machine Learning with Python: from Linear Models to Deep Learning](https://www.edx.org/course/machine-learning-with-python-from-linear-models-to)
+  + [Capstone Exam in Statistics and Data Science](https://www.edx.org/course/capstone-exam-in-statistics-and-data-science)
+  + [Data Analysis in Social Science—Assessing Your Knowledge](https://www.edx.org/course/data-analysis-in-social-scienceassessing-your-know)
+  + [Data Analysis: Statistical Modeling and Computation in Applications](https://www.edx.org/course/statistics-computation-and-applications)
 
 
 
 ## Machine Learning
 
-+ G. Strage, [Calculus](https://ocw.mit.edu/ans7870/resources/Strang/Edited/Calculus/Calculus.pdf)
 + T. Hastie and Rob Tibshirani, [introduction to machine learning](https://tinyurl.com/jl7uzxs)
 + L. Spranger, [Awesome Machine Learning and AI Courses](https://tinyurl.com/y5phkqwj)
 + F. Malik, [End To End Guide For Machine Learning Project](https://tinyurl.com/y4vey39z), Dec 28, 2018
@@ -77,8 +77,13 @@
 + R. Tatman, [Data Cleaning](https://www.kaggle.com/learn/data-cleaning), Kaggle
 + A. Cook & J. Li, [Geospatial Analysis](https://www.kaggle.com/learn/geospatial-analysis), Kaggle
 + D. Becker & M. Leonard, [Natural Language Processing](https://www.kaggle.com/learn/natural-language-processing), Kaggle
-
-
++ Prof. K. Mueller, [Visualization & Visual Analysis](https://www3.cs.stonybrook.edu/~mueller/teaching/cse564/index.html), Stony Brook University, CSE564 
++ D. Dye, S. Cooper, A. Page, and M. Deisenroth, Mathematics for Machine Learning - Coursera
+  + [Linear Algebra](https://www.coursera.org/learn/linear-algebra-machine-learning?specialization=mathematics-machine-learning)
+  + [Multivariate Calculus](https://www.coursera.org/learn/multivariate-calculus-machine-learning?specialization=mathematics-machine-learning)
+  + [PCA](https://www.coursera.org/learn/pca-machine-learning?specialization=mathematics-machine-learning)
++ Microsoft DAT256x, [Essential Math for Machine Learning: Python Edition](https://learning.edx.org/course/course-v1:Microsoft+DAT256x+3T2018/home), edX
++ H. Lee, [Bayesian Statistics: From Concept to Data Analysis](https://www.coursera.org/learn/bayesian-statistics?), edX
 
 
 ## Neural Networks
