@@ -222,7 +222,32 @@ Organization: Kaggle
     X_pca = pd.DataFrame(X_pca, columns=component_names)
     ```
 
+  + observe loadings and plot variation
+    + loadings containing in `components_` attribute
+    + characteristics of variation depending on the signs and magnitudes of loadings
+    + `PC1`, the 1st component: a contrast btw
+      + large, powerful vehicles w/ poor gas millage
+      + smaller, more economical vehicles w/ good gas milage
+      + named as "Luxury/Economy" axis
 
+    ```python
+    loadings = pd.DataFrame(
+        pca.components_.T,        # transpose the matrix of loadings
+        columns=component_names,  # so the columns are the principal components
+        index=X.columns,          # and the rows are the original features
+    )
+
+    plot_variance(pca);
+    ```
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick= "window.open('https://www.kaggle.com/ryanholbrook/principal-component-analysis')"
+        src    = "img/a18e-01.png"
+        alt    = "Percent of explained & cumulative variation w/ components"
+        title  = "Percent of explained & cumulative variation w/ components"
+      />
+    </figure>
 
 
 ## Exercise
