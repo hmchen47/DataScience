@@ -193,6 +193,20 @@ Organization: Kaggle
     df = pd.read_csv("data/a18/autos.csv")
     ```
 
+  + selecting features
+    + features w/ high MI score on the target, `price`: `highway_mpg`, `engine_size`, `horsepower`, `curb_weight`
+    + standardizing the data $\gets$ features naturally not on the same scale
+
+    ```python
+    features = ["highway_mpg", "engine_size", "horsepower", "curb_weight"]
+
+    X = df.copy()
+    y = X.pop('price')
+    X = X.loc[:, features]
+
+    # Standardize
+    X_scaled = (X - X.mean(axis=0)) / X.std(axis=0)
+    ```
 
 
 
