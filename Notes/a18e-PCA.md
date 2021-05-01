@@ -208,6 +208,20 @@ Organization: Kaggle
     X_scaled = (X - X.mean(axis=0)) / X.std(axis=0)
     ```
 
+  + fit PCA and create the principal components
+
+    ```python
+    from sklearn.decomposition import PCA
+
+    # Create principal components
+    pca = PCA()
+    X_pca = pca.fit_transform(X_scaled)
+
+    # Convert to dataframe
+    component_names = [f"PC{i+1}" for i in range(X_pca.shape[1])]
+    X_pca = pd.DataFrame(X_pca, columns=component_names)
+    ```
+
 
 
 
