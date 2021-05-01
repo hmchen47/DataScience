@@ -390,6 +390,22 @@ Organization: Kaggle
     df = pd.read_csv("data/a18/ames.csv")
     ```
 
+  + calculate correlation of selected features w/ `SalePrice`
+
+    ```python
+    features = [
+        "GarageArea",
+        "YearRemodAdd",
+        "TotalBsmtSF",
+        "GrLivArea",
+    ]
+
+    print("Correlation with SalePrice:\n")
+    print(df[features].corrwith(df.SalePrice))
+    # GarageArea = 0.640138, YearRemodAdd = 0.532974, TotalBsmtSF = 0.632529, GrLivArea = 0.706780
+    ```
+
+
 
 
 
