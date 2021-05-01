@@ -82,8 +82,24 @@ Organization: Kaggle
     + `Shape` component: `Height` and `Diameter` varying in opposite direction (opposite sign)
     + all loadings w/ the same magnitude $\to$ features contributing equally
 
++ Percent of explained variance
+  + PCA represents the amount of variation in each component
+  + more variation in the data along the `Size` component than along the `Shape` component
+  + making the precise comparison though each component's percent of explained variation
 
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick= "window.open('https://www.kaggle.com/ryanholbrook/principal-component-analysis')"
+        src    = "https://i.imgur.com/xWTvqDA.png"
+        alt    = "Size accounts for about 96% and the Shape for about 4% of the variance between Height and Diameter."
+        title  = "Size accounts for about 96% and the Shape for about 4% of the variance between Height and Diameter."
+      />
+    </figure>
 
+  + `Size` component: the majority of variation btw `Height` and `Diameter`
+  + the amount of variance in a component
+    + not necessarily correspond to how good it is as a predictor
+    + depending on what to predict
 
 
 ## PCA for Feature Engineering
