@@ -56,6 +56,33 @@ Organization: Kaggle
       </a>
     </div>
 
++ PCA as new features
+  + new features PCA: liner combinations (weighted sums) of the original features
+
+    <code> df["Size"] = 0.707 * X["Height"] + 0.707 * X["Diameter"]</code><br>
+    <code> df["Shape"] = 0.707 * X["Height"] - 0.707 * X["Diameter"] </code>
+
+    + principal components of the data: `Size`, `Shape`
+    + loadings: weights, 0.707
+  + number of principal components = features in the original dataset
+  + component's loadings expressed through signs and magnitudes
+    + table of loadings
+
+      <table>
+        <thead>
+          <tr><th>Features \ Components</th><th>Size (PC1)</th><th>Shape (PC2)</th></tr>
+        </thead>
+        <tbody>
+          <tr style="text-align: right;"><td>Height</td><td>0.707</td><td>0.707</td></tr>
+          <tr style="text-align: right;"><td>Diameter</td><td>0.707</td><td>-0.707</td></tr>
+        </tbody>
+      </table>
+
+    + `Size` component: `Height` and `Diameter` varying in the same direction (same sign)
+    + `Shape` component: `Height` and `Diameter` varying in opposite direction (opposite sign)
+    + all loadings w/ the same magnitude $\to$ features contributing equally
+
+
 
 
 
