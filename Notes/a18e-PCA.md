@@ -131,8 +131,10 @@ Organization: Kaggle
         + ML sometimes struggling w/ highly-correlated features
         + transforming correlated features into uncorrelated components
 
-
-
++ PCA best practices
+  + only working w/ numeric features, including continuous quantities or counts
+  + sensitive to scale: standardizing data before applying PCA
+  + removing or constraining outliers for undue influence on the results
 
 
 ## Example - 1985 Automobiles
