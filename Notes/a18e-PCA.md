@@ -301,6 +301,11 @@ Organization: Kaggle
 
 + Exercise: PCA for feature engineering
   + dataset: [Ames](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data)
+  + task:
+    + using PCA results to discover one or more new features
+    + new features to improve the performance of the model
+      + inspired by the loadings
+      + using the components themselves as features 
   + load data and prepare utility functions
 
     ```python
@@ -411,11 +416,11 @@ Organization: Kaggle
     X = df.copy()
     y = X.pop("SalePrice")
     X = X.loc[:, features]
-    
+
     # `apply_pca`, defined above, reproduces the code from the tutorial
     pca, X_pca, loadings = apply_pca(X)
     print(loadings)
-    
+
     #                    PC1       PC2       PC3       PC4
     # GarageArea    0.541229  0.102375 -0.038470  0.833733
     # YearRemodAdd  0.427077 -0.886612 -0.049062 -0.170639
@@ -423,6 +428,17 @@ Organization: Kaggle
     # GrLivArea     0.514294  0.270700  0.742592 -0.332837
     ```
 
+  + interpreting component loadings
+    + the first component, `PC1`
+      + a kind of `Size` component
+      + all of the features have the same sign (positive)
+      + describing a contrast between houses having large values and houses having small values for these features
+    + the third component `PC3`
+      + features `GarageArea` and `YearRemodAdd` both w/ near-zero loadings
+      + mostly about `TotalBsmtSF` and `GrLivArea`
+      + a contrast btw
+        + houses w/ a lot of living area but small (or non-existent) basements
+        + the opposite: small houses with large basements
 
 
 
