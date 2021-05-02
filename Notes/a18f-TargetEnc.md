@@ -156,6 +156,29 @@ Organization: Kaggle
     X_train = encoder.transform(X_pretrain)
     ```
 
-  + 
+  + evaluating the encoded values
+    + comparing the encoded values to the target
+    + observing how informative the encoding
+    + distribution of the encoded `Zipcode` feature
+      + roughly following the distribution of the actual ratings
+      + movie-watchers differed in the ratings from zipcode to zipcode
+    + target encoding able to capture useful information
+
+    ```python
+    plt.figure(dpi=90)
+    ax = sns.distplot(y, kde=False, norm_hist=True)
+    ax = sns.kdeplot(X_train.Zipcode, color='r', ax=ax)
+    ax.set_xlabel("Rating")
+    ax.legend(labels=['Zipcode', 'Rating']);
+    ```
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick= "window.open('https://www.kaggle.com/ryanholbrook/target-encoding')"
+        src    = "https://bit.ly/3vCRNoQ"
+        alt    = "Distribution of the encoded Zipcode feature w/ rating"
+        title  = "Distribution of the encoded Zipcode feature w/ rating"
+      />
+    </figure>
 
 
