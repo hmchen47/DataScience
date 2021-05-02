@@ -305,7 +305,7 @@ Organization: Kaggle
     + using PCA results to discover one or more new features
     + new features to improve the performance of the model
       + inspired by the loadings
-      + using the components themselves as features 
+      + using the components themselves as features
   + load data and prepare utility functions
 
     ```python
@@ -439,7 +439,32 @@ Organization: Kaggle
       + a contrast btw
         + houses w/ a lot of living area but small (or non-existent) basements
         + the opposite: small houses with large basements
+  + creating and evaluating new features
+    + adding one ore more columns of `X_pca` to `X`
+    + get a validation score below 0.140 RMSLE
 
+    ```python
+    # Solution 1: Inspired by loadings
+    X = df.copy()
+    y = X.pop("SalePrice")
+
+    X["Feature1"] = X.GrLivArea + X.TotalBsmtSF
+    X["Feature2"] = X.YearRemodAdd * X.TotalBsmtSF
+
+    score = score_dataset(X, y)
+    print(f"Your score: {score:.5f} RMSLE")
+    # Your score: 0.13361 RMSLE
+
+
+    # Solution 2: Uses components
+    X = df.copy()
+    y = X.pop("SalePrice")
+
+    X = X.join(X_pca)
+    score = score_dataset(X, y)
+    print(f"Your score: {score:.5f} RMSLE")
+    # Your score: 0.13738 RMSLE
+    ```
 
 
 
