@@ -31,7 +31,18 @@ Organization: Kaggle
 
 ## Smoothing
 
-
++ Issues of encoding
+  + unknown categories
+    + creating a special risk of overfitting
+    + required to be trained on an independent "encoding" split
+    + imputation: filling in missing values for any categories
+  + rare categories
+    + any statistics on this group unlikely very accurate
+    + example: Automobiles
+      + Mercurcy make only occurred once
+      + mean price not very representative of any Mercurcies
+      + making overfitting more likely
+    + solution: smoothing
 
 
 
