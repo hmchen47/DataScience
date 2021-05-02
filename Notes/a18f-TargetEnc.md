@@ -93,7 +93,35 @@ Organization: Kaggle
 
 ## Example - MovieLens1M
 
++ Example: MovieLens1M
+  + dataset: [MovieLens1M](https://www.kaggle.com/grouplens/movielens-20m-dataset)
+    + 1 million movie rating by users of the MovieLens website
+    + features describing each user and movie
+  + loading data and preparing plotting
 
+    ```python
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import pandas as pd
+    import seaborn as sns
+    import warnings
+
+    plt.style.use("seaborn-whitegrid")
+    plt.rc("figure", autolayout=True)
+    plt.rc(
+        "axes",
+        labelweight="bold",
+        labelsize="large",
+        titleweight="bold",
+        titlesize=14,
+        titlepad=10,
+    )
+    warnings.filterwarnings('ignore')
+
+    df = pd.read_csv("data/a18/movielens1m.csv")
+    df = df.astype(np.uint8, errors='ignore') # reduce memory footprint
+    print("Number of Unique Zipcodes: {}".format(df["Zipcode"].nunique()))
+    ```
 
 
 
