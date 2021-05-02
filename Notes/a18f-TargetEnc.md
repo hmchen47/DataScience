@@ -139,6 +139,23 @@ Organization: Kaggle
     y_train = y[X_pretrain.index]
     ```
 
+  + encoding w/ MEstimate encoder
+    + utilizing m-estimate encoder w/ `category=encoder` lib
+    + encoding `Zipcode` feature
+
+    ```python
+    from category_encoders import MEstimateEncoder
+
+    # Create the encoder instance. Choose m to control noise.
+    encoder = MEstimateEncoder(cols=["Zipcode"], m=5.0)
+
+    # Fit the encoder on the encoding split.
+    encoder.fit(X_encode, y_encode)
+
+    # Encode the Zipcode column to create the final training data
+    X_train = encoder.transform(X_pretrain)
+    ```
+
   + 
 
 
