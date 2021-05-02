@@ -121,7 +121,24 @@ Organization: Kaggle
     df = pd.read_csv("data/a18/movielens1m.csv")
     df = df.astype(np.uint8, errors='ignore') # reduce memory footprint
     print("Number of Unique Zipcodes: {}".format(df["Zipcode"].nunique()))
+    # Number of Unique Zipcodes: 3439
     ```
 
+  + preparing the training dataset
+    + a good candidate for target encoding/: > 3000 categories
+    + size of the dataset: over one-million rows
+    + creating a 25\% split to train the target encoder
+
+    ```python
+    X = df.copy()
+    y = X.pop('Rating')
+
+    X_encode = X.sample(frac=0.25)
+    y_encode = y[X_encode.index]
+    X_pretrain = X.drop(X_encode.index)
+    y_train = y[X_pretrain.index]
+    ```
+
+  + 
 
 
