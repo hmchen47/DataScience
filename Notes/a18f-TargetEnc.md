@@ -12,8 +12,9 @@ Organization: Kaggle
 
 ## Target Encoding
 
-
-
++ Supervised feature encoding engineering
+  + a method of encoding categories as integer number
+  + example: one-hot or label encoding
 
 
 
