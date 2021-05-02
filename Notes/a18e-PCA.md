@@ -442,6 +442,12 @@ Organization: Kaggle
   + creating and evaluating new features
     + adding one ore more columns of `X_pca` to `X`
     + get a validation score below 0.140 RMSLE
+    + possible solution
+      + using the `make_mi_scores` function on `X_pca` to find out which components might have the most potential
+      + observing the loadings to see what kinds of relationships among the features might be important
+    + alternative solution:
+      + using the components themselves
+      + joining the highest scoring components from `X_pca` to `X`, or just join all of `X_pca` to `X`.
 
     ```python
     # Solution 1: Inspired by loadings
@@ -455,7 +461,6 @@ Organization: Kaggle
     print(f"Your score: {score:.5f} RMSLE")
     # Your score: 0.13361 RMSLE
 
-
     # Solution 2: Uses components
     X = df.copy()
     y = X.pop("SalePrice")
@@ -466,6 +471,46 @@ Organization: Kaggle
     # Your score: 0.13738 RMSLE
     ```
 
+  + detecting outliers
+    + outliers: a detrimental effect on model performance
+    + aware to take corrective action if necessary
+    + PCA showing anomalous variation
+      + neither small houses nor houses unusual w/ large basements
+      + unusual for small houses to have large basement
+    + box-plot to examine outliers
 
+      ```python
+      sns_plot = sns.catplot(
+          y="value",  col="variable",
+          data=X_pca.melt(),  kind='boxen',
+          sharey=False, col_wrap=2,
+      );
+      ```
 
+      <figure style="margin: 0.5em; text-align: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+          onclick= "window.open('https://www.kaggle.com/hmchen47/exercise-principal-component-analysis/edit')"
+          src    = "img/a18e-03.png"
+          alt    = "Box-plots for principal components"
+          title  = "Box-plots for principal components"
+        />
+      </figure>
+
+    + observing outliers based on sorted principal components
+      + several dwellings stand out as `Partial` sales in the `Edwards` neighbor
+      + partial sale: multiple owners of a property and one or more of them sell their "partial" ownership of the property
+      + probably removing from list to predict the value of the houses $\to$ outliers
+
+      ```python
+      component = "PC1"
+
+      idx = X_pca[component].sort_values(ascending=False).index
+      df.loc[idx, ["SalePrice", "Neighborhood", "SaleCondition"] + features]
+      #       SalePrice Neighborhood  SaleCondition GarageArea  YearRemodAdd  TotalBsmtSF GrLivArea
+      # 1498  160000    Edwards       Partial       1418.0      2008          6110.0      5642.0
+      # 2180  183850    Edwards       Partial       1154.0      2009          5095.0      5095.0
+      # 2181  184750    Edwards       Partial        884.0      2008          3138.0      4676.0
+      # 1760  745000    Northridge    Abnorml        813.0      1996          2396.0      4476.0
+      #       ...       ...           ...           ...         ...           ...         ...
+      ```
 
