@@ -405,6 +405,23 @@ Organization: Kaggle
     # GarageArea = 0.640138, YearRemodAdd = 0.532974, TotalBsmtSF = 0.632529, GrLivArea = 0.706780
     ```
 
+  + applying PCA and extracting the loadings
+
+    ```python
+    X = df.copy()
+    y = X.pop("SalePrice")
+    X = X.loc[:, features]
+    
+    # `apply_pca`, defined above, reproduces the code from the tutorial
+    pca, X_pca, loadings = apply_pca(X)
+    print(loadings)
+    
+    #                    PC1       PC2       PC3       PC4
+    # GarageArea    0.541229  0.102375 -0.038470  0.833733
+    # YearRemodAdd  0.427077 -0.886612 -0.049062 -0.170639
+    # TotalBsmtSF   0.510076  0.360778 -0.666836 -0.406192
+    # GrLivArea     0.514294  0.270700  0.742592 -0.332837
+    ```
 
 
 
