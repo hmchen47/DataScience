@@ -80,7 +80,16 @@ Organization: Kaggle
 
       <code>chevrolet = 0.6 * 6000.00 + 0.4 * 13285.03</code>
 
-    + 
++ Use cases for target encoding
+  + high-cardinality features:
+    + a feature w/ large number of categories: troublesome to encode
+    + one-hot encoding:
+      + generating too many features and alternative
+      + not appropriate for that feature
+    + target encoding: deriving numbers for the categories w/ the relationship w/ the target
+  + domain-motivated feature
+    + prior experience: categorical feature probably not so important even if scored poorly w/ a feature metric
+    + target encoding revealing a feature's true informative 
 
 ## Example - MovieLens1M
 
