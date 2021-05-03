@@ -225,5 +225,25 @@ Organization: Kaggle
     df = pd.read_csv("data/a18/ames.csv")
     ```
 
-  + 
+  + identifying features for encoding
+    + candidate: feature w/ large number of categories
+    + number of categories for each categorical feature
+
+      ```python
+      df.select_dtypes(["object"]).nunique()
+
+      # MSSubClass       16    MSZoning          7    Street            2    Alley             3
+      # LotShape          4    LandContour       4    Utilities         3    LotConfig         5
+      # LandSlope         3    Neighborhood     28    Condition1        9    Condition2        8
+      # BldgType          5    HouseStyle        8    OverallQual      10    OverallCond       9
+      # RoofStyle         6    RoofMatl          8    Exterior1st      16    Exterior2nd      17
+      # MasVnrType        5    ExterQual         4    ExterCond         5    Foundation        6
+      # BsmtQual          6    BsmtCond          6    BsmtExposure      5    BsmtFinType1      7
+      # BsmtFinType2      7    Heating           6    HeatingQC         5    CentralAir        2
+      # Electrical        6    KitchenQual       5    Functional        8    FireplaceQu       6
+      # GarageType        7    GarageFinish      4    GarageQual        6    GarageCond        6
+      # PavedDrive        3    PoolQC            5    Fence             5    MiscFeature       6
+      # SaleType         10    SaleCondition     6
+      ```
+
 
