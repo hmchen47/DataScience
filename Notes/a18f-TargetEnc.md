@@ -246,4 +246,34 @@ Organization: Kaggle
       # SaleType         10    SaleCondition     6
       ```
 
+  + choosing features for encoding
+    + M-estimate encoding using smoothing to improve estimates for rare categories
+    + using `value_counts` to observe how many times a category in the dataset
+    + only showing the counts for `SaleType` here, but other considered as well
+    + `Neighborhood` feature w/ most categories and some rare categories, like `Green_Hiils` and `Landmark`
+    + other features `SaleType`, `MSSubClass`, `Exterior1st`, `Exterior2nd` worth considering
+    + almost any of the nominal features worth trying due to the prevalence of rare categories
+
+    ```python
+    df["SaleType"].value_counts()
+    # WD       2536     New       239    COD        87     ConLD      26
+    # CWD        12     ConLI       9    ConLw       8     Oth         7
+    # Con         5     VWD         1
+
+    df["Neighborhood"].value_counts()
+    # North_Ames            443    College_Creek                              267
+    # Old_Town              239    Edwards                                    194
+    # Somerset              182    Northridge_Heights                         166
+    # Gilbert               165    Sawyer                                     151
+    # Northwest_Ames        131    Sawyer_West                                125
+    # Mitchell              114    Brookside                                  108
+    # Crawford              103    Iowa_DOT_and_Rail_Road                      93
+    # Timberland             72    Northridge                                  71
+    # Stone_Brook            51    South_and_West_of_Iowa_State_University     48
+    # Clear_Creek            44    Meadow_Village                              37
+    # Briardale              30    Bloomington_Heights                         28
+    # Veenker                24    Northpark_Villa                             23
+    # Blueste                10    Greens                                       8
+    # Green_Hills             2    Landmark                                     1
+    ```
 
