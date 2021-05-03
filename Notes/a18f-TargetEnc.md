@@ -416,3 +416,12 @@ Organization: Kaggle
       </a>
     </div>
   
+
+## References
+
++ Pablo Duboue, "The Art of Feature Engineering"
++ Jeff Heaton, "+ An Empirical Analysis of Feature Engineering for Predictive Modeling"
++ Alice Zheng and Amanda Casari, "Feature Engineering for Machine Learning". The tutorial on clustering was inspired by this excellent book.
++ Max Kuhn and Kjell Johnson, "Feature Engineering and Selection"
+
+
