@@ -332,5 +332,87 @@ Organization: Kaggle
       </a>
     </div>
 
+  + exploring overfitting issue
+    + illustrating importance of training fitting target encoders on data held-out from the training set
+    + fitting the encoder and the model w/ the same model
+    + mean-encoding a feature w/o relationship w/ `SalePrice`, a count: 0, 1, 2, ...
+    + observing how dramatic the overfitting can be
+    + `Count`: never w/ any duplicate values
+    + mean-encoded `Count`:
+      + essentially an exact copy of the target
+      + mean-encoding turned a completely meaningless feature into a perfect feature
+    + training `XGBoost` on the same set to train the encoder
+    + using a hold-out set instead, none of this "fake" encoding transferred to the training data
+      + using a target encoder, important to use separate data sets for training the encoder and training the model
+      + otherwise the results can be very disappointing
 
+    ```python
+    X = df.copy()
+    y = X.pop("SalePrice")
+    score_base = score_dataset(X, y)
+    score_new = score_dataset(X_train, y_train)
 
+    print(f"Baseline Score: {score_base:.4f} RMSLE")
+    print(f"Score with Encoding: {score_new:.4f} RMSLE")
+    # Baseline Score: 0.1428 RMSLE
+    # Score with Encoding: 0.1445 RMSLE
+
+    # Try experimenting with the smoothing parameter m
+    # Try 0, 1, 5, 50
+    m = 0
+
+    X = df.copy()
+    y = X.pop('SalePrice')
+
+    # Create an uninformative feature
+    X["Count"] = range(len(X))
+    X["Count"][1] = 0  # actually need one duplicate value to circumvent error-checking in MEstimateEncoder
+
+    # fit and transform on the same dataset
+    encoder = MEstimateEncoder(cols="Count", m=m)
+    X = encoder.fit_transform(X, y)
+
+    # Results
+    score =  score_dataset(X, y)
+    print(f"Score: {score:.4f} RMSLE")
+    # m =  0: Score: 0.0293 RMSLE
+    # m =  1: Score: 0.1428 RMSLE
+    # m =  5: Score: 0.0294 RMSLE
+    # m = 50: Score: 0.0311 RMSLE
+
+    plt.figure(dpi=90)
+    ax = sns.distplot(y, kde=True, hist=False)
+    ax = sns.distplot(X["Count"], color='r', ax=ax, hist=True, kde=False, norm_hist=True)
+    ax.set_xlabel("SalePrice");
+    ```
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://www.kaggle.com/ryanholbrook/target-encoding" ismap target="_blank">
+        <img style="margin: 0.1em;" height=150
+          src   = "img/a18f-02a.png"
+          alt   = "Distribution of the encoded Neighborhood w/ m=0"
+          title = "Distribution of the encoded Neighborhood w/ m=0"
+        >
+        <img style="margin: 0.1em;" height=150
+          src   = "img/a18f-02b.png"
+          alt   = "Distribution of the encoded Neighborhood w/ m=1"
+          title = "Distribution of the encoded Neighborhood w/ m=1"
+        >
+      </a>
+    </div>
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://www.kaggle.com/ryanholbrook/target-encoding" ismap target="_blank">
+        <img style="margin: 0.1em;" height=150
+          src   = "img/a18f-02c.png"
+          alt   = "Distribution of the encoded Neighborhood w/ m=5"
+          title = "Distribution of the encoded Neighborhood w/ m=5"
+        >
+        <img style="margin: 0.1em;" height=150
+          src   = "img/a18f-02d.png"
+          alt   = "Distribution of the encoded Neighborhood w/ m=50"
+          title = "Distribution of the encoded Neighborhood w/ m=50"
+        >
+      </a>
+    </div>
+  
