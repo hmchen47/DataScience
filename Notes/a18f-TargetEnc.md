@@ -277,3 +277,60 @@ Organization: Kaggle
     # Green_Hills             2    Landmark                                     1
     ```
 
+
+  + applying M-estimate encoding
+    + avoiding overfitting by fit the encoder on data heldout from the training data
+    + creating the encoding and training splits
+    + applying a target encoding to the selected categorical features
+    + hyperparameter, smoothing: $m = 1.0$
+    + comparing the encoded values to the target to see how informative encoding might be
+    + evaluating target encoding
+      + features probably ended up w/ a score significantly worse than the baseline
+      + extra information gained by the encoding not mking up for the loss of data used for the the encoding
+
+    ```python
+    # Encoding split
+    X_encode = df.sample(frac=0.20, random_state=0)
+    y_encode = X_encode.pop("SalePrice")
+
+    # Training split
+    X_pretrain = df.drop(X_encode.index)
+    y_train = X_pretrain.pop("SalePrice")
+
+    # Choose a set of features to encode and a value for m
+    encoder = MEstimateEncoder(cols=["Neighborhood"], m=0.6)        # left diagram
+    encoder = MEstimateEncoder(cols=["Neighborhood", "SaleType", \
+      "MSSubClass", "Exterior1st", "Exterior2nd"], m=0.6)           # right diagram
+
+    # Fit the encoder on the encoding split
+    encoder.fit(X_encode, y_encode)
+
+    # Encode the training split
+    X_train = encoder.transform(X_pretrain, y_train)
+
+    # plot distribution
+    feature = encoder.cols
+
+    plt.figure(dpi=90)
+    ax = sns.distplot(y_train, kde=True, hist=False)
+    ax = sns.distplot(X_train[feature], color='r', ax=ax, hist=True, kde=False, norm_hist=True)
+    ax.set_xlabel("SalePrice");
+    ```
+
+    <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+      <a href="https://www.kaggle.com/ryanholbrook/target-encoding" ismap target="_blank">
+        <img style="margin: 0.1em;" height=200
+          src   = "img/a18f-01.png"
+          alt   = "Distribution of the encoded Neighborhood feature w/ SalesPrice"
+          title = "Distribution of the encoded Neighborhood feature w/ SalesPrice"
+        >
+        <img style="margin: 0.1em;" height=200
+          src   = "img/a18f-02.png"
+          alt   = "Distribution of the encoded Neighborhood, SaleType, MSSubClass, Exterior1st, Exterior2nd feature w/ SalesPrice"
+          title = "Distribution of the encoded Neighborhood, SaleType, MSSubClass, Exterior1st, Exterior2nd feature w/ SalesPrice"
+        >
+      </a>
+    </div>
+
+
+
