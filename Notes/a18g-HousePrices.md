@@ -293,7 +293,45 @@ Organization: Kaggle
 
 ## Step 2 - Feature  Utility Scores
 
++ Computing mutual information
+  + using MI to computer a utility for a feature
+  + utility functions: `make_mi_scores` and `plot_mi_scores`
+  + some features highly informative while some not informative at all
 
+
+  ```python
+  def make_mi_scores(X, y):
+      X = X.copy()
+      for colname in X.select_dtypes(["object", "category"]):
+          X[colname], _ = X[colname].factorize()
+      # All discrete features should now have integer dtypes
+      discrete_features = [pd.api.types.is_integer_dtype(t) for t in X.dtypes]
+      mi_scores = mutual_info_regression(X, y, discrete_features=discrete_features, random_state=0)
+      mi_scores = pd.Series(mi_scores, name="MI Scores", index=X.columns)
+      mi_scores = mi_scores.sort_values(ascending=False)
+      return mi_scores
+
+  def plot_mi_scores(scores):
+      scores = scores.sort_values(ascending=True)
+      width = np.arange(len(scores))
+      ticks = list(scores.index)
+      plt.barh(width, scores)
+      plt.yticks(width, ticks)
+      plt.title("Mutual Information Scores")
+
+  X = df_train.copy()
+  y = X.pop("SalePrice")
+
+  mi_scores = make_mi_scores(X, y)
+  mi_scores
+  # OverallQual     0.571457  Neighborhood    0.526220
+  # GrLivArea       0.430395  YearBuilt       0.407974
+  # LotArea         0.394468
+  #                   ...   
+  # MiscVal         0.000000  MiscFeature     0.000000
+  # PoolQC          0.000000  MoSold          0.000000
+  # YrSold          0.000000
+  ```
 
 
 
