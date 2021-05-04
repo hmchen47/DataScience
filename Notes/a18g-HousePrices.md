@@ -56,6 +56,18 @@ Organization: Kaggle
   warnings.filterwarnings('ignore')
   ```
 
++ Data preprocessing
+  + pre-processing the data to get it in a form suitable for analysis
+  + typical actions to process data
+    + __load__ the data from CSV files
+    + __clean__ the data to fix any errors or inconsistencies
+    + __encode__ the statistical data type (numeric, categories)
+    + __impute__ any missing values
+  + 3 preprocessing steps after reaing the CSV file: `clean`, `encode` and `impute`
+  + creating the data splits:
+    + one (`df_train`) for training the model
+    + one (`df_test`) for making the predictions 
+
 
 
 ## Step 2 - Feature  Utility Scores
