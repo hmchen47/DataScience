@@ -182,6 +182,20 @@ Organization: Kaggle
       return df
   ```
 
++ Handling missing values
+  + imputing 0 for missing numeric values and `None` for missing categories value
+  + probably experimenting w/ other imputation strategies
+  + try creating "missing value" indicators as 1 whatever a value was imputed and 0 otherwise
+
+  ```python
+  def impute(df):
+      for name in df.select_dtypes("number"):
+          df[name] = df[name].fillna(0)
+      for name in df.select_dtypes("category"):
+          df[name] = df[name].fillna("None")
+      return df
+  ```
+
 
 ## Step 2 - Feature  Utility Scores
 
