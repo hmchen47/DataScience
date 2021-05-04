@@ -196,6 +196,15 @@ Organization: Kaggle
       return df
   ```
 
++ Loading and processing data splits
+
+  ```python
+  Handling missing values
+  ```
+
+
+
+
 
 ## Step 2 - Feature  Utility Scores
 
