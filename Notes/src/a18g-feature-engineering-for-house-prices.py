@@ -163,8 +163,70 @@ df_train, df_test = load_data()
 # Display information about dtypes and missing values
 # display(df_train.info())
 
+# establishing baseline
+def score_dataset(X, y, model=XGBRegressor()):
+    # Label encoding for categoricals
+    #
+    # Label encoding is good for XGBoost and RandomForest, but one-hot
+    # would be better for models like Lasso or Ridge. The `cat.codes`
+    # attribute holds the category levels.
+    for colname in X.select_dtypes(["category"]):
+        X[colname] = X[colname].cat.codes
+    # Metric for Housing competition is RMSLE (Root Mean Squared Log Error)
+    log_y = np.log(y)
+    score = cross_val_score(
+        model, X, log_y, cv=5, scoring="neg_mean_squared_error",
+    )
+    score = -1 * score.mean()
+    score = np.sqrt(score)
+    return score
 
+X = df_train.copy()
+y = X.pop("SalePrice")
+
+baseline_score = score_dataset(X, y)
+print(f"Baseline score: {baseline_score:.5f} RMSLE")
+# Baseline score: 0.14351 RMSLE
 
 #
+# Step 2 - Feature  Utility Scores
+#
+
+# compute mutual information
+def make_mi_scores(X, y):
+    X = X.copy()
+    for colname in X.select_dtypes(["object", "category"]):
+        X[colname], _ = X[colname].factorize()
+    # All discrete features should now have integer dtypes
+    discrete_features = [pd.api.types.is_integer_dtype(t) for t in X.dtypes]
+    mi_scores = mutual_info_regression(X, y, discrete_features=discrete_features, random_state=0)
+    mi_scores = pd.Series(mi_scores, name="MI Scores", index=X.columns)
+    mi_scores = mi_scores.sort_values(ascending=False)
+    return mi_scores
+
+def plot_mi_scores(scores):
+    scores = scores.sort_values(ascending=True)
+    width = np.arange(len(scores))
+    ticks = list(scores.index)
+    plt.barh(width, scores)
+    plt.yticks(width, ticks)
+    plt.title("Mutual Information Scores")
+
+X = df_train.copy()
+y = X.pop("SalePrice")
+
+mi_scores = make_mi_scores(X, y)
+# mi_scores
+
+# compute the score as baseline w/o uniformative features
+X = df_train.copy()
+y = X.pop("SalePrice")
+X = drop_uninformative(X, mi_scores)
+
+print(score_dataset(X, y))
+# 0.14338026718687277
+
+
 # 
+
 
