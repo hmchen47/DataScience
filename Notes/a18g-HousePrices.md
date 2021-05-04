@@ -19,7 +19,42 @@ Organization: Kaggle
 
 ## Step 1 - Preliminaries
 
++ Setting up environment
 
+  ```python
+  import os
+  import warnings
+  from pathlib import Path
+
+  import matplotlib.pyplot as plt
+  import numpy as np
+  import pandas as pd
+  import seaborn as sns
+  from IPython.display import display
+  from pandas.api.types import CategoricalDtype
+
+  from category_encoders import MEstimateEncoder
+  from sklearn.cluster import KMeans
+  from sklearn.decomposition import PCA
+  from sklearn.feature_selection import mutual_info_regression
+  from sklearn.model_selection import KFold, cross_val_score
+  from xgboost import XGBRegressor
+
+  # Set Matplotlib defaults
+  plt.style.use("seaborn-whitegrid")
+  plt.rc("figure", autolayout=True)
+  plt.rc(
+      "axes",
+      labelweight="bold",
+      labelsize="large",
+      titleweight="bold",
+      titlesize=14,
+      titlepad=10,
+  )
+
+  # Mute warnings
+  warnings.filterwarnings('ignore')
+  ```
 
 
 
