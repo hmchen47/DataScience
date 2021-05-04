@@ -88,6 +88,31 @@ Organization: Kaggle
       return df_train, df_test
   ```
 
++ Cleaning data
+  
+  ```python
+  data_dir = Path("../input/house-prices-advanced-regression-techniques/")
+  df = pd.read_csv(data_dir / "train.csv", index_col="Id")
+
+  df.Exterior2nd.unique()
+  # array(['VinylSd', 'MetalSd', 'Wd Shng', 'HdBoard', 'Plywood', 'Wd Sdng',
+  #        'CmentBd', 'BrkFace', 'Stucco', 'AsbShng', 'Brk Cmn', 'ImStucc',
+  #        'AsphShn', 'Stone', 'Other', 'CBlock'], dtype=object)
+
+  def clean(df):
+      df["Exterior2nd"] = df["Exterior2nd"].replace({"Brk Cmn": "BrkComm"})
+      # Some values of GarageYrBlt are corrupt, so we'll replace them
+      # with the year the house was built
+      df["GarageYrBlt"] = df["GarageYrBlt"].where(df.GarageYrBlt <= 2010, df.YearBuilt)
+      # Names beginning with numbers are awkward to work with
+      df.rename(columns={
+          "1stFlrSF": "FirstFlrSF",
+          "2ndFlrSF": "SecondFlrSF",
+          "3SsnPorch": "Threeseasonporch",
+      }, inplace=True,
+      )
+      return df
+  ```
 
 
 ## Step 2 - Feature  Utility Scores
