@@ -200,6 +200,62 @@ Organization: Kaggle
 
   ```python
   Handling missing values
+
+  # Peek at the values
+  # display(df_train)
+  # display(df_test)
+
+  # Display information about dtypes and missing values
+  display(df_train.info())
+  # <class 'pandas.core.frame.DataFrame'>
+  # Int64Index: 1460 entries, 1 to 1460
+  # Data columns (total 80 columns):
+  #  #   Column            Non-Null Count  Dtype        #   Column            Non-Null Count  Dtype 
+  # ---  ------            --------------  -----        ---  ------            --------------  -----
+  #  0   MSSubClass        1460 non-null   category     1   MSZoning          1460 non-null   category
+  #  2   LotFrontage       1460 non-null   float64      3   LotArea           1460 non-null   int64   
+  #  4   Street            1460 non-null   category     5   Alley             1460 non-null   category
+  #  6   LotShape          1460 non-null   category     7   LandContour       1460 non-null   category
+  #  8   Utilities         1460 non-null   category     9   LotConfig         1460 non-null   category
+  #  10  LandSlope         1460 non-null   category     11  Neighborhood      1460 non-null   category
+  #  12  Condition1        1460 non-null   category     13  Condition2        1460 non-null   category
+  #  14  BldgType          1460 non-null   category     15  HouseStyle        1460 non-null   category
+  #  16  OverallQual       1460 non-null   category     17  OverallCond       1460 non-null   category
+  #  18  YearBuilt         1460 non-null   int64        19  YearRemodAdd      1460 non-null   int64   
+  #  20  RoofStyle         1460 non-null   category     21  RoofMatl          1460 non-null   category
+  #  22  Exterior1st       1460 non-null   category     23  Exterior2nd       1460 non-null   category
+  #  24  MasVnrType        1460 non-null   category     25  MasVnrArea        1460 non-null   float64 
+  #  26  ExterQual         1460 non-null   category     27  ExterCond         1460 non-null   category
+  #  28  Foundation        1460 non-null   category     29  BsmtQual          1460 non-null   category
+  #  30  BsmtCond          1460 non-null   category     31  BsmtExposure      1460 non-null   category
+  #  32  BsmtFinType1      1460 non-null   category     33  BsmtFinSF1        1460 non-null   float64 
+  #  34  BsmtFinType2      1460 non-null   category     35  BsmtFinSF2        1460 non-null   float64 
+  #  36  BsmtUnfSF         1460 non-null   float64      37  TotalBsmtSF       1460 non-null   float64 
+  #  38  Heating           1460 non-null   category     39  HeatingQC         1460 non-null   category
+  #  40  CentralAir        1460 non-null   category     41  Electrical        1460 non-null   category
+  #  42  FirstFlrSF        1460 non-null   int64        43  SecondFlrSF       1460 non-null   int64   
+  #  44  LowQualFinSF      1460 non-null   int64        45  GrLivArea         1460 non-null   int64   
+  #  46  BsmtFullBath      1460 non-null   float64      47  BsmtHalfBath      1460 non-null   float64 
+  #  48  FullBath          1460 non-null   int64        49  HalfBath          1460 non-null   int64   
+  #  50  BedroomAbvGr      1460 non-null   int64        51  KitchenAbvGr      1460 non-null   int64   
+  #  52  KitchenQual       1460 non-null   category     53  TotRmsAbvGrd      1460 non-null   int64   
+  #  54  Functional        1460 non-null   category     55  Fireplaces        1460 non-null   int64   
+  #  56  FireplaceQu       1460 non-null   category     57  GarageType        1460 non-null   category
+  #  58  GarageYrBlt       1460 non-null   float64      59  GarageFinish      1460 non-null   category
+  #  60  GarageCars        1460 non-null   float64      61  GarageArea        1460 non-null   float64 
+  #  62  GarageQual        1460 non-null   category     63  GarageCond        1460 non-null   category
+  #  64  PavedDrive        1460 non-null   category     65  WoodDeckSF        1460 non-null   int64   
+  #  66  OpenPorchSF       1460 non-null   int64        67  EnclosedPorch     1460 non-null   int64   
+  #  68  Threeseasonporch  1460 non-null   int64        69  ScreenPorch       1460 non-null   int64   
+  #  70  PoolArea          1460 non-null   int64        71  PoolQC            1460 non-null   category
+  #  72  Fence             1460 non-null   category     73  MiscFeature       1460 non-null   category
+  #  74  MiscVal           1460 non-null   int64        75  MoSold            1460 non-null   int64   
+  #  76  YrSold            1460 non-null   int64        77  SaleType          1460 non-null   category
+  #  78  SaleCondition     1460 non-null   category     79  SalePrice         1460 non-null   float64 
+  # dtypes: category(46), float64(12), int64(22)
+
+  display(df_test.info())
+  
   ```
 
 
