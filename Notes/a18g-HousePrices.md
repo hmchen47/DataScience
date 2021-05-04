@@ -68,6 +68,26 @@ Organization: Kaggle
     + one (`df_train`) for training the model
     + one (`df_test`) for making the predictions 
 
++ Loading data
+
+  ```python
+  def load_data():
+      # Read data
+      data_dir = Path("../input/house-prices-advanced-regression-techniques/")
+      df_train = pd.read_csv(data_dir / "train.csv", index_col="Id")
+      df_test = pd.read_csv(data_dir / "test.csv", index_col="Id")
+      # Merge the splits so we can process them together
+      df = pd.concat([df_train, df_test])
+      # Preprocessing
+      df = clean(df)
+      df = encode(df)
+      df = impute(df)
+      # Reform splits
+      df_train = df.loc[df_train.index, :]
+      df_test = df.loc[df_test.index, :]
+      return df_train, df_test
+  ```
+
 
 
 ## Step 2 - Feature  Utility Scores
