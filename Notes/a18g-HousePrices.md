@@ -333,7 +333,21 @@ Organization: Kaggle
   # YrSold          0.000000
   ```
 
++ Computing baseline scores
+  + removing the uninformative features
+  + computing the mutual information score
 
+  ```python
+  def drop_uninformative(df, mi_scores):
+      return df.loc[:, mi_scores > 0.0]
+
+  X = df_train.copy()
+  y = X.pop("SalePrice")
+  X = drop_uninformative(X, mi_scores)
+
+  score_dataset(X, y)
+    # 0.14338026718687277
+  ```
 
 
 ## Step 3 - Create Features
