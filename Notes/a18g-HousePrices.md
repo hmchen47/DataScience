@@ -369,6 +369,55 @@ Organization: Kaggle
         return X
     ```
 
++ Creating features w/ Pandas
+  + label encoding applied to any kind of categorical feature
+  + ideas for other transformations to explore
+    + interactions btw the quality `Qual` and condition `Cond` features
+      + `OverallQual`: a high-scoring feature
+      + possibly combining w/ `OverallCond` by converting both to integer and taking a product
+    + square roots of area feature: converting units of square feet to feet
+    + interactions btw numeric and categorical features that describe the same thing
+    + other group statistics in `Neighborhood`
+      + possible statistics: `mean`, `median`, `std`, `count`
+      + possibly combining w/ other features
+
+  ```python
+  def mathematical_transforms(df):
+    X = pd.DataFrame()  # dataframe to hold new features
+    X["LivLotRatio"] = df.GrLivArea / df.LotArea
+    X["Spaciousness"] = (df.FirstFlrSF + df.SecondFlrSF) / df.TotRmsAbvGrd
+    # This feature ended up not helping performance
+    # X["TotalOutsideSF"] = \
+    #     df.WoodDeckSF + df.OpenPorchSF + df.EnclosedPorch + \
+    #     df.Threeseasonporch + df.ScreenPorch
+    return X
+
+  def interactions(df):
+      X = pd.get_dummies(df.BldgType, prefix="Bldg")
+      X = X.mul(df.GrLivArea, axis=0)
+      return X
+
+  def counts(df):
+      X = pd.DataFrame()
+      X["PorchTypes"] = df[[
+          "WoodDeckSF",
+          "OpenPorchSF",
+          "EnclosedPorch",
+          "Threeseasonporch",
+          "ScreenPorch",
+      ]].gt(0.0).sum(axis=1)
+      return X
+
+  def break_down(df):
+      X = pd.DataFrame()
+      X["MSClass"] = df.MSSubClass.str.split("_", n=1, expand=True)[0]
+      return X
+
+  def group_transforms(df):
+      X = pd.DataFrame()
+      X["MedNhbdArea"] = df.groupby("Neighborhood")["GrLivArea"].transform("median")
+      return X
+  ```
 
 
 
