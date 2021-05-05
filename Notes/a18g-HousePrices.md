@@ -352,6 +352,22 @@ Organization: Kaggle
 
 ## Step 3 - Create Features
 
++ Creating features
+  + making feature engineering workflow more modular
+  + defining a function to take a prepared dataframe and pass through a pipeline of transformations to get the final feature set
+  + [label encoding](https://www.kaggle.com/alexisbcook/categorical-variables) for the categorical features
+  + pseudocode
+
+    ```python
+    def create_features(df):
+        X = df.copy()<br>
+        y = X.pop("SalePrice")<br>
+        X = X.join(create_features_1(X))<br>
+        X = X.join(create_features_2(X))<br>
+        X = X.join(create_features_3(X))<br>
+        # ...<br>
+        return X
+    ```
 
 
 
