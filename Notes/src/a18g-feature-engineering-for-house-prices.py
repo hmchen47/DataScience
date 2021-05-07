@@ -469,7 +469,33 @@ X_train = create_features(df_train)
 y_train = df_train.loc[:, "SalePrice"]
 
 score_dataset(X_train, y_train)
-# # 0.1381925629969659
+# 0.1381925629969659
+
+
+#
+# Step 4 - Hyperparameter Tuning
+#
+
+# Hyperparameterss for XGBoost
+X_train = create_features(df_train)
+y_train = df_train.loc[:, "SalePrice"]
+
+xgb_params = dict(
+    max_depth=6,           # maximum depth of each tree - try 2 to 10
+    learning_rate=0.01,    # effect of each tree - try 0.0001 to 0.1
+    n_estimators=1000,     # number of trees (that is, boosting rounds) - try 1000 to 8000
+    min_child_weight=1,    # minimum number of houses in a leaf - try 1 to 10
+    colsample_bytree=0.7,  # fraction of features (columns) per tree - try 0.2 to 1.0
+    subsample=0.7,         # fraction of instances (rows) per tree - try 0.2 to 1.0
+    reg_alpha=0.5,         # L1 regularization (like LASSO) - try 0.0 to 10.0
+    reg_lambda=1.0,        # L2 regularization (like Ridge) - try 0.0 to 10.0
+    num_parallel_tree=1,   # set > 1 for boosted random forests
+)
+
+xgb = XGBRegressor(**xgb_params)
+score_dataset(X_train, y_train, xgb)
+# 0.12414985267470383
+
 
 
 
