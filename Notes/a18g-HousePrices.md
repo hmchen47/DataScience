@@ -737,8 +737,25 @@ Organization: Kaggle
 
 ## Step 5 - Train Model and Create Submissions
 
++ Predictions w/ XGBoost
+  + creating features set from the original data
+  + training XGBoost on the training data
+  + saving the predictions to a CSV file
 
+  ```python
+  X_train, X_test = create_features(df_train, df_test)
+  y_train = df_train.loc[:, "SalePrice"]
 
+  xgb = XGBRegressor(**xgb_params)
+  # XGB minimizes MSE, but competition loss is RMSLE
+  # So, we need to log-transform y to train and exp-transform the predictions
+  xgb.fit(X_train, np.log(y))
+  predictions = np.exp(xgb.predict(X_test))
+
+  output = pd.DataFrame({'Id': X_test.index, 'SalePrice': predictions})
+  output.to_csv('my_submission.csv', index=False)
+  print("Your submission was successfully saved!")
+  ```
 
 
 
