@@ -549,12 +549,77 @@ Organization: Kaggle
   + determining outliers w PCA
   + outliers: houses not well prepresented in the rest of the data
   + a group of houses in the `Edwards` neighborhood w/ a `SaleCondition of Partial` $\to$ extreme values
+  + methods
+    + robust scaler from scikit-learn's [`sklearn.processing`](https://scikit-learn.org/stable/auto_examples/preprocessing/plot_all_scaling.html) module
+    + creating a feature of "outlier scores" using scikit-learn's [`outlier detectors`](https://scikit-learn.org/stable/modules/outlier_detection.html) module
 
   ```python
   def indicate_outliers(df):
       X_new = pd.DataFrame()
       X_new["Outlier"] = (df.Neighborhood == "Edwards") & (df.SaleCondition == "Partial")
       return X_new
+  ```
+
++ Target encoding
+  + typical usage: 25\% of dataset to encode a single feature, `Zipcode`
+  + the data from the other features in that 25\% not used at all
+  + using target encoding w/o using held-out encoding data, same trick used in cross-validation
+    + split the data into folds, each fold having two splits of the dataset
+    + train the encoder on one split but transform the values of the other
+    + repeat for all the splits
+  + training and transformation: always happened on independent sets of data
+  + using the class like
+
+    ```
+    encoder = CrossFoldEncoder(MEstimateEncoder, m=1)
+    X_encoded = encoder.fit_transform(X, y, cols=["MSSubClass"]))
+    ```
+
+  + turning any of the encoders from the [category_encoders](http://contrib.scikit-learn.org/category_encoders/) lib into a cross-fold encoder
+  + [`CatBoostEncoder`](http://contrib.scikit-learn.org/category_encoders/catboost.html)
+    + similar to `MEstimateEncoder` but using some tricks to better prevent overfitting
+    + smoothing parameter `a` instead of `m`
+
+  ```python
+  class CrossFoldEncoder:
+      def __init__(self, encoder, **kwargs):
+          self.encoder_ = encoder
+          self.kwargs_ = kwargs  # keyword arguments for the encoder
+          self.cv_ = KFold(n_splits=5)
+
+      # Fit an encoder on one split and transform the feature on the
+      # other. Iterating over the splits in all folds gives a complete
+      # transformation. We also now have one trained encoder on each
+      # fold.
+      def fit_transform(self, X, y, cols):
+          self.fitted_encoders_ = []
+          self.cols_ = cols
+          X_encoded = []
+          for idx_encode, idx_train in self.cv_.split(X):
+              fitted_encoder = self.encoder_(cols=cols, **self.kwargs_)
+              fitted_encoder.fit(
+                  X.iloc[idx_encode, :], y.iloc[idx_encode],
+              )
+              X_encoded.append(fitted_encoder.transform(X.iloc[idx_train, :])[cols])
+              self.fitted_encoders_.append(fitted_encoder)
+          X_encoded = pd.concat(X_encoded)
+          X_encoded.columns = [name + "_encoded" for name in X_encoded.columns]
+          return X_encoded
+
+      # To transform the test data, average the encodings learned from
+      # each fold.
+      def transform(self, X):
+          from functools import reduce
+
+          X_encoded_list = []
+          for fitted_encoder in self.fitted_encoders_:
+              X_encoded = fitted_encoder.transform(X)
+              X_encoded_list.append(X_encoded[self.cols_])
+          X_encoded = reduce(
+              lambda x, y: x.add(y, fill_value=0), X_encoded_list
+          ) / len(X_encoded_list)
+          X_encoded.columns = [name + "_encoded" for name in X_encoded.columns]
+          return X_encoded
   ```
 
 
