@@ -686,9 +686,53 @@ Organization: Kaggle
 
 ## Step 4 - Hyperparameter Tuning
 
-+ 
++ Hyperparameters for XGBoost
+  + [hyperparameter tuners](https://scikit-learn.org/stable/modules/grid_search.html): scikit-learn's automatic lib
+  + [Optuna](https://optuna.readthedocs.io/en/stable/index.html) or [scikit-optimize](https://scikit-optimize.github.io/stable/): more advanced tuning libraries
+  + Optuna usage
 
+    ```
+    import optuna
 
+    def objective(trial):
+        xgb_params = dict(
+            max_depth=trial.suggest_int("max_depth", 2, 10),
+            learning_rate=trial.suggest_float("learning_rate", 1e-4, 1e-1, log=True),
+            n_estimators=trial.suggest_int("n_estimators", 1000, 8000),
+            min_child_weight=trial.suggest_int("min_child_weight", 1, 10),
+            colsample_bytree=trial.suggest_float("colsample_bytree", 0.2, 1.0),
+            subsample=trial.suggest_float("subsample", 0.2, 1.0),
+            reg_alpha=trial.suggest_float("reg_alpha", 1e-4, 1e2, log=True),
+            reg_lambda=trial.suggest_float("reg_lambda", 1e-4, 1e2, log=True),
+        )
+        xgb = XGBRegressor(**xgb_params)
+        return score_dataset(X_train, y_train, xgb)
+
+    study = optuna.create_study(direction="minimize")
+    study.optimize(objective, n_trials=20)
+    xgb_params = study.best_params
+    ```
+
+    ```PYTHON
+    X_train = create_features(df_train)
+    y_train = df_train.loc[:, "SalePrice"]
+
+    xgb_params = dict(
+        max_depth=6,           # maximum depth of each tree - try 2 to 10
+        learning_rate=0.01,    # effect of each tree - try 0.0001 to 0.1
+        n_estimators=1000,     # number of trees (that is, boosting rounds) - try 1000 to 8000
+        min_child_weight=1,    # minimum number of houses in a leaf - try 1 to 10
+        colsample_bytree=0.7,  # fraction of features (columns) per tree - try 0.2 to 1.0
+        subsample=0.7,         # fraction of instances (rows) per tree - try 0.2 to 1.0
+        reg_alpha=0.5,         # L1 regularization (like LASSO) - try 0.0 to 10.0
+        reg_lambda=1.0,        # L2 regularization (like Ridge) - try 0.0 to 10.0
+        num_parallel_tree=1,   # set > 1 for boosted random forests
+    )
+
+    xgb = XGBRegressor(**xgb_params)
+    score_dataset(X_train, y_train, xgb)
+    # 0.12414985267470383
+    ```
 
 
 ## Step 5 - Train Model and Create Submissions
