@@ -452,6 +452,100 @@ Organization: Kaggle
       return X_cd
   ```
 
++ Principal component analysis
+  + unsupervised model for feature creation
+  + used to decompose the variational structure in the data
+  + providing loadings to describe component of variaton
+  + providing the components used as features directly
+  + loadings: suggested features to create and components used directly
+  + 
+
+  ```python
+  def apply_pca(X, standardize=True):
+      # Standardize
+      if standardize:
+          X = (X - X.mean(axis=0)) / X.std(axis=0)
+      # Create principal components
+      pca = PCA()
+      X_pca = pca.fit_transform(X)
+      # Convert to dataframe
+      component_names = [f"PC{i+1}" for i in range(X_pca.shape[1])]
+      X_pca = pd.DataFrame(X_pca, columns=component_names)
+      # Create loadings
+      loadings = pd.DataFrame(
+          pca.components_.T,  # transpose the matrix of loadings
+          columns=component_names,  # so the columns are the principal components
+          index=X.columns,  # and the rows are the original features
+      )
+      return pca, X_pca, loadings
+
+
+  def plot_variance(pca, width=8, dpi=100):
+      # Create figure
+      fig, axs = plt.subplots(1, 2)
+      n = pca.n_components_
+      grid = np.arange(1, n + 1)
+      # Explained variance
+      evr = pca.explained_variance_ratio_
+      axs[0].bar(grid, evr)
+      axs[0].set(
+          xlabel="Component", title="% Explained Variance", ylim=(0.0, 1.0)
+      )
+      # Cumulative Variance
+      cv = np.cumsum(evr)
+      axs[1].plot(np.r_[0, grid], np.r_[0, cv], "o-")
+      axs[1].set(
+          xlabel="Component", title="% Cumulative Variance", ylim=(0.0, 1.0)
+      )
+      # Set up figure
+      fig.set(figwidth=8, dpi=100)
+      return axs
+
+  def pca_inspired(df):
+      X = pd.DataFrame()
+      X["Feature1"] = df.GrLivArea + df.TotalBsmtSF
+      X["Feature2"] = df.YearRemodAdd * df.TotalBsmtSF
+      return X
+
+
+  def pca_components(df, features):
+      X = df.loc[:, features]
+      _, X_pca, _ = apply_pca(X)
+      return X_pca
+
+
+  pca_features = [
+      "GarageArea",
+      "YearRemodAdd",
+      "TotalBsmtSF",
+      "GrLivArea",
+  ]
+
+  def corrplot(df, method="pearson", annot=True, **kwargs):
+      sns.clustermap(
+          df.corr(method),
+          vmin=-1.0,
+          vmax=1.0,
+          cmap="icefire",
+          method="complete",
+          annot=annot,
+          **kwargs,
+      )
+
+
+  corrplot(df_train, annot=None)
+  ```
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick= "window.open('https://www.kaggle.com/ryanholbrook/feature-engineering-for-house-prices')"
+      src    = "image"
+      alt    = "Correlation btw features"
+      title  = "Correlation btw features"
+    />
+  </figure>
+
+
 
 
 ## Step 4 - Hyperparameter Tuning
