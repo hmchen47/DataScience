@@ -163,3 +163,59 @@ Organization: Kaggle
     + `scores`: ndarray of float of shape=(len(list(cv)),)<br>Array of scores of the estimator for each run of the cross validation.
 
 
++ `sklearn.ensemble.RandomForestRegressor` method
+  + syntax: `class sklearn.ensemble.RandomForestRegressor(n_estimators=100, *, criterion='mse', max_depth=None, min_samples_split=2, min_samples_leaf=1, min_weight_fraction_leaf=0.0, max_features='auto', max_leaf_nodes=None, min_impurity_decrease=0.0, min_impurity_split=None, bootstrap=True, oob_score=False, n_jobs=None, random_state=None, verbose=0, warm_start=False, ccp_alpha=0.0, max_samples=None)`
+  + docstring:
+    + A random forest regressor.
+    + A random forest is a meta estimator that fits a number of classifying decision trees on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting. The sub-sample size is controlled with the `max_samples` parameter if `bootstrap=True` (default), otherwise the whole dataset is used to build each tree.
+  + parameters
+    + `n_estimators`: int, default=100<br>The number of trees in the forest.
+    + `criterion`: {“mse”, “mae”}, default=”mse”<br>The function to measure the quality of a split. Supported criteria are “mse” for the mean squared error, which is equal to variance reduction as feature selection criterion, and “mae” for the mean absolute error.
+    + `max_depth`: int, default=None<br>The maximum depth of the tree. If None, then nodes are expanded until all leaves are pure or until all leaves contain less than min_samples_split samples.
+    + `min_samples_split`: int or float, default=<br>The minimum number of samples required to split an internal node:
+      + If `int`, then consider min_samples_split as the minimum number.
+      + If `float`, then min_samples_split is a fraction and `ceil(min_samples_split * n_samples)` are the minimum number of samples for each split.
+    + `min_samples_leaf`: int or float, default=1<br>The minimum number of samples required to be at a leaf node. A split point at any depth will only be considered if it leaves at least min_samples_leaf training samples in each of the left and right branches. This may have the effect of smoothing the model, especially in regression.
+      + If `int`, then consider `min_samples_leaf` as the minimum number.
+      + If `float`, then `min_samples_leaf` is a fraction and `ceil(min_samples_leaf * n_samples)` are the minimum number of samples for each node.
+    + `min_weight_fraction_leaf`: float, default=0.0<br>The minimum weighted fraction of the sum total of weights (of all the input samples) required to be at a leaf node. Samples have equal weight when sample_weight is not provided.
+    + `max_features`: {“auto”, “sqrt”, “log2”}, int or float, default=”auto”<br>The number of features to consider when looking for the best split:
+      + If `int`, then consider max_features features at each split.
+      + If `float`, then `max_features` is a fraction and `round(max_features * n_features)` features are considered at each split.
+      + If `“auto”`, then `max_features=n`_features.
+      + If `“sqrt”`, then `max_features=sqrt(n_features)`.
+      + If `“log2”`, then `max_features=log2(n_features)`.
+      + If `None`, then `max_features=n_features`.
+      + `Note`: the search for a split does not stop until at least one valid partition of the node samples is found, even if it requires to effectively inspect more than max_features features.
+    + `max_leaf_nodes`: int, default=None<br>Grow trees with max_leaf_nodes in best-first fashion. Best nodes are defined as relative reduction in impurity. If None then unlimited number of leaf nodes.
+    + `min_impurity_decrease`: float, default=0.0<br>A node will be split if this split induces a decrease of the impurity greater than or equal to this value.<br>
+    The weighted impurity decrease equation is the following:
+
+      ```
+      N_t / N * (impurity - N_t_R / N_t * right_impurity
+                          - N_t_L / N_t * left_impurity)
+      ```
+
+      where `N` is the total number of samples, `N_t` is the number of samples at the current node, `N_t_L` is the number of samples in the left child, and `N_t_R` is the number of samples in the right child.<br>
+      `N, N_t`, `N_t_R` and `N_t_L` all refer to the weighted sum, if sample_weight is passed.
+    + `min_impurity_split`: float, default=None<br>Threshold for early stopping in tree growth. A node will split if its impurity is above the threshold, otherwise it is a leaf.
+    + `oob_score`: bool, default=False<br>Whether to use out-of-bag samples to estimate the generalization score. Only available if bootstrap=True.
+    + `n_jobs`: int, default=None<br>The number of jobs to run in parallel. fit, predict, decision_path and apply are all parallelized over the trees. None means 1 unless in a joblib.parallel_backend context. -1 means using all processors.
+    + `random_state`: int, RandomState instance or None, default=None<br>Controls both the randomness of the bootstrapping of the samples used when building trees (if bootstrap=True) and the sampling of the features to consider when looking for the best split at each node (if max_features < n_features).
+    + `verbose`: int, default=0<br>Controls the verbosity when fitting and predicting.
+    + `warm_start`: bool, default=False<br>When set to True, reuse the solution of the previous call to fit and add more estimators to the ensemble, otherwise, just fit a whole new forest. 
+    + `ccp_alpha`: non-negative float, default=0.0<br>Complexity parameter used for Minimal Cost-Complexity Pruning. The subtree with the largest cost complexity that is smaller than ccp_alpha will be chosen. By default, no pruning is performed. See Minimal Cost-Complexity Pruning for details.
+    + `max_samples`: int or float, default=None<br>If bootstrap is True, the number of samples to draw from X to train each base estimator.
+      + If `None` (default), then `draw X.shape[0]` samples.
+      + If `int`, then draw `max_samples` samples.
+      + If `float`, then draw `max_samples * X.shape[0]` samples. Thus, max_samples should be in the interval (0, 1).
+  + returns:
+    + `base_estimator_`: DecisionTreeRegressor<br>The child estimator template used to create the collection of fitted sub-estimators.
+    + `estimators_`: list of DecisionTreeRegressor<br>The collection of fitted sub-estimators.
+    + `feature_importances_`: ndarray of shape (n_features,)<br>The impurity-based feature importances.
+    + `n_features_`: int<br>The number of features when fit is performed.
+    + `n_outputs_`: int<br>The number of outputs when fit is performed.
+    + `oob_score_`: float<br>Score of the training dataset obtained using an out-of-bag estimate. This attribute exists only when oob_score is True.
+    + `oob_prediction_`: ndarray of shape (n_samples,)<br>Prediction computed with out-of-bag estimate on the training set. This attribute exists only when oob_score is True.
+
+
