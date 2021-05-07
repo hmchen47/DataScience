@@ -479,7 +479,6 @@ Organization: Kaggle
       )
       return pca, X_pca, loadings
 
-
   def plot_variance(pca, width=8, dpi=100):
       # Create figure
       fig, axs = plt.subplots(1, 2)
@@ -507,12 +506,10 @@ Organization: Kaggle
       X["Feature2"] = df.YearRemodAdd * df.TotalBsmtSF
       return X
 
-
   def pca_components(df, features):
       X = df.loc[:, features]
       _, X_pca, _ = apply_pca(X)
       return X_pca
-
 
   pca_features = [
       "GarageArea",
@@ -532,14 +529,13 @@ Organization: Kaggle
           **kwargs,
       )
 
-
   corrplot(df_train, annot=None)
   ```
 
   <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
       onclick= "window.open('https://www.kaggle.com/ryanholbrook/feature-engineering-for-house-prices')"
-      src    = "image"
+      src    = "img/a18g-01.png"
       alt    = "Correlation btw features"
       title  = "Correlation btw features"
     />
@@ -679,7 +675,6 @@ Organization: Kaggle
       else:
           return X
 
-
   df_train, df_test = load_data()
   X_train = create_features(df_train)
   y_train = df_train.loc[:, "SalePrice"]
@@ -691,7 +686,7 @@ Organization: Kaggle
 
 ## Step 4 - Hyperparameter Tuning
 
-
++ 
 
 
 
