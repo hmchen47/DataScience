@@ -545,6 +545,17 @@ Organization: Kaggle
     />
   </figure>
 
++ Outliers w/ PCA
+  + determining outliers w PCA
+  + outliers: houses not well prepresented in the rest of the data
+  + a group of houses in the `Edwards` neighborhood w/ a `SaleCondition of Partial` $\to$ extreme values
+
+  ```python
+  def indicate_outliers(df):
+      X_new = pd.DataFrame()
+      X_new["Outlier"] = (df.Neighborhood == "Edwards") & (df.SaleCondition == "Partial")
+      return X_new
+  ```
 
 
 
