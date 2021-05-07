@@ -227,6 +227,249 @@ print(score_dataset(X, y))
 # 0.14338026718687277
 
 
+
 # 
+# Step 3 - Create Features
+#
+
+# label encoding
+def label_encode(df):
+    X = df.copy()
+    for colname in X.select_dtypes(["category"]):
+        X[colname] = X[colname].cat.codes
+    return X
+
+# creating features
+def mathematical_transforms(df):
+    X = pd.DataFrame()  # dataframe to hold new features
+    X["LivLotRatio"] = df.GrLivArea / df.LotArea
+    X["Spaciousness"] = (df.FirstFlrSF + df.SecondFlrSF) / df.TotRmsAbvGrd
+    # This feature ended up not helping performance
+    # X["TotalOutsideSF"] = \
+    #     df.WoodDeckSF + df.OpenPorchSF + df.EnclosedPorch + \
+    #     df.Threeseasonporch + df.ScreenPorch
+    return X
+
+def interactions(df):
+    X = pd.get_dummies(df.BldgType, prefix="Bldg")
+    X = X.mul(df.GrLivArea, axis=0)
+    return X
+
+def counts(df):
+    X = pd.DataFrame()
+    X["PorchTypes"] = df[[
+        "WoodDeckSF",
+        "OpenPorchSF",
+        "EnclosedPorch",
+        "Threeseasonporch",
+        "ScreenPorch",
+    ]].gt(0.0).sum(axis=1)
+    return X
+
+def break_down(df):
+    X = pd.DataFrame()
+    X["MSClass"] = df.MSSubClass.str.split("_", n=1, expand=True)[0]
+    return X
+
+def group_transforms(df):
+    X = pd.DataFrame()
+    X["MedNhbdArea"] = df.groupby("Neighborhood")["GrLivArea"].transform("median")
+    return X
+
+
+# K-means clustering
+cluster_features = [
+    "LotArea",
+    "TotalBsmtSF",
+    "FirstFlrSF",
+    "SecondFlrSF",
+    "GrLivArea",
+]
+
+def cluster_labels(df, features, n_clusters=20):
+    X = df.copy()
+    X_scaled = X.loc[:, features]
+    X_scaled = (X_scaled - X_scaled.mean(axis=0)) / X_scaled.std(axis=0)
+    kmeans = KMeans(n_clusters=n_clusters, n_init=50, random_state=0)
+    X_new = pd.DataFrame()
+    X_new["Cluster"] = kmeans.fit_predict(X_scaled)
+    return X_new
+
+def cluster_distance(df, features, n_clusters=20):
+    X = df.copy()
+    X_scaled = X.loc[:, features]
+    X_scaled = (X_scaled - X_scaled.mean(axis=0)) / X_scaled.std(axis=0)
+    kmeans = KMeans(n_clusters=20, n_init=50, random_state=0)
+    X_cd = kmeans.fit_transform(X_scaled)
+    # Label features and join to dataset
+    X_cd = pd.DataFrame(
+        X_cd, columns=[f"Centroid_{i}" for i in range(X_cd.shape[1])]
+    )
+    return X_cd
+
+# Principal component analysis
+def apply_pca(X, standardize=True):
+    # Standardize
+    if standardize:
+        X = (X - X.mean(axis=0)) / X.std(axis=0)
+    # Create principal components
+    pca = PCA()
+    X_pca = pca.fit_transform(X)
+    # Convert to dataframe
+    component_names = [f"PC{i+1}" for i in range(X_pca.shape[1])]
+    X_pca = pd.DataFrame(X_pca, columns=component_names)
+    # Create loadings
+    loadings = pd.DataFrame(
+        pca.components_.T,  # transpose the matrix of loadings
+        columns=component_names,  # so the columns are the principal components
+        index=X.columns,  # and the rows are the original features
+    )
+    return pca, X_pca, loadings
+
+
+def plot_variance(pca, width=8, dpi=100):
+    # Create figure
+    fig, axs = plt.subplots(1, 2)
+    n = pca.n_components_
+    grid = np.arange(1, n + 1)
+    # Explained variance
+    evr = pca.explained_variance_ratio_
+    axs[0].bar(grid, evr)
+    axs[0].set(
+        xlabel="Component", title="% Explained Variance", ylim=(0.0, 1.0)
+    )
+    # Cumulative Variance
+    cv = np.cumsum(evr)
+    axs[1].plot(np.r_[0, grid], np.r_[0, cv], "o-")
+    axs[1].set(
+        xlabel="Component", title="% Cumulative Variance", ylim=(0.0, 1.0)
+    )
+    # Set up figure
+    fig.set(figwidth=8, dpi=100)
+    return axs
+
+def corrplot(df, method="pearson", annot=True, **kwargs):
+    sns.clustermap(
+        df.corr(method),
+        vmin=-1.0,
+        vmax=1.0,
+        cmap="icefire",
+        method="complete",
+        annot=annot,
+        **kwargs,
+    )
+
+corrplot(df_train, annot=None)
+
+# PCA application - Outlier
+def indicate_outliers(df):
+    X_new = pd.DataFrame()
+    X_new["Outlier"] = (df.Neighborhood == "Edwards") & (df.SaleCondition == "Partial")
+    return X_new
+
+
+# target encoding
+class CrossFoldEncoder:
+    def __init__(self, encoder, **kwargs):
+        self.encoder_ = encoder
+        self.kwargs_ = kwargs  # keyword arguments for the encoder
+        self.cv_ = KFold(n_splits=5)
+
+    # Fit an encoder on one split and transform the feature on the
+    # other. Iterating over the splits in all folds gives a complete
+    # transformation. We also now have one trained encoder on each
+    # fold.
+    def fit_transform(self, X, y, cols):
+        self.fitted_encoders_ = []
+        self.cols_ = cols
+        X_encoded = []
+        for idx_encode, idx_train in self.cv_.split(X):
+            fitted_encoder = self.encoder_(cols=cols, **self.kwargs_)
+            fitted_encoder.fit(
+                X.iloc[idx_encode, :], y.iloc[idx_encode],
+            )
+            X_encoded.append(fitted_encoder.transform(X.iloc[idx_train, :])[cols])
+            self.fitted_encoders_.append(fitted_encoder)
+        X_encoded = pd.concat(X_encoded)
+        X_encoded.columns = [name + "_encoded" for name in X_encoded.columns]
+        return X_encoded
+
+    # To transform the test data, average the encodings learned from
+    # each fold.
+    def transform(self, X):
+        from functools import reduce
+
+        X_encoded_list = []
+        for fitted_encoder in self.fitted_encoders_:
+            X_encoded = fitted_encoder.transform(X)
+            X_encoded_list.append(X_encoded[self.cols_])
+        X_encoded = reduce(
+            lambda x, y: x.add(y, fill_value=0), X_encoded_list
+        ) / len(X_encoded_list)
+        X_encoded.columns = [name + "_encoded" for name in X_encoded.columns]
+        return X_encoded
+
+
+# create final target set
+def create_features(df, df_test=None):
+    X = df.copy()
+    y = X.pop("SalePrice")
+    mi_scores = make_mi_scores(X, y)
+
+    # Combine splits if test data is given
+    #
+    # If we're creating features for test set predictions, we should
+    # use all the data we have available. After creating our features,
+    # we'll recreate the splits.
+    if df_test is not None:
+        X_test = df_test.copy()
+        X_test.pop("SalePrice")
+        X = pd.concat([X, X_test])
+
+    # Lesson 2 - Mutual Information
+    X = drop_uninformative(X, mi_scores)
+
+    # Lesson 3 - Transformations
+    X = X.join(mathematical_transforms(X))
+    X = X.join(interactions(X))
+    X = X.join(counts(X))
+    # X = X.join(break_down(X))
+    X = X.join(group_transforms(X))
+
+    # Lesson 4 - Clustering
+    # X = X.join(cluster_labels(X, cluster_features, n_clusters=20))
+    # X = X.join(cluster_distance(X, cluster_features, n_clusters=20))
+
+    # Lesson 5 - PCA
+    X = X.join(pca_inspired(X))
+    # X = X.join(pca_components(X, pca_features))
+    # X = X.join(indicate_outliers(X))
+
+    X = label_encode(X)
+
+    # Reform splits
+    if df_test is not None:
+        X_test = X.loc[df_test.index, :]
+        X.drop(df_test.index, inplace=True)
+
+    # Lesson 6 - Target Encoder
+    encoder = CrossFoldEncoder(MEstimateEncoder, m=1)
+    X = X.join(encoder.fit_transform(X, y, cols=["MSSubClass"]))
+    if df_test is not None:
+        X_test = X_test.join(encoder.transform(X_test))
+
+    if df_test is not None:
+        return X, X_test
+    else:
+        return X
+
+
+df_train, df_test = load_data()
+X_train = create_features(df_train)
+y_train = df_train.loc[:, "SalePrice"]
+
+score_dataset(X_train, y_train)
+# # 0.1381925629969659
+
 
 
