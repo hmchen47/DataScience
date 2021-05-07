@@ -622,6 +622,71 @@ Organization: Kaggle
           return X_encoded
   ```
 
++ Creating final feature set
+  + putting the transformations into separate  functions
+  + easier to experiment w/ various combinations
+
+  ```python
+  def create_features(df, df_test=None):
+      X = df.copy()
+      y = X.pop("SalePrice")
+      mi_scores = make_mi_scores(X, y)
+
+      # Combine splits if test data is given
+      #
+      # If we're creating features for test set predictions, we should
+      # use all the data we have available. After creating our features,
+      # we'll recreate the splits.
+      if df_test is not None:
+          X_test = df_test.copy()
+          X_test.pop("SalePrice")
+          X = pd.concat([X, X_test])
+
+      # Lesson 2 - Mutual Information
+      X = drop_uninformative(X, mi_scores)
+
+      # Lesson 3 - Transformations
+      X = X.join(mathematical_transforms(X))
+      X = X.join(interactions(X))
+      X = X.join(counts(X))
+      # X = X.join(break_down(X))
+      X = X.join(group_transforms(X))
+
+      # Lesson 4 - Clustering
+      # X = X.join(cluster_labels(X, cluster_features, n_clusters=20))
+      # X = X.join(cluster_distance(X, cluster_features, n_clusters=20))
+
+      # Lesson 5 - PCA
+      X = X.join(pca_inspired(X))
+      # X = X.join(pca_components(X, pca_features))
+      # X = X.join(indicate_outliers(X))
+
+      X = label_encode(X)
+
+      # Reform splits
+      if df_test is not None:
+          X_test = X.loc[df_test.index, :]
+          X.drop(df_test.index, inplace=True)
+
+      # Lesson 6 - Target Encoder
+      encoder = CrossFoldEncoder(MEstimateEncoder, m=1)
+      X = X.join(encoder.fit_transform(X, y, cols=["MSSubClass"]))
+      if df_test is not None:
+          X_test = X_test.join(encoder.transform(X_test))
+
+      if df_test is not None:
+          return X, X_test
+      else:
+          return X
+
+
+  df_train, df_test = load_data()
+  X_train = create_features(df_train)
+  y_train = df_train.loc[:, "SalePrice"]
+
+  score_dataset(X_train, y_train)
+  # 0.1381925629969659
+  ```
 
 
 ## Step 4 - Hyperparameter Tuning
