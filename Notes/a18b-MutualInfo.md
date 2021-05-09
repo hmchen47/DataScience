@@ -53,7 +53,7 @@ Organization: Kaggle
     + the entropy of a variable (rough): how many yes-or-no questions required to describe an occurrence of that variable, on average
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
         onclick= "window.open('https://www.kaggle.com/ryanholbrook/mutual-information')"
         src    = "https://i.imgur.com/X12ARUK.png"
         alt    = "Knowing the exterior quality of a house reduces uncertainty about its sale price."
@@ -100,7 +100,7 @@ Organization: Kaggle
 + Example: mutual information  w/ 1985 automobiles
   + dataset: [Automobile dataset](https://www.kaggle.com/toramky/automobile-dataset)
   + goal: predicting a car's `price` (the target) from 23 pf the car's features
-  + task: ranking the features w/ mutual information and investigate the results by data visualization
+  + task: ranking the features w/ mutual information and investigating the results by data visualization
   + python snippet to import libraries and read the CSV data
 
     ```python
@@ -111,7 +111,7 @@ Organization: Kaggle
 
     plt.style.use("seaborn-whitegrid")
 
-    df = pd.read_csv("data/a18b-Automobile_data.csv")
+    df = pd.read_csv("data/a18/autos.csv")
     df.head()
     ```
 
@@ -143,15 +143,10 @@ Organization: Kaggle
     mi_scores = make_mi_scores(X, y, discrete_features)
     mi_scores[::3]  # show a few features with their MI scores
 
-    # curb_weight          1.526026
-    # highway_mpg          0.958583
-    # length               0.615287
-    # bore                 0.496247
-    # stroke               0.375345
-    # num_of_cylinders     0.330281
-    # compression_ratio    0.133210
-    # fuel_type            0.047279
-    # Name: MI Scores, dtype: float64
+    # curb_weight          1.526026     highway_mpg          0.958583
+    # length               0.615287     bore                 0.496247
+    # stroke               0.375345     num_of_cylinders     0.330281
+    # compression_ratio    0.133210     fuel_type            0.047279
     ```
 
   + python snippet to plot bar chart for comparison
@@ -175,19 +170,19 @@ Organization: Kaggle
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://www.kaggle.com/ryanholbrook/mutual-information" ismap target="_blank">
         <img style="margin: 0.1em;" height=250
-          src   = "https://bit.ly/3vjAkBA"
+          src   = "img/a18b-01.png"
           alt   = "Mutual information scores"
           title = "Mutual information scores"
         >
         <img style="margin: 0.1em;" height=250
-          src   = "https://bit.ly/3nuAIuc"
+          src   = "img/a18b-02.png"
           alt   = "Plot for curb weight and price"
           title = "Plot for curb weight and price"
         >
       </a>
     </div>
 
-  + `feul_type` feature (see diagram)
+  + `fuel_type` feature (see diagram)
     + w/ a fair low MI score
     + two price populations within the `horsepower` feature
     + probably not unimportant according to MI score
@@ -195,9 +190,9 @@ Organization: Kaggle
     + python snippet: `sns.lmplot(x="horsepower", y="price", hue="fuel_type", data=df);`
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
         onclick= "window.open('https://www.kaggle.com/ryanholbrook/mutual-information')"
-        src    = "https://bit.ly/2R8kGdg"
+        src    = "img/a18b-03.png"
         alt    = "Hosepower vs. Price"
         title  = "Hosepower vs. Price"
       />
@@ -208,13 +203,7 @@ Organization: Kaggle
 
 + Exercise: mutual information
   + [original exercise](https://www.kaggle.com/hmchen47/exercise-mutual-information/edit)
-  + dataset:
-    + [Ames data set](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data)
-    + Local data set: house-prices-advanced-regression-techniques
-      + [data description](src/data/a18b-ex-data_description.txt)
-      + [training data](src/data/a18b-ex-train.csv)
-      + [testing data](src/data/a18b-ex-test.csv)
-      + [sample submission](src/data/a18b-ex-sample_submission)
+  + dataset: [Ames data set](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data)
   + task: identify initial set of features w/
     + mutual information
     + interaction plots
@@ -240,7 +229,7 @@ Organization: Kaggle
     )
 
     # Load data
-    df = pd.read_csv("data/a18b-ex-train.csv")
+    df = pd.read_csv("data/a18/ames.csv")
 
     # Utility functions from Tutorial
     def make_mi_scores(X, y):
@@ -311,7 +300,6 @@ Organization: Kaggle
     # FullBath        0.251693          # Foundation      0.236115
     # LotFrontage     0.233334          # GarageType      0.226117
     # FireplaceQu     0.221955          # SecondFlrSF     0.200658
-    # Name: MI Scores, dtype: float64
     ```
 
     + common themes among most of these features are:
@@ -336,8 +324,8 @@ Organization: Kaggle
     </figure>
 
   + examining MI scores
-    + investigating possible interaction effects w/ `BidgType`
-    + Bldg Type (Nominal): Type of dwelling
+    + investigating possible interaction effects w/ `BldgType`
+    + `BldgType` (Nominal): Type of dwelling
       + `1Fam`: Single-family Detached
       + `2FmCon`: Two-family Conversion; originally built as one-family dwelling
       + `Duplx`: Duplex
@@ -410,16 +398,16 @@ Organization: Kaggle
 
 
 
-+ [`panads.fsctorize` method](https://pandas.pydata.org/docs/reference/api/pandas.factorize.html)
-  + syntax: `pandas.factorize(values, sort=False, na_sentinel=- 1, size_hint=None)`
++ [`panads.factorize` method](https://pandas.pydata.org/docs/reference/api/pandas.factorize.html)
+  + syntax: `pandas.factorize(values, sort=False, na_sentinel=-1, size_hint=None)`
   + docstring: encode the object as an enumerated type or categorical variable
   + parameters
     + `values`: sequence <br>A 1-D sequence. Sequences that aren’t pandas objects are coerced to ndarrays before factorization.
     + `sort`: bool, default `False`<br>Sort uniques and shuffle codes to maintain the relationship.
-    + `na_sentinel`: int or None, default -1<br>Value to mark “not found”. If None, will not drop the NaN from the uniques of the values.
+    + `na_sentinel`: int or `None`, default -1<br>Value to mark “not found”. If `None`, will not drop the `NaN` from the uniques of the values.
     + `size_hint`: int, optional<br>Hint to the hashtable sizer.
   + returns
-    + `code`: sndarray<br>An integer ndarray that’s an indexer into uniques. uniques.take(codes) will have the same values as values.
+    + `codes`: ndarray<br>An integer ndarray that’s an indexer into uniques. uniques.take(codes) will have the same values as values.
     + `uniques`: ndarray, Index, or Categorical<br>The unique valid values. When values is Categorical, uniques is a Categorical. When values is some other pandas object, an Index is returned. Otherwise, a 1-D ndarray is returned.
   + example
 
