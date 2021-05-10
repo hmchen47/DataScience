@@ -59,7 +59,7 @@ Organization: Kaggle
     + e.g., `stroke ratio`: a measure of how efficient an engine vs how performant
   + combination
     + complicated formulation among features
-    + the more complicated combination is, the more difficult it will ne for a model learn
+    + the more complicated combination is, the more difficult it will be for a model learn
     + e.g., engine;s "displacement" as a measure of its power
   + data visualization
     + able to suggest transformations
@@ -86,7 +86,7 @@ Organization: Kaggle
     <figure style="margin: 0.5em; text-align: center;">
       <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
         onclick= "window.open('https://www.kaggle.com/ryanholbrook/creating-features')"
-        src    = "https://bit.ly/3e0Yjjc"
+        src    = "img/a18c-01.png"
         alt    = "Data visualization with "
         title  = "Data visualization with "
       />
@@ -106,9 +106,8 @@ Organization: Kaggle
     + creating a count of the total number of roadway features
 
     ```python
-    roadway_features = ["Amenity", "Bump", "Crossing", "GiveWay",
-        "Junction", "NoExit", "Railway", "Roundabout", "Station", "Stop",
-        "TrafficCalming", "TrafficSignal"]
+    roadway_features = ["Amenity", "Bump", "Crossing", "GiveWay", "Junction", "NoExit", 
+        "Railway", "Roundabout", "Station", "Stop", "TrafficCalming", "TrafficSignal"]
     accidents["RoadwayFeatures"] = accidents[roadway_features].sum(axis=1)
     ```
 
@@ -173,7 +172,7 @@ Organization: Kaggle
       + joining it to the validation set
       + using the validation set's `merge` set after creating a unique set of values w/ `drop_duplicates` on the training set
   + example: average income by state
-    + `state` as grouping feature
+    + `State` as grouping feature
     + `mean` as aggregation function
     + `Income` for the aggregated feature
 
@@ -202,8 +201,6 @@ Organization: Kaggle
     # 0 Washington  0.087366
     #   ...
     ```
-
-  + 
 
   + example: handling data splitting
 
@@ -330,7 +327,7 @@ Organization: Kaggle
     X_5["MedNhbdArea"] = df.groupby("Neighborhood")["GrLivArea"].transform("median")
     ```
 
-  + training w/ `XGBoost` and evaluate the score
+  + training w/ `XGBoost` and evaluating the score
 
     ```python
     def score_dataset(X, y, model=XGBRegressor()):
