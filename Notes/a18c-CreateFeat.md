@@ -246,6 +246,7 @@ Organization: Kaggle
 ## Exercise
 
 + Exercise: creating features
+  + [original](https://www.kaggle.com/hmchen47/exercise-creating-features/edit)
   + task: developing mathematical transforms
     + features describing areas
     + same units (square-feet)
