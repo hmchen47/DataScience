@@ -84,7 +84,7 @@ Organization: Kaggle
 
 
 
-## k-Means Clustering
+## K-Means Clustering
 
 + Clustering algorithms
   + classification
@@ -95,7 +95,7 @@ Organization: Kaggle
 
 + K-means clustering
   + measuring similarity using ordinary straight-line distance (Euclidean distance)
-  + creating clusters by placing a number of points, called centroids, inside the feature space
+  + creating clusters by placing a number of points, called __centroids__, inside the feature space
   + each point assigning to the cluster whatever centroid it closest to
   + $k$: the parameter about how many centroids
   + Voronoi tessallation
@@ -128,7 +128,7 @@ Organization: Kaggle
     + examples:
       + `Latitude` and `Longitude` of cities in California: rescaling distort the natural distances $\to$ not rescaling
       + `Lot Area` and `Living Area` of houses in Ames, Iowa: not clear, living area tending to be more valuable while sale price as the prediction target
-      + `Number of Door` and `Housepower` of a 1989 model car: rescaling, he number of doors in a car will be negligible comparing to its horsepower (usually in the hundreds)
+      + `Number of Door` and `Horsepower` of a 1989 model car: rescaling the number of doors in a car will be negligible comparing to its horsepower (usually in the hundreds)
   + best partitioning for a set of features depending on
     + model used
     + what to predict
@@ -180,9 +180,9 @@ Organization: Kaggle
     ```
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
         onclick= "window.open('https://www.kaggle.com/ryanholbrook/clustering-with-k-means')"
-        src    = "https://bit.ly/2PH3XxA"
+        src    = "img/a18d-01.png"
         alt    = "Geographic clusters"
         title  = "Geographic clusters"
       />
@@ -198,9 +198,9 @@ Organization: Kaggle
     ```
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
         onclick= "window.open('https://www.kaggle.com/ryanholbrook/clustering-with-k-means')"
-        src    = "https://bit.ly/3nCnKLd"
+        src    = "img/a18d-02.png"
         alt    = "Distributions of clusters w/ box-plot"
         title  = "Distributions of clusters w/ box-plot"
       />
@@ -260,7 +260,7 @@ Organization: Kaggle
     + answers refer to K-means w/ scikit-learn's implementation
   + creating a feature of cluster labels
     + parameters for k-means clustering
-      + features: `features: `LotArea`, `TotalBsmtSF`, `FirstFlrSF`, `SecondFlrSF`, `GrLivArea`
+      + features: `LotArea`, `TotalBsmtSF`, `FirstFlrSF`, `SecondFlrSF`, `GrLivArea`
       + number of clusters: 10
       + iterations: 10
 
@@ -299,7 +299,7 @@ Organization: Kaggle
       ```
 
       <figure style="margin: 0.5em; text-align: center;">
-        <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
           onclick= "window.open('https://www.kaggle.com/ryanholbrook/clustering-with-k-means')"
           src    = "img/a18d-01.png"
           alt    = "Clusters w/ various features"
