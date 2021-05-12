@@ -19,7 +19,7 @@ Organization: Kaggle
   + typically applied to [standardized](https://bit.ly/2S9yMM2) data
   + variation meaning
     + standardized data: correlation
-    + unstandardized data: covariance
+    + non-standardized data: covariance
 
 
 ## Principal Component Analysis
@@ -88,7 +88,7 @@ Organization: Kaggle
   + making the precise comparison though each component's percent of explained variation
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
         onclick= "window.open('https://www.kaggle.com/ryanholbrook/principal-component-analysis')"
         src    = "https://i.imgur.com/xWTvqDA.png"
         alt    = "Size accounts for about 96% and the Shape for about 4% of the variance between Height and Diameter."
@@ -127,7 +127,7 @@ Organization: Kaggle
         + sensor reading often w/ common background noise
         + able to collect the (informative) signal into a smaller number of features while leaving out the noise
         + boosting the signal-to-noise ratio
-      + __decorrelatio__
+      + __decorrelation__
         + ML sometimes struggling w/ highly-correlated features
         + transforming correlated features into uncorrelated components
 
@@ -243,7 +243,7 @@ Organization: Kaggle
     )
 
     loadings
-    # 	               PC1          PC2	        PC3          PC4
+    #                 PC1          PC2          PC3          PC4
     # highway_mpg   -0.492347    0.770892     0.070142    -0.397996
     # engine_size    0.503859    0.626709     0.019960     0.594107
     # horsepower     0.500448    0.013788     0.731093    -0.463534
@@ -253,9 +253,9 @@ Organization: Kaggle
     ```
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
         onclick= "window.open('https://www.kaggle.com/ryanholbrook/principal-component-analysis')"
-        src    = "img/a18e-01.png"
+        src    = "https://i.imgur.com/xWTvqDA.png"
         alt    = "Percent of explained & cumulative variation w/ components"
         title  = "Percent of explained & cumulative variation w/ components"
       />
@@ -272,7 +272,7 @@ Organization: Kaggle
     ```
 
   + contrast component and creating a new ratio feature
-    + 3rd component: a contrast btw `housepower` and `curb_weight` - sports cars vs. wagons
+    + 3rd component: a contrast btw `horsepower` and `curb_weight` - sports cars vs. wagons
 
     ```python
     dx = X_pca["PC3"].sort_values(ascending=False).index
@@ -432,7 +432,7 @@ Organization: Kaggle
     + the first component, `PC1`
       + a kind of `Size` component
       + all of the features have the same sign (positive)
-      + describing a contrast between houses having large values and houses having small values for these features
+      + describing a contrast btw houses w/ large values and houses w/ small values for these features
     + the third component `PC3`
       + features `GarageArea` and `YearRemodAdd` both w/ near-zero loadings
       + mostly about `TotalBsmtSF` and `GrLivArea`
