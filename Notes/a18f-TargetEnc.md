@@ -89,7 +89,7 @@ Organization: Kaggle
     + target encoding: deriving numbers for the categories w/ the relationship w/ the target
   + domain-motivated feature
     + prior experience: categorical feature probably not so important even if scored poorly w/ a feature metric
-    + target encoding revealing a feature's true informative 
+    + target encoding revealing a feature's true information
 
 ## Example - MovieLens1M
 
@@ -125,7 +125,7 @@ Organization: Kaggle
     ```
 
   + preparing the training dataset
-    + a good candidate for target encoding/: > 3000 categories
+    + a good candidate for target encoding: > 3000 categories
     + size of the dataset: over one-million rows
     + creating a 25\% split to train the target encoder
 
@@ -140,7 +140,7 @@ Organization: Kaggle
     ```
 
   + encoding w/ MEstimate encoder
-    + utilizing m-estimate encoder w/ `category=encoder` lib
+    + utilizing m-estimate encoder w/ `category_encoder` lib
     + encoding `Zipcode` feature
 
     ```python
@@ -175,7 +175,7 @@ Organization: Kaggle
     <figure style="margin: 0.5em; text-align: center;">
       <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
         onclick= "window.open('https://www.kaggle.com/ryanholbrook/target-encoding')"
-        src    = "https://bit.ly/3vCRNoQ"
+        src    = "img/a18f-01.png"
         alt    = "Distribution of the encoded Zipcode feature w/ rating"
         title  = "Distribution of the encoded Zipcode feature w/ rating"
       />
@@ -184,6 +184,7 @@ Organization: Kaggle
 ## Exercise
 
 + Exercise: target encoding w/ Ames
+  + [Original notebook](https://www.kaggle.com/hmchen47/exercise-target-encoding/edit)
   + dataset: [Ames](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data)
   + loading data and preparing utilities
 
@@ -277,7 +278,6 @@ Organization: Kaggle
     # Green_Hills             2    Landmark                                     1
     ```
 
-
   + applying M-estimate encoding
     + avoiding overfitting by fit the encoder on data heldout from the training data
     + creating the encoding and training splits
@@ -286,7 +286,7 @@ Organization: Kaggle
     + comparing the encoded values to the target to see how informative encoding might be
     + evaluating target encoding
       + features probably ended up w/ a score significantly worse than the baseline
-      + extra information gained by the encoding not mking up for the loss of data used for the the encoding
+      + extra information gained by the encoding not making up for the loss of data used for the encoding
 
     ```python
     # Encoding split
@@ -344,7 +344,7 @@ Organization: Kaggle
     + training `XGBoost` on the same set to train the encoder
     + using a hold-out set instead, none of this "fake" encoding transferred to the training data
       + using a target encoder, important to use separate data sets for training the encoder and training the model
-      + otherwise the results can be very disappointing
+      + otherwise the results able to be very disappointing
 
     ```python
     X = df.copy()
@@ -366,7 +366,8 @@ Organization: Kaggle
 
     # Create an uninformative feature
     X["Count"] = range(len(X))
-    X["Count"][1] = 0  # actually need one duplicate value to circumvent error-checking in MEstimateEncoder
+    X["Count"][1] = 0  
+    # actually need one duplicate value to circumvent error-checking in MEstimateEncoder
 
     # fit and transform on the same dataset
     encoder = MEstimateEncoder(cols="Count", m=m)
@@ -388,12 +389,12 @@ Organization: Kaggle
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://www.kaggle.com/ryanholbrook/target-encoding" ismap target="_blank">
-        <img style="margin: 0.1em;" height=150
+        <img style="margin: 0.1em;" height=200
           src   = "img/a18f-02a.png"
           alt   = "Distribution of the encoded Neighborhood w/ m=0"
           title = "Distribution of the encoded Neighborhood w/ m=0"
         >
-        <img style="margin: 0.1em;" height=150
+        <img style="margin: 0.1em;" height=200
           src   = "img/a18f-02b.png"
           alt   = "Distribution of the encoded Neighborhood w/ m=1"
           title = "Distribution of the encoded Neighborhood w/ m=1"
@@ -403,12 +404,12 @@ Organization: Kaggle
 
     <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
       <a href="https://www.kaggle.com/ryanholbrook/target-encoding" ismap target="_blank">
-        <img style="margin: 0.1em;" height=150
+        <img style="margin: 0.1em;" height=200
           src   = "img/a18f-02c.png"
           alt   = "Distribution of the encoded Neighborhood w/ m=5"
           title = "Distribution of the encoded Neighborhood w/ m=5"
         >
-        <img style="margin: 0.1em;" height=150
+        <img style="margin: 0.1em;" height=200
           src   = "img/a18f-02d.png"
           alt   = "Distribution of the encoded Neighborhood w/ m=50"
           title = "Distribution of the encoded Neighborhood w/ m=50"
@@ -419,9 +420,9 @@ Organization: Kaggle
 
 ## References
 
-+ Pablo Duboue, "The Art of Feature Engineering"
-+ Jeff Heaton, "+ An Empirical Analysis of Feature Engineering for Predictive Modeling"
-+ Alice Zheng and Amanda Casari, "Feature Engineering for Machine Learning". The tutorial on clustering was inspired by this excellent book.
-+ Max Kuhn and Kjell Johnson, "Feature Engineering and Selection"
++ Pablo Duboue, [The Art of Feature Engineering](https://ca1lib.org/book/5545855/37603d?id=5545855&secret=37603d&signAll=1&ts=0130)
++ Jeff Heaton, [An Empirical Analysis of Feature Engineering for Predictive Modeling](https://arxiv.org/pdf/1701.07852.pdf)
++ Alice Zheng and Amanda Casari, [Feature Engineering for Machine Learning](https://www.repath.in/gallery/feature_engineering_for_machine_learning.pdf). The tutorial on clustering was inspired by this excellent book.
++ Max Kuhn and Kjell Johnson, [Feature Engineering and Selection](https://ca1lib.org/book/5404773/19ff1c?id=5404773&secret=19ff1c&signAll=1&ts=0136)
 
 
