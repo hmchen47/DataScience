@@ -247,6 +247,7 @@ Organization: Kaggle
 
 + Exercise: creating features
   + [original](https://www.kaggle.com/hmchen47/exercise-creating-features/edit)
+  + dataset: [Ames dataset](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data)
   + task: developing mathematical transforms
     + features describing areas
     + same units (square-feet)
