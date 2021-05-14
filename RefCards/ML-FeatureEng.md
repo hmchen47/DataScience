@@ -79,6 +79,8 @@
 
 ## Overview
 
+### General 
+
 + [Feature engineering](../Notes/a08-FeatureEng.md#1-broad-introduction)
   + the process of using data domain knowledge to create features or variables
   + purpose: making ML algorithms effectively
@@ -149,7 +151,7 @@
   + [local demo notebook](../Notes/a16-FeatureEng.md#beyond-one-hot-17-ways/src/a16-beyond_one_hot.ipynb)
 
 
-## Variables Types
+### Variables Types
 
 + [Variables](../Notes/a08-FeatureEng.md#2-variables-types)
   + any characteristic, number, or quantity measured or counted
@@ -205,7 +207,7 @@
   + occurring in a given dataset, especially when filling its values
 
 
-## Common Issues in Datasets
+### Common Issues in Datasets
 
 + [General issues](../Notes/a08-FeatureEng.md#3-common-issues-in-datasets)
   + missing data
@@ -314,6 +316,73 @@
     + classification and regression tress
     + random forests
     + gradient-boosted trees
+
+
+### Mutual Information
+
++ [Handling features](../Notes/a18b-MutualInfo.md#introduction)
+  + issue: hundreds and thousands of features w/o description
+  + procedure to resolve
+    + constructing a ranking w/ a __feature utility metric__, a function measuring associatiions btw a feature and a target
+    + choosing a smaller set of the most useful features to develop initially and having more confidence to spend time on them
+
++[Mutual information](../Notes/a18b-MutualInfo.md#introduction)
+  + metric used to measure associations btw a feature and a target
+  + a lot like correlation to measure a relationship btw two quantities
+  + MI detecting any kind of relationship while correlation only detecting linear relationship
+  + a great general-purpose metric and specially useful at the start of feature development
+  + advantages
+    + easy to use and interpret
+    + computationally efficient
+    + theoretically well-founded
+    + resistant to overfitting
+    + able to detect any kind of relationship
+
++ [Mutual information and measurement](../Notes/a18b-MutualInfo.md#introduction)
+  + MI describing relationships in terms of _uncertainty_
+  + __mutual information (MI)__ btw two quantities: a measure of the extent to which knowledge of one quantity reduces uncertainty about the other
+  + scikit-learn algorithm for MI
+    + two mutual information metrics in `feature_selection` module
+    + continuous features
+      + `float` dtype
+      + real value targets: `mutual_info_regression`
+    + categorical features
+      + `object` or `categorical` dtype
+      + treated as discrete by giving them a label encoding
+      + categorical targets: `mutual_info_classif`
+  + data visualization: a great toolbox for feature ranking, e.g., bar chart
+
++ [Mutual information scores](../Notes/a18b-MutualInfo.md#interpreting-mutual-information-scores)
+  + MI = 0.0
+    + least possible value
+    + independent: unable to tell anything about the other
+  + MI maximum value
+    + theory: no upper bound
+    + practice: MI > 2.0 uncommon
+    + MI: a logarithm quantity
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick= "window.open('https://www.kaggle.com/ryanholbrook/mutual-information')"
+        src    = "https://i.imgur.com/Dt75E1f.png"
+        alt    = "Left: Mutual information increases as the dependence between feature and target becomes tighter. Right: Mutual information can capture any kind of association (not just linear, like correlation.)"
+        title  = "Left: Mutual information increases as the dependence between feature and target becomes tighter. Right: Mutual information can capture any kind of association (not just linear, like correlation.)"
+      />
+    </figure>
+
++ [Considerations when using mutual information](../Notes/a18b-MutualInfo.md#interpreting-mutual-information-scores)
+  + relative potential:
+    + MI helping to understand the relative potential of a feature
+    + the potential as a predictor of the target
+  + univariate metric
+    + possible for a feature very informative when interacting w/ other features
+    + not so informative for the feature itself
+    + MI unable to detect interaction btw features
+  + feature and model
+    + the usefulness of feature depending on the model it used w/
+    + feature probably only useful to the extent related to the target
+    + a feature w/ high MI score $\nRightarrow$ model able to do anything w/ that information
+
 
 
 
@@ -1396,10 +1465,23 @@
 
 ## Examples
 
-+ [Concrete Formulations](../Notes/a18a-FeatureEng.md#example---concrete-formulations)
++ [Concrete Formulations - Counting Feature Used](../Notes/a18a-FeatureEng.md#example---concrete-formulations)
   + task: illustrating how adding a few synthetic to dataset to improve the predictive performance of a random forest model
   + dataset: [Concrete](https://www.kaggle.com/sinamhd9/concrete-comprehensive-strength)
-    + containing a variety of concrete formulations and the resulting product's compressive strength
-    + compressive strength: a measure of how much load that kind of concrete can bear
+    + containing a variety of concrete formulations and the resulting product's comprehensive strength
+    + comprehensive strength: a measure of how much load that kind of concrete can bear
+
++ [1985 Automobiles - Mutual Information](../Notes/a18b-MutualInfo.md#example---1985-automobiles)
+  + dataset: [Automobile dataset](https://www.kaggle.com/toramky/automobile-dataset)
+  + goal: predicting a car's `price` (the target) from 23 pf the car's features
+  + task: ranking the features w/ __mutual information__ and investigating the results by data visualization
+
++ [Ames House Price - Mutual Information](/Notes/a18b-MutualInfo.md#exercise-mutual-information)
+  + dataset: [Ames data set](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data)
+  + task: identify initial set of features w/
+    + mutual information
+    + interaction plots
+
+
 
 
