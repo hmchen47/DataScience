@@ -396,8 +396,6 @@ Organization: Kaggle
       ```
 
 
-
-
 + [`panads.factorize` method](https://pandas.pydata.org/docs/reference/api/pandas.factorize.html)
   + syntax: `pandas.factorize(values, sort=False, na_sentinel=-1, size_hint=None)`
   + docstring: encode the object as an enumerated type or categorical variable
