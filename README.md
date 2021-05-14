@@ -435,11 +435,17 @@
   <!-- Feature Engineering -->
   <tr> <td colspan=5 style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Feature Engineering </td> </tr>
   <tr>
-    <th style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
+    <th rowspan=2 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#summary"> Summary </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#overview"> Overview </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#variables-types"> Variable Types </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#common-issues-in-datasets"> Common Issues </a> </td>
+  </tr>
+  <tr>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#mutual-information"> Mutual Information (MI) </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
   </tr>
   <tr>
     <th rowspan=3 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Imputing Missing Values </th>
