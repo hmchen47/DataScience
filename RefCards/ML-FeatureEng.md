@@ -1564,6 +1564,15 @@
     + mutual information
     + interaction plots
 
-
++ [Ames House Price - creating features](../Notes/a18c-CreateFeat.md#exercise)
+  + dataset: [Ames dataset](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data)
+  + task: developing mathematical transforms
+    + features describing areas
+    + same units (square-feet)
+    + using `XGBoots` (a tree-based model) $\to$ focus on ratios and sums
+  + create mathematical transforms
+    + `LivLotRatio`: the ratio of `GrLivArea` to `LotArea`
+    + `Spaciousness`: the sum of `FirstFlrSF` and `SecondFlrSF` divided by `TotRmsAbvGrd`
+    + `TotalOutsideSF`: the sum of `WoodDeckSF`, `OpenPorchSF`, `EnclosedPorch`, `Threeseasonporch`, and `ScreenPorch`
 
 
