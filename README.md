@@ -420,7 +420,7 @@
   <tr>
     <th style="padding: 0.3em; width: 15%; text-align: left; line-height: 1.5; vertical-align: middle;"> Basics </th>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-Basics.md#overview"> Overview </a> </td>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-Basics.md#decision-tree-classifiers-a-concise-technical-overview"> Descision Tree </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-Basics.md#decision-tree-classifiers-a-concise-technical-overview"> Decision Tree </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-Basics.md#clustering-techniques"> Clustering </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-Basics.md#">  </a> </td>
   </tr>
@@ -433,15 +433,16 @@
   </tr>
 
   <!-- Feature Engineering -->
+  <tr> <td colspan=5 style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Feature Engineering </td> </tr>
   <tr>
-    <th style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle; color: cyan;"> Feature Engineering (FEng)</th>
+    <th style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#summary"> Summary </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#overview"> Overview </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#variables-types"> Variable Types </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#common-issues-in-datasets"> Common Issues </a> </td>
   </tr>
   <tr>
-    <th rowspan=3 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Imputing Missing Values  for FEng</th>
+    <th rowspan=3 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Imputing Missing Values </th>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#overview-1"> Overview </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#mean-and-median-imputation"> Mean & Median </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#arbitrary-value-imputation"> Arbitrary Value </a> </td>
@@ -460,7 +461,7 @@
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
   </tr>
   <tr>
-    <th rowspan=4 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Encoding Categorical Variables for FEng </th>
+    <th rowspan=4 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Encoding Categorical Variables </th>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#overview-2"> Overview </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#one-hot-encoding"> One-Hot </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#integer-label-encoding"> Integer (Target) </a> </td>
@@ -485,33 +486,33 @@
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
   </tr>
   <tr>
-    <th rowspan=2 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Transforming Variables for FEng </th>
+    <th rowspan=2 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Transforming Variables </th>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#overview-3"> Overview </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#logarithmic-transformation"> Logarithmic </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#square-root-transformation"> Square Root </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#recipocal-transformation"> Recipocol </a> </td>
   </tr>
   <tr>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#exponential-or-power-transformation"> Exponential & Power for FEng </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#exponential-or-power-transformation"> Exponential & Power </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#box-cox-transformation"> Box-Cox </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#yeo-johnson-transformation"> Yeo-Johnson </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
   </tr>
   <tr>
-    <th rowspan=2 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Variable Discretization for FEng </th>
+    <th rowspan=2 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Variable Discretization </th>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#overview-4"> Overview </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#equal-width-discretization"> Equal-Width </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#equal-frequency-discretization"> Equal-Frequency </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#k-means-discretization"> K-Means </a> </td>
   </tr>
   <tr>
-    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#discretization-w-decision-trees"> Decision Trees for FEng </a> </td>
+    <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#discretization-w-decision-trees"> Decision Trees </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#custom-discretization"> Custom </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
   </tr>
   <tr>
-    <th rowspan=3 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Outliers for FEng</th>
+    <th rowspan=3 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Outliers</th>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#overview-5"> Overview </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#detection"> Detection </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#iqr-proximity-rule"> IQR Proximity Rule </a> </td>
@@ -530,7 +531,7 @@
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
   </tr>
   <tr>
-    <th rowspan=2 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Feature Scaling for FEng</th>
+    <th rowspan=2 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Feature Scaling</th>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#overview-6"> Overview </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#mean-normalization"> Mean Normalization </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#standardization"> Standardization </a> </td>
@@ -543,14 +544,14 @@
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
   </tr>
   <tr>
-    <th rowspan=1 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Date/Time & Mixed Variables for FEng </th>
+    <th rowspan=1 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Date/Time & Mixed Variables </th>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#date-and-time-variables"> Date & Time </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#mixed-variables"> Mixed </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#periodicity"> Periodicity </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#">  </a> </td>
   </tr>
   <tr>
-    <th rowspan=1 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Advanced FEng </th>
+    <th rowspan=1 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Advanced Topics</th>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#automated-feature-engineering"> Automated </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#geospatial-data"> Geospatial </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureEng.md#resampling-imblanced-data"> Resampling Imbalanced </a> </td>
@@ -558,22 +559,23 @@
   </tr>
 
   <!-- Feature Selection -->
+  <tr> <td colspan=5 style="text-align: center; font-weight: bolder; line-height: 1.6; vertical-align: middle; font-size: 1.2em; background-color: lightgrey; color: gray;"> Feature Selection </td> </tr>
   <tr>
-    <th rowspan=1 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle; color: cyan;"> Feature Selection (FSelect) </th>
+    <th rowspan=1 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> General </th>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureSelect.md#overview"> Overview </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureSelect.md#">  </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureSelect.md#">  </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureSelect.md#">  </a> </td>
   </tr>
   <tr>
-    <th rowspan=1 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Filter Method for FSelect </th>
+    <th rowspan=1 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Filter Method </th>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureSelect.md#overview-of-filter-methods"> Overview </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureSelect.md#basic-filter-methods"> Basic </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureSelect.md#correlation-filter-methods"> Correlation </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureSelect.md#statistical--ranking-filter-methods"> Statistical & Ranking </a> </td>
   </tr>
   <tr>
-    <th rowspan=2 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Wrapper Method for FSelect </th>
+    <th rowspan=2 style="padding: 0.3em; width: 20%; text-align: left; line-height: 1.5; vertical-align: middle;"> Wrapper Method </th>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureSelect.md#overview-of-wrapper-methods"> Overview </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureSelect.md#forward-feature-selection"> Forward </a> </td>
     <td style="padding: 0.3em; width: 10%;"> <a href="RefCards/ML-FeatureSelect.md#backward-feature-elimination"> Backward </a> </td>
