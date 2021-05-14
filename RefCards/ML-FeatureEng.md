@@ -89,6 +89,9 @@
     + variable transformation
     + creating or extracting new features from the ones available in the dataset
 
++ [Feature engineering](../Notes/a18a-FeatureEng.md)
+  + simply making data better suited to the problem at hand
+
 + [Purposes of feature engineering](../Notes/a08-FeatureEng.md#1-broad-introduction)
   + raw data: messy and unsuitable for training a model
   + solution: data exploration and cleaning
@@ -99,6 +102,17 @@
     + removing outliers or specific features
     + creating features from the data that represent the underlying problem better
   + algorithms often hinging on how the input features engineered
+
++ [Reasons for feature engineering](../Notes/a18a-FeatureEng.md)
+  + improving a model's predictive performance
+  + reducing computational or data needs
+  + improving interpretability of the results
+
++ [Principle of feature engineering](../Notes/a18a-FeatureEng.md#a-guiding-principle-of-feature-engineering)
+  + useful feature: relationship to the target that your model is able to learn
+  + linear model: transforming the features to make features' relationship to the target linear
+  + key idea: a transformation applied to a feature becoming in essence a part of model itself
+  + high return on time invested in feature engineering
 
 + [Feature Engineering vs. Feature Selection](../Notes/a08-FeatureEng.md#1-broad-introduction)
   + feature engineering:
@@ -1378,5 +1392,14 @@
   + issue: classes not represented equally
   + causing problems for some algorithms
   + resampling engineering and reducing this effect on machine learning algorithms
+
+
+## Examples
+
++ [Concrete Formulations](../Notes/a18a-FeatureEng.md#example---concrete-formulations)
+  + task: illustrating how adding a few synthetic to dataset to improve the predictive performance of a random forest model
+  + dataset: [Concrete](https://www.kaggle.com/sinamhd9/concrete-comprehensive-strength)
+    + containing a variety of concrete formulations and the resulting product's compressive strength
+    + compressive strength: a measure of how much load that kind of concrete can bear
 
 
