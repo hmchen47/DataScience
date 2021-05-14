@@ -3,7 +3,7 @@
 
 
 #
-# # Step 1 - Preliminaries
+# Step 1 - Preliminaries
 #
 
 # setting up environment
