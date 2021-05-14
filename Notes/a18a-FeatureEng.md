@@ -64,8 +64,8 @@ Organization: Kaggle
 + Example: concrete formulations
   + task: illustrating how adding a few synthetic to dataset to improve the predictive performance of a random forest model
   + dataset: [Concrete](https://www.kaggle.com/sinamhd9/concrete-comprehensive-strength)
-    + containing a variety of concrete formulations and the resulting product's compressive strength
-    + compressive strength: a measure of how much load that kind of concrete can bear
+    + containing a variety of concrete formulations and the resulting product's comprehensive strength
+    + comprehensive strength: a measure of how much load that kind of concrete can bear
   + python snippet: read CSV data
 
     ```python
@@ -140,8 +140,8 @@ Organization: Kaggle
     + `X`: array-like of shape (n_samples, n_features)<br>The data to fit. Can be for example a list, or an array.
     + `y`: array-like of shape (n_samples,) or (n_samples, n_outputs), default=None<br>The target variable to try to predict in the case of supervised learning.
     + `groups`: array-like of shape (n_samples,), default=None<br>Group labels for the samples used while splitting the dataset into train/test set. Only used in conjunction with a “Group” cv instance (e.g., GroupKFold).
-    + `scoring`: str or callable, default=None<br>
-      + A str (see model evaluation documentation) or a scorer callable object / function with signature `scorer(estimator, X, y)` which should return only a single value.
+    + `scoring`: `str` or callable, default=None<br>
+      + A `str` (see model evaluation documentation) or a scorer callable object / function with signature `scorer(estimator, X, y)` which should return only a single value.
       + Similar to [cross_validate](https://bit.ly/3bcA0wJ) but only a single metric is permitted.
       + If `None`, the estimator’s default scorer (if available) is used.
     + `cv`: int, cross-validation generator or an iterable, default=None<br> Determines the cross-validation splitting strategy. Possible inputs for cv are:
