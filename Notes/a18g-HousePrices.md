@@ -1,6 +1,6 @@
 # Example: House Prices
 
-
+ 
 Author: R. Holbrook
 
 Organization: Kaggle
@@ -63,7 +63,7 @@ Organization: Kaggle
     + __clean__ the data to fix any errors or inconsistencies
     + __encode__ the statistical data type (numeric, categories)
     + __impute__ any missing values
-  + 3 preprocessing steps after reaing the CSV file: `clean`, `encode` and `impute`
+  + 3 preprocessing steps after reading the CSV file: `clean`, `encode` and `impute`
   + creating the data splits:
     + one (`df_train`) for training the model
     + one (`df_test`) for making the predictions 
@@ -126,10 +126,10 @@ Organization: Kaggle
   # read as an `int` type, but is actually a (nominative) categorical.
 
   # The nominative (unordered) categorical features
-  features_nom = ["MSSubClass", "MSZoning", "Street", "Alley", "LandContour", "LotConfig", "Neighborhood", 
-      "Condition1", "Condition2", "BldgType", "HouseStyle", "RoofStyle", "RoofMatl", "Exterior1st", 
-      "Exterior2nd", "MasVnrType", "Foundation", "Heating", "CentralAir", "GarageType", "MiscFeature", 
-      "SaleType", "SaleCondition"]
+  features_nom = ["MSSubClass", "MSZoning", "Street", "Alley", "LandContour", "LotConfig",
+      "Neighborhood", "Condition1", "Condition2", "BldgType", "HouseStyle", "RoofStyle",
+      "RoofMatl", "Exterior1st", "Exterior2nd", "MasVnrType", "Foundation", "Heating",
+      "CentralAir", "GarageType", "MiscFeature", "SaleType", "SaleCondition"]
 
   # The ordinal (ordered) categorical features 
 
@@ -199,7 +199,7 @@ Organization: Kaggle
 + Loading and processing data splits
 
   ```python
-  Handling missing values
+  # Handling missing values
 
   # Peek at the values
   # display(df_train)
@@ -298,7 +298,6 @@ Organization: Kaggle
   + utility functions: `make_mi_scores` and `plot_mi_scores`
   + some features highly informative while some not informative at all
 
-
   ```python
   def make_mi_scores(X, y):
       X = X.copy()
@@ -360,12 +359,12 @@ Organization: Kaggle
 
     ```python
     def create_features(df):
-        X = df.copy()<br>
-        y = X.pop("SalePrice")<br>
-        X = X.join(create_features_1(X))<br>
-        X = X.join(create_features_2(X))<br>
-        X = X.join(create_features_3(X))<br>
-        # ...<br>
+        X = df.copy()
+        y = X.pop("SalePrice")
+        X = X.join(create_features_1(X))
+        X = X.join(create_features_2(X))
+        X = X.join(create_features_3(X))
+         ...
         return X
     ```
 
@@ -458,7 +457,6 @@ Organization: Kaggle
   + providing loadings to describe component of variaton
   + providing the components used as features directly
   + loadings: suggested features to create and components used directly
-  + 
 
   ```python
   def apply_pca(X, standardize=True):
@@ -542,8 +540,8 @@ Organization: Kaggle
   </figure>
 
 + Outliers w/ PCA
-  + determining outliers w PCA
-  + outliers: houses not well prepresented in the rest of the data
+  + determining outliers w/ PCA
+  + outliers: houses not well presented in the rest of the data
   + a group of houses in the `Edwards` neighborhood w/ a `SaleCondition of Partial` $\to$ extreme values
   + methods
     + robust scaler from scikit-learn's [`sklearn.processing`](https://scikit-learn.org/stable/auto_examples/preprocessing/plot_all_scaling.html) module
@@ -566,7 +564,7 @@ Organization: Kaggle
   + training and transformation: always happened on independent sets of data
   + using the class like
 
-    ```
+    ```python
     encoder = CrossFoldEncoder(MEstimateEncoder, m=1)
     X_encoded = encoder.fit_transform(X, y, cols=["MSSubClass"]))
     ```
@@ -691,7 +689,7 @@ Organization: Kaggle
   + [Optuna](https://optuna.readthedocs.io/en/stable/index.html) or [scikit-optimize](https://scikit-optimize.github.io/stable/): more advanced tuning libraries
   + Optuna usage
 
-    ```
+    ```python
     import optuna
 
     def objective(trial):
@@ -713,7 +711,9 @@ Organization: Kaggle
     xgb_params = study.best_params
     ```
 
-    ```PYTHON
+  + python snippet
+
+    ```python
     X_train = create_features(df_train)
     y_train = df_train.loc[:, "SalePrice"]
 
