@@ -116,6 +116,15 @@
   + key idea: a transformation applied to a feature becoming in essence a part of model itself
   + high return on time invested in feature engineering
 
++ [Tips to discovering new features](../Notes/a18c-CreateFeat.md#introduction)
+  + understand the features: referring to data documentation if available
+  + acquire domain knowledge: research the problem domain
+  + study previous work
+  + use data visualization:
+    + revealing pathologies in the distribution of a feature
+    + simplifying complicated relationships
+    + a must step for feature engineering process
+
 + [Feature Engineering vs. Feature Selection](../Notes/a08-FeatureEng.md#1-broad-introduction)
   + feature engineering:
     + <mark style="background-color: lightpink;">creating new features</mark> from the existing ones
@@ -869,7 +878,43 @@
     # create and show the plot
     stats.probplot(data_df["variable"], dist="norm", plot=plt)
     plt.show()
-    ``` 
+    ```
+
++ [Representing feature relationships](../Notes/a18c-CreateFeat.md#mathematical-transforms)
+  + relationship among numerical features usually expressed mathematical formulas
+  + ratio:
+    + features describing a car's engine in Automobile dataset
+    + a variety of formulas for creating potentially useful new feature
+    + e.g., `stroke ratio`: a measure of how efficient an engine vs how performant
+  + combination
+    + complicated formulation among features
+    + the more complicated combination is, the more difficult it will be for a model learn
+    + e.g., engine;s "displacement" as a measure of its power
+  + data visualization
+    + able to suggest transformations
+    + often a "reshaping" of a feature through powers or logarithms
+    + e.g., highly skewed distribution of `Windspeed` in US Accidents
+
++ [Counting features](../Notes/a18c-CreateFeat.md#counts)
+  + features describing presence or absence
+  + representing such features w/ binary (1 for presence , 0 for Absence) or Boolean (True or False)
+  + dealing such features in sets
+  + new "counts" features: aggregating such features
+  + able to create Boolean values w/ dataframe built-in methods
+
+
++ Manipulating structure data
+  + complex strings usually broken into simpler pieces
+  + common examples of structure data
+    + ID numbers: `'123-45-6789'`
+    + Phone numbers: `'(999) 555-0123'`
+    + Street addresses: `'8241 Kaggle Ln., Goose City, NV'`
+    + Internet addresses: `'http://www.kaggle.com'`
+    + Product codes: `'0 36000 29145 2'`
+    + Dates and times: `'Mon Sep 30 07:06:05 2013'`
+  + able to apply string methods, like `split`, directly to columns
+  + able to join simple features into a composed feature
+
 
 
 ### Logarithmic Transformation
@@ -880,7 +925,7 @@
   + involving a substantial transformation that significantly affects distribution shape
   + making extremely skewed distribution less skewed, especially for right-skewed distributions
   + constraint: only for __strictly positive__ numbers
-  + Python: `lagrithm_transformer = FunctionTransformer(np.log, validate=True)`
+  + Python: `logarithm_transformer = FunctionTransformer(np.log, validate=True)`
 
 
 ### Square Root Transformation
