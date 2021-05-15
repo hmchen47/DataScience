@@ -54,12 +54,9 @@ Organization: Kaggle
 
   + weight
     + a value btw 0 and 1 calculated from the catgory frequency
-    + determining weight by computing __m-estimate__
-
-      <code>weight = n / (n + m) </code>
-
-    + $n$: the total number of times the category occurred in the data
-    + $m$: hyperparameter to determine the "smoothing factor"
+    + determining weight by computing __m-estimate__: $\text{weight } = n / (n + m)$
+      + $n$: the total number of times the category occurred in the data
+      + $m$: hyperparameter to determine the "smoothing factor"
     + value for $m \to$ how noisy expecting the categories to be
       + target values varying a great deal $\implies$ choosing a larger value for $m$
       + target values relatively stable $\implies$ choosing a smaller value
@@ -76,9 +73,7 @@ Organization: Kaggle
 
   + example: Automobiles
     + 3 cars w/ the make Chevrolet, $n = 3$
-    + $m = 0.2$: 
-
-      <code>chevrolet = 0.6 * 6000.00 + 0.4 * 13285.03</code>
+    + $m = 0.2$: $\text{chevrolet } = 0.6 \ast 6000.00 + 0.4 \ast 13285.03$
 
 + Use cases for target encoding
   + high-cardinality features:
