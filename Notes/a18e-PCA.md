@@ -300,7 +300,7 @@ Organization: Kaggle
 ## Exercise
 
 + Exercise: PCA for feature engineering
-  + [oribinal](https://www.kaggle.com/hmchen47/exercise-principal-component-analysis/edit)
+  + [original](https://www.kaggle.com/hmchen47/exercise-principal-component-analysis/edit)
   + dataset: [Ames](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data)
   + task:
     + using PCA results to discover one or more new features
