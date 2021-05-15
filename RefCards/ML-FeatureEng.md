@@ -1849,5 +1849,17 @@
       + using the components themselves as features
 
 
++ [MovieLens1M - Target Encoding](../Notes/a18f-TargetEnc.md#smoothing)
+  + dataset: [MovieLens1M](https://www.kaggle.com/grouplens/movielens-20m-dataset)
+    + 1 million movie rating by users of the MovieLens website
+    + features describing each user and movie
+  + tasks:
+    + identifying features for encoding
+    + applying M-estimate encoding
+
++ [Ames - Target Encoding](../Notes/a18f-TargetEnc.md#exercise)
+  + dataset: [Ames](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data)
+  + task: encode `Ratings` w/ `SalePrice`
+
 
 
