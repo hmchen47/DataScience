@@ -1861,5 +1861,9 @@
   + dataset: [Ames](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data)
   + task: encode `Ratings` w/ `SalePrice`
 
++ [House Prices - XGBoost](../Notes/a18g-HousePrices.md)
+  + dataset: [Ames](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data)
+  + task: predict `SalePrice` w/ XGBoost
+
 
 
