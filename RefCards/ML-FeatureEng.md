@@ -1646,4 +1646,11 @@
     + `Spaciousness`: the sum of `FirstFlrSF` and `SecondFlrSF` divided by `TotRmsAbvGrd`
     + `TotalOutsideSF`: the sum of `WoodDeckSF`, `OpenPorchSF`, `EnclosedPorch`, `Threeseasonporch`, and `ScreenPorch`
 
++ [California Housing - K-Means](/Notes/a18d-KMeans.md#example---california-housing)
+  + data set: [California Housing](https://www.kaggle.com/camnugent/california-housing-prices)
+    + `Latitude` and `Longitude`: natural candidates for k-means clustering
+    + `MedInc`: creating economic segments in different regions of California
+  + training w/ K-means
+
+
 
