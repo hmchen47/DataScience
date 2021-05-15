@@ -169,7 +169,7 @@ Organization: Kaggle
     #    ...
     ```
 
-  + geographic plotting 
+  + geographic plotting
     + observing the geographic distribution of the clusters
     + separating segments for high-income areas on the coasts
 
